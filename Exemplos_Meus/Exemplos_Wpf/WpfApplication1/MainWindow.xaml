@@ -1,0 +1,320 @@
+﻿<Window xmlns:my="clr-namespace:DevExpress.Wpf.Docking;assembly=DevExpress.Wpf.Docking.v9.3"  x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="749" Width="814" 
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:local="clr-namespace:WpfApplication1"
+        PreviewKeyDown="Window_PreviewKeyDown" 
+        
+        Title="aaaaaaaaaaaaaaaaa"
+        xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+        >
+
+    <Window.Resources>
+        <!--<Style TargetType="Label">-->
+        <Style x:Key="bordaControle" TargetType="{x:Type Control}">
+            <Setter Property="BorderThickness" Value="1.1"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="styleToggleButtonSeta" BasedOn="{x:Null}" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Path VerticalAlignment="Center"
+                                  x:Name="path" 
+                                  Width="5" 
+                                  Height="9"
+                                  Fill="Black" 
+                                  Stretch="Fill" 
+                                  Data="M0,0 L0.99999976,0 0.99999976,0.99999994 1.9999998,0.99999994 1.9999998,2 2.9999998,2 2.9999998,3 3.9999998,3 3.9999998,4 4.9999998,4 4.9999998,5 3.9999998,5 3.9999998,6 2.9999998,6 2.9999998,7 1.9999998,7 1.9999998,7.9990001 0.99999976,7.9990001 0.99999976,9 0,9 0,0 z">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" CenterX="2" CenterY="4"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="ToolTip"  Value="Mostrar parâmetros"/>
+                                <Setter TargetName="path" Property="UIElement.RenderTransform" >
+                                    <Setter.Value>
+                                        <RotateTransform Angle="90" CenterX="3" CenterY="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="false">
+                                <Setter Property="ToolTip"  Value="Esconder parâmetros"/>
+                                <Setter TargetName="path" Property="UIElement.RenderTransform" >
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" CenterX="2" CenterY="4"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <RotateTransform x:Key="rodarLabelGrafico" Angle="0" />
+
+        <DataTemplate x:Key="PrintingTemplate">
+            <ContentControl Margin="0" Padding="0" Content="{Binding Path=Canvas}"/>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Grid x:Name="grid1">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="300"/>
+            <RowDefinition >
+                <RowDefinition.Style>
+                    <Style TargetType="{x:Type RowDefinition}">
+                        <Setter Property="Height" Value="300" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsChecked,ElementName=tglBtnSeta}" Value="true">
+                                <Setter Property="Height" Value="0" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Path=IsChecked,ElementName=tglBtnSeta}" Value="false">
+                                <Setter Property="Height" Value="300" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </RowDefinition.Style>
+            </RowDefinition>
+            <RowDefinition Height="8"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <dxg:GridControl Name="gridControl1" />
+
+        <!--<dxc:ChartControl Name="chart" Grid.Row="1" >-->
+        <dxc:ChartControl Name="chart" Grid.Row="1"
+                          Panel.ZIndex="2"                         
+                          BorderThickness="0"
+                          Padding="0"
+                          PaletteName="Office" >
+            <dxc:ChartControl.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+                    <GradientStop Color="#FF140758"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </dxc:ChartControl.Background>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram3D SeriesPadding="0.5" 
+                                 SeriesDistance="1"
+                                 ZoomPercent="130"
+                                 Background="Transparent"
+                                 DomainBrush="Transparent">
+                    <dxc:XYDiagram3D.ContentTransform>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="0"/>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </dxc:XYDiagram3D.ContentTransform>
+
+                    <dxc:XYDiagram3D.AxisY>
+                        <dxc:AxisY3D>
+                            <dxc:AxisY3D.GridLines>
+                                <dxc:GridLines Brush="White" />
+                            </dxc:AxisY3D.GridLines>
+
+                            <dxc:AxisY3D.Label>
+                                <dxc:AxisLabel Foreground="White"/>
+                            </dxc:AxisY3D.Label>
+                        </dxc:AxisY3D>
+                    </dxc:XYDiagram3D.AxisY>
+                    <dxc:XYDiagram3D.AxisX>
+                        <dxc:AxisX3D>
+                            <dxc:AxisX3D.Label>
+                                <dxc:AxisLabel Visible="True"  >
+                                    <dxc:AxisLabel.Template>
+                                        <DataTemplate>
+                                            <Label Content="{Binding Path=Text}" Foreground="White" LayoutTransform="{StaticResource rodarLabelGrafico}" />
+                                        </DataTemplate>
+
+                                    </dxc:AxisLabel.Template>
+                                </dxc:AxisLabel>
+                            </dxc:AxisX3D.Label>
+
+                            <dxc:AxisX3D.Title>
+                                <dxc:AxisTitle x:Name="axisX3D" Foreground="White" Visible="False"/>
+                            </dxc:AxisX3D.Title>
+                        </dxc:AxisX3D>
+
+                    </dxc:XYDiagram3D.AxisX>
+
+                    <dxc:XYDiagram3D.Series>
+                        <dxc:BarSideBySideSeries3D x:Name="brStckdSeries2DBarra" 
+                                                   ArgumentDataMember="ArgumentDataMember"
+                                                   DisplayName ="Peso \ Qtde veículo"
+                                                   ValueDataMember = "ValueDataMember"
+                                                   ColorEach="True"
+                                                   ArgumentScaleType="Qualitative"                                                   
+                                                   BarWidth="0.9">
+                            <!--<dxc:BarSideBySideSeries3D.Model>
+                                <dxc:BoxBar3DModel />
+                            </dxc:BarSideBySideSeries3D.Model>-->
+                            <dxc:BarSideBySideSeries3D.Label>
+                                <dxc:SeriesLabel Visible="True" Indent="20" RenderMode="CustomShape"/>
+                            </dxc:BarSideBySideSeries3D.Label>
+                            <dxc:Series.Points>
+                                <dxc:SeriesPoint Argument="10" Value="3"  />
+                                <dxc:SeriesPoint Argument="20" Value="2" />
+                                <dxc:SeriesPoint Argument="30" Value="1" />
+                            </dxc:Series.Points>
+                        </dxc:BarSideBySideSeries3D>
+                    </dxc:XYDiagram3D.Series>
+                </dxc:XYDiagram3D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+
+        <my:DockLayoutManager x:Name="dockLayoutManager"
+                                BorderThickness="0"                                
+                                Grid.Row="2">
+            <my:LayoutGroup>
+                <my:TabbedGroup >
+                    <my:LayoutPanel Caption="sssssssssssssss" x:Name="fffffff">
+                        <dxc:ChartControl Name="chart2" BorderThickness="0" >
+                            <dxc:ChartControl.Diagram>
+                                <dxc:XYDiagram2D >
+                                    <dxc:XYDiagram2D.AxisX>
+                                        <dxc:AxisX2D>
+
+                                            <dxc:AxisX2D.Title>
+                                                <dxc:AxisTitle Text="dddddddddddddd" />
+                                            </dxc:AxisX2D.Title>
+                                            <dxc:AxisX2D.Label>
+                                                <dxc:AxisLabel Visible="True"  >
+                                                    <dxc:AxisLabel.Template>
+                                                        <DataTemplate>
+                                                            <Label Content="{Binding Path=Text}" LayoutTransform="{StaticResource rodarLabelGrafico}" />
+                                                        </DataTemplate>
+                                                    </dxc:AxisLabel.Template>
+                                                </dxc:AxisLabel>
+                                            </dxc:AxisX2D.Label>
+
+                                        </dxc:AxisX2D>
+                                    </dxc:XYDiagram2D.AxisX>
+                                    <dxc:XYDiagram2D.AxisY>
+                                        <dxc:AxisY2D>
+                                            <dxc:AxisY2D.Title>
+                                                <dxc:AxisTitle Text="dddddddddddddd" />
+                                            </dxc:AxisY2D.Title>
+                                        </dxc:AxisY2D>
+                                    </dxc:XYDiagram2D.AxisY>
+
+                                    <dxc:XYDiagram2D.Series>
+                                        <dxc:BarSideBySideSeries2D x:Name="EEEEEEEEEEEEE"
+                                                   ArgumentDataMember="ArgumentDataMember"
+                                                   DisplayName ="Peso \ Qtde veículo"
+                                                   ValueDataMember = "ValueDataMember"
+                                                   ColorEach="True"
+                                                   BarWidth="0.9">
+                                            <dxc:BarSideBySideSeries2D.Label>
+                                                <dxc:SeriesLabel ConnectorVisible="True" />
+                                            </dxc:BarSideBySideSeries2D.Label>
+
+                                            <dxc:Series.Points>
+                                                <dxc:SeriesPoint Argument="10" Value="3"  />
+                                                <dxc:SeriesPoint Argument="20" Value="2" />
+                                                <dxc:SeriesPoint Argument="30" Value="1" />
+                                            </dxc:Series.Points>
+
+                                        </dxc:BarSideBySideSeries2D>
+                                    </dxc:XYDiagram2D.Series>
+                                </dxc:XYDiagram2D>
+                            </dxc:ChartControl.Diagram>
+                        </dxc:ChartControl>
+                    </my:LayoutPanel>
+                </my:TabbedGroup>
+            </my:LayoutGroup>
+        </my:DockLayoutManager>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="4" >
+            <TextBox x:Name="asdasda" Text="aaaaaaaaaaaaa"  Margin="3" Style="{StaticResource bordaControle}"  BorderThickness="1.1" />
+            <TextBox x:Name="asdasda2" Text="aaaaaaaaaaaaa"  Margin="3" Style="{StaticResource bordaControle}" BorderThickness="1.1" />
+
+            <GroupBox Header="  Data : " Grid.Column="2" Margin="3" FontSize="13" Foreground="White" BorderThickness="1" BorderBrush="#44FFFFFF" Background="#33FFFFFF" TabIndex="6">
+
+                <Grid Background="Transparent" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="44*" />
+                        <ColumnDefinition Width="137*" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="137*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="De : " Grid.ColumnSpan="2" Margin="0,0,14.11,0" />
+                    <Label Content="Até : " Grid.Column="3"  HorizontalAlignment="Left" />
+
+                    <Border BorderThickness="1" x:Name="borderDe"  Grid.Row="1" Grid.ColumnSpan="3"  >
+                        <dxe:DateEdit Name="dtPkrDe" Foreground="Black" TabIndex="6"  KeyUp="dtPkrDe_KeyUp" KeyDown="dtPkrDe_KeyUp" LostFocus="dtPkrDe_LostFocus" PreviewMouseUp="dtPkrDe_PreviewMouseUp" />
+                    </Border>
+                    <Border BorderThickness="1" x:Name="borderAte" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" >
+                        <dxe:DateEdit  Name="dtPkrAte" Foreground="Black" TabIndex="7" KeyUp="dtPkrDe_KeyUp" KeyDown="dtPkrDe_KeyUp" LostFocus="dtPkrDe_LostFocus" PreviewMouseUp="dtPkrDe_PreviewMouseUp"/>
+                    </Border>
+
+                </Grid>
+            </GroupBox>
+
+
+            <ComboBox  Margin="3"  Style="{StaticResource bordaControle}" BorderThickness="1"/>
+
+            <ComboBox x:Name="cmbBxFase" Grid.Column="4" Grid.Row="1" SelectedIndex="2" TabIndex="3" Style="{StaticResource bordaControle}">
+                <ListBoxItem Content="0 - Não Credenciado" Tag="0" />
+                <ListBoxItem Content="1 - Produção" Tag="1" />
+                <ListBoxItem Content="2 - Homologação" Tag="2" />
+            </ComboBox>
+
+            <ComboBox x:Name="cmbBxFase1" Grid.Column="4" Grid.Row="1" SelectedIndex="2" TabIndex="3" Style="{StaticResource bordaControle}">
+                <ListBoxItem Content="0 - Não Credenciado" Tag="0" />
+                <ListBoxItem Content="1 - Produção" Tag="1" />
+                <ListBoxItem Content="2 - Homologação" Tag="2" />
+            </ComboBox>
+
+            <Button Click="Button_Click" Content="ok"/>
+            <Button Click="Button_Click_1" Content="KML"/>
+            <Button Content="Imprimir grafico" Height="23" Name="button1" Width="216" Click="button1_Click" />
+
+            <Slider x:Name="uuyuyuy"  
+                    ValueChanged="Slider_ValueChanged"                     
+                    
+                    
+                    />
+            <Slider Height="23" Name="slider1" Width="100" Padding="5,0" Value="{Binding Source={StaticResource rodarLabelGrafico}, Path=Angle}" Maximum="360" TickFrequency="10" />
+
+            <Label x:Name="dddddddddddd" Content="1234567890" LayoutTransform="{StaticResource rodarLabelGrafico}" >
+                <!--<Label.LayoutTransform>
+                    <RotateTransform Angle="{StaticResource trans}" />
+                </Label.LayoutTransform>-->
+            </Label>
+        </StackPanel>
+
+        <ToggleButton x:Name="tglBtnSeta" IsChecked="True" Grid.Row="3" Width="15" Style="{DynamicResource styleToggleButtonSeta}">
+
+        </ToggleButton>
+
+    </Grid>
+</Window>

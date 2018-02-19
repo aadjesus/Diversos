@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <mapping assembly = "GLB.DTO"/>
+    <!--
+    UTILIZAR A INCLUSÃO DE RESOURCES (abaixo exemplificada) QUANDO HOUVER NECESSIDADE DE 
+    INCLUIR ALGUMA CLASSE DE OUTRO MÓDULO (<> CARGAS)    
+    <mapping resource="Globus5.Cargas.DTO.ParametroGeralDTO.hbm.xml" assembly="CGS.DTO"/>
+    <mapping resource="Globus5.Cargas.DTO.ParametroLocalDTO.hbm.xml" assembly="CGS.DTO"/>
+    <mapping resource="Globus5.Cargas.DTO.TipoDeDocumentoDTO.hbm.xml" assembly="CGS.DTO"/>    
+    -->
+  </session-factory>
+</hibernate-configuration>

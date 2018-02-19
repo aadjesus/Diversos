@@ -1,0 +1,18 @@
+﻿<Window x:Class="ShapeShow.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="clr-namespace:ShapeShow"
+    Title="ShapeShow" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized" Topmost="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Foreground="Gray" Grid.Row="0" Padding="10,0">Press Ctrl+Alt+O to show options.</TextBlock>
+        <Canvas x:Name="DrawingSurface" Grid.Row="1" />
+        <uc:OptionsControl x:Name="Options" Grid.RowSpan="2" Visibility="Collapsed" />
+    </Grid>
+    
+</Window>

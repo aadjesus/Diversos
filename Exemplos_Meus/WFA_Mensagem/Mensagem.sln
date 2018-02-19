@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalacao", "Setup1\Setup1.vdproj", "{0E05CFA1-F248-4551-A916-F6F76C6F449F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensagem_WFA", "Sessions_WebService\Mensagem_WFA.csproj", "{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Debug|Any CPU.ActiveCfg = Debug
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Debug|x86.ActiveCfg = Debug
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Release|Any CPU.ActiveCfg = Release
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Release|Mixed Platforms.ActiveCfg = Release
+		{0E05CFA1-F248-4551-A916-F6F76C6F449F}.Release|x86.ActiveCfg = Release
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|x86.ActiveCfg = Debug|x86
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Debug|x86.Build.0 = Debug|x86
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|x86.ActiveCfg = Release|x86
+		{D5A3BF3E-2A1E-4C91-A9BA-6D810DB18B0E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

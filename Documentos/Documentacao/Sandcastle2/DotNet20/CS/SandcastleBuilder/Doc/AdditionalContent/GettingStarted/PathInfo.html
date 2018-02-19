@@ -1,0 +1,63 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>Absolute and Relative Paths</title>
+</head>
+
+<body>
+
+<h2>Absolute and Relative Paths</h2>
+In the form that lets you edit the assembly and XML comment filenames and
+for the path-related properties in the project, you can enter absolute
+paths or relative paths.  When using the designer popups (accessed by
+clicking the "..." button to the right of the filename/folder value in the
+property grid when it is selected), absolute paths are always returned.
+However, you can edit the returned path to make it a relative path.  The
+key point to remember is that the help file builders (both the GUI and
+console version) always expect that relative paths are relative to either
+the folder in which the project file is saved or to the working folder used
+for the build.  The expected relative location will be noted in the
+description of each affected property.  A typical folder layout is shown
+here:
+
+<pre>
+C:\HelpTest\        Solution folder.
+  |
+  +-TestAssembly    Application project folder.
+  | |
+  | +-Bin
+  |   |
+  |   +-Release     Location of assembly and comment files.
+  |
+  +-Doc             Help file builder project location.
+    |
+    |
+    +-Help          The output folder for the help file.
+      |
+      +-Working     The intermediate working folder used
+        |           during the build.
+        |
+        +-DLL       Dependencies folder for MRefBuilder
+        |           (if needed).
+        |
+        +-Output    Help file project compilation folder.
+          +-art
+          +-html
+          +-scripts
+          +-styles
+</pre>
+
+The example above places the help file builder project in the
+<i>C:\HelpTest\Doc\</i> folder.  As such, the relative path to the assembly
+that will be documented and its comment file is
+<i>..\TestAssembly\Bin\Release\</i>.  The default output folder for a project
+is always <i>.\Help\</i>.  If you would prefer the help file to end up in a
+different location, you can modify it using the <code>OutputPath</code>
+property.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 2 -->

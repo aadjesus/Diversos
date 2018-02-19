@@ -1,0 +1,34 @@
+﻿<Page x:Class="TextBoxWithOpenTypeMenu.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Page1"
+    Background="Black">
+  <DockPanel>
+    <TextBlock
+      DockPanel.Dock="Top"      
+      FontFamily="fonts/#Kootenay" 
+      FontSize="16pt" 
+      Foreground="White"
+      Background="Black"
+      TextWrapping="Wrap">
+      Type something, select text, and right click on it to get the OpenType menu.  Stylistic Alternates are only available on some capital letters.
+    </TextBlock>
+    <RichTextBox 
+      DockPanel.Dock="Top"      
+      Name="MyRichTextBox" 
+      FontFamily="fonts/#Pericles"
+      FontSize="60pt" 
+      Foreground="White" 
+      Background="Black">
+      <RichTextBox.ContextMenu>
+        <ContextMenu 
+          Name="FontMenu" 
+          Opened="ContextMenuOpen"
+          Foreground="White" 
+          Background="Black">
+          <!-- Populated with C# -->
+        </ContextMenu>
+      </RichTextBox.ContextMenu>
+    </RichTextBox>
+  </DockPanel>
+</Page>

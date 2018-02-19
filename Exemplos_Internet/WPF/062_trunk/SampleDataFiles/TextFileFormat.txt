@@ -1,0 +1,18 @@
+Text data file is the rectangular table of fields separated by either space or tab.
+Data file must contain one header line and one or more series points lines.
+
+Header line is the list of string column names ( > 1) and looks like
+name1 name2 name3 name4
+First column is treated as abscissa.
+
+Series points line is the list of series values and looks like
+100 1/1/2008 term 35.0
+Token counts in the header and in each series line must be equal.
+
+Each column values must be convertible to the same base type.
+Base type is determined by the first series line in the following manner:
+1. If the token can be converted to double, the base type is double.
+2. If the token can be converted to DateTime, the base type is DateTime.
+3. Otherwise the base type is string.
+
+

@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1.csproj", "{081C9266-6C60-4201-8527-4180D974A5F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "..\WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{ABD89D4D-6687-4508-9059-6579FE37FD18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{081C9266-6C60-4201-8527-4180D974A5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081C9266-6C60-4201-8527-4180D974A5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081C9266-6C60-4201-8527-4180D974A5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081C9266-6C60-4201-8527-4180D974A5F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD89D4D-6687-4508-9059-6579FE37FD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD89D4D-6687-4508-9059-6579FE37FD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD89D4D-6687-4508-9059-6579FE37FD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD89D4D-6687-4508-9059-6579FE37FD18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

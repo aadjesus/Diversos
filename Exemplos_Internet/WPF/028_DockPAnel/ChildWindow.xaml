@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="FlyingWindows.ChildWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:this="clr-namespace:FlyingWindows"
+    Height="300" Width="300">
+    <Grid>
+        <Border BorderBrush="DarkGray" BorderThickness="10" Opacity="0.1" CornerRadius="15" Margin="0"></Border>
+        <Border BorderBrush="DarkGray" BorderThickness="10" Opacity="0.3" CornerRadius="15" Margin="1"></Border>
+        <Border BorderBrush="DarkGray" BorderThickness="10" Opacity="0.5" CornerRadius="15" Margin="2"></Border>
+        <Border BorderBrush="DarkGray" BorderThickness="10" Opacity="0.6" CornerRadius="15" Margin="3"></Border>
+        <Border BorderBrush="DarkGray" BorderThickness="10" Opacity="0.7" CornerRadius="15" Margin="4"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="5" Background="White" CornerRadius="5,5,0,0" >
+            <Grid x:Name="AllContents">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--<Button HorizontalAlignment="Right" Width="25" Click="Button_Click" Grid.Row="0"></Button>-->
+                <this:WindowTitle x:Name="Title" Grid.Row="0"></this:WindowTitle>
+                <Grid x:Name="Contents" Grid.Row="1"></Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

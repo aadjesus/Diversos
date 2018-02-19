@@ -1,0 +1,241 @@
+﻿<Application x:Class="Persian_WPF_Calendar.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="Window1.xaml">
+    <Application.Resources>
+
+        <!--
+        برای نام روزها ، شنبه ، یک شنبه 
+        اولین ردیف از بالا
+        -->
+        <Style x:Key="RectangleStyle1" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFF1EEDA"/>
+            <Setter Property="Stroke" Value="#FF9D9980"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+
+        <!-- برای روزهای ماه جاری -->
+        <Style x:Key="RectangleStyle2" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFF3EFCE"/>
+            <Setter Property="Stroke" Value="#FFCCC7A7"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+
+        <!-- برای روزهای ماههای دیگر -->
+        <Style x:Key="RectangleStyle3" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFE6E6E6"/>
+            <Setter Property="Stroke" Value="#FF9D9980"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+
+        <!-- برای روزهایی که یادآوری دارند -->
+        <Style x:Key="RectangleStyle4" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FF0A5F78"/>
+            <Setter Property="Stroke" Value="#FFCCC7A7"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+            <!--<Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BevelBitmapEffect BevelWidth="3"/>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+
+        <!-- برای روزهایی که یادآوری دارند و تعطیل هستند-->
+        <Style x:Key="RectangleStyle5" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFA92222"/>
+            <Setter Property="Stroke" Value="#FFCCC7A7"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+            <!--<Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BevelBitmapEffect BevelWidth="3"/>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+
+        <!-- برای روزهای تعطیلی ماه جاری -->
+        <Style x:Key="RectangleStyleForHolydays" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFF9BBBB"/>
+            <Setter Property="Stroke" Value="#FFD47C7C"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+
+        <!-- اگر امروز تعطیل باشد -->
+        <Style x:Key="RectangleStyleForHolydays_CurrentDay" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFF4ADAD"/>
+            <Setter Property="Stroke" Value="#FFD67D7D"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+            <Setter Property="ToolTip" Value="تاریخ امروز"/>
+        </Style>
+
+        <!-- برای روزهای تعطیلی ماههای دیگر -->
+        <Style x:Key="RectangleStyleForOtherHolydays" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFF9D6D6"/>
+            <Setter Property="Stroke" Value="#FFE49494"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+
+        <!-- برای امروز -->
+        <Style x:Key="RectangleStyleToday" TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill" Value="#FFE2DBA7"/>
+            <Setter Property="Stroke" Value="#FF7E795B"/>
+            <Setter Property="ToolTip" Value="تاریخ امروز"/>
+        </Style>
+
+        <!-- برای روزهای ماه جاری  -->
+        <Style x:Key="TextBlockStyle1" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- برای روزهای ماههای دیگر  -->
+        <Style x:Key="TextBlockStyle2" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FF4B4B4B"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="4"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  برای روزهای تعطیل  ماه جاری -->
+        <Style x:Key="TextBlockStyle3" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!--  برای روزهای تعطیل  ماههای دیگر -->
+        <Style x:Key="TextBlockStyle4" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- برای امروز  -->
+        <Style x:Key="TextBlockStyle5" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- برای تاریخ میلادی جاری -->
+        <Style x:Key="TextBlockStyle6" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFA5A38F"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+
+        <!-- برای تاریخ میلادی ماههای دیگر -->
+        <Style x:Key="TextBlockStyle7" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFA5A38F"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  برای روزهای تعطیل تاریخ میلادی ماه جاری -->
+        <Style x:Key="TextBlockStyle8" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+
+        <!--  برای روزهای تعطیل تاریخ میلادی ماههای دیگر -->
+        <Style x:Key="TextBlockStyle9" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- برای تاریخ قمری ماه جاری -->
+        <Style x:Key="TextBlockStyle10" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFA5A38F"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="Language" Value="fa-ir" />
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- برای تاریخ قمری ماههای دیگر -->
+        <Style x:Key="TextBlockStyle11" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFA5A38F"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="Language" Value="fa-ir" />
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  برای روزهای تعطیل تاریخ قمری ماه جاری -->
+        <Style x:Key="TextBlockStyle12" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="Language" Value="fa-ir" />
+        </Style>
+
+        <!--  برای روزهای تعطیل قمری میلادی ماههای دیگر -->
+        <Style x:Key="TextBlockStyle13" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="#FFF70000"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="Language" Value="fa-ir" />
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <BlurBitmapEffect Radius="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part6_Styles_And_Templates", "Styles_And_Templates\Part6_Styles_And_Templates.csproj", "{858A5384-3418-4E76-ACE6-DA00989CB9DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{858A5384-3418-4E76-ACE6-DA00989CB9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858A5384-3418-4E76-ACE6-DA00989CB9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858A5384-3418-4E76-ACE6-DA00989CB9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858A5384-3418-4E76-ACE6-DA00989CB9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<themes>
+
+  <theme id="Apply1" title="Sample: Apply tag">    
+    <apply backColor="#CCCCCC" foreColor="blue" 
+           horizontalAlign="center"
+           />    
+  </theme>
+
+  <theme id="RowTypes1" title="Sample: RowTypes">
+    <Header>
+      <apply backColor="DarkBlue" foreColor="White" 
+             horizontalAlign="center"
+             font-bold="true" font-italic="true"
+           />
+    </Header>
+
+    <DataRow>
+      <apply backColor="#EFEFEF" foreColor="DarkBlue" 
+           />
+    </DataRow>
+    
+  </theme>
+
+  <theme id="Conditions1" title="Sample: If conditions">
+    <DataRow>
+      <If test="IsNumeric">
+        <Apply horizontalAlign="right" />
+      </If>
+    </DataRow>
+  </theme>
+
+  <theme id="Conditions2" title="Sample: Nested If conditions">
+    <DataRow>
+      <If test="IsNumeric">
+        <Apply horizontalAlign="right" />
+        <If test="IsNegative" >
+          <Apply foreColor="Red" />
+        </If>
+      </If>
+    </DataRow>
+  </theme>
+
+  <theme id="Conditions3" title="Sample:  If/Else/ElseApply">
+   <DataRow>
+    <If test="IsNumeric">
+      <Apply horizontalAlign="right" />
+      <ElseApply horizontalAlign="left" font-bold="true" />
+    </If>
+    
+    <If test="IsNegative" >
+      <Apply foreColor="Red" />
+      <Else>
+        <If test="IsNumeric">
+          <Apply foreColor="Blue" />
+        </If>
+      </Else>
+    </If>
+   </DataRow>  
+  </theme>
+
+  
+  <theme id="Conditions4" title="Sample:  Expression attributes">
+    <DataRow>
+      <If test="CellIndex == 0">
+        <Apply textExpression='string.Format("{0}: {1}", RowIndex + 1, CellText)' 
+               backColor='#EFEFEF'
+               width='120px'/>
+        
+        <Else>
+          <Apply textExpression='string.Format("{0:#,##0.0}", CellValue)' 
+                 font-boldExpression='(CellValue &gt; 8000)'
+                 horizontalAlign="right"
+                 width="60px"
+                 />
+         </Else>
+      </If>
+    </DataRow>
+    
+    <Header>
+      <apply backColor="#CCCCCC" />
+    </Header>
+  </theme>
+
+  <theme id="Conditions5" title="Sample: Cells collection">
+    <DataRow>
+      <If test='Cells[0].Text == "East Region" '>
+        <Apply font-bold='True' />
+        <If test='CellIndex == 0'>
+          <apply backColor='#93D8B2' foreColor='DarkGreen' />
+          <elseApply backColor='#ADFFD2' foreColor='DarkGreen' />
+        </If>
+        <Else>
+          <If test='CellIndex == 0'>
+            <apply backColor='#EFEFEF' />
+            <elseApply backColor='White' />
+          </If>
+        </Else>
+      </If>
+            
+      <If test="IsNumeric">        
+        <Apply horizontalAlign="right" width="60px"/>
+        <If test="IsNegative" >
+          <Apply foreColor="Red" />
+        </If>       
+      </If>
+    </DataRow>
+
+    <Header>
+      <apply BackColor="#CCCCCC" />
+    </Header>
+  </theme>
+
+
+  <theme id="Conditions6" title="Sample:  Expression attributes 2">
+    <DataRow>
+      <If test="CellIndex == 0">
+        <Apply textExpression='string.Format("{0}: {1}", RowIndex + 1, CellText)' 
+               backColor='#EFEFEF'
+               width='120px'
+               cssClass='rightGrayBorder'/>
+
+        <Else>
+          <Apply font-boldExpression='(CellValue &gt; 8000)'
+                 horizontalAlign="right"
+                 width="60px"
+                 />
+            <If test="IsNegative" >
+              <Apply foreColor="Red" />
+            </If>
+        </Else>
+      </If>
+    </DataRow>
+
+    <Header>
+      <apply backColor="#CCCCCC" cssClass="bottomGrayBorder"/>
+    </Header>
+  </theme>
+
+
+</themes>

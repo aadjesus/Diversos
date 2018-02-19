@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VirtualDreams.TouchReader.Factory.TouchablePanelRssViewFactory" Collapsed="true">
+    <Position X="6.75" Y="4.5" Width="2.5" />
+    <Members>
+      <Method Name="ElementCaptureHandler" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAABAgAAAAAAAAA=</HashCode>
+      <FileName>Factory\TouchablePanelRssViewFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="VirtualDreams.TouchReader.Factory.IPanelViewFactory">
+    <Position X="6.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\IPanelViewFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

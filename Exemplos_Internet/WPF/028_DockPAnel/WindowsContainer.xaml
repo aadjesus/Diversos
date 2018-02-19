@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="FlyingWindows.WindowsContainer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:this="clr-namespace:FlyingWindows"
+    SizeChanged="UserControl_SizeChanged"
+    >
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Canvas x:Name="LayoutRoot">
+            <this:ChildWindow x:Name="History" Width="790" Height="395" Canvas.Top="0" Canvas.Left="0"></this:ChildWindow>
+            <this:ChildWindow x:Name="Feeds" Width="395" Height="200" Canvas.Top="395" Canvas.Left="0"></this:ChildWindow>
+            <this:ChildWindow x:Name="News" Width="395" Height="200" Canvas.Top="395" Canvas.Left="395"></this:ChildWindow>
+        </Canvas>
+        <!--<Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <this:ChildWindow x:Name="History" Width="79" Height="39" Canvas.Top="0" Canvas.Left="0"></this:ChildWindow>
+            <this:ChildWindow x:Name="Feeds" Width="39" Height="20" Canvas.Top="395" Canvas.Left="0"></this:ChildWindow>
+            <this:ChildWindow x:Name="News" Width="39" Height="20" Canvas.Top="395" Canvas.Left="395"></this:ChildWindow>
+
+            <Button Grid.Column="0" Grid.Row="0"></Button>
+            <Button Grid.Column="1" Grid.Row="0"></Button>
+            <Button Grid.Column="1" Grid.Row="1"></Button>
+            <Button Grid.Column="0" Grid.Row="1"></Button>
+        </Grid>-->
+    </Border>
+</UserControl>

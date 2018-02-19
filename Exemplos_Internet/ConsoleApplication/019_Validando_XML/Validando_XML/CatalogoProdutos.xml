@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<catalogoProdutos>
+  <catalogoNome>JcmSoft Catalogo 2011</catalogoNome>
+  <dataValidade>2012-01-01</dataValidade>
+  <produtos>
+    <produto id="1001">
+      <produtoNome>Super DVD NET</produtoNome>
+      <descricao>Material de suporte para Estudo</descricao>
+      <produtoPreco>60.00</produtoPreco>
+      <emEstoque>true</emEstoque>
+    </produto>
+    <produto id="1002">
+      <produtoNome>Super DVD Video Aulas</produtoNome>
+      <descricao>Video aulas com exemplos praticos </descricao>
+      <produtoPreco>50.00</produtoPreco>
+      <emEstoque>true</emEstoque>
+    </produto>
+    <produto id="1003">
+      <produtoNome>Super CD VB</produtoNome>
+      <descricao>Codigos fontes e material de suporte </descricao>
+      <produtoPreco>50.00</produtoPreco>
+      <emEstoque>true</emEstoque>
+    </produto>
+  </produtos>
+</catalogoProdutos>

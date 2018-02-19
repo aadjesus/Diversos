@@ -1,0 +1,86 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AssessmentChooser.ViewModel"
+        xmlns:v="clr-namespace:AssessmentChooser.View"
+        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="AssessmentChooser.View.MainWindow"
+        
+        Height="350" 
+        Width="600" 
+
+        Title="{Binding DisplayName}" 
+        >
+    
+    <Window.Resources>
+		<ResourceDictionary Source="MainExpanderResources.xaml" />
+		
+
+    </Window.Resources>
+    
+    <Grid Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="4" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        
+        <Expander 
+			Header="Commands" 
+			Grid.Column="0" 
+			IsExpanded="True" 
+			Style="{StaticResource MainViewExpanderCommands}"
+			>
+            <StackPanel>
+                <Label Content="Open"    Foreground="#FFB4B4A9" />
+                <Label Content="Save"    Foreground="#FFB4B4A9"/>
+                <Label Content="Save As" Foreground="#FFB4B4A9"/>
+                <Label Content="Close"   Foreground="#FFB4B4A9"/>
+            </StackPanel>
+        </Expander>
+
+        <StackPanel Grid.Column="2" >
+            <Expander 
+				Header="Current Job" 
+				IsExpanded="True" 
+                IsEnabled="{Binding ElementName=Disabler, Path=IsChecked}"
+				Style="{StaticResource MainViewExpander}"
+				>
+
+                <StackPanel>
+                    <Label Content="Name"/>
+                    <TextBox/>
+                    <Label Content="Project Path"/>
+                    <TextBox/>
+                    <Label Content="Results Path"/>
+                    <TextBox/>
+                </StackPanel>
+
+            </Expander>
+            <CheckBox x:Name="Disabler" IsChecked="True" Margin="0,12,0,0">Disable Current Job Expander</CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Column="4" >
+        	<Expander Header="Task Order" IsExpanded="True" Style="{StaticResource MainViewExpander}">
+                <StackPanel>
+                <CheckBox IsChecked="True">Prepare</CheckBox>
+                <CheckBox IsChecked="True">Do something</CheckBox>
+                <CheckBox IsChecked="True">Check Something</CheckBox>
+                <CheckBox IsChecked="False">Check Something Else</CheckBox>
+                <CheckBox IsChecked="True">Prepare Report</CheckBox>
+                <CheckBox IsChecked="True">Publish Report</CheckBox>
+                <CheckBox IsChecked="True">Conclude</CheckBox>
+                </StackPanel>
+            </Expander>
+            <Expander Header="Unused Tasks" IsExpanded="False" Style="{StaticResource MainViewExpander}">
+                <StackPanel>
+                    <CheckBox IsChecked="False">Foo</CheckBox>
+                    <CheckBox IsChecked="False">Bar</CheckBox>
+                    <CheckBox IsChecked="False">Baz</CheckBox>
+                    <CheckBox IsChecked="False">Bannana</CheckBox>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</Window>

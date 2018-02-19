@@ -1,0 +1,14 @@
+﻿@model System.Data.DataSet
+
+@using System.Data
+
+@foreach (DataRow row in Model.Tables["Table"].Rows)
+{
+    <dt>
+        @foreach (DataColumn coluna in Model.Tables["Table"].Columns)
+        {
+            @(row[coluna] + " ");
+        }
+        )
+    </dt>
+}

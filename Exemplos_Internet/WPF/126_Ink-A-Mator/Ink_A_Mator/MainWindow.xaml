@@ -1,0 +1,68 @@
+﻿<Window x:Class="Ink_A_Mator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Ink-A-Mator"
+    >
+  <DockPanel>
+    <DockPanel.Resources>
+      <Style TargetType="{x:Type RadioButton}">
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="{x:Type RadioButton}">
+              <Ellipse x:Name="geo" StrokeThickness="3" Stroke="White" Width="15" Height="15" Fill="{TemplateBinding Background}"/>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                  <Setter Property="StrokeThickness" Value="1" TargetName="geo"/>
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </DockPanel.Resources>
+    <ToolBarTray DockPanel.Dock="Top">
+      <ToolBar>
+        <Button Content="&lt;" Click="OnPreviousFrame"/>
+        <Button Content="&gt;" Click="OnNextFrame"/>
+        <TextBox Name="CurrentFrameBox" Text="{Binding CurrentFrame, Mode=TwoWay}" />
+        <Button Content="Play" Click="OnPlay"/>
+        <Button Content="New" Command ="New" />
+        <Button Content="Save" Command="Save" />
+        <Button Content="Open" Command="Open" />
+        <Button Content="Duplicate" Click="OnDuplicate" ToolTip="Duplicates the current frame to the next frame"/>
+      </ToolBar>
+      <ToolBar>
+        <RadioButton Background="Black" Click="OnChooseColor"/>
+        <RadioButton Background="Blue" Click="OnChooseColor"/>
+        <RadioButton Background="Green" Click="OnChooseColor"/>
+        <RadioButton Background="Yellow" Click="OnChooseColor"/>
+        <RadioButton Background="Orange" Click="OnChooseColor"/>
+        <RadioButton Background="Red" Click="OnChooseColor"/>
+        <ComboBox SelectedIndex="0" SelectionChanged="OnEditingModeChanged">
+          <ComboBoxItem Content="Ink"/>
+          <ComboBoxItem Content="Erase Point"/>
+          <ComboBoxItem Content="Erase Stroke"/>
+        </ComboBox>
+      </ToolBar>
+      <ToolBar>
+        <TextBlock Text="Onion Layer Count"/>
+        <Slider Orientation="Horizontal" Minimum="0" Maximum="20" Value="{Binding Path=OnionFrameCount}"/>
+        <TextBox Text="{Binding Path=OnionFrameCount}"/>
+      </ToolBar>
+      <ToolBar>
+        <Slider Minimum="1" Maximum="100" Value="{Binding ElementName=Paper, Path=DefaultDrawingAttributes.Width}" />
+        <TextBox Text="{Binding ElementName=Paper, Path=DefaultDrawingAttributes.Width}"/>
+        <Slider Minimum="1" Maximum="100" Value="{Binding ElementName=Paper, Path=DefaultDrawingAttributes.Height}" />
+        <TextBox Text="{Binding ElementName=Paper, Path=DefaultDrawingAttributes.Height}"/>
+      </ToolBar>
+      <ToolBar>
+        <Button Content="Color Palette" Click="OnDisplayColorPalette"/>
+      </ToolBar>
+    </ToolBarTray>
+    <Canvas Name="View">
+      <InkPresenter Width="{Binding Path=ActualWidth, ElementName=View}" Height="{Binding Path=ActualHeight, ElementName=View}" Name="OnionLayer"/>
+      <InkPresenter Width="{Binding Path=ActualWidth, ElementName=View}" Height="{Binding Path=ActualHeight, ElementName=View}" Name="Player"/>
+      <InkCanvas Background="Transparent"  Width="{Binding Path=ActualWidth, ElementName=View}" Height="{Binding Path=ActualHeight, ElementName=View}" MouseWheel="OnChangeFrame" Gesture="OnGesture" Name="Paper" PreviewMouseMove="OnMouseMove" PreviewMouseRightButtonDown="OnGestureStart" MouseRightButtonUp="OnGestureStop"/>
+    </Canvas>
+  </DockPanel>
+</Window>

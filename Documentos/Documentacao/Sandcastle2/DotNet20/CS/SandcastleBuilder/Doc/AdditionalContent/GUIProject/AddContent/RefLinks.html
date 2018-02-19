@@ -1,0 +1,68 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Linking to Namespace Content</title>
+</head>
+
+<body>
+
+<h2>Linking to Namespace Content</h2>
+The additional content help text may need to link to other topics in the
+help file such as help pages for a namespace, class, method, property, etc.
+To provide this ability, the help file builder will scan each HTML
+additional content file for XML comment style <code>&lt;see&gt;</code>
+tags.  If found, an attempt is made to convert the tag to a link that takes
+you to the related help page for the indicated item.  For example:
+
+<pre lang="xml" title=" ">
+For a list of all classes, see the
+&lt;see cref="N:SandcastleBuilder.Utils"&gt;SandcastleBuilder.Utils
+Namespace&lt;/see&gt; topic.
+
+See the help for &lt;see cref="SomeClass.DoesNotExist"/&gt; for
+more information.
+</pre>
+
+In this help file, these are rendered as:
+
+<ul>
+    <li>For a list of all classes, see the
+<see cref="N:SandcastleBuilder.Utils">SandcastleBuilder.Utils Namespace</see>
+topic.</li>
+    <li>See the help for <see cref="SomeClass.DoesNotExist" /> for more
+information.</li>
+</ul>
+
+<p/>The first example uses the supplied inner text as the text for the
+hyperlink.  The second example will use the <code>cref</code> value for the
+text of the hyperlink.  The <code>cref</code> value can be a full or
+partial identifier for an item in any documented namespace as it appears in
+the <b>reflection.xml</b> file created by Sandcastle.  The page names for
+the namespace items are generated at build time so the help file builder
+attempts to match the identifier with an entry in the reflection
+information XML file in order to obtain the correct filename as the target
+of the hyperlink.  If a prefix is supplied on the identifier such as
+<code>N:</code> (namespace), <code>T:</code> (type), <code>M:</code>
+(method), etc. as shown in the first example, an attempt is made to find an
+entry starting with the identifier.  If no prefix is supplied, as shown in
+the second example, an attempt is made to find a match that ends with the
+identifier. If neither of those returns a match, it searches for any entry
+that contains the identifier.
+
+<p/>Messages are written to the log file indicating how the link was
+resolved.  If no matches are found, a message appears in the log stating
+that the identifier could not be found and it will be rendered in bold
+rather than as a link in the help file as is the case with the second
+example.  If a single best match is found, the log message indicates the
+fully qualified name that was matched and the tag is converted to a link to
+the associated page in the help file.  If multiple matches are found, the
+log will include a list of all fully qualified names that contained the
+identifier and the first entry found will be used as the target of the
+hyperlink.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 4 -->

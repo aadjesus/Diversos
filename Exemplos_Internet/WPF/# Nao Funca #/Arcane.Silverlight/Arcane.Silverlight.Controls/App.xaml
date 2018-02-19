@@ -1,0 +1,190 @@
+﻿<Application xmlns="http://schemas.microsoft.com/client/2007"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             x:Class="Arcane.Silverlight.Controls.App"
+             xmlns:src="clr-namespace:Arcane.Silverlight.Controls">
+    <Application.Resources>
+
+
+
+
+        <!-- Windows Tree View -->
+
+        <Style TargetType="src:TreeNode" x:Key="WinFormTreeView">
+            <Setter Property="IsEnabled" Value="true" />
+            <Setter Property="Foreground" Value="#FF000000" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <!-- Cannot currently parse FontFamily type in XAML so it's being set in code -->
+            <!-- <Setter Property="FontFamily" Value="Trebuchet MS" /> -->
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Padding" Value="2,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="src:TreeNode">
+                        <Grid x:Name="RootElement" VerticalAlignment="Top" Background="{TemplateBinding Background}">
+
+                            <Grid.Resources>
+                                <Storyboard x:Key="Normal State"/>
+                                <!-- <Storyboard x:Key="Unfocused Selected State"/> -->
+                                <Storyboard x:Key="Normal Expand State">
+                                    <ColorAnimation Storyboard.TargetName="ContentPartBrush" Storyboard.TargetProperty="Color" Duration="0" To="Transparent"></ColorAnimation>
+                                    <DoubleAnimation Storyboard.TargetName="PlusLine" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                </Storyboard>
+                                <Storyboard x:Key="Normal Collapse State">
+                                    <ColorAnimation Storyboard.TargetName="ContentPartBrush" Storyboard.TargetProperty="Color" Duration="0" To="Transparent"></ColorAnimation>
+                                    <DoubleAnimation Storyboard.TargetName="PlusLine" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                </Storyboard>
+                                <Storyboard x:Key="Selected Expand State">
+                                    <DoubleAnimation Storyboard.TargetName="PlusLine" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                    <ColorAnimation Storyboard.TargetName="ContentPartBrush" Storyboard.TargetProperty="Color" Duration="0" To="LightGreen"></ColorAnimation>
+                                </Storyboard>
+                                <Storyboard x:Key="Selected Collapse State">
+                                    <DoubleAnimation Storyboard.TargetName="PlusLine" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                    <ColorAnimation Storyboard.TargetName="ContentPartBrush" Storyboard.TargetProperty="Color" Duration="0" To="LightGreen"></ColorAnimation>
+                                </Storyboard>
+                                <!-- manage icon node -->
+                                <Storyboard x:Key="NodeIcon Expand State">
+                                    <DoubleAnimation Storyboard.TargetName="ExpandedNodeIconZone" Storyboard.TargetProperty="Opacity" Duration="00:00:00.200" To="1"/>
+                                    <DoubleAnimation Storyboard.TargetName="CollapsedNodeIconZone" Storyboard.TargetProperty="Opacity" Duration="00:00:00.200" To="0"/>
+                                </Storyboard>
+                                <Storyboard x:Key="NodeIcon Collapse State">
+                                    <DoubleAnimation Storyboard.TargetName="ExpandedNodeIconZone" Storyboard.TargetProperty="Opacity" Duration="00:00:00.200" To="0"/>
+                                    <DoubleAnimation Storyboard.TargetName="CollapsedNodeIconZone" Storyboard.TargetProperty="Opacity" Duration="00:00:00.200" To="1"/>
+                                </Storyboard>
+                            </Grid.Resources>
+
+                            <Grid.ColumnDefinitions>
+                                <!-- For collapse expand zone-->
+                                <ColumnDefinition Width="32"/>
+                                <!-- for node icon -->
+                                <ColumnDefinition Width="18"/>
+                                <!-- for node content -->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- juste for the dotted lines between nodes-->
+                            <Grid HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" 
+                              Grid.RowSpan="2"
+                                Grid.Row="0" Grid.Column="0">
+                                <Rectangle Width="1" Margin="0, 0,0, 0" HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0.5" StrokeDashArray="1,2" Stroke="#FF787272"></Rectangle>
+                                <Line X1="5" X2="28" Y1="0" Y2="0" Margin="12, 12,0, 0" HorizontalAlignment="Stretch" VerticalAlignment="Top" StrokeThickness="1" StrokeDashArray="1,1" Stroke="#FF787272"></Line>
+                            </Grid>
+
+                            <!-- The node icon zone-->
+                            <Grid  Name="ExpandedNodeIconZone"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Center"
+                                   Grid.Row="0" Grid.Column="1" >
+                                <Image Stretch="None" Source="{Binding SelectedNodeImage}"></Image>
+                            </Grid>
+                            <Grid Name="CollapsedNodeIconZone" 
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  Grid.Row="0" Grid.Column="1" >
+                                <Image Stretch="None" Source="{Binding NodeImage}"></Image>
+                            </Grid>
+
+
+                            <!-- the expand collapse zone for "plus" or "minus"-->
+                            <Grid Name="ExpandCollapseZone"  
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" 
+                              Grid.RowSpan="2"
+                                Grid.Row="0" Grid.Column="0">
+
+                                <Rectangle Margin="4, 8"  VerticalAlignment="Top" Height="9" Width="9" Fill="White" Stroke="#FF787272" StrokeThickness="1" />
+                                <Path Name="PlusLine" Margin="4, 9.5" VerticalAlignment="Top"  Height="6" Width="1" Fill="Transparent" Stretch="Fill" Stroke="#FF000000" Canvas.Left="4" Canvas.Top="1" Data="M24,8 C24,40 24,40 24,40" StrokeThickness="1"/>
+                                <Path Margin="4, 9.5" VerticalAlignment="Top" Height="6" Width="1" Fill="Transparent" Stretch="Fill" Stroke="#FF000000" Data="M24,8 C24,40 24,40 24,40" Canvas.Left="4" Canvas.Top="1" RenderTransformOrigin="0.5,0.5" StrokeThickness="1">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+
+                            </Grid>
+
+
+                            <Rectangle Name="ContentZone" 
+                                Grid.Row="0" Grid.Column="2"
+                                       RadiusX="5" RadiusY="5"
+                                IsHitTestVisible="False">
+
+                                <Rectangle.Fill>
+                                    <SolidColorBrush x:Name="ContentPartBrush" Color="Transparent"></SolidColorBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter   Grid.Row="0" Grid.Column="2"
+                                                    HorizontalAlignment="Stretch"
+                                                   Margin="3, 3, 3, 3"
+                                   Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      FontFamily="{TemplateBinding FontFamily}"
+                                      FontSize="{TemplateBinding FontSize}"
+                                      FontStretch="{TemplateBinding FontStretch}"
+                                      FontStyle="{TemplateBinding FontStyle}"
+                                      FontWeight="{TemplateBinding FontWeight}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Padding="{TemplateBinding Padding}"
+                                      TextAlignment="{TemplateBinding TextAlignment}"
+                                      TextDecorations="{TemplateBinding TextDecorations}"
+                                      TextWrapping="{TemplateBinding TextWrapping}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            </ContentPresenter>
+
+                            <Rectangle Name="SelectionZone" Opacity="1d"
+                                Grid.Row="0" Grid.Column="2"
+                                IsHitTestVisible="True">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="Transparent"></SolidColorBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+
+
+                            <Rectangle x:Name="FocusVisualElement" Grid.ColumnSpan="2" 
+                                   Stroke="Black" StrokeDashArray="1,2" Visibility="Collapsed" IsHitTestVisible="False"/>
+                            <ContentPresenter Name="NodesPresenter"
+                                              Margin="-30,0, 30, 0"
+                                Background="Transparent"
+                                          Grid.Column="2" Grid.Row="1"
+                              FontFamily="{TemplateBinding FontFamily}"
+                              FontSize="{TemplateBinding FontSize}"
+                              FontStretch="{TemplateBinding FontStretch}"
+                              FontStyle="{TemplateBinding FontStyle}"
+                              FontWeight="{TemplateBinding FontWeight}"
+                              Foreground="{TemplateBinding Foreground}"
+                              HorizontalAlignment="Stretch"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Padding="{TemplateBinding Padding}"
+                              TextAlignment="{TemplateBinding TextAlignment}"
+                              TextDecorations="{TemplateBinding TextDecorations}"
+                              TextWrapping="{TemplateBinding TextWrapping}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            </ContentPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        
+        
+        
+       
+    </Application.Resources>
+</Application>

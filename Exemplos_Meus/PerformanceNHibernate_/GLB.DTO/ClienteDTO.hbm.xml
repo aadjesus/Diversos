@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Globus5.Abastecimento.DTO.ClienteDTO,GLB.DTO" table ="SII_CLIENTE" lazy="false">
+
+    <id name="CODCLIENTE" column ="CODCLIENTE" type ="int" unsaved-value="0">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="CODGRUPOEMP" type ="string" column ="CODGRUPOEMP"/>
+    <property name="CODTIPOEMPRESA" type ="string" column ="CODTIPOEMPRESA"/>
+    <property name="CODUFCOBRANCA" type ="string" column ="CODUFCOBRANCA"/>
+    <property name="RAZAOSOCIALCLIENTE" type ="string" column ="RAZAOSOCIALCLIENTE"/>
+    <property name="CODUFENDERECO" type ="string" column ="CODUFENDERECO"/>
+    <property name="NOMEFANTASIACLIENTE" type ="string" column ="NOMEFANTASIACLIENTE"/>
+    <property name="CNPJCLIENTE" type ="string" column ="CNPJCLIENTE"/>
+    <property name="IESTADUALCLIENTE" type ="string" column ="IESTADUALCLIENTE"/>
+    <property name="ATIVOCLIENTE" type ="string" column ="ATIVOCLIENTE"/>
+    <property name="CODIGOGLOBUSCLIENTE" type ="int" column ="CODIGOGLOBUSCLIENTE"/>
+    <property name="QUANTFUNCIONARIOS" type ="int" column ="QUANTFUNCIONARIOS"/>
+    <property name="QUANTCARROS" type ="int" column ="QUANTCARROS"/>
+    <property name="RUACOBRANCA" type ="string" column ="RUACOBRANCA"/>
+    <property name="RUACLIENTE" type ="string" column ="RUACLIENTE"/>
+    <property name="NUMEROCOBRANCA" type ="string" column ="NUMEROCOBRANCA"/>
+    <property name="NUMEROCLIENTE" type ="string" column ="NUMEROCLIENTE"/>
+    <property name="COMPLEMENTOCOBRANCA" type ="string" column ="COMPLEMENTOCOBRANCA"/>
+    <property name="COMPLCLIENTE" type ="string" column ="COMPLCLIENTE"/>
+    <property name="BAIRROCOBRANCA" type ="string" column ="BAIRROCOBRANCA"/>
+    <property name="BAIRROCLIENTE" type ="string" column ="BAIRROCLIENTE"/>
+    <property name="CIDADECOBRANCA" type ="string" column ="CIDADECOBRANCA"/>
+    <property name="CIDADECLIENTE" type ="string" column ="CIDADECLIENTE"/>
+    <property name="CEPCLIENTE" type ="string" column ="CEPCLIENTE"/>
+    <property name="CEPCOBRANCA" type ="string" column ="CEPCOBRANCA"/>
+    <property name="CAIXAPOSTALCOBRANCA" type ="string" column ="CAIXAPOSTALCOBRANCA"/>
+    <property name="CAIXAPOSTALCLIENTE" type ="string" column ="CAIXAPOSTALCLIENTE"/>
+    <property name="DISTANCIACLIENTE" type ="int" column ="DISTANCIACLIENTE"/>
+    <property name="EMAILCLIENTE" type ="string" column ="EMAILCLIENTE"/>
+    <property name="WORKCLIENTE" type ="int" column ="WORKCLIENTE"/>
+    <property name="HOMEPAGECLIENTE" type ="string" column ="HOMEPAGECLIENTE"/>
+    <property name="QTDESERVERCLIENTE" type ="int" column ="QTDESERVERCLIENTE"/>
+    <property name="SERVERCLIENTE" type ="string" column ="SERVERCLIENTE"/>
+    <property name="FONE1CLIENTE" type ="string" column ="FONE1CLIENTE"/>
+    <property name="ORACLECLIENTE" type ="string" column ="ORACLECLIENTE"/>
+    <property name="FONE2CLIENTE" type ="string" column ="FONE2CLIENTE"/>
+    <property name="ESTACIONACLIENTE" type ="string" column ="ESTACIONACLIENTE"/>
+    <property name="FAX1CLIENTE" type ="string" column ="FAX1CLIENTE"/>
+    <property name="TEMPOCLIENTE" type ="int" column ="TEMPOCLIENTE"/>
+    <property name="FAX2CLIENTE" type ="string" column ="FAX2CLIENTE"/>
+    <property name="MSGCLIENTE" type ="string" column ="MSGCLIENTE"/>
+    <property name="OBSCLIENTE" type ="string" column ="OBSCLIENTE"/>
+    <property name="CRITICOCLIENTE" type ="string" column ="CRITICOCLIENTE"/>
+    <property name="ULTIMOEMAILENVIADO" type ="DateTime" column ="ULTIMOEMAILENVIADO"/>
+    <property name="EMAILCHAMADOSCLIENTE" type ="string" column ="EMAILCHAMADOSCLIENTE"/>
+    <property name="EMAILRELATVISITASCLIENTE" type ="string" column ="EMAILRELATVISITASCLIENTE"/>
+    <property name="EMAILSASABERTOSCLIENTE" type ="string" column ="EMAILSASABERTOSCLIENTE"/>
+    <property name="EMAILSASREPROVADOSCLIENTE" type ="string" column ="EMAILSASREPROVADOSCLIENTE"/>
+    <property name="EMAILSASAPROVADOSCLIENTE" type ="string" column ="EMAILSASAPROVADOSCLIENTE"/>
+    <property name="EMAILSASCONCLUIDOSCLIENTE" type ="string" column ="EMAILSASCONCLUIDOSCLIENTE"/>
+    <property name="EMAILAGENDAMENTOSCLIENTE" type ="string" column ="EMAILAGENDAMENTOSCLIENTE"/>
+    <property name="CODLIENTEOLD" type ="string" column ="CODLIENTEOLD"/>
+    <property name="ATENDIDOPORTERCEIRO" type ="string" column ="ATENDIDOPORTERCEIRO"/>
+    <property name="CATEGORIACLIENTE" type ="string" column ="CATEGORIACLIENTE"/>
+    <property name="SENHAWEB" type ="string" column ="SENHAWEB"/>
+    <property name="VISUALIZASIM" type ="string" column ="VISUALIZASIM"/>
+    <property name="VISUALIZASAS" type ="string" column ="VISUALIZASAS"/>
+    <property name="CODREGIAO" type ="int" column ="CODREGIAO"/>
+    <property name="QTDELICENCAS" type ="int" column ="QTDELICENCAS"/>
+    <property name="LIGACAOPREVENTIVA" type ="string" column ="LIGACAOPREVENTIVA"/>
+    <property name="EMIMPLANTACAO" type ="string" column ="EMIMPLANTACAO"/>
+    <property name="CODLOCAL" type ="int" column ="CODLOCAL"/>
+    <property name="INDICADORCLIENTE" type ="int" column ="INDICADORCLIENTE"/>
+    <property name="CLASSIFICACLIENTE" type ="string" column ="CLASSIFICACLIENTE"/>
+    <property name="DATALIMITEUSO" type ="DateTime" column ="DATALIMITEUSO"/>
+    <property name="TERMINOIMPLANTACAO" type ="DateTime" column ="TERMINOIMPLANTACAO"/>
+    <property name="FORMASDEACESSO" type ="string" column ="FORMASDEACESSO"/>
+    <property name="ARQCONCEDENTE" type ="string" column ="ARQCONCEDENTE"/>
+    <property name="DATAENVIOKIT" type ="DateTime" column ="DATAENVIOKIT"/>
+    <!--<property name="OBSERVACAOKIT" type ="string" column ="OBSERVACAOKIT"/>
+    <property name="EMPRESA_CONCEDENTE" type ="string" column ="EMPRESA_CONCEDENTE"/>
+    <property name="AMBIENTE_GLOBUS_MAIS" type ="string" column ="AMBIENTE_GLOBUS_MAIS"/>
+    <property name="FATOR_SLA" type ="int" column ="FATOR_SLA"/>
+    <property name="DTINSTALWEBSERVICE" type ="DateTime" column ="DTINSTALWEBSERVICE"/>
+    <property name="GLOBUS_CLOUD" type ="string" column ="GLOBUS_CLOUD"/>
+    <property name="WEBCONCEDENTE" type ="string" column ="WEBCONCEDENTE"/>
+    <property name="DT_COMUNICADO_VENDA" type ="DateTime" column ="DT_COMUNICADO_VENDA"/>
+    <property name="DT_RECEB_CONTRATO" type ="DateTime" column ="DT_RECEB_CONTRATO"/>
+    <property name="NUMERO_MYTICKET" type ="int" column ="NUMERO_MYTICKET"/>
+    <property name="NUMERO_RA" type ="string" column ="NUMERO_RA"/>-->
+  </class>
+</hibernate-mapping>
+
+

@@ -1,0 +1,35 @@
+﻿<Window x:Class="AvalonApplication3.Window1"
+    xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
+ xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+    
+    Loaded="WindowLoaded"
+    
+    ShowInTaskbar="false"
+    WindowStyle="ToolWindow"
+    ResizeMode="NoResize"
+    Name="MainWindow"
+    Height ="60"
+    Width="60"
+    MaxHeight="60"
+    MaxWidth="60" 
+    Background="yellow"
+    Topmost="true"
+    >
+  <Window.Resources>
+
+  </Window.Resources>
+  <Window.ContextMenu >
+    <ContextMenu Background="wheat"  >
+      <WrapPanel >
+        <CheckBox  Padding="0" Margin="0" IsChecked="true" VerticalAlignment="center" BorderThickness="0" Name="cb" Click="cb_Click"></CheckBox>
+        <Label Padding="0" Margin="0" MouseLeftButtonUp="l_MouseLeftButtonUp" >AlwaysOnTop</Label>
+      </WrapPanel>
+    </ContextMenu>
+  </Window.ContextMenu>
+  <StackPanel Background=" yellow" >
+    <Label Content ="PostIt" Name="TextLabel"/>
+  </StackPanel>
+
+</Window>
+
+

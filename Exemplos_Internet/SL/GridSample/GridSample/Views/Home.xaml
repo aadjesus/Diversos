@@ -1,0 +1,37 @@
+﻿<navigation:Page xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+  x:Class="GridSample.Home" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" Loaded="Page_Loaded">
+
+  <Grid x:Name="LayoutRoot">
+        <StackPanel Orientation="Vertical">
+            <dxe:ButtonEdit Name="btnExport" Height="40" Width="150" ShowText="False" AllowDefaultButton="False">
+                <dxe:ButtonInfo Name="Export" Content="Export" Click="Export_Click"/>
+            </dxe:ButtonEdit>
+            <dxg:GridControl Name="dgClient" AutoPopulateColumns="True" Height="500">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="ClientID"/>
+                    <dxg:GridColumn FieldName="ClientName" />
+                    <dxg:GridColumn FieldName="DateofIssue" />
+                    <dxg:GridColumn FieldName="issueComment" MinWidth="200">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings TextWrapping="Wrap"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="CategoryName" />
+                    <dxg:GridColumn FieldName="SubClientName" />
+                    <dxg:GridColumn FieldName="UpdatedDate" />
+                    <dxg:GridColumn FieldName="UpdatedBy" />
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView Name="tableView1" BestFitMode="AllRows" BestFitArea="Header" AllowEditing="False" />
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </StackPanel>
+    </Grid>
+
+</navigation:Page>

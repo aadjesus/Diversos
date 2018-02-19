@@ -1,0 +1,11 @@
+﻿<Window x:Class="OutlookWpfCalendar.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Outlook WPF Calendar UI" Height="300" Width="300">
+    <StackPanel>
+        <Button Content="Calendar View" Click="CalendarViewButtonClick" />
+        <Button Content="Vertical Range Panel" Click="VerticalRangePanelButtonClick" />
+        <Button Content="Horizontal Range Panel" Click="HorizontalRangePanelButtonClick" />
+        <Button Content="Restyled List Box" Click="RestyledListBoxButtonClick" /> 
+    </StackPanel>
+</Window>

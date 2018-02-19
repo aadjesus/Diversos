@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservices.maplink2.com.br" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webservices.maplink2.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservices.maplink2.com.br">
+      <s:element name="getMap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="extent" type="tns:Extent" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Extent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="XMin" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="YMin" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="XMax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="YMax" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MapOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="scaleBar" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="mapSize" type="tns:MapSize" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MapSize">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getMapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getMapResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MapInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="extent" type="tns:Extent" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getZoom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="extent" type="tns:Extent" />
+            <s:element minOccurs="1" maxOccurs="1" name="percZoom" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="percNavegation" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="extent" type="tns:Extent" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPanResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomFullExtent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomFullExtentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomFullExtentResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomRadius">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+            <s:element minOccurs="1" maxOccurs="1" name="radius" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Point">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getZoomRadiusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomRadiusResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomWindow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldExtent" type="tns:Extent" />
+            <s:element minOccurs="1" maxOccurs="1" name="newExtentInPixels" type="tns:Extent" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomWindowResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="uf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomStateResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoomCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="City">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getZoomCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getZoomCityResult" type="tns:MapInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getMapSoapIn">
+    <wsdl:part name="parameters" element="tns:getMap" />
+  </wsdl:message>
+  <wsdl:message name="getMapSoapOut">
+    <wsdl:part name="parameters" element="tns:getMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoom" />
+  </wsdl:message>
+  <wsdl:message name="getZoomSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPanSoapIn">
+    <wsdl:part name="parameters" element="tns:getPan" />
+  </wsdl:message>
+  <wsdl:message name="getPanSoapOut">
+    <wsdl:part name="parameters" element="tns:getPanResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomFullExtentSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoomFullExtent" />
+  </wsdl:message>
+  <wsdl:message name="getZoomFullExtentSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomFullExtentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomRadiusSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoomRadius" />
+  </wsdl:message>
+  <wsdl:message name="getZoomRadiusSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomRadiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoomWindow" />
+  </wsdl:message>
+  <wsdl:message name="getZoomWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomStateSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoomState" />
+  </wsdl:message>
+  <wsdl:message name="getZoomStateSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoomCitySoapIn">
+    <wsdl:part name="parameters" element="tns:getZoomCity" />
+  </wsdl:message>
+  <wsdl:message name="getZoomCitySoapOut">
+    <wsdl:part name="parameters" element="tns:getZoomCityResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MapRenderSoap">
+    <wsdl:operation name="getMap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gera o mapa com base na rota já efetuada.</wsdl:documentation>
+      <wsdl:input message="tns:getMapSoapIn" />
+      <wsdl:output message="tns:getMapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gera o zoom do mapa gerado anteriormente.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomSoapIn" />
+      <wsdl:output message="tns:getZoomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Efetua a navegação no mapa de acordo com a direção e percentual de deslocamento informados.</wsdl:documentation>
+      <wsdl:input message="tns:getPanSoapIn" />
+      <wsdl:output message="tns:getPanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoomFullExtent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Faz o zoom no extent máximo.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomFullExtentSoapIn" />
+      <wsdl:output message="tns:getZoomFullExtentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoomRadius">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Faz o zoom no raio do ponto informado.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomRadiusSoapIn" />
+      <wsdl:output message="tns:getZoomRadiusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoomWindow">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Faz o zoom da área selecionada pelo usuário.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomWindowSoapIn" />
+      <wsdl:output message="tns:getZoomWindowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoomState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Faz o zoom do estado informado.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomStateSoapIn" />
+      <wsdl:output message="tns:getZoomStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoomCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Faz o zoom do município informado.</wsdl:documentation>
+      <wsdl:input message="tns:getZoomCitySoapIn" />
+      <wsdl:output message="tns:getZoomCitySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MapRenderSoap" type="tns:MapRenderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMap">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoom">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPan">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getPan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomFullExtent">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoomFullExtent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomRadius">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoomRadius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomWindow">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoomWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomState">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoomState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomCity">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getZoomCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MapRenderSoap12" type="tns:MapRenderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMap">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getMap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoom">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPan">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getPan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomFullExtent">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoomFullExtent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomRadius">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoomRadius" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomWindow">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoomWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomState">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoomState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoomCity">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getZoomCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MapRender">
+    <wsdl:port name="MapRenderSoap" binding="tns:MapRenderSoap">
+      <soap:address location="http://teste.webservices.maplink2.com.br/webservices/v3/MapRender/MapRender.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MapRenderSoap12" binding="tns:MapRenderSoap12">
+      <soap12:address location="http://teste.webservices.maplink2.com.br/webservices/v3/MapRender/MapRender.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

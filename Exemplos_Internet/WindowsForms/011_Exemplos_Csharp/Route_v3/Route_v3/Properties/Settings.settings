@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Route_v3.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Route_v3_AuthenticationWS_Authentication" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://teste.webservices.maplink2.com.br/webservices/v3/Authentication/Authentication.asmx</Value>
+    </Setting>
+    <Setting Name="Route_v3_RouteWS_Route" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://teste.webservices.maplink2.com.br/webservices/v3/Route/Route.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

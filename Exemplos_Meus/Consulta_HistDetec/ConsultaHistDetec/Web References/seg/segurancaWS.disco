@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx?wsdl" docRef="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx" xmlns:q1="http://bgmrodotec.com.br/fglobus/seguranca" binding="q1:SegurancaWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx" xmlns:q2="http://bgmrodotec.com.br/fglobus/seguranca" binding="q2:SegurancaWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

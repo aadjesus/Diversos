@@ -1,0 +1,112 @@
+﻿<Window x:Class="TestTreeViewList.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TestTreeViewList"
+        Title="TreeView like control with several ListBox" Height="300" Width="500">
+    
+    <Window.Resources>
+
+        <Style x:Key="SimpleListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                            <ScrollViewer Padding="{TemplateBinding Padding}" Focusable="false">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type ListBoxItem}"
+               BasedOn="{StaticResource {x:Type ListBoxItem}}">
+            <Setter Property="local:ActiveSelectionManager.IsReallySelected"
+                    Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+        </Style>
+
+        <Style TargetType="{x:Type local:TreeGridView}">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:TreeGridView}">
+                        <Border  SnapsToDevicePixels="true" 
+                                 Background="{TemplateBinding Background}" 
+                                 BorderBrush="{TemplateBinding BorderBrush}" 
+                                 BorderThickness="{TemplateBinding BorderThickness}" 
+                                 Padding="1">
+                            <ScrollViewer Padding="{TemplateBinding Padding}" 
+                                          Focusable="false">
+                                <ItemsControl x:Name="PART_ItemsPresenter"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Width="100" 
+                                                    Background="White" 
+                                                    Margin="5"
+                                                    CornerRadius="5">
+                                                <ListBox
+                                                    Style="{StaticResource SimpleListBoxStyle}"
+                                                    ItemTemplate="{Binding Path=ItemTemplate, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TreeGridView}}}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Border>                                               
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+                        
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <local:TreeGridView x:Name="tgv" 
+                            ItemsSource="{Binding Children}"
+                            Background="LightGray">
+            <local:TreeGridView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </local:TreeGridView.ItemTemplate>
+        </local:TreeGridView>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center"
+                       Text="Depth: "/>
+            <TextBlock VerticalAlignment="Center"
+                       Text="{Binding ElementName=tgv, Path=Depth}"/>
+            <Slider Minimum="1"
+                    Maximum="10"
+                    Width="100"
+                    Value="{Binding ElementName=tgv, Path=Depth, Mode=TwoWay}"/>
+            <TextBlock VerticalAlignment="Center"
+                       Text="  SelectedItem: "/>
+            <ContentControl VerticalAlignment="Center" Content="{Binding ElementName=tgv, Path=SelectedItem}">
+                <ContentControl.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ContentControl.ContentTemplate>
+            </ContentControl>
+        </StackPanel>
+    </Grid>
+</Window>

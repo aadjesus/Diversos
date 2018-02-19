@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ComboDefinitions>
+	<Version>1.0.0</Version>
+	<Commands>
+		<Command id="S" name="Sword" />
+		<Command id="M" name="Magic" />
+		<Command id="G" name="Gauntlet" />
+		<Command id="A" name="Acrobatics" />
+	</Commands>
+	<DefaultButtonMappings>
+		<Platform name="PS3">
+			<ButtonMapping button="Square" command="S" />
+			<ButtonMapping button="Triangle" command="M" />
+			<ButtonMapping button="Circle" command="G" />
+			<ButtonMapping button="X" command="A" />
+		</Platform>
+		<Platform name="Xbox 360">
+			<ButtonMapping button="X" command="S" />
+			<ButtonMapping button="Y" command="M" />
+			<ButtonMapping button="B" command="G" />
+			<ButtonMapping button="A" command="A" />
+		</Platform>
+		<Platform name="PC">
+			<ButtonMapping button="1" command="S" />
+			<ButtonMapping button="2" command="M" />
+			<ButtonMapping button="3" command="G" />
+			<ButtonMapping button="4" command="A" />
+		</Platform>
+	</DefaultButtonMappings>
+	<StartingComboGroup>Normal</StartingComboGroup>
+	<ComboGroups>
+		<ComboGroup name="Normal">
+			<AttackCombo commandSequence="S,S,S,S" />
+			<AttackCombo commandSequence="M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,S,S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="S,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="S,S,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="S,S,S,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,S,S,A" nextGroupInChain="Acrobatic" />
+		</ComboGroup>
+		<ComboGroup name="Magic">
+			<AttackCombo commandSequence="S,S" />
+			<AttackCombo commandSequence="M,S" />
+			<AttackCombo commandSequence="S,M,S" />
+			<AttackCombo commandSequence="M,M" /> 
+			<AttackCombo commandSequence="S,M,M" />
+			<AttackCombo commandSequence="G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="M,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="S,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="S,M,G" nextGroupInChain="Lift" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="M,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,M,A" nextGroupInChain="Acrobatic" />
+		</ComboGroup>
+		<ComboGroup name="Lift">
+			<AttackCombo commandSequence="S" />
+			<AttackCombo commandSequence="M,M,S" />
+			<AttackCombo commandSequence="M,S,S" />
+			<AttackCombo commandSequence="M,S,M,S" />
+			<AttackCombo commandSequence="M,M,M" />
+			<AttackCombo commandSequence="M,S,M,M" />
+			<AttackCombo commandSequence="G" />
+			<AttackCombo commandSequence="M,G" />
+			<AttackCombo commandSequence="M,M,G" />
+			<AttackCombo commandSequence="M,S,G" />
+			<AttackCombo commandSequence="M,S,M,G" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,M,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,S,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,S,M,A" nextGroupInChain="Aerial" />
+		</ComboGroup>
+		<ComboGroup name="Acrobatic">
+			<AttackCombo commandSequence="S,S,S" />
+			<AttackCombo commandSequence="M,M,S" />
+			<AttackCombo commandSequence="M,S,S" />
+			<AttackCombo commandSequence="M,S,M,S" />
+			<AttackCombo commandSequence="M,M,M" />
+			<AttackCombo commandSequence="M,S,M,M" />
+			<AttackCombo commandSequence="G" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,G" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,M,G" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,S,G" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,S,M,G" nextGroupInChain="Throw" />
+		</ComboGroup>
+		<ComboGroup name="Throw">
+			<AttackCombo commandSequence="A,S" />
+			<AttackCombo commandSequence="A,M,S" />
+			<AttackCombo commandSequence="A,M,M" />
+			<AttackCombo commandSequence="A,G" />
+			<AttackCombo commandSequence="A,M,G" />
+		</ComboGroup>
+		<ComboGroup name="Aerial">
+			<AttackCombo commandSequence="S" />
+			<AttackCombo commandSequence="M,S" />
+			<AttackCombo commandSequence="M,M" />
+			<AttackCombo commandSequence="G" />
+			<AttackCombo commandSequence="M,G" />
+		</ComboGroup>
+	</ComboGroups>
+</ComboDefinitions>

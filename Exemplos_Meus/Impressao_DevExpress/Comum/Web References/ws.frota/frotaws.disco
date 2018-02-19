@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/globus5/frotaws.asmx?wsdl" docRef="http://localhost/globus5/frotaws.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/globus5/frotaws.asmx" xmlns:q1="http://bgmrodotec.com.br/globus5/frota" binding="q1:FrotaWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/globus5/frotaws.asmx" xmlns:q2="http://bgmrodotec.com.br/globus5/frota" binding="q2:FrotaWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

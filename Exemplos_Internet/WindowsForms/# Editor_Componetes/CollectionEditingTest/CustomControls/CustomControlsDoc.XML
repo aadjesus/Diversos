@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CustomControls</name>
+    </assembly>
+    <members>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.GetItemType(System.Collections.IList)">
+            <summary>
+            Gets the data type of each item in the collection.
+            </summary>
+            <param name="coll"> The collection for which to get the item's type</param>
+            <returns>The data type of the collection items.</returns>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.CreateNewItemTypes(System.Collections.IList)">
+            <summary>
+            Gets the data types that this collection editor can contain
+            </summary>
+            <param name="coll">The collection for which to return the available types</param>
+            <returns>An array of data types that this collection can contain.</returns>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.CreateInstance(System.Type)">
+            <summary>
+            Creates a new instance of the specified collection item type.
+            </summary>
+            <param name="itemType">The type of item to create. </param>
+            <returns>A new instance of the specified object.</returns>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.DestroyInstance(System.Object)">
+            <summary>
+            Destroys the specified instance of the object.
+            </summary>
+            <param name="instance">The object to destroy. </param>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.CreateTItem(System.Object)">
+            <summary>
+            Creates a new TItem objectfor a collection item.
+            </summary>
+            <param name="reffObject">The collection item for wich to create an TItem object.</param>
+            <returns>A TItem object referencing the collection item received as parameter.</returns>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.SetProperties(CustomControls.CollectionEditor.TItem,System.Object)">
+            <summary>
+            When implemented by a class, customize a TItem object in respect to it's corresponding collection item.
+            </summary>
+            <param name="titem">The TItem object to be customized in respect to it's corresponding collection item.</param>
+            <param name="reffObject">The collection item for which it customizes the TItem object.</param>
+        </member>
+        <member name="M:CustomControls.CollectionEditor.CustomCollectionEditorForm.SetDisplayName(CustomControls.CollectionEditor.TItem)">
+            <summary>
+            Sets the Name  for a TItem object.
+            </summary>
+            <param name="ti">The TItem object for which to set the Name.</param>
+        </member>
+    </members>
+</doc>

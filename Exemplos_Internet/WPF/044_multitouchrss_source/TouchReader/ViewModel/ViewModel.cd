@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VirtualDreams.TouchReader.ViewModel.FeedItemViewModel">
+    <Position X="6.25" Y="5" Width="1.75" />
+    <Members>
+      <Field Name="_contentXaml" Hidden="true" />
+      <Field Name="_feedItem" Hidden="true" />
+      <Field Name="ErrorXaml" Hidden="true" />
+      <Method Name="LoadCompleted" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="RefreshContent" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQgAADAAAAAAAEAAAAAAACAAAAAAEQAAAAAQ=</HashCode>
+      <FileName>ViewModel\FeedItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualDreams.TouchReader.ViewModel.FeedViewModel">
+    <Position X="11.25" Y="5" Width="2" />
+    <Members>
+      <Field Name="_feed" Hidden="true" />
+      <Field Name="_items" Hidden="true" />
+      <Method Name="LoadItems" Hidden="true" />
+      <Method Name="RefreshItems" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAYAAACAAABAAAAAAACBAIQAAABAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FeedViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualDreams.TouchReader.ViewModel.FolderViewModel">
+    <Position X="8.75" Y="5" Width="1.75" />
+    <Members>
+      <Field Name="_folder" Hidden="true" />
+      <Field Name="_items" Hidden="true" />
+      <Method Name="LoadFoldersAndFeeds" Hidden="true" />
+      <Method Name="RefreshFoldersAndFeeds" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAACAAAgAAAAAAAABAAEAgAAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FolderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualDreams.TouchReader.ViewModel.RssViewModelBase">
+    <Position X="8.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\RssViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

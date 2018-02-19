@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="TranslateCache" EntityNamespace="Vidyano.TranslationServices.GoogleTranslate" ContextNamespace="Vidyano.TranslationServices.GoogleTranslate" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="Source">
+    <Type Name="Source">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LangCode" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Source_Translations" Member="Translations" OtherKey="SourceID" Type="Translations" />
+    </Type>
+  </Table>
+  <Table Name="Translations">
+    <Type Name="Translations">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SourceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LangCode" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Source_Translations" Member="Source" ThisKey="SourceID" Type="Source" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

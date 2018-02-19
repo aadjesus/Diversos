@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFLocalization", "WPFLocalization\WPFLocalization.csproj", "{447B98DC-3053-488B-8BB0-21BDC4F27456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFLocalizationTest", "WPFLocalizationTest\WPFLocalizationTest.csproj", "{15447FBD-DFF0-423E-AD19-EB50D593DDA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{447B98DC-3053-488B-8BB0-21BDC4F27456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447B98DC-3053-488B-8BB0-21BDC4F27456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447B98DC-3053-488B-8BB0-21BDC4F27456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447B98DC-3053-488B-8BB0-21BDC4F27456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15447FBD-DFF0-423E-AD19-EB50D593DDA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15447FBD-DFF0-423E-AD19-EB50D593DDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15447FBD-DFF0-423E-AD19-EB50D593DDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15447FBD-DFF0-423E-AD19-EB50D593DDA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

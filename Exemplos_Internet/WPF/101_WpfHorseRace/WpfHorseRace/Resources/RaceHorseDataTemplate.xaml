@@ -1,0 +1,111 @@
+<!-- This resource dictionary contains a DataTemplate for the RaceHorse class. -->
+<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="clr-namespace:WpfHorseRace" 
+  >
+  <!-- Import the resource dictionary which contains the Style applied to Border of each horse's "pit". -->
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="RacePitBorderStyle.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <DataTemplate DataType="{x:Type local:RaceHorse}">
+    <DataTemplate.Resources>
+      <LinearGradientBrush x:Key="RaceInProgressBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+        <GradientStop Color="#1100CC22" Offset="0" />
+        <GradientStop Color="#8800CC22" Offset="0.97" />
+        <GradientStop Color="#AA10FF18" Offset="0.999" />
+        <GradientStop Color="#44FFFFFF" Offset="1" />
+      </LinearGradientBrush>
+
+      <LinearGradientBrush x:Key="FinishedBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#44FF0000" Offset="0.1" />
+        <GradientStop Color="#11FF0000" Offset="0.9" />
+      </LinearGradientBrush>
+
+      <LinearGradientBrush x:Key="WinnerBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="Gold" Offset="0.1" />
+        <GradientStop Color="#FFFFFF88" Offset="0.9" />
+      </LinearGradientBrush>
+
+      <local:RaceHorseProgressIndicatorWidthConverter x:Key="WidthConv" />
+    </DataTemplate.Resources>
+
+    <Border x:Name="racePit" Style="{StaticResource RacePitBorderStyle}">
+      <Grid Width="{Binding ElementName=racePit, Path=ActualWidth}">        
+        <StackPanel Orientation="Horizontal">
+          <!-- This Rectangle "follows" a horse as it runs the race. -->
+          <Rectangle x:Name="progressIndicator"
+            Fill="{StaticResource RaceInProgressBrush}"
+            HorizontalAlignment="Left" 
+            RadiusX="8" 
+            RadiusY="8"
+            Margin="1"
+            >
+            <!-- The width of the progress indicator is calculated by an instance
+                 of the RaceHorseProgressIndicatorWidthConverter class. -->
+            <Rectangle.Width>
+              <MultiBinding Converter="{StaticResource WidthConv}">
+                <Binding Path="PercentComplete" />
+                <Binding ElementName="racePit" Path="ActualWidth" />
+              </MultiBinding>
+            </Rectangle.Width>
+          </Rectangle>
+
+          <!-- Displays the picture of a race horse. -->
+          <Image Source="RaceHorse.gif" Height="60" Width="80"/>
+        </StackPanel>
+
+        <TextBlock x:Name="horseName" Text="{Binding Name}"  Margin="6,0" VerticalAlignment="Center" Foreground="White" />
+      </Grid>
+      
+      <!-- Make the race pit display a tooltip which shows how much of the race the horse has completed. -->
+      <Border.ToolTip>
+        <ToolTip>
+          <Grid>
+            <TextBlock>
+              <TextBlock Text="{Binding PercentComplete}" Margin="0,0,-2,0" />
+              <Run>% finished</Run>
+            </TextBlock>
+          </Grid>
+        </ToolTip>
+      </Border.ToolTip>
+    </Border>
+
+    <DataTemplate.Triggers>
+      <!-- This MultiDataTrigger affects losers of the race. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+          <Condition Binding="{Binding IsFinished}" Value="True" />
+          <Condition Binding="{Binding IsWinner}" Value="False" />          
+        </MultiDataTrigger.Conditions>
+        <!-- Apply the "finished the race" brush to the horse's progress indicator. -->
+        <Setter TargetName="progressIndicator" Property="Fill" Value="{StaticResource FinishedBrush}" />
+
+        <!-- Fade the race pit in and out if the horse lost the race. -->
+        <MultiDataTrigger.EnterActions>
+          <BeginStoryboard>
+            <Storyboard>
+              <DoubleAnimation Storyboard.TargetName="racePit" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0:0:0.75" />
+            </Storyboard>
+          </BeginStoryboard>
+        </MultiDataTrigger.EnterActions>
+        <MultiDataTrigger.ExitActions>
+          <BeginStoryboard>
+            <Storyboard>
+              <DoubleAnimation Storyboard.TargetName="racePit" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.25" />
+            </Storyboard>
+          </BeginStoryboard>
+        </MultiDataTrigger.ExitActions>
+      </MultiDataTrigger>            
+
+      <!-- Set special values for the winner of the race. -->
+      <DataTrigger Binding="{Binding IsWinner}" Value="True">
+        <Setter TargetName="progressIndicator" Property="Fill" Value="{StaticResource WinnerBrush}" />
+        <Setter TargetName="horseName" Property="Foreground" Value="Black" />
+        <Setter TargetName="horseName" Property="FontWeight" Value="Bold" />
+        <Setter TargetName="horseName" Property="HorizontalAlignment" Value="Center" />
+      </DataTrigger>
+    </DataTemplate.Triggers>
+  </DataTemplate>
+</ResourceDictionary>

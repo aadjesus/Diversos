@@ -1,0 +1,127 @@
+﻿<!--revision $Id: WellLogWindow.xaml 19648 2009-03-24 05:14:21Z unknown $-->
+<Window x:Class="WellLogControlSample.WellLogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+    xmlns:ctrls="clr-namespace:OpenWPFChart.Controls;assembly=OpenWPFChart.Controls"
+    xmlns:local="clr-namespace:WellLogControlSample"
+	Title="WellLogChart Control Sample" 
+	MinWidth="200" MinHeight="300" SizeToContent="Width">
+
+	<Window.Resources>
+		<ContextMenu x:Key="chartItemCtxMnu">
+			<MenuItem Header="Properties" Command="ApplicationCommands.Properties"/>
+		</ContextMenu>
+
+		<!-- Curve decorations list -->
+		<!-- Default PointMarker Geometry - Circle -->
+		<EllipseGeometry x:Key="markerGeometry" Center="0,0" RadiusX="3" RadiusY="3"/>
+		<x:ArrayExtension x:Key="curveDecorations" Type="local:CurveDecorations">
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Black" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Black">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Black" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Blue" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Blue">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Blue" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Green" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Green">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Green" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Magenta" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Magenta">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Magenta" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Red" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Red">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Red" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+		</x:ArrayExtension>
+
+		<local:ItemCountToBoolConverter x:Key="ItemCountToBool"/>
+	</Window.Resources>
+
+	<DockPanel>
+		<!-- Menu -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Command="Open" Name="mnuFileOpen"/>
+				<Separator/>
+				<MenuItem Header="_Recent Files" Name="mnuRecentFiles"/>
+				<Separator/>
+				<MenuItem Header="_Exit" Click="Exit_Click"/>
+			</MenuItem>
+			<MenuItem Header="_View" IsEnabled="{Binding ElementName=chart, 
+				Path=Items.Count, Converter={StaticResource ItemCountToBool}}">
+				<MenuItem Header="_Interpolator">
+					<MenuItem Header="_Polyline" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Bezier" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Spline" Click="mnuViewInterpolator_Click"/>
+				</MenuItem>
+				<Separator/>
+				<MenuItem Header="Chart _Scales"
+						  Click="mnuViewChartScales_Click"/>
+				<MenuItem Header="_Show PointMarkers" Name="mnuViewShowPointMarkers" Click="mnuViewShowPointMarkers_Click" 
+						  IsCheckable="True" IsChecked="True"/>
+				<Separator/>
+				<MenuItem Header="Zoom_In (Ctrl+NumPad+)" Command="Zoom" CommandParameter="1.2"/>
+				<MenuItem Header="Zoom_Out (Ctrl+NumPad-)" Command="Zoom" CommandParameter="-1.2"/>
+			</MenuItem>
+		</Menu>
+
+		<!-- Chart -->
+		<ctrls:WellLogChart Name="chart" 
+			parts:Item.MouseEnterItem="chartItem_EnterItem"
+			parts:Item.MouseLeaveItem="chartItem_LeaveItem"
+			ContextMenu="{StaticResource chartItemCtxMnu}"
+			BorderBrush="Cornsilk" BorderThickness="10" Padding="3"
+			SnapsToDevicePixels="true">
+
+			<parts:Axis.Pen>
+				<Pen Brush="Green" Thickness="1"/>
+			</parts:Axis.Pen>
+
+		</ctrls:WellLogChart>
+	</DockPanel>
+</Window>

@@ -1,0 +1,202 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/Styles.css">
+<title>Console Mode Builder</title>
+</head>
+
+<body>
+
+<h2>Console Mode Builder</h2>
+To build a help project using the command line tool, run the
+<b>SandcastleBuilderConsole.exe</b> executable that can be found in the
+installation folder.  In its simplest invocation, it takes one or more
+project file names to build and an optional <b>/v</b> option as command
+line parameters.  The <b>/v</b> option will display all messages from the
+tools during the build process. If not specified, only the build step
+indicators are displayed on screen during the build process.  In either
+case, full output is always saved to the log file.  As with the GUI
+builder, the help file and the log file can be found in the folder
+specified in the project's <code>OutputPath</code> property after a build.
+
+<h3>Specifying a Post-Build Event to Build a Help File</h3>
+To use the console version in a post-build event of a Visual Studio
+project,  right click on the project name in the Solution Explorer, select
+<b>Properties</b>, and select the <b>Build Events</b> sub-item. Click in
+the <b>Post-build Event Command Line</b> option to enter the command line
+to run. You can click the <b>Edit Post-build</b> button to open a dialog
+with a larger editor and a list of available macros. Below is an example of
+a common command line script that can be used (lines wrapped for display
+purposes). Replace the path to the tool with the path where you installed it
+on your PC.  The <code>IF</code> statement prevents building the help file
+in debug builds where it may not be needed.
+
+<pre lang="none" title="Note: Lines wrapped for display purposes">
+IF "$(ConfigurationName)"=="Debug" Goto Exit
+
+"C:\Program Files\EWSoftware\Sandcastle Help File Builder\
+  SandcastleBuilderConsole.exe" $(SolutionDir)Doc\TestProject.shfb
+
+:Exit
+</pre>
+
+If you want to see verbose output to the console during the build, you
+can add the <b>/v</b> command line option.  All messages are always saved to
+the log file regardless of whether or not this command line option is used.
+
+<p/>In a solution with multiple projects that are documented by the same
+help file builder project, the post-build event should be defined on the
+last project built by Visual Studio.  If the projects are documented
+individually, you can place a post-build event on each one.
+
+<h3>Other Build Tools</h3>
+Other automated build tools also exist.  As long as the build tool supports
+execution of command line based executables with parameters such as
+<b>SandcastleBuilderConsole.exe</b>, you should be able to integrate it
+with the build process in a similar fashion.
+
+<h3>Project Option Overrides</h3>
+It is also possible to specify project option overrides via the command
+line and to use a response file to contain a complex list of projects and
+option overrides to build one or more help files.  The command line syntax
+is as follows:<br /><br />
+
+<pre>
+SandcastleBuilderConsole [@responseFile] [projectFile] [-options] ...
+</pre>
+
+<p/>Prefix options with '-' or '/'.  Option names and values are
+case-insensitive. All property option overrides are applied to the last
+specified project or a default project if one is not specified.  Property
+values should be enclosed in double quotes if they contain spaces, commas,
+or other special characters.  All relative paths specified on the command
+line and those in a response file are relative to the folder in which the
+build process is started for the default project.  When an existing project
+is specified, they will be relative to the project's path as usual.
+
+<dl>
+    <dt>@responseFile</dt>
+    <dd>A filename prefixed with '@' indicates a response file containing a
+list of projects and options to use.  Specify one project filename or
+option per line.  Nested response files are supported.  Blank lines and
+lines starting with '#' (comments) are ignored.  Here is an example response
+file that builds three projects.  The first two use default settings with
+the specified overrides.  The third loads an existing project and overrides
+a couple of its options:<br /><br />
+
+<pre lang="none" title="Example Response File">
+# Use default project settings plus these changes for the first one.
+# All options are case-insensitive.  Spacing is also irrelevant in
+# a response file.
+-preliminary = true
+-assembly=SandcastleBuilder.Utils.dll
+-comments=\DotNet20\CS\TestDoc\CommentsOnly\*.xml
+-addcontent= "..\..\..\Doc\AdditionalContent\*.*" , ""
+-dependency=.\*.dll
+#-verbose
+-CopyrightText="Copyright \xa9 2006-2007 Eric Woodruff, All rights reserved"
+-feedbackemailaddress = Eric@EWoodruff.us
+-SDKLinkType=none
+-workingpath=C:\TestHelp\Working
+-outputPath=C:\TestHelp\
+
+# Start a new default project with different settings
+-new
+
+-assembly=bin\*.*
+-HTMLHelpName=SecondHelpFile
+-CleanIntermediates=false
+-dependency=.\*.dll
+-workingpath=C:\TestHelp\Working
+-outputPath=C:\TestHelp\
+
+# Load a project and override some of its options
+..\..\..\..\TestDoc\Doc\TestDoc.shfb
+-Preliminary=true
+-CleanIntermediates=true
+</pre></dd>
+
+    <dt>projectFile</dt>
+    <dd>A filename by itself indicates a project file.  Project options are
+reset to those of the specified project.  Any subsequent property options will
+override options in the project.</dd>
+
+    <dt>-help or -?</dt>
+    <dd>Use this option to display help at the command line.</dd>
+
+    <dt>-verbose or -v</dt>
+    <dd>Enable verbose logging.</dd>
+
+    <dt>-new</dt>
+    <dd>Start another new project with default settings.  As shown in the
+response file example above, this can be used to create a new project with
+default settings.   Any project options specified after it will be applied
+to the new default project.</dd>
+
+    <dt>-property=value</dt>
+    <dd>Set the named project property to the specified value.  This can be
+used to override settings in a loaded project file or to set properties in
+the default project if one is not specified.  This cannot be used to set
+collection properties.  See the following command line options for
+information on how to set them.</dd>
+
+    <dt>-assembly=assembly,comments</dt>
+    <dd>This option can be used to add an assembly and comments file to
+document.  The comments file parameter is optional if named after the
+assembly.  In that case, the project will pick it up automatically when the
+assembly name is set.  A wildcard can be used to add multiple assemblies to
+the project. If used, the comments file parameter is ignored and it is
+assumed that the comments files will have names that match the assemblies
+but with a ".xml" extension.</dd>
+
+    <dt>-comments=commentsFile</dt>
+    <dd>This option can be used to add a 'Comments only' or project/namespace
+comments file to document.  This is equivalent to adding an XML comments file
+to the project and setting the <b>CommentsOnly</b> property to true.  See
+the <a href="GUIProject/SharedSettings.html">Sharing Summary and Namespace
+Settings Between Projects</a> topic for information on how to create these
+standalone comments files.  Wildcards can be used to add multiple comments
+only files at once.</dd>
+
+    <dt>-addcontent=source,dest,exclude</dt>
+    <dd>This option can be used to add additional content to the project.
+The source path refers to the location of the files to add.  The
+destination path refers to a relative folder path under the output HTML
+folder to which the files are copied.  If the destination path is omitted,
+the content is copied to the root of the output HTML folder.  See the <a
+href="GUIProject/AddContent/AddContent.html">Additional Content
+Settings</a> topic for more information.  The <code>exclude</code> parameter
+is optional.  If specified it should be <code>true</code> or
+<code>false</code>.  False is the default.  If set to true, it indicates
+that the source path is used to specify a list of files that should be
+excluded from the additional content.  In such cases, the destination path
+is ignored.</dd>
+
+    <dt>-addcontent=source,,true</dt>
+<dd>This is similar to the <code>addcontent</code> option above but
+indicates an exclusion filespec for the additional content items.  The
+destination path parameter is ignored.</dd>
+
+    <dt>-dependency=filespec</dt>
+    <dd>This option can be used to add a wildcard, single file, or GAC
+dependency to the project.  If adding a GAC reference, it must be enclosed
+in double quotes and must be prefixed with "GAC:" in uppercase.</dd>
+
+    <dt>-component=id,config</dt>
+    <dd>This option can be used to add a component configuration override.
+The ID refers to the component ID specified in the <b>sandcastle.config</b>
+file.  The configuration is the XML configuration data to use as an override
+for the default configuration in one continuous, unencoded line of text.
+Due to the length of the component configurations, it is advisable to
+either use a project file to store the settings or use a response file for
+this command line option.  See the <a href="CompConfig/CompConfig.html">Custom
+Build Components</a> topic for more information on the build components and
+their configuration options.</dd>
+
+</dl>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 6 -->

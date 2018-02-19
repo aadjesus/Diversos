@@ -1,0 +1,89 @@
+﻿<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="DrawMeMainWindow"
+ 	x:Class="DrawMe.DrawMeWindow" 
+    Title="DrawMeWindow" Height="600" Width="800"
+    Background="#FF3B3737" Loaded="Window_Loaded" MinWidth="800" MinHeight="500">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+            <StackPanel Name="loginStackPanel" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical" Margin="10,10,20,0">
+                    <TextBlock Name="ApplicationTypeMessage" Width="120" Height="25" FontSize="10" Foreground="White" TextAlignment="Center">
+                        Waiting for connection...
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard Name="ApplicationTypeMessageStoryBoard">
+                                        <DoubleAnimation  Name="ApplicationTypeMessageAnimation"
+                                            Storyboard.TargetName="ApplicationTypeMessage" 
+                                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                                            From="1.0" To="0.0" Duration="0:0:5" 
+                                            AutoReverse="True" RepeatBehavior="Forever" 
+                                         />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <Button Name="btnLeave" Width="100" Height="20" FontSize="10" Click="btnLeave_Click">
+                        Sign Out
+                    </Button>
+                </StackPanel>
+                <TextBlock Name="AnimatedMessage" FontSize="35" FontWeight="Bold" Foreground="White" VerticalAlignment="Center">
+                    Welcome to DrawMe
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Name="BorderUsersList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" CornerRadius="8,8,8,8" Background="LightBlue" BorderThickness="4,4,4,4">
+            <ListView Name="lvUsers" Margin="10" FontSize="20">
+                <ListView.BitmapEffect>
+                    <DropShadowBitmapEffect />
+                </ListView.BitmapEffect>
+            </ListView>
+        </Border>
+
+        <Border Name="BorderEditingType" Grid.Column="1" Grid.Row="1" CornerRadius="8,8,8,8" Background="LightBlue" BorderThickness="0,4,4,4">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <RadioButton Name="rbInk" Content="Ink" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="20" IsChecked="True" 
+                                 Tag="{x:Static InkCanvasEditingMode.Ink}" Click="rbInkType_Checked">
+                    </RadioButton>
+                    <RadioButton Name="rbEraserByStroke" Content="Erase By Stroke" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="20" 
+                                 Tag="{x:Static InkCanvasEditingMode.EraseByStroke}" Click="rbInkType_Checked">
+                    </RadioButton>
+                    <RadioButton Name="rbEraserByPoint" Content="Erase By Point" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="20" 
+                                 Tag="{x:Static InkCanvasEditingMode.EraseByPoint}" Click="rbInkType_Checked">
+                    </RadioButton>
+                    <TextBlock Margin="25,0,10,0" VerticalAlignment="Center" FontSize="20" >Colour:</TextBlock>
+                    <Button Margin="0,0,0,0" Background="White" Height="28" Width="64" Click="OnSetFill">
+                        <Rectangle Width="54" Height="20" Stroke="Black" StrokeThickness="2">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding ElementName=DrawMeMainWindow, Path=FillColor}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Button>
+            </StackPanel>
+        </Border>
+
+        <Border Name="BorderInkCanvas" Grid.Column="1" Grid.Row="2" Background="LightBlue" BorderThickness="0,0,4,4" CornerRadius="8,8,8,8" >
+            <InkCanvas x:Name="inkCanv" Margin="10" Background="White" 
+                        StrokeCollected="inkCanv_StrokeCollected" StrokeErasing="inkCanv_StrokeErasing" 
+                       StrokeErased="inkCanv_StrokeErased">
+            </InkCanvas>
+        </Border>
+
+        <Canvas Name="loginCanvas" Grid.Column="1" Grid.Row="2" Width="500" Height="300" VerticalAlignment="Top" HorizontalAlignment="Center" />
+    </Grid>
+</Window>

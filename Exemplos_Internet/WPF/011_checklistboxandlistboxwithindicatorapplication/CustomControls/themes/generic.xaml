@@ -1,0 +1,203 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+    >
+
+    <Style TargetType="{x:Type local:ListBoxWithSelectedItemIndicator}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ListBoxWithSelectedItemIndicator}">
+                    <ControlTemplate.Resources>
+                        <!--this is where the default colors for the ListBox are changed-->
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="{x:Static SystemColors.ControlTextColor}" />
+                        
+                    </ControlTemplate.Resources>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            >
+
+                        <DockPanel>
+                            <!-- Hosts the selection indicator(s). -->
+                            <Grid ClipToBounds="True" DockPanel.Dock="Left" Width="{TemplateBinding IndicatorHeightWidth}" Margin="0,0,1,0">
+                                <ItemsControl x:Name="PART_IndicatorList" Focusable="False">
+                                    <!-- Host all of the selection indicators within a Canvas panel. -->
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <Canvas />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <!-- Position a selection indicator based on the offset value to which it is bound. -->
+                                    <ItemsControl.ItemContainerStyle>
+                                        <Style TargetType="ContentPresenter">
+                                            <Setter Property="Canvas.Top" Value="{Binding Path=.}" />
+                                        </Style>
+                                    </ItemsControl.ItemContainerStyle>
+
+                                    <!-- This renders a selection indicator. -->
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="{Binding Path=IndicatorHeightWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ListBoxWithSelectedItemIndicator}}}" 
+                                                  Height="{Binding Path=IndicatorHeightWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ListBoxWithSelectedItemIndicator}}}">
+
+                                                <!-- A lightweight drop shadow under the selection indicator. -->
+                                                <Path Fill="LightGray" Stretch="Uniform" Data="M4,4 L16,10 L4,16 z" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True">
+                                                    <Path.RenderTransform>
+                                                        <TransformGroup>
+                                                            <TranslateTransform X="2" Y="2"/>
+                                                        </TransformGroup>
+                                                    </Path.RenderTransform>
+                                                </Path>
+
+                                                <!-- The selection indicator itself. -->
+                                                <Path Fill="{Binding Path=IndicatorBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ListBoxWithSelectedItemIndicator}}}" Stretch="Uniform" Data="M2,2 L14,8 L2,14 z" SnapsToDevicePixels="True"/>
+
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+
+                            <!-- Here is our users list box-->
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+
+                        </DockPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:CheckListBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CheckListBox}">
+                    <ControlTemplate.Resources>
+                        <!--this is where the default colors for the ListBox are changed-->
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="{x:Static SystemColors.ControlTextColor}" />
+
+                        <!--this below code is required because I provided an edited CheckBox control template for our control.
+                            I needed this because I wanted to change the CheckBox Bullet and allow the developer to customize it.
+                        -->
+                        <SolidColorBrush x:Key="CheckBoxFillNormal" Color="#F4F4F4"/>
+                        <SolidColorBrush x:Key="CheckBoxStroke" Color="#8E8F8F"/>
+                        <Style x:Key="EmptyCheckBoxFocusVisual">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Rectangle SnapsToDevicePixels="true" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="1"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <Style x:Key="CheckRadioFocusVisual">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Rectangle SnapsToDevicePixels="true" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="14,0,0,0"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>                        
+                        
+                        <Style TargetType="{x:Type CheckBox}">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            <Setter Property="Background" Value="{StaticResource CheckBoxFillNormal}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource CheckBoxStroke}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource EmptyCheckBoxFocusVisual}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                                        <BulletDecorator SnapsToDevicePixels="true" Background="Transparent">
+                                            <BulletDecorator.Bullet>
+                                                <!-- I swapped out the default Bullet with the one from the simple controls CheckBox because I liked it better
+                                                     The added two dependency properties I could bind to, giving the developer the option to customize without editing the template.  
+                                                     You can do anything you want because it's WPF and your the programmer!-->
+                                                <Grid Width="{Binding Path=CheckHeightWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CheckListBox}}}" Height="{Binding Path=CheckHeightWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CheckListBox}}}" >
+                                                    <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                                                    <Path Stretch="Fill" x:Name="CheckMark" Stroke="{Binding Path=CheckBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CheckListBox}}}" StrokeThickness="{Binding Path=CheckBrushStrokeThickness, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CheckListBox}}}" SnapsToDevicePixels="False" Data="M 0 0 L 13 13 M 0 13 L 13 0"/>
+                                                </Grid>
+                                            </BulletDecorator.Bullet>
+
+                                            <!-- this is not required because we are not showing any text with the CheckBox, you can put it back in if you want-->
+                                            <!--
+                                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                                            -->
+                                        </BulletDecorator>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsChecked" Value="false">
+                                                <Setter Property="Visibility" Value="Collapsed" TargetName="CheckMark"/>
+                                            </Trigger>
+                                            <Trigger Property="HasContent" Value="true">
+                                                <Setter Property="FocusVisualStyle" Value="{StaticResource CheckRadioFocusVisual}"/>
+                                                <Setter Property="Padding" Value="4,0,0,0"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ControlTemplate.Resources>
+
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            >
+
+                        <DockPanel>
+                            <!-- Hosts the selection indicator(s). -->
+                            <Grid ClipToBounds="True" DockPanel.Dock="Left" Margin="0,0,5,0" Width="{Binding Path=CheckHeightWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CheckListBox}}}">
+                                <ItemsControl x:Name="PART_IndicatorList" Focusable="False">
+                                    <!-- Host all of the selection indicators within a Canvas panel. -->
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <Canvas />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <!-- Position a selection indicator based on the offset value to which it is bound. -->
+                                    <ItemsControl.ItemContainerStyle>
+                                        <Style TargetType="ContentPresenter">
+                                            <Setter Property="Canvas.Top" Value="{Binding Path=Offset}" />
+                                        </Style>
+                                    </ItemsControl.ItemContainerStyle>
+
+                                    <!-- This renders a selection indicator. -->
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="Auto" Height="Auto">
+                                                <!--this CheckBox uses the style we defined above where the control template was edited-->
+                                                <CheckBox HorizontalAlignment="Left" IsThreeState="False" VerticalAlignment="Center" IsChecked="{Binding Path=IsSelected}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+
+                            <!-- Here is our users list box-->
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+
+                        </DockPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
+

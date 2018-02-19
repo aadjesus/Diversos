@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="VirtualDreams.TouchReader.Trash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="200"
+             Width="200">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Resources/Images/trash.png"
+                    Opacity="0.8" />
+    </UserControl.Background>
+</UserControl>

@@ -1,0 +1,78 @@
+﻿<Window x:Class="NotesListBoxTest.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:notes="clr-namespace:NotesListBox;assembly=NotesListBox" 
+    xmlns:local="clr-namespace:NotesListBoxTest;assembly=" 
+    Title="Window1" Height="450" Width="650" 
+    MinHeight="450" MinWidth="650"
+    WindowState="Maximized" WindowStartupLocation="CenterScreen">
+
+
+    <Window.Resources>
+
+        <!-- Person template -->
+        <DataTemplate DataType="{x:Type local:Person}">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Fill="#ff333333" Width="10" Height="10" VerticalAlignment="Center"/>
+                <TextBlock Margin="10" VerticalAlignment="Center" Foreground="#ff333333"
+                               Text="{Binding PersonId}"></TextBlock>
+
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- Note template -->
+        <DataTemplate DataType="{x:Type notes:Note}">
+            <Border Margin="10" CornerRadius="5"  Background="#ff333333"
+                    BorderThickness="2" BorderBrush="Black">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/pin.png" Width="18" Height="25" 
+                           Margin="10,0,0,0"
+                           VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                        <TextBlock Margin="5" VerticalAlignment="Center"
+                                   Foreground="Orange"
+                                   Text="{Binding DateCreated}"></TextBlock>
+                        <TextBlock Margin="5" VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Text="{Binding Data}"></TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+
+    </Window.Resources>
+    
+    
+
+        
+        <Grid>
+            
+        
+            <!-- Here is the actual content-->
+            <DockPanel LastChildFill="True" Background="#ff595959">
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Top" Background="#ff333333" Margin="0" Height="60">
+                    <Label FontSize="20" FontWeight="Bold" Content="NotesListBox" Foreground="White"/>
+                    <Label FontSize="10" FontWeight="Bold" Content="A listbox that shows editable notes in the AdornerLayer" Foreground="White"/>
+                </StackPanel>
+                <ListBox Margin="0" x:Name="lstPeople" DockPanel.Dock="Left" Background="#ff595959"
+                          BorderBrush="Transparent" BorderThickness="0"  Foreground="#ff333333" FontWeight="Bold" MinWidth="150" MaxWidth="150"
+                          FocusVisualStyle="{x:Null}" SelectionChanged="lstPeople_SelectionChanged">
+                </ListBox>
+
+                <ItemsControl Margin="20,0,20,0" x:Name="lstNotesForPerson" Background="#ff595959"
+                          BorderBrush="Transparent" BorderThickness="0"  Foreground="White" FontWeight="Bold"
+                          FocusVisualStyle="{x:Null}" ItemsSource="{Binding ElementName=lstPeople, Path=SelectedItem.Notes}">
+                </ItemsControl>
+
+            </DockPanel>
+
+        <!-- Here is my custom AdornerDecorator-->
+        <notes:NotesAdornerDecorator x:Name="notesAdornerDecorator"/>                                     
+
+
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,137 @@
+﻿<!--revision $Id: MainWindow.xaml 19239 2009-03-22 05:52:22Z unknown $-->
+<Window x:Class="CurveChartControlSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+    xmlns:ctrls="clr-namespace:OpenWPFChart.Controls;assembly=OpenWPFChart.Controls"
+	xmlns:local="clr-namespace:CurveChartControlSample"
+	Name="mainWindow"
+    Title="CurveChart Control Sample" MinWidth="300" MinHeight="300" SizeToContent="WidthAndHeight">
+
+	<Window.InputBindings>
+		<KeyBinding Key="Add" Modifiers="Control" CommandParameter="1.2" Command="NavigationCommands.Zoom" />
+		<KeyBinding Key="Subtract" Modifiers="Control" CommandParameter="-1.2" Command="NavigationCommands.Zoom" />
+	</Window.InputBindings>
+	<Window.CommandBindings>
+		<CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommandHandler"/>
+		<CommandBinding Command="NavigationCommands.Zoom" Executed="ZoomCommandHandler"/>
+		<CommandBinding Command="ApplicationCommands.Properties" Executed="PropertiesExecutedCommandHandler"
+						CanExecute="PropertiesCanExecuteCommandHandler"/>
+	</Window.CommandBindings>
+
+	<Window.Resources>
+		<ContextMenu x:Key="chartItemCtxMnu">
+			<MenuItem Header="Properties" Command="ApplicationCommands.Properties"/>
+		</ContextMenu>
+
+		<!--<Style x:Key="{x:Static SystemParameters.FocusVisualStyleKey}">-->
+		<Style x:Key="ChartFocusedStyle">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle StrokeThickness="2" Stroke="DarkGray" StrokeDashArray="2,2"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		
+		<Style TargetType="{x:Type ctrls:CurveChart}">
+			<Setter Property="BorderBrush" Value="Cornsilk"/>
+			<Setter Property="BorderThickness" Value="5"/>
+			<!--<Style.Triggers>
+				<Trigger Property="IsFocused" Value="True">
+					<Setter Property="BorderBrush" Value="Blue"/>
+				</Trigger>
+			</Style.Triggers>-->
+		</Style>
+
+		<local:ItemCountToBoolConverter x:Key="ItemCountToBool"/>
+		<local:ItemCountToVisibilityConverter x:Key="ItemCountToVisibility"/>
+	</Window.Resources>
+
+	<DockPanel>
+		<!-- Menu -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Header="Open _Curves" Command="Open"/>
+				<MenuItem Header="Open _Columns" Command="Open" CommandParameter="Columns"/>
+				<Separator/>
+				<MenuItem Header="_Recent Files" Name="mnuRecentFiles"/>
+				<Separator/>
+				<MenuItem Header="_Exit" Click="Exit_Click"/>
+			</MenuItem>
+			<MenuItem Header="_View" IsEnabled="{Binding ElementName=chart, Path=Items.Count,
+				Converter={StaticResource ItemCountToBool}}">
+				<MenuItem Header="_Horizontal Axis Properties" Name="hAxisPropertiesMnuItem" Click="mnuViewAxisProperties_Click"/>
+				<MenuItem Header="_Vertical Axis Properties" Name="vAxisPropertiesMnuItem" Click="mnuViewAxisProperties_Click"/>
+				<Separator/>
+				<MenuItem Header="Swap Horizontal Scale"
+						  Command="{Binding ElementName=mainWindow, Path=SwapLinLogScaleCommand}"/>
+				<MenuItem Header="Swap Vertical Scale"
+						  Command="{Binding ElementName=mainWindow, Path=SwapLinLogScaleCommand}"
+						  CommandParameter="Vertical"/>
+				<Separator/>
+				<MenuItem Header="_Interpolator">
+					<MenuItem Header="_Polyline" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Bezier" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Spline" Click="mnuViewInterpolator_Click"/>
+				</MenuItem>
+				<Separator/>
+				<MenuItem Header="Zoom_In (Ctrl+NumPad+)" Command="Zoom" CommandParameter="1.2"/>
+				<MenuItem Header="Zoom_Out (Ctrl+NumPad-)" Command="Zoom" CommandParameter="-1.2"/>
+			</MenuItem>
+		</Menu>
+
+		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+			<Grid ShowGridLines="False">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				
+				<!-- Chart -->
+				<ctrls:CurveChart Name="chart"
+					parts:Item.MouseEnterItem="chartItem_EnterItem"
+					parts:Item.MouseLeaveItem="chartItem_LeaveItem"
+					IsSynchronizedWithCurrentItem="True"
+					ContextMenu="{StaticResource chartItemCtxMnu}"
+					Padding="3"
+					parts:Axis.FontWeight="Bold"
+					SnapsToDevicePixels="true" 
+					FocusVisualStyle="{DynamicResource ChartFocusedStyle}" >
+					
+					<parts:Axis.Pen>
+						<Pen Brush="Green" Thickness="1"/>
+					</parts:Axis.Pen>
+					<parts:Grid.Pen>
+						<Pen Brush="Green" Thickness="0.3">
+							<Pen.DashStyle>
+								<DashStyle Dashes="8,10,0,2"/>
+							</Pen.DashStyle>
+						</Pen>
+					</parts:Grid.Pen>
+
+					<ctrls:CurveChart.HorizontalScale>
+						<parts:ChartLinearScale Start="0" Stop="260" TickStep="10"/>
+					</ctrls:CurveChart.HorizontalScale>
+					<ctrls:CurveChart.VerticalScale>
+						<parts:ChartLinearScale Start="0" Stop="250" TickStep="10"/>
+					</ctrls:CurveChart.VerticalScale>
+				</ctrls:CurveChart>
+				
+				<!-- Legend -->
+				<ctrls:ChartLegend
+					Margin="20" HorizontalAlignment="Right" VerticalAlignment="Top"
+					ItemsSource="{Binding ElementName=chart, Path=ItemsSource}"
+					SelectedItem="{Binding ElementName=chart, Path=SelectedItem}"
+					IsSynchronizedWithCurrentItem="True"
+					Visibility="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count,
+						Converter={StaticResource ItemCountToVisibility}}"
+					BorderBrush="LightGreen" BorderThickness="5" CornerRadius="5" Background="White"
+				/>
+			</Grid>
+		</ScrollViewer>
+	</DockPanel>
+</Window>

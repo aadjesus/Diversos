@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EnviarSMS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EnviarSMS_GFO_GestaoDeFrotaOnLineWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.1.1.237:8082/wsGlobus5/GestaoDeFrotaOnlineWS.asmx</Value>
+    </Setting>
+    <Setting Name="EnviarSMS_human_Sms_BindingImplService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://system.human.com.br/GatewayIntegration/services/Sms</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

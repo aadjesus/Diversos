@@ -1,0 +1,99 @@
+<!-- ================================================================
+      RectangularTriangulatedBrush1.xaml (c) 2007 by Charles Petzold
+     ================================================================ -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Rectangular Triangulated Brush (#1)"
+      Title="Rectangular Triangulated Brush (#1)">
+
+    <Page.Resources>
+        <Style TargetType="Line">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+        </Style> 
+    </Page.Resources>
+
+    <Canvas RenderTransform="1 0 0 1 96 96">
+        <Rectangle StrokeLineJoin="Round"
+                   Fill="LightGray" Stroke="Black" Width="384" Height="192" />
+
+        <Line X1="16" Y1="0" X2="16" Y2="192" />       
+        <Line X1="32" Y1="0" X2="32" Y2="192" />       
+        <Line X1="48" Y1="0" X2="48" Y2="192" />       
+        <Line X1="64" Y1="0" X2="64" Y2="192" />       
+        <Line X1="80" Y1="0" X2="80" Y2="192" />       
+        <Line X1="96" Y1="0" X2="96" Y2="192" />       
+        <Line X1="112" Y1="0" X2="112" Y2="192" />       
+        <Line X1="128" Y1="0" X2="128" Y2="192" />       
+        <Line X1="144" Y1="0" X2="144" Y2="192" />       
+        <Line X1="160" Y1="0" X2="160" Y2="192" />       
+        <Line X1="176" Y1="0" X2="176" Y2="192" />       
+        <Line X1="192" Y1="0" X2="192" Y2="192" />       
+        <Line X1="208" Y1="0" X2="208" Y2="192" />       
+        <Line X1="224" Y1="0" X2="224" Y2="192" />       
+        <Line X1="240" Y1="0" X2="240" Y2="192" />       
+        <Line X1="256" Y1="0" X2="256" Y2="192" />       
+        <Line X1="272" Y1="0" X2="272" Y2="192" />       
+        <Line X1="288" Y1="0" X2="288" Y2="192" />       
+        <Line X1="304" Y1="0" X2="304" Y2="192" />       
+        <Line X1="320" Y1="0" X2="320" Y2="192" />       
+        <Line X1="336" Y1="0" X2="336" Y2="192" />       
+        <Line X1="352" Y1="0" X2="352" Y2="192" />       
+        <Line X1="368" Y1="0" X2="368" Y2="192" />       
+
+        <Line X1="0" Y1="16" X2="384" Y2="16" />
+        <Line X1="0" Y1="32" X2="384" Y2="32" />
+        <Line X1="0" Y1="48" X2="384" Y2="48" />
+        <Line X1="0" Y1="64" X2="384" Y2="64" />
+        <Line X1="0" Y1="80" X2="384" Y2="80" />
+        <Line X1="0" Y1="96" X2="384" Y2="96" />
+        <Line X1="0" Y1="112" X2="384" Y2="112" />
+        <Line X1="0" Y1="128" X2="384" Y2="128" />
+        <Line X1="0" Y1="144" X2="384" Y2="144" />
+        <Line X1="0" Y1="160" X2="384" Y2="160" />
+        <Line X1="0" Y1="176" X2="384" Y2="176" />
+
+        <Line X1="0" Y1="16" X2="16" Y2="0" />
+        <Line X1="0" Y1="32" X2="32" Y2="0" />
+        <Line X1="0" Y1="48" X2="48" Y2="0" />
+        <Line X1="0" Y1="64" X2="64" Y2="0" />
+        <Line X1="0" Y1="80" X2="80" Y2="0" />
+        <Line X1="0" Y1="96" X2="96" Y2="0" />
+        <Line X1="0" Y1="112" X2="112" Y2="0" />
+        <Line X1="0" Y1="128" X2="128" Y2="0" />
+        <Line X1="0" Y1="144" X2="144" Y2="0" />
+        <Line X1="0" Y1="160" X2="160" Y2="0" />
+        <Line X1="0" Y1="176" X2="176" Y2="0" />
+        <Line X1="0" Y1="192" X2="192" Y2="0" />
+        <Line X1="16" Y1="192" X2="208" Y2="0" />
+        <Line X1="32" Y1="192" X2="224" Y2="0" />
+        <Line X1="48" Y1="192" X2="240" Y2="0" />
+        <Line X1="64" Y1="192" X2="256" Y2="0" />
+        <Line X1="80" Y1="192" X2="272" Y2="0" />
+        <Line X1="96" Y1="192" X2="288" Y2="0" />
+        <Line X1="112" Y1="192" X2="304" Y2="0" />
+        <Line X1="128" Y1="192" X2="320" Y2="0" />
+        <Line X1="144" Y1="192" X2="336" Y2="0" />
+        <Line X1="160" Y1="192" X2="352" Y2="0" />
+        <Line X1="176" Y1="192" X2="368" Y2="0" />
+        <Line X1="192" Y1="192" X2="384" Y2="0" />
+        <Line X1="208" Y1="192" X2="384" Y2="16" />
+        <Line X1="224" Y1="192" X2="384" Y2="32" />
+        <Line X1="240" Y1="192" X2="384" Y2="48" />
+        <Line X1="256" Y1="192" X2="384" Y2="64" />
+        <Line X1="272" Y1="192" X2="384" Y2="80" />
+        <Line X1="288" Y1="192" X2="384" Y2="96" />
+        <Line X1="304" Y1="192" X2="384" Y2="112" />
+        <Line X1="320" Y1="192" X2="384" Y2="128" />
+        <Line X1="336" Y1="192" X2="384" Y2="144" />
+        <Line X1="352" Y1="192" X2="384" Y2="160" />
+        <Line X1="368" Y1="192" X2="384" Y2="176" />
+
+        <TextBlock Text="0" Canvas.Left="-10" Canvas.Top="-9" />
+        <TextBlock Text="slices+1" Canvas.Left="-46" Canvas.Top="7" />
+        <TextBlock Text="2*(slices+1)" Canvas.Left="-65" Canvas.Top="23" />
+        <TextBlock Text="3*(slices+1)" Canvas.Left="-65" Canvas.Top="39" />
+        <TextBlock Text="..." Canvas.Left="-15" Canvas.Top="52" />
+    </Canvas>
+</Page>

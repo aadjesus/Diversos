@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="UrlsList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;http://www.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://medical-dictionary.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://legal-dictionary.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://financial-dictionary.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://acronyms.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://idioms.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://encyclopedia2.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://encyclopedia.thefreedictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://www.m-w.com/dictionary/,true&lt;/string&gt;
+  &lt;string&gt;http://www.freedictionary.org/search/,true&lt;/string&gt;
+  &lt;string&gt;http://www.yourdictionary.com/,true&lt;/string&gt;
+  &lt;string&gt;http://en.wikipedia.org/wiki/,true&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

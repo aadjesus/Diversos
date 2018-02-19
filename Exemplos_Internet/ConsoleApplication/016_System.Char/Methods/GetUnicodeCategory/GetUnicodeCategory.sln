@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetUnicodeCategory00", "GetUnicodeCategory00\GetUnicodeCategory00.csproj", "{20970AEF-409A-4CD7-98C7-AD0EA5BB637F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20970AEF-409A-4CD7-98C7-AD0EA5BB637F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20970AEF-409A-4CD7-98C7-AD0EA5BB637F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20970AEF-409A-4CD7-98C7-AD0EA5BB637F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20970AEF-409A-4CD7-98C7-AD0EA5BB637F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

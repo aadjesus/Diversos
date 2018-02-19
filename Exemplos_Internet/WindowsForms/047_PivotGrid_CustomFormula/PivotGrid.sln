@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PivotGrid", "PivotGrid\PivotGrid.csproj", "{35FB8FB8-4222-42BB-843C-472269FCAADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35FB8FB8-4222-42BB-843C-472269FCAADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FB8FB8-4222-42BB-843C-472269FCAADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FB8FB8-4222-42BB-843C-472269FCAADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FB8FB8-4222-42BB-843C-472269FCAADA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

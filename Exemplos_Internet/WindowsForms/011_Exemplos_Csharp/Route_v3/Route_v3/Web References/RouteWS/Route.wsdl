@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservices.maplink2.com.br" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webservices.maplink2.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservices.maplink2.com.br">
+      <s:element name="getRouteTotals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="tns:ArrayOfRouteStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRouteStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RouteStop" type="tns:RouteStop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Point">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="routeDetails" type="tns:RouteDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="vehicle" type="tns:Vehicle" />
+          <s:element minOccurs="0" maxOccurs="1" name="routeLine" type="tns:ArrayOfRouteLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="descriptionType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="routeType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="optimizeRoute" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="poiRoute" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="barriersList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="barrierPoints" type="tns:ArrayOfPoint" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Point" type="tns:Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Vehicle">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="tankCapacity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="averageConsumption" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="fuelPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="averageSpeed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tollFeeCat" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRouteLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RouteLine" type="tns:RouteLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteLine">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RGB" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="transparency" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRouteTotalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getRouteTotalsResult" type="tns:RouteTotals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RouteTotals">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="totalDistance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="totalTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalFuelUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="totaltollFeeCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalfuelCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="taxiFare1" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="taxiFare2" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRouteTotalsBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ra" type="tns:ArrayOfRouteArray" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRouteArray">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RouteArray" type="tns:RouteArray" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteArray">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Origin" type="tns:RouteStop" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dest" type="tns:RouteStop" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRouteTotalsBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRouteTotalsBatchResult" type="tns:ArrayOfRouteTotals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRouteTotals">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RouteTotals" type="tns:RouteTotals" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRoute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="tns:ArrayOfRouteStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getRouteResult" type="tns:RouteInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RouteInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MapInfo" type="tns:MapInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="segDescription" type="tns:ArrayOfSegmentDescription" />
+          <s:element minOccurs="1" maxOccurs="1" name="routeTotals" type="tns:RouteTotals" />
+          <s:element minOccurs="0" maxOccurs="1" name="routeSummary" type="tns:ArrayOfRouteSummary" />
+          <s:element minOccurs="1" maxOccurs="1" name="roadType" type="tns:RoadType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MapInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="extent" type="tns:Extent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Extent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="XMin" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="YMin" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="XMax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="YMax" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSegmentDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SegmentDescription" type="tns:SegmentDescription" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SegmentDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="command" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="poiRoute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="poiRouteDetails" type="tns:ArrayOfPOIDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+          <s:element minOccurs="0" maxOccurs="1" name="tollFee" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tollFeeDetails" type="tns:TollFeeDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="roadType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="distance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="cumulativeDistance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPOIDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="POIDetails" type="tns:POIDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="POIDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addressInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="City">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TollFeeDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="direction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="concession" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="pricePerAxle" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRouteSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RouteSummary" type="tns:RouteSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RouteSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="distance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RoadType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="twoLaneHighway" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="secondLaneUnderConstruction" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="oneLaneRoadway" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="pavingWorkInProgress" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="dirtRoad" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="roadwayInPoorConditions" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ferry" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRouteSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="tns:ArrayOfRouteStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRouteSummaryResult" type="tns:ArrayOfRouteSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="tns:ArrayOfRouteStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRouteDescriptionResult" type="tns:ArrayOfSegmentDescription" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteWithMap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rs" type="tns:ArrayOfRouteStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="ro" type="tns:RouteOptions" />
+            <s:element minOccurs="1" maxOccurs="1" name="mo" type="tns:MapOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MapOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="scaleBar" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="mapSize" type="tns:MapSize" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MapSize">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRouteWithMapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getRouteWithMapResult" type="tns:RouteInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getRouteTotalsSoapIn">
+    <wsdl:part name="parameters" element="tns:getRouteTotals" />
+  </wsdl:message>
+  <wsdl:message name="getRouteTotalsSoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteTotalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRouteTotalsBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRouteTotalsBatch" />
+  </wsdl:message>
+  <wsdl:message name="GetRouteTotalsBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRouteTotalsBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteSoapIn">
+    <wsdl:part name="parameters" element="tns:getRoute" />
+  </wsdl:message>
+  <wsdl:message name="getRouteSoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:getRouteSummary" />
+  </wsdl:message>
+  <wsdl:message name="getRouteSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:getRouteDescription" />
+  </wsdl:message>
+  <wsdl:message name="getRouteDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteWithMapSoapIn">
+    <wsdl:part name="parameters" element="tns:getRouteWithMap" />
+  </wsdl:message>
+  <wsdl:message name="getRouteWithMapSoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteWithMapResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RouteSoap">
+    <wsdl:operation name="getRouteTotals">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Calcula os totais da rota informada.</wsdl:documentation>
+      <wsdl:input message="tns:getRouteTotalsSoapIn" />
+      <wsdl:output message="tns:getRouteTotalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteTotalsBatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Calcula os totais das rotas informadas no array.</wsdl:documentation>
+      <wsdl:input message="tns:GetRouteTotalsBatchSoapIn" />
+      <wsdl:output message="tns:GetRouteTotalsBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRoute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna a rota entre os pontos informados.</wsdl:documentation>
+      <wsdl:input message="tns:getRouteSoapIn" />
+      <wsdl:output message="tns:getRouteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouteSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gera o resumo da rota.</wsdl:documentation>
+      <wsdl:input message="tns:getRouteSummarySoapIn" />
+      <wsdl:output message="tns:getRouteSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouteDescription">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gera a descrição da rota.</wsdl:documentation>
+      <wsdl:input message="tns:getRouteDescriptionSoapIn" />
+      <wsdl:output message="tns:getRouteDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouteWithMap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Calcula a rota e gera a imagem do mapa.</wsdl:documentation>
+      <wsdl:input message="tns:getRouteWithMapSoapIn" />
+      <wsdl:output message="tns:getRouteWithMapSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RouteSoap" type="tns:RouteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRouteTotals">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getRouteTotals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteTotalsBatch">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/GetRouteTotalsBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoute">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteSummary">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getRouteSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteDescription">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getRouteDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteWithMap">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getRouteWithMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RouteSoap12" type="tns:RouteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRouteTotals">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getRouteTotals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteTotalsBatch">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/GetRouteTotalsBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoute">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getRoute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteSummary">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getRouteSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteDescription">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getRouteDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteWithMap">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getRouteWithMap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Route">
+    <wsdl:port name="RouteSoap" binding="tns:RouteSoap">
+      <soap:address location="http://teste.webservices.maplink2.com.br/webservices/v3/Route/Route.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RouteSoap12" binding="tns:RouteSoap12">
+      <soap12:address location="http://teste.webservices.maplink2.com.br/webservices/v3/Route/Route.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

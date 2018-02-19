@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Article", "Article", "{31807A4A-DADE-4A63-BD6E-BFE51CACA3DF}"
+	ProjectSection(SolutionItems) = preProject
+		Article\PropertyGridEx.html = Article\PropertyGridEx.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "codeproject_template", "codeproject_template", "{ACAC4A37-0957-4323-A009-446B0B3C21B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "href.Controls", "href.controls\href.Controls.csproj", "{D8041984-1823-4672-9B6E-3E99AB6A3A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropGridExTest", "PropGirdExTest\PropGridExTest.csproj", "{151F685F-C93E-433D-A9DB-CC87AA3FF346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8041984-1823-4672-9B6E-3E99AB6A3A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8041984-1823-4672-9B6E-3E99AB6A3A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8041984-1823-4672-9B6E-3E99AB6A3A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8041984-1823-4672-9B6E-3E99AB6A3A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151F685F-C93E-433D-A9DB-CC87AA3FF346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151F685F-C93E-433D-A9DB-CC87AA3FF346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151F685F-C93E-433D-A9DB-CC87AA3FF346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151F685F-C93E-433D-A9DB-CC87AA3FF346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACAC4A37-0957-4323-A009-446B0B3C21B4} = {31807A4A-DADE-4A63-BD6E-BFE51CACA3DF}
+	EndGlobalSection
+EndGlobal

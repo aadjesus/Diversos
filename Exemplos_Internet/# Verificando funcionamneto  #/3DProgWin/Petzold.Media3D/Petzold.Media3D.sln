@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petzold.Media3D", "Petzold.Media3D\Petzold.Media3D.csproj", "{BEBED159-4DB6-4550-8342-7F3607177B71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{8768F5C2-68E4-4399-BB41-112601205D54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEBED159-4DB6-4550-8342-7F3607177B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEBED159-4DB6-4550-8342-7F3607177B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEBED159-4DB6-4550-8342-7F3607177B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEBED159-4DB6-4550-8342-7F3607177B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8768F5C2-68E4-4399-BB41-112601205D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8768F5C2-68E4-4399-BB41-112601205D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8768F5C2-68E4-4399-BB41-112601205D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8768F5C2-68E4-4399-BB41-112601205D54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

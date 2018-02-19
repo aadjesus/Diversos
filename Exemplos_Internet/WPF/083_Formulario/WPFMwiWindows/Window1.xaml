@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPFMwiWindows.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Control="clr-namespace:WPFMwiWindows.Controls" 
+    xmlns:Win="clr-namespace:WPFMwiWindows" 
+  xmlns:local="clr-namespace:WPFControls;assembly=WPFControls"
+    Title="WPFMwiWindows" Height="600" Width="600"
+    >
+  <DockPanel>    
+    <Menu DockPanel.Dock="Top" >
+      <MenuItem Header="_File" >
+        <MenuItem Header="New" >
+          <MenuItem Header="Window" Command="ApplicationCommands.New" />
+        </MenuItem>
+        <Separator />
+        <MenuItem Header="Exit" Command="ApplicationCommands.Close" />
+      </MenuItem>
+      <MenuItem Header="_View" >
+        <MenuItem Header="Arrange" >
+          <MenuItem Header="Cascade" Command="Control:MwiWindow.Cascade" />
+          <MenuItem Header="Tile" Command="Control:MwiWindow.Tile" />
+          <MenuItem Header="Vertical" Command="Control:MwiWindow.TileVertically" />
+          <MenuItem Header="Horizontal" Command="Control:MwiWindow.TileHorizontally" />
+        </MenuItem>        
+        <local:MenuItems IsCheckable="True" HeaderBindingPath="ShortTitle" IsCheckedBindingPath="IsSelected" 
+                       ItemsSource="{Binding ElementName=gMwiWindow, Path=AttachedChildren}"
+                       TopSeparatorVisibility="Visible" />
+      </MenuItem>      
+    </Menu>
+    <Canvas Background="Transparent" x:Name="MyCanvas" DockPanel.Dock="Top">
+      <Control:MwiWindow x:Name="gMwiWindow" 
+                         Width="{Binding ElementName=MyCanvas, Path=ActualWidth}" 
+                         Height="{Binding ElementName=MyCanvas, Path=ActualHeight}"
+                         Background="Gray" >
+        <Control:MwiWindow.Children>
+          <Control:MwiChild Background="DarkGray" BorderBrush="Black" Icon="pack://application:,,,/Resources/app.ico" 
+                            Width="300" Height="300" Title="Hello World 1" 
+                            Canvas.Left="0" Canvas.Top="0" >
+            <Grid Background="Blue" >
+              <TextBox Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" 
+                       Background="Yellow" Height="24" IsEnabled="True" />
+            </Grid>
+          </Control:MwiChild>
+          <Control:MwiChild Background="Green" BorderBrush="Green" Icon="pack://application:,,,/Resources/app.ico"  
+                            Width="300" Height="300" Title="Hello World 2" 
+                            Canvas.Left="200" Canvas.Top="200" >
+            <local:WPFSQLGrid />
+          </Control:MwiChild>            
+        </Control:MwiWindow.Children>
+      </Control:MwiWindow>
+    </Canvas>
+  </DockPanel>
+</Window>

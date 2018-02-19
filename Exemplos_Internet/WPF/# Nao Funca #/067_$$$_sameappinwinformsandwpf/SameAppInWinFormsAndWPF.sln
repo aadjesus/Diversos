@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{33BAE48F-EC41-4960-8EE5-42F9A34F5A8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{2F376C0F-CF46-4BAC-8204-2216CCA5E62C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{C19A9BA7-A5A4-4D8B-B71E-8BC04E9AA251}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33BAE48F-EC41-4960-8EE5-42F9A34F5A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33BAE48F-EC41-4960-8EE5-42F9A34F5A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33BAE48F-EC41-4960-8EE5-42F9A34F5A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33BAE48F-EC41-4960-8EE5-42F9A34F5A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F376C0F-CF46-4BAC-8204-2216CCA5E62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F376C0F-CF46-4BAC-8204-2216CCA5E62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F376C0F-CF46-4BAC-8204-2216CCA5E62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F376C0F-CF46-4BAC-8204-2216CCA5E62C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19A9BA7-A5A4-4D8B-B71E-8BC04E9AA251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19A9BA7-A5A4-4D8B-B71E-8BC04E9AA251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19A9BA7-A5A4-4D8B-B71E-8BC04E9AA251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19A9BA7-A5A4-4D8B-B71E-8BC04E9AA251}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

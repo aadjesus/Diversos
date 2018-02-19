@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_DBService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:52878/DBService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_DBService" contract="wcfService.DBService"
+                name="CustomBinding_DBService" />
+        </client>
+    </system.serviceModel>
+</configuration>

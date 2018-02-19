@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LibraryInformation" targetNamespace="http://tempuri.org/LibraryInformation.xsd" xmlns:mstns="http://tempuri.org/LibraryInformation.xsd" xmlns="http://tempuri.org/LibraryInformation.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LibraryInformation" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="LibraryInformation" msprop:Generator_DataSetName="LibraryInformation">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableTracks" msprop:Generator_UserTableName="DataTableTracks" msprop:Generator_RowDeletedName="DataTableTracksRowDeleted" msprop:Generator_TableClassName="DataTableTracksDataTable" msprop:Generator_RowChangedName="DataTableTracksRowChanged" msprop:Generator_RowClassName="DataTableTracksRow" msprop:Generator_RowChangingName="DataTableTracksRowChanging" msprop:Generator_RowEvArgName="DataTableTracksRowChangeEvent" msprop:Generator_RowEvHandlerName="DataTableTracksRowChangeEventHandler" msprop:Generator_TablePropName="DataTableTracks" msprop:Generator_TableVarName="tableDataTableTracks" msprop:Generator_RowDeletingName="DataTableTracksRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInTable="TitleColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Artist" msprop:Generator_UserColumnName="Artist" msprop:Generator_ColumnPropNameInRow="Artist" msprop:Generator_ColumnVarNameInTable="columnArtist" msprop:Generator_ColumnPropNameInTable="ArtistColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Album" msprop:Generator_UserColumnName="Album" msprop:Generator_ColumnPropNameInRow="Album" msprop:Generator_ColumnVarNameInTable="columnAlbum" msprop:Generator_ColumnPropNameInTable="AlbumColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Genre" msprop:Generator_UserColumnName="Genre" msprop:Generator_ColumnPropNameInRow="Genre" msprop:Generator_ColumnVarNameInTable="columnGenre" msprop:Generator_ColumnPropNameInTable="GenreColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInTable="YearColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Filename" msprop:Generator_UserColumnName="Filename" msprop:Generator_ColumnPropNameInRow="Filename" msprop:Generator_ColumnVarNameInTable="columnFilename" msprop:Generator_ColumnPropNameInTable="FilenameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Path" msprop:Generator_UserColumnName="Path" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInTable="PathColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

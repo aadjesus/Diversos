@@ -1,0 +1,3217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bgmrodotec.com.br/globus5/frota" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://bgmrodotec.com.br/globus5/frota" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bgmrodotec.com.br/globus5/frota">
+      <s:element name="RetornarExigenciasDoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clienteDTO" type="tns:ClienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="veiculos" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClienteDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodCli" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NrCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodTpReceita" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UfCobrancaCli" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodOperFiscal" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoUf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodClassFisc" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="RSocialCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NFantasiaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EnderecoCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BairroCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CidadeCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CepCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TelefoneCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FaxCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HomepageCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmailCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TpInscricaoCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NrInscricaoCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InscEstadualCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InscMunicipalCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContatoCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObservacaoCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RSCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BairroCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CidadeCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CepCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TpInscCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NrInscCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InscEstadualCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CondicaoCli" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataUltimoMovtoCli" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="CondRecebCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCli" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CtoLocalidade" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCobranca" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoFatura" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocalColeta" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BancoFat" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AgenciaFat" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContaFat" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ClienteFat" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmiteAPrazo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VariaNfCtrc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FreteDirigido" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MicroEmpresa" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercDescFat" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="Protestar" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataCadastro" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataAlteracao" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataIntegracao" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CdContrato" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DtCancCred" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DtReabCred" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DiaVencimento" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IcmsEmbutido" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataUltTransp" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContribuinteIcms" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="VlrLimiteCompraCli" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto1" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto2" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto3" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto4" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto5" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPgto6" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Vendedor" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrEndereco" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodBairro" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoVencto" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RotaEntregCol" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cubagem" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComprovaEntreg" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IndiceReentreg" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoJurosMora" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercentualJuro" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="FaturaDocto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SitPedagio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoBaseTab" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEdi" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TaxaAdministra" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReterInss" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeFranquia1" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeFranquia2" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoEmpresa" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SeqTabelaNeg" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="SerieNf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaWeb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GeraAverbacao" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="VlCreditoCgs" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgenciaDeTurismo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ParcelaPagtosTur" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegistroEmbraTur" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercDescontoTur" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="SaldoCredorTur" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TemDireitoACortesiaTur" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TemDireitoADescontoTur" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrEndCobrancaCli" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComplCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComplCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CelularCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TelefoneCobrancaCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaixaPostalCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LocalEntregaCli" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCliNotaDebito" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NaturezaJuridica" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdParcelas" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PermiteFaturarPedidosTur" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodRegiaoTransp" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoZona" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoFrete" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCondPagtoCombust" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCondPagtoLubr" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCondPagtoFiltro" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCondPagtoOutros" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoAux1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DireitoCreditoIcms" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercDescontoMes" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodSeqAgencia" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CgsEmpresaRespComl" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CgsFilialRespComl" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CgsGaragemRespComl" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercMulta" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="InstrucaoProtesto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiglaPais" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Prioridade" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TpInscEstadualCli" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProdRuralCob" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProdutorRural" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodSegNeg" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="VencCApresentacao" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAgredulado" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodInstalacao" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AtivEconomica" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="InfAdicionais" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpHisto" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFlHisto" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoHistoTur" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescExigencias" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaixaPostal" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodRota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodVendedor" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodVendoPrtlMkt" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DataTransferObject" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AchouRegistro" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AcessorioDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodAcessorio" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoAcessorio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FixoAcessorio" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarExigenciasDoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarExigenciasDoClienteResult" type="tns:ArrayOfAcessorioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAcessorioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AcessorioDTO" nillable="true" type="tns:AcessorioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarAcessoriosAssociadosAoVeiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoVeic" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarAcessoriosAssociadosAoVeiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarAcessoriosAssociadosAoVeiculoResult" type="tns:ArrayOfAcessorioDoVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAcessorioDoVeiculoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AcessorioDoVeiculoDTO" nillable="true" type="tns:AcessorioDoVeiculoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AcessorioDoVeiculoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAcessorio" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarAcessorios">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarAcessoriosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarAcessoriosResult" type="tns:ArrayOfAcessorioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculosPorCodigoVeic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoVeic" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculosPorCodigoVeicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVeiculosPorCodigoVeicResult" type="tns:ArrayOfVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVeiculoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VeiculoDTO" nillable="true" type="tns:VeiculoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VeiculoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoPdrCor" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodMunic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntGrupoLinha" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEspCarroc" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoSitVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTpVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoGa" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoUf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoCategoriaVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodGrpRev" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModMotor" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModCarroc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModChassi" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTpFrota" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoClassVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PrefixoVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PrefixoAntVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlacaAtualVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlacaAnteriorVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CondicaoVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DtInicioUtilVeic" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacidadeTanqueVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacidadeTqSecVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmInicialVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObsVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ViradaRoletaVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ViradaVelocVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VenctoGarantiaKmVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VenctoGarantiaDataVeic" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmLitroVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeCombUltTrOleo" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmLitroSecVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="ApresentaRelatorioVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeRepUltTrOleo" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="SitEscalaVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodRelTrans" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodTpFreio" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodTpCb" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapCarrocVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoUmCapCarroc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeRoletasVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacEmpeVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacSentadoVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodEmpAnterior" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodFlAnterior" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodGaAnterior" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MediaKmDiaVeic" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="UtilizaHorimetroVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AceitaMovVendaVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RenavanVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PossuiCobrador" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodClasLicenciamento" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoServico" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodMunicEmplacamento" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroMotor" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumeroRastreador" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroInmetro" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PossivelVenda" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCustoFin" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoExternoVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoDeFrotaOBJ" type="tns:TipoDeFrotaDTO" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacCxCambio" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacCxDiferencial" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="DtPrazoGarantia" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="TelefoneChipUm" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TelefoneChipDois" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TipoDeFrotaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTpFrota" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoTpFrota" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="GrupoClassTpFrota" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClassificTpFrota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgregadoTpFrota" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarCarretasDoVeiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="veiculo" type="tns:VeiculoProprioComCarretaDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametroGaragemCargas" type="tns:ParametroGaragemCargasDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VeiculoProprioComCarretaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoGa" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Veiculo" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Prefixo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Placa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Situacao" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmLitroVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTipoVeiculo" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Localidade" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Uf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Renavam" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEspCarroc" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescMunic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VeicBloqueado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Motorista" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdMotorista" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tara" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Capacidade" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacidadeM3" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCarga" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Carga" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoRastreador" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataBloqueio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="MotivoBloqueio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoEngate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercAcrescimo" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercComissao" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComissaoSobre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ValorDiaria" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoTv" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UtilizaReboque" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Identificacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgregadoTpFrota" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Proprietario" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IdProAut" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CorPredominant" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoTf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeEixos" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Eixo" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeEixosRet" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Retratil" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnoFabric" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NrChassi" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModChassi" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMarCarroc" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContratoTag" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EquipamTag" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodTpVeicFrota" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCustoFin" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoDeVeiculoFrotaOBJ" type="tns:TipoDeVeiculoFrotaDTO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TipoDeVeiculoFrotaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTpVeic" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoTpVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PossuiMotorTpVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FazAfericaoTpVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FazCapacitacaoTpVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmMaximoRodadoTpVeic" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EngataComoCavalo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EngataComoCarreta" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TxtObservacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgDisponivel" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SglTipoVeiculo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TxtArquivoLayout" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametroGaragemCargasDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="RecNum" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Filial" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Garagem" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Manifesto" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrdemColeta" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MatrizFilial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlagEstoque" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlagCaixa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlagAVista" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OperacaoRemota" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="UltNrRecibo" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="RfVinculado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UtilizaLinha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EnviaCaixa" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BaseCalcInss" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercentualInss" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercSestSenat" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="MultaAtraso" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCobAtraso" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MultaSobre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumCnpj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiglaFilial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FreteCombinado" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrAdiantamento" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumLote" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumeroCotacao" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AliquotaIssQn" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="BaseInssCtrc" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercInssCtrc" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="UltimaInspecao" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProcImprime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ColetaEntrega" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoFilial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodCliParceria" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrManifColeta" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrManifEntrega" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComissaoPorFrete" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrazLocalPorEmpresa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AnalisaCredito" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqSitCliente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AnalisaOs" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaOs" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaCnh" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AlertaCnh" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AnaliseExigClientes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaDoctoSemTabelas" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsuAutorLibPed" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UtilTaxasDeServicos" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumClf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodCnae" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValidaDoctoVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaDoctoVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValidaCursos" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VerificaAtrelamento" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqSegundaEmisManif" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsuAutoEmitSegManif" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PedidoGeradoSemRota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaActGeradaSemRota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaCursosObrigatorios" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodBanco" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAgencia" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodContaBco" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodHistoBcoDebito" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodHistoBcoCredito" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegraPlanoComBco" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProximoNrEdi" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObservacaoAct" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProximoNrEdiCob" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComissaoSobreManifesto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PedeInscEstadNoServFrete" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PermiteAlterarDadosClientes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObservacaoCtrc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BloqueiaCapVeic" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PermSegundaEmisManif" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAtrelamento" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MatrizEstado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarCarretasDoVeiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCarretasDoVeiculoResult" type="tns:ArrayOfVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTodosVeiculosDaEmpresaFilial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="filial" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTodosVeiculosDaEmpresaFilialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTodosVeiculosDaEmpresaFilialResult" type="tns:ArrayOfVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTodosVeiculosDaEmpresaFiliais">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoFl" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTodosVeiculosDaEmpresaFiliaisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTodosVeiculosDaEmpresaFiliaisResult" type="tns:ArrayOfVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculoPorPrefixo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="filial" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="prefixo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculoPorPrefixoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVeiculoPorPrefixoResult" type="tns:VeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculoPorPlaca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="placa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculoPorPlacaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVeiculoPorPlacaResult" type="tns:VeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCentroDeCustoAssociadosAoVeiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoVeic" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCentroDeCustoAssociadosAoVeiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCentroDeCustoAssociadosAoVeiculoResult" type="tns:ArrayOfCentroDeCustoDoVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCentroDeCustoDoVeiculoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CentroDeCustoDoVeiculoDTO" nillable="true" type="tns:CentroDeCustoDoVeiculoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CentroDeCustoDoVeiculoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NroPlano" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodCusto" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CCustoDefaultVeicUst" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SalvarVeiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="veiculoDTO" type="tns:VeiculoDTO" />
+            <s:element minOccurs="1" maxOccurs="1" name="atualizaAcessorios" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="listaAcessorio" type="tns:ArrayOfAcessorioDoVeiculoDTO" />
+            <s:element minOccurs="1" maxOccurs="1" name="atualizaCentrosDeCustos" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="listaCentroDeCusto" type="tns:ArrayOfCentroDeCustoDoVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarVeiculoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ApagarVeiculo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="veiculoDTO" type="tns:VeiculoDTO" />
+            <s:element minOccurs="1" maxOccurs="1" name="apagaAcessorio" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="apagaCentroDeCusto" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApagarVeiculoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarCodVeiculoPelaPlaca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="placaAtualVeic" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCodVeiculoPelaPlacaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarCodVeiculoPelaPlacaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarEstruturaDeChassi">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarEstruturaDeChassiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarEstruturaDeChassiResult" type="tns:ArrayOfEstruturaDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstruturaDeChassiDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstruturaDeChassiDTO" nillable="true" type="tns:EstruturaDeChassiDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstruturaDeChassiDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEstruChass" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoEstruChass" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeEixosEstruChass" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdePneusEstruChass" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarEstruturaDeChassiPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEstruChass" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarEstruturaDeChassiPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarEstruturaDeChassiPorChaveResult" type="tns:EstruturaDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCategoria">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCategoriaResult" type="tns:ArrayOfCategoriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoriaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoriaDTO" nillable="true" type="tns:CategoriaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoCategoriaVeic" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeCategoriaVeic" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarCategoriaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCategoriaVeic" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCategoriaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCategoriaPorChaveResult" type="tns:CategoriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarClassificacaoDeVeiculo">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarClassificacaoDeVeiculoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarClassificacaoDeVeiculoResult" type="tns:ArrayOfClassificacaoDeVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClassificacaoDeVeiculoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClassificacaoDeVeiculoDTO" nillable="true" type="tns:ClassificacaoDeVeiculoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClassificacaoDeVeiculoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoClassVeic" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoClassVeic" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="GrupoClassVeic" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarClassificacaoDeVeiculoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoClassVeic" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarClassificacaoDeVeiculoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarClassificacaoDeVeiculoPorChaveResult" type="tns:ClassificacaoDeVeiculoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarEspecieDeCarroceria">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarEspecieDeCarroceriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarEspecieDeCarroceriaResult" type="tns:ArrayOfEspecieDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEspecieDeCarroceriaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EspecieDeCarroceriaDTO" nillable="true" type="tns:EspecieDeCarroceriaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EspecieDeCarroceriaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEspCarroc" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoMatCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarregamentoEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescargaEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DispPneumaticoEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoBombaEspCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoAquecimentoEspCarroc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarEspecieDeCarroceriaChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEspCarroc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarEspecieDeCarroceriaChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarEspecieDeCarroceriaChaveResult" type="tns:EspecieDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMarcaDeCarroceria">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarMarcaDeCarroceriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMarcaDeCarroceriaResult" type="tns:ArrayOfMarcaDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMarcaDeCarroceriaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MarcaDeCarroceriaDTO" nillable="true" type="tns:MarcaDeCarroceriaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaDeCarroceriaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMarCarroc" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoMarCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TesteMarCarroc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarMarcaDeCarroceriaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoMarCarroc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMarcaDeCarroceriaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMarcaDeCarroceriaPorChaveResult" type="tns:MarcaDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMarcaDeChassi">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarMarcaDeChassiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMarcaDeChassiResult" type="tns:ArrayOfMarcaDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMarcaDeChassiDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MarcaDeChassiDTO" nillable="true" type="tns:MarcaDeChassiDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaDeChassiDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMarChassi" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoMarChassi" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TesteMarChassi" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarMarcaDeChassiPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoMarChassi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMarcaDeChassiPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMarcaDeChassiPorChaveResult" type="tns:MarcaDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMaterialDaCarroceria">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarMaterialDaCarroceriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMaterialDaCarroceriaResult" type="tns:ArrayOfMaterialDaCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMaterialDaCarroceriaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MaterialDaCarroceriaDTO" nillable="true" type="tns:MaterialDaCarroceriaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MaterialDaCarroceriaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoMatCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescMatCarroc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarMaterialDaCarroceriaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoMatCarroc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMaterialDaCarroceriaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMaterialDaCarroceriaPorChaveResult" type="tns:MaterialDaCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarModeloDeCarroceria">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarModeloDeCarroceriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarModeloDeCarroceriaResult" type="tns:ArrayOfModeloDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModeloDeCarroceriaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ModeloDeCarroceriaDTO" nillable="true" type="tns:ModeloDeCarroceriaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloDeCarroceriaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModCarroc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMarCarroc" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoModCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CaracteristicaModCarroc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TesteModCarroc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacSentadoModCarroc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CapacEmpPeModCarroc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComprimentoModCarroc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="LarguraModCarroc" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToaleteModCarroc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AlturaInternaModCarroc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="AlturaExternaModCarroc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PesoModCarroc" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="PossuiArCondicionadoModCarroc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmGarantNovoModCarroc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VenctoGarantNovoModCarroc" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarModeloDeCarroceriaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoModCarroc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarModeloDeCarroceriaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarModeloDeCarroceriaPorChaveResult" type="tns:ModeloDeCarroceriaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarModeloDeChassi">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarModeloDeChassiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarModeloDeChassiResult" type="tns:ArrayOfModeloDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModeloDeChassiDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ModeloDeChassiDTO" nillable="true" type="tns:ModeloDeChassiDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloDeChassiDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoModChassi" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoModChassi" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMarChassi" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEstruChass" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TesteModChassi" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DistanciaEntreEixosModChass" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="PosicaoMotorModChassi" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmGarantNovoChassi" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="VenctoGarantNovoChassi" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComprimenTototalChassi" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="LarguraChassi" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PesoBrutoChassi" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="GrupoClassModChassi" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoGrupoClassModChassi" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarModeloDeChassiPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoModChassi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarModeloDeChassiPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarModeloDeChassiPorChaveResult" type="tns:ModeloDeChassiDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCorPadrao">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarCorPadraoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCorPadraoResult" type="tns:ArrayOfCorPadraoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCorPadraoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CorPadraoDTO" nillable="true" type="tns:CorPadraoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorPadraoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoPdrCor" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoPdrCor" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarCorPadraoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoPdrCor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCorPadraoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCorPadraoPorChaveResult" type="tns:CorPadraoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarRelacaoTransmissao">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarRelacaoTransmissaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarRelacaoTransmissaoResult" type="tns:ArrayOfRelacaoTransmissaoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRelacaoTransmissaoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RelacaoTransmissaoDTO" nillable="true" type="tns:RelacaoTransmissaoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RelacaoTransmissaoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodRelTrans" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescRelTrans" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarRelacaoTransmissaoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codRelTrans" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarRelacaoTransmissaoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarRelacaoTransmissaoPorChaveResult" type="tns:RelacaoTransmissaoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeContrato">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarTipoDeContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeContratoResult" type="tns:ArrayOfTipoDeContratoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDeContratoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDeContratoDTO" nillable="true" type="tns:TipoDeContratoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDeContratoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoSitVeic" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoSitVeic" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarTipoDeContratoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoSitVeic" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeContratoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeContratoPorChaveResult" type="tns:TipoDeContratoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeCambio">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarTipoDeCambioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeCambioResult" type="tns:ArrayOfTipoDeCambioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDeCambioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDeCambioDTO" nillable="true" type="tns:TipoDeCambioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDeCambioDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodTpCb" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescTpCb" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarTipoDeCambioPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codTpCb" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeCambioPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeCambioPorChaveResult" type="tns:TipoDeCambioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeFreio">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarTipoDeFreioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeFreioResult" type="tns:ArrayOfTipoDeFreioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDeFreioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDeFreioDTO" nillable="true" type="tns:TipoDeFreioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDeFreioDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodTpFreio" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescTpFreio" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarTipoDeFreioPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codTpFreio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeFreioPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeFreioPorChaveResult" type="tns:TipoDeFreioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeVeiculoFrota">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarTipoDeVeiculoFrotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeVeiculoFrotaResult" type="tns:ArrayOfTipoDeVeiculoFrotaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDeVeiculoFrotaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDeVeiculoFrotaDTO" nillable="true" type="tns:TipoDeVeiculoFrotaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarTipoDeVeiculoFrotaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codTpVeiculo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeVeiculoFrotaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeVeiculoFrotaPorChaveResult" type="tns:TipoDeVeiculoFrotaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeFrota">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarTipoDeFrotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeFrotaResult" type="tns:ArrayOfTipoDeFrotaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDeFrotaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDeFrotaDTO" nillable="true" type="tns:TipoDeFrotaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarTipoDeFrotaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codTpFrota" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTipoDeFrotaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTipoDeFrotaPorChaveResult" type="tns:TipoDeFrotaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoApagar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoApagarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenericoSalvarOuAlterar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoSalvarOuAlterarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSCondicaoAdicionalCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sCondicaoAdicionalCriteria" type="tns:sCondicaoAdicionalCriteria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sCondicaoAdicionalCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Propriedade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" />
+          <s:element minOccurs="1" maxOccurs="1" name="Operador" type="tns:eOperador" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorInicial" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorFinal" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="eOperador">
+        <s:restriction base="s:string">
+          <s:enumeration value="Igual" />
+          <s:enumeration value="Diferente" />
+          <s:enumeration value="MaiorOuIgual" />
+          <s:enumeration value="MenorOuIgual" />
+          <s:enumeration value="Entre" />
+          <s:enumeration value="Contido" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadePorCondicoesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedadeCondicao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="operadorCondicao" type="tns:eOperador" />
+            <s:element minOccurs="0" maxOccurs="1" name="valorCondicao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadePorCondicaoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadePorCondicoesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedadeCondicao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="operadorCondicao" type="tns:eOperador" />
+            <s:element minOccurs="0" maxOccurs="1" name="valorCondicao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadePorCondicaoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsultarPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chave" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsultarPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsultarPorChaveResult" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarTodos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataTransferObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataTransferObject" nillable="true" type="tns:DataTransferObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenericoRetornarTodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarTodosResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsutaBasicaPorCondicoesResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="condicao" type="tns:sCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsutaBasicaPorCondicaoResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarDataHoraBanco">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarDataHoraBancoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarDataHoraBancoResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarExigenciasDoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarExigenciasDoCliente" />
+  </wsdl:message>
+  <wsdl:message name="RetornarExigenciasDoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarExigenciasDoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarAcessoriosAssociadosAoVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarAcessoriosAssociadosAoVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="RetornarAcessoriosAssociadosAoVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarAcessoriosAssociadosAoVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarAcessoriosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarAcessorios" />
+  </wsdl:message>
+  <wsdl:message name="RetornarAcessoriosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarAcessoriosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosPorCodigoVeicSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosPorCodigoVeic" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosPorCodigoVeicSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosPorCodigoVeicResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCarretasDoVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCarretasDoVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCarretasDoVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCarretasDoVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTodosVeiculosDaEmpresaFilialSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTodosVeiculosDaEmpresaFilial" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTodosVeiculosDaEmpresaFilialSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTodosVeiculosDaEmpresaFilialResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTodosVeiculosDaEmpresaFiliaisSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTodosVeiculosDaEmpresaFiliais" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTodosVeiculosDaEmpresaFiliaisSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTodosVeiculosDaEmpresaFiliaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculoPorPrefixoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculoPorPrefixo" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculoPorPrefixoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculoPorPrefixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculoPorPlacaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculoPorPlaca" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculoPorPlacaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculoPorPlacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCentroDeCustoAssociadosAoVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCentroDeCustoAssociadosAoVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCentroDeCustoAssociadosAoVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCentroDeCustoAssociadosAoVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="SalvarVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApagarVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:ApagarVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="ApagarVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:ApagarVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCodVeiculoPelaPlacaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCodVeiculoPelaPlaca" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCodVeiculoPelaPlacaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCodVeiculoPelaPlacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEstruturaDeChassiSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarEstruturaDeChassi" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEstruturaDeChassiSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarEstruturaDeChassiResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEstruturaDeChassiPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarEstruturaDeChassiPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEstruturaDeChassiPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarEstruturaDeChassiPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCategoriaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCategoriaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCategoriaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCategoriaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarClassificacaoDeVeiculoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarClassificacaoDeVeiculo" />
+  </wsdl:message>
+  <wsdl:message name="RetornarClassificacaoDeVeiculoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarClassificacaoDeVeiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarClassificacaoDeVeiculoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarClassificacaoDeVeiculoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarClassificacaoDeVeiculoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarClassificacaoDeVeiculoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEspecieDeCarroceriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarEspecieDeCarroceria" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEspecieDeCarroceriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarEspecieDeCarroceriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEspecieDeCarroceriaChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarEspecieDeCarroceriaChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarEspecieDeCarroceriaChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarEspecieDeCarroceriaChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeCarroceriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeCarroceria" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeCarroceriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeCarroceriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeCarroceriaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeCarroceriaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeCarroceriaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeCarroceriaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeChassiSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeChassi" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeChassiSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeChassiResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeChassiPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeChassiPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMarcaDeChassiPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMarcaDeChassiPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMaterialDaCarroceriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMaterialDaCarroceria" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMaterialDaCarroceriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMaterialDaCarroceriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMaterialDaCarroceriaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMaterialDaCarroceriaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMaterialDaCarroceriaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMaterialDaCarroceriaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeCarroceriaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeCarroceria" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeCarroceriaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeCarroceriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeCarroceriaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeCarroceriaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeCarroceriaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeCarroceriaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeChassiSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeChassi" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeChassiSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeChassiResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeChassiPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeChassiPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarModeloDeChassiPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarModeloDeChassiPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCorPadraoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCorPadrao" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCorPadraoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCorPadraoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCorPadraoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCorPadraoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCorPadraoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCorPadraoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRelacaoTransmissaoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarRelacaoTransmissao" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRelacaoTransmissaoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarRelacaoTransmissaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRelacaoTransmissaoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarRelacaoTransmissaoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarRelacaoTransmissaoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarRelacaoTransmissaoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeContrato" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeContratoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeContratoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeContratoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeContratoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeCambioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeCambio" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeCambioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeCambioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeCambioPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeCambioPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeCambioPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeCambioPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFreioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFreio" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFreioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFreioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFreioPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFreioPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFreioPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFreioPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeVeiculoFrotaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeVeiculoFrota" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeVeiculoFrotaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeVeiculoFrotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeVeiculoFrotaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeVeiculoFrotaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeVeiculoFrotaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeVeiculoFrotaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFrotaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFrota" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFrotaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFrotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFrotaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFrotaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTipoDeFrotaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTipoDeFrotaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoApagarSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoApagar" />
+  </wsdl:message>
+  <wsdl:message name="GenericoApagarSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoApagarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoSalvarOuAlterarSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoSalvarOuAlterar" />
+  </wsdl:message>
+  <wsdl:message name="GenericoSalvarOuAlterarSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoSalvarOuAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadeSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedade" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadeSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadeSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedade" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadeSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsultarPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsultarPorChave" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsultarPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsultarPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarTodosSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarTodos" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarTodosSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarTodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarDataHoraBancoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarDataHoraBanco" />
+  </wsdl:message>
+  <wsdl:message name="RetornarDataHoraBancoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarDataHoraBancoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FrotaWSSoap">
+    <wsdl:operation name="RetornarExigenciasDoCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna uma lista das exigências dos clientes que não estão nos veículos mencionados.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarExigenciasDoClienteSoapIn" />
+      <wsdl:output message="tns:RetornarExigenciasDoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessoriosAssociadosAoVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna os acessóridos associados ao veículo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarAcessoriosAssociadosAoVeiculoSoapIn" />
+      <wsdl:output message="tns:RetornarAcessoriosAssociadosAoVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessorios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos acessorios.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarAcessoriosSoapIn" />
+      <wsdl:output message="tns:RetornarAcessoriosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosPorCodigoVeic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar os veiculos pelo codigo interno.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVeiculosPorCodigoVeicSoapIn" />
+      <wsdl:output message="tns:RetornarVeiculosPorCodigoVeicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCarretasDoVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar carretas do veículo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCarretasDoVeiculoSoapIn" />
+      <wsdl:output message="tns:RetornarCarretasDoVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFilial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os veículos da empresa filial.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTodosVeiculosDaEmpresaFilialSoapIn" />
+      <wsdl:output message="tns:RetornarTodosVeiculosDaEmpresaFilialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFiliais">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os veículos da empresa e filiais.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTodosVeiculosDaEmpresaFiliaisSoapIn" />
+      <wsdl:output message="tns:RetornarTodosVeiculosDaEmpresaFiliaisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPrefixo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna o veículo por prefixo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVeiculoPorPrefixoSoapIn" />
+      <wsdl:output message="tns:RetornarVeiculoPorPrefixoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPlaca">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna o veículo por prefixo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVeiculoPorPlacaSoapIn" />
+      <wsdl:output message="tns:RetornarVeiculoPorPlacaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCentroDeCustoAssociadosAoVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna os centros de custos associados ao veículo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCentroDeCustoAssociadosAoVeiculoSoapIn" />
+      <wsdl:output message="tns:RetornarCentroDeCustoAssociadosAoVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva o veículo com os acessorios e os centros de custos associados.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarVeiculoSoapIn" />
+      <wsdl:output message="tns:SalvarVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApagarVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apaga o veículo e os acessorios e centros de custos associados.</wsdl:documentation>
+      <wsdl:input message="tns:ApagarVeiculoSoapIn" />
+      <wsdl:output message="tns:ApagarVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCodVeiculoPelaPlaca">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar código veiculo pela placa.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCodVeiculoPelaPlacaSoapIn" />
+      <wsdl:output message="tns:RetornarCodVeiculoPelaPlacaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna estrutura de chassi.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarEstruturaDeChassiSoapIn" />
+      <wsdl:output message="tns:RetornarEstruturaDeChassiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassiPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna estrutura de chassi pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarEstruturaDeChassiPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarEstruturaDeChassiPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna categoria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCategoriaSoapIn" />
+      <wsdl:output message="tns:RetornarCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoriaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna categoria pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCategoriaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarCategoriaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna classificação de veículo.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarClassificacaoDeVeiculoSoapIn" />
+      <wsdl:output message="tns:RetornarClassificacaoDeVeiculoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna classificação de veículo pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarClassificacaoDeVeiculoPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarClassificacaoDeVeiculoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna espécie de carroceria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarEspecieDeCarroceriaSoapIn" />
+      <wsdl:output message="tns:RetornarEspecieDeCarroceriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceriaChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna espécie de carroceria pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarEspecieDeCarroceriaChaveSoapIn" />
+      <wsdl:output message="tns:RetornarEspecieDeCarroceriaChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna marca de carroceria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMarcaDeCarroceriaSoapIn" />
+      <wsdl:output message="tns:RetornarMarcaDeCarroceriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceriaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna marca de carroceria pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMarcaDeCarroceriaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarMarcaDeCarroceriaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna marca de chassi.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMarcaDeChassiSoapIn" />
+      <wsdl:output message="tns:RetornarMarcaDeChassiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassiPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna marca de chassi pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMarcaDeChassiPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarMarcaDeChassiPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna material da carroceria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMaterialDaCarroceriaSoapIn" />
+      <wsdl:output message="tns:RetornarMaterialDaCarroceriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceriaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna material da carroceria pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMaterialDaCarroceriaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarMaterialDaCarroceriaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna modelo carroceria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarModeloDeCarroceriaSoapIn" />
+      <wsdl:output message="tns:RetornarModeloDeCarroceriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceriaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna modelo carroceria pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarModeloDeCarroceriaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarModeloDeCarroceriaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna modelo carroceria.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarModeloDeChassiSoapIn" />
+      <wsdl:output message="tns:RetornarModeloDeChassiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassiPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna modelo chassi pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarModeloDeChassiPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarModeloDeChassiPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadrao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna cor padrao.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCorPadraoSoapIn" />
+      <wsdl:output message="tns:RetornarCorPadraoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadraoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna cor padrao pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCorPadraoPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarCorPadraoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna relação transmissão.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarRelacaoTransmissaoSoapIn" />
+      <wsdl:output message="tns:RetornarRelacaoTransmissaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissaoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna relação transmissão pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarRelacaoTransmissaoPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarRelacaoTransmissaoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de contrato.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeContratoSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContratoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de contrato pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeContratoPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeContratoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de câmbio.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeCambioSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeCambioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambioPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de câmbio pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeCambioPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeCambioPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de freio.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeFreioSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeFreioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreioPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de freio pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeFreioPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeFreioPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de veiculo da frota.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeVeiculoFrotaSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeVeiculoFrotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrotaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de veículo da frota pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeVeiculoFrotaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeVeiculoFrotaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de frota.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeFrotaSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeFrotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrotaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tipo de frota pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTipoDeFrotaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarTipoDeFrotaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apaga genérico.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoApagarSoapIn" />
+      <wsdl:output message="tns:GenericoApagarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera genérico.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoSalvarOuAlterarSoapIn" />
+      <wsdl:output message="tns:GenericoSalvarOuAlterarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadePorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadePorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada conforme a condição passada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadePorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadePorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadeSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o maximo valor da propriedade informada conforme a lista de condições passadas.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o maximo valor da propriedade informada conforme a condição passada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna o maximo valor da propriedade informada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadeSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta por chave.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsultarPorChaveSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsultarPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar lista com todos os ObjetoDTO da base de dados.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarTodosSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarTodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta básica por condições.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsutaBasicaPorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsutaBasicaPorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta básica por condição.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsutaBasicaPorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsutaBasicaPorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna a data hora do banco de dados.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarDataHoraBancoSoapIn" />
+      <wsdl:output message="tns:RetornarDataHoraBancoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FrotaWSSoap" type="tns:FrotaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarExigenciasDoCliente">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarExigenciasDoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessoriosAssociadosAoVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarAcessoriosAssociadosAoVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessorios">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarAcessorios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosPorCodigoVeic">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculosPorCodigoVeic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCarretasDoVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCarretasDoVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFilial">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTodosVeiculosDaEmpresaFilial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFiliais">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTodosVeiculosDaEmpresaFiliais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPrefixo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculoPorPrefixo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPlaca">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculoPorPlaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCentroDeCustoAssociadosAoVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCentroDeCustoAssociadosAoVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/SalvarVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApagarVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/ApagarVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCodVeiculoPelaPlaca">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCodVeiculoPelaPlaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassi">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEstruturaDeChassi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassiPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEstruturaDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoria">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoriaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCategoriaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculo">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarClassificacaoDeVeiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculoPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarClassificacaoDeVeiculoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceria">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEspecieDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceriaChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEspecieDeCarroceriaChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceria">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceriaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassi">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeChassi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassiPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceria">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMaterialDaCarroceria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceriaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMaterialDaCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceria">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceriaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassi">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeChassi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassiPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadrao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCorPadrao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadraoPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCorPadraoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarRelacaoTransmissao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissaoPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarRelacaoTransmissaoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContrato">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContratoPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeContratoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambio">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeCambio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambioPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeCambioPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreio">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFreio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreioPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFreioPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrota">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeVeiculoFrota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrotaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeVeiculoFrotaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrota">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFrota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrotaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFrotaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoApagar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoSalvarOuAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsultarPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarTodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsutaBasicaPorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsutaBasicaPorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarDataHoraBanco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FrotaWSSoap12" type="tns:FrotaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarExigenciasDoCliente">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarExigenciasDoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessoriosAssociadosAoVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarAcessoriosAssociadosAoVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarAcessorios">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarAcessorios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosPorCodigoVeic">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculosPorCodigoVeic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCarretasDoVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCarretasDoVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFilial">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTodosVeiculosDaEmpresaFilial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTodosVeiculosDaEmpresaFiliais">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTodosVeiculosDaEmpresaFiliais" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPrefixo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculoPorPrefixo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculoPorPlaca">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarVeiculoPorPlaca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCentroDeCustoAssociadosAoVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCentroDeCustoAssociadosAoVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/SalvarVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApagarVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/ApagarVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCodVeiculoPelaPlaca">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCodVeiculoPelaPlaca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassi">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEstruturaDeChassi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEstruturaDeChassiPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEstruturaDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoria">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCategoriaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCategoriaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculo">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarClassificacaoDeVeiculo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarClassificacaoDeVeiculoPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarClassificacaoDeVeiculoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceria">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEspecieDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarEspecieDeCarroceriaChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarEspecieDeCarroceriaChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceria">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeCarroceriaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassi">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeChassi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMarcaDeChassiPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMarcaDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceria">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMaterialDaCarroceria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMaterialDaCarroceriaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarMaterialDaCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceria">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeCarroceria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeCarroceriaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeCarroceriaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassi">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeChassi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarModeloDeChassiPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarModeloDeChassiPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadrao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCorPadrao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCorPadraoPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarCorPadraoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarRelacaoTransmissao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarRelacaoTransmissaoPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarRelacaoTransmissaoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContrato">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeContratoPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeContratoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambio">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeCambio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeCambioPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeCambioPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreio">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFreio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFreioPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFreioPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrota">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeVeiculoFrota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeVeiculoFrotaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeVeiculoFrotaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrota">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFrota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTipoDeFrotaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarTipoDeFrotaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoApagar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoSalvarOuAlterar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarProximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarMaximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsultarPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarTodos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsutaBasicaPorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/GenericoRetornarConsutaBasicaPorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/frota/RetornarDataHoraBanco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FrotaWS">
+    <wsdl:port name="FrotaWSSoap" binding="tns:FrotaWSSoap">
+      <soap:address location="http://localhost/globus5/frotaws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FrotaWSSoap12" binding="tns:FrotaWSSoap12">
+      <soap12:address location="http://localhost/globus5/frotaws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

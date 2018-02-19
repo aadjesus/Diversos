@@ -1,0 +1,56 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Project Properties and Shared Content</title>
+</head>
+
+<body>
+
+<h2>Project Properties and Shared Content</h2>
+The help file build will resolve references to project properties and to
+items in the <b>shared_content.xml</b> file.  To substitute project properties
+in the additional content files, place them in a tag as in the following
+example:
+
+<pre lang="xml" title=" ">
+&lt;@CopyrightInfo/&gt;
+&lt;@FeedbackEMailAddress/&gt;
+</pre>
+
+In this help file, these are rendered as:
+
+<ul>
+    <li><@CopyrightInfo/></li>
+    <li><@FeedbackEMailAddress/></li>
+</ul>
+
+Any of the values defined in the <a href="../../CustomBuild.html">Customizing
+the Build Process</a> topic can be used.  The only difference is that you
+must use angle brackets rather than curly braces in the additional content
+files.
+
+<p/>To include shared content items such as the header text, preliminary
+text, comments, copyright, or footer, use an include item as in this example:
+
+<pre lang="xml" title=" ">
+&lt;include item="header"/&gt;
+&lt;include item="preliminary"/&gt;
+&lt;include item="footer"/&gt;
+&lt;include item="comments"/&gt;
+&lt;include item="copyright"/&gt;
+</pre>
+
+Note that for some items such as <code>footer</code>, the comments and
+copyright items are nested within it so there is no need to specify them
+separately unless you are customizing the footer area.  The footer at the
+end of each additional content page in this help file is created in this
+manner so that it matches the footer in the namespace topics.  Another
+benefit to this feature is that the items will appear in the language
+selected in the project as well.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 5 -->

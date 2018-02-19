@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/Styles.css">
+<title>Creating Language Resource Files</title>
+
+</head>
+
+<body>
+<h2>Creating Language Resource Files</h2>
+The language resource files are located in a sub-folder beneath the
+<i>.\LanguageResources</i> folder in the installation location for the
+Sandcastle Help File Builder.  The sub-folders are named using the value
+returned by the <code>CultureInfo.Name</code> property (i.e. en-US, fr-FR,
+de-DE).  There are three XML files:
+
+<ul>
+    <li><b>reference_content.xml</b> contains titles for the various class
+library parts, filter text, and alternate image text.</li>
+    <li><b>shared_content.xml</b> contains paths to the shared content (art,
+scripts, and style sheets), code section labels, and customizable text for
+the header and footer in each page.
+    <li><b>syntax_content.xml</b> contains some programming language
+limitation messages.</li>
+</ul>
+
+To create resource files for a new language, create a new folder beneath
+the <i>.\LanguageResource</i> folder and name it using the culture name as
+described above.  If you are not sure what to name the folder, go to the <a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp"
+target="_blank">Locale Identifier Constants and Strings</a> MSDN topic and
+locate the locale that you need.  The locale name column contains the value
+to use for the folder name.  Once the folder is created, copy the three
+files from the <i>.\en-US</i> folder and modify the text for your selected
+language.  If people are kind enough to supply additional translated files,
+I'll add them to a later release.
+
+<p/>How the files are encoded is very important if they contain extended
+characters.  To ensure that the help file builder and the Sandcastle tools
+properly interpret the encoding within the files, it is best to save the
+files such that they contain byte order marks at the start of the file for
+Unicode encoded formats as well as an XML header tag that specifies the
+correct encoding. In the absence of byte order marks, the encoding in the
+XML header tag ensures that the file is still interpreted correctly.  The
+supplied default language resource files contain examples of this.
+
+<p/>When using entities to represent special characters in the XML language
+resource files or in the header text, copyright text, etc, use the numeric
+form rather than the name form as the XML parser will not recognize them
+and will throw an exception.  For example, if you specify
+<code>&amp;Auml;</code> (Latin capital letter A with diaeresis) an exception
+will be generated.  To fix it, use the numeric form instead
+(<code>&amp;#196;</code>).  This also applies for symbols such as
+<code>&amp;copy;</code> in the copyright text. Instead, you should use
+<code>&amp;#169;</code> to get the copyright symbol.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 8 -->

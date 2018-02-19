@@ -1,0 +1,120 @@
+﻿<Window x:Class="ExceptionThrownInGrid.Window3"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window3" Height="800" Width="800" 
+        xmlns:dxc="clr-namespace:DevExpress.Wpf.Charts;assembly=DevExpress.Wpf.Charts.v9.3" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid">
+
+    <Window.Resources>
+        <DoubleAnimation x:Key="ExplodeAnimation" To="0.2" Duration="0:0:0.5" />
+        <DoubleAnimation x:Key="CollapseAnimation" To="0.0" Duration="0:0:0.5" />
+
+        <Storyboard x:Key="InitialAnimation">
+            <DoubleAnimation Storyboard.TargetName="diagramAnimation" Storyboard.TargetProperty="Progress" From="0.1" To="1.0" Duration="0:0:2"/>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid >
+        <dxc:ChartControl Grid.Row="0" 
+                          Grid.RowSpan="3"                           
+                          Name="chart"   
+                          MouseUp="chart_MouseUp"                           
+                          MouseDown="chart_MouseDown" 
+                          QueryCursor="chart_QueryCursor" 
+                          PaletteName="Office">
+
+            <dxc:ChartControl.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+                    <GradientStop Color="#FF140758"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </dxc:ChartControl.Background>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend Foreground="White" BorderBrush="White" Background="Transparent" Padding="2" >
+                </dxc:Legend>
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Triggers>
+                <EventTrigger RoutedEvent="dxc:ChartControl.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource InitialAnimation}" HandoffBehavior="Compose" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </dxc:ChartControl.Triggers>
+            <dxc:ChartControl.AnimationRecords>
+                <dxc:ChartAnimationRecord x:Name="diagramAnimation" Progress="0">
+                    <dxc:ChartAnimationRecord.Animations>
+                        <dxc:Diagram3DAnimation InitialZoomPercent="1">
+                            <dxc:Diagram3DAnimation.InitialRotation>
+                                <dxc:AnimationRotation Order="YXZ" AngleX="0" AngleY="-50"/>
+                            </dxc:Diagram3DAnimation.InitialRotation>
+                            <dxc:Diagram3DAnimation.Actions>
+                                <dxc:Diagram3DZoomAction FinalZoomPercent="100"/>
+                                <dxc:Diagram3DRotationAction>
+                                    <dxc:Diagram3DRotationAction.Rotation>
+                                        <dxc:AnimationRotation AngleX="-40" AngleY="210"/>
+                                    </dxc:Diagram3DRotationAction.Rotation>
+                                </dxc:Diagram3DRotationAction>
+                            </dxc:Diagram3DAnimation.Actions>
+                        </dxc:Diagram3DAnimation>
+                    </dxc:ChartAnimationRecord.Animations>
+                </dxc:ChartAnimationRecord>
+            </dxc:ChartControl.AnimationRecords>
+            <dxc:ChartControl.Diagram>
+                <dxc:SimpleDiagram3D ZoomPercent="50" RuntimeRotation="True">
+                    <dxc:SimpleDiagram3D.ContentTransform>
+                        <ScaleTransform3D />
+                    </dxc:SimpleDiagram3D.ContentTransform>
+                    <dxc:SimpleDiagram3D.Series>
+                        <dxc:PieSeries3D ArgumentScaleType="Qualitative"
+                                         HoleRadiusPercent="10"
+                                         ValueDataMember="Qualitative"
+                                         ArgumentDataMember="Status"
+                                         DepthTransform="0.6"
+                                         x:Name="xisto1010"
+                                         ShowInLegend="True">
+                            <dxc:PieSeries3D.LegendPointOptions>
+                                <dxc:PointOptions PointView="Argument"/>
+                            </dxc:PieSeries3D.LegendPointOptions>
+                            <dxc:PieSeries3D.PointOptions>
+                                <dxc:PointOptions PointView="Values">
+                                    <dxc:PointOptions.ValueNumericOptions>
+                                        <dxc:NumericOptions Format="Percent" Precision="0" />
+                                    </dxc:PointOptions.ValueNumericOptions>
+                                </dxc:PointOptions>
+                            </dxc:PieSeries3D.PointOptions>
+                            <dxc:PieSeries3D.Model>
+                                <dxc:SemiRectanglePie3DModel />
+                            </dxc:PieSeries3D.Model>
+                            <dxc:PieSeries3D.Label>
+                                <dxc:SeriesLabel Visible="True" Indent="20" RenderMode="CustomShape"/>
+                            </dxc:PieSeries3D.Label>
+                            <dxc:PieSeries3D.Points>
+                                <dxc:SeriesPoint Argument="Quantidade"/>
+                            </dxc:PieSeries3D.Points>
+                        </dxc:PieSeries3D>
+                    </dxc:SimpleDiagram3D.Series>
+                </dxc:SimpleDiagram3D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+        <Button Height="23" 
+                HorizontalAlignment="Left" 
+                Margin="8,10,0,0" 
+                Name="button1" 
+                VerticalAlignment="Top" 
+                Width="75" 
+                Click="button1_Click">Button</Button>
+        <Grid Height="167" 
+              Visibility="Collapsed" 
+              HorizontalAlignment="Right" 
+              Margin="0,0,15,17" 
+              Name="grid1" 
+              VerticalAlignment="Bottom" 
+              Width="204" >
+            <dxg:GridControl Name="gridControl1" AutoPopulateColumns="True">
+                <dxg:GridControl.View>
+                    <dxg:TableView x:Name="gridView1" />
+                </dxg:GridControl.View>               
+            </dxg:GridControl>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:ioc="clr-namespace:XamlIoc;assembly=XamlIoc"
+		xmlns:my="clr-namespace:MyLib;assembly=MyLib"
+    >
+	<wpf:ResourceDictionary.MergedDictionaries>
+		<wpf:ResourceDictionary Source="TestPersonValidation.xaml"/>
+		<wpf:ResourceDictionary Source="TestShared.xaml"/>
+		<wpf:ResourceDictionary Source="TestGenerics.xaml"/>
+	</wpf:ResourceDictionary.MergedDictionaries>
+</wpf:ResourceDictionary>

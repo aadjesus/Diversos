@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bgmrodotec.com.br/fglobus/seguranca" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bgmrodotec.com.br/fglobus/seguranca" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bgmrodotec.com.br/fglobus/seguranca">
+      <s:element name="RetornarConcedente">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarConcedenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarConcedenteResult" type="tns:ConcedenteDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConcedenteDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntConcedente" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChecksumConcedente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeConcedente" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoCliente" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChaveCliente" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DataTransferObject" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AchouRegistro" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsuarioDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeUsuario" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoGrpUsu" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaTrVelocUsu" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaTrCatraUsu" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntFunc" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataSenha" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ativo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginSnap" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaSnap" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PortaEnvio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ServidorSmtp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PortaPop3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Administrador" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AcessaTodasOpcoes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsuarioDB" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaDB" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigitaMotMan" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigitaLinhaMan" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExcluiOsExecServMan" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgArrecadacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoAux1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaWeb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NrInscrWeb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ServidorPop3" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AcessoGlbReport" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgCargas" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TrocaSenha" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StatusDeAtualizacaoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="NReg" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="WinLogin" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParametroControleDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoCadAutomatico" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsarPortuguesPadrao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaPosicional" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LicencaGeralDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntConcedente" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeTotal" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChecksumAcTot" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LicencaExclusivaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeAcesso" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChecksumAcesso" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConsumoDeLicencaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Aplicacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Estacao" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataHora" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsuarioWin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsuarioGlobus" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ValidaSessao" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SistemaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeDoSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoDoSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DataHoraMenus" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AutorizacaoDoSistemaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntEmpAut" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataLimiteDeUso" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="CheckSumAutSistemas" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SistemaOBJ" type="tns:SistemaDTO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="LogarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioSac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogarUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarSenhaPosicional">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarSenhaPosicionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarSenhaPosicionalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarConcedente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="concedenteDTO" type="tns:ConcedenteDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarConcedenteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValidarAcessoAoSistema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aplicacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioSO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="consomeLicenca" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarAcessoAoSistemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarAcessoAoSistemaResult" type="tns:ConcedenteDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderAutenticacao" type="tns:HeaderAutenticacao" />
+      <s:complexType name="HeaderAutenticacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ValorChaveCRUD" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="VerificarDataLimiteDeUso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarDataLimiteDeUsoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarDataLimiteDeUsoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarLicenca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="estacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioSO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LiberarLicencaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarUsuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarUsuariosResult" type="tns:ArrayOfUsuarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuarioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsuarioDTO" nillable="true" type="tns:UsuarioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarUsuarioResult" type="tns:UsuarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarUsuarioGlobus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioDTO" type="tns:UsuarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarUsuarioGlobusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarUsuariosSelecionados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarUsuariosSelecionadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarUsuariosSelecionadosResult" type="tns:ArrayOfUsuarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarConcedenteSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarConcedente" />
+  </wsdl:message>
+  <wsdl:message name="RetornarConcedenteSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarConcedenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:LogarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="LogarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:LogarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarSenhaPosicionalSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarSenhaPosicional" />
+  </wsdl:message>
+  <wsdl:message name="RetornarSenhaPosicionalSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarSenhaPosicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarConcedenteSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarConcedente" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarConcedenteSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarConcedenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarAcessoAoSistemaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarAcessoAoSistema" />
+  </wsdl:message>
+  <wsdl:message name="ValidarAcessoAoSistemaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarAcessoAoSistemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarAcessoAoSistemaHeaderAutenticacao">
+    <wsdl:part name="HeaderAutenticacao" element="tns:HeaderAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDataLimiteDeUsoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarDataLimiteDeUso" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDataLimiteDeUsoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarDataLimiteDeUsoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LiberarLicencaSoapIn">
+    <wsdl:part name="parameters" element="tns:LiberarLicenca" />
+  </wsdl:message>
+  <wsdl:message name="LiberarLicencaSoapOut">
+    <wsdl:part name="parameters" element="tns:LiberarLicencaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarUsuarioGlobusSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarUsuarioGlobus" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarUsuarioGlobusSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarUsuarioGlobusResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuariosSelecionadosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarUsuariosSelecionados" />
+  </wsdl:message>
+  <wsdl:message name="RetornarUsuariosSelecionadosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarUsuariosSelecionadosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SegurancaWSSoap">
+    <wsdl:operation name="RetornarConcedente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar concedente do sistema.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarConcedenteSoapIn" />
+      <wsdl:output message="tns:RetornarConcedenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogarUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar se usuário e senha digitados são válidos no cadastro de usuários Globus.</wsdl:documentation>
+      <wsdl:input message="tns:LogarUsuarioSoapIn" />
+      <wsdl:output message="tns:LogarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarSenhaPosicional">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar senha posicional.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarSenhaPosicionalSoapIn" />
+      <wsdl:output message="tns:RetornarSenhaPosicionalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarConcedente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salvar ou alterar o concedente.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarConcedenteSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarConcedenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAcessoAoSistema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica disponibilidade de licenças ao sistema e consome licença.</wsdl:documentation>
+      <wsdl:input message="tns:ValidarAcessoAoSistemaSoapIn" />
+      <wsdl:output message="tns:ValidarAcessoAoSistemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDataLimiteDeUso">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar se informações das datas de limite de utilização do sistema estão íntegras.</wsdl:documentation>
+      <wsdl:input message="tns:VerificarDataLimiteDeUsoSoapIn" />
+      <wsdl:output message="tns:VerificarDataLimiteDeUsoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarLicenca">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liberar licença consumida.</wsdl:documentation>
+      <wsdl:input message="tns:LiberarLicencaSoapIn" />
+      <wsdl:output message="tns:LiberarLicencaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuarios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar usuários.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarUsuariosSoapIn" />
+      <wsdl:output message="tns:RetornarUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar usuário globus.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarUsuarioSoapIn" />
+      <wsdl:output message="tns:RetornarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarUsuarioGlobus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salvar ou alterar o usuário globus.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarUsuarioGlobusSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarUsuarioGlobusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuariosSelecionados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna usuarios selecionados.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarUsuariosSelecionadosSoapIn" />
+      <wsdl:output message="tns:RetornarUsuariosSelecionadosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SegurancaWSSoap" type="tns:SegurancaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarConcedente">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarConcedente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogarUsuario">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/LogarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarSenhaPosicional">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarSenhaPosicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarConcedente">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/SalvarOuAlterarConcedente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAcessoAoSistema">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/ValidarAcessoAoSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidarAcessoAoSistemaHeaderAutenticacao" part="HeaderAutenticacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDataLimiteDeUso">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/VerificarDataLimiteDeUso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarLicenca">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/LiberarLicenca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuarios">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuario">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarUsuarioGlobus">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/SalvarOuAlterarUsuarioGlobus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuariosSelecionados">
+      <soap:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuariosSelecionados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SegurancaWSSoap12" type="tns:SegurancaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarConcedente">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarConcedente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogarUsuario">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/LogarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarSenhaPosicional">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarSenhaPosicional" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarConcedente">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/SalvarOuAlterarConcedente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAcessoAoSistema">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/ValidarAcessoAoSistema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidarAcessoAoSistemaHeaderAutenticacao" part="HeaderAutenticacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDataLimiteDeUso">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/VerificarDataLimiteDeUso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarLicenca">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/LiberarLicenca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuarios">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuario">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarUsuarioGlobus">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/SalvarOuAlterarUsuarioGlobus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarUsuariosSelecionados">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/fglobus/seguranca/RetornarUsuariosSelecionados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SegurancaWS">
+    <wsdl:port name="SegurancaWSSoap" binding="tns:SegurancaWSSoap">
+      <soap:address location="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SegurancaWSSoap12" binding="tns:SegurancaWSSoap12">
+      <soap12:address location="http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

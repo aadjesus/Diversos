@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastIndexOfAny00", "LastIndexOfAny00\LastIndexOfAny00.csproj", "{E9F4F89B-A12C-48D4-B630-3A2A4068096D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastIndexOfAny01", "LastIndexOfAny01\LastIndexOfAny01.csproj", "{1382A5C6-064D-4CB1-83B2-C7BB1461D900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastIndexOfAny02", "LastIndexOfAny02\LastIndexOfAny02.csproj", "{65E4D43A-AA7A-484E-99ED-6B6526555248}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9F4F89B-A12C-48D4-B630-3A2A4068096D}.Debug|x86.ActiveCfg = Debug|x86
+		{E9F4F89B-A12C-48D4-B630-3A2A4068096D}.Debug|x86.Build.0 = Debug|x86
+		{E9F4F89B-A12C-48D4-B630-3A2A4068096D}.Release|x86.ActiveCfg = Release|x86
+		{E9F4F89B-A12C-48D4-B630-3A2A4068096D}.Release|x86.Build.0 = Release|x86
+		{1382A5C6-064D-4CB1-83B2-C7BB1461D900}.Debug|x86.ActiveCfg = Debug|x86
+		{1382A5C6-064D-4CB1-83B2-C7BB1461D900}.Debug|x86.Build.0 = Debug|x86
+		{1382A5C6-064D-4CB1-83B2-C7BB1461D900}.Release|x86.ActiveCfg = Release|x86
+		{1382A5C6-064D-4CB1-83B2-C7BB1461D900}.Release|x86.Build.0 = Release|x86
+		{65E4D43A-AA7A-484E-99ED-6B6526555248}.Debug|x86.ActiveCfg = Debug|x86
+		{65E4D43A-AA7A-484E-99ED-6B6526555248}.Debug|x86.Build.0 = Debug|x86
+		{65E4D43A-AA7A-484E-99ED-6B6526555248}.Release|x86.ActiveCfg = Release|x86
+		{65E4D43A-AA7A-484E-99ED-6B6526555248}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

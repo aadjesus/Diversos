@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeti.mmedia", "yeti.mmedia\yeti.mmedia.csproj", "{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeti.mp3", "yeti.mp3\yeti.mp3.csproj", "{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istrib.Sound", "Istrib.Sound\Istrib.Sound.csproj", "{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istrib.Sound.Mp3", "Istrib.Sound.Mp3\Istrib.Sound.Mp3.csproj", "{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istrib.Sound.Example.WinForms", "Istrib.Sound.Example.WinForms\Istrib.Sound.Example.WinForms.csproj", "{E701C89C-3EEF-4119-A957-5AA47D9F70B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E701C89C-3EEF-4119-A957-5AA47D9F70B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E701C89C-3EEF-4119-A957-5AA47D9F70B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E701C89C-3EEF-4119-A957-5AA47D9F70B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E701C89C-3EEF-4119-A957-5AA47D9F70B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

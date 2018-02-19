@@ -1,0 +1,18 @@
+﻿<Window x:Class="Phantogram.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:me="clr-namespace:MyEffects;assembly=AnaglyphEffect"
+    Title="Phantogram" SizeToContent="WidthAndHeight" MaxHeight="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image Name="LeftImage" Source="phantogram/aalto_left.jpg" />
+        <Image Name="RightImage" Source="phantogram/aalto_right.jpg">
+            <Image.Effect>
+                <me:AnaglyphEffect x:Name="Effect1">
+                    <me:AnaglyphEffect.LeftInput>
+                        <VisualBrush Visual="{Binding ElementName=LeftImage}"/>
+                    </me:AnaglyphEffect.LeftInput>
+                </me:AnaglyphEffect>
+            </Image.Effect>
+        </Image>
+    </Grid>
+</Window>

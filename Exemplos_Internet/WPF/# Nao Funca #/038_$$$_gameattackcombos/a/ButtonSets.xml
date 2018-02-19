@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ButtonSets>
+	<ButtonSet platform="PS3" name="Basic">
+		<Button id="Triangle" iconKey="PS-Triangle-Basic" />
+		<Button id="Circle" iconKey="PS-Circle-Basic" />
+		<Button id="X" iconKey="PS-X-Basic" />
+		<Button id="Square" iconKey="PS-Square-Basic" />
+	</ButtonSet>
+	<ButtonSet platform="PS3" name="Filled">
+		<Button id="Triangle" iconKey="PS-Triangle-Filled" />
+		<Button id="Circle" iconKey="PS-Circle-Filled" />
+		<Button id="X" iconKey="PS-X-Filled" />
+		<Button id="Square" iconKey="PS-Square-Filled" />
+	</ButtonSet>
+	<ButtonSet platform="PS3" name="Buttoned">
+		<Button id="Triangle" iconKey="PS-Triangle-Buttoned" />
+		<Button id="Circle" iconKey="PS-Circle-Buttoned" />
+		<Button id="X" iconKey="PS-X-Buttoned" />
+		<Button id="Square" iconKey="PS-Square-Buttoned" />
+	</ButtonSet>
+	<ButtonSet platform="Xbox 360" name="Basic">
+		<Button id="A" iconKey="Xbox-A-Basic" />
+		<Button id="B" iconKey="Xbox-B-Basic" />
+		<Button id="X" iconKey="Xbox-X-Basic" />
+		<Button id="Y" iconKey="Xbox-Y-Basic" />
+	</ButtonSet>
+	<ButtonSet platform="Xbox 360" name="Filled">
+		<Button id="A" iconKey="Xbox-A-Filled" />
+		<Button id="B" iconKey="Xbox-B-Filled" />
+		<Button id="X" iconKey="Xbox-X-Filled" />
+		<Button id="Y" iconKey="Xbox-Y-Filled" />
+	</ButtonSet>
+	<ButtonSet platform="Xbox 360" name="Buttoned">
+		<Button id="A" iconKey="Xbox-A-Buttoned" />
+		<Button id="B" iconKey="Xbox-B-Buttoned" />
+		<Button id="X" iconKey="Xbox-X-Buttoned" />
+		<Button id="Y" iconKey="Xbox-Y-Buttoned" />
+	</ButtonSet>
+	<ButtonSet platform="PC" name="Gamepad">
+		<Button id="1" iconKey="PC-1-Gamepad" />
+		<Button id="2" iconKey="PC-2-Gamepad" />
+		<Button id="3" iconKey="PC-3-Gamepad" />
+		<Button id="4" iconKey="PC-4-Gamepad" />
+	</ButtonSet>
+	<ButtonSet platform="PC" name="Keyboard">
+		<Button id="1" iconKey="PC-1-Keyboard" />
+		<Button id="2" iconKey="PC-2-Keyboard" />
+		<Button id="3" iconKey="PC-3-Keyboard" />
+		<Button id="4" iconKey="PC-4-Keyboard" />
+	</ButtonSet>
+	<ButtonSet platform="PC" name="Alternate Keyboard">
+		<Button id="1" iconKey="PC-1-AltKeyboard" />
+		<Button id="2" iconKey="PC-2-AltKeyboard" />
+		<Button id="3" iconKey="PC-3-AltKeyboard" />
+		<Button id="4" iconKey="PC-4-AltKeyboard" />
+	</ButtonSet>
+</ButtonSets>

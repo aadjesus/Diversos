@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Asaasoft.DigitalMeter.DigitalMeter">
+    <Position X="2" Y="0.5" Width="1.75" />
+    <Members>
+      <Method Name="DigitalMeter" Hidden="true" />
+      <Field Name="MeasurementUnitProperty" Hidden="true" />
+      <Method Name="OnValueChanged" Hidden="true" />
+      <Field Name="PrecisionProperty" Hidden="true" />
+      <Field Name="ScalingFactorProperty" Hidden="true" />
+      <Method Name="SetValueText" Hidden="true" />
+      <Field Name="ValueChangedEvent" Hidden="true" />
+      <Field Name="ValueProperty" Hidden="true" />
+      <Field Name="ValueTextProperty" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="Asaasoft.DigitalMeter.DigitalMeter.ValueChangedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DigitalMeter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAGAAAAAAAAAAEACQAAgEAMAAAAEAAAAgAAAAEAA=</HashCode>
+      <FileName>DigitalMeter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Asaasoft.DigitalMeter.ValueChangedEventArgs" Collapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DigitalMeter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

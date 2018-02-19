@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.4" />
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListCodeDomSerializer" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SharedImageListCodeDomSerializer.vb</FileName>
+      <HashCode>AAAAAAAAAAAAQCAAAAACAIAAACBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageLists">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>SharedImageLists.vb</FileName>
+      <HashCode>AAAAAAAAACAAAAAAICGEAAACAACAAAAAAAAAACAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_imageLists" Hidden="true" />
+      <Field Name="_inIDE" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Property Name="ImageLists" Hidden="true" />
+      <Method Name="InIDE" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListsDesigner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>SharedImageListsDesigner.vb</FileName>
+      <HashCode>FACIACSACCAAAQAwCAAAJAAAAACJIAAQAAgAYgAJEAE=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListsDesignerActionList" Collapsed="true">
+    <Position X="3.5" Y="2.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SharedImageListsDesignerActionList.vb</FileName>
+      <HashCode>AAAAAACAACBBRAAQCAAAAAABEAAAAAAAAAAIIgAIAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListsRootDesigner" Collapsed="true">
+    <Position X="0.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>SharedImageListsRootDesigner.vb</FileName>
+      <HashCode>AABAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIACBQAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListsCodeDomSerializer" Collapsed="true">
+    <Position X="3.5" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SharedImageListsCodeDomSerializer.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForwardSoftware.Windows.Forms.SharedImageListSelectorUITypeEditor" Collapsed="true">
+    <Position X="3.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>SharedImageListSelectorUITypeEditor.vb</FileName>
+      <HashCode>AAAQABAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

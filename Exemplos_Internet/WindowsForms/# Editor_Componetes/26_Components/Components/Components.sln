@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wrox.Components", "Wrox.Components.csproj", "{BE81486F-7C68-4D1F-9590-A22266156350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE81486F-7C68-4D1F-9590-A22266156350}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{BE81486F-7C68-4D1F-9590-A22266156350}.Debug|Default.Build.0 = Debug|Any CPU
+		{BE81486F-7C68-4D1F-9590-A22266156350}.Release|Default.ActiveCfg = Release|Any CPU
+		{BE81486F-7C68-4D1F-9590-A22266156350}.Release|Default.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

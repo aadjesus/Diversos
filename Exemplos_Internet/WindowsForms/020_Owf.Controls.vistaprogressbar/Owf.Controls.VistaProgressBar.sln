@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owf.Controls.VistaProgressBar", "Owf.Controls.VistaProgressBar\Owf.Controls.VistaProgressBar.csproj", "{CD896E4E-A455-44CA-B39E-BE16066EB4B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{CE29FEAF-0B64-4BBE-9869-899C9B3B05A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD896E4E-A455-44CA-B39E-BE16066EB4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD896E4E-A455-44CA-B39E-BE16066EB4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD896E4E-A455-44CA-B39E-BE16066EB4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD896E4E-A455-44CA-B39E-BE16066EB4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE29FEAF-0B64-4BBE-9869-899C9B3B05A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE29FEAF-0B64-4BBE-9869-899C9B3B05A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE29FEAF-0B64-4BBE-9869-899C9B3B05A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE29FEAF-0B64-4BBE-9869-899C9B3B05A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

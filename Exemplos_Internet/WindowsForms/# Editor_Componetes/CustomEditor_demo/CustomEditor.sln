@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleControl", "RectangleControl.csproj", "{CF4DFA94-AB27-4135-A90C-D1D4DEEB9DBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone Number Control", "Phone Number Control\Phone Number Control.csproj", "{06D16AB8-30A8-42B9-9A62-8D4307E37001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCustomControl", "TestCustomControl\TestCustomControl.csproj", "{90A10511-C010-42C6-B942-EE8405088A48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF4DFA94-AB27-4135-A90C-D1D4DEEB9DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4DFA94-AB27-4135-A90C-D1D4DEEB9DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4DFA94-AB27-4135-A90C-D1D4DEEB9DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4DFA94-AB27-4135-A90C-D1D4DEEB9DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D16AB8-30A8-42B9-9A62-8D4307E37001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D16AB8-30A8-42B9-9A62-8D4307E37001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D16AB8-30A8-42B9-9A62-8D4307E37001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D16AB8-30A8-42B9-9A62-8D4307E37001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A10511-C010-42C6-B942-EE8405088A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A10511-C010-42C6-B942-EE8405088A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A10511-C010-42C6-B942-EE8405088A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A10511-C010-42C6-B942-EE8405088A48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

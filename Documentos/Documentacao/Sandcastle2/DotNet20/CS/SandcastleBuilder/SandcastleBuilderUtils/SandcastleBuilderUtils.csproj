@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{330DADF7-3AB1-49A0-B3C6-A69D2C4F06A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SandcastleBuilder.Utils</RootNamespace>
+    <AssemblyName>SandcastleBuilder.Utils</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SandcastleBuilderUtils.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SandcastleBuilder.Utils.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SandcastleBuilder.Utils.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuilderException.cs" />
+    <Compile Include="BuildProcess.HelpFileUtils.cs" />
+    <Compile Include="BuildProcess.Namespaces.cs" />
+    <Compile Include="BuildProcess.AdditionalContent.cs" />
+    <Compile Include="BuildProcess.Transform.cs" />
+    <Compile Include="BuildProgressEventArgs.cs" />
+    <Compile Include="BuildProcess.cs" />
+    <Compile Include="BuildStepEnum.cs" />
+    <Compile Include="ComponentConfigurationDictionary.cs" />
+    <Compile Include="ContentItem.cs" />
+    <Compile Include="ContentItemCollection.cs" />
+    <Compile Include="ContentPlacementEnum.cs" />
+    <Compile Include="Controls\CustomPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DividerGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\ComponentConfigurationEditor.cs" />
+    <Compile Include="Design\ComponentConfigurationEditorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\ComponentConfigurationEditorDlg.Designer.cs">
+      <DependentUpon>ComponentConfigurationEditorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\FileFolderGacPathObjectEditor.cs" />
+    <Compile Include="Design\FileFolderGacPathTypeConverter.cs" />
+    <Compile Include="Design\FilePathObjectEditor.cs" />
+    <Compile Include="Design\FilePathTypeConverter.cs" />
+    <Compile Include="Design\FolderPathObjectEditor.cs" />
+    <Compile Include="Design\FolderPathTypeConverter.cs" />
+    <Compile Include="Design\PresentationStyleTypeConverter.cs" />
+    <Compile Include="FileFolderGacPath.cs" />
+    <Compile Include="FilePath.cs" />
+    <Compile Include="FolderPath.cs" />
+    <Compile Include="HelpFileFormatEnum.cs" />
+    <Compile Include="SyntaxFilterEnum.cs" />
+    <Compile Include="LinkTypeEnums.cs" />
+    <Compile Include="NamingMethodEnum.cs" />
+    <Compile Include="VisibleItemsEnum.cs" />
+    <Compile Include="DependencyItem.cs" />
+    <Compile Include="DependencyItemCollection.cs" />
+    <Compile Include="Design\ContentItemEditor.cs" />
+    <Compile Include="Design\ContentItemEditorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\ContentItemEditorDlg.Designer.cs">
+      <DependentUpon>ContentItemEditorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\DependencyItemEditor.cs" />
+    <Compile Include="Design\DependencyItemEditorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\DependencyItemEditorDlg.Designer.cs">
+      <DependentUpon>DependencyItemEditorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\LanguageResourceConverter.cs" />
+    <Compile Include="Design\PreviewTocDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\PreviewTocDlg.Designer.cs">
+      <DependentUpon>PreviewTocDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\RefreshableItemListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\FileDialogAttribute.cs" />
+    <Compile Include="Design\FilePathStringEditor.cs" />
+    <Compile Include="Design\FolderDialogAttribute.cs" />
+    <Compile Include="Design\FolderPathStringEditor.cs" />
+    <Compile Include="Controls\DividerLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\FrameworkVersionTypeConverter.cs" />
+    <Compile Include="Design\SelectGacEntriesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\SelectGacEntriesDlg.Designer.cs">
+      <DependentUpon>SelectGacEntriesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentAssembly.cs" />
+    <Compile Include="DocumentAssemblyCollection.cs" />
+    <Compile Include="Gac\AssemblyLoader.cs" />
+    <Compile Include="Gac\GacApi.cs" />
+    <Compile Include="MissingTagsEnum.cs" />
+    <Compile Include="NamespaceSummaryItem.cs" />
+    <Compile Include="NamespaceSummaryItemCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\StatusBarTextProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BuildProcess.PurgeItems.cs" />
+    <Compile Include="SandcastleProject.cs" />
+    <Compile Include="TocEntry.cs" />
+    <Compile Include="TocEntryCollection.cs" />
+    <Compile Include="XmlCommentsFile.cs" />
+    <Compile Include="XmlCommentsFileCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SandcastleBuilderUtils.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\StatusBarTextProvider.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DividerLabel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DividerGroupBox.bmp" />
+    <EmbeddedResource Include="Design\ComponentConfigurationEditorDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ComponentConfigurationEditorDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\ContentItemEditorDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ContentItemEditorDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\DependencyItemEditorDlg.resx">
+      <DependentUpon>DependencyItemEditorDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\PreviewTocDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PreviewTocDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\SelectGacEntriesDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectGacEntriesDlg.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\CustomPropertyGrid.bmp" />
+    <None Include="Images\AddFolder.bmp" />
+    <None Include="Images\AddItem.bmp" />
+    <None Include="Images\Delete.bmp" />
+    <None Include="Images\Content.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Dependencies.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\AddGAC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PreviewTOC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\NormalTopic.bmp" />
+    <None Include="Images\DefaultTopic.bmp" />
+    <None Include="Images\MoveDown.bmp" />
+    <None Include="Images\MoveUp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CodeColorizer\ColorizerLibrary\ColorizerLibrary.csproj">
+      <Project>{72331A21-C452-4BE4-BFDB-B8029A6BC1C0}</Project>
+      <Name>ColorizerLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

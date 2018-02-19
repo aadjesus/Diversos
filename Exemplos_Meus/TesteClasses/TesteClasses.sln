@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLB.DTO", "GLB.DTO\GLB.DTO.csproj", "{BE3F82E5-21AF-4AA7-B376-09DBC4080605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1.DAL", "ClassLibrary1.DAO\ClassLibrary1.DAL.csproj", "{FE56554B-F4A4-4383-93B6-C0EFE6139A93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1.BLL", "ClassLibrary1.BLL\ClassLibrary1.BLL.csproj", "{D64A8C1B-EB71-49F4-A5B2-1BCA7DEC009E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE3F82E5-21AF-4AA7-B376-09DBC4080605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3F82E5-21AF-4AA7-B376-09DBC4080605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3F82E5-21AF-4AA7-B376-09DBC4080605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3F82E5-21AF-4AA7-B376-09DBC4080605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE56554B-F4A4-4383-93B6-C0EFE6139A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE56554B-F4A4-4383-93B6-C0EFE6139A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE56554B-F4A4-4383-93B6-C0EFE6139A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE56554B-F4A4-4383-93B6-C0EFE6139A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64A8C1B-EB71-49F4-A5B2-1BCA7DEC009E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64A8C1B-EB71-49F4-A5B2-1BCA7DEC009E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64A8C1B-EB71-49F4-A5B2-1BCA7DEC009E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64A8C1B-EB71-49F4-A5B2-1BCA7DEC009E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

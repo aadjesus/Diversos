@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF0DE344-C486-454F-949A-F23EDBE89820}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CycleTracks</RootNamespace>
+    <AssemblyName>CycleTracks</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RibbonControlsLibrary, Version=3.5.31016.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SDKs\WPFRibbonCTP\RibbonBinaries\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFToolkit.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFToolkit.VisualStudio.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.Controls, Version=3.1.9069.14010, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.1.9069.14010, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.1, Version=3.1.9069.14010, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.2, Version=3.1.9069.14010, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.DataGrid.Views3D, Version=3.1.9069.14010, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppCommands.xaml.cs">
+      <DependentUpon>AppCommands.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\HartRatePositionConverter.cs" />
+    <Compile Include="Converters\HartRateToColorConverter.cs" />
+    <Compile Include="Converters\TrackToPointCollectionConverter.cs" />
+    <Compile Include="Heart.cs" />
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MyExtensionMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XceedDeploymentLicense.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AppCommands.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Backup.png" />
+    <Resource Include="Images\Bank.png" />
+    <Resource Include="Images\Bike.png" />
+    <Resource Include="Images\BudgetReport.png" />
+    <Resource Include="Images\Calc.png" />
+    <Resource Include="Images\CashFlowReport.png" />
+    <Resource Include="Images\Clear.png" />
+    <Resource Include="Images\Coins.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\CreditCards.png" />
+    <Resource Include="Images\Cut.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\ico-live.png" />
+    <Resource Include="Images\ico-maps.png" />
+    <Resource Include="Images\ico-notes.png" />
+    <Resource Include="Images\ico-pics.png" />
+    <Resource Include="Images\mesh.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\Reconcile.png" />
+    <Resource Include="Images\splash.png" />
+    <Resource Include="Images\start.png" />
+    <Resource Include="Images\Transfer.png" />
+    <Resource Include="Images\TrendReport.png" />
+    <Resource Include="Pictures\Wave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GarminData\GarminData\GarminData.vbproj">
+      <Project>{66EFBA91-F59D-4A62-A2B7-B08C69B3598F}</Project>
+      <Name>GarminData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VEControl\VEControl\VEControl.csproj">
+      <Project>{BEFD5652-4F39-4ADB-B086-7908DD7A47AD}</Project>
+      <Name>VEControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Butterfly.jpg" />
+    <Resource Include="Pictures\Field.jpg" />
+    <Resource Include="Pictures\Flower.jpg" />
+    <Resource Include="Pictures\img1.jpg" />
+    <Resource Include="Pictures\img10.jpg" />
+    <Resource Include="Pictures\img11.jpg" />
+    <Resource Include="Pictures\img2.jpg" />
+    <Resource Include="Pictures\img24.jpg" />
+    <Resource Include="Pictures\img3.jpg" />
+    <Resource Include="Pictures\img4.jpg" />
+    <Resource Include="Pictures\img5.jpg" />
+    <Resource Include="Pictures\img6.jpg" />
+    <Resource Include="Pictures\img7.jpg" />
+    <Resource Include="Pictures\img8.jpg" />
+    <Resource Include="Pictures\img9.jpg" />
+    <Resource Include="Pictures\Leaves.jpg" />
+    <Resource Include="Pictures\Rocks.jpg" />
+    <Resource Include="Pictures\Tulip.jpg" />
+    <Resource Include="Pictures\US-wp1.jpg" />
+    <Resource Include="Pictures\US-wp2.jpg" />
+    <Resource Include="Pictures\US-wp3.jpg" />
+    <Resource Include="Pictures\US-wp4.jpg" />
+    <Resource Include="Pictures\US-wp5.jpg" />
+    <Resource Include="Pictures\US-wp6.jpg" />
+    <Resource Include="Pictures\Waterfall.jpg" />
+    <Resource Include="Pictures\Window.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Peter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\BrugseZot_Front.JPG" />
+    <Resource Include="Pictures\Cezarke_Front.JPG" />
+    <Resource Include="Pictures\Delerium_Tremens_Front.JPG" />
+    <Resource Include="Pictures\Ename_Front.jpg" />
+    <Resource Include="Pictures\Ezelbier_Front.JPG" />
+    <Resource Include="Pictures\Kasteelbier_Front.JPG" />
+    <Resource Include="Pictures\LaGuillotine_Front.JPG" />
+    <Resource Include="Pictures\LaTrappe_Front.JPG" />
+    <Resource Include="Pictures\Leffe_Front.JPG" />
+    <Resource Include="Pictures\LeuteBokBier_Front.JPG" />
+    <Resource Include="Pictures\Lindemans_Kriek_Front.JPG" />
+    <Resource Include="Pictures\Rodenbach_Front.JPG" />
+    <Resource Include="Pictures\Westmalle_Front.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bike2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NoticeBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\U2U.JPG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

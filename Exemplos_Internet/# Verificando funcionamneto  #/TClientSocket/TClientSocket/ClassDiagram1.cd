@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="TClientSocket.ClientSocket">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>ClientSocket.cs</FileName>
+      <HashCode>MBQAQAABAACA4ACACAAAgIIAKCIMAFADQAgACAAABAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="TClientSocket.ClientSocket.ConnectionDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ClientSocket.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="TClientSocket.ClientSocket.ErrorDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ClientSocket.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+  </Class>
+</ClassDiagram>

@@ -1,0 +1,1934 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.35" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">http://www.gotdotnet.com/team/fxcop//xsl/1.35/FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/../../../Program Files/Sandcastle/ProductionTools/</Directory>
+   <Directory>C:/Program Files/Sandcastle/ProductionTools/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/SandcastleBuilderConsole/bin/Debug/SandcastleBuilderConsole.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/SandCastleBuilderGUI/bin/Debug/SandcastleBuilder.Utils.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/SandCastleBuilderGUI/bin/Debug/SandcastleBuilderGUI.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/SandcastleComponents/bin/Debug/SandcastleBuilder.Components.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AvoidDuplicateAccelerators" Enabled="True" />
+    <Rule Name="SpecifyCultureInfo" Enabled="True" />
+    <Rule Name="SpecifyIFormatProvider" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AutoLayoutTypesShouldNotBeComVisible" Enabled="True" />
+    <Rule Name="AvoidInt64ArgumentsForVB6Clients" Enabled="True" />
+    <Rule Name="AvoidNonpublicFieldsInComVisibleValueTypes" Enabled="True" />
+    <Rule Name="AvoidOverloadsInComVisibleInterfaces" Enabled="True" />
+    <Rule Name="AvoidStaticMembersInComVisibleTypes" Enabled="True" />
+    <Rule Name="CallGetLastErrorImmediatelyAfterPInvoke" Enabled="True" />
+    <Rule Name="ComRegistrationMethodsShouldBeMatched" Enabled="True" />
+    <Rule Name="ComRegistrationMethodsShouldNotBeVisible" Enabled="True" />
+    <Rule Name="ComVisibleTypeBaseTypesShouldBeComVisible" Enabled="True" />
+    <Rule Name="ComVisibleTypesShouldBeCreatable" Enabled="True" />
+    <Rule Name="DeclarePInvokesCorrectly" Enabled="True" />
+    <Rule Name="DoNotUseAutoDualClassInterfaceType" Enabled="True" />
+    <Rule Name="MarkBooleanPInvokeArgumentsWithMarshalAs" Enabled="True" />
+    <Rule Name="MarkComSourceInterfacesAsIDispatch" Enabled="True" />
+    <Rule Name="PInvokesShouldNotBeVisible" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.35">
+  <Namespaces>
+   <Namespace Name="SandcastleBuilder.Components">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2006-12-15 00:33:35Z">
+      <Issue>
+       <Item>SandcastleBuilder.Components</Item>
+      </Issue>
+      <Notes>
+       <User Name="EWOODRUFF">
+        <Note Id="40" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="SandcastleBuilder.Utils.Controls">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2006-08-10 20:24:55Z">
+      <Issue>
+       <Item>SandcastleBuilder.Utils.Controls</Item>
+      </Issue>
+      <Notes>
+       <User Name="EWOODRUFF">
+        <Note Id="0" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/SandcastleBuilderConsole/bin/Debug/SandcastleBuilderConsole.exe">
+    <Modules>
+     <Module Name="sandcastlebuilderconsole.exe">
+      <Namespaces>
+       <Namespace Name="SandcastleBuilderConsole">
+        <Types>
+         <Type Name="SandcastleBuilderConsole">
+          <Members>
+           <Member Name="BuildProject(SandcastleBuilder.Utils.SandcastleProject):System.Boolean">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-12-27 23:39:27Z">
+              <Issue>
+               <Item>SandcastleBuilderConsole.BuildProject(SandcastleProject):Boolean</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="43" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/SandCastleBuilderGUI/bin/Debug/SandcastleBuilder.Utils.dll">
+    <Modules>
+     <Module Name="sandcastlebuilder.utils.dll">
+      <Namespaces>
+       <Namespace Name="SandcastleBuilder.Utils">
+        <Types>
+         <Type Name="BuildProcess">
+          <Messages>
+           <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Excluded" Created="2006-09-03 06:32:21Z" FixCategory="Breaking">
+            <Issue>
+             <Item>SandcastleBuilder.Utils.BuildProcess</Item>
+             <Item>System.IO.StreamWriter, System.Diagnostics.Process</Item>
+            </Issue>
+            <Notes>
+             <User Name="EWOODRUFF">
+              <Note Id="17" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Build():System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-11 16:02:50Z">
+              <Issue>
+               <Item>BuildProcess.Build():Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="7" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="LogFilename">
+            <Messages>
+             <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-11-07 17:42:46Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>Filename</Item>
+               <Item>property</Item>
+               <Item>LogFilename</Item>
+               <Item>FileName</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ModifyHelpTopicFilenames():System.Void">
+            <Messages>
+             <Message Id="Filenames" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2007-01-23 03:18:47Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>Filenames</Item>
+               <Item>method</Item>
+               <Item>ModifyHelpTopicFilenames</Item>
+               <Item>FileNames</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="14" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadStdErr():System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-03 06:32:21Z">
+              <Issue>
+               <Item>BuildProcess.ReadStdErr():Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="16" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadStdOut():System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-03 06:32:21Z">
+              <Issue>
+               <Item>BuildProcess.ReadStdOut():Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="16" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadWithEncoding(System.String,System.Text.Encoding&amp;):System.String">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-09-25 15:30:27Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>filename</Item>
+               <Item>parameter</Item>
+               <Item>filename</Item>
+               <Item>fileName</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="24" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="1#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Status="Excluded" Created="2006-09-25 15:30:27Z">
+              <Issue Level="CriticalWarning">
+               <Item>encoding</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="26" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="RecursiveCopy(System.String,System.String):System.Void">
+            <Messages>
+             <Message Id="1#dest" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue Name="Parameter">
+               <Item>BuildProcess.RecursiveCopy(String, String):Void</Item>
+               <Item>dest</Item>
+               <Item>destPath</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="TableOfContent">
+            <Accessors>
+             <Accessor Name="get_TableOfContent():SandcastleBuilder.Utils.TocEntryCollection">
+              <Messages>
+               <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-21 15:45:41Z">
+                <Issue>
+                 <Item>BuildProcess.get_TableOfContent():TocEntryCollection</Item>
+                 <Item>System.Exception</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="TransformTemplate(System.String,System.String,System.String):System.String">
+            <Messages>
+             <Message Id="2#dest" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue Name="Parameter">
+               <Item>BuildProcess.TransformTemplate(String, String, String):String</Item>
+               <Item>dest</Item>
+               <Item>destFolder</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="BuildStep">
+          <Members>
+           <Member Name="ModifyHelpTopicFilenames">
+            <Messages>
+             <Message Id="Filenames" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-11-07 17:42:46Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>Filenames</Item>
+               <Item>field</Item>
+               <Item>ModifyHelpTopicFilenames</Item>
+               <Item>FileNames</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ComponentConfigurationDictionary">
+          <Messages>
+           <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Excluded" Created="2006-12-04 21:56:02Z">
+            <Issue>
+             <Item>ComponentConfigurationDictionary</Item>
+            </Issue>
+            <Notes>
+             <User Name="EWOODRUFF">
+              <Note Id="38" />
+             </User>
+            </Notes>
+           </Message>
+           <Message TypeName="ImplementSerializationConstructors" Category="Microsoft.Usage" CheckId="CA2229" Status="Excluded" Created="2006-11-24 23:59:46Z">
+            <Issue Name="CreateMagicConstructor">
+             <Item>ComponentConfigurationDictionary</Item>
+            </Issue>
+            <Notes>
+             <User Name="EWOODRUFF">
+              <Note Id="38" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="ReadXml(System.Xml.XmlTextReader,System.Version):System.Void">
+            <Messages>
+             <Message Id="schemaVersion" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2006-11-24 23:58:32Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>schemaVersion</Item>
+               <Item>ComponentConfigurationDictionary.ReadXml(XmlTextReader, Version):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="36" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ContentItem">
+          <Members>
+           <Member Name="DestinationPath">
+            <Accessors>
+             <Accessor Name="set_DestinationPath(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>ContentItem.set_DestinationPath(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="ReadXml(System.Xml.XmlTextReader,System.Version):System.Void">
+            <Messages>
+             <Message Id="schemaVersion" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2006-08-10 20:24:55Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>schemaVersion</Item>
+               <Item>ContentItem.ReadXml(XmlTextReader, Version):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SourcePath">
+            <Accessors>
+             <Accessor Name="set_SourcePath(SandcastleBuilder.Utils.FilePath):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-01-18 19:18:04Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>ContentItem.set_SourcePath(FilePath):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="47" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="DependencyItem">
+          <Members>
+           <Member Name="DependencyPath">
+            <Accessors>
+             <Accessor Name="set_DependencyPath(SandcastleBuilder.Utils.FileFolderGacPath):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-01-18 19:18:04Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>DependencyItem.set_DependencyPath(FileFolderGacPath):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="49" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="ReadXml(System.Xml.XmlTextReader,System.Version):System.Void">
+            <Messages>
+             <Message Id="schemaVersion" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2006-08-29 02:30:27Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>schemaVersion</Item>
+               <Item>DependencyItem.ReadXml(XmlTextReader, Version):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="13" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="DocumentAssembly">
+          <Members>
+           <Member Name="ReadXml(System.Xml.XmlTextReader,System.Version):System.Void">
+            <Messages>
+             <Message Id="schemaVersion" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2006-08-10 20:24:55Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>schemaVersion</Item>
+               <Item>DocumentAssembly.ReadXml(XmlTextReader, Version):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FilePath">
+          <Members>
+           <Member Name=".ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue>
+               <Item>FilePath.FilePath(String)</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;FilePath.FilePath(String)&#xD;&#xA;FilePath.set_Path(String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="44" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(System.String,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue>
+               <Item>FilePath.FilePath(String, Boolean)</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;FilePath.FilePath(String, Boolean)&#xD;&#xA;FilePath.set_Path(String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="44" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Path">
+            <Accessors>
+             <Accessor Name="set_Path(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-01-18 19:18:04Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>FilePath.set_Path(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="48" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HelpFileFormat">
+          <Messages>
+           <Message TypeName="FlagsEnumsShouldHavePluralNames" Category="Microsoft.Naming" CheckId="CA1714" Status="Excluded" Created="2006-09-21 15:45:41Z">
+            <Issue>
+             <Item>HelpFileFormat</Item>
+            </Issue>
+            <Notes>
+             <User Name="EWOODRUFF">
+              <Note Id="23" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="MissingTags">
+          <Members>
+           <Member Name="AutoDocumentCtors">
+            <Messages>
+             <Message Id="Ctors" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="Member">
+               <Item>Ctors</Item>
+               <Item>MissingTags.AutoDocumentCtors</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="28" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NamespaceSummaryItem">
+          <Members>
+           <Member Name="ReadXml(System.Xml.XmlTextReader,System.Version):System.Void">
+            <Messages>
+             <Message Id="schemaVersion" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2006-09-06 02:50:40Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>schemaVersion</Item>
+               <Item>NamespaceSummaryItem.ReadXml(XmlTextReader, Version):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="19" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Summary">
+            <Accessors>
+             <Accessor Name="set_Summary(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-09-06 02:50:40Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>NamespaceSummaryItem.set_Summary(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="20" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SandcastleProject">
+          <Members>
+           <Member Name="BinaryTOC">
+            <Messages>
+             <Message Id="Member" TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Status="Excluded" Created="2006-08-10 20:24:55Z">
+              <Issue Name="Member">
+               <Item>SandcastleProject.BinaryTOC:Boolean</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CopyrightHref">
+            <Accessors>
+             <Accessor Name="set_CopyrightHref(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_CopyrightHref(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="CopyrightText">
+            <Accessors>
+             <Accessor Name="set_CopyrightText(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_CopyrightText(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="CppCommentsFixup">
+            <Messages>
+             <Message Id="Cpp" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-12-09 05:41:34Z">
+              <Issue Name="Member">
+               <Item>Cpp</Item>
+               <Item>SandcastleProject.CppCommentsFixup:Boolean</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="39" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FeedbackEMailAddress">
+            <Messages>
+             <Message Id="EMail" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-08-10 20:24:55Z">
+              <Issue Name="ShouldBeDiscreteTerm">
+               <Item>EMail</Item>
+               <Item>property</Item>
+               <Item>FeedbackEMailAddress</Item>
+               <Item>Email</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+            <Accessors>
+             <Accessor Name="set_FeedbackEMailAddress(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_FeedbackEMailAddress(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="Filename">
+            <Messages>
+             <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-08-10 20:24:55Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>Filename</Item>
+               <Item>property</Item>
+               <Item>Filename</Item>
+               <Item>FileName</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="FooterText">
+            <Accessors>
+             <Accessor Name="set_FooterText(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-02-24 05:18:15Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_FooterText(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="54" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="HeaderText">
+            <Accessors>
+             <Accessor Name="set_HeaderText(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_HeaderText(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="HelpTitle">
+            <Accessors>
+             <Accessor Name="set_HelpTitle(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_HelpTitle(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="HtmlHelpName">
+            <Accessors>
+             <Accessor Name="set_HtmlHelpName(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-08-10 20:24:55Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_HtmlHelpName(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="MissingTags">
+            <Accessors>
+             <Accessor Name="set_MissingTags(SandcastleBuilder.Utils.MissingTags):System.Void">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2006-12-27 23:39:27Z">
+                <Issue>
+                 <Item>SandcastleProject.set_MissingTags(MissingTags):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="42" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="RootNamespaceTitle">
+            <Accessors>
+             <Accessor Name="set_RootNamespaceTitle(System.String):System.Void">
+              <Messages>
+               <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-02-01 00:42:13Z">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>SandcastleProject.set_RootNamespaceTitle(String):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="50" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="ShowMissingParams">
+            <Messages>
+             <Message Id="Params" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="Member">
+               <Item>Params</Item>
+               <Item>SandcastleProject.ShowMissingParams:Boolean</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="28" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="VisibleItems">
+            <Accessors>
+             <Accessor Name="set_VisibleItems(SandcastleBuilder.Utils.VisibleItems):System.Void">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2006-12-27 23:39:27Z">
+                <Issue>
+                 <Item>SandcastleProject.set_VisibleItems(VisibleItems):Void</Item>
+                </Issue>
+                <Notes>
+                 <User Name="EWOODRUFF">
+                  <Note Id="41" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlCommentsFile">
+          <Members>
+           <Member Name=".ctor(System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>filename</Item>
+               <Item>parameter</Item>
+               <Item>filename</Item>
+               <Item>fileName</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Comments">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlCommentsFile.Comments:XmlDocument</Item>
+               <Item>System.Xml.XmlDocument</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="29" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Members">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlCommentsFile.Members:XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="29" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlCommentsFileCollection">
+          <Members>
+           <Member Name="FindMember(System.String):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Status="Excluded" Created="2006-09-29 21:42:18Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlCommentsFileCollection.FindMember(String):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="29" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="SandcastleBuilder.Utils.Design">
+        <Types>
+         <Type Name="ComponentConfigurationEditorDlg">
+          <Members>
+           <Member Name="btnConfigure_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>ComponentConfigurationEditorDlg.btnConfigure_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="33" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FileFolderGacPathTypeConverter">
+          <Members>
+           <Member Name="ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue Name="Parameter">
+               <Item>value</Item>
+               <Item>System.String</Item>
+               <Item>FileFolderGacPathTypeConverter.ConvertFrom(ITypeDescriptorContext, CultureInfo, Object):Object</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FilePathStringEditor">
+          <Members>
+           <Member Name="EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue Name="Parameter">
+               <Item>value</Item>
+               <Item>System.String</Item>
+               <Item>FilePathStringEditor.EditValue(ITypeDescriptorContext, IServiceProvider, Object):Object</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue>
+               <Item>'context'</Item>
+               <Item>FilePathStringEditor.EditValue(ITypeDescriptorContext, IServiceProvider, Object):Object</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="46" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FilePathTypeConverter">
+          <Members>
+           <Member Name="ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue Name="Parameter">
+               <Item>value</Item>
+               <Item>System.String</Item>
+               <Item>FilePathTypeConverter.ConvertFrom(ITypeDescriptorContext, CultureInfo, Object):Object</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FolderPathStringEditor">
+          <Members>
+           <Member Name="EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue Name="Parameter">
+               <Item>value</Item>
+               <Item>System.String</Item>
+               <Item>FolderPathStringEditor.EditValue(ITypeDescriptorContext, IServiceProvider, Object):Object</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue>
+               <Item>'context'</Item>
+               <Item>FolderPathStringEditor.EditValue(ITypeDescriptorContext, IServiceProvider, Object):Object</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="46" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FolderPathTypeConverter">
+          <Members>
+           <Member Name="ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object):System.Object">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2007-01-18 19:18:04Z">
+              <Issue Name="Parameter">
+               <Item>value</Item>
+               <Item>System.String</Item>
+               <Item>FolderPathTypeConverter.ConvertFrom(ITypeDescriptorContext, CultureInfo, Object):Object</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PresentationStyleTypeConverter">
+          <Members>
+           <Member Name="InitializeStandardValues():System.ComponentModel.TypeConverter+StandardValuesCollection">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2007-02-24 05:18:15Z">
+              <Issue>
+               <Item>PresentationStyleTypeConverter.InitializeStandardValues():StandardValuesCollection</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="52" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PreviewTocDlg">
+          <Members>
+           <Member Name="btnSave_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-25 15:30:27Z">
+              <Issue>
+               <Item>PreviewTocDlg.btnSave_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="SandcastleBuilder.Utils.Gac">
+        <Types>
+         <Type Name="AssemblyLoader">
+          <Members>
+           <Member Name="GetAssemblyLocation(System.String):System.String">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2006-09-03 06:32:21Z" FixCategory="Breaking">
+              <Issue>
+               <Item>AssemblyLoader.GetAssemblyLocation(String):String</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetNamespaces(System.String):System.Collections.ObjectModel.Collection`1&lt;System.String&gt;">
+            <Messages>
+             <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-09-03 06:32:21Z">
+              <Issue Name="ShouldBeCompoundWord">
+               <Item>Filename</Item>
+               <Item>parameter</Item>
+               <Item>assemblyFilename</Item>
+               <Item>FileName</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="15" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/SandCastleBuilderGUI/bin/Debug/SandcastleBuilderGUI.exe">
+    <Modules>
+     <Module Name="sandcastlebuildergui.exe">
+      <Namespaces>
+       <Namespace Name="SandcastleBuilder">
+        <Types>
+         <Type Name="AboutDlg">
+          <Members>
+           <Member Name="btnSysInfo_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue>
+               <Item>AboutDlg.btnSysInfo_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="InitializeComponent():System.Void">
+            <Messages>
+             <Message Id="Plex" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-10-09 04:15:17Z">
+              <Issue>
+               <Item>Plex</Item>
+               <Item>CodePlex</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="31" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="Wiki" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-10-09 04:15:17Z">
+              <Issue>
+               <Item>Wiki</Item>
+               <Item>http://www.codeplex.com/Wiki/View.aspx?ProjectName=SHFB</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="31" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="codeplex" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-10-09 04:15:17Z">
+              <Issue>
+               <Item>codeplex</Item>
+               <Item>http://www.codeplex.com/SHFB</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="31" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Link_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-10-09 04:15:17Z">
+              <Issue>
+               <Item>AboutDlg.Link_LinkClicked(Object, LinkLabelLinkClickedEventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="30" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MainForm">
+          <Members>
+           <Member Name="ImportFromNDoc(System.String):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-14 20:03:01Z">
+              <Issue>
+               <Item>MainForm.ImportFromNDoc(String):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="9" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ImportFromVisualStudio(System.String):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-29 02:30:27Z">
+              <Issue>
+               <Item>MainForm.ImportFromVisualStudio(String):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="12" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ImportFromVSProject(System.String,System.Collections.Generic.List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-29 02:30:27Z">
+              <Issue>
+               <Item>MainForm.ImportFromVSProject(String, List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="12" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="InitializeComponent():System.Void">
+            <Messages>
+             <Message Id="Prj" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-09-06 02:50:40Z">
+              <Issue>
+               <Item>Prj</Item>
+               <Item>Prj &amp;Summary</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="18" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miCleanOutput_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-10-09 04:15:17Z">
+              <Issue>
+               <Item>MainForm.miCleanOutput_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="30" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miHelp_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-06 22:27:54Z">
+              <Issue>
+               <Item>MainForm.miHelp_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="21" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miNewFromNDoc_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-14 20:03:01Z">
+              <Issue>
+               <Item>MainForm.miNewFromNDoc_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="9" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miNewFromVS_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-29 02:30:27Z">
+              <Issue>
+               <Item>MainForm.miNewFromVS_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="12" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miOpenProject_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue>
+               <Item>MainForm.miOpenProject_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miProject_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue>
+               <Item>MainForm.miProject_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="miViewHelpFile_Click(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue>
+               <Item>MainForm.miViewHelpFile_Click(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="SaveProject():System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-08-12 02:09:46Z">
+              <Issue>
+               <Item>MainForm.SaveProject():Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SelectConfigDlg">
+          <Members>
+           <Member Name=".ctor(System.Collections.Generic.List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;)">
+            <Messages>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Excluded" Created="2006-08-29 02:30:27Z">
+              <Issue>
+               <Item>System.Collections.Generic.List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;</Item>
+               <Item>SelectConfigDlg.SelectConfigDlg(List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;)</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="10" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="0#Configs" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-08-29 02:30:27Z">
+              <Issue Name="Parameter">
+               <Item>SelectConfigDlg.SelectConfigDlg(List`1&lt;SandcastleBuilder.ProjectConfigItem&gt;)</Item>
+               <Item>Configs</Item>
+               <Item>projectConfigs</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="11" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StartUp">
+          <Messages>
+           <Message Id="StartUp" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2006-08-12 02:09:46Z">
+            <Issue Name="ShouldBeDiscreteTerm">
+             <Item>StartUp</Item>
+             <Item>class</Item>
+             <Item>StartUp</Item>
+             <Item>Startup</Item>
+            </Issue>
+            <Notes>
+             <User Name="EWOODRUFF">
+              <Note Id="3" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ViewLogDlg">
+          <Members>
+           <Member Name=".ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-09-21 15:45:41Z">
+              <Issue>
+               <Item>ViewLogDlg.ViewLogDlg(String)</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="22" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/SandcastleComponents/bin/Debug/SandcastleBuilder.Components.dll">
+    <Modules>
+     <Module Name="sandcastlebuilder.components.dll">
+      <Namespaces>
+       <Namespace Name="SandcastleBuilder.Components">
+        <Types>
+         <Type Name="CodeBlockComponent">
+          <Members>
+           <Member Name=".ctor(Microsoft.Ddue.Tools.BuildAssembler,System.Xml.XPath.XPathNavigator)">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-11-24 23:53:36Z">
+              <Issue>
+               <Item>'configuration'</Item>
+               <Item>CodeBlockComponent.CodeBlockComponent(BuildAssembler, XPathNavigator)</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Apply(System.Xml.XmlDocument,System.String):System.Void">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-11-24 23:53:36Z">
+              <Issue>
+               <Item>'document'</Item>
+               <Item>CodeBlockComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CodeBlockConfigDlg">
+          <Members>
+           <Member Name="InitializeComponent():System.Void">
+            <Messages>
+             <Message Id="#endif" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>#endif</Item>
+               <Item>Enable &amp;collapsible #region and #if/#else/#endif blocks</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="codeplex" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>codeplex</Item>
+               <Item>http://www.codeplex.com/SHFB</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="lnkCodePlexSHFB_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>CodeBlockConfigDlg.lnkCodePlexSHFB_LinkClicked(Object, LinkLabelLinkClickedEventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="33" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PostTransformComponent">
+          <Members>
+           <Member Name=".ctor(Microsoft.Ddue.Tools.BuildAssembler,System.Xml.XPath.XPathNavigator)">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>PostTransformComponent.PostTransformComponent(BuildAssembler, XPathNavigator)</Item>
+               <Item>logoHeight</Item>
+               <Item>System.Int32</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>PostTransformComponent.PostTransformComponent(BuildAssembler, XPathNavigator)</Item>
+               <Item>logoWidth</Item>
+               <Item>System.Int32</Item>
+               <Item>0</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="34" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-11-24 23:53:36Z">
+              <Issue>
+               <Item>'configuration'</Item>
+               <Item>PostTransformComponent.PostTransformComponent(BuildAssembler, XPathNavigator)</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Apply(System.Xml.XmlDocument,System.String):System.Void">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-11-24 23:53:36Z">
+              <Issue>
+               <Item>'document'</Item>
+               <Item>PostTransformComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PostTransformConfigDlg">
+          <Members>
+           <Member Name="InitializeComponent():System.Void">
+            <Messages>
+             <Message Id="codeplex" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>codeplex</Item>
+               <Item>http://www.codeplex.com/SHFB</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="colorizer" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Code colorizer &amp;JavaScript file</Item>
+              </Issue>
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Code colorizer &amp;stylesheet file</Item>
+              </Issue>
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Output path for the colorizer and logo files (should match SaveComponent 'base' attribute)</Item>
+              </Issue>
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Select output path for colorizer files</Item>
+              </Issue>
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Select the colorizer JavaScript file</Item>
+              </Issue>
+              <Issue>
+               <Item>colorizer</Item>
+               <Item>Select the colorizer stylesheet filename</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="lnkCodePlexSHFB_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>PostTransformConfigDlg.lnkCodePlexSHFB_LinkClicked(Object, LinkLabelLinkClickedEventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="33" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="txtLogoFile_Leave(System.Object,System.EventArgs):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-12-04 21:56:02Z">
+              <Issue>
+               <Item>PostTransformConfigDlg.txtLogoFile_Leave(Object, EventArgs):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="33" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ShowMissingComponent">
+          <Members>
+           <Member Name=".ctor(Microsoft.Ddue.Tools.BuildAssembler,System.Xml.XPath.XPathNavigator)">
+            <Messages>
+             <Message Id="Params" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2007-02-24 05:18:15Z">
+              <Issue>
+               <Item>Params</Item>
+               <Item>ShowMissingParams</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="53" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-02-24 05:18:15Z">
+              <Issue>
+               <Item>'configuration'</Item>
+               <Item>ShowMissingComponent.ShowMissingComponent(BuildAssembler, XPathNavigator)</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="55" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Apply(System.Xml.XmlDocument,System.String):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2007-02-24 05:18:15Z">
+              <Issue>
+               <Item>ShowMissingComponent.Apply(XmlDocument, String):Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="51" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2007-02-24 05:18:15Z">
+              <Issue>
+               <Item>'document'</Item>
+               <Item>ShowMissingComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Issue>
+               <Item>'key'</Item>
+               <Item>ShowMissingComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Issue>
+               <Item>'key'</Item>
+               <Item>ShowMissingComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Issue>
+               <Item>'key'</Item>
+               <Item>ShowMissingComponent.Apply(XmlDocument, String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="EWOODRUFF">
+                <Note Id="55" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="EWOODRUFF">
+    <Note Id="0" Modified="2006-08-10 20:25:33Z">It's a small project.</Note>
+    <Note Id="1" Modified="2006-09-03 06:35:51Z">Executed as part of an instance in another app domain and should not be static.</Note>
+    <Note Id="2" Modified="2006-08-10 20:31:51Z">I like 'em spelled just as they are</Note>
+    <Note Id="3" Modified="2006-08-12 02:14:40Z">I like 'em spelled just as they are</Note>
+    <Note Id="4" Modified="2006-08-10 20:50:57Z">I like it the way it is</Note>
+    <Note Id="5" Modified="2006-08-10 21:12:09Z">May be used in a later release if the schema changes</Note>
+    <Note Id="6" Modified="2006-08-10 21:47:36Z">Appears to be a bug in the rule.  The parameter is validated.</Note>
+    <Note Id="7" Modified="2006-08-11 16:07:04Z">The error is reported</Note>
+    <Note Id="8" Modified="2006-08-12 02:14:48Z">The error is being reported</Note>
+    <Note Id="9" Modified="2006-08-14 20:04:25Z">The error is being reported</Note>
+    <Note Id="10" Modified="2006-08-29 02:32:06Z">Allow it in this case as it's not likely to change.</Note>
+    <Note Id="11" Modified="2006-08-29 02:32:24Z">Okay as is</Note>
+    <Note Id="12" Modified="2006-08-29 02:32:52Z">The errors are reported</Note>
+    <Note Id="13" Modified="2006-08-29 02:34:36Z">Schema version may be used in a future release</Note>
+    <Note Id="14" Modified="2007-01-23 03:19:37Z">I like it the way it is</Note>
+    <Note Id="15" Modified="2006-09-03 06:36:40Z">It's fine as it is</Note>
+    <Note Id="16" Modified="2006-09-03 06:36:51Z">The errors are reported</Note>
+    <Note Id="17" Modified="2006-09-03 06:37:39Z">The process object is disposed of in the thread so no need to make the entire class disposable.</Note>
+    <Note Id="18" Modified="2006-09-06 02:52:13Z">Okay as is</Note>
+    <Note Id="19" Modified="2006-09-06 02:52:29Z">It's a schema version and may be used in a later release</Note>
+    <Note Id="20" Modified="2006-09-06 02:54:56Z">It is validated</Note>
+    <Note Id="21" Modified="2006-09-06 22:28:18Z">The error is reported</Note>
+    <Note Id="22" Modified="2006-09-21 15:51:05Z">The error is reported</Note>
+    <Note Id="23" Modified="2006-09-21 16:10:45Z">It's fine as it is</Note>
+    <Note Id="24" Modified="2006-09-25 15:30:49Z">It's fine as it is</Note>
+    <Note Id="25" Modified="2006-09-25 15:31:03Z">The error is reported</Note>
+    <Note Id="26" Modified="2006-09-25 16:06:54Z">It's fine as it is</Note>
+    <Note Id="27" Modified="2006-09-29 21:43:39Z">It's fine as it is</Note>
+    <Note Id="28" Modified="2006-09-29 21:44:00Z">They are fine as they are</Note>
+    <Note Id="29" Modified="2006-09-29 21:55:37Z">The suggested replacement will not work as well so let it use the concrete type</Note>
+    <Note Id="30" Modified="2006-10-09 04:15:44Z">The error is reported</Note>
+    <Note Id="31" Modified="2006-10-09 04:16:10Z">Okay as is</Note>
+    <Note Id="32" Modified="2006-11-07 17:45:47Z">I like "filename" instead.</Note>
+    <Note Id="33" Modified="2006-12-04 21:57:14Z">The error is being reported</Note>
+    <Note Id="34" Modified="2006-12-04 21:58:16Z">It's conditional</Note>
+    <Note Id="35" Modified="2006-12-04 22:08:08Z">Okay as is</Note>
+    <Note Id="36" Modified="2006-12-04 22:08:38Z">May be used in a later release if the schema changes</Note>
+    <Note Id="37" Modified="2006-12-04 22:11:47Z">If these are null, BuildAssembler is hosed.</Note>
+    <Note Id="38" Modified="2006-12-04 22:15:56Z">There's nothing to serialize in this class, let the base class handle it.</Note>
+    <Note Id="39" Modified="2006-12-09 05:43:09Z">Okay as is</Note>
+    <Note Id="40" Modified="2006-12-15 00:35:08Z">These are intended to be separate.</Note>
+    <Note Id="41" Modified="2006-12-27 23:40:43Z">Called via Reflection when loading a project</Note>
+    <Note Id="42" Modified="2006-12-27 23:40:55Z">Called via Reflection when loading a project</Note>
+    <Note Id="43" Modified="2006-12-27 23:41:11Z">The error is reported</Note>
+    <Note Id="44" Modified="2007-01-18 19:18:40Z">There should be no problems with the call chain</Note>
+    <Note Id="45" Modified="2007-01-18 19:19:44Z">Allow in this case to avoid any potential problems with null values.</Note>
+    <Note Id="46" Modified="2007-01-18 19:23:51Z">It is validated</Note>
+    <Note Id="47" Modified="2007-01-18 19:25:14Z">It is validated</Note>
+    <Note Id="48" Modified="2007-01-18 19:26:30Z">It is validated</Note>
+    <Note Id="49" Modified="2007-01-18 19:32:07Z">It is validated</Note>
+    <Note Id="50" Modified="2007-02-01 00:42:53Z">It is being validated</Note>
+    <Note Id="51" Modified="2007-02-24 05:18:51Z">The error is reported</Note>
+    <Note Id="52" Modified="2007-02-24 05:19:18Z">It's a designer type converter.  If it isn't found here, the build will fail anyway.</Note>
+    <Note Id="53" Modified="2007-02-24 05:19:43Z">Okay as is</Note>
+    <Note Id="54" Modified="2007-02-24 05:23:43Z">It is validated</Note>
+    <Note Id="55" Modified="2007-02-24 05:23:57Z">The parameter comes from BuildAssembler and should be valid already</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">'{0}' appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+    <Resolution Name="ShouldBeCompoundWord">The discrete term '{0}' in {1} '{2}' should be expressed as a compound term, '{3}'.</Resolution>
+    <Resolution Name="ShouldBeDiscreteTerm">The compound word '{0}' in {1} '{2}' exists as a discrete term. If your usage is intended to be single word, case it as '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+    <Resolution Name="Default">'{0}' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">'{0}', a parameter, is cast to type '{1}' multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify '{0}' to catch a more specific exception than '{1}' or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+    <Resolution Name="Default">Change '{0}' in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization as it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045">
+    <Resolution Name="Default">Consider a design that does not require that '{0}' be a reference parameter.</Resolution>
+   </Rule>
+   <Rule TypeName="FlagsEnumsShouldHavePluralNames" Category="Microsoft.Naming" CheckId="CA1714">
+    <Resolution Name="Default">If enumeration name '{0}' is singular, change it to a plural form.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of the unrecognized token '{0}' in member name '{1}'.</Resolution>
+    <Resolution Name="Parameter">In method {0}, correct the spelling of the unrecognized token '{1}' in parameter name '{2}' or strip it entirely if it represents any sort of hungarian notation.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240">
+    <Resolution Name="Default">Add an implementation of GetObjectData to type '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementSerializationConstructors" Category="Microsoft.Usage" CheckId="CA2229">
+    <Resolution Name="CreateMagicConstructor">Add a constructor to '{0}' with the following signature: 'protected {0}(SerializationInfo info, StreamingContext context)'.</Resolution>
+   </Rule>
+   <Rule TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204">
+    <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705">
+    <Resolution Name="Member">Correct the capitalization of member name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the member as static (or Shared in VB) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059">
+    <Resolution Name="System.Xml.XmlNode">Modify member '{0}' so that it no longer exposes the concrete type {1}. Use IXPathNavigable to represent Xml data sources.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter '{0}' of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+    <Resolution Name="Default">Implement IDisposable on '{0}' as it instantiates members of the following IDisposable types: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062">
+    <Resolution Name="Default">Validate parameter {0} passed to externally visible method {1}.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

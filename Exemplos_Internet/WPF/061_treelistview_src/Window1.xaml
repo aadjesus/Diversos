@@ -1,0 +1,31 @@
+﻿<Window x:Class="SampleApplication.Window1"        
+        xmlns:drawing="clr-namespace:System.Drawing;assembly=System.Drawing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SampleApplication"
+        xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        Title="Window1" Height="300" Width="300"
+        >
+    <Window.Resources>
+        <ObjectDataProvider x:Key="colorListContains" ObjectType="{x:Type local:Teste}" MethodName="Show">
+            <ObjectDataProvider.MethodParameters>
+                <s:String>teste ssss</s:String>
+                <!--<Binding ElementName="tbcontrol" Path="Content"/>-->
+                <!--<x:Type TypeName="SampleApplication.Teste.tbcontrol.Content"/>-->
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Grid >
+        <Button Height="20" 
+                Width="20" 
+                Content="xxxxxxxxxxxxx"
+                Command="{StaticResource colorListContains}"
+                x:Name="testeaa" 
+                />
+
+        <!--//"{Binding Source={StaticResource odp}}"-->
+    
+    </Grid>
+</Window>

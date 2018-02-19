@@ -1,0 +1,651 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BgmRodotec.FGlobus.Excecao</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Excecao.BOExcecao">
+            <summary>
+            Classe controladora de Exceções da camada de negócios (BLL).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.BOExcecao.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.BOExcecao.#ctor(System.String)">
+            <summary>
+            Construtor com mensagem.
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.BOExcecao.#ctor(System.String,System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+            <param name="innerException">Exceção para propagação.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.BOExcecao.#ctor(System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+            </summary>
+            <param name="innerException">Exceção para propagação.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.BOExcecao.prefixoExceptionCode(System.Int32)">
+            <summary>
+            Cria prefixo local para ExceptionCode
+            </summary>
+            <param name="exceptionCodeLocal">Código numérico da Exceção.</param>
+            <returns>String com o código completo da Exceção.</returns>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ChaveUrlSegurancaNaoExiste">
+            <summary>
+            Propriedade para exceção "É necessário criar a chave com a URL do web service de segurança no Web.Config. Consulte a documentação da framework FGlobus."
+            ExceptionCode BGM-FGLOBUS.BO.00001.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ChaveUrlControleNaoExiste">
+            <summary>
+            Propriedade para exceção "É necessário criar a chave com a URL do web service de controle no Web.Config. Consulte a documentação da framework FGlobus."
+            ExceptionCode BGM-FGLOBUS.BO.00002.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.FaltaAtributoItemMenu">
+            <summary>
+            Propriedade para exceção "Um item de menu com atributo obrigatório não foi encontrado" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00003.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.AtributoInvalidoItemMenu">
+            <summary>
+            Propriedade para exceção "Um item de menu com atributo inválido foi encontrado" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00004.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.GlobusSendoAtualizadoNoMomento">
+            <summary>
+            Propriedade para exceção "O Globus está sendo atualizado no momento. Aguarde alguns instantes e tente novamente. Usuario/Estacao:" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00005.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ModuloNaoAutorizado">
+            <summary>
+            Propriedade para exceção "Módulo não autorizado (M/G)" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00006.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ModuloSemAutorizacaoParaUso">
+            <summary>
+            Propriedade para exceção "Módulo sem autorização para uso. Entre em contato com" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00007.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.QuantidadeDeLicencaExcedida">
+            <summary>
+            Propriedade para exceção "Excedeu a quantidade de licenças. (Tente novamente caso tenha ocorrido algum fechamento anormal)" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00008.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.QuantidadeDeLicencaExcedidaParaModulo">
+            <summary>
+            Propriedade para exceção "Excedeu a quantidade de licenças para este módulo. (Tente novamente caso tenha ocorrido algum fechamento anormal)" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00009.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.SistemaExecutadoNaEstacao">
+            <summary>
+            Propriedade para exceção "O sistema já está sendo executado por esta estação. (Tente novamente caso tenha ocorrido fechamento anormal)" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00010.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.TabelaDeConcedenteFoiViolada">
+            <summary>
+            Propriedade para exceção "Tabela de concedente foi violada. Não será possível carregar o sistema" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00011.        
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.TabelaDeControleDeAcessoGeralFoiViolada">
+            <summary>
+            Propriedade para exceção "Tabela de controle de acesso (G) foi violada. Não será possível carregar o sistema" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00012.        
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.TabelaDeControleDeAcessoPorModuloFoiViolada">
+            <summary>
+            Propriedade para exceção "Tabela de controle de acesso (M) foi violada. Não será possível carregar o sistema" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00013.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.TabelaDeSistemasAutorizadosFoiViolada">
+            <summary>
+            Propriedade para exceção "Tabela de sistemas autorizados foi violada. Não será possível carregar o sistema" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00014.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.URLControleWSInvalida">
+            <summary>
+            Propriedade para exceção "URL de ControleWS inválida." ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00015.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.URLSegurancaWSInvalida">
+            <summary>
+            Propriedade para exceção "URL de SegurancaWS inválida." ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.BO.00016.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.MsgUltimoAcesso">
+            <summary>
+            Propriedade para exceção ""
+            ExceptionCode BGM-FGLOBUS.BO.00021.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.MsgSejaBemVindo">
+            <summary>
+            Propriedade para exceção "".
+            ExceptionCode BGM-FGLOBUS.BO.00022.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.CodigoInexistente">
+            <summary>
+            Propriedade para exceção "Código inexistente.".
+            ExceptionCode BGM-FGLOBUS.BO.00023.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ParametroNaoCadastrado">
+            <summary>
+            Propriedade para exceção "Parametro não cadastrado.".
+            ExceptionCode BGM-FGLOBUS.BO.00024.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerIgualDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser igual a data do servidor.".
+            ExceptionCode BGM-FGLOBUS.BO.00025.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerDiferenteDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser diferente que a data do servidor".
+            ExceptionCode BGM-FGLOBUS.BO.00026.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerMaiorOuIgualDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser maior ou igual a data do servidor.".
+            ExceptionCode BGM-FGLOBUS.BO.00027.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerMenorOuIgualDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser menor ou igual a data do servidor.".
+            ExceptionCode BGM-FGLOBUS.BO.00028.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerMaiorDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser maior a data do servidor.".
+            ExceptionCode BGM-FGLOBUS.BO.00029.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerMenorDataServidor">
+            <summary>
+            Propriedade para exceção "A data não pode ser menor a data do servidor.".
+            ExceptionCode BGM-FGLOBUS.BO.00030.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.CodigoJaCadastrado">
+            <summary>
+            Propriedade para exceção "Código já cadastrado".
+            ExceptionCode BGM-FGLOBUS.BO.00031.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.NenhumaInfParaOsDadosInfo">
+            <summary>
+            Propriedade para exceção "Nenhuma informação para os dados informados.".
+            ExceptionCode BGM-FGLOBUS.BO.00032.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ExclusaoNaoPodeSerEfetuadaRelacionamento">
+            <summary>
+            Propriedade para exceção ""
+            ExceptionCode BGM-FGLOBUS.BO.00033.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ExisteTipoDePagamentoCadastradoComoNormal">
+            <summary>
+            Propriedade para exceção "Existe tipo de pagamento cadastrado como normal"
+            ExceptionCode BGM-FGLOBUS.BO.00034.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.NenhumMenuHabilitado">
+            <summary>
+            Propriedade para exceção "Nenhum item de menu habilitado para o usuário."
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.DataNaoPodeSerMenorQueDataAtual">
+            <summary>
+            Propriedade para exceção "A data não pode ser menor que a data atual."
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.NaoFoiPossivelAbrirTelaAssociada">
+            <summary>
+            Propriedade para exceção "Não foi possível abrir o a tela associada no menu."
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ArquivoDeConfiguracoesInvalido">
+            <summary>
+            Propriedade para exceção "Arquivo de configurações invalido."
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.NaoFoiPossivelConectarNoWebService">
+            <summary>
+            Propriedade para exceção "Não foi possível conectar no WebService: {0}"
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ArquivoMenuPrincipalConfigInvalido">
+            <summary>
+            Propriedade para exceção "Arquivo MenuPrincipal.Config invalido ou não localizado no projeto."
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecao.ErroBusinessObject">
+            <summary>
+            Propriedade para exceção "Foi encontrado um erro Na camada de acesso a regra de negócio (BusinessObject)."
+            </summary>
+        </member>
+        <member name="T:FGlobus.Excecao.BOExcecaoRes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ArquivoDeConfiguracoesInvalido">
+            <summary>
+              Looks up a localized string similar to Arquivo de configurações invalido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ArquivoMenuPrincipalConfigInvalido">
+            <summary>
+              Looks up a localized string similar to Arquivo MenuPrincipal.Config invalido ou não localizado no projeto..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.AtributoInvalidoItemMenu">
+            <summary>
+              Looks up a localized string similar to Um item de menu com atributo inválido foi encontrado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ChaveUrlControleNaoExiste">
+            <summary>
+              Looks up a localized string similar to É necessário criar a chave com a URL do web service de controle no Web.Config. Consulte a documentação da framework FGlobus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ChaveUrlSegurancaNaoExiste">
+            <summary>
+              Looks up a localized string similar to É necessário criar a chave com a URL do web service de segurança no Web.Config. Consulte a documentação da framework FGlobus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.CodigoInexistente">
+            <summary>
+              Looks up a localized string similar to Código inexistente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.CodigoJaCadastrado">
+            <summary>
+              Looks up a localized string similar to Código já cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerDiferenteDataServidor">
+            <summary>
+              Looks up a localized string similar to data não pode ser diferente que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerMaiorDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser maior que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerMaiorOuIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser maior ou igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerMenorDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser menor que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerMenorOuIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser menor ou igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ErroBusinessObject">
+            <summary>
+              Looks up a localized string similar to Foi encontrado um erro Na camada de acesso a regra de negócio (BusinessObject).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ExclusaoNaoPodeSerEfetuadaRelacionamento">
+            <summary>
+              Looks up a localized string similar to Exclusão não pode ser efetuada. Já está sendo utilizado(a)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ExisteTipoDePagamentoCadastradoComoNormal">
+            <summary>
+              Looks up a localized string similar to Existe tipo de pagamento cadastrado como normal. Só é permitido um tipo de pagamento como normal..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.FaltaAtributoItemMenu">
+            <summary>
+              Looks up a localized string similar to Um item de menu com atributo obrigatório não foi encontrado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.GlobusSendoAtualizadoNoMomento">
+            <summary>
+              Looks up a localized string similar to O Globus está sendo atualizado no momento. Aguarde alguns instantes e tente novamente. Usuario/Estacao:.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ModuloNaoAutorizado">
+            <summary>
+              Looks up a localized string similar to Módulo não autorizado (M/G).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ModuloSemAutorizacaoParaUso">
+            <summary>
+              Looks up a localized string similar to Módulo sem autorização para uso. Entre em contato com.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.MsgSejaBemVindo">
+            <summary>
+              Looks up a localized string similar to Seja bem-vindo!.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.MsgUltimoAcesso">
+            <summary>
+              Looks up a localized string similar to Seu último login foi em : {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.DataNaoPodeSerMenorQueDataAtual">
+            <summary>
+              Looks up a localized string similar to A data não pode ser menor que a data atual..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.NaoFoiPossivelAbrirTelaAssociada">
+            <summary>
+              Looks up a localized string similar to Não foi possível abrir o a tela associada no menu..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.NaoFoiPossivelConectarNoWebService">
+            <summary>
+              Looks up a localized string similar to Não foi possível conectar no WebService: {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.NenhumaInfParaOsDadosInfo">
+            <summary>
+              Looks up a localized string similar to Nenhuma informação para os dados informados..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.NenhumMenuHabilitado">
+            <summary>
+              Looks up a localized string similar to Nenhum item de menu habilitado para o usuário..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.ParametroNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Parâmetro não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.QuantidadeDeLicencaExcedida">
+            <summary>
+              Looks up a localized string similar to Excedeu a quantidade de licenças. (Tente novamente caso tenha ocorrido algum fechamento anormal).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.QuantidadeDeLicencaExcedidaParaModulo">
+            <summary>
+              Looks up a localized string similar to Excedeu a quantidade de licenças para este módulo. (Tente novamente caso tenha ocorrido algum fechamento anormal).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.SenhaInvalidaAdministrador">
+            <summary>
+              Looks up a localized string similar to Senha inválida para Administrador..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.SenhaInvalidaGlobus">
+            <summary>
+              Looks up a localized string similar to Senha inválida para usuário Globus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.SistemaExecutadoNaEstacao">
+            <summary>
+              Looks up a localized string similar to O sistema já está sendo executado por esta estação. (Tente novamente caso tenha ocorrido fechamento anormal).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.TabelaDeConcedenteFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de concedente foi violada. Não será possível carregar o sistema.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.TabelaDeControleDeAcessoGeralFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de controle de acesso (G) foi violada. Não será possível carregar o sistema.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.TabelaDeControleDeAcessoPorModuloFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de controle de acesso (M) foi violada. Não será possível carregar o sistema.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.TabelaDeSistemasAutorizadosFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de sistemas autorizados foi violada. Não será possível carregar o sistema.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.URLControleWSInvalida">
+            <summary>
+              Looks up a localized string similar to URL de ControleWS inválida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.URLSegurancaWSInvalida">
+            <summary>
+              Looks up a localized string similar to URL de SegurancaWS inválida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.UsuarioInativo">
+            <summary>
+              Looks up a localized string similar to Usuário esta inativo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.BOExcecaoRes.UsuarioSenhaInvalido">
+            <summary>
+              Looks up a localized string similar to Usuário e senha inválidos..
+            </summary>
+        </member>
+        <member name="T:FGlobus.Excecao.DAOExcecao">
+            <summary>
+            Classe controladora de Exceções da camada de acesso à dados (DAL).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.DAOExcecao.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.DAOExcecao.#ctor(System.String)">
+            <summary>
+            Construtor com mensagem..
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.DAOExcecao.#ctor(System.String,System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+            <param name="exception">Exceção para propagação.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.DAOExcecao.#ctor(System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+            </summary>
+            <param name="exception">Exceção para propagação.</param>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecao.ErroNHibernate">
+            <summary>
+            Propriedade para exceção "Foi encontrado um erro referente a camada de acesso a dados (NHibernate)" ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.DAO.00001.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Excecao.DAOExcecaoRes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecaoRes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecaoRes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecaoRes.ErroNHibernate">
+            <summary>
+              Looks up a localized string similar to Foi encontrado um erro referente a camada de acesso a dados (NHibernate).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecaoRes.ItemMenuSemPermissoes">
+            <summary>
+              Looks up a localized string similar to Cadastro de permissões (Alteração/Inclusão/Exclusão) não definidos para Item de Menu/Usuário/Sistema .
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.DAOExcecaoRes.UsuarioDesconhecido">
+            <summary>
+              Looks up a localized string similar to Usuário desconhecido [login]..
+            </summary>
+        </member>
+        <member name="T:FGlobus.Excecao.Excecao">
+            <summary>
+            Classe base controladora de exceções.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.Excecao.#ctor">
+            <summary>
+            Construtor padrão.
+                <remarks>
+                Cancelar sessão e transação do nHibernate casa exista alguma aberta.
+                </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.Excecao.#ctor(System.String)">
+            <summary>
+            Construtor com mensagem.
+                <remarks>
+                Cancelar sessão e transação do nHibernate casa exista alguma aberta.
+                </remarks>
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.Excecao.#ctor(System.String,System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+                <remarks>
+                Cancelar sessão e transação do nHibernate casa exista alguma aberta.
+                </remarks>
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+            <param name="innerException">Exceção para propagação.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.Excecao.prefixoExceptionCode(System.Int32)">
+            <summary>
+            Cria prefixo local para ExceptionCode
+            </summary>
+            <param name="exceptionCodeLocal">Código numérico da Exceção.</param>
+            <returns>String com o código completo da Exceção.</returns>        
+        </member>
+        <member name="P:FGlobus.Excecao.Excecao.ExceptionCode">
+            <summary>
+            (Get) Retornar o código da exceção. Se não informado retorna 'General'.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.Excecao.ErroInesperado">
+            <summary>
+            Propriedade para exceção "Foi encontrado um erro inesperado." ou similar na lingua corrente.
+            ExceptionCode BGM-FGLOBUS.00001.
+            </summary>        
+        </member>
+        <member name="P:FGlobus.Excecao.Excecao.NenhumRegEncontParaPesquisa">
+            <summary>
+            Propriedade para exceção "Nenhum registro encontrado para esta pesquisa."
+            ExceptionCode BGM-FGLOBUS.00002.
+            </summary>        
+        </member>
+        <member name="T:FGlobus.Excecao.ExcecaoRes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.ExcecaoRes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.ExcecaoRes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.ExcecaoRes.ErroInesperado">
+            <summary>
+              Looks up a localized string similar to Foi encontrado um erro inesperado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Excecao.ExcecaoRes.NenhumRegEncontParaPesquisa">
+            <summary>
+              Looks up a localized string similar to Nenhum registro encontrado para esta pesquisa..
+            </summary>
+        </member>
+        <member name="T:FGlobus.Excecao.UtilExcecao">
+            <summary>
+            Classe controladora de Exceções da camada de negócios (BLL).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.UtilExcecao.#ctor">
+            <summary>
+            Construtor padrão.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Excecao.UtilExcecao.#ctor(System.String)">
+            <summary>
+            Construtor com mensagem.
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+        </member>
+        <member name="M:FGlobus.Excecao.UtilExcecao.#ctor(System.String,System.Exception)">
+            <summary>
+            Construtor com mensagem e exceção propagada.
+            </summary>
+            <param name="message">Mensagem desejada na Exceção.</param>
+            <param name="innerException">Exceção para propagação.</param>
+        </member>
+    </members>
+</doc>

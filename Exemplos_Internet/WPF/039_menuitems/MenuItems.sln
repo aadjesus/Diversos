@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuItems", "MenuItems\MenuItems.csproj", "{CC856258-4415-445A-9826-CD18C8C679C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFControls", "WPFControls\WPFControls.csproj", "{8121C2EC-70E2-4FD6-9807-972A34A815A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC856258-4415-445A-9826-CD18C8C679C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC856258-4415-445A-9826-CD18C8C679C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC856258-4415-445A-9826-CD18C8C679C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC856258-4415-445A-9826-CD18C8C679C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8121C2EC-70E2-4FD6-9807-972A34A815A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8121C2EC-70E2-4FD6-9807-972A34A815A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8121C2EC-70E2-4FD6-9807-972A34A815A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8121C2EC-70E2-4FD6-9807-972A34A815A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

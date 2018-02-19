@@ -1,0 +1,101 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControlsClientUIClientUI" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="resFrameElementsOfficeButton.xaml" />
+        <ResourceDictionary Source="resSharedStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <Style TargetType="{x:Type ContentControl}" x:Key="FrameLayout" >
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+
+                    <Grid Margin="8" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Border Grid.Row="0" x:Name="PART_TitleBar" Style="{StaticResource TitleBarStyle}" >
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <local:XSButton Grid.Column="0" Style="{StaticResource OfficeButtonStyle}" Margin="1,1,3,-12"
+                                                Command="{x:Static local:CustomWindowCommands.DisplayOfficeButtonOptions}" >
+                                    <Image Source="Images\PinkRose.gif" />
+                                </local:XSButton>
+
+                                <Separator Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TitleDividingLineStyle}" />
+
+                                <TextBlock Grid.Column="1" x:Name="Caption" Style="{StaticResource TitleStyle}" Margin="6,0" Text="{Binding
+                                    Path=Title, RelativeSource={RelativeSource AncestorType={x:Type local:CustomWindow}, Mode=FindAncestor}}" />
+
+                                <local:XSButton Grid.Column="2" Grid.Row="1" Style="{StaticResource InfoButtonStyle}" Margin="0,-14,3,3"
+                                                Command="ApplicationCommands.Help" ToolTip="Show Help" Content="i" />
+
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="1" Style="{StaticResource ClientAreaStyle}" >
+                            <ContentPresenter />
+                        </Border>
+
+
+                        <Border Grid.Row="2" Style="{StaticResource StatusAreaStyle}" >
+                            <TextBlock Height="12" />
+                        </Border>
+
+
+                        <!-- Window resizing border path segments -->
+                        
+                        <Grid Grid.RowSpan="3" x:Name="SizingBorderOverlay" >
+
+                            <Path x:Name="PART_ResizeBorderLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeWE" Margin="0,22" HorizontalAlignment="Left" 
+							Data="M0,22 L0,408" />
+                            <Path x:Name="PART_ResizeBorderTopLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNWSE" VerticalAlignment="Top" HorizontalAlignment="Left" 
+							Data="M0.048015767,22.624955 C0.026186722,3.2497737 0.2444382,-3.0011437 0.85557624,-1.1260647" Height="34.067" Width="33.166" Margin="0.084,-2.067,0,0" />
+                            <Path x:Name="PART_ResizeBorderTop" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNS" Margin="22,0" VerticalAlignment="Top" 
+							Data="M22,0 L620,0" />
+                            <Path x:Name="PART_ResizeBorderTopRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNESW" VerticalAlignment="Top" HorizontalAlignment="Right" 
+							Data="M629.63443,-1.125 C630.06114,2.625 629.99166,7 630.04116,24.5" Height="35.625" Width="35.62" Margin="0,-1.125,-2.618,0" />
+                            <Path x:Name="PART_ResizeBorderRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeWE" Margin="0,22" HorizontalAlignment="Right" 
+							Data="M0,22 L0,408" />
+                            <Path x:Name="PART_ResizeBorderBottomRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNWSE" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+							Data="M629.60515,405.62488 C629.972,404.37582 629.98194,408.75103 629.99204,385.62488" Height="29.999" Margin="0,0,-2.64,-0.124" Width="34.373" />
+                            <Path x:Name="PART_ResizeBorderBottom" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNS" Margin="22,0" VerticalAlignment="Bottom" 
+							Data="M38,473 L606.5,473" />
+                            <Path x:Name="PART_ResizeBorderBottomLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNESW" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+							Data="M-0.034693501,450.46632 C-0.039261792,471.87411 0.0043731975,476.24867 0.81649589,474.21614" Width="34.384" Height="34.199" Margin="-1.002,0,0,-1.665" />
+
+                        </Grid>
+
+
+                        <!-- Min/Max/Close buttons are ON TOP OF top sizing border (vert. offset relies on outer grid margin) -->
+                        <Control Grid.Row="0" x:Name="ControllButtonContainer" Margin="32,-4" Style="{StaticResource SystemButtonsContainerStyle}" />
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

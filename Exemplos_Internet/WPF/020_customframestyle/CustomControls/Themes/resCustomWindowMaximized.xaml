@@ -1,0 +1,47 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="resCustomWindowStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <Style TargetType="{x:Type ContentControl}"
+           x:Key="{ComponentResourceKey {x:Type local:CustomWindow}, Max }" >
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    
+                    <Border BorderBrush="{StaticResource brushTitleBarBorder}" BorderThickness="1" Background="{StaticResource brushClientArea}" >
+
+                        <Grid>
+                                                                                
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid Grid.Row="0" x:Name="TitleBar" Background="{StaticResource brushTitleBar}" >
+                                <Control x:Name="ControllButtonContainer" Style="{StaticResource SystemButtonsContainerStyle}" />
+                                <TextBlock Style="{StaticResource TitleStyle}" Text="{Binding
+                                    Path=Title, RelativeSource={RelativeSource AncestorType={x:Type local:CustomWindow}, Mode=FindAncestor}}" />
+                            </Grid>
+
+                            <ContentPresenter Grid.Row="1" />
+                            
+                            <Rectangle Grid.Row="2" Height="18" Fill="{StaticResource brushStatusBar}" />
+                            
+                        </Grid>
+                    </Border>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

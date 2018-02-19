@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tabela1" msprop:Generator_TableClassName="Tabela1DataTable" msprop:Generator_TableVarName="tableTabela1" msprop:Generator_TablePropName="Tabela1" msprop:Generator_RowDeletingName="Tabela1RowDeleting" msprop:Generator_UserTableName="Tabela1" msprop:Generator_RowChangingName="Tabela1RowChanging" msprop:Generator_RowEvHandlerName="Tabela1RowChangeEventHandler" msprop:Generator_RowDeletedName="Tabela1RowDeleted" msprop:Generator_RowEvArgName="Tabela1RowChangeEvent" msprop:Generator_RowChangedName="Tabela1RowChanged" msprop:Generator_RowClassName="Tabela1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Int32" msprop:Generator_ColumnVarNameInTable="columnInt32" msprop:Generator_ColumnPropNameInRow="Int32" msprop:Generator_ColumnPropNameInTable="Int32Column" msprop:Generator_UserColumnName="Int32" type="xs:int" minOccurs="0" />
+              <xs:element name="String" msprop:Generator_ColumnVarNameInTable="columnString" msprop:Generator_ColumnPropNameInRow="String" msprop:Generator_ColumnPropNameInTable="StringColumn" msprop:Generator_UserColumnName="String" type="xs:string" minOccurs="0" />
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" msprop:Generator_UserColumnName="Decimal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Boolean" msprop:Generator_ColumnVarNameInTable="columnBoolean" msprop:Generator_ColumnPropNameInRow="Boolean" msprop:Generator_ColumnPropNameInTable="BooleanColumn" msprop:Generator_UserColumnName="Boolean" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tabela2" msprop:Generator_TableClassName="Tabela2DataTable" msprop:Generator_TableVarName="tableTabela2" msprop:Generator_TablePropName="Tabela2" msprop:Generator_RowDeletingName="Tabela2RowDeleting" msprop:Generator_UserTableName="Tabela2" msprop:Generator_RowChangingName="Tabela2RowChanging" msprop:Generator_RowEvHandlerName="Tabela2RowChangeEventHandler" msprop:Generator_RowDeletedName="Tabela2RowDeleted" msprop:Generator_RowEvArgName="Tabela2RowChangeEvent" msprop:Generator_RowChangedName="Tabela2RowChanged" msprop:Generator_RowClassName="Tabela2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDTab1" msprop:Generator_ColumnVarNameInTable="columnIDTab1" msprop:Generator_ColumnPropNameInRow="IDTab1" msprop:Generator_ColumnPropNameInTable="IDTab1Column" msprop:Generator_UserColumnName="IDTab1" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Int32" msprop:Generator_ColumnVarNameInTable="columnInt32" msprop:Generator_ColumnPropNameInRow="Int32" msprop:Generator_ColumnPropNameInTable="Int32Column" msprop:Generator_UserColumnName="Int32" type="xs:int" minOccurs="0" />
+              <xs:element name="String" msprop:Generator_ColumnVarNameInTable="columnString" msprop:Generator_ColumnPropNameInRow="String" msprop:Generator_ColumnPropNameInTable="StringColumn" msprop:Generator_UserColumnName="String" type="xs:string" minOccurs="0" />
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" msprop:Generator_UserColumnName="Decimal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Boolean" msprop:Generator_ColumnVarNameInTable="columnBoolean" msprop:Generator_ColumnPropNameInRow="Boolean" msprop:Generator_ColumnPropNameInTable="BooleanColumn" msprop:Generator_UserColumnName="Boolean" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tabela3" msprop:Generator_TableClassName="Tabela3DataTable" msprop:Generator_TableVarName="tableTabela3" msprop:Generator_TablePropName="Tabela3" msprop:Generator_RowDeletingName="Tabela3RowDeleting" msprop:Generator_UserTableName="Tabela3" msprop:Generator_RowChangingName="Tabela3RowChanging" msprop:Generator_RowEvHandlerName="Tabela3RowChangeEventHandler" msprop:Generator_RowDeletedName="Tabela3RowDeleted" msprop:Generator_RowEvArgName="Tabela3RowChangeEvent" msprop:Generator_RowChangedName="Tabela3RowChanged" msprop:Generator_RowClassName="Tabela3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDTab1" msprop:Generator_ColumnVarNameInTable="columnIDTab1" msprop:Generator_ColumnPropNameInRow="IDTab1" msprop:Generator_ColumnPropNameInTable="IDTab1Column" msprop:Generator_UserColumnName="IDTab1" type="xs:int" minOccurs="0" />
+              <xs:element name="IDTab2" msprop:Generator_ColumnVarNameInTable="columnIDTab2" msprop:Generator_ColumnPropNameInRow="IDTab2" msprop:Generator_ColumnPropNameInTable="IDTab2Column" msprop:Generator_UserColumnName="IDTab2" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Int32" msprop:Generator_ColumnVarNameInTable="columnInt32" msprop:Generator_ColumnPropNameInRow="Int32" msprop:Generator_ColumnPropNameInTable="Int32Column" msprop:Generator_UserColumnName="Int32" type="xs:int" minOccurs="0" />
+              <xs:element name="String" msprop:Generator_ColumnVarNameInTable="columnString" msprop:Generator_ColumnPropNameInRow="String" msprop:Generator_ColumnPropNameInTable="StringColumn" msprop:Generator_UserColumnName="String" type="xs:string" minOccurs="0" />
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" msprop:Generator_UserColumnName="Decimal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Boolean" msprop:Generator_ColumnVarNameInTable="columnBoolean" msprop:Generator_ColumnPropNameInRow="Boolean" msprop:Generator_ColumnPropNameInTable="BooleanColumn" msprop:Generator_UserColumnName="Boolean" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Tabela1" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Tabela2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Tabela2" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Tabela2Key1">
+      <xs:selector xpath=".//mstns:Tabela2" />
+      <xs:field xpath="mstns:IDTab1" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Tabela3_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Tabela3" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Tabela3Key1">
+      <xs:selector xpath=".//mstns:Tabela3" />
+      <xs:field xpath="mstns:IDTab1" />
+      <xs:field xpath="mstns:IDTab2" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Tabela1_Tabela2" msdata:parent="Tabela1" msdata:child="Tabela2" msdata:parentkey="ID" msdata:childkey="IDTab1" msprop:Generator_UserChildTable="Tabela2" msprop:Generator_ChildPropName="GetTabela2Rows" msprop:Generator_ParentPropName="Tabela1Row" msprop:Generator_UserRelationName="Tabela1_Tabela2" msprop:Generator_RelationVarName="relationTabela1_Tabela2" msprop:Generator_UserParentTable="Tabela1" />
+      <msdata:Relationship name="Tabela2_Tabela3" msdata:parent="Tabela2" msdata:child="Tabela3" msdata:parentkey="IDTab1 ID" msdata:childkey="IDTab1 IDTab2" msprop:Generator_UserChildTable="Tabela3" msprop:Generator_ChildPropName="GetTabela3Rows" msprop:Generator_ParentPropName="Tabela2RowParent" msprop:Generator_UserRelationName="Tabela2_Tabela3" msprop:Generator_RelationVarName="relationTabela2_Tabela3" msprop:Generator_UserParentTable="Tabela2" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

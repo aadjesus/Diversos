@@ -1,0 +1,179 @@
+using System;
+using System.Diagnostics;
+using System.ServiceProcess;
+using System.Windows.Forms;
+using System.IO;
+
+namespace WindowsService
+{
+    class WindowsService : ServiceBase
+    {
+        /// <summary>
+        /// Public Constructor for WindowsService.
+        /// - Put all of your Initialization code here.
+        /// </summary>
+        public WindowsService()
+        {
+            this.ServiceName = "My Windows Service";
+            this.EventLog.Source = "My Windows Service";
+            this.EventLog.Log = "Application";
+            
+            // These Flags set whether or not to handle that specific
+            //  type of event. Set to true if you need it, false otherwise.
+            this.CanHandlePowerEvent = true;
+            this.CanHandleSessionChangeEvent = true;
+            this.CanPauseAndContinue = true;
+            this.CanShutdown = true;
+            this.CanStop = true;
+
+            if (!EventLog.SourceExists("My Windows Service"))
+                EventLog.CreateEventSource("My Windows Service", "Application");
+        }
+
+        /// <summary>
+        /// The Main Thread: This is where your Service is Run.
+        /// </summary>
+        static void Main()
+        {
+            ServiceBase.Run(new WindowsService());
+        }
+
+        /// <summary>
+        /// Dispose of objects that need it here.
+        /// </summary>
+        /// <param name="disposing">Whether or not disposing is going on.</param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// OnStart: Put startup code here
+        ///  - Start threads, get inital data, etc.
+        /// </summary>
+        /// <param name="args"></param>
+        protected override void OnStart(string[] args)
+        {
+            base.OnStart(args);
+
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service Started \n");
+            m_streamWriter.Flush(); 
+            
+
+        }
+
+        /// <summary>
+        /// OnStop: Put your stop code here
+        /// - Stop threads, set final data, etc.
+        /// </summary>
+        protected override void OnStop()
+        {
+            base.OnStop();
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service Stopped \n");
+            m_streamWriter.Flush(); 
+        }
+
+        /// <summary>
+        /// OnPause: Put your pause code here
+        /// - Pause working threads, etc.
+        /// </summary>
+        protected override void OnPause()
+        {
+            base.OnPause();
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service OnPause \n");
+            m_streamWriter.Flush(); 
+        }
+
+        /// <summary>
+        /// OnContinue: Put your continue code here
+        /// - Un-pause working threads, etc.
+        /// </summary>
+        protected override void OnContinue()
+        {
+            base.OnContinue();
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service OnContinue \n");
+            m_streamWriter.Flush(); 
+        }
+
+        /// <summary>
+        /// OnShutdown(): Called when the System is shutting down
+        /// - Put code here when you need special handling
+        ///   of code that deals with a system shutdown, such
+        ///   as saving special data before shutdown.
+        /// </summary>
+        protected override void OnShutdown()
+        {
+            base.OnShutdown();
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service OnShutdown \n");
+            m_streamWriter.Flush(); 
+        }
+
+        /// <summary>
+        /// OnCustomCommand(): If you need to send a command to your
+        ///   service without the need for Remoting or Sockets, use
+        ///   this method to do custom methods.
+        /// </summary>
+        /// <param name="command">Arbitrary Integer between 128 & 256</param>
+        protected override void OnCustomCommand(int command)
+        {
+            //  A custom command can be sent to a service by using this method:
+            //#  int command = 128; //Some Arbitrary number between 128 & 256
+            //#  ServiceController sc = new ServiceController("NameOfService");
+            //#  sc.ExecuteCommand(command);
+
+            base.OnCustomCommand(command);
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service OnCustomCommand \n");
+            m_streamWriter.Flush(); 
+        }
+
+        /// <summary>
+        /// OnPowerEvent(): Useful for detecting power status changes,
+        ///   such as going into Suspend mode or Low Battery for laptops.
+        /// </summary>
+        /// <param name="powerStatus">The Power Broadcase Status (BatteryLow, Suspend, etc.)</param>
+        protected override bool OnPowerEvent(PowerBroadcastStatus powerStatus)
+        {
+              FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service OnPowerEvent \n");
+            m_streamWriter.Flush(); 
+            return base.OnPowerEvent(powerStatus);
+          
+        }
+
+        /// <summary>
+        /// OnSessionChange(): To handle a change event from a Terminal Server session.
+        ///   Useful if you need to determine when a user logs in remotely or logs off,
+        ///   or when someone logs into the console.
+        /// </summary>
+        /// <param name="changeDescription"></param>
+        protected override void OnSessionChange(SessionChangeDescription changeDescription)
+        {
+            base.OnSessionChange(changeDescription);
+            FileStream fs = new FileStream(@"c:\temp\mcWindowsService.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter m_streamWriter = new StreamWriter(fs);
+            m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+            m_streamWriter.WriteLine(" mcWindowsService: Service changeDescription \n");
+            m_streamWriter.Flush(); 
+        }
+    }
+}

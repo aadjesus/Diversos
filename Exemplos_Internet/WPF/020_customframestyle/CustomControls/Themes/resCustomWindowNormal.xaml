@@ -1,0 +1,86 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="resColorsCustomWindow.xaml" />
+        <ResourceDictionary Source="resCustomWindowStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <Style TargetType="{x:Type ContentControl}"
+           x:Key="{ComponentResourceKey {x:Type local:CustomWindow}, Norm }" >
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}" >
+
+                	<Grid Margin="8" >
+                    	
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Grid Grid.Row="0" x:Name="PART_TitleBar" Margin="50,0" >
+
+                            <Path Stretch="Fill" Margin="-5.582,0.695,-13.437,-38.7" Style="{StaticResource TitleBarStyle}"
+                                  Data="M450.55522,2.778094 C480.55529,8.3345821 500.5547,25.000807 509.99972,38.33414 519.08836,51.1644 526.10986,63.889696 497.22145,72.778585 468.48437,81.620912 32.776325,71.667474 5.5542964,61.667474 -14.01945,54.477067 -10.55746,41.111998 -8.333618,38.33414 6.4373058,19.883406 34.442639,16.112174 81.109306,11.111918 119.96973,6.9480875 421.78417,-2.5507608 450.55522,2.778094 z"/>
+
+                            <TextBlock x:Name="Caption" Style="{StaticResource TitleStyle}" Text="{Binding Path=Title,
+                                RelativeSource={RelativeSource AncestorType={x:Type local:CustomWindow}, Mode=FindAncestor}}" />
+
+                        </Grid>
+
+
+                        <!-- Display status area UNDER client area, to enable client overlap of defined paths) -->
+                        <Path Grid.Row="2" Style="{StaticResource StatusAreaStyle}" Margin="49.232,-47.571,41.907,0"
+                              Data="M10.793479,3.3212733 C-37.393436,-1.0725646 -54.205556,-43.304058 -4.2054492,-54.304899 50.633923,-66.370458 475.94573,-69.724638 498.29366,-58.549954 512.04366,-51.674511 514.80156,-12.359046 478.91866,0.20002594 466.41872,4.5750259 348.28911,8.9627375 227.6683,9.5750259 104.5433,10.200026 24.543297,4.5750259 10.793479,3.3212733 z" />
+
+
+                        <Grid Grid.Row="1" x:Name="ClientArea" Margin="0,-7">
+
+                            <Rectangle Style="{StaticResource ClientAreaStyle}" />
+
+                            <ContentPresenter Margin="55,15" />
+
+                            <Control x:Name="ControllButtonContainer" Margin="85,-26" Style="{StaticResource SystemButtonsContainerStyle}" />
+
+                        </Grid>
+                        
+                        
+                        <!-- Window resizing border path segments -->
+                        
+                        <Grid x:Name="SizingBordersOverlay" Grid.RowSpan="3" >
+                            
+                            <Path x:Name="PART_ResizeBorderLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeWE" HorizontalAlignment="Left"
+						     Data="M43.544869,-0.021078712 C6.678833,0.08108101 -52.162534,0.52222527 40.331687,0.92157691" Width="62.805" Margin="-7.59,33,0,31" />
+                            <Path x:Name="PART_ResizeBorderTopLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNWSE" HorizontalAlignment="Left" Margin="47,18.611,0,0" VerticalAlignment="Top" Width="35.5"
+							 Data="M70.736842,14.735126 C52.480261,20.16846 25.947367,37.381981 21.078947,52.824051" Height="28.5"/>
+                            <Path Grid.Row="0" x:Name="PART_ResizeBorderTop" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNS" Margin="72,-6.733,65.5,0" VerticalAlignment="Top"
+						     Data="M0.16597001,0.38967074 C0.31396238,-0.80870757 0.7627055,-1.0182258 0.81931178,-0.39764189 0.84193081,-0.14966575 0.85150037,0.42066427 0.85150037,0.42066427" Height="33.358" />
+                            <Path x:Name="PART_ResizeBorderTopRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNESW" HorizontalAlignment="Right"
+                             Data="M579.77426,21.445187 C580.17515,21.535962 580.71436,21.869291 580.83069,22.046655 580.88783,22.133762 580.32327,22.051947 580.13395,22.079345" Margin="0,0.836,54.354,0" VerticalAlignment="Top" Width="42.197" Height="36.397" />
+                            <Path x:Name="PART_ResizeBorderRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeWE" HorizontalAlignment="Right"
+						     Data="M-11.291539,0.011455404 C0.1664835,0.047983755 8.8772686,0.64040219 -8.2118592,0.8908823" Width="67.129" Margin="0,29.75,-5.626,40"  />
+                            <Path x:Name="PART_ResizeBorderBottomRight" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNWSE" HorizontalAlignment="Right"
+                        	 Data="M591.74372,467.07718 C607.767,466.94491 627.14476,466.14802 628.88003,465.27579" Margin="0,0,42.64,5.114" Width="47.131" Height="42.495" VerticalAlignment="Bottom"/>
+                            <Path x:Name="PART_ResizeBorderBottom" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNS" VerticalAlignment="Bottom"
+                			 Data="M164.7571,482.55569 C267.75478,494.1643 450.62818,495.16438 501.07602,478.27761" Margin="94,0,76,-7.973" Height="22.861" />
+                            <Path x:Name="PART_ResizeBorderBottomLeft" Style="{StaticResource ResizePathSegmentStyle}" Cursor="SizeNESW" HorizontalAlignment="Left"
+						     Data="M102.37853,474.17425 C102.46269,474.22152 102.6134,474.28921 102.84642,474.29778" VerticalAlignment="Bottom" Height="40.333" Width="58.587" Margin="46.861,0,0,2.901" />
+                         
+                        </Grid>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

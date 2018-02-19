@@ -1,0 +1,22 @@
+﻿<Window x:Class="AnaglyphImage.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:me="clr-namespace:MyEffects;assembly=AnaglyphEffect"
+    Title="AnaglyphImage" Width="860" Height="550">
+    <Grid>
+        <Canvas Name="LeftCanvas" Background="White" Width="1000" Height="500">
+            <Image Source="images/left.jpg" Width="800" Height="450" Canvas.Left="20" Canvas.Top="20" />
+        </Canvas>
+        <Canvas Name="RightCanvas" Background="White" Width="1000" Height="500">
+            <Image Name="RightImage" Width="800" Height="450" Canvas.Left="20" Canvas.Top="20" Source="images/right.jpg" MouseDown="Image_MouseDown" MouseMove="Image_MouseMove" MouseUp="Image_MouseUp"/>
+            <Canvas.Effect>
+                <me:AnaglyphEffect x:Name="Effect1">
+                    <me:AnaglyphEffect.LeftInput>
+                        <VisualBrush Visual="{Binding ElementName=LeftCanvas}"/>
+                    </me:AnaglyphEffect.LeftInput>
+                </me:AnaglyphEffect>
+            </Canvas.Effect>
+        </Canvas>
+        <TextBlock VerticalAlignment="Bottom" Margin="8" Text="The right image can be moved with the mouse"/>
+    </Grid>
+</Window>

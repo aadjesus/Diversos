@@ -1,0 +1,126 @@
+﻿<Window x:Class="PhysicsHost.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PhysicsHost"
+    local:GlassEffect.IsEnabled="true"
+    Title="Particles"
+        Icon="../Images/logo.png"
+    ResizeMode="NoResize"
+    Width="500" Height="350" Background="#FF000000">
+
+    <Window.Resources>
+
+        <Storyboard x:Key="OnMouseEnterSachas">
+            <!-- Expand Sachas text, and shrink Fredriks -->
+            <DoubleAnimation To="240" Storyboard.TargetName="tbSachas" 
+		    Storyboard.TargetProperty="(FrameworkElement.Height)" Duration="0:0:001"/>
+            <DoubleAnimation To="1" Storyboard.TargetName="tbFredriks" 
+		    Storyboard.TargetProperty="(FrameworkElement.Height)" Duration="0:0:001"/>
+
+            <!-- Show Sachas arrow, and hide Fredriks -->
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pthFredriks"
+                           Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0:0:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pthSachas"
+		         Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0:0:00" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+
+        <Storyboard x:Key="OnMouseEnterFredriks">
+            <!-- Expand Fredriks text, and shrink Sachas -->
+            <DoubleAnimation To="240" Storyboard.TargetName="tbFredriks" 
+		    Storyboard.TargetProperty="(FrameworkElement.Height)" Duration="0:0:001"/>
+            <DoubleAnimation To="1" Storyboard.TargetName="tbSachas" 
+		    Storyboard.TargetProperty="(FrameworkElement.Height)" Duration="0:0:001"/>
+            <!-- Show Fredriks arrow, and hide Sachas -->
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pthSachas"
+                           Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0:0:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pthFredriks"
+		         Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0:0:00" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="lblSachasBit">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnterSachas}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="lblFredriksBit">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnterFredriks}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <!-- START OF LAYOUT -->
+    <DockPanel Width="Auto" Height="Auto" LastChildFill="True" Background="#FF000000">
+        <Canvas Width="Auto" Height="49" Background="#FFFF9900" DockPanel.Dock="Top">
+            <Image Width="200" Height="50" Source="../Images/aboutHeader.png"/>
+        </Canvas>
+        <Grid Width="Auto" Height="Auto" Background="#FF000000" DockPanel.Dock="Top">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Canvas Grid.Row="0" Grid.Column="0" Width="Auto" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25">
+
+                <Path x:Name="pthSachas" Fill="Black" Stretch="Fill" Stroke="Black" Width="10" 
+				Height="10" Data="M0,0 L 0,10 L 5,5" 
+				Canvas.Left="20" Canvas.Top="8" Visibility="Visible"/>
+                <Label x:Name="lblSachasBit" Width="133" Height="auto" FontFamily="Aharoni" Foreground="Black" Canvas.Left="31" Content="What Sacha did" 
+					Canvas.Top="4" />
+
+                <Path x:Name="pthFredriks" Fill="Black" Stretch="Fill" Stroke="Black" Width="10" 
+				Height="10" Data="M0,0 L 0,10 L 5,5" 
+				Canvas.Left="239" Canvas.Top="8" Visibility="Hidden"/>
+                <Label x:Name="lblFredriksBit" Width="133" Height="auto" FontFamily="Aharoni" Foreground="Black" Canvas.Left="250" Content="What Fredrik did" 
+					Canvas.Top="4" />
+                
+            </Canvas>
+
+
+            <Canvas Grid.Row="1" Grid.Column="0" >
+                <!-- Sachas bit words -->
+                <TextBlock  x:Name="tbSachas" Width="215" 
+				Text="Sacha is responsible for converting Fredriks Physics classes from a Winforms environment into WPF. Sacha also created this application, and the underlying classes that support the application. Fredrik and Sacha used to work together. Fredrik was Sachas team leader. Sacha really wants Fredrik to come and work at Sachas new job, where they can share their love of http://icanhascheezburger.com/" 
+				TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Background="Black" 
+				Canvas.Left="16" Foreground="#FFFFFFFF" 
+				HorizontalAlignment="Left" Height="180" VerticalAlignment="Stretch" Canvas.Top="0">
+					<TextBlock.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform ScaleX="1" ScaleY="1"/>
+							<SkewTransform AngleX="0" AngleY="0"/>
+							<RotateTransform Angle="0"/>
+							<TranslateTransform X="0" Y="23"/>
+						</TransformGroup>
+					</TextBlock.RenderTransform>
+				</TextBlock>
+                <!-- Fredriks bit words -->
+                <TextBlock x:Name="tbFredriks" Width="215" 
+				Text="Fredrik is a Swedish chap that knows what's what when it comes to programming. He used to be Sachas team leader, but Sacha had to leave to pursue his WPF interest. Fredrik can program anything (apart from WPF), but is most happy writing games in DirectX that he never finishes. He wrote the original Physics for this application. Basically he's smart. The best you'll ever meet. I once saw him write a 3D screen saver in about 2 hours without needing to look anything up. He rocks" 
+				TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Background="Black" 
+				Canvas.Left="250" Foreground="#FFFFFFFF" 
+				HorizontalAlignment="Left" Height="1" VerticalAlignment="Stretch" Canvas.Top="0">
+					<TextBlock.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform ScaleX="1" ScaleY="1"/>
+							<SkewTransform AngleX="0" AngleY="0"/>
+							<RotateTransform Angle="0"/>
+							<TranslateTransform X="0" Y="23"/>
+						</TransformGroup>
+					</TextBlock.RenderTransform>
+				</TextBlock>
+
+            </Canvas>
+        </Grid>
+    </DockPanel>
+</Window>

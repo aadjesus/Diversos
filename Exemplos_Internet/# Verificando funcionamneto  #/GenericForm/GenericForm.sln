@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericForm", "GenericForm\GenericForm.csproj", "{047306A0-5366-4994-8CE2-80D36D579A42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "DataTypes\DataTypes.csproj", "{81DD2109-26A8-434D-B5F8-AD63D4AC4691}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{047306A0-5366-4994-8CE2-80D36D579A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047306A0-5366-4994-8CE2-80D36D579A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047306A0-5366-4994-8CE2-80D36D579A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047306A0-5366-4994-8CE2-80D36D579A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DD2109-26A8-434D-B5F8-AD63D4AC4691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DD2109-26A8-434D-B5F8-AD63D4AC4691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DD2109-26A8-434D-B5F8-AD63D4AC4691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DD2109-26A8-434D-B5F8-AD63D4AC4691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

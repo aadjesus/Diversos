@@ -1,0 +1,107 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna">
+    <!-- Brushes -->
+	<LinearGradientBrush x:Key="ProgressBarFill" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#95B38E" Offset="0"/>
+		<GradientStop Color="#A4D498" Offset="0.14"/>
+		<GradientStop Color="#A4D498" Offset="0.43"/>
+		<GradientStop Color="#76A66A" Offset="0.43"/>
+		<GradientStop Color="#98C88C" Offset="1"/>
+	</LinearGradientBrush>
+
+    <!-- The Orange Brush -->
+    <SolidColorBrush x:Key="OrangeBrush" Color="#FFFFBC00"/>
+    
+    <!-- Window Background Brush -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF363636"/>
+    
+    <!-- ProgressReporter Style -->
+    <Style x:Key="ProgressReporterStyle" TargetType="{x:Type ProgressBar}">
+		<Setter Property="Foreground" Value="{StaticResource ProgressBarFill}"/>
+		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource OrangeBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ProgressBar}">
+					<Border SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" BorderBrush="#FFFFB300" Background="#FF6C6C6C">
+						<Border BorderBrush="#BEBEBE" BorderThickness="1,1,1,0" CornerRadius="2">
+							<Border BorderBrush="#EFEFEF" BorderThickness="1" CornerRadius="1">
+								<DockPanel Margin="1,0,0,1" x:Name="PART_Track" LastChildFill="false">
+									<Rectangle x:Name="PART_Indicator" Fill="{DynamicResource ProgressBarFill}"/>
+								</DockPanel>
+							</Border>
+						</Border>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="Orientation" Value="Vertical">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="{x:Type ProgressBar}">
+							<Border SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+								<Border BorderBrush="#BEBEBE" BorderThickness="1,1,1,0" CornerRadius="2">
+									<Border BorderBrush="#EFEFEF" BorderThickness="1" CornerRadius="1">
+										<DockPanel Margin="0,0,0,1" x:Name="PART_Track" LastChildFill="false">
+											<Decorator x:Name="PART_Indicator" DockPanel.Dock="Bottom">
+												<Rectangle>
+													<Rectangle.LayoutTransform>
+														<RotateTransform Angle="-90"/>
+													</Rectangle.LayoutTransform>
+													<Rectangle.Fill>
+														<MultiBinding>
+															<MultiBinding.Converter>
+																<Microsoft_Windows_Themes:ProgressBarBrushConverter/>
+															</MultiBinding.Converter>
+															<Binding Path="Foreground" RelativeSource="{RelativeSource TemplatedParent}"/>
+															<Binding Path="IsIndeterminate" RelativeSource="{RelativeSource TemplatedParent}"/>
+															<Binding Path="ActualHeight" ElementName="PART_Indicator"/>
+															<Binding Path="ActualWidth" ElementName="PART_Indicator"/>
+															<Binding Path="ActualHeight" ElementName="PART_Track"/>
+														</MultiBinding>
+													</Rectangle.Fill>
+												</Rectangle>
+											</Decorator>
+										</DockPanel>
+									</Border>
+								</Border>
+							</Border>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+    
+    <!-- TextBox Style -->
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource OrangeBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource OrangeBrush}"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="Bd" SnapsToDevicePixels="true" Background="#FF5D5D5D" BorderBrush="#FFFFA400" CornerRadius="5,5,5,5" BorderThickness="2,2,2,2">
+                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,68 @@
+<project name="Java Applet Sign" default="sign" basedir=".">
+	<target name="delete">
+    	<delete file="flexapi.keystore" />
+		<delete file="sflexapi.jar" />
+		<delete file="sflexapiagentadapter.jar" />
+		<delete file="sflexapiview.jar" />
+		<delete file="ssockets.jar" />
+	</target>
+    <target name="sign" depends="delete">
+    	<genkey
+			alias="mykey"
+    		dname="CN=Voice, OU=Desenvolvimento, O=Voice Technology Ind., L=Sao Paulo, ST=Sao Paulo, C=br"
+    		keypass="voicet"
+    		keystore="flexapi.keystore"
+    		storepass="voicet"
+    		storetype="pkcs12"
+    		verbose="on"
+    	/>
+    	<signjar
+    		alias="mykey"
+    		internalsf="true"
+    		jar="flexapi1.5_1.3.0.jar"
+    		signedjar="sflexapi.jar"
+    		storepass="voicet"
+    		keypass="voicet"
+    		keystore="flexapi.keystore"
+    		sigfile="flexapi"
+    		storetype="pkcs12"
+    		verbose="on"
+    	/>
+    	<signjar
+    		alias="mykey"
+    		internalsf="true"
+    		jar="flexapiagentadapter1.5_1.3.0.jar"
+    		signedjar="sflexapiagentadapter.jar"
+    		storepass="voicet"
+    		keypass="voicet"
+	   		keystore="flexapi.keystore"
+    		sigfile="flexapiagentadapter"
+    		storetype="pkcs12"
+    		verbose="on"
+    	/>
+    	<signjar
+    		alias="mykey"
+    		internalsf="true"
+    		jar="flexapiview1.5_1.1.0.jar"
+    		signedjar="sflexapiview.jar"
+    		storepass="voicet"
+    		keypass="voicet"
+	   		keystore="flexapi.keystore"
+    		sigfile="flexapiview"
+    		storetype="pkcs12"
+    		verbose="on"
+    	/>
+    	<signjar
+    		alias="mykey"
+    		internalsf="true"
+    		jar="sockets5.1.0.jar"
+    		signedjar="ssockets.jar"
+    		storepass="voicet"
+    		keypass="voicet"
+	   		keystore="flexapi.keystore"
+    		sigfile="sockets"
+    		storetype="pkcs12"
+    		verbose="on"
+    	/>
+    </target>
+</project>

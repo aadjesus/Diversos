@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3DE431F2-757A-4E40-8CAA-4A5B2E9E5337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{70692BE6-59D7-4FFF-80C3-B544EC84857F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{8DB0CE4F-0941-455F-AB25-04F9251FE1D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{48A70358-E836-4128-9439-25E08B8A2340}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{E2ACD2BA-25AF-4BD3-8BD1-28DC33E08170}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{A9A29E3B-9B3A-4E1C-A014-EE5513B3AF24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMind.Common", "OpenMind.Common\OpenMind.Common.csproj", "{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FCCF1B9-E49C-4E15-A0F9-6CC3202148C5} = {3DE431F2-757A-4E40-8CAA-4A5B2E9E5337}
+		{E2ACD2BA-25AF-4BD3-8BD1-28DC33E08170} = {48A70358-E836-4128-9439-25E08B8A2340}
+		{A9A29E3B-9B3A-4E1C-A014-EE5513B3AF24} = {48A70358-E836-4128-9439-25E08B8A2340}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp2</Title>
+    <Shortcut>polyp2</Shortcut>
+    <Description>Creates an 2nd-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c)
+{
+return a*Math.Pow(x, 2) + b*x + c;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly2</Title>
+    <Shortcut>poly2</Shortcut>
+    <Description>Creates an 2nd-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c)
+{
+return a*x*x + b*x + c;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp3</Title>
+    <Shortcut>polyp3</Shortcut>
+    <Description>Creates an 3rd-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d)
+{
+return a*Math.Pow(x, 3) + b*Math.Pow(x, 2) + c*x + d;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly3</Title>
+    <Shortcut>poly3</Shortcut>
+    <Description>Creates an 3rd-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d)
+{
+return a*x*x*x + b*x*x + c*x + d;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp4</Title>
+    <Shortcut>polyp4</Shortcut>
+    <Description>Creates an 4th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e)
+{
+return a*Math.Pow(x, 4) + b*Math.Pow(x, 3) + c*Math.Pow(x, 2) + d*x + e;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly4</Title>
+    <Shortcut>poly4</Shortcut>
+    <Description>Creates an 4th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e)
+{
+return a*x*x*x*x + b*x*x*x + c*x*x + d*x + e;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp5</Title>
+    <Shortcut>polyp5</Shortcut>
+    <Description>Creates an 5th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f)
+{
+return a*Math.Pow(x, 5) + b*Math.Pow(x, 4) + c*Math.Pow(x, 3) + d*Math.Pow(x, 2) + e*x + f;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly5</Title>
+    <Shortcut>poly5</Shortcut>
+    <Description>Creates an 5th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f)
+{
+return a*x*x*x*x*x + b*x*x*x*x + c*x*x*x + d*x*x + e*x + f;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp6</Title>
+    <Shortcut>polyp6</Shortcut>
+    <Description>Creates an 6th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g)
+{
+return a*Math.Pow(x, 6) + b*Math.Pow(x, 5) + c*Math.Pow(x, 4) + d*Math.Pow(x, 3) + e*Math.Pow(x, 2) + f*x + g;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly6</Title>
+    <Shortcut>poly6</Shortcut>
+    <Description>Creates an 6th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g)
+{
+return a*x*x*x*x*x*x + b*x*x*x*x*x + c*x*x*x*x + d*x*x*x + e*x*x + f*x + g;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp7</Title>
+    <Shortcut>polyp7</Shortcut>
+    <Description>Creates an 7th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h)
+{
+return a*Math.Pow(x, 7) + b*Math.Pow(x, 6) + c*Math.Pow(x, 5) + d*Math.Pow(x, 4) + e*Math.Pow(x, 3) + f*Math.Pow(x, 2) + g*x + h;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly7</Title>
+    <Shortcut>poly7</Shortcut>
+    <Description>Creates an 7th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h)
+{
+return a*x*x*x*x*x*x*x + b*x*x*x*x*x*x + c*x*x*x*x*x + d*x*x*x*x + e*x*x*x + f*x*x + g*x + h;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp8</Title>
+    <Shortcut>polyp8</Shortcut>
+    <Description>Creates an 8th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i)
+{
+return a*Math.Pow(x, 8) + b*Math.Pow(x, 7) + c*Math.Pow(x, 6) + d*Math.Pow(x, 5) + e*Math.Pow(x, 4) + f*Math.Pow(x, 3) + g*Math.Pow(x, 2) + h*x + i;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly8</Title>
+    <Shortcut>poly8</Shortcut>
+    <Description>Creates an 8th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i)
+{
+return a*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x + c*x*x*x*x*x*x + d*x*x*x*x*x + e*x*x*x*x + f*x*x*x + g*x*x + h*x + i;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp9</Title>
+    <Shortcut>polyp9</Shortcut>
+    <Description>Creates an 9th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j)
+{
+return a*Math.Pow(x, 9) + b*Math.Pow(x, 8) + c*Math.Pow(x, 7) + d*Math.Pow(x, 6) + e*Math.Pow(x, 5) + f*Math.Pow(x, 4) + g*Math.Pow(x, 3) + h*Math.Pow(x, 2) + i*x + j;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly9</Title>
+    <Shortcut>poly9</Shortcut>
+    <Description>Creates an 9th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j)
+{
+return a*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x + d*x*x*x*x*x*x + e*x*x*x*x*x + f*x*x*x*x + g*x*x*x + h*x*x + i*x + j;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp10</Title>
+    <Shortcut>polyp10</Shortcut>
+    <Description>Creates an 10th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k)
+{
+return a*Math.Pow(x, 10) + b*Math.Pow(x, 9) + c*Math.Pow(x, 8) + d*Math.Pow(x, 7) + e*Math.Pow(x, 6) + f*Math.Pow(x, 5) + g*Math.Pow(x, 4) + h*Math.Pow(x, 3) + i*Math.Pow(x, 2) + j*x + k;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly10</Title>
+    <Shortcut>poly10</Shortcut>
+    <Description>Creates an 10th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k)
+{
+return a*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x + e*x*x*x*x*x*x + f*x*x*x*x*x + g*x*x*x*x + h*x*x*x + i*x*x + j*x + k;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp11</Title>
+    <Shortcut>polyp11</Shortcut>
+    <Description>Creates an 11th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l)
+{
+return a*Math.Pow(x, 11) + b*Math.Pow(x, 10) + c*Math.Pow(x, 9) + d*Math.Pow(x, 8) + e*Math.Pow(x, 7) + f*Math.Pow(x, 6) + g*Math.Pow(x, 5) + h*Math.Pow(x, 4) + i*Math.Pow(x, 3) + j*Math.Pow(x, 2) + k*x + l;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly11</Title>
+    <Shortcut>poly11</Shortcut>
+    <Description>Creates an 11th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x + f*x*x*x*x*x*x + g*x*x*x*x*x + h*x*x*x*x + i*x*x*x + j*x*x + k*x + l;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp12</Title>
+    <Shortcut>polyp12</Shortcut>
+    <Description>Creates an 12th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m)
+{
+return a*Math.Pow(x, 12) + b*Math.Pow(x, 11) + c*Math.Pow(x, 10) + d*Math.Pow(x, 9) + e*Math.Pow(x, 8) + f*Math.Pow(x, 7) + g*Math.Pow(x, 6) + h*Math.Pow(x, 5) + i*Math.Pow(x, 4) + j*Math.Pow(x, 3) + k*Math.Pow(x, 2) + l*x + m;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly12</Title>
+    <Shortcut>poly12</Shortcut>
+    <Description>Creates an 12th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x + g*x*x*x*x*x*x + h*x*x*x*x*x + i*x*x*x*x + j*x*x*x + k*x*x + l*x + m;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp13</Title>
+    <Shortcut>polyp13</Shortcut>
+    <Description>Creates an 13th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n)
+{
+return a*Math.Pow(x, 13) + b*Math.Pow(x, 12) + c*Math.Pow(x, 11) + d*Math.Pow(x, 10) + e*Math.Pow(x, 9) + f*Math.Pow(x, 8) + g*Math.Pow(x, 7) + h*Math.Pow(x, 6) + i*Math.Pow(x, 5) + j*Math.Pow(x, 4) + k*Math.Pow(x, 3) + l*Math.Pow(x, 2) + m*x + n;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly13</Title>
+    <Shortcut>poly13</Shortcut>
+    <Description>Creates an 13th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x + h*x*x*x*x*x*x + i*x*x*x*x*x + j*x*x*x*x + k*x*x*x + l*x*x + m*x + n;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp14</Title>
+    <Shortcut>polyp14</Shortcut>
+    <Description>Creates an 14th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o)
+{
+return a*Math.Pow(x, 14) + b*Math.Pow(x, 13) + c*Math.Pow(x, 12) + d*Math.Pow(x, 11) + e*Math.Pow(x, 10) + f*Math.Pow(x, 9) + g*Math.Pow(x, 8) + h*Math.Pow(x, 7) + i*Math.Pow(x, 6) + j*Math.Pow(x, 5) + k*Math.Pow(x, 4) + l*Math.Pow(x, 3) + m*Math.Pow(x, 2) + n*x + o;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly14</Title>
+    <Shortcut>poly14</Shortcut>
+    <Description>Creates an 14th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x + i*x*x*x*x*x*x + j*x*x*x*x*x + k*x*x*x*x + l*x*x*x + m*x*x + n*x + o;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp15</Title>
+    <Shortcut>polyp15</Shortcut>
+    <Description>Creates an 15th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p)
+{
+return a*Math.Pow(x, 15) + b*Math.Pow(x, 14) + c*Math.Pow(x, 13) + d*Math.Pow(x, 12) + e*Math.Pow(x, 11) + f*Math.Pow(x, 10) + g*Math.Pow(x, 9) + h*Math.Pow(x, 8) + i*Math.Pow(x, 7) + j*Math.Pow(x, 6) + k*Math.Pow(x, 5) + l*Math.Pow(x, 4) + m*Math.Pow(x, 3) + n*Math.Pow(x, 2) + o*x + p;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly15</Title>
+    <Shortcut>poly15</Shortcut>
+    <Description>Creates an 15th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x + j*x*x*x*x*x*x + k*x*x*x*x*x + l*x*x*x*x + m*x*x*x + n*x*x + o*x + p;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp16</Title>
+    <Shortcut>polyp16</Shortcut>
+    <Description>Creates an 16th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q)
+{
+return a*Math.Pow(x, 16) + b*Math.Pow(x, 15) + c*Math.Pow(x, 14) + d*Math.Pow(x, 13) + e*Math.Pow(x, 12) + f*Math.Pow(x, 11) + g*Math.Pow(x, 10) + h*Math.Pow(x, 9) + i*Math.Pow(x, 8) + j*Math.Pow(x, 7) + k*Math.Pow(x, 6) + l*Math.Pow(x, 5) + m*Math.Pow(x, 4) + n*Math.Pow(x, 3) + o*Math.Pow(x, 2) + p*x + q;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly16</Title>
+    <Shortcut>poly16</Shortcut>
+    <Description>Creates an 16th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x*x + j*x*x*x*x*x*x*x + k*x*x*x*x*x*x + l*x*x*x*x*x + m*x*x*x*x + n*x*x*x + o*x*x + p*x + q;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp17</Title>
+    <Shortcut>polyp17</Shortcut>
+    <Description>Creates an 17th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r)
+{
+return a*Math.Pow(x, 17) + b*Math.Pow(x, 16) + c*Math.Pow(x, 15) + d*Math.Pow(x, 14) + e*Math.Pow(x, 13) + f*Math.Pow(x, 12) + g*Math.Pow(x, 11) + h*Math.Pow(x, 10) + i*Math.Pow(x, 9) + j*Math.Pow(x, 8) + k*Math.Pow(x, 7) + l*Math.Pow(x, 6) + m*Math.Pow(x, 5) + n*Math.Pow(x, 4) + o*Math.Pow(x, 3) + p*Math.Pow(x, 2) + q*x + r;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly17</Title>
+    <Shortcut>poly17</Shortcut>
+    <Description>Creates an 17th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x*x*x + j*x*x*x*x*x*x*x*x + k*x*x*x*x*x*x*x + l*x*x*x*x*x*x + m*x*x*x*x*x + n*x*x*x*x + o*x*x*x + p*x*x + q*x + r;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp18</Title>
+    <Shortcut>polyp18</Shortcut>
+    <Description>Creates an 18th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s)
+{
+return a*Math.Pow(x, 18) + b*Math.Pow(x, 17) + c*Math.Pow(x, 16) + d*Math.Pow(x, 15) + e*Math.Pow(x, 14) + f*Math.Pow(x, 13) + g*Math.Pow(x, 12) + h*Math.Pow(x, 11) + i*Math.Pow(x, 10) + j*Math.Pow(x, 9) + k*Math.Pow(x, 8) + l*Math.Pow(x, 7) + m*Math.Pow(x, 6) + n*Math.Pow(x, 5) + o*Math.Pow(x, 4) + p*Math.Pow(x, 3) + q*Math.Pow(x, 2) + r*x + s;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly18</Title>
+    <Shortcut>poly18</Shortcut>
+    <Description>Creates an 18th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x*x*x*x + j*x*x*x*x*x*x*x*x*x + k*x*x*x*x*x*x*x*x + l*x*x*x*x*x*x*x + m*x*x*x*x*x*x + n*x*x*x*x*x + o*x*x*x*x + p*x*x*x + q*x*x + r*x + s;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp19</Title>
+    <Shortcut>polyp19</Shortcut>
+    <Description>Creates an 19th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s, double t)
+{
+return a*Math.Pow(x, 19) + b*Math.Pow(x, 18) + c*Math.Pow(x, 17) + d*Math.Pow(x, 16) + e*Math.Pow(x, 15) + f*Math.Pow(x, 14) + g*Math.Pow(x, 13) + h*Math.Pow(x, 12) + i*Math.Pow(x, 11) + j*Math.Pow(x, 10) + k*Math.Pow(x, 9) + l*Math.Pow(x, 8) + m*Math.Pow(x, 7) + n*Math.Pow(x, 6) + o*Math.Pow(x, 5) + p*Math.Pow(x, 4) + q*Math.Pow(x, 3) + r*Math.Pow(x, 2) + s*x + t;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly19</Title>
+    <Shortcut>poly19</Shortcut>
+    <Description>Creates an 19th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s, double t)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x*x*x*x*x + j*x*x*x*x*x*x*x*x*x*x + k*x*x*x*x*x*x*x*x*x + l*x*x*x*x*x*x*x*x + m*x*x*x*x*x*x*x + n*x*x*x*x*x*x + o*x*x*x*x*x + p*x*x*x*x + q*x*x*x + r*x*x + s*x + t;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>polyp20</Title>
+    <Shortcut>polyp20</Shortcut>
+    <Description>Creates an 20th-order polynomial function (uses Math.Pow).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double PolyP(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s, double t, double u)
+{
+return a*Math.Pow(x, 20) + b*Math.Pow(x, 19) + c*Math.Pow(x, 18) + d*Math.Pow(x, 17) + e*Math.Pow(x, 16) + f*Math.Pow(x, 15) + g*Math.Pow(x, 14) + h*Math.Pow(x, 13) + i*Math.Pow(x, 12) + j*Math.Pow(x, 11) + k*Math.Pow(x, 10) + l*Math.Pow(x, 9) + m*Math.Pow(x, 8) + n*Math.Pow(x, 7) + o*Math.Pow(x, 6) + p*Math.Pow(x, 5) + q*Math.Pow(x, 4) + r*Math.Pow(x, 3) + s*Math.Pow(x, 2) + t*x + u;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>poly20</Title>
+    <Shortcut>poly20</Shortcut>
+    <Description>Creates an 20th-order polynomial function (uses inlining).</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[public double Poly(double x, double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l, double m, double n, double o, double p, double q, double r, double s, double t, double u)
+{
+return a*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + b*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + c*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + d*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + e*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + f*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x + g*x*x*x*x*x*x*x*x*x*x*x*x*x*x + h*x*x*x*x*x*x*x*x*x*x*x*x*x + i*x*x*x*x*x*x*x*x*x*x*x*x + j*x*x*x*x*x*x*x*x*x*x*x + k*x*x*x*x*x*x*x*x*x*x + l*x*x*x*x*x*x*x*x*x + m*x*x*x*x*x*x*x*x + n*x*x*x*x*x*x*x + o*x*x*x*x*x*x + p*x*x*x*x*x + q*x*x*x*x + r*x*x*x + s*x*x + t*x + u;
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet></CodeSnippets>

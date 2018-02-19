@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ink_A_Mator.ColorPalette"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ac="clr-namespace:ArtControls;assembly=ArtControls"
+    Title="Ink_A_Mator" Height="300" Width="300"
+    >
+  <TabControl>
+    <TabItem Header="Palette 1">
+      <Canvas>
+        <ac:Palette2 Name="Palette2" ColorChanged="OnColorChanged2"/>
+      </Canvas>
+    </TabItem>
+    <TabItem Header="Palette 2">
+      <Canvas>
+        <ac:Palette Name="Palette"  ColorChanged="OnColorChanged"/>
+      </Canvas>
+    </TabItem>
+  </TabControl>
+</Window>

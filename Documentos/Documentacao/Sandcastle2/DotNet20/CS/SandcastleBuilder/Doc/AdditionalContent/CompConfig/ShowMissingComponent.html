@@ -1,0 +1,72 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Show Missing Documentation Component</title>
+</head>
+
+<body>
+
+<h2>The Show Missing Documentation Component</h2>
+The "show missing documentation" build component is used to add "missing"
+notes for missing summary, parameter, returns, value, and remarks tags.  It
+can also add default summary documentation for constructors.  The
+functionality in this component used to be integrated with the help file
+builder itself. However, the XPath queries used to look up the information
+in the comments files and reflection information file proved to be too slow
+when used on extremely large builds with tens of thousands of topics.  By
+moving the processing to a build component, the amount of information to
+search is greatly reduced and the time to add missing item comments is now
+negligible.
+
+<h3>The Show Missing Documentation Component Configuration</h3>
+The following is the default configuration for the "show missing
+documentation" component. It should be inserted into the configuration file
+before the <code>TransformComponent</code>.  All attribute names and values
+are case-sensitive.
+
+<pre lang="xml" title="Example Configuration">
+&lt;!-- Show missing documentation component configuration.  This must
+     appear before the TransformComponent. --&gt;
+&lt;component type="SandcastleBuilder.Components.ShowMissingComponent"
+  assembly="{@SHFBFolder}SandcastleBuilder.Components.dll"&gt;
+    &lt;!-- All elements are optional. --&gt;
+    &lt;!-- Auto-document constructors (true by default) --&gt;
+    &lt;AutoDocumentConstructors value="{@AutoDocumentConstructors}" /&gt;
+
+    &lt;!-- Show missing param tags (true by default) --&gt;
+    &lt;ShowMissingParams value="{@ShowMissingParams}" /&gt;
+
+    &lt;!-- Show missing remarks tags (false by default) --&gt;
+    &lt;ShowMissingRemarks value="{@ShowMissingRemarks}" /&gt;
+
+    &lt;!-- Show missing returns tags (true by default) --&gt;
+    &lt;ShowMissingReturns value="{@ShowMissingReturns}" /&gt;
+
+    &lt;!-- Show missing summary tags (true by default) --&gt;
+    &lt;ShowMissingSummaries value="{@ShowMissingSummaries}" /&gt;
+
+    &lt;!-- Show missing value tags (false by default) --&gt;
+    &lt;ShowMissingValues value="{@ShowMissingValues}" /&gt;
+&lt;/component&gt;
+</pre>
+
+The example given above is taken from the Sandcastle Help File Builder's
+configuration file.  When used with it, the replacement tag
+<code>{@SHFBFolder}</code> is used to insert the help file builder's folder
+in the file path.  This is replaced at build time with the appropriate
+value.  The other elements also use replacement tags that map to the help
+file builder project options of the same name.  If using the component in
+your own build scripts, replace the tags with actual values.  All elements
+are optional. If not specified, the default value noted in the comment
+before the element is used.
+
+<p/>For information on what each of the options does, see <a
+href="../GuiProject/ShowMissingProps.html">The Show Missing Tags Category
+Properties</a> help topic.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 1 -->

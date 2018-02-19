@@ -1,0 +1,51 @@
+﻿<Window x:Class="Asaasoft.DigitalMeter.Demo.DemoWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lib="clr-namespace:Asaasoft.DigitalMeter;assembly=Asaasoft.DigitalMeter"
+    Title="DemoWindow" Width="839" Height="509" >
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="2" />
+        </Style>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical">
+        <Grid HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <lib:DigitalMeter x:Name="digitalMeter1"   Grid.Row="0" Grid.Column="0" Margin="10"/>
+            <lib:DigitalMeter x:Name="digitalMeter2" Grid.Row="0" Grid.Column="1" ScalingFactor="2" MeasurementUnit="m" Foreground="Black" Background="Gold" Width="280" Margin="10"/>
+            <lib:DigitalMeter x:Name="digitalMeter3" Grid.Row="1" Grid.Column="0" MeasurementUnit="bps" Foreground="DarkGray" Background="Gray" Margin="10"/>
+            <lib:DigitalMeter x:Name="digitalMeter4" Grid.Row="1" Grid.Column="1" Precision="7" ScalingFactor="1" MeasurementUnit="ml" Foreground="Black" Background="Lime" Margin="10"/>
+            <lib:DigitalMeter x:Name="digitalMeter5" Grid.Row="2" Grid.Column="0" ScalingFactor="4" MeasurementUnit="N" Foreground="CornflowerBlue" Background="Navy" Margin="10"/>
+            <lib:DigitalMeter x:Name="digitalMeter6" Grid.Row="2" Grid.Column="1" Precision="7"  MeasurementUnit="Pa" Foreground="White" Background="OrangeRed" Margin="10"/>
+        </Grid>
+        <Expander FontSize="18" FontWeight="Bold" Header="Digital Meter Status">
+            <Grid HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" x:Name="digitalMeterStatusTextBlock1" />
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="digitalMeterStatusTextBlock2" />
+                <TextBlock Grid.Row="1" Grid.Column="0" x:Name="digitalMeterStatusTextBlock3" />
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="digitalMeterStatusTextBlock4" />
+                <TextBlock Grid.Row="2" Grid.Column="0" x:Name="digitalMeterStatusTextBlock5" />
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="digitalMeterStatusTextBlock6" />
+            </Grid>
+        </Expander>
+    </StackPanel>
+</Window>

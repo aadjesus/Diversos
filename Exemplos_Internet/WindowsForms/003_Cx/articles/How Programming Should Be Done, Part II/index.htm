@@ -1,0 +1,1508 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Introduction</title>
+</head>
+
+<body>
+
+<p>CX Part II: Build a Metadata Designer for the CX Dynamic Composition 
+Framework</p>
+<p>
+<a href="http://www.codeproject.com/KB/architecture/HowProgrammingShouldBeDon.aspx">
+Part I : How Programming Should Be Done</a></p>
+<h2>Introduction</h2>
+<p>Part II of this series on the Cx framework is 
+really an investigation into putting together a simple wire-up tool (see
+<a href="http://www.codeproject.com/KB/architecture/HowProgrammingShouldBeDon.aspx">
+Part I</a> for what I mean about wire-up) using Cx 
+itself, and the things I'm discovering about an Inversion of Control (IoC) or Dependency Injection 
+(DI) 
+framework.&nbsp; So this is really about architecture and application design, 
+and the issues I discuss here are applicable to any of the popular IoC 
+frameworks I mention in the Part I.&nbsp; Pretty much, I'm just using Cx as a 
+way of exploring IoC/DI architecture issues.</p>
+<p>Why don't I just write a 
+designer for CAB or Spring.NET and become famous?&nbsp; Well, when I'm done with 
+this one, maybe it'll be easier to write one for the other frameworks--using Cx of 
+course!</p>
+<h3>What Is Inversion of Control?</h3>
+<p>From <a href="http://en.wikipedia.org/wiki/Inversion_of_control">Wikipedia</a>:</p>
+<p>In traditional programming the flow is controlled by a central piece of code. 
+Using Inversion of Control this central control as a design principle is left 
+behind. Although the
+<a title="Caller" href="http://en.wikipedia.org/wiki/Caller">caller</a> will 
+eventually get its answer, how and when is out of control of the caller. It is 
+the callee who decides to answer how and when. The principle of Inversion of 
+Control is also known as the
+<a title="Hollywood Principle" href="http://en.wikipedia.org/wiki/Hollywood_Principle">
+Hollywood Principle</a>. Inversion of Control as a design guideline serves the 
+following purposes:</p>
+<ul>
+	<li>There is a decoupling of the execution of a certain task from 
+	implementation.</li>
+	<li>Every system can focus on what it is designed for.</li>
+	<li>Every system does not make assumptions about what other systems do or 
+	should do.</li>
+	<li>Replacing systems will have no side effect on other systems.</li>
+</ul>
+<h3>What Is Dependency Injection?</h3>
+<p>From <a href="http://en.wikipedia.org/wiki/Dependency_injection">Wikipedia</a>:</p>
+<p>Conventionally, if an object, in order to accomplish a certain task, needs a 
+particular
+<a title="Service (systems architecture)" href="http://en.wikipedia.org/wiki/Service_(systems_architecture%2529">
+service</a>, it will also be responsible for instantiating and disposing of 
+(removing from memory, closing streams, etc.) the service, therefore making it 
+more complex and hard to maintain. Ideally, this object would not need to manage 
+its services life cycle but just have a reference to an
+<a title="Programming language implementation" href="http://en.wikipedia.org/wiki/Programming_language_implementation">
+implementation</a> of the said services and invoke its relevant behaviors. 
+Dependency injection is a
+<a title="Design pattern" href="http://en.wikipedia.org/wiki/Design_pattern">
+design pattern</a> that can be applied to provide an object with its 
+dependencies and move the code related to the service life cycle to a more 
+appropriate place.</p>
+<h3>Why This Article?</h3>
+<p>This is an exploration of Inversion of Control (IoC) and 
+Dependency Injection (DI) best practices that evolved by writing a dynamic 
+composition framework and then using it to create a poor-man's 
+designer to create the metadata.</p>
+<p><img border="0" src="cx2/app.jpg" width="605" height="440"></p>
+<p>After working with
+<a href="http://msdn.microsoft.com/en-us/library/aa480450.aspx">Microsoft's CAB</a> 
+and <a href="http://www.springframework.net/">Spring.NET</a>, I frankly don't 
+see the point:</p>
+<ul>
+	<li>it seems like re-inventing the services wheel all over again,</li>
+	<li>but in a way that makes the application more difficult to debug because 
+	of the runtime composition,</li>
+	<li>and requires you to work in XML instead of supplying you with a tool to 
+	define the metadata.</li>
+</ul>
+<p>and I want to know why these frameworks are better than using a more 
+traditional services approach.&nbsp; Certainly what Wikipedia says above about 
+IoC/DI: &quot;to provide an object with its dependencies and move the code related to 
+the service life cycle to a more appropriate place&quot;, could be easily corrected 
+without creating a huge framework.</p>
+<p>I also want to learn what the best practices are in using these 
+frameworks--just because you have a snazzy framework doesn't mean your 
+application is going to be better.&nbsp; So, for some of the questions I have, I 
+decided I would write Cx, a dynamic composition framework, and learn about IoC 
+and DI from the roots up, rather than work with someone else's architecture from 
+the top, down.&nbsp; And I want to use my framework to address my biggest 
+complaint about the IoC frameworks out there: they don't have any design tools!</p>
+<h2>Best Practices</h2>
+<p>I put this section first for those that want to cut to the chase.&nbsp; This 
+summarizes the best practices when working with an IoC framework, and is the 
+result of many hours of working with Cx and writing the Cx Designer.&nbsp; If 
+you want to read more about how and why I came up with these best practices, 
+well, that's what the rest of the article is for.</p>
+<p>Some of these sub-sections have only one or two points to them.&nbsp; That's 
+fine for now, as I expect these sections to be filled out as I continue working 
+with Cx and other IoC frameworks.</p>
+<h3>Before You Start Coding Practices</h3>
+<ol>
+	<li>Decide whether you want to use interfaces (method calls) for initiating activities or 
+	command patterns, and try to stick with one or the other for consistency.&nbsp; 
+	The determining factor is probably based on the anticipated complexity of 
+	the application and the number of developers and development teams working 
+	on the project.</li>
+	<li>If you have to interact with a component directly, always use an 
+	interface.&nbsp; This makes everything easier.&nbsp; Let's say you want to 
+	mock the component, or you have several different implementations you need 
+	to instantiate depending on a context.&nbsp; You can't do that if you don't 
+	use an interface, so plan for the future when you write your classes.</li>
+	<li>Look at how entangled your application becomes with your IoC/DI 
+	framework.&nbsp; Does it get so entangled that your code loses all 
+	re-usability outside of the context of the framework?&nbsp; If so, you may 
+	want to consider the repercussions of that choice.</li>
+	<li>Do some planning and storyboarding so you can identify early, rather 
+	than later, interface methods, commands, producers and consumers, and so 
+	forth.</li>
+	<li>Realize that with dependency injection of component instances, you are 
+	implicitly accepting a certain architectural paradigm (see
+	<a href="#Dependency_Injection">Dependency Injection</a> below).&nbsp; Make 
+	a&nbsp; 
+	conscious choice regarding when to use component instance injection and when to decouple 
+	components by using a command pattern.</li>
+</ol>
+<h3>Project Layout Practices</h3>
+<ol>
+	<li>Put your interfaces into a separate assembly.&nbsp; This is important 
+	for interfaces that represent &quot;plug-ins&quot;, or what I've been calling 
+	components.&nbsp; Putting the interface in the same project as the 
+	implementing class sort of defeats the purpose of having an interface and 
+	separating it from the component.</li>
+	<li>Keep your component implementation lightweight as much as possible, and 
+	put some thought into how you organize them into different assemblies.&nbsp; 
+	Think about putting your UI components into one or more assemblies and your 
+	view-model into a different assembly.&nbsp; Think about how you want to 
+	organize your model.</li>
+</ol>
+<h3>Performance Practices</h3>
+<ol>
+	<li>Look carefully at those &quot;make it easier on the developer&quot; little helpers.&nbsp; 
+	Does it mean that the framework uses reflection just to make something more 
+	convenient for you?&nbsp;</li>
+	<li>Identify early on the performance issues of the IoC/DI framework: where does it 
+	tangibly affect performance, and where does it merely 
+	act as a facilitator.&nbsp; </li>
+	<li>Think of your IoC/DI framework as a manager--bad 
+	managers make everyone's work harder and slower while claiming to improve 
+	efficiency while good managers facilitate so that people can work  
+	faster and the work is easier.</li>
+</ol>
+<h3>Ease of Use Practices</h3>
+<ol>
+	<li>Look at the complexity of the metadata that glues everything together.&nbsp; 
+	Does it do so much that it hides the intent of the application from the 
+	developer?&nbsp; If so, this means that new programmers have a steeper learning 
+	curve and eventually, even the veterans forget why something was done in a 
+	particular way.</li>
+</ol>
+<h3>Generalization Practices</h3>
+<ol>
+	<li>Decide the depth of your generalization.&nbsp; Deeply generalized 
+	applications are harder to glean the intent of, but the components potentially 
+	have a life that goes beyond the lifetime of the application.&nbsp; Shallow 
+	generalization is easier to walk into and support but not really re-usable 
+	outside of the specific application.</li>
+</ol>
+<h3>Security Practices</h3>
+<ol>
+	<li>Deal with issues like security early on.&nbsp; Are all commands 
+	executable in all security contexts?</li>
+</ol>
+<h3>Lifetime Practices</h3>
+<ol>
+	<li>Consider the lifetime of an object and whether or not your data producer 
+	component needs to clone the object before sending it off in a command 
+	payload.&nbsp; Consumers shouldn't have to worry about whether their 
+	collection or data values are going to be clobbered the next time the 
+	producer component produces the object or modifies the object.</li>
+	<li>Be cognizant of any component initialization requirement.&nbsp; If a 
+	component is cached, any initialization that occurs in the constructor will 
+	occur only once.</li>
+</ol>
+<h2>Terminology</h2>
+<h3>Producer/Consumer</h3>
+<p>I'm using the terms &quot;producer&quot; and &quot;consumer&quot;, if not incorrectly, then 
+rather loosely.&nbsp; This is not a producer/consumer problem (moving data 
+through a shared buffer). This is closer to a publisher/subscriber pattern, but 
+not a perfect fit either as the messages are not asynchronous, and many of the 
+&quot;messages&quot; are actually commands--no actual content to the &quot;message.&quot;</p>
+<p><a href="http://en.wikipedia.org/wiki/Producer-consumer_problem">Read more 
+about the producer/consumer problem</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Publish/subscribe">Read more about the 
+publisher/subscriber pattern</a></p>
+<p>So, my definition of a &quot;producer&quot; is a class that, at least in this 
+implementation, fires an event, optionally with a data payload.&nbsp; My 
+definition of a consumer is a method with a parameter signature that matches the 
+event delegate and can therefore be wired up to &quot;consume&quot; the event.</p>
+<h3>Dynamic Composition Framework</h3>
+<p>
+<a href="http://ieeexplore.ieee.org/Xplore/login.jsp?url=http://ieeexplore.ieee.org/iel5/4278609/4278610/04278736.pdf?arnumber=4278736&authDecision=-203">
+Here's</a> a mouthful:</p>
+<p>&quot;Dynamic composition is a key feature of service-oriented computing (SOC) 
+where services are discovered and composed at runtime. Current standards and 
+methods for service compositions require statically binding published WSDL 
+interfaces into compositions in BPEL. In this paper, we present our early result 
+of a framework for dynamic composition on enterprise service bus (ESB). We 
+present the design and implementation of Dynamic Composition Handler.&quot;</p>
+<p>But that's basically what I mean when I use that term: constructing an 
+application at runtime from components that are otherwise not cognizant of each 
+other.</p>
+<h3>Deep Generalization</h3>
+<p>In a deeply generalized application, you need some way of communicating 
+change between components in a generalized yet structured manner.&nbsp; So, what 
+I mean by this are several things:</p>
+<ul>
+	<li>Constructing a component so that it is abstracted out of the specific 
+	application requirements.&nbsp; </li>
+	<li>Constructing a component so that it does not have any dependencies on 
+	any other components.&nbsp; You might bundle your components into a single 
+	assembly, but in no way will any one component require anything in another 
+	component.&nbsp; Some minor dependencies on the framework (for attributes 
+	and helpers) is acceptable.</li>
+	<li>Completely separating out any business logic from the component.&nbsp; 
+	This applies mostly to UI components and allows you to swap out the business 
+	logic without touching the component rendering.</li>
+	<li>Completely defining the way data gets in and out of the component and 
+	the activities the component can initiate.&nbsp; Otherwise known as
+	<a href="http://en.wikipedia.org/wiki/Design_by_contract">Design by Contract</a>, 
+	except that here we use metadata and/or attributes to provide information to 
+	the design tool as to the contract (similar to how you decorate properties 
+	in your class so that they can be used by the Visual Studio designer.)</li>
+</ul>
+<h2>Decisions, Decisions</h2>
+<p>What I want to accomplish with the design tool is not a pretty UI (see the 
+screenshot above)&nbsp;but rather a functional UI for creating Cx metadata: components, properties 
+of those components, and producer/consumer wire-ups.&nbsp; I achieved that goal 
+in the very end: the &quot;declared events&quot; UI was created entirely in the designer, 
+except for one hand-tweak that I had to make to support a generic type see
+<a href="#A_Couple_Missing_Features">A Couple Missing Features</a>.</p>
+<h3>Decision Point: What To Modularize?</h3>
+<p>It's my tendency to modularize (or generalize) at a rather deep level, so I 
+started of with the idea that the UI would consist of some visualization of 
+three lists:</p>
+<ol>
+	<li>the components themselves, possibly a ListView with the name, class 
+	name, and assembly name as columns;</li>
+	<li>the producers (events) in those components;</li>
+	<li>and the consumers (event handlers) in those components.</li>
+</ol>
+<p>It occurred to me that the lists themselves are probably a ListBox or ListView 
+control and they ought to have a label describing the list.&nbsp; Seems pretty 
+basic.&nbsp; Beyond that, I would need some additional functionality for each 
+list:</p>
+<ul>
+	<li>The user would need to add and remove components from the list, 
+	requiring support for both business and visual components;</li>
+	<li>The user can select a producer;</li>
+	<li>The consumer list would have checkboxes so the user could check/uncheck 
+	consumers wired up to the selected producer.</li>
+</ul>
+<p>And so I was thinking that I would create a general purpose user control 
+consisting of a list with a label.&nbsp; But at some point I realized, why 
+should I be thinking of the UI in such general terms?&nbsp; Would it not be 
+acceptable to create the UI with all three lists, already customized in their 
+display?&nbsp; Here's my thoughts so far on creating a deeply generalized UI:</p>
+<p><u>Pros of Deep Generalization</u></p>
+<ul>
+	<li>Very flexible in layout of the UI</li>
+	<li>Easily replaceable components for each UI component</li>
+	<li>Creates a library of re-usable templates (that is what user controls 
+	are, after all)</li>
+</ul>
+<p><u>Cons</u></p>
+<ul>
+	<li>The &quot;intent&quot; of the UI is buried in the XML layout</li>
+	<li>Can take things to an extreme: minimal value added in wrapping a control 
+	inside a user control</li>
+	<li>Customization of the template (user control) is pushed out into the XML 
+	layout</li>
+	<li>Possibly overly generalized collection structures forcing behavior into 
+	list item classes</li>
+</ul>
+<p>The cons list is worthy of further exploration.&nbsp; 
+I opted for the deep generalization approach so I could explore these issues 
+further.</p>
+<h4>The Intent of the UI</h4>
+<p>Can you tell the intent of the UI from this XML (abbreviated for readability, 
+haha):</p>
+<pre>&lt;Components&gt;
+  &lt;VisualComponent Name=&quot;ComponentList&quot; ComponentName=&quot;ListView&quot; Location=&quot;10, 10&quot; Size=&quot;300, 180&quot;/&gt;
+  &lt;VisualComponent Name=&quot;ProducerList&quot; ComponentName=&quot;List&quot; Location=&quot;10, 200&quot; Size=&quot;200, 200&quot;/&gt;
+  &lt;VisualComponent Name=&quot;ConsumerList&quot; ComponentName=&quot;List&quot; Location=&quot;230, 200&quot; Size=&quot;200, 200&quot;/&gt;
+  &lt;BusinessComponent Name=&quot;CxDesigner&quot; ComponentName=&quot;CxDesigner&quot; /&gt;
+&lt;/Components&gt;</pre>
+<p>Barely, and it certainly is a lot easier if you had for reference a screenshot 
+of the UI, like the one at the beginning of the article.</p>
+<h4>Separating Application Context From The Control</h4>
+<p>I could create a user control with my lists all nicely pre-configured, but then 
+my user control would be very specific to the designer application and changing 
+one aspect of the control (such as one of the lists) would require 
+re-implementing the entire control.&nbsp; However, the advantage is that I don't have to deal with 
+customizing each list the way I want to see it, which includes:</p>
+<ul>
+	<li>the label associated with the list</li>
+	<li>Any header configuration for a ListView</li>
+	<li>The default ListView display mode</li>
+	<li>Whether the list should have checkboxes</li>
+	<li>Whether the data is editable</li>
+	<li>etc.</li>
+</ul>
+<p>However, if I implement a deeply generalized pattern for my UI in which there 
+are generalized list controls that are decoupled from the context of the 
+application, I am now required to specify the application context separate from 
+the control.&nbsp; This could be done imperatively (in code) or declaratively 
+(in metadata).&nbsp; For example, I could define all these additional property 
+values in the XML 
+for the configuration ListView:</p>
+<pre>&lt;VisualComponent 
+           Name=&quot;ComponentList&quot; 
+           ComponentName=&quot;ListView&quot; 
+           Assembly=&quot;..\..\..\Cx.Designer.Components\bin\debug\Cx.Designer.Components.dll&quot; 
+           Location=&quot;10, 10&quot; 
+           Size=&quot;300, 180&quot;&gt;
+  &lt;Property Name=&quot;HeaderText&quot;&gt;
+    &lt;Item Value=&quot;Name&quot;/&gt;
+    &lt;Item Value=&quot;Component Name&quot;/&gt;
+    &lt;Item Value=&quot;Assembly&quot;/&gt;
+  &lt;/Property&gt;
+  &lt;Property Name=&quot;HeaderWidths&quot;&gt;
+    &lt;Item value=&quot;200&quot;/&gt;
+    &lt;Item Value=&quot;200&quot;/&gt;
+    &lt;Item Value=&quot;600&quot;/&gt;
+  &lt;/Property&gt;
+&lt;/VisualComponent&gt;</pre>
+<p>So by creating a generalized component, I've separated the application 
+context from the control, requiring some other mechanism to introduce that 
+context back into the control's visual appearance.&nbsp; Having chosen metadata 
+(XML) as the vehicle for this context, I've added complexity by creating a custom format for 
+declaring property values and handling lists like the 
+header text and widths.&nbsp; </p>
+<p><img border="0" src="cx2/editProperties.jpg" width="657" height="487"></p>
+<p>Properties are now something else that the designer should handle so the developer doesn't 
+have to go in and edit the XML by hand.&nbsp; So I've made my life more 
+complicated.</p>
+<h4>Overly Generalized Collection Structures</h4>
+<p>If I create a custom user control specifically for the Cx designer, then I 
+might as well manage my collections (components, producers, consumers) using, at 
+minimum, the Cx interfaces.&nbsp; 
+However, if I use highly generalized components (with the intent that I might 
+re-use these components for other apps), then my collection management might work 
+at the the IEnumerable (or similar) level and the way I display the text 
+associated with the items in a collection now falls on the item in the 
+collection, usually implemented by overriding the ToString method.&nbsp; </p>
+<p>And that's exactly what ended up happening.&nbsp; My List component works 
+with an IEnumerable in the OnData handler:</p>
+<pre>[CxConsumer]
+public void OnData(object sender, CxEventArgs&lt;IEnumerable&gt; args)
+{
+  lbList.Items.Clear();
+
+  foreach (object obj in args.Data)
+  {
+    lbList.Items.Add(obj);
+  }
+}</pre>
+<p>And the item class must now override the ToString() implementation so that I 
+get the desired visualization (using the CxProducer class as an example):</p>
+<pre>public class CxProducer
+{
+  public ICxComponent Component { get; protected set; }
+  public string Name { get; protected set; }
+
+  public CxProducer(ICxComponent comp, string name)
+  {
+    Component = comp;
+    Name = name;
+  }
+
+  public override string ToString()
+  {
+    return Component.Name + &quot;.&quot; + Name;
+  }
+}</pre>
+<p>So I've succeeded in pushing the problem of application specificity into a different area, which may not 
+be the best solution because I've constrained myself, in a completely different 
+part of the code, to the visualization of the producer name.&nbsp; In other 
+words, I've added complexity with regards to the visualization.</p>
+<p>You might ask, why not use generics to specify the collection type?&nbsp; I 
+explore this <a href="#A_converter_component">with a business component</a> that 
+converts a list to a sortable list.</p>
+<h3>Decision Point: How To Do Final Initialization?</h3>
+<p>In my initialization of the designer application, I have this code:</p>
+<pre>CxApp designer = CxApp.Initialize(Path.GetFullPath(&quot;cxdesigner.xml&quot;));
+ICxDesigner designerComponent = designer.GetComponent&lt;ICxDesigner&gt;();
+designerComponent.LoadComponents(metadataFilename);</pre>
+<p>Taking Spring.NET as an example, you can specify the initialization method in 
+the XML file that defines the component references.&nbsp; I'm not keen on 
+dumping everything into the XML file:</p>
+<p><u>Pros of Doing it in Code</u></p>
+<ul>
+	<li>Easier to debug, in my opinion;</li>
+	<li>Much more explicit as to where the initialization is being called;</li>
+	<li>To debug, you can set a breakpoint where the initialization method is 
+	being <u>called</u> rather than <u>inside the component's method</u>.&nbsp; 
+	If the framework makes the call using reflection, you lose this ability;</li>
+<li>Are there initialization sequence issues?&nbsp; For example, have all the 
+wire-ups occurred and have other components already been initialized?&nbsp; This 
+last point can force you to specify dependencies in the XML file, which we see 
+with Microsoft's CAB metadata;</li>
+	<li>If the initialization throws an exception, your stack trace is shorter.&nbsp; 
+	For example, the stack trace when using Spring.NET has some 50 or more calls 
+	in the Spring.NET framework between your component's 
+	constructor/initialization and, at the other end, something in your 
+	application that started the whole process;</li>
+<li>If the initialization throws an exception, <i>you</i> can handle it, rather 
+than it being re-wrapped in the framework's exception handling mechanism; </li>
+	<li>Simple is better.</li>
+</ul>
+<p>I've fought with some of these issues with Spring.NET and Microsoft's CAB.&nbsp; 
+It's can be frustrating.</p>
+<p><u>Cons</u></p>
+<ul>
+	<li>Can't really think of any, other than that putting everything into the 
+	XML definition is cool.</li>
+</ul>
+<p>For example, in the designer class, I have the following initialization:</p>
+<pre>protected void LoadComponents()
+{
+  LoadVisualComponents();
+  LoadBusinessComponents();
+  RaiseComponentsLoaded();
+  BuildProducerConsumerList();
+  RaiseProducerListLoaded();
+  RaiseConsumerListLoaded();
+}</pre>
+<p>Notice the Raise... calls.&nbsp; This fires events that, by the time we get 
+here, we know that components listening to these events are instantiated and the 
+events are wired up.</p>
+<h3>Decision Point: Do You Buy Into The Framework Philosophy?</h3>
+<p>In a deeply generalized application, 
+you need some way of communicating change between components in a generalized 
+yet structured manner.&nbsp; The Cx framework uses events, but there are other 
+command patterns you can use as well.&nbsp; Alternatively, you can use .NET's 
+data binding paradigm or simply acquire instances of the different components 
+(often through dependency injection) to get at the property values of an 
+instance.</p>
+<p>Regardless, you have to do something that builds that dependency.&nbsp; In 
+the Cx framework, you create events in your components, for example:</p>
+<pre>[CxEvent] 
+public event CxEnumerableDlgt ProducerListLoaded;
+[CxEvent] 
+public event CxEnumerableDlgt ConsumerListLoaded;</pre>
+<p>Write the raise methods:</p>
+<pre>protected void RaiseProducerListLoaded()
+{
+  if (ProducerListLoaded != null)
+  {
+    ProducerListLoaded(this, new CxEventArgs&lt;IEnumerable&gt;(producers));
+  }
+}
+
+protected void RaiseConsumerListLoaded()
+{
+  if (ConsumerListLoaded != null)
+  {
+    ConsumerListLoaded(this, new CxEventArgs&lt;IEnumerable&gt;(consumers));
+  }
+}</pre>
+<p>And wire them up, for example:</p>
+<pre>&lt;Wireups&gt;
+  &lt;WireUp Producer=&quot;CxDesigner.ComponentsAdded&quot; Consumer=&quot;ComponentList.OnData&quot;/&gt;
+  &lt;WireUp Producer=&quot;CxDesigner.ProducerListLoaded&quot; Consumer=&quot;ProducerList.OnData&quot;/&gt;
+  &lt;WireUp Producer=&quot;CxDesigner.ConsumerListLoaded&quot; Consumer=&quot;ConsumerList.OnData&quot;/&gt;
+&lt;/Wireups&gt; </pre>
+<p>That's a lot of work, and yes the framework could help you with that--for 
+example, I might ask the framework to create a particular event for me that I 
+could then fire off.&nbsp; Something like:</p>
+<pre>producerListLoadedEvent = EventHelpers.CreateEvent&lt;IEnumerable&gt;(this, &quot;ProducerListLoaded&quot;);
+...
+producerListLoadedEvent.Fire(producers);</pre>
+<p>and be done with it.&nbsp; We would still have to tell the framework using 
+attributes about the event we're exposing programatically:</p>
+<pre>[CxExplicitEvent(&quot;ProducerListLoaded&quot;)]
+[CxExplicitEvent(&quot;ConsumerListLoaded&quot;)]
+public class CxDesigner : CxApp, ICxBusinessComponentClass, ICxDesigner</pre>
+<p>something I already 
+do with <a href="#Event_Transformations">event transformations</a>, which I added in this version.&nbsp; 
+</p>
+<p>Since this looked useful, I actually did implement the support for the above 
+code example.&nbsp; There's the 
+annoying switch statement because generics aren't like C++ templates, so we 
+can't create a generic delegate.&nbsp; And yes, there are other common types I'm 
+not showing in this code example:</p>
+<pre>public static EventHelper CreateEvent&lt;T&gt;(object component, string eventName)
+{
+  EventHelper ret = null;
+
+  switch (typeof(T).Name)
+  {
+    case &quot;String&quot;:
+      ret = new StringEventHelper(component);
+      break;
+    case &quot;IEnumerable&quot;:
+      ret = new EnumerableEventHelper(component);
+      break;
+  }
+
+  componentEventHelpers[new ComponentKey(component, eventName)] = ret;
+
+  return ret;
+}</pre>
+<p>And for the same reason, the Fire method takes an object for a parameter, 
+which means we're boxing/unboxing intrinsic types (not shown in this example, 
+but notice the cast):</p>
+<pre>public override void Fire(object data)
+{
+  if (Event != null)
+  {
+    Event(Component, new CxEventArgs&lt;IEnumerable&gt;((IEnumerable)data));
+  }
+}</pre>
+<p>I feel like there must be a way to use generics with delegates, but the 
+answer is not the EventHandler&lt;T&gt; class, because it doesn't handle intrinsic 
+types! </p>
+<h4><a name="Event_Transformations">Event Transformations</a></h4>
+<p><img border="0" src="cx2/EventTransformation.png" width="420" height="210"></p>
+<p>Regarding what I mentioned above about event transformations, here's an 
+example (abbreviated) of the CxExplicitEvent attribute, 
+because we're asking the framework to transform the TextBox.TextChanged event 
+with a signature of (object, EventArgs) to a Cx event with signature (object, 
+CxEventArgs&lt;string&gt;).</p>
+<pre>[CxExplicitEvent(&quot;DisplayTextChanged&quot;)]
+public partial class TextDisplay : UserControl, ICxVisualComponentClass
+{
+  public TextDisplay()
+  {
+    EventHelpers.Transform(this, tbDisplay, &quot;TextChanged&quot;, &quot;Text&quot;).To(&quot;DisplayTextChanged&quot;);
+}</pre>
+<p>This is a nifty little helper that wires up to the TextBox.TextChanged event 
+and fires off a Cx event of the specified name.&nbsp; No further work on the 
+component wrapper is necessary.&nbsp; </p>
+<h3>Decision Point: What Does The Framework Do To Make Life Better?</h3>
+<p>In the code example above for the CxExplicitEvent attribute, I did this because I 
+wanted to make my life easier.&nbsp; I didn't want to have to write the code to 
+take a general purpose control event and repackage it into a Cx event.&nbsp; 
+While that makes my life easier as a developer, the drawback is that the 
+framework has to use reflection to get at the property value, which is slower.</p>
+<pre>protected void CommonHandler(object sender, System.EventArgs e)
+{
+  string val = PropertyInfo.GetValue(Object, null) as string;
+
+  if (Event != null)
+  {
+    Event(Component, new CxEventArgs&lt;string&gt;(val));
+  }
+}</pre>
+<p>So if you find yourself using a mechanism provided by the framework to make 
+your life easier (like an AOP feature), ask yourself how are you:</p>
+<ul>
+	<li>affecting performance (reflection, boxing/unboxing, other overhead)</li>
+	<li>affecting ability to debug the code (the automatic property 
+	getter/setter feature in C# 3.0 is a great example--you can't set a breakpoint on them)</li>
+	<li>affecting readability, as in, how the heck does this property get 
+	initialized or this event wired up (I pull my hair out with Spring.NET on 
+	that issue all the time.)</li>
+<li>Is the (supposed) improvement in maintainability/flexibility/extensibility 
+really worth it?</li>
+</ul>
+<p>For example, look at what goes on behind the scenes just to do the <i>
+initialization </i>to support that convenient event transformation syntax I 
+described above:</p>
+<pre>public static EventHelper Transform(object component, object obj, 
+                 string objectEventName, string objectPropertyName)
+{
+  Type objType=obj.GetType();
+  EventInfo ei = objType.GetEvent(objectEventName);
+  PropertyInfo pi = objType.GetProperty(objectPropertyName);
+  EventHelper helper = null;
+
+  // TODO: Add more intrinsic type transformations.
+  switch (pi.PropertyType.Name)
+  {
+    case &quot;String&quot;:
+      helper = new StringEventHelper(component, obj, ei, pi);
+      break;
+
+    default:
+      throw new CxException(&quot;No implementation for transforming the event &quot; + objectEventName + 
+             &quot; to a Cx event of type &quot; + pi.PropertyType.Name);
+  }
+
+  return helper;
+}</pre>
+<p>Lots of reflection, and that ugly switch statement.&nbsp; Well, at least I'm 
+not constrained to do things this way!&nbsp; But given the convenience, how many 
+developers really think about the cost of that convenience?</p>
+<h3>Decision Point: How Entangled With The Framework Do You Want To Get?</h3>
+<p>In the first version of Cx, the framework was really just a wire-up tool and 
+helped with instantiating components.&nbsp; Other than that, it really stayed 
+out of the way.&nbsp; Now we're decorating classes, events, and methods with 
+attributes so the designer can discover them, and we've added some helper 
+functions to make life easier for the developer dealing with Cx's style of 
+wire-up, namely events.&nbsp; Furthermore, we've made the XML more complicated 
+because we want to support deeply generalized components, which means initializing 
+properties in the metadata.</p>
+<p>The point being, the more invasive the framework becomes with your 
+application, the more dependent upon the framework your application becomes 
+throughout its lifetime.&nbsp; Do you really want that?&nbsp; Are there other 
+teams that might want to re-use your code without buying into your chosen IoC 
+framework as well?</p>
+<p>So far, Cx can be used in a very non-invasive manner.&nbsp; You don't need to 
+use the attributes (you can write the XML yourself) and you don't need to use 
+the fancy event transformations and helpers that I added in this version.&nbsp; 
+And quite frankly, the less of the framework you use in terms of attributes and 
+shortcuts, the more re-usable your component is outside of the Cx framework!&nbsp; 
+That's a good thing if re-usability outside of the IoC framework is a project 
+requirement, otherwise it doesn't much matter.&nbsp; And of course, don't forget 
+that you're buying into the philosophy of the framework as well--in this case, 
+Cx's eventing mechanism for communication.</p>
+<h3>Decision Point: Interfaces and Communication</h3>
+<p>The point of the framework is to provide you with the tools to properly &quot;componentize&quot; 
+your application, because somebody in management read about how IoC and DI 
+solves all the problems associated with writing on-time, on-budget, enterprise 
+applications.&nbsp; OK, so far so good.&nbsp; If you want to do it right though:</p>
+<ul>
+	<li>use interfaces (see <a href="#Interfaces">Interfaces</a> below for why 
+	you wouldn't need to use them);</li>
+	<li>you need to plan very carefully what your interfaces expose (constant 
+	refactoring: oops, I need access to that method);</li>
+	<li>you need to plan very carefully what you're communicating between 
+	components (constant refactoring: oops, that would be useful);</li>
+</ul>
+<p>I'm finding that this is far easier said than done.&nbsp; If you're using an 
+IoC/DI framework, then I'm assuming you actually are developing an enterprise 
+application (rather than piddling around like I am) and in that case, you 
+probably have many developers spread across many teams, each developing 
+components, modules, infrastructure code, data access layers, presentation 
+layers, and so forth.&nbsp; You've got some thinking to do:</p>
+<h4>How do your components communicate with each other?</h4>
+<p>It is possible to implement just about everything in such a decoupled manner 
+that your components don't even need to know whom they are talking to and, in 
+fact, whether anyone is listening.&nbsp; You can use command patterns to 
+initiate activity in another component and you can use property change events to 
+move data around between components.&nbsp; At this level of abstraction, you 
+don't actually need that many interfaces because your components are so 
+autonomous, they never directly communicate with another component through a 
+standard method call.&nbsp; Personally, I like that approach.&nbsp; </p>
+<h5><a name="Interfaces">Interfaces</a></h5>
+<p>For example, I use an interface for the designer's business component and I 
+acquire the component using a Cx framework call:</p>
+<pre>ICxDesigner designerComponent = designer.GetComponent&lt;ICxDesigner&gt;();
+designerComponent.LoadComponents(Path.GetFullPath(&quot;cxdesigner.xml&quot;));</pre>
+<p>But I don't need to do it this way.&nbsp; Instead, I could create a command 
+event in my app:</p>
+<pre>static class Program
+{
+  [STAThread]
+  static void Main()
+  {
+    Application.EnableVisualStyles();
+    Application.SetCompatibleTextRenderingDefault(false);
+
+    CxApp designer = CxApp.Initialize(Path.GetFullPath(&quot;cxdesigner.xml&quot;));
+    App app = designer.GetComponent&lt;App&gt;();
+    app.Initialize(Path.GetFullPath(&quot;cxdesigner.xml&quot;));
+    Application.Run(new Form1(designer.VisualComponents));
+  }
+}
+
+public class App : ICxBusinessComponentClass
+{
+  protected EventHelper initialize;
+
+  public App()
+  {
+    initialize = EventHelpers.CreateEvent&lt;string&gt;(this, &quot;Initialize&quot;);
+  }
+
+  public void Initialize(string fn)
+  {
+    initialize.Fire(fn);
+  }
+}</pre>
+<p>And in the designer business component, the handler:</p>
+<pre>// We call it a Handler to avoid ambiguous match.
+[CxConsumer]
+public void LoadComponentsHandler(object sender, CxEventArgs&lt;string&gt; args)
+{
+  LoadComponents(args.Data);
+}</pre>
+<p>Now, let's look at the XML.&nbsp; I'm initializing the App class as a 
+business component:</p>
+<pre>&lt;BusinessComponent Name=&quot;App&quot; ComponentName=&quot;App&quot; Assembly=&quot;Cx.Designer.App.exe&quot;/&gt;</pre>
+<p>and wiring up the producer with the consumer:</p>
+<pre>&lt;WireUp Producer=&quot;App.Initialize&quot; Consumer=&quot;CxDesigner.LoadComponentsHandler&quot;/&gt;</pre>
+<p>So, with a little extra code, I accomplished something very interesting: <b>I 
+completely removed the need for the application to have an interface to the 
+designer business component!</b></p>
+<p>I really can't under-emphasize this point: by changing architecture from an 
+interface call to a command pattern, I've eliminated the need for the interface.&nbsp; 
+Instead, I've:</p>
+<ul>
+	<li>Made my application initialization more powerful, because other 
+	components can hook in to my application's initialization command</li>
+	<li>I've made the code simpler by eliminating the interface (one less 
+	assembly reference, one less piece of code to maintain)</li>
+	<li>I've made my designer more robust by using a command pattern to initiate 
+	activities rather than method calls</li>
+	<li>I've degraded performance by using an event mechanism rather than a 
+	direct method call</li>
+	<li>I've made it more confusing to the uninitiated developer who will 
+	wonder, how the heck does the UI get its data?</li>
+</ul>
+<p>Now here's a really interesting final point: <b>By using an event driven 
+command pattern, the framework can add logging of all interaction between 
+components automatically.</b>&nbsp; I'll actually implement that in the next 
+installment (which will be a shorter article!)</p>
+<h4>Do You Really Need Refactoring?</h4>
+<p>In an enterprise, multiple team environment, if you go with the interface 
+approach, you probably will be, for a large part of the time, in a holding 
+pattern of refactoring interfaces as features get added and rebuilding all the 
+projects with dependencies on those components.&nbsp; If you go with the command 
+pattern approach (whatever the mechanism is) you don't need all those interfaces 
+to initiate activities in components, and instead your teams 
+simply update their assemblies and you can use the designer to wire up the new 
+functionality to your component's events.</p>
+<p>Ah, but there's a catch!&nbsp; You may still need to touch your project 
+to add an event that can be fired for the new commands!&nbsp; 
+But now you have a choice--if you don't need that command exposed in a 
+component, you actually <u>don't</u> have to touch your code, and better yet, 
+your project won't need to be rebuilt.</p>
+<h2><a name="Dependency_Injection">Dependency Injection</a></h2>
+<p>Earlier I mentioned that making components more general pushes the 
+initialization of those components into the XML.&nbsp; This isn't quite 
+true--you could do the final initialization in code.&nbsp; Frankly, I think 
+either option has its problems.&nbsp; If you do the final initialization in 
+code:</p>
+<ul>
+	<li>you are imperatively coding the initialization, which reduces flexibility (if you 
+	needed it to begin with)</li>
+	<li>the code needs access to the components, which means you're probably 
+	going to be implementing interfaces simply for final initialization</li>
+	<li>when the component is loaded, the code that does the final 
+	initialization needs to execute.&nbsp; The mechanism for that is probably going to be obtuse</li>
+</ul>
+<p>If you do the initialization in the metadata:</p>
+<ul>
+	<li>well, it's in metadata not code, so it's another format that needs to be 
+	handled by the parser</li>
+	<li>the designer needs to support this.&nbsp; That means another UI for 
+	managing properties and framework attributes to discover designer-visible 
+	properties.</li>
+	<li>you don't get intellisense or compile-time syntax checking</li>
+	<li>but it's probably easier to reconfigure the application as requirements 
+	change</li>
+</ul>
+<p>And of course, by opening up a mechanism in the metadata to support property 
+initialization, we open up what I consider to be somewhat of a Pandora's Box: 
+dependency injection (DI), meaning a property can 
+be initialized with not just a simple intrinsic value but with an instance of 
+another component.&nbsp; Why do I consider this to be a Pandora's Box?&nbsp; 
+Because it can be used to easily defeat the architectural goals:</p>
+<ul>
+	<li>it's easy to inject instances that do not implement interfaces, breaking 
+	an important IoC rule and making it impossible to mock the instance or 
+	replace it;</li>
+	<li>since interfaces should (must) be used, the benefits of a command 
+	pattern with complete decoupling are circumvented</li>
+	<li>Since the command pattern is probably not being used, you lose the automatic 
+logging of all communication between components</li>
+	<li>And, since a command pattern isn't being used, you lose the ability for 
+	other components to listen to commands</li>
+</ul>
+<h3>Do We Need Dependency Injection?</h3>
+<p>You don't.&nbsp; In an event-based dynamic composition framework, you should 
+really just need to fire an event for some other component to do something and 
+in turn get you whatever your component is looking for, via an event as well.&nbsp; 
+Injection of component instances into properties of other 
+components forces an architecture upon the application without the architects 
+consciously making a decision to buy into this paradigm.&nbsp; On the other hand, as I 
+mentioned previously, an event-based command pattern has an overhead that 
+affects performance and requires some additional coding, so in reality, any 
+large application is probably going to balance component reference injection and 
+command pattern usage in a way that intelligently considers the pros and cons to 
+each approach.</p>
+<h3>Property Initialization in XML</h3>
+<p>One of the comments I received in my previous article was that the XML was 
+clean and readable.&nbsp; So, I decided to put property initialization in a 
+separate section, which is different than the example earlier in the article.&nbsp; 
+For example, the component list final initialization is described like this:</p>
+<pre>&lt;Properties Component=&quot;ComponentList&quot;&gt;
+  &lt;Property Name=&quot;Label&quot; Value=&quot;Components:&quot;/&gt;
+  &lt;Property Name=&quot;HeaderText&quot;&gt;
+    &lt;Item Value=&quot;Name&quot;/&gt;
+    &lt;Item Value=&quot;Component Name&quot;/&gt;
+    &lt;Item Value=&quot;Assembly&quot;/&gt;
+  &lt;/Property&gt;
+  &lt;Property Name=&quot;HeaderWidths&quot;&gt;
+    &lt;Item value=&quot;200&quot;/&gt;
+    &lt;Item Value=&quot;200&quot;/&gt;
+    &lt;Item Value=&quot;600&quot;/&gt;
+  &lt;/Property&gt;
+ &lt;Property Name=&quot;DataPropertyNames&quot;&gt;
+    &lt;Item Value=&quot;Name&quot;/&gt;
+    &lt;Item Value=&quot;ComponentName&quot;/&gt;
+    &lt;Item Value=&quot;AssemblyFilename&quot;/&gt;
+  &lt;/Property&gt;
+&lt;/Properties&gt;</pre>
+<p>Frankly, I think this makes it easier for the designer to work with the XML 
+as well, and it removes all this stuff from the component list.&nbsp; While XML 
+is great in the ability to create complex object graphs, I've found that in 
+reality (for both the developer and the underlying code) it's often better to 
+separate out the object graph into different sections.</p>
+<p>The properties are initialized in the framework:</p>
+<pre>protected void FinalComponentInitialization()
+{
+  Verify.IsNotNull(xdoc, &quot;Configuration XML file must be loaded before loading business components.&quot;);
+
+  foreach (ICxComponent comp in components.Values)
+  {
+    foreach (var property in from el in xdoc.Root.Elements(&quot;Properties&quot;)
+      where el.Attribute(&quot;Component&quot;).Value == comp.Name
+      select new
+    {
+      Property = el.Elements(&quot;Property&quot;)
+    })
+    {
+      foreach (var prop in from el2 in property.Property
+        select new
+      {
+        Name=el2.Attribute(&quot;Name&quot;).Value,
+        Value=(el2.Attribute(&quot;Value&quot;)==null ? null : el2.Attribute(&quot;Value&quot;).Value),
+        Items=el2.Elements(&quot;Item&quot;),
+      })
+      {
+        if (!String.IsNullOrEmpty(prop.Value))
+        {
+          InitializeProperty(comp, prop.Name, prop.Value);
+        }
+        else
+        {
+          List&lt;string&gt; itemVals = new List&lt;string&gt;(from el3 in prop.Items select el3.Attribute(&quot;Value&quot;).Value);
+          InitializeProperty(comp, prop.Name, itemVals);
+        }
+      }
+    }
+  }
+}
+
+protected void InitializeProperty(ICxComponent comp, string propName, object propValue)
+{
+  PropertyInfo pi = comp.Instance.GetType().GetProperty(propName, 
+       BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+  Verify.IsNotNull(pi, &quot;The component &quot; + comp.ComponentName + &quot; does not implement the property &quot; + propName);
+  pi.SetValue(comp.Instance, propValue, null);
+}</pre>
+<p>Oh, and did I mention that there is of course a performance hit when doing 
+all this initialization via reflection?</p>
+<h2>Models: What The Dev Wants vs. What The UI Wants vs. What the Data Service 
+Wants</h2>
+<p>One of the questions I keep asking myself as I go through this exercise is, 
+if we completely decouple the components, then who is the keeper of the model?&nbsp; 
+Is there actually a centralized place for the model?&nbsp; For example, if the 
+data service is 100% decoupled from the model (no interfaces, just property 
+change notifications and event commands) then the model ends up living in two 
+places: the data service's model is updated with changes being made to the 
+model, and the model is updated when something new is acquired from the data 
+store.&nbsp; Of course, the idea of a model-specific data service is anathema to 
+me anyways.&nbsp; Yes, you read that correctly.&nbsp; I'll investigate this 
+issue some day, but for now, suffice it to say that, if you ignore my extreme 
+architecture practices, you will probably want an interface on your model which 
+can be utilized by the data service.</p>
+<h3>Forcing The Issue: Persistence Of The Component Lists</h3>
+<p>What better way to explore this issue than by forcing it, by moving the 
+persistence (at the moment, just building the lists) out of the Cx framework 
+into a Cx component.&nbsp; Currently, the model comes from an XML file, but if I 
+generalize this, we could replace the file component with a different 
+persistence 
+service, for example a database or some other file format.&nbsp; This 
+forces me to at least explore the best practices with model management in a 
+dynamic composition (borrowing that expression from
+<a href="http://www.codeplex.com/wef">the WEF project</a>) framework.</p>
+<h4>Bootstrapping</h4>
+<p>Attempting this separation results in an immediate problem: the loader, being 
+a component, can't be initialized because the cart is now in front of the horse: 
+the framework hasn't been initialized because it needs the data from the loader!&nbsp; So we need a bootstrap process now, 
+which does several things:</p>
+<ul>
+	<li>Loads the data service assembly;</li>
+	<li>Tells it to load the metadata, our component configuration information;</li>
+	<li>Hands over the data objects to the Cx framework;</li>
+	<li>Tells the Cx framework to do the component initialization--class 
+	instantiation, wireups, and final property initialization.</li>
+</ul>
+<p>We must use an interface for the data service, since the framework is not up 
+and running.&nbsp; The result is actually surprisingly better.&nbsp; Because I 
+removed all of the XML processing from the CxApp class, it now is much more 
+pure--it handles instantiation, wire-ups, and final property initialization.&nbsp; 
+That's it!</p>
+<p>The initialization, from the application's perspective, takes one additional 
+parameter: the data service assembly:</p>
+<pre>// Initialize all components.
+CxApp designer = CxApp.Initialize(@&quot;..\..\..\Cx.DataService\bin\debug\Cx.DataService.dll&quot;, 
+                  Path.GetFullPath(&quot;cxdesigner.xml&quot;));</pre>
+<p>While I've hard-coded it here, I'm sure you can realize that this can be 
+externalized and in fact associated with the metadata file.</p>
+<p>Internally, the CxApp instantiates the data service at runtime:</p>
+<pre>public static CxApp Initialize(string dataServiceAssemblyFilename, string configUri)
+{
+  CxApp cx = new CxApp();
+  cx.InitializeDataService(dataServiceAssemblyFilename, configUri);
+  cx.InstantiateComponents();
+
+  return cx;
+}
+
+protected void InitializeDataService(string dataServiceAssemblyFilename, string configUri)
+{
+  Assembly assy = Assembly.LoadFrom(dataServiceAssemblyFilename);
+  Type t = FindImplementor(assy, &quot;CxDataService&quot;, typeof(ICxBusinessComponentClass));
+  dataService = (ICxDataService)Activator.CreateInstance(t);
+  dataService.LoadComponents(configUri);
+  components = dataService.Components;
+  wireups = dataService.Wireups;
+  propertyValues = dataService.PropertyValues;
+}</pre>
+<p>However, once the framework is up and running, a model component can interact 
+with the data service component using the event mechanism, which is what I do 
+for the designer model.</p>
+<pre>&lt;BusinessComponent Name=&quot;CxDesigner&quot; ComponentName=&quot;CxDesigner&quot; Assembly=&quot;..\..\..\Cx.Designer\bin\debug\Cx.Designer.dll&quot;/&gt;
+&lt;BusinessComponent Name=&quot;DataService&quot; ComponentName=&quot;CxDataService&quot; Assembly=&quot;..\..\..\Cx.DataService\bin\debug\Cx.DataService.dll&quot;/&gt;
+...
+&lt;WireUp Producer=&quot;CxDesigner.RequestLoadComponents&quot; Consumer=&quot;DataService.OnLoadComponents&quot;/&gt;
+&lt;WireUp Producer=&quot;DataService.ComponentsLoaded&quot; Consumer=&quot;CxDesigner.OnComponentsLoaded&quot;/&gt;</pre>
+<h4>Model - Store Tension</h4>
+<p>As you can see from the above code, the data service is the originator of 
+the three 
+collections (components, wireups, and property values) and the model instance 
+references that collection.&nbsp; This does seem rather backwards to me: the 
+model should be the repository of the data from the application's perspective.&nbsp; 
+What if we wanted to read data in from one data service and write it out to 
+another?&nbsp; What if, in a more sophisticated future version of Cx, the data 
+service is loaded into its own application domain so that it can be unloaded by 
+the framework?</p>
+<p>A dynamic composition application, due to the nature of data being communicated 
+between components, brings to the forefront some questions:</p>
+<ul>
+	<li>If data is being pushed onto the application:<ul>
+	<li>Who gets notified--the model or the data service?</li>
+	<li>If the data service is notified, how does it update the model?</li>
+</ul>
+	</li>
+	<li>Do we expose load and save methods or commands:<ul>
+	<li>in the model, which then 
+	works through the interface to communicate with the data service?</li>
+	<li>in the data service, which then communicates 
+	with the model to access the data?</li>
+	<li>in a separate controller?</li>
+</ul>
+	</li>
+	<li>Let's assume we have the framework up and running and we have a model 
+	and data service that are completely decoupled components, and we can now 
+	utilize the framework's capabilities to wire up the interaction between the 
+	model and the data service rather than an interface.<ul>
+	<li>It seems like a good idea that we avoid recreating collections between 
+	the data service and the model, but is this really best?&nbsp; We don't know how the components may be 
+	used in the future, and a collection maintained by the data service for one 
+	component might end up being modified by another component with different 
+	criteria.<ul>
+		<li>This effectively demands that the model maintains an autonomous 
+		collection from the data service!</li>
+	</ul></li>
+</ul>
+	</li>
+	<li>How does an object mapper work in this kind of an environment?</li>
+	<li>How does this work in a paginated data retrieval environment?</li>
+	<li>How does this work in an asynchronous data retrieval environment?</li>
+</ul>
+<p>A lot of these questions focus around the issue of managing the data 
+collection.&nbsp; It's pretty clear from just thinking about the issues in the 
+above bullet list that the model has to be the master of the collection 
+associated with its instance.&nbsp; Any collection the data service creates for 
+purposes of communication can be disposed of after that communication.&nbsp; 
+However, we really don't want the consumer to have to worry about this, so we 
+copy the collection in the component sourcing the data.</p>
+<pre>protected void LoadConfigurationMetadata()
+{
+  LoadVisualComponents();
+  LoadBusinessComponents();
+  LoadWireups();
+  LoadProperties();
+  componentsLoaded.Fire(new Dictionary&lt;string, ICxComponent&gt;(Components));
+}
+</pre> 
+<h3>UI - Model Tension</h3>
+<p>The 
+usual architectural solution to the UI-model tension is data binding.&nbsp; The 
+.NET framework provides a rich infrastructure for binding just about anything to 
+a control, which provides a mechanism for mapping the UI's representation of the 
+data to the model's representation.&nbsp; Just about any discrete value can be 
+bound to a control's property and any collection implementing at some level IList, IListSource.</p>
+<p>I'm going to take one 
+line of code from the Cx designer business component to illustrate some of the issues:</p>
+<pre>componentListLoadedEvent.Fire(
+    new SortableBindingList&lt;ICxComponent&gt;(
+      new List&lt;ICxComponent&gt;(components.Values)));</pre>
+<p>This is really very nasty:</p>
+<ol>
+	<li>The components collection is a reference to a collection managed by the data 
+service;</li>
+<li>The thing we're interested in are the values of this dictionary, being the 
+components themselves;</li>
+	<li>But, to be bindable, we have to convert the ValueCollection to something 
+	that implements an IList.&nbsp; The ValueCollection class does not;</li>
+	<li>And, to be sortable, we make a new list using this nifty 
+	SortableBindingList class I found
+	<a href="http://bytes.com/groups/net-c/754604-sort-bindinglist">here</a>;</li>
+	<li>We've now created two new collections!</li>
+<li>We're doing this in the designer business component (which manages the model 
+for the metadata being designed) as opposed to doing this at the UI component;</li>
+	<li>We're not using data binding and in fact we can't because the value 
+	collection of the dictionary isn't bindable;</li>
+	<li>Does the receiver of this message really care about sorting or a 
+	collection derived from IList?&nbsp; The ValueCollection class implements 
+	IEnumerable, so is that sufficient?</li>
+</ol>
+<p>There are so many problems with this one line of code, it's not even funny.&nbsp; </p>
+<p>Let's take them one at a time:</p>
+<ol>
+	<li>Ok, we'll worry about that later;</li>
+	<li>The designer doesn't actually need a dictionary (the Cx framework does, 
+	but not the designer business component).&nbsp; This is dovetails into the 
+	first issue--we need to potentially work with the data in different ways, so 
+	the data service can't be making any assumptions about how we want the data.&nbsp; 
+	So it almost makes sense to specialize the data service for how we want the 
+	data, to avoid copying the data;</li>
+	<li>Again, we're not getting the data from the data service in the right 
+	way;</li>
+	<li>Now we're doing something that is more specific to the UI component's 
+	requirements of the data, but if we give the component a non-sortable 
+	collection, it's still going to have create a new sortable collection;</li>
+	<li>Is it possible to at least eliminate one of these copies?</li>
+	<li>In fact, the UI component shouldn't really have to the data format 
+	either.&nbsp; A very nifty way of dealing with this is to inject a helper 
+	business process that converts the List to a Sortable list.&nbsp; This is 
+	trivial because we can inject this process in-between the producer event 
+	that says &quot;I have data&quot; and the consumer handler.&nbsp; The easiest way to 
+	do this right now is to modify the wire-ups and introduce this process.&nbsp; 
+	The last thing I want to implement right now is an AOP-style event-injection 
+	feature;</li>
+	<li>Frankly, data binding may not be the best mechanism to use in a dynamic 
+	composition application.&nbsp; Multiple object properties cannot be bound to 
+	the same control property, and data binding is &quot;silent&quot;--we can't tack on 
+	additional listeners.&nbsp; On the other hand, data binding is so 
+	convenient, we probably ought to create some helper methods in the Cx 
+	framework to replicate the functionality of data binding.</li>
+	<li>No.&nbsp; We should not be manipulating data in the producer just 
+	because we happen to know what the consumer wants.&nbsp; We can end up 
+	wasting time and creating data in a format another consumer doesn't want.</li>
+</ol>
+<p>Most of these issues can be addressed by implementing a helper and by 
+following the best practice rule that, yes, a collection (and under certain 
+circumstances, objects themselves) should be cloned when sending them from one 
+component to another.&nbsp; So, the data service creates a copy:</p>
+<pre>componentListLoaded.Fire(new List&lt;ICxComponent&gt;(ComponentList));</pre>
+<p>Next, we create a converter to copy the data from a List to a SortableList.</p>
+<h4><a name="A_converter_component">A Converter Component</a></h4>
+<p>The component is instantiated using a generic type declaration for the type 
+we are converting:</p>
+<pre>&lt;BusinessComponent Name=&quot;ComponentBindingConverter&quot;
+       ComponentName=&quot;Cx.Converters.CxBindingConverter`1
+       [[Cx.Interfaces.ICxComponent, Cx.Interfaces, 
+       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]&quot; 
+       Assembly=&quot;..\..\..\Cx.Converters\bin\debug\Cx.Converters.dll&quot; /&gt;</pre>
+<p>This component converts the list to a SortableBindingList, and the instance is wired up between the data service and the UI component:</p>
+<pre>&lt;WireUp Producer=&quot;CxDesigner.ComponentListLoaded&quot; Consumer=&quot;ComponentBindingConverter.OnConvertToSortedBindingList&quot; /&gt;
+&lt;WireUp Producer=&quot;ComponentBindingConverter.Converted&quot; Consumer=&quot;ComponentList.OnData&quot; /&gt;</pre>
+<p>The implementation of the converter is very simple:</p>
+<pre>namespace Cx.Converters
+{ 
+  [CxComponentName(&quot;Cx.Converters.CxBindingConverter&quot;)]
+  [CxExplicitEvent(&quot;Converted&quot;)]
+  public class CxBindingConverter&lt;T&gt; : ICxBusinessComponentClass
+  {
+    protected EventHelper converted;
+
+    public CxBindingConverter()
+    {
+      converted=EventHelpers.CreateEvent&lt;IEnumerable&gt;(this, &quot;Converted&quot;);
+    }
+
+    [CxConsumer]
+    public void OnConvertToSortedBindingList(object sender, CxEventArgs&lt;IEnumerable&gt; args)
+    {
+      SortableBindingList&lt;T&gt; sbl = new SortableBindingList&lt;T&gt;((List&lt;T&gt;)args.Data);
+      converted.Fire(sbl);
+    }
+  }
+}</pre>
+<p>The only real trick in this is specifying the type T in the declaration of 
+the instance.&nbsp; Possibly, with C# 4.0's co/contra-variance capability, this 
+will not be necessary.</p>
+<p>Also, I'll take this opportunity to give credit to
+<a href="http://bytes.com/groups/net-c/754604-sort-bindinglist">this post</a> 
+which is where I got the implementation for the SortableBindingList.</p>
+<h3>The Declarative Dilemma</h3>
+<p><img border="0" src="cx2/editEvents.JPG" width="604" height="470"></p>
+<p>Once one starts down the declarative path, it becomes difficult, if not 
+impossible, to stop.&nbsp; To illustrate, take menus (or more generally, 
+toolbars).&nbsp; Menus are a sort of a beast in themselves:</p>
+<ul>
+	<li>they are hierarchical</li>
+	<li>they can include options like checkmarks and even other controls</li>
+	<li>clicking on a menu item fires an event</li>
+</ul>
+<p>In a componentized application, menus create a lot of problems:</p>
+<ul>
+	<li>Do you represent them in XML, with yet another schema specific to the 
+	menus?</li>
+	<li>Do you allow the developer to create the menu using the VS designer?</li>
+	<li>If you create the menu in XML, you can name the click events and the Cx 
+	Designer can find them.&nbsp; That's a good thing, but now the Cx Designer 
+	has to also support designing the menus, which is yet more complexity;</li>
+	<li>If you allow the developer to create the menu using the VS designer, how 
+	does the Cx Designer show the menu click events in the producer list?&nbsp; 
+	It seems annoying to have to create explicit events somewhere, associated 
+	with some menu-visual-component;</li>
+	<li>Speaking of which, is the menu bar (or a toolbar) implemented as a Cx 
+	visual component?</li>
+</ul>
+<p>At the moment, I don't have any good answers to this.&nbsp; I decided to 
+create the Cx Designer's menu using Visual Studio so that I could explore at least 
+a part of the problem.&nbsp; To that end, I created a 
+visual component:</p>
+<pre>&lt;VisualComponent Name=&quot;Menu&quot; 
+                 ComponentName=&quot;CxMenu&quot; 
+                 Assembly=&quot;..\..\..\Cx.Designer.Components\bin\debug\Cx.Designer.Components.dll&quot; /&gt;</pre>
+<p>whose sole purpose is to recurse through a MenuStrip and instantiate event 
+helpers, mangling the name of the menu by appending &quot;Click&quot;:</p>
+<pre>protected void RegisterEvent(ToolStripMenuItem tsmi)
+{
+  EventHelpers.Transform(this, tsmi, &quot;Click&quot;).To(tsmi.Name + &quot;Click&quot;);
+}</pre>
+<p>Initially, I wired up the events manually, since the Cx Designer has no 
+understanding of the menu events at design time:</p>
+<pre>&lt;WireUp Producer=&quot;Menu.mnuSaveClick&quot; Consumer=&quot;CxDesigner.OnSave&quot; /&gt;
+&lt;WireUp Producer=&quot;Menu.mnuExitClick&quot; Consumer=&quot;App.CloseDialog&quot; /&gt;
+&lt;WireUp Producer=&quot;Menu.mnuOpenClick&quot; Consumer=&quot;CxDesigner.OnOpenMetadata&quot; /&gt;
+&lt;WireUp Producer=&quot;Menu.mnuNewClick&quot; Consumer=&quot;CxDesigner.OnNewMetadata&quot; /&gt;
+&lt;WireUp Producer=&quot;Menu.mnuSaveAsClick&quot; Consumer=&quot;CxDesigner.OnSaveAs&quot; /&gt;</pre>
+<p>but since that won't do, I bowed to the beast and added an ExplicitEvents 
+section to the XML:</p>
+<pre>&lt;ExplicitEvents Producer=&quot;Menu&quot;&gt;
+  &lt;Event Name=&quot;mnuSaveClick&quot;/&gt;
+  &lt;Event Name=&quot;mnuExitClick&quot;/&gt;
+  &lt;Event Name=&quot;mnuOpenClick&quot;/&gt;
+  &lt;Event Name=&quot;mnuNewClick&quot;/&gt;
+  &lt;Event Name=&quot;mnuSaveAsClick&quot;/&gt;
+&lt;/ExplicitEvents&gt;</pre>
+<p>I figure this is an alternative (alternatives are good) to using the 
+ExplicitEventAttribute as well, so it'll be useful in general.</p>
+<h3>Push vs. Pull Data</h3>
+<p>Another interesting (if you can call it that) problem that I had to solve 
+with the designer has to do with pulling data from one component into another.&nbsp; 
+Again, the UI provides an example of the problem: the user selects a component and then 
+clicks on the &quot;Properties&quot; or &quot;Events&quot; button.&nbsp; At that 
+point a child dialog comes up and needs to display some the property or event 
+lists <i>based on the component selected in the parent dialog.</i>&nbsp; So how, 
+at that point, does the child get the information it needs?&nbsp; This is in 
+many ways the classic beginner question of how do you get information into a 
+child dialog.&nbsp; The usual answer, using property setters before you display 
+the dialog, doesn't work in a dynamic composition environment because of the 
+extreme decoupling of the components.&nbsp; In dependency injection frameworks 
+like CAB and Spring.Net, the answer is fairly straight forward: you can specify 
+the property initialization in the metadata and reference objects managed in 
+some container.</p>
+<h4>Imperative / Declarative Tension</h4>
+<p align="justify">In my exploration of IoC/DI concepts with my more limited Cx 
+framework, I continue to be reluctant to move fully into the world of DI, 
+because (ironic as it may seem) I'm trying to limit the amount of information 
+that gets stored in the metadata.&nbsp; It makes writing a designer more 
+complicated, and I'm trying to get to an initial release without adding too many 
+new features to the framework that the designer has to support.&nbsp; As we saw 
+with menus, there is a disconnect between what is done imperatively and how to 
+get that information into a designer for the declarative part.&nbsp; We simply 
+don't know what objects are put into what containers imperatively so that, at 
+design time, they can be injected into properties or participate in constructor 
+arguments in the declarative code.&nbsp; The answer that &quot;all objects that need 
+to be injected or participate in constructor arguments should also be 
+initialized declaratively&quot; doesn't fly with me because it ties the developer and 
+the application too closely to the framework.&nbsp; Not that this is in any real 
+sense avoidable, but it should at least be considered.</p>
+<h4 align="justify">One Solution</h4>
+<p align="justify">The App class has a ShowModalForm consumer which is used for 
+bringing up a child dialog.&nbsp; If we add a producer event that can be 
+consumed by a model (such as the properties model), then we have solved the 
+problem.&nbsp; However, the App instance has to be specific for the dialog being 
+created, so we can wire up the producer to a specific consumer.&nbsp; The answer 
+(one of many, I'm sure) is to create an instance of the App class that is 
+specific for this job, and this is something that is easily done by adding the 
+desired App as another component that gets instantiated in the parent form:</p>
+<pre>&lt;BusinessComponent 
+    Name=&quot;AppProperties&quot; 
+    ComponentName=&quot;App&quot; 
+    Assembly=&quot;C:\projects2008\Cx\Cx.Designer.App\bin\Debug\Cx.Designer.App.exe&quot; /&gt;
+</pre>
+<p>Now we can wire-up the instantiation of the form to this specific App 
+instance (note that this wire-up lives in the in the main form's metadata):</p>
+<pre>&lt;WireUp Producer=&quot;CxDesigner.EditProperties&quot; Consumer=&quot;AppProperties.ShowModalForm&quot; /&gt;</pre>
+<p>and now the model can consume initialization events (note that this wire-up 
+lives in the child form's metadata):</p>
+<pre>&lt;WireUp Producer=&quot;AppProperties.FormInitialized&quot; Consumer=&quot;EditProperties.OnInitialize&quot; /&gt;</pre>
+<p>and proceed from there to do whatever initialization it needs to do and 
+firing off events when the initialization is complete, that can be wired up to 
+other components, including visual components.</p>
+<h2>Removing Wireups</h2>
+<p>As I started using the designer, I noticed an annoying behavior in the 
+business components associated with a dialog: the wire-up between components was 
+not being removed.&nbsp; In other words, even though there were no references 
+remaining to the components, the second time I used the same dialog, the event 
+wired up to the old business component fired as well as the event wired up to 
+the new business component.&nbsp; I discovered this first in global business 
+producers to local 
+business consumer events.&nbsp; For example, the designer component 
+(which is a singleton, and therefore global) firing an event with property 
+information for the selected component, which was consumed by the &quot;edit 
+properties&quot; business component (a local component specific to the dialog.)</p>
+<h3>Implementing Dispose&nbsp; </h3>
+<p>The first problem was that I wasn't removing the business components from the 
+global cache, so even components with 0 references were being re-used.&nbsp; It seemed that the best mechanism for doing this was for the Cx class to implement IDisposable, and to call the Dispose method when the CxApp 
+instance is no longer needed, or wrap the whole thing in a &quot;using&quot; block:</p>
+<pre>[CxConsumer] 
+public void ShowModalForm(object sender, CxEventArgs&lt;string&gt; args)
+{
+  using (CxApp dlg = CxApp.Initialize(@&quot;..\..\..\Cx.DataService\bin\debug\Cx.DataService.dll&quot;, Path.GetFullPath(args.Data)))
+  {
+    dlg.WireUpComponents();
+    Form form = new Form();
+    Size extents = new Size(0, 0);
+
+    foreach (ICxVisualComponent comp in dlg.VisualComponents)
+    {
+      ((ICxVisualComponentClass)comp.Instance).Register(form, comp);
+      extents = Program.UpdateExtents(comp, extents);
+    }
+
+    form.Size = extents + new Size(25, 40);
+    form.Activated += new EventHandler(OnActivated);
+    formInitialized.Fire();
+    form.ShowDialog();
+    // The dispose method call is critical to remove wireups to components used in this dialog.
+  }
+}</pre>
+<p>I'm not particularly happy with this approach because the developer needs to 
+remember to dispose of the CxApp instance--waiting for the garbage collector to 
+come along and call the Dispose method while events are still wired up could 
+lead to some really unexpected side-effects.</p>
+<p>In the Dispose method itself, the component reference from the global cache 
+is removed:</p>
+<pre>protected void Dispose(bool disposing)
+{
+  if (!disposed)
+  {
+    if (disposing)
+    {
+      List&lt;string&gt; markedForRemoval = new List&lt;string&gt;();
+
+      // Remove business component reference counts. If 0, we can remove the entry in the dictionary.
+      foreach (ICxBusinessComponent comp in busCompList)
+      {
+        ComponentReference compRef=null;
+
+        if (businessComponentCountMap.TryGetValue(comp.Name, out compRef))
+        {
+          --compRef.Count;
+
+          if (compRef.Count == 0)
+          {
+            markedForRemoval.Add(comp.Name);
+          }
+        }
+      }
+
+      // Remove all component references marked for removal.
+      foreach (string name in markedForRemoval)
+      {
+        components.Remove(name);
+        businessComponentCountMap.Remove(name);
+      }
+
+      RemoveWireups();
+      visCompList.Clear();
+      busCompList.Clear();
+    }
+
+  disposed = true;
+  }
+}</pre>
+<h3>Component References and Initialization</h3>
+<p>This brings up an interesting question: when the reference count becomes 0, 
+should we actually remove the component from the cache, which forces a new 
+instantiation the next time the component is needed, or should we leave it in the 
+cache so that it can be re-used?&nbsp; Although this applies only to business 
+components, this decision has serious implications for the initialization of the 
+component in its constructor: a component that is re-used never has its 
+constructor called only once, rather than every time the component is 
+instantiated.</p>
+<h3>Removing Wireups</h3>
+<p>The easiest way to remove wire-ups is to add the wire-up to a collection when 
+the CxApp instance does the wire-up:</p>
+<pre>wireupInfo.Add(new WireupInfo(ei, producerTarget, dlgt));</pre>
+<p>and when the CxApp instance is disposed, to unwire the producer-consumers:</p>
+<pre>protected void RemoveWireups()
+{
+  foreach (WireupInfo wi in wireupInfo)
+  {
+    wi.Remove();
+  }
+
+  wireupInfo.Clear();
+}</pre>
+<h3>Business Component Guids</h3>
+<p>This resolved my issue with events firing to &quot;old&quot; business component 
+instances.&nbsp; Not that this was easy to figure this out.&nbsp; There 
+are times when I wish that I could see the actual memory address of an object 
+so I could easily tell if the event is firing to different component instances 
+or to the same instance.&nbsp; This actually makes a case for assigning a Guid 
+to the business component:</p>
+<pre>public class CxBusinessComponent : CxComponent, ICxBusinessComponent
+{
+  /// &lt;summary&gt;
+  /// The Guid is useful for determining different instances of the same named business component.
+  /// &lt;/summary&gt;
+  public Guid Guid { get; protected set; }
+
+  public CxBusinessComponent()
+  {
+    Guid = Guid.NewGuid();
+  }
+}</pre>
+<p>Now we can see if the instance is different, by inspecting the Guid.</p>
+<p></p>
+<p></p>
+<h2>Are We Having Fun Yet?</h2>
+<p>I have to admit, this is fun in a sick and twisted way.&nbsp; I'm finding 
+that:</p>
+<ul>
+	<li>I'm writing a lot of producer/consumer events;</li>
+	<li>I'm doing a lot of attribute programming;</li>
+	<li>I'm able to use the Cx Designer more and more as I implement features;</li>
+	<li>It really imposes a separation of components and a very clear, explicit 
+	contract between components.&nbsp; While I like this, it can also be 
+	construed as being a bit of a pain;</li>
+	<li>A lot of shortcuts that I would normally take can't really be taken.&nbsp; 
+	For example, if I have a button that should open a dialog, I would typically 
+	subclass the button, add a property for the dialog it should open, and then 
+	wire-up the Click event in the subclassed button to simply load that dialog.&nbsp; 
+	I can't do that in a CxButton component because it doesn't have access to 
+	the application's &quot;ShowModalForm&quot; method.&nbsp; I could, instead, fire 
+	an event, but this feels dirty--I'm putting business logic into the UI 
+	component rather than maintaining a more purist implementation: &quot;the button 
+	was clicked&quot; and letting the designer business component determine what to 
+	do.&nbsp; I like this approach better as well because it explicitly states 
+	&quot;the designer component has a consumer that will open this dialog&quot; and so 
+	anything (not just a button) can source this event.&nbsp; I really think 
+	this is a good thing, though it can of course be taken to an extreme, so 
+	like anything, the point is not to be an extremist but rather to become 
+	conscious of our otherwise implicit programming decisions;</li>
+	<li>It's actually quite fun to wire-up discrete behaviors between components 
+	and watch it all come together;</li>
+	<li>I'm coding in discrete functional packets, without too much regard for 
+	how the code will be utilized for a specific requirement, but rather keeping 
+	things general;</li>
+	<li>I'm also noticing that it isn't easy to truly modularize something 
+	(particularly UI features) without some rework / rethinking.&nbsp; For 
+	example, to deal with VS-created menus, I had to modify all of the current 
+	UI components by adding a Register method, declared in the 
+	ICxVisualComponentClass interface.&nbsp; This had the (I think positive) 
+	effect of moving the code that was adding the control to the form's 
+	collection to the control itself, but I ended up using an extension method 
+	to extend the Control class behavior;</li>
+	<li>I've ditched data binding.&nbsp; Is that a good thing?&nbsp; Is there a 
+	good way to coerce data binding to use the Cx messaging mechanism so that we 
+	can track data binding messages just like any other Cx message?</li>
+	<li>Component naming--Right now, if the same name is used in a &quot;child&quot; 
+	(typically applies to child dialogs) then the component instance is re-used.&nbsp; 
+	This doesn't handle different contexts of the same thing, such as an MDI 
+	scenario!</li>
+	<li>Some sort of document generation would be very useful, because you don't 
+	know what the consumer argument signature should be without looking at the event 
+	producer signature.&nbsp; And this would also be a neat feature to add to 
+	the designer, so that it shows only consumers whose signature matches that 
+	of the producer.&nbsp; A lot of confusion would be eliminated, not to 
+	mention eliminating runtime event wire-up exceptions.</li>
+</ul>
+<p>For example, I really do find it totally cool that I can take the menu's Save 
+As event, wire it up to the designer's consumer:</p>
+<pre>&lt;WireUp Producer=&quot;Menu.mnuSaveAsClick&quot; Consumer=&quot;CxDesigner.OnSaveAs&quot; /&gt;</pre>
+<p>which, being the &quot;model&quot;, sets up a filter and fires its own event:</p>
+<pre>[CxConsumer]
+public void OnSaveAs(object sender, System.EventArgs args)
+{
+  saveAs.Fire(&quot;xml files (*.xml)|*.xml|all files (*.*)|*.*&quot;);
+}</pre>
+<p>which in turn is wired up to an App consumer:</p>
+<pre>&lt;WireUp Producer=&quot;CxDesigner.SaveAs&quot; Consumer=&quot;App.ShowSaveAsDialog&quot; /&gt;</pre>
+<p>whose implementation brings up the Save As dialog and, if the user doesn't 
+cancel, simply fires an event with the filename:</p>
+<pre>[CxConsumer]
+public void ShowSaveAsDialog(object sender, CxEventArgs&lt;string&gt; args)
+{
+  SaveFileDialog sfd = new SaveFileDialog();
+  sfd.Filter = args.Data;
+  DialogResult ret = sfd.ShowDialog();
+
+  if (ret == DialogResult.OK)
+  {
+    save.Fire(sfd.FileName);
+  }
+}</pre>
+<p>which in turn is wired up back to the designer component:</p>
+<pre>&lt;WireUp Producer=&quot;App.Save&quot; Consumer=&quot;CxDesigner.OnSaveFilename&quot; /&gt;</pre>
+<p>which in turn sets it's filename, fires an event that the filename is set, 
+and ultimately fires another event to the data service to save the model:</p>
+<pre>[CxConsumer]
+public void OnSaveFilename(object sender, CxEventArgs&lt;string&gt; args)
+{
+  metadataFilename=args.Data;
+  filenameSet.Fire(metadataFilename);
+  SaveModel();
+}</pre>
+<p>Incidentally, the filename set event is wired up to an App consumer:</p>
+<pre>&lt;WireUp Producer=&quot;CxDesigner.FilenameSet&quot; Consumer=&quot;App.SetCaption&quot; /&gt;</pre>
+<p>that updates the caption of the form:</p>
+<pre>[CxConsumer]
+public void SetCaption(object sender, CxEventArgs&lt;string&gt; args)
+{
+  Program.mainForm.Text = &quot;Cx Designer - &quot;+Path.GetFileName(args.Data);
+}</pre>
+<p>The beauty of this is in the general to specific messaging pattern: the 
+producer is usually a general &quot;I'm saying something&quot; and the consumer is &quot;I'm 
+going to do something specific about what you said.&quot;&nbsp; The producer doesn't 
+know or care if anyone is listening.</p>
+<p>So yes, I'm having fun, but implementing these events is tedious.&nbsp; There 
+ought to be a better way than having to create an EventHelper field for every 
+event and an ExplicitEvent attribute for the class.&nbsp; It should somehow be 
+enough to create the event an attribute!</p>
+<p>And of course, something I haven't done yet, but will, is write an event 
+monitor so you get a lovely audit trail of all the messages and event the data 
+being sent between components.</p>
+<h3><a name="A_Couple_Missing_Features">A Few Missing Features</a></h3>
+<p>There's two things the designer lacks (besides a better UI):</p>
+<ul>
+	<li>Editing component definitions</li>
+	<li>Defining types for generics</li>
+	<li>Managing toolbars/menus is not pretty</li>
+	<li>MDI support</li>
+</ul>
+<h2>Conclusion</h2>
+<p>In the process of writing this very un-sexy designer, I did finally get a 
+chance to investigate the pros and cons of an IoC framework and come up with 
+some best practices.&nbsp; I'm sure I'm not done yet, but whether the designer 
+is sexy or not is irrelevant--the issues are the same no matter how cool the UI 
+looks.</p>
+<p>Now, after writing this, it finally occurs to me that the entire eventing 
+mechanism is only one kind of the messaging and therefore the details of using 
+events shouldn't be so exposed to the components.&nbsp; Instead, it would be 
+better if the component worked with an abstract messaging system that just 
+happened, in this case, to use events.&nbsp; This would of course be much more 
+flexible for handling communication across networks, etc.</p>
+<p>Another thing is that, with a large application, the list of producers and 
+consumers components becomes quite large, and the number of producer events and 
+consumer methods for each producer/consumer is probably going to be large as 
+well.&nbsp; In fact, even with the Cx Designer, the size of the lists are 
+already approaching unmanageable.&nbsp; So, any designer UI that facilitates the 
+wire-up of the producers to consumers has to be carefully designed so that it 
+facilitates the developer, rather than itself being a hindrance.</p>
+<p>It also becomes ridiculously simple to specify which events can run 
+asynchronously.&nbsp; For example, loading the component, producer, and consumer 
+lists in the data service can be done asynchronously, as can populating the UI 
+component.&nbsp; If I created consumers specific to loading each section of the 
+XML rather than having one &quot;load&quot; consumer, the event wire-up could specify &quot;do 
+this asynchronously.&quot;&nbsp; That of course leads to a couple interesting 
+artifacts, as a result of all of these events flying about--if you're on an 
+asynchronous event, how do you marshal back to the main application thread for updating 
+the UI, and how do you manage worker threads?</p>
+<p>As I mentioned above, I think a very useful feature would be to &quot;document&quot; 
+the event signature of a producer so that the designer shows only consumers 
+capable of consuming that signature.&nbsp; Of all the things that I might want 
+to do next with this framework, this is probably on the top of the list, along 
+with an event logger/viewer.</p>
+<p>So, lots of interesting food for thought for future installments.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

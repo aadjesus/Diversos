@@ -1,0 +1,407 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00B4A076-B134-4E93-BF98-E716FD302EC7}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>sharpPDF</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>sharpPDF</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>sharpPDF.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>sharpPDF.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\IPdfDestination.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfBookmarkNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationFit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationFitH.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationFitR.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationFitV.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\pdfDestinationXYZ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\columnList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\elementList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\fontHashtable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\imageHashtable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\paragraphLineList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\rowList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\annotationElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\circleElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\imageElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\lineElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\paragraphElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\paragraphLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\pdfElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\pdfImageReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\rectangleElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\textElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\documentFontEncoding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\documentFontType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\glyphType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\pdfDestinationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefindeLineStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedAlignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedAnnotationStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedMarkerStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedPageSize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerators\predefinedVerticalAlignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfBadColumnIndexException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfBadFontFileException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfBadRowHeightException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfBadRowIndexException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfBufferErrorException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfCMAPNotSupportedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfFontNotLoadedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfGenericIOException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfImageIOException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfImageNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfImageNotLoadedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\pdfWritingErrorException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\AFM\afmFontReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\CharacterMetric.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\FontReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\GlyphConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfAbstractFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfCharacterMetric.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfFontDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfFontFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfPredefinedFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\pdfTrueTypeFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\CMAPTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\DirectoryTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\FontHeaderTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\HorizontalHeaderTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\IO\AdvancedFileStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\IO\AdvancedMemoryStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\NamesTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\OffsetTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\OSTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\PostScriptTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\ttfFontReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fonts\TTF\ttfFontSubset.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IAbsoluteContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRelativeContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISeparable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfBasePage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfColor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PDFControls\pdfControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfLineStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfOutlines.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfPageMarker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfPageTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfPersistentPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfPositionableObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pdfTrailer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\columnTableEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\columnTableEventHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\pdfTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\pdfTableColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\pdfTableHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\pdfTableRow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tables\pdfTableStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="textAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Fonts\AFM\Courier-Bold.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Courier-BoldOblique.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Courier-Oblique.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Courier.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Helvetica-Bold.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Helvetica-BoldOblique.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Helvetica-Oblique.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Helvetica.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Times-Bold.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Times-BoldItalic.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Times-Italic.afm" />
+    <EmbeddedResource Include="Fonts\AFM\Times-Roman.afm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

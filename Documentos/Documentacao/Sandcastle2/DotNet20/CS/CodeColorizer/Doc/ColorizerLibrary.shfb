@@ -1,0 +1,48 @@
+﻿<project schemaVersion="1.4.0.0">
+    <assemblies>
+        <assembly assemblyPath="..\ColorizerLibrary\bin\Debug\ColorizerLibrary.dll" xmlCommentsPath="..\ColorizerLibrary\bin\Debug\ColorizerLibrary.xml" commentsOnly="False" />
+    </assemblies>
+    <namespaceSummaries>
+        <namespaceSummaryItem name="" isDocumented="False" />
+        <namespaceSummaryItem name="ColorizerLibrary" isDocumented="True">The core namespace of the library.</namespaceSummaryItem>
+        <namespaceSummaryItem name="ColorizerLibrary.Controls" isDocumented="True">This contains an ASP.NET control to display colorized text.</namespaceSummaryItem>
+    </namespaceSummaries>
+    <additionalContent>
+        <contentItem sourcePath=".\presentation.css" destPath="Styles\" excludeItems="False" />
+    </additionalContent>
+    <dependencies>
+        <dependencyItem depPath="GAC:System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </dependencies>
+    <ProjectSummary>Copyright &amp;#169; 2003, Jonathan de Halleux.  Modifications by Eric Woodruff 11/2006.  The original &lt;b&gt;Code Project&lt;/b&gt; article by Jonathan can be found at &lt;a href="http://www.codeproject.com/csharp/highlightcs.asp"&gt;http://www.codeproject.com/csharp/highlightcs.asp&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;</ProjectSummary>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath path="" />
+    <HtmlHelp2xCompilerPath path="" />
+    <OutputPath>.\Help\</OutputPath>
+    <SandcastlePath path="" />
+    <WorkingPath path="" />
+    <CleanIntermediates>True</CleanIntermediates>
+    <HelpFileFormat>HtmlHelp1x</HelpFileFormat>
+    <PurgeDuplicateTopics>True</PurgeDuplicateTopics>
+    <CppCommentsFixup>False</CppCommentsFixup>
+    <FrameworkVersion>2.0.50727</FrameworkVersion>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <Preliminary>False</Preliminary>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <RootNamespaceTitle />
+    <HelpTitle>ColorizerLibrary Documentation</HelpTitle>
+    <HtmlHelpName>ColorizerLibrary</HtmlHelpName>
+    <Language>en-US</Language>
+    <CopyrightHref />
+    <CopyrightText>Copyright \xA9 2003, Jonathan de Halleux</CopyrightText>
+    <FeedbackEMailAddress />
+    <HeaderText />
+    <FooterText />
+    <ProjectLinkType>Local</ProjectLinkType>
+    <SdkLinkType>Msdn</SdkLinkType>
+    <PresentationStyle>Prototype</PresentationStyle>
+    <NamingMethod>Guid</NamingMethod>
+    <SyntaxFilters>Standard</SyntaxFilters>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+</project>

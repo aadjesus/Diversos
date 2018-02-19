@@ -1,0 +1,32 @@
+﻿<Window x:Class="SmokeyCheeseCompany.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:OgreLib="clr-namespace:OgreLib;assembly=OgreLib"
+    Title="Smokey's. The way to live." Width="640" Height="480"
+    Loaded="Window1_OnLoaded" Closing="Window1_OnClosing">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Offset="0" Color="#BBBBFF" />
+                <GradientStop Offset="1" Color="#5555FF" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image x:Name="RenterTargetControl" Stretch="Fill"
+                   SizeChanged="RenterTargetControl_SizeChanged"
+                   >
+            <Image.Source>
+                <OgreLib:OgreImage x:Name="_ogre" Initialised="_ogre_OnInitialised" FrameRate="25" />
+            </Image.Source>
+        </Image>
+        <TextBlock Foreground="Gray" Text="It's smokey and cheezey" FontSize="40" Margin="3,3,0,0">
+            <TextBlock.Effect>
+                <BlurEffect Radius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Foreground="Yellow" Text="It's smokey and cheezey" FontSize="40">
+        </TextBlock>
+        <Grid Margin="0,73,35,27" HorizontalAlignment="Right" Width="264">
+            <ListBox x:Name="_list"></ListBox>
+        </Grid>
+    </Grid>
+</Window>

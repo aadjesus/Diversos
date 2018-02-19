@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsSymbol00", "IsSymbol00\IsSymbol00.csproj", "{B4209598-087C-4EAE-9D88-46501ECF40D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFD06796-4D96-46CD-82BE-5059E4C6B3B9}"
+	ProjectSection(SolutionItems) = preProject
+		U2700.pdf = U2700.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsSymbol01", "IsSymbol01\IsSymbol01.csproj", "{E43C10D7-DC9A-4568-ADA9-DCBFF0936BD1}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4209598-087C-4EAE-9D88-46501ECF40D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4209598-087C-4EAE-9D88-46501ECF40D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4209598-087C-4EAE-9D88-46501ECF40D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4209598-087C-4EAE-9D88-46501ECF40D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43C10D7-DC9A-4568-ADA9-DCBFF0936BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43C10D7-DC9A-4568-ADA9-DCBFF0936BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43C10D7-DC9A-4568-ADA9-DCBFF0936BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43C10D7-DC9A-4568-ADA9-DCBFF0936BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

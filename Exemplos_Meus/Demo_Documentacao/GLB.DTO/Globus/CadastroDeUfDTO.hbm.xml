@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.Globus.DTO.CadastroDeUfDTO,GLB.DTO" table="BGM_CADUF" lazy="false">
+		<id name="CodigoUf" column="CODIGOUF" type="String">
+			<generator class="assigned"/>
+		</id>
+		<property name="DescricaoUf" type="String" column="DESCRICAOUF" not-null="true" length="40" />
+		<property name="AliquotaIcmsInterna" type="Decimal" column="ALIQUOTAICMSINTERNA" />
+		<property name="AliquotaIcmsExterna" type="Decimal" column="ALIQUOTAICMSEXTERNA" />
+		<property name="AliqPrestServico" type="Decimal" column="ALIQPRESTSERVICO" />
+		<property name="CodigoIbge" type="int" column="CODIGOIBGE" />
+	</class>
+</hibernate-mapping>

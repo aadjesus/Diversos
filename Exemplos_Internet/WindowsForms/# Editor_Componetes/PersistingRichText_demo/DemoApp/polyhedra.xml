@@ -1,0 +1,22 @@
+<root><Polyhedra><id>3</id><Name>Tetrahedron</Name><Description>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green0\blue255;\red255\green0\blue0;}
+\viewkind4\uc1\pard\f0\fs16 This is the simplest Polyhedron.\par
+It has only \cf1\b\fs16 4 faces\cf0\b0\fs16 .\par
+Each face has \cf2\b\fs16 3 edges\cf0\b0\fs16 .\par
+}
+</Description></Polyhedra><Polyhedra><id>5</id><Name>Dodecahedron</Name><Description>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green0\blue255;\red255\green0\blue0;}
+\viewkind4\uc1\pard\f0\fs16 This shape has \cf1\b\fs16 12 faces\cf0\b0\fs16 .\par
+Each face has \cf2\b\fs16 5 edges\cf0\b0\fs16 .\par
+}
+</Description></Polyhedra><Polyhedra><id>6</id><Name>Truncated Icosahedron</Name><Description>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green0\blue255;\red255\green0\blue0;}
+\viewkind4\uc1\pard\f0\fs16 This polyhedron has \cf1\b\fs16 32 faces \cf0\b0\fs16 in total.\par
+20 of the faces have \cf2\b\fs16 6 edges\cf0\b0\fs16 .\par
+The remaining 12 have \cf2\b\fs16 5 edges\cf0\b0\fs16 .\par
+\par
+This polyhedron get used as a \i\fs16 soccer ball\i0\fs16 .\par
+\par
+It is also the shape of the \i\fs16 C60- Buckballs \i0\fs16 beloved of nano-technologists.\par
+}
+</Description></Polyhedra></root>

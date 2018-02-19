@@ -1,0 +1,579 @@
+<!--------------------------------------------------------------------------->
+<!--                           INTRODUCTION                                
+
+ The Code Project article submission template (HTML version)
+
+Using this template will help us post your article sooner. To use, just 
+follow the 3 easy steps below:
+ 
+     1. Fill in the article description details
+     2. Add links to your images and downloads
+     3. Include the main article text
+
+That's all there is to it! All formatting will be done by our submission
+scripts and style sheets.
+
+-->
+<!--------------------------------------------------------------------------->
+<!--                        IGNORE THIS SECTION                            --><html><head>
+		<title>The Code Project</title>
+		<STYLE> BODY, P, TD { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt }
+	H2,H3,H4,H5 { color: #ff9900; font-weight: bold; }
+	H2 { font-size: 13pt; }
+	H3 { font-size: 12pt; }
+	H4 { font-size: 10pt; color: black; }
+	PRE { BACKGROUND-COLOR: #FBEDBB; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; }
+	CODE { COLOR: #990000; FONT-FAMILY: "Courier New", Courier, mono; }
+	</STYLE>
+		<link href="http://www.codeproject.com/styles/global.css" type="text/css" rel="stylesheet"></head>
+	<body bgColor="#ffffff" color="#000000">
+		<!--------------------------------------------------------------------------->
+		<!-------------------------------     STEP 1      --------------------------->
+		<!--  Fill in the details (CodeProject will reformat this section for you) --><pre>Title:       Getting a "Handle" on the MdiClient
+Author:      Jacob Slusser 
+Email:       webmaster@jacobslusser.com
+Environment: C#, Windows (WinXP, Win2K, Win2003, Win95, Win98, WinME), .NET, Win32, VS Dev
+Keywords:    MDI, MdiClient, MdiClientController, Component, Win32, BorderStyle, Painting 
+Level:       Intermediate
+Description: A Component to customize the MDI area of a Form with color, images, border styles, and more.
+Section      C# Controls
+SubSection   Miscellaneous Controls</pre>
+		<!-------------------------------     STEP 2      --------------------------->
+		<!--  Include download and sample image information.                       -->
+		<ul class="download">
+			<li>
+				<A href="mdiclientcontroller_src.zip">Download source and demo project - 188 
+					Kb</A>
+			</li>
+		</ul>
+		<p><a href="mdiclientcontroller_large.gif"><IMG border="0" alt="MdiClient Demo Application" src="mdiclientcontroller.gif"></a></p>
+		<!-------------------------------     STEP 3      --------------------------->
+		<!--  Add the article text. Please use simple formatting (<h2>, <p> etc)   -->
+		<h2>Contents</h2>
+		<ul>
+			<li>
+				<A href="#Introduction">Introduction</A>
+			<li>
+				<A href="#The MdiClient Control">The MdiClient Control</A>
+			<li>
+				<A href="#What a Reference Can Do">What a Reference Can Do</A>
+				<ul>
+					<li>
+						<A href="#Changing the Background Color">Changing the Background Color</A></li>
+				</ul>
+			<li>
+				<a href="#What a Handle Can Do">What a Handle Can Do</a>
+				<ul>
+					<li>
+						<A href="#Changing the Border Styles">Changing the Border Styles</A></li>
+				</ul>
+			<li>
+				<A href="#What a Window Message Can Do">What a Window Message Can Do</A>
+				<ul>
+					<li>
+						<A href="#The NativeWindow Class">The NativeWindow Class</A>
+					<li>
+						<A href="#Hiding the Scrollbars">Hiding the Scrollbars</A>
+					<li>
+						<A href="#Advanced Painting">Advanced Painting</A>
+					</li>
+				</ul>
+			<li>
+				<A href="#The MdiClientController Component">The MdiClientController Component</A>
+			<li>
+				<A href="#Using the Component">Using the Component</A>
+			<li>
+				<A href="#Conclusion">Conclusion</A>
+			</li>
+		</ul>
+		<h2><a name="Introduction">Introduction</a></h2>
+		<p>In a recent project I decided that using a multiple-document interface (MDI) 
+			would be the best approach. I was pleasantly surprised by how easy creating an 
+			MDI application in Visual Studio and on the .NET platform is. Simply setting 
+			the <code>IsMdiContainer</code> property of the <code>System.Windows.Forms.Form</code>
+			allows other forms to be hosted in the application workspace. If you're like 
+			me, however, you begin to wonder what that workspace would look like with a 
+			different color, custom painting, or maybe a different border style. I quickly 
+			found that the <code>Form</code> control exposed no such properties to control 
+			this behavior. A search of the web revealed that many others have desired to do 
+			the same and had various approaches on how to accomplish this. After using 
+			their suggestions successfully in my application and creating a few of my own, 
+			I decided to collect all such information into one place and perhaps develop a 
+			component that would allow easy setting of these properties.</p>
+		<h2><a name="The MdiClient Control">The MdiClient Control</a></h2>
+		<p>As it turns out the MDI area of a Windows<small><sup>®</sup></small> Form is 
+			just another control. When the <code>IsMdiContainer</code> property is set to
+			<span class="cs-keyword">true</span>, a control of type <code>System.Windows.Forms.MdiClient</code>
+			is added to the <code>Controls</code> collection of the form. Iterating through 
+			the form's controls after loading will reveal the <code>MdiClient</code> control 
+			and is also probably the best way to get a reference to it. The <code>MdiClient</code>
+			control <i>does</i> have a public constructor and <i>could</i> be added to the 
+			form's <code>Controls</code> collection programmatically, but a better practice 
+			is to set the form's <code>IsMdiContainer</code> property and have it do the 
+			work. To set a reference to the <code>MdiClient</code> control, iterate through 
+			the controls until the <code>MdiClient</code> control is found:</p>
+		<pre lang="cs">MdiClient mdiClient = null;
+
+// Get the MdiClient from the parent form.
+for(int i = 0; i &lt; parentForm.Controls.Count; i++)
+{
+	// If the form is an MDI container, it will contain an MdiClient control
+	// just as it would any other control.
+	mdiClient = parentForm.Controls[i] as MdiClient;
+	if(mdiClient != null)
+	{
+		// The MdiClient control was found.
+		// ...
+		//
+		
+		break;
+	}
+}</pre>
+		<P>Using the
+			<span class="cs-keyword">as</span>
+			keyword here is better than a direct cast in a
+			<span class="cs-keyword">try</span>/<span class="cs-keyword">catch</span>
+			block or using the
+			<span class="cs-keyword">is</span>
+			keyword, because if the
+			<span class="cs-keyword">type</span>
+			is a match, a reference to the control will result or
+			<span class="cs-keyword">null</span>
+			will be returned. It's like getting two calls for the price of one.</P>
+		<BLOCKQUOTE><b>Note:</b> In tests I discovered that it is possible to add more than 
+			one <code>MdiClient</code> control to the form's <code>Controls</code> collection. 
+			In such a case, only one of the <code>MdiClient</code> controls will act as the 
+			host and this code may fail by returning a reference to the <code>MdiClient</code>
+			that is not performing the hosting of child forms. One more good reason to use 
+			the <code>IsMdiContainer</code> property rather than adding the control to the 
+			form manually.</BLOCKQUOTE>
+		<h2><a name="What a Reference Can Do">What a Reference Can Do</a></h2>
+		<h3><a name="Changing the Background Color">Changing the Background Color</a></h3>
+		<p>With a reference to the <code>MdiClient</code> control in hand, many of the 
+			common control properties can be set as you would expect. The most often 
+			requested of course is changing the background color. The default background 
+			color of the application workspace is global to all Windows<small><SUP>®</SUP></small>
+			applications and can be changed in the Control Panel. The .NET framework 
+			exposes this color in the <code>System.Drawing.SystemColors.AppWorkspace</code> 
+			static property. Changing the background color is done as you would expect, 
+			through the <code>BackColor</code> property:</p>
+		<pre lang="cs">// Set the color of the application workspace.
+mdiClient.BackColor = value;</pre>
+		<P>That as well as many properties common to other controls will work as expected 
+			with the <code>MdiClient</code> control.</P>
+		<h2><a name="What a Handle Can Do">What a Handle Can Do</a></h2>
+		<h3><a name="Changing the Border Styles">Changing the Border Styles</a></h3>
+		<P>What's absent from the <code>MdiClient</code> control, however, is a <code>BorderStyle</code>
+			property. Gone are the typical <code>System.Windows.Forms.BorderStyle</code> enumeration 
+			options of <code>Fixed3D</code>, <code>FixedSingle</code>, and <code>None</code>. 
+			By default, the application workspace of a MDI form is inset with a 3D border 
+			equivalent to what would be <code>Fixed3D</code>. Just because this behavior is 
+			not exposed by the control does not mean it is not accessible. From this point 
+			forward you will see that the <code>Handle</code> of the <code>MdiClient</code> 
+			becomes much more valuable that just a reference to it.</P>
+		<P>To change the appearance of the border requires the use of Win32 function calls. 
+			(More information on this can be gleaned from Jason Dorie's article: <i><a href="http://www.codeproject.com/cs/miscctrl/CsAddingBorders.asp">
+					Adding designable borders to user controls</a></i>.) Each window (i.e. 
+			- <code>Control</code>) in Windows<small><sup>®</sup></small> has information 
+			that can be retrieved by using the <code>GetWindowLong</code> and set by using 
+			the <code>SetWindowLong</code> function. Both functions require a flag that 
+			specifies what information we would like to get and set. In this case we are 
+			interested in the <code>GWL_STYLE</code> and the <code>GWL_EXSTYLE</code>, 
+			which get and set the window style and the extended window style flags, 
+			respectively. Because these changes are made to the non-client area of the 
+			control calling the control's <code>Invalidate</code> method will not cause the 
+			borders to be repainted. Instead, we call the <code>SetWindowPos</code> function 
+			to cause an update of the non-client area. These functions and constants are 
+			defined like this:</P>
+		<pre lang="cs">// Win32 Constants
+private const int GWL_STYLE   = -16;
+private const int GWL_EXSTYLE = -20;
+
+private const int WS_BORDER        = 0x00800000;
+private const int WS_EX_CLIENTEDGE = 0x00000200;
+
+private const uint SWP_NOSIZE           = 0x0001;
+private const uint SWP_NOMOVE           = 0x0002;
+private const uint SWP_NOZORDER         = 0x0004;
+private const uint SWP_NOREDRAW         = 0x0008;
+private const uint SWP_NOACTIVATE       = 0x0010;
+private const uint SWP_FRAMECHANGED     = 0x0020;
+private const uint SWP_SHOWWINDOW       = 0x0040;
+private const uint SWP_HIDEWINDOW       = 0x0080;
+private const uint SWP_NOCOPYBITS       = 0x0100;
+private const uint SWP_NOOWNERZORDER    = 0x0200;
+private const uint SWP_NOSENDCHANGING   = 0x0400;
+
+
+// Win32 Functions
+[DllImport("user32.dll", CharSet = CharSet.Auto)]
+private static extern int GetWindowLong(IntPtr hWnd, int Index);
+
+[DllImport("user32.dll", CharSet = CharSet.Auto)]
+private static extern int SetWindowLong(IntPtr hWnd, int Index, int Value);
+
+[DllImport("user32.dll", ExactSpelling = true)]
+private static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter,
+	int X, int Y, int cx, int cy, uint uFlags);</pre>
+		<BLOCKQUOTE><b>Note:</b> The values of these constants are defined in the <i>Winuser.h</i>
+			header file, which is usually installed by the Platform SDK or Visual Studio 
+			.NET.</BLOCKQUOTE>
+		<P>We can adjust the border according to the <code>BorderStyle</code> enumeration 
+			by: including a <code>WS_EX_CLIENTEDGE</code> flag in the extended window 
+			styles (<code>Fixed3D</code>), a <code>WS_BORDER</code> flag in the standard 
+			window styles (<code>FixedSingle</code>), or remove both of these flags for no 
+			border (<code>None</code>). Then call the <code>SetWindowPos</code> function to 
+			cause an update. The <code>SetWindowPos</code> function has many options, but 
+			we want nothing more than to repaint the non-client area and will pass in the 
+			flags necessary to do this:</P>
+		<pre lang="cs">// Get styles using Win32 calls
+int style = GetWindowLong(mdiClient.Handle, GWL_STYLE);
+int exStyle = GetWindowLong(mdiClient.Handle, GWL_EXSTYLE);
+
+// Add or remove style flags as necessary.
+switch(value)
+{
+	case BorderStyle.Fixed3D:
+		exStyle |= WS_EX_CLIENTEDGE;
+		style &amp;= ~WS_BORDER;
+		break;
+
+	case BorderStyle.FixedSingle:
+		exStyle &amp;= ~WS_EX_CLIENTEDGE;
+		style |= WS_BORDER;
+		break;
+
+	case BorderStyle.None:
+		style &amp;= ~WS_BORDER;
+		exStyle &amp;= ~WS_EX_CLIENTEDGE;
+		break;
+}
+	
+// Set the styles using Win32 calls
+SetWindowLong(mdiClient.Handle, GWL_STYLE, style);
+SetWindowLong(mdiClient.Handle, GWL_EXSTYLE, exStyle);
+
+// Update the non-client area.
+SetWindowPos(mdiClient.Handle, IntPtr.Zero, 0, 0, 0, 0,
+	SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
+	SWP_NOOWNERZORDER | SWP_FRAMECHANGED);</pre>
+		<h2><a name="What a Window Message Can Do">What a Window Message Can Do</a></h2>
+		<h3><a name="The NativeWindow Class">The NativeWindow Class</a></h3>
+		<p>To move into the realm of customization beyond changing simple properties or 
+			making Win32 calls, we need to intercept and process window messages. 
+			Unfortunately the <code>MdiClient</code> class is
+			<span class="cs-keyword">sealed</span>, and therefore, can't be subclassed nor 
+			can its <code>WndProc</code> method be overridden. Thankfully the <code>System.Windows.Forms.NativeWindow</code>
+			class comes to the rescue. The intent of the <code>NativeWindow</code> class is 
+			to provide "a low-level encapsulation of a window handle and a window 
+			procedure". In other words, it allows us to tap into the window messages a 
+			control receives. To make use of <code>NativeWindow</code>, inherit from the 
+			class and override its <code>WndProc</code> method. Once a control's handle is 
+			assigned to the <code>NativeWindow</code> via the <code>AssignHandle</code> method, 
+			the <code>WndProc</code> method behaves just as if it was the control's <code>WndProc</code>
+			method. With the ability to listen to the <code>MdiClient</code> control's 
+			window messages a whole new range of customization is possible.</p>
+		<h3><a name="Hiding the Scrollbars">Hiding the Scrollbars</a></h3>
+		<p>While making controls outside the application workspace accessible by scrollbars 
+			is a great feature, I personally can't remember an MDI application I've used 
+			that does the same. Turning off or hiding the scrollbars in the <code>MdiClient</code>
+			is a feature that may be more often requested than changing its color.</p>
+		<P>The scrollbars of the <code>MdiClient</code> control are part of its non-client 
+			area (area outside the <code>ClientRectangle</code>) and are not themselves 
+			controls parented to the <code>MdiClient</code>. That rules out the possibility 
+			of changing the visibility of the scrollbars and leaves us with window messages 
+			and Win32 functions that affect the size of the non-client area. When the 
+			non-client area of a control needs to be calculated, the control is sent a <code>WM_NCCALCSIZE</code>
+			message. In order to hide the scrollbars, we could tell Windows<small><sup>®</sup></small>
+			that the non-client area is a little bit smaller than it actually is and cover 
+			up the scrollbars. My first approach to this was a failed attempt at trying to 
+			determine what the size of the non-client area should be. A much better 
+			approach would be to hide the scrollbars when the non-client area is calculated 
+			using the <code>ShowScrollBar</code> Win32 function. The <code>ShowScrollBar</code>
+			function requires the window handle, the scrollbars to be hidden, and a
+			<span class="cs-keyword">bool</span>
+			indicating its visibility:</P>
+		<pre lang="cs">// Win32 Constants
+private const int SB_HORZ = 0;
+private const int SB_VERT = 1;
+private const int SB_CTL  = 2;
+private const int SB_BOTH = 3;
+
+// Win32 Functions
+[DllImport("user32.dll")]
+private static extern int ShowScrollBar(IntPtr hWnd, int wBar, int bShow);
+
+
+protected override void WndProc(ref Message m)
+{
+	switch(m.Msg)
+	{
+		//
+		// ...
+		//
+		
+		case WM_NCCALCSIZE:
+			ShowScrollBar(m.HWnd, SB_BOTH, 0 /*false*/);
+			break;
+	}
+
+	base.WndProc(ref m);
+}</pre>
+		<p>After hiding the scrollbar, the <code>WM_NCCALCSIZE</code> message is processed 
+			as usual and calculates the non-client area less the recently hidden 
+			scrollbars. In case you're wondering, hiding the scrollbar via the <code>ShowScrollBar</code>
+			function does not keep the scrollbar hidden and is immediately reset to 
+			visible. That is why it must be hidden every time the non-client area is 
+			calculated.</p>
+		<h3><a name="Advanced Painting">Advanced Painting</a></h3>
+		<p>In .NET forums around the web another common request I see is, "How do I put an 
+			image in the application workspace of an MDI form?" The easiest way is to 
+			listen to the <code>Paint</code> event once you have a reference to the <code>MdiClient</code>. 
+			For some situations this may work fine, but I noticed a very bad flicker every 
+			time the <code>MdiClient</code> is resized. This is a result of the painting 
+			not being double-buffered and painting calls being made in both the <code>WM_PAINT</code>
+			and <code>WM_ERASEBKGND</code> messages. If we had been able to inherit from 
+			the <code>MdiClient</code> control this could be easily remedied by using the 
+			control's protected method <code>SetStyle</code> with the flags <code>System.Windows.Forms.ControlStyles.AllPaintingInWmPaint</code>,
+			<code>ControlStyles.DoubleBuffer</code>, and <code>ControlStyles.UserPaint</code>. 
+			But as noted earlier, the <code>MdiClient</code> class is
+			<span class="cs-keyword">sealed</span>
+			and that is not an option. What <i>is</i> an option is listening to the <code>WM_PAINT</code>
+			and <code>WM_ERASEBKGND</code> window messages and implementing our own custom 
+			painting. (More information on this is available in Steve McMahon's article: <i><a href="http://vbaccelerator.com/article.asp?id=4306">
+					Painting in the MDI Client Area</a></i>.)
+		</p>
+		<P>The Win32 items we'll need are the functions <code>BeginPaint</code> and <code>EndPaint</code>, 
+			structs called the <code>PAINTSTRUCT</code> and <code>RECT</code>, and a few 
+			more constants:</P>
+		<pre lang="cs">// Win32 Constants
+private const int WM_PAINT       = 0x000F;
+private const int WM_ERASEBKGND  = 0x0014;
+private const int WM_PRINTCLIENT = 0x0318;
+
+
+// Win32 Structures
+[StructLayout(LayoutKind.Sequential, Pack = 4)]
+private struct PAINTSTRUCT
+{
+	public IntPtr hdc;
+	public int fErase;
+	public RECT rcPaint;
+	public int fRestore;
+	public int fIncUpdate;
+	[MarshalAs(UnmanagedType.ByValArray, SizeConst=32)] public byte[] rgbReserved;
+}
+
+[StructLayout(LayoutKind.Sequential)]
+private struct RECT
+{
+	public int left;
+	public int top;
+	public int right;
+	public int bottom;
+}
+
+
+// Win32 Functions
+[DllImport("user32.dll")]
+private static extern IntPtr BeginPaint(IntPtr hWnd, ref PAINTSTRUCT paintStruct);
+
+[DllImport("user32.dll")]
+private static extern bool EndPaint(IntPtr hWnd, ref PAINTSTRUCT paintStruct);</pre>
+		<p>The typical method of double-buffering is to do all painting to an <code>Image</code>, 
+			or rather, get the <code>Graphics</code> object <i>from</i> an <code>Image</code>
+			instead of painting directly to the screen. When painting to the <code>Image</code>
+			is complete then the <code>Image</code> itself is drawn to the screen. That way 
+			all the control's painting is displayed at once instead of intermittent 
+			painting that may be in progress. With the <code>MdiClient</code> control's 
+			graphics being so simple we could easily do all the painting ourselves, but a 
+			better practice is to not eliminate the base graphics from being draw, but to 
+			incorporate them into our custom painting. That way if the <code>MdiClient</code>
+			were somehow changed in a way we did not expect the painting should still be 
+			correctly displayed. This is achieved by creating our own window message (<code>WM_PRINTCLIENT</code>) 
+			and sending it to the base control using the <code>DefWndProc</code> (i.e. - 
+			Default <code>WndProc</code>) method. What we get back in the graphics buffer 
+			is a painting of the original control painted <i>by</i> the base control. (More 
+			on this can be learned from J Young's article: <i><a href="http://www.codeproject.com/cs/miscctrl/genmissingpaintevent.asp">
+					Generating missing Paint event for TreeView and ListView controls</a></i>.) 
+			From there any custom painting over top of it can be processed:</p>
+		<pre lang="cs">protected override void WndProc(ref Message m)
+{
+	switch(m.Msg)
+	{
+		//Do all painting in WM_PAINT to reduce flicker.
+		case WM_ERASEBKGND:
+			return;
+
+		case WM_PAINT:
+
+			// Use Win32 to get a Graphics object.
+			PAINTSTRUCT paintStruct = new PAINTSTRUCT();
+			IntPtr screenHdc = BeginPaint(m.HWnd, ref paintStruct);
+
+			using(Graphics screenGraphics = Graphics.FromHdc(screenHdc)) 
+			{
+				// Double-buffer by painting everything to an image and
+				// then drawing the image.
+				int width = (mdiClient.ClientRectangle.Width &gt; 0 ? mdiClient.ClientRectangle.Width : 0);
+				int height = (mdiClient.ClientRectangle.Height &gt; 0 ? mdiClient.ClientRectangle.Height : 0);
+				using(Image i = new Bitmap(width, height))
+				{
+					using(Graphics g = Graphics.FromImage(i))
+					{
+						// Draw base graphics and raise the base Paint event.
+						IntPtr hdc = g.GetHdc();
+						Message printClientMessage =
+							Message.Create(m.HWnd, WM_PRINTCLIENT, hdc, IntPtr.Zero);  
+						DefWndProc(ref printClientMessage);
+						g.ReleaseHdc(hdc);
+
+						//
+						// Custom painting here...
+						//
+					}
+
+					// Now draw all the graphics at once.
+					screenGraphics.DrawImage(i, mdiClient.ClientRectangle);
+				}
+			}
+
+			EndPaint(m.HWnd, ref paintStruct);
+			return;
+	}
+
+	base.WndProc(ref m);
+}</pre>
+		<blockquote><b>Note:</b> More information about the <code>BeginPaint</code>, <code>EndPaint</code>,
+			<code>PAINTSTRUCT</code>, <code>RECT</code>, and <code>WM_PRINTCLIENT</code> can 
+			be found in the Platform SDK or MSDN library.</blockquote>
+		<p>Notice that in this case we do not let the <code>WM_PAINT</code> message fall 
+			through to be processed by the base <code>WndProc</code> because that would 
+			cause it to do its default painting right over what we had just done ourselves. 
+			The <CODE>WM_ERASEBKGND</CODE> message is ignored because we want to do all the 
+			painting at one time in the <code>WM_PAINT</code> message. Now the <code>MdiClient</code>
+			control's <code>Paint</code> event will no longer flicker and custom painting 
+			code can be placed in the processing of the <code>WM_PAINT</code> message 
+			above.
+		</p>
+		<h2><a name="The MdiClientController Component">The MdiClientController Component</a></h2>
+		<p>Rather than having to put this code into every project that is using a 
+			multiple-document interface we could wrap this all up into a <code>System.ComponentModel.Component</code>
+			that could be copied from project-to-project and dropped onto the design 
+			surface. Included in the source files is a component I call the <code>MdiClientController</code>
+			and is found in the <code>Slusser.Components</code> namespace. The component 
+			inherits from <code>NativeWindow</code> and implements the <code>System.ComponentModel.IComponent</code>
+			interface to give it its <code>Component</code> behavior. It incorporates all 
+			the functionality discussed previously with the addition of some properties 
+			that make it easy to place an <code>Image</code> in the application workspace.
+		</p>
+		<P>To use the component with a MDI form only the parent <code>Form</code> must be 
+			passed in to the constructor or set through the <code>ParentForm</code> property. 
+			To set the <code>MdiClientController</code> component's <code>ParentForm</code> 
+			property in the designer, we have to customize the <code>Site</code> property 
+			to determine if the component is dropped onto a <code>Form</code>. It helps 
+			here to have a knowledge of Designers. If indeed the component is dropped onto 
+			a form, we set the <code>ParentForm</code> property and it is properly 
+			serialized in the designer code:</P>
+		<pre lang="cs">public ISite Site
+{
+	get { return site; }
+	set
+	{
+		site = value;
+
+		if(site == null)
+			return;
+
+		// If the component is dropped onto a form during design-time,
+		// set the ParentForm property.
+		IDesignerHost host = (value.GetService(typeof(IDesignerHost)) as IDesignerHost);
+		if(host != null)
+		{
+			Form parent = host.RootComponent as Form;
+			if(parent != null)
+				ParentForm = parent;
+		}
+	}
+}</pre>
+		<P>One of the challenges in creating this component is knowing when the component 
+			will be initialized. <code>Components</code> dropped onto the designer are 
+			initialized in the <code>InitializeComponent</code> method of the form's 
+			constructor. If you inspect the <code>InitializeComponent</code> method created 
+			by the designer you'll note that the form's properties are the last thing to be 
+			set. If the <code>MdiClientController</code> were to scan for the <code>MdiClient</code>
+			control in the form's <code>Controls</code> collection before the form's <code>IsMdiContainer</code>
+			property is set, no <code>MdiClient</code> control would be found. The solution 
+			is to know when the parent form's <code>Handle</code> is created. This will 
+			surely indicate that all child controls and variables have been initialized and 
+			when we can start to look for the <code>MdiClient</code>. If the parent form 
+			does not have a <code>Handle</code> when the <code>ParentForm</code> property 
+			is set the component will listen to the form's <code>HandleCreated</code> event 
+			and get the <code>MdiClient</code> then:</P>
+		<pre lang="cs">public Form ParentForm
+{
+	get { return parentForm; }
+	set
+	{
+		// If the ParentForm has previously been set,
+		// unwire events connected to the old parent.
+		if(parentForm != null)
+			parentForm.HandleCreated -= new EventHandler(ParentFormHandleCreated);
+
+		parentForm = value;
+
+		if(parentForm == null)
+			return;
+
+		// If the parent form has not been created yet,
+		// wait to initialize the MDI client until it is.
+		if(parentForm.IsHandleCreated)
+		{
+			InitializeMdiClient();
+			RefreshProperties();
+		}
+		else
+			parentForm.HandleCreated += new EventHandler(ParentFormHandleCreated);
+	}
+}
+
+
+private void ParentFormHandleCreated(object sender, EventArgs e)
+{
+	// The form has been created, unwire the event, and initialize the MdiClient.
+	parentForm.HandleCreated -= new EventHandler(ParentFormHandleCreated);
+	InitializeMdiClient();
+	RefreshProperties();
+}</pre>
+		<h2><a name="Using the Component">Using the Component</a></h2>
+		<p>Once the <code>MdiClientController</code> has been added to the toolbox, simply 
+			drag it onto the <code>Form</code> in the designer or double-click it and it 
+			will be displayed in the component tray of the designer. The <code>MdiClientController</code>
+			will not change the form's <code>IsMdiContainer</code> property, so you must 
+			set it. All of the components properties follow the .NET naming conventions. 
+			The border style functionality is wrapped up in the <code>BorderStyle</code> property. 
+			The hiding of the scrollbars, I thought, was best put in an <code>AutoScroll</code>
+			property. The <code>BackColor</code> and <code>Paint</code> events are now 
+			accessible from the designer for your convenience. In addition there are three 
+			properties that control the displaying of an <code>Image</code> in the client 
+			area. The <code>Image</code> property sets the <code>Image</code> to display, 
+			the <code>ImageAlign</code> property will place it in different locations of 
+			the client area, and the <code>StretchImage</code> property will stretch it to 
+			fill the entire client area. In addition, I've added a <code>HandleAssigned</code>
+			event to indicate when the <code>MdiClient</code> has been found and its <code>Handle</code>
+			assigned to the <code>NativeWindow</code>. Of course all this can be done 
+			programmatically.</p>
+		<h2><a name="Conclusion">Conclusion</a></h2>
+		<p>As with many projects that become articles, I had what I originally needed in 
+			about 30 minutes, but spent several days preparing something that I could share 
+			with my fellow programmers. The resulting component should suffice for the 
+			majority of request regarding the appearance of MDI forms. It works nicely, it 
+			plays nicely, and it makes applications look nice[ly]. There is still a great 
+			deal more that could be added to the component if the need arises, which I'm 
+			sure for some programmers, it will. There is one feature, or hurdle rather, 
+			that I humbly admit I was not able to overcome: design-time preview. Using <a href="http://www.aisto.com/roeder/dotnet/">
+				Reflector</a> I discovered a great number of roadblocks that prevent the 
+			design-time preview of the MDI area. I would welcome any suggestions on how to 
+			overcome this. Enjoy.</p>
+	</body>
+</html>

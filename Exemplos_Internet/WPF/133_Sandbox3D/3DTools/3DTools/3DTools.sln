@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelViewer", "ModelViewer\ModelViewer.csproj", "{FB6B7354-6BEB-4F42-B034-2D300C369251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DTools", "3DTools\3DTools.csproj", "{5E787245-E84F-4696-A586-BCABD9130EEA}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectName0 = $
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Workspaces
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = ModelViewer\\ModelViewer.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = ModelViewer\\
+		SccProjectUniqueName2 = 3DTools\\3DTools.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = 3DTools\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB6B7354-6BEB-4F42-B034-2D300C369251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6B7354-6BEB-4F42-B034-2D300C369251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6B7354-6BEB-4F42-B034-2D300C369251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6B7354-6BEB-4F42-B034-2D300C369251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E787245-E84F-4696-A586-BCABD9130EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E787245-E84F-4696-A586-BCABD9130EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E787245-E84F-4696-A586-BCABD9130EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E787245-E84F-4696-A586-BCABD9130EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

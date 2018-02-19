@@ -1,0 +1,741 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FGlobus.Seguranca.DTO</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Seguranca.DTO.LicencaExclusivaDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_ACESSO.
+            <remarks>
+            Mapeamento OR em LicencaExclusivaDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.Sistema">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.QtdeAcesso">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.ChecksumAcesso">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaExclusivaDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.ParametroControleDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_PARAMETROS.
+            <remarks>
+            Mapeamento OR em ParametroControleDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ParametroControleDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ParametroControleDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.ParametroControleDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.ParametroControleDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ParametroControleDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ParametroControleDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.CodigoCadAutomatico">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.UsarPortuguesPadrao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.SenhaPosicional">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Empresagrupo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Email">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Senhasnap">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Servidorsmtp">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Servidorpop3">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Portaenvio">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.Portapop3">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ParametroControleDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.ConcedenteDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_CONCEDENTE.
+            <remarks>
+            Mapeamento OR em ConcedenteDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConcedenteDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConcedenteDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.ConcedenteDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.ConcedenteDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConcedenteDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConcedenteDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.CodIntConcedente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.ChecksumConcedente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.NomeConcedente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.CodigoCliente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.ChaveCliente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConcedenteDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.UsuarioDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_CADASTRODEUSUARIOS.
+            <remarks>
+            Mapeamento OR em UsuarioDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.UsuarioDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.UsuarioDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.UsuarioDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.UsuarioDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.UsuarioDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.UsuarioDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.Usuario">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.NomeUsuario">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.CodigoGrpUsu">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.Senha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SenhaTrVelocUsu">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SenhaTrCatraUsu">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.CodIntFunc">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.DataSenha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.Ativo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.LoginSnap">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SenhaSnap">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.PortaEnvio">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.ServidorSmtp">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.Email">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.PortaPop3">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.UsuarioAdministrador">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.Administrador">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do Administrador <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.AcessaTodasOpcoes">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.AcessaTodosMenus">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do AcessaTodosMenus <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.UsuarioDB">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SenhaDB">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.DigitaMotMan">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.DigitaMotoristaNaManutencao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do DigitaMotoristaNaManutencao <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.DigitaLinhaMan">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.DigitaLinhaNaManutencao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do DigitaLinhaNaManutencao <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.ExcluiOsExecServMan">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.FlgArrecadacao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.CodigoAux1">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SenhaWeb">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.NrInscrWeb">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.ServidorPop3">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.AcessoGlbReport">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.FlgCargas">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.VisualizaDocumentosExclusivos">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do VisualizaDocumentosExclusivos <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.TrocaSenhaTabela">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.TrocaSenha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do TrocaSenha <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.VerificarAcessoCampos">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.VerificarAcessoAosCampos">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do TrocaSenha <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.SkinGlobusMais">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.NEnviaEmailExternoGlobusMaisTMP">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.NEnviaEmailExternoGlobusMais">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>		
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.UtilizarSslEnvioTMP">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.UtilizarSslEnvio">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.UsuarioDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_ATUALIZABASE.
+            <remarks>
+            Mapeamento OR em StatusDeAtualizacaoDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.NReg">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.WinLogin">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.StatusDeAtualizacaoDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.LicencaGeralDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_ACESSOTOTAL.
+            <remarks>
+            Mapeamento OR em LicencaGeralDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaGeralDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaGeralDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaGeralDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.LicencaGeralDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.CodIntConcedente">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.QtdeTotal">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.ChecksumAcTot">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.LicencaGeralDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional FINPARAN.
+            <remarks>
+            Mapeamento OR em ConsumoDeLicencaDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Construtor com chave primária.
+            </summary>
+            <param name="estacao">Nome da estação.</param>
+            <param name="usuarioSO">Usuario sistema operacional.</param>
+            <param name="sistema">Silga do sistema.</param>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.Aplicacao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.Estacao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.DataHora">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.UsuarioWin">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.UsuarioGlobus">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.Sistema">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.ValidaSessao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.ConsumoDeLicencaDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional CTR_AUTORIZACAOSISTEMAS.
+            <remarks>
+            Mapeamento OR em AutorizacaoDoSistemaDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.#ctor(System.Int32,System.String)">
+            <summary>
+            Construtor com chave primária.
+            </summary>
+            <param name="codIntEmpAut">Codigo interno da empresa.</param>
+            <param name="sistema">Sigla do sistema.</param>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.IsChanged"/> e <see cref="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.CodIntEmpAut">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.Sistema">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.DataLimiteDeUso">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.CheckSumAutSistemas">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.SistemaOBJ">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:FGlobus.Controle.DTO.SistemaDTO"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.IsChanged">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Seguranca.DTO.AutorizacaoDoSistemaDTO.IsDeleted">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

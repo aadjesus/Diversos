@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestDoc</name>
+    </assembly>
+    <members>
+        <member name="T:TestDoc.ExplicitImplementation">
+            <summary>
+            A class with an explicit interface implementation
+            </summary>
+        </member>
+        <member name="M:TestDoc.ExplicitImplementation.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">
+            <summary>
+            Explicit CopyTo
+            </summary>
+            <param name="array">The array</param>
+            <param name="index">The index</param>
+        </member>
+        <member name="M:TestDoc.ExplicitImplementation.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Explicit IEnumerable
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:TestDoc.ExplicitImplementation.Clone">
+            <summary>
+            Non-explicit Clone
+            </summary>
+            <returns>The clone</returns>
+        </member>
+        <member name="P:TestDoc.ExplicitImplementation.System#Collections#ICollection#Count">
+            <summary>
+            Explicit count
+            </summary>
+        </member>
+        <member name="P:TestDoc.ExplicitImplementation.System#Collections#ICollection#IsSynchronized">
+            <summary>
+            Explicit IsSynchronized
+            </summary>
+        </member>
+        <member name="P:TestDoc.ExplicitImplementation.System#Collections#ICollection#SyncRoot">
+            <summary>
+            Explicit SyncRoot
+            </summary>
+        </member>
+        <member name="T:TestDoc.TestClass">
+            <summary>
+            A test class
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestClass.publicStringField">
+            <summary>
+            A public string field
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestClass.protectedStringField">
+            <summary>
+            A protected string field
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestClass.internalStringField">
+            <summary>
+            An internal string field
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestClass.protectedInternalStringField">
+            <summary>
+            A protected internal string field
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestClass.privateStringField">
+            <summary>
+            A private string field
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestClass.#cctor">
+            <summary>
+            A static constructor
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestClass.#ctor">
+            <summary>
+            A public constructor
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestClass.#ctor(System.String,System.Int32)">
+            <summary>
+            A protected constructor
+            </summary>
+            <param name="test">Test</param>
+            <param name="test2">Test 2</param>
+        </member>
+        <member name="M:TestDoc.TestClass.#ctor(System.String,System.Int64)">
+            <summary>
+            An internal constructor
+            </summary>
+            <param name="test">Test</param>
+            <param name="test2">Test 2</param>
+        </member>
+        <member name="M:TestDoc.TestClass.#ctor(System.String,System.Decimal)">
+            <summary>
+            A protected internal constructor
+            </summary>
+            <param name="test">Test</param>
+            <param name="test2">Test 2</param>
+        </member>
+        <member name="M:TestDoc.TestClass.#ctor(System.String,System.Single)">
+            <summary>
+            A private constructor
+            </summary>
+            <param name="test">Test</param>
+            <param name="test2">Test 2</param>
+        </member>
+        <member name="M:TestDoc.TestClass.PublicMethod">
+             <summary>
+             A public method
+             </summary>
+             <remarks>See <see cref="T:System.Collections.Generic.List`1"/>
+             for a generic list class.</remarks>
+             <example>
+             <code lang="cs" title="Test Code">
+             // Test
+             public void M1()
+             {
+             }
+            
+             #region Test
+            
+             // &lt;summary&gt;
+             // This is called to generate the namespace summary file and to
+             // purge the unwanted namespaces from the reflection information
+             // file.
+             // &lt;/summary&gt;
+             // &lt;param name="reflectionFile"&gt;The reflection file to fix&lt;/param&gt;
+             protected void GenerateNamespaceSummaries(string reflectionFile)
+             {
+                 XmlDocument sourceFile;
+                 XmlNodeList nsElements, nsItems;
+                 XmlNode item, member, tag;
+                 NamespaceSummaryItem nsi;
+                 string nsName, summaryText;
+                 bool hasExclusions = false, isDocumented;
+            
+                 this.ReportProgress(BuildStep.GenerateNamespaceSummaries,
+                     "-------------------------------\r\n" +
+                     "Generating namespace summary information...");
+            
+                 try
+                 {
+                     // Test
+                 }
+                 catch(Exception ex)
+                 {
+                     throw new BuilderException("Error generating namespace " +
+                         "summaries: " + ex.Message, ex);
+                 }
+             }
+             #endregion
+            
+             // Another test
+             public void M2()
+             {
+             }
+            
+             // End Test
+             </code>
+             </example>
+        </member>
+        <member name="M:TestDoc.TestClass.ProtectedMethod">
+            <summary>
+            A protected method (debug)
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestClass.InternalMethod">
+            <summary>
+            An internal method
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestClass.ProtectedInternalMethod">
+            <summary>
+            A protected internal method
+            </summary>
+            <example>
+            <code title="NOTE: Watch &amp; learn">
+            // See VB.NET example for VB.NET code extraction test
+            </code>
+            <code lang="vbnet" source="..\Class1.vb" title="Whole class" />
+            <code lang="vbnet" source="..\Class1.vb" region="Test Region"
+              title="Test region from class" />
+            <code lang="vbnet" source="..\Class1.vb" region="Embedded snippet"
+              title="Test region from method" />
+            </example>
+        </member>
+        <member name="M:TestDoc.TestClass.PrivateMethod">
+            <summary>
+            A private method()
+            </summary>
+        </member>
+        <member name="P:TestDoc.TestClass.PublicProperty">
+            <summary>
+            A public property
+            </summary>
+        </member>
+        <member name="P:TestDoc.TestClass.ProtectedProperty">
+            <summary>
+            A protected property
+            </summary>
+        </member>
+        <member name="P:TestDoc.TestClass.InternalProperty">
+            <summary>
+            An internal property
+            </summary>
+        </member>
+        <member name="P:TestDoc.TestClass.ProtectedInternalProperty">
+            <summary>
+            A protected internal property
+            </summary>
+        </member>
+        <member name="P:TestDoc.TestClass.PrivateProperty">
+            <summary>
+            A private property
+            </summary>
+        </member>
+        <member name="T:TestDoc.TestDerivedClass">
+            <summary>
+            A test derived class
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestDerivedClass.ProtectedMethod">
+             <summary>
+             Override of protected method
+             </summary>
+             <returns>A string</returns>
+             <example>
+             Test code block colorizer:
+            
+             <code lang="cs" outlining="false">
+             // Test
+             protected override string ProtectedMethod()
+             {
+                 return base.ProtectedMethod();
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:TestDoc.TestDerivedClass.ProtectedInternalMethod">
+            <summary>
+            An override of the protected internal method
+            </summary>
+            <example>
+            <code source="..\TestClass.cs" region="Methods"
+                title="Methods Region" />
+            </example>
+            <returns></returns>
+        </member>
+        <member name="M:TestDoc.TestDerivedClass.OnDirtyChanged(System.EventArgs)">
+            <summary>
+            This raises the <see cref="E:TestDoc.TestDerivedClass.DirtyChanged"/> event.
+            </summary>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="P:TestDoc.TestDerivedClass.PublicProperty">
+             <summary>
+             Override of public property
+             </summary>
+             <example>
+             Test code block colorizer:
+            
+             <code lang="cs" numberLines="false" outlining="false">
+             // Test
+             public override string PublicProperty
+             {
+                 get
+                 {
+                     return base.PublicProperty;
+                 }
+             }
+             </code>
+             <code lang="vbnet" numberLines="false" outlining="false">
+             ' Test
+             Public ReadOnly Overrides PublicProperty As String
+                 Get
+                     Return MyBase.PublicProperty
+                 End Get
+             End Property
+             </code>
+             </example>
+        </member>
+        <member name="E:TestDoc.TestDerivedClass.DirtyChanged">
+            <summary>
+            This event is raised when the dirty property changes
+            </summary>
+        </member>
+        <member name="T:TestDoc.TestSealedDerivedClass">
+            <summary>
+            A test sealed derived class
+            </summary>
+        </member>
+        <member name="M:TestDoc.TestSealedDerivedClass.PublicMethod">
+            <summary>
+            An override of the public method in the sealed class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestDoc.TestSealedDerivedClass.ProtectedMethod">
+            <summary>
+            An override of the protected method in the sealed class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TestDoc.TestSealedDerivedClass.PublicProperty">
+            <summary>
+            An override of the public property in the sealed class
+            </summary>
+        </member>
+        <member name="T:TestDoc.TestGeneral">
+            <summary>
+            Test general enumerated type
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestGeneral.None">
+            <summary>None</summary>
+        </member>
+        <member name="F:TestDoc.TestGeneral.One">
+            <summary>One</summary>
+        </member>
+        <member name="F:TestDoc.TestGeneral.Two">
+            <summary>Two</summary>
+        </member>
+        <member name="F:TestDoc.TestGeneral.Three">
+            <summary>Three</summary>
+        </member>
+        <member name="T:TestDoc.TestSerializable">
+            <summary>
+            Test serializable enumerated type
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestSerializable.None">
+            <summary>None</summary>
+        </member>
+        <member name="F:TestDoc.TestSerializable.One">
+            <summary>One</summary>
+        </member>
+        <member name="F:TestDoc.TestSerializable.Two">
+            <summary>Two</summary>
+        </member>
+        <member name="F:TestDoc.TestSerializable.Three">
+            <summary>Three</summary>
+        </member>
+        <member name="T:TestDoc.TestFlags">
+            <summary>
+            Test flags enumerated type
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestFlags.None">
+            <summary>None</summary>
+        </member>
+        <member name="F:TestDoc.TestFlags.One">
+            <summary>One</summary>
+        </member>
+        <member name="F:TestDoc.TestFlags.Two">
+            <summary>Two</summary>
+        </member>
+        <member name="F:TestDoc.TestFlags.Four">
+            <summary>Three</summary>
+        </member>
+        <member name="T:TestDoc.TestFlagsSerializable">
+            <summary>
+            Test flags, serializable enumerated type
+            </summary>
+        </member>
+        <member name="F:TestDoc.TestFlagsSerializable.None">
+            <summary>None</summary>
+        </member>
+        <member name="F:TestDoc.TestFlagsSerializable.One">
+            <summary>One</summary>
+        </member>
+        <member name="F:TestDoc.TestFlagsSerializable.Two">
+            <summary>Two</summary>
+        </member>
+        <member name="F:TestDoc.TestFlagsSerializable.Four">
+            <summary>Three</summary>
+        </member>
+        <member name="T:TestDoc.OverloadClass">
+            <summary>
+            A test class with overloads
+            </summary>
+        </member>
+        <member name="M:TestDoc.OverloadClass.Test(System.String)">
+            <summary>
+            Tests the specified x.
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="M:TestDoc.OverloadClass.Test(System.Int32)">
+            <summary>
+            Tests the specified x.
+            </summary>
+            <param name="y">The y.</param>
+            <obsolete>This method should not be used as it is obsolete.</obsolete>
+        </member>
+        <member name="M:TestDoc.OverloadClass.HtmlTagCommentTest">
+             <summary>
+             A test of HTML tags in comment text.
+             </summary>
+             <remarks>Test some common HTML tags:<br/><br/>Two breaks above.
+             <hr/>Horizontal rules<hr/>
+            
+             <p/>Entities: &#169; &lt; &gt; &amp; Space: !&#x20;!
+            
+             <p/>Paragraph 1.
+             <p/>Paragraph 2.
+             <p>Paragraph 3.</p>
+             <p>Paragraph 4.</p>
+            
+             <h1>Heading 1</h1>
+             <h2>Heading 2</h2>
+             <h3>Heading 3</h3>
+             <h4>Heading 4</h4>
+             <h5>Heading 5</h5>
+             <h6>Heading 6</h6>
+            
+             <p/><b>Bold</b> and <em>Emphasis</em>
+             <p/><i>Italic</i> and <strong>Strong</strong>
+             <p/><sub>Subscript</sub> and <sup>Superscript</sup>
+             <p/><ins>Inserted</ins> and <del>Deleted</del>
+            
+             <pre>
+                 Pre tag
+                 text block
+             </pre>
+            
+             <div style="background-color: yellow;">Yellow div</div>
+             <p/><span style="background-color: cyan;">Cyan span</span>
+            
+             <p/>Here comes a long quotation:
+             <blockquote>
+             here is a long quotation
+             here is a long quotation
+             here is a long quotation
+             here is a long quotation
+             </blockquote>
+            
+             <p/>Abbreviation: <abbr title="United Nations">UN</abbr>
+             <p/>Acronym: <acronym title="World Wide Web">WWW</acronym>
+            
+             <p/>Hyperlink: <a href="http://www.microsoft.com">Microsoft.com</a>
+            
+             <p/><table border="1">
+             <tr>
+             <th>Header 1</th>
+             <th>Header 2</th>
+             </tr>
+             <tr>
+             <td>row 1, cell 1</td>
+             <td>row 1, cell 2</td>
+             </tr>
+             <tr>
+             <td>row 2, cell 1</td>
+             <td>row 2, cell 2</td>
+             </tr>
+             </table>
+            
+             <ul>
+             <li>Coffee</li>
+             <li>Milk</li>
+             </ul>
+            
+             <ol>
+             <li>Coffee</li>
+             <li>Milk</li>
+             </ol>
+            
+             <dl>
+             <dt>Coffee</dt>
+             <dd>Black hot drink</dd>
+             <dt>Milk</dt>
+             <dd>White cold drink</dd>
+             </dl>
+            
+             <p/><img src="../Images/AddContent.gif" alt="Additional Content"/>
+             </remarks>
+        </member>
+        <member name="T:TestDoc.BaseTest">
+            <summary>
+            A base class
+            </summary>
+        </member>
+        <member name="M:TestDoc.BaseTest.Help">
+            <summary>
+            A protected method. Test UTF-8: propriété attachée
+            <para>
+            Another UTF-8 Test:
+            Implementa el comportamiento de los grupos de trabajo, los cuáles,
+            en este sistema pueden ser tres
+            </para>
+            <para>
+            And more:
+            Příliš žluťoučký kůň uháněl s úplavicí
+            </para>
+            </summary>
+        </member>
+        <member name="T:TestDoc.SealedTest">
+            <summary>
+            A sealed derived class
+            </summary>
+        </member>
+        <member name="M:TestDoc.SealedTest.#ctor">
+            <summary>
+            A private constructor
+            </summary>
+        </member>
+        <member name="M:TestDoc.SealedTest.Help">
+            <summary>
+            An override in the sealed class.<br/><br/>Test <b>break</b><br/>Another break.
+            </summary>
+        </member>
+        <member name="T:XMLTagsDemo.IMyInstalledModules">
+             <summary>
+             Represents the list of all installed modules.
+             </summary>
+             <example>
+             This partial example shows the class implementing this interface.
+             <code>
+                 public class ModuleCollection : IMyInstalledModules
+                 {
+                     #region IEnumerable&lt;IMyInstalledModules&gt; Members
+            
+                     /// &lt;summary&gt;
+                     /// Get an enumeration of modules
+                     /// &lt;/summary&gt;
+                     /// &lt;returns&gt;&lt;/returns&gt;
+                     public IEnumerator&lt;IMyInstalledModules&gt; GetEnumerator()
+                     {
+                         EnsureLoaded();
+                         return installedModules.Values.GetEnumerator();
+                     }
+            
+                     #endregion
+                 }
+             </code>
+             </example>
+        </member>
+        <member name="M:XMLTagsDemo.IMyInstalledModules.Load">
+            <summary>
+            Loads the installed modules.
+            </summary>
+            <remarks>The installed modules would normally be listed in the
+            database in the dbo.ApplicationModule table.</remarks>
+        </member>
+        <member name="T:TestDoc.GenericClass`2">
+            <summary>
+            A test generic class
+            </summary>
+        </member>
+        <member name="M:TestDoc.GenericClass`2.#ctor(`0,`1)">
+            <summary>
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+    </members>
+</doc>

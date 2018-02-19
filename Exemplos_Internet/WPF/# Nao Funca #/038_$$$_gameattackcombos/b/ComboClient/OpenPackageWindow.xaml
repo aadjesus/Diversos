@@ -1,0 +1,53 @@
+﻿<local:BaseWindow x:Class="GG.GameAttackCombos.Client.OpenPackageWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:GG.GameAttackCombos.Client"
+    x:Name="winOpenPackage" Title="Open Game Combos Package" WindowStartupLocation="CenterOwner"
+    ResizeMode="NoResize" Height="323" Width="535" ShowInTaskbar="False"
+    Icon="/GameAttackCombos;component/Game Attack Combos Icon.ico" 
+	Loaded="winOpenPackage_Loaded">
+	<Window.Resources>
+		<local:BinaryImageConverter x:Key="BinaryImageConverter" />
+	</Window.Resources>
+	<Grid Name="grdMain" Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<RadioButton Grid.Row="0" Name="rbExistingGames" Margin="0,0,0,3" IsChecked="True" Checked="rbExistingGames_Checked">_Existing Games</RadioButton>
+		<ListBox Grid.Row="1" Name="lbExistingGames" Margin="15,0,0,0" SelectionMode="Single" MouseDoubleClick="lbExistingGames_MouseDoubleClick" GotFocus="lbExistingGames_GotFocus" SelectionChanged="lbExistingGames_SelectionChanged">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Margin="5">
+						<Border BorderBrush="Black" BorderThickness="1" Width="72" Margin="0,0,0,5">
+							<Image Source="{Binding Path=IconData, Converter={StaticResource BinaryImageConverter}}" />
+						</Border>
+						<TextBlock Text="{Binding Title}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<RadioButton Grid.Row="2" Name="rbNewGame" Margin="0,10,0,3" Checked="rbNewGame_Checked">_New Game</RadioButton>
+		<local:WatermarkTextBox Grid.Row="3" x:Name="txtNewGameCode" Margin="15,0,0,0" WatermarkText="[ Enter a new game code. ]" GotFocus="txtNewGameCode_GotFocus" TextChanged="txtNewGameCode_TextChanged" />
+		<Grid Grid.Row="4" Margin="0,10,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<ProgressBar Grid.Column="0" Name="pbDownload" HorizontalAlignment="Stretch" Height="15" Visibility="Hidden" IsIndeterminate="True" />
+			<TextBlock Grid.Column="0" Name="tbStatus" Text="Downloading game package..." HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" />
+			<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+				<Button Name="btnOpen" Width="75" Height="23" Margin="5,0,0,0" IsDefault="True" Click="btnOpen_Click">Open</Button>
+				<Button Name="btnCancel" Width="75" Height="23" Margin="5,0,0,0" IsCancel="True">Cancel</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</local:BaseWindow>

@@ -1,0 +1,321 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Help File Category Properties</title>
+</head>
+
+<body>
+
+<h2>The Help File Category Properties</h2>
+The following properties are available in the <b>Help File</b> category.
+These control the appearance and features of the generated HTML help file.
+
+<ul>
+    <li><a href="#BinaryTOC">BinaryTOC</a></li>
+    <li><a href="#CopyrightProps">CopyrightHref and CopyrightText</a></li>
+    <li><a href="#FeedbackEMailAddress">FeedbackEMailAddress</a></li>
+    <li><a href="#FooterText">FooterText</a></li>
+    <li><a href="#HeaderText">HeaderText</a></li>
+    <li><a href="#HelpTitle">HelpTitle</a></li>
+    <li><a href="#HtmlHelpName">HtmlHelpName</a></li>
+    <li><a href="#IncludeFavorites">IncludeFavorites</a></li>
+    <li><a href="#Language">Language</a></li>
+    <li><a href="#NamingMethod">NamingMethod</a></li>
+    <li><a href="#Preliminary">Preliminary</a></li>
+    <li><a href="#PresentationStyle">PresentationStyle</a></li>
+    <li><a href="#PrjLink">ProjectLinkType</a></li>
+    <li><a href="#RootNS">RootNamespaceContainer</a></li>
+    <li><a href="#SdkLink">SdkLinkType</a></li>
+    <li><a href="#SyntaxFilters">SyntaxFilters</a></li>
+</ul>
+
+<h3><a class="Reference" name="BinaryTOC">BinaryTOC</a></h3>
+When set to true, the default, a binary table of contents is created for the
+help file.  According to the HTML Help Compiler documentation this can
+significantly reduce the amount of time required to load a very large help
+document.
+
+<h3><a class="Reference" name="CopyrightProps">CopyrightHref and CopyrightText</a></h3>
+These two properties can be used individually or in combination.  If only
+<code>CopyrightHref</code> is specified, a link will appear in the footer
+of each page for the specified URL.  If only the <code>CopyrightText</code>
+property is specified, that message appears in the footer of each page. If
+both are specified, a link appears in the footer of each page using the
+text from the <code>CopyrightText</code> property and the target of the
+link is set to the URL specified in the <code>CopyrightHref</code>
+property. See the <b>Customizing the Header and Footer Text</b> section for
+information on how to change the layout of this text.
+
+<p/>The value of the <code>CopyrightText</code> property is treated as
+plain text. It will be HTML encoded where necessary to resolve issues
+related to the ampersand character and the XML parser.  In addition, you
+can encode special characters such as the copyright symbol using an escaped
+hex value (i.e. &copy; = \xA9).
+
+<h3><a class="Reference" name="FeedbackEMailAddress">FeedbackEMailAddress</a></h3>
+If an e-mail address is specified in this property, an extra message is
+included in the footer of each page with a message saying "Send comments on
+this topic to" plus the specified e-mail address.  The e-mail address is
+rendered as a clickable <b>mailto:</b> link.  See the <b>Customizing the
+Header and Footer Text</b> section for information on how to change the
+layout of this text.
+
+<h3><a class="Reference" name="FooterText">FooterText</a></h3>
+This property can be used to insert an extra message in the footer of each
+page.  By default, it is blank.  HTML tags are supported within the text.
+See the <b>Customizing the Header and Footer Text</b> section for
+information on how to change the layout of the footer section.
+
+<h3><a class="Reference" name="HeaderText">HeaderText</a></h3>
+This property can be used to insert an extra message in the header of each
+page.  By default, it is blank.  HTML tags are supported within the text.
+See the <code>Preliminary</code> property for a way to mark all topics as
+preliminary.  See the <b>Customizing the Header and Footer Text</b> section
+for information on how to change the layout of the header section.
+
+<h3><a class="Reference" name="HelpTitle">HelpTitle</a></h3>
+This property is used to set the title for the help file.  This text will
+appear as the title of the help file's window.
+
+<h3><a class="Reference" name="HtmlHelpName">HtmlHelpName</a></h3>
+This property is used to specify the name of the HTML help file.  This name is
+used during the build process for a couple of other files so be sure that you
+do not specify a path or an extension on this value.  It should only specify
+the name part of the file.  The extension will always be .CHM and the path is
+controlled via the <code>OutputPath</code> property.
+
+<h3><a class="Reference" name="IncludeFavorites">IncludeFavorites</a></h3>
+If this property is set to true, a Favorites tab will be included in the
+compiled help file.  By default, it is set to false and only the Table of
+Contents and Search tabs are available.
+
+<h3><a class="Reference" name="Language">Language</a></h3>
+This property allows you to specify the language to use for the compiled
+help file.  The default is to use the English language resource files.
+Currently, language resource files are also available for German, French,
+Spanish, Italian, Russian, and Portuguese.  If you specify any other
+language, the help file will build but you will see a warning in the build
+output that the selected language resources could not be found and that it
+is defaulting to the US English (en-US) language files.  For more
+information on creating additional language resource files, see the help
+file topic by that name. If people are kind enough to supply additional
+translated files, I will add them in later releases.
+
+<h3><a class="Reference" name="NamingMethod">NamingMethod</a></h3>
+This property allows you to specify how the help topic filenames will be
+generated.  There are three options:
+
+<ul>
+    <li><code>Guid</code> will generate unique GUID values for each topic's
+filename.  This is the default value and is suitable for most help files.
+While this guarantees unique topic filenames, it does make it impossible to
+link to help topics from external sources such as application code or web
+pages that are not part of the help file's additional content as the names
+change with each build.</li>
+    <li><code>MemberName</code> will name each help topic after the member
+that it represents.  To avoid problems with invalid filename characters,
+the ":", ".", "`" (0x60), and "#" characters are replaced with an
+underscore in the member names.  Overloaded methods will generate duplicate
+names.  To avoid this problem, all subsequent duplicate names will have a
+counter added to the end of their name separated by an underscore (i.e.
+<code>M_Type_Method</code>, <code>M_Type_Method_1</code>,
+<code>M_Type_Method_2</code>, etc).  When this occurs, a message is
+recorded in the log file.  Also note that this may generate extremely long
+filenames when the full path is included.  This may cause the build to
+fail.  If so, try using the next option.</li>
+    <li><code>HashedMemberName</code> will name each topic using the hash
+value of the member name in hex format.  This results in a much shorter
+filename, even shorter than the GUID names, but it can still be easily
+reproduced by an application or ASP.NET web page in order to link to the
+help topic.  The actual member name is used without any of the character
+replacements noted for the <code>MemberName</code> option.  As with the
+<code>MemberName</code> option, overloaded methods will generate duplicate
+names.  To avoid this problem, all subsequent duplicate names will have a
+counter added to the end of their name separated by an underscore (i.e.
+<code>M:Type.Method</code>, <code>M:Type.Method_1</code>,
+<code>M:Type.Method_2</code>, etc).  When this occurs, a message is
+recorded in the log file.</li>
+</ul>
+
+<p/>Note that each help topic ID will have a prefix denoting what it
+represents:
+<ul>
+    <li><code>R:</code> represents the root namespace page.  There will always
+be a single entry named <code>R:Project</code>.</li>
+    <li><code>N:</code> represents a namespace help topic that lists all of
+the members of the given namespace.</li>
+    <li><code>T:</code> represents a type help topic that lists all of the
+members of the given type.</li>
+    <li><code>Overload:</code> represents a help topic that lists all of the
+overloads for a particular class member.</li>
+    <li><code>F:</code> represents a field member.</li>
+    <li><code>E:</code> represents an event member.</li>
+    <li><code>P:</code> represents a property.</li>
+    <li><code>M:</code> represents a method.</li>
+</ul>
+
+<p/>Below are some examples of the member names and their equivalent
+filenames.  The values in the first column would be used for the
+<code>HashedMemberName</code> option to create the hash value.  The second
+column would be used for the <code>MemberName</code> option.
+
+<table cellSpacing="0" cellPadding="5" width="80%" border="1">
+  <tr>
+    <th><b>HashedMemberName</b> (value to hash)</td>
+    <th><b>MemberName</b></td>
+  </tr>
+  <tr>
+    <td>R:Project</td>
+    <td>R_Project</td>
+  </tr>
+  <tr>
+    <td>N:SandcastleBuilder.Utils</td>
+    <td>N_SandcastleBuilder_Utils</td>
+  </tr>
+  <tr>
+    <td>T:SandcastleBuilder.Utils.BuildProcess</td>
+    <td>T_SandcastleBuilder_Utils_BuildProcess</td>
+  </tr>
+  <tr>
+    <td>Overload:SandcastleBuilder.Utils.BuilderException.#ctor</td>
+    <td>Overload_SandcastleBuilder_Utils_BuilderException__ctor</td>
+  </tr>
+  <tr>
+    <td>F:SandcastleBuilder.Utils.SandcastleProject.DefaultName</td>
+    <td>F_SandcastleBuilder_Utils_SandcastleProject_DefaultName</td>
+  </tr>
+  <tr>
+    <td>E:SandcastleBuilder.Utils.BuildProcess.BuildStepChanged</td>
+    <td>E_SandcastleBuilder_Utils_BuildProcess_BuildStepChanged</td>
+  </tr>
+  <tr>
+    <td>P:SandcastleBuilder.Utils.DependencyItem.DependencyPath</td>
+    <td>P_SandcastleBuilder_Utils_DependencyItem_DependencyPath</td>
+  </tr>
+  <tr>
+    <td>M:SandcastleBuilder.Utils.BuilderException.#ctor<br/>
+        M:SandcastleBuilder.Utils.BuilderException.#ctor_1 (overload #1)<br/>
+        M:SandcastleBuilder.Utils.BuilderException.#ctor_2 (overload #2)<br/>
+        M:SandcastleBuilder.Utils.BuilderException.#ctor_3 (overload #3)</td>
+    <td>M_SandcastleBuilder_Utils_BuilderException__ctor (note the double
+underscore before "ctor" due to the "#")<br/>
+        M_SandcastleBuilder_Utils_BuilderException__ctor_1 (overload #1)<br/>
+        M_SandcastleBuilder_Utils_BuilderException__ctor_2 (overload #2)<br/>
+        M_SandcastleBuilder_Utils_BuilderException__ctor_3 (overload #3)</td>
+  </tr>
+</table>
+
+<p/>To map a member name to its equivalent filename, you can use code
+similar to the following.  As noted in the code, the HTML files will reside
+in an <b>html\</b> folder and will have a <b>.htm</b> extension so be sure
+to add them to the resulting topic filename.
+
+<pre lang="cs" title="C# - MemberName">
+Regex reInvalidChars = new Regex("[:.`#]");
+
+// Assume memberName contains the member name of the
+// topic to show.
+string pageName = reInvalidChars.Replace(
+    memberName, "_");
+
+// Show the topic in the help file.  Remember to add
+// the "html\" folder name and the ".htm" extension.
+Help.ShowHelp(parentForm, helpFilePath,
+    HelpNavigator.Topic, @"html\" + pageName + ".htm");
+</pre>
+
+<pre lang="vbnet" title="VB.NET - MemberName">
+Dim reInvalidChars As New Regex("[:.`#]")
+
+' Assume memberName contains the member name of the
+' topic to show.
+Dim pageName As String = reInvalidChars.Replace( _
+    memberName, "_")
+
+' Show the topic in the help file.  Remember to add
+' the "html\" folder name and the ".htm" extension.
+Help.ShowHelp(parentForm, helpFilePath, _
+    HelpNavigator.Topic, "html\" & pageName & ".htm")
+</pre>
+
+<pre lang="cs" title="C# - HashedMemberName">
+// Assume memberName contains the member name of the
+// topic to show.
+string pageName = String.Format("{0:X}",
+    memberName.GetHashCode());
+
+// Show the topic in the help file.  Remember to add
+// the "html\" folder name and the ".htm" extension.
+Help.ShowHelp(parentForm, helpFilePath,
+    HelpNavigator.Topic, @"html\" + pageName + ".htm");
+</pre>
+
+<pre lang="vbnet" title="VB.NET - HashedMemberName">
+' Assume memberName contains the member name of the
+' topic to show.
+Dim pageName As String = String.Format("{0:X}", _
+    memberName.GetHashCode())
+
+' Show the topic in the help file.  Remember to add
+' the "html\" folder name and the ".htm" extension.
+Help.ShowHelp(parentForm, helpFilePath, _
+    HelpNavigator.Topic, "html\" & pageName & ".htm")
+</pre>
+
+<h3><a class="Reference" name="Preliminary">Preliminary</a></h3>
+When this property is set to true, it will mark all topics in the help file
+with a large, red message "[This is preliminary documentation and is
+subject to change.]".  This is a quick and easy way to mark documentation
+for beta software as preliminary and subject to change.  See the
+<b>Customizing the Header and Footer Text</b> section for information on
+how to change the layout of this text.
+
+<h3><a class="Reference" name="PresentationStyle">PresentationStyle</a></h3>
+This property is used to choose the presentation style that determines the
+layout and appearance of the help topics.  Sandcastle comes with two
+styles: <b>Prototype</b> (the default) and <b>VS2005</b>.  The files for
+each style are located in the <b>.\Presentation</b> folder under the main
+Sandcastle installation folder.  If you create your own styles, place the
+folders in the same location and the help file builder will detect them
+automatically and let you select them in the project.
+
+<h3><a class="Reference" name="PrjLink">ProjectLinkType</a></h3>
+This property is used to define the type of links used to reference other
+help topics referring to items within the documented assemblies.  It can be
+set to <b>None</b> which renders non-clickable links, <b>Local</b> (the
+default) which renders normal links defined with anchor tags, or
+<b>Index</b> which renders HTML 2.x style MS-Help links.  The <b>Index</b>
+option is only useful when generating an HTML 2.x help file.
+
+<h3><a class="Reference" name="RootNS">RootNamespaceContainer</a></h3>
+This property is used to specify whether or not a root namespace entry is
+added to the table of content to act as a container for the namespaces from
+the documented assemblies.  If true, a root <b>Namespaces</b> table of
+content entry will be created as the container of the namespaces in the
+documented assemblies.  If false, the default, the namespaces are listed in
+the table of content as root entries.
+
+<h3><a class="Reference" name="SdkLink">SdkLinkType</a></h3>
+This property is used to define the type of links used to reference other
+help topics referring to framework (SDK) help topics.  It can be
+set to <b>None</b> which renders non-clickable links, <b>Index</b> which
+renders HTML 2.x style MS-Help links, or <b>MSDN</b> (the default) which
+renders links to the online MSDN help content for the topic.  The
+<b>Index</b> option is only useful when generating an HTML 2.x help file.
+
+<h3><a class="Reference" name="SyntaxFilters">SyntaxFilters</a></h3>
+This property lets you specify which languages appear in the <b>Syntax</b>
+section of the help topics and, for the <b>Prototype</b> presentation
+style, the dropdown in the upper right of the topics.  It can be set to
+<code>CSharp</code>, <code>VisualBasic</code>, <code>CPlusPlus</code>,
+<code>JSharp</code>, a combination of those values, <code>All</code> to
+include them all, <code>Standard</code> (the default) for C#, VB.NET, and
+C++ only, or to <code>None</code> to remove the <b>Syntax</b> section
+entirely.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 4 -->

@@ -1,0 +1,223 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OutlookCalendar.Controls">
+
+    <Style TargetType="{x:Type local:CalendarTimeslotItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CalendarTimeslotItem}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="#A5BFE1"
+                            BorderThickness="0,0.5,0,0.5"
+                            x:Name="bd"
+                            Height="22">
+                        <Border CornerRadius="4,4,4,4" BorderThickness="1,1,1,1" BorderBrush="#5D8CC9" x:Name="hover" Opacity="0" Background="#10000000">
+                            <TextBlock Text="Click to add appointment" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#A39DD8" />
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="1" TargetName="hover" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:CalendarLedgerItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CalendarLedgerItem}">
+                    <Border Background="#E3EFFF"
+                            BorderBrush="#6593CF"
+                            BorderThickness="0,0,1,1"
+                            Height="44" Width="50">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{TemplateBinding TimeslotA}" Foreground="#9493CF" FontSize="16" Margin="0,3,0,0"/>
+                            <TextBlock Text="{TemplateBinding TimeslotB}" Foreground="#9493CF"  Margin="1.5,0,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>    
+    
+    <Style TargetType="{x:Type local:CalendarDay}">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <local:TimeslotPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter> 
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CalendarDay}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                        <StackPanel>
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />                            
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="White" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                            <local:CalendarTimeslotItem Background="#E6EDF7" />
+                        </StackPanel>
+                            <ItemsPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:CalendarLedger}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CalendarLedger}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel>
+                            <local:CalendarLedgerItem TimeslotA="12" TimeslotB="am" />
+                            <local:CalendarLedgerItem TimeslotA="1" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="2" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="3" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="4" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="5" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="6" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="7" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="8" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="9" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="10" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="11" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="12" TimeslotB="pm" />
+                            <local:CalendarLedgerItem TimeslotA="1" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="2" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="3" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="4" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="5" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="6" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="7" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="8" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="9" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="10" TimeslotB="00" />
+                            <local:CalendarLedgerItem TimeslotA="11" TimeslotB="00" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:Calendar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Calendar}">
+                    <Border Background="#E3EFFF"
+                            BorderBrush="#6593CF"
+                            BorderThickness="2,2,2,2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="38" />
+                                <RowDefinition Height="22" />
+                                <RowDefinition Height="*" />                                
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,0,0">
+                                <Button Height="25" Command="{x:Static local:Calendar.PreviousDay}" Background="{x:Null}" BorderBrush="{x:Null}">
+                                    <Image Source="Images\Previous.png" />
+                                </Button>
+                                <Button Height="25" Command="{x:Static local:Calendar.NextDay}" Background="{x:Null}" BorderBrush="{x:Null}">
+                                    <Image Source="Images\Next.png" />
+                                </Button>
+                            </StackPanel>
+                            <Border BorderBrush="#6593CF" BorderThickness="0,0,1,1" Grid.Column="0" Grid.Row="1" />                            
+                            <Border BorderBrush="#6593CF" BorderThickness="0,1,0,1" Background="#30000000" Grid.Column="1" Grid.Row="1">
+                                <TextBlock Text="{TemplateBinding CurrentDate}" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="dayHeader" />
+                            </Border>
+                            <ScrollViewer Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                
+                                    <local:CalendarLedger Grid.Column="0" />
+                                    <local:CalendarDay Grid.Column="1" x:Name="day" />
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:CalendarAppointmentItem}">
+        <Setter Property="StartTime" Value="{Binding StartTime}" />
+        <Setter Property="EndTime" Value="{Binding EndTime}" />
+        <Setter Property="Template">         
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CalendarAppointmentItem}">
+                    <Border CornerRadius="4,4,4,4" BorderThickness="1,1,1,1" BorderBrush="#5D8CC9" Background="#F1F5E3" Margin="1,1,5,1" Padding="3,1.5,0,1.5">
+                        <Border.Effect>
+                            <DropShadowEffect Opacity="0.5" />
+                        </Border.Effect>
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

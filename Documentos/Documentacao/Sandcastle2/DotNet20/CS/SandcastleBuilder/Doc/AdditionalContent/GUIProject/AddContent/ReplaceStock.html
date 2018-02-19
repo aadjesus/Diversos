@@ -1,0 +1,41 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Replacing Stock Content</title>
+</head>
+
+<body>
+
+<h2>Replacing Stock Content</h2>
+Another benefit of the additional content implementation is that it is
+possible to replace the stock content that appears in each help file.  The
+stock content is copied from the Sandcastle installation folder and
+consists of the following:
+
+<ul>
+    <li>The <b>icons\</b> folder contains stock help file images (i.e. for
+property icons, method icons, etc).</li>
+    <li>The <b>scripts\</b> folder contains stock JavaScript files.</li>
+    <li>The <b>styles\</b> folder contains stock style sheets.</li>
+</ul>
+
+In addition, the <b>html\</b> folder is created to contain the help pages
+generated from the documentation assemblies.  By adding an additional
+content entry that copies from a source path in your project to one of the
+stock paths above, you can replace the default entry of the same name. For
+example, I have customized the style sheet to modify the default font size,
+remove the indent from code blocks, and add underlines on hyperlinks when
+the mouse hovers over them.  To copy in the custom style sheet, I can add
+an additional content entry similar to the following:
+
+<pre>
+<b>SourcePath:</b> Styles\presentation.css
+<b>DestPath:</b>   Styles\
+</pre>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 8 -->

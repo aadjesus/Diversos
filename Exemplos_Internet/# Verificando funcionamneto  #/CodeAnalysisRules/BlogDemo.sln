@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogDemo.CodeAnalysisRules", "BlogDemo.CodeAnalysisRules\BlogDemo.CodeAnalysisRules.csproj", "{4D9D6638-DE3B-42FD-AA77-E427D3517AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogDemo.TestLibrary", "BlogDemo.TestLibrary\BlogDemo.TestLibrary.csproj", "{004273E5-383C-4F8A-9C28-C9E934D7FC09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9D6638-DE3B-42FD-AA77-E427D3517AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9D6638-DE3B-42FD-AA77-E427D3517AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9D6638-DE3B-42FD-AA77-E427D3517AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9D6638-DE3B-42FD-AA77-E427D3517AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004273E5-383C-4F8A-9C28-C9E934D7FC09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004273E5-383C-4F8A-9C28-C9E934D7FC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004273E5-383C-4F8A-9C28-C9E934D7FC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004273E5-383C-4F8A-9C28-C9E934D7FC09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CrypTool>
+  <Language>german</Language>
+  <OpenFileHistory>
+    <OpenFileHistory0></OpenFileHistory0>
+    <OpenFileHistory1></OpenFileHistory1>
+    <OpenFileHistory2></OpenFileHistory2>
+    <OpenFileHistory3></OpenFileHistory3>
+    <OpenFileHistory4></OpenFileHistory4>
+    <OpenFileHistory5></OpenFileHistory5>
+    <OpenFileHistory6></OpenFileHistory6>
+    <OpenFileHistory7></OpenFileHistory7>
+    <OpenFileHistory8></OpenFileHistory8>
+    <OpenFileHistory9></OpenFileHistory9>    
+  </OpenFileHistory>
+  <StartOptions>
+    <ShowHowToStartDialog>1</ShowHowToStartDialog>
+    <ShowExampleFileOnStartup>1</ShowExampleFileOnStartup>
+  </StartOptions>
+  <TextOptions>
+    <Alphabet>ABCDEFGHIJKLMNOPQRSTUVWXYZ</Alphabet>
+  </TextOptions>
+</CrypTool> 

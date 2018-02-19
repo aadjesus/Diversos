@@ -1,0 +1,96 @@
+﻿<Window x:Class="SampleApplication.SampleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vi="http://schemas.rhea.be/vidyano/2007/presentation"
+    Title="Real-Time Multilingual WPF Demo" Height="480" Width="590" WindowStartupLocation="CenterScreen" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+    
+    <Window.Resources>
+        <XmlDataProvider Source="SampleData.xml" x:Key="sampleData"/>
+    </Window.Resources>
+
+    <vi:LanguageSelector xml:lang="en-US" x:Name="langSelect">
+        <Grid>
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="0.5*"/>
+        		<RowDefinition Height="0.5*"/>
+        	</Grid.RowDefinitions>
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="0.5*"/>
+        		<ColumnDefinition Width="0.5*"/>
+        	</Grid.ColumnDefinitions>
+            <ListView Margin="8,8,8,8" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Mode=Default, Source={StaticResource sampleData}, XPath=/Products/Product}" x:Name="lst">
+            	<ListView.View>
+            		<GridView>
+            			<GridViewColumn Header="{vi:Translate Name}" vi:LanguageSelector.SourceLanguage="{Binding Path=(vi:LanguageSelector.SourceLanguage), ElementName=langSelect}" vi:LanguageSelector.TargetLanguage="{Binding Path=(vi:LanguageSelector.TargetLanguage), ElementName=langSelect}" DisplayMemberBinding="{Binding XPath=@Name}" Width="198" />
+                        <GridViewColumn Header="{vi:Translate Size}" vi:LanguageSelector.SourceLanguage="{Binding Path=(vi:LanguageSelector.SourceLanguage), ElementName=langSelect}" vi:LanguageSelector.TargetLanguage="{Binding Path=(vi:LanguageSelector.TargetLanguage), ElementName=langSelect}" DisplayMemberBinding="{Binding XPath=@Size}" Width="70" />
+                    </GridView>
+            	</ListView.View>
+            </ListView>
+            <Border Margin="8,8,8,8" Grid.Column="1" BorderThickness="1,1,1,0">
+            	<Border.BorderBrush>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<GradientStop Color="#FFD0D0D0" Offset="0"/>
+            			<GradientStop Color="#00FFFFFF" Offset="1"/>
+            		</LinearGradientBrush>
+            	</Border.BorderBrush>
+            	<Border.Background>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<GradientStop Color="#FFD0D0D0" Offset="1"/>
+            			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+            		</LinearGradientBrush>
+            	</Border.Background>
+            	<DockPanel LastChildFill="True" Width="Auto" Height="Auto">
+            		<TextBlock DockPanel.Dock="Top" FontFamily="Verdana" FontSize="20" Foreground="#FF0000FF" Text="{vi:Translate Description}" Margin="5,5,0,0" />
+            		<TextBlock DataContext="{Binding Path=SelectedItem, ElementName=lst}" Text="{vi:Translate Binding={Binding XPath=@Description}}" TextWrapping="Wrap" Margin="10,10,10,10" FontStyle="Italic"/>
+            	</DockPanel>
+            </Border>
+            <Border Margin="0,0,0,0" Grid.Row="1" BorderThickness="0,1,1,0" BorderBrush="#FF9D9D9D">
+            	<Grid>
+            		<Menu Width="Auto" VerticalAlignment="Top">
+            			<MenuItem Header="{vi:Translate File}">
+            				<MenuItem Header="{vi:Translate New ...}" />
+            				<MenuItem Header="{vi:Translate Open ...}" />
+            				<Separator />
+            				<MenuItem Header="{vi:Translate Save}" />
+            				<MenuItem Header="{vi:Translate Save As ...}" />
+            				<Separator />
+            				<MenuItem Header="{vi:Translate Exit}" />
+            			</MenuItem>
+            			<MenuItem Header="{vi:Translate Edit}">
+            				<MenuItem Header="{vi:Translate Cut}" Command="ApplicationCommands.Cut" />
+            				<MenuItem Header="{vi:Translate Copy}" Command="ApplicationCommands.Copy" />
+            				<MenuItem Header="{vi:Translate Paste}" Command="ApplicationCommands.Paste" />
+            			</MenuItem>
+            		</Menu>
+            		<Expander Margin="8,24.96,8,0" VerticalAlignment="Top" Height="173.04" Header="{vi:Translate More Data}" IsExpanded="True">
+            			<Grid>
+            				<Grid Height="55.88" VerticalAlignment="Top" Margin="24,5,8,0">
+            					<RadioButton Content="{vi:Translate Choice 1}" VerticalAlignment="Top" IsChecked="True" />
+            					<RadioButton Content="{vi:Translate Choice 2}" Margin="0,19.96,0,19.96" d:LayoutOverrides="Height"/>
+            					<RadioButton Content="{vi:Translate Choice 3}" VerticalAlignment="Bottom"/>
+            				</Grid>
+							<Grid Height="55.88" VerticalAlignment="Top" Margin="24,74,8,0">
+            					<CheckBox Content="{vi:Translate Selection 1}" VerticalAlignment="Top" IsChecked="True" />
+            					<CheckBox Content="{vi:Translate Selection 2}" Margin="0,19.96,0,19.96" d:LayoutOverrides="Height"/>
+            					<CheckBox Content="{vi:Translate Selection 3}" VerticalAlignment="Bottom"/>
+            				</Grid>
+            			</Grid>
+            		</Expander>
+            	</Grid>
+            </Border>
+			<Border Margin="0,0,0,0" Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#FF9D9D9D" Grid.Column="2">
+				<Grid Margin="3,3,3,3">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="0.5*"/>
+					</Grid.RowDefinitions>
+					<TextBox Margin="0,0,0,30" Text="I want coffee." TextWrapping="Wrap" x:Name="textToTranslate" />
+					<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="125" Height="26" Content="{vi:Translate Translate}" Click="Translate_Click"/>
+					<GroupBox Margin="0,0,0,0" Grid.Row="1" Header="{vi:Translate Translation}">
+						<TextBlock TextWrapping="Wrap" Margin="5,5,5,5" x:Name="translateResult" />
+					</GroupBox>
+				</Grid>
+			</Border>
+        </Grid>
+    </vi:LanguageSelector>
+</Window>

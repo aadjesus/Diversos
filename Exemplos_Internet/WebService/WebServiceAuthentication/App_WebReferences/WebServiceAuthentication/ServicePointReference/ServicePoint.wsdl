@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetToken">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UseService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UseServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UseServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="AuthenticateSoapIn">
+    <part name="parameters" element="s0:Authenticate" />
+  </message>
+  <message name="AuthenticateSoapOut">
+    <part name="parameters" element="s0:AuthenticateResponse" />
+  </message>
+  <message name="GetTokenSoapIn">
+    <part name="parameters" element="s0:GetToken" />
+  </message>
+  <message name="GetTokenSoapOut">
+    <part name="parameters" element="s0:GetTokenResponse" />
+  </message>
+  <message name="UseServiceSoapIn">
+    <part name="parameters" element="s0:UseService" />
+  </message>
+  <message name="UseServiceSoapOut">
+    <part name="parameters" element="s0:UseServiceResponse" />
+  </message>
+  <portType name="ServicePointSoap">
+    <operation name="Authenticate">
+      <input message="s0:AuthenticateSoapIn" />
+      <output message="s0:AuthenticateSoapOut" />
+    </operation>
+    <operation name="GetToken">
+      <input message="s0:GetTokenSoapIn" />
+      <output message="s0:GetTokenSoapOut" />
+    </operation>
+    <operation name="UseService">
+      <input message="s0:UseServiceSoapIn" />
+      <output message="s0:UseServiceSoapOut" />
+    </operation>
+  </portType>
+  <binding name="ServicePointSoap" type="s0:ServicePointSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/GetToken" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="UseService">
+      <soap:operation soapAction="http://tempuri.org/UseService" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ServicePoint">
+    <port name="ServicePointSoap" binding="s0:ServicePointSoap">
+      <soap:address location="http://localhost/WebServiceAuthentication/ServicePoint.asmx" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WaitingControl", "WaitingControl\WaitingControl.vbproj", "{A3D5A0F5-8328-4B8D-BA13-C401B7EDFF5F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WaitingControlHarness", "WaitingControlHarness\WaitingControlHarness.vbproj", "{29C1B3F0-4BAC-4786-BDC8-CD181E3F2F0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D5A0F5-8328-4B8D-BA13-C401B7EDFF5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D5A0F5-8328-4B8D-BA13-C401B7EDFF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D5A0F5-8328-4B8D-BA13-C401B7EDFF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D5A0F5-8328-4B8D-BA13-C401B7EDFF5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C1B3F0-4BAC-4786-BDC8-CD181E3F2F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C1B3F0-4BAC-4786-BDC8-CD181E3F2F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C1B3F0-4BAC-4786-BDC8-CD181E3F2F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C1B3F0-4BAC-4786-BDC8-CD181E3F2F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

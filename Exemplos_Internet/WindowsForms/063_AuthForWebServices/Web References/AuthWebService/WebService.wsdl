@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="SensitiveData">
+        <s:complexType />
+      </s:element>
+      <s:element name="SensitiveDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SensitiveDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="s0:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </types>
+  <message name="SensitiveDataSoapIn">
+    <part name="parameters" element="s0:SensitiveData" />
+  </message>
+  <message name="SensitiveDataSoapOut">
+    <part name="parameters" element="s0:SensitiveDataResponse" />
+  </message>
+  <message name="SensitiveDataAuthHeader">
+    <part name="AuthHeader" element="s0:AuthHeader" />
+  </message>
+  <portType name="WebServiceSoap">
+    <operation name="SensitiveData">
+      <documentation>Returns some sample data</documentation>
+      <input message="s0:SensitiveDataSoapIn" />
+      <output message="s0:SensitiveDataSoapOut" />
+    </operation>
+  </portType>
+  <portType name="WebServiceHttpGet" />
+  <portType name="WebServiceHttpPost" />
+  <binding name="WebServiceSoap" type="s0:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="SensitiveData">
+      <soap:operation soapAction="http://tempuri.org/SensitiveData" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header d5p1:required="true" message="s0:SensitiveDataAuthHeader" part="AuthHeader" use="literal" xmlns:d5p1="http://schemas.xmlsoap.org/wsdl/" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WebServiceHttpGet" type="s0:WebServiceHttpGet">
+    <http:binding verb="GET" />
+  </binding>
+  <binding name="WebServiceHttpPost" type="s0:WebServiceHttpPost">
+    <http:binding verb="POST" />
+  </binding>
+  <service name="WebService">
+    <port name="WebServiceSoap" binding="s0:WebServiceSoap">
+      <soap:address location="http://localhost/AuthForWebServices/WebService.asmx" />
+    </port>
+    <port name="WebServiceHttpGet" binding="s0:WebServiceHttpGet">
+      <http:address location="http://localhost/AuthForWebServices/WebService.asmx" />
+    </port>
+    <port name="WebServiceHttpPost" binding="s0:WebServiceHttpPost">
+      <http:address location="http://localhost/AuthForWebServices/WebService.asmx" />
+    </port>
+  </service>
+</definitions>

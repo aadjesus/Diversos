@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GG.GameAttackCombos.Services.ComboPackagesService" CodeBehind="ComboPackagesService.svc.cs" %>

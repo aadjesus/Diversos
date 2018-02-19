@@ -1,0 +1,259 @@
+<!--------------------------------------------------------------------------->  
+<!--                           INTRODUCTION                                
+
+ The Code Project article submission template (HTML version)
+
+Using this template will help us post your article sooner. To use, just 
+follow the 3 easy steps below:
+ 
+     1. Fill in the article description details
+     2. Add links to your images and downloads
+     3. Include the main article text
+
+That's all there is to it! All formatting will be done by our submission
+scripts and style sheets. 
+
+-->  
+<!--------------------------------------------------------------------------->  
+<!--                        IGNORE THIS SECTION                            -->
+<html>
+<head>
+<title>The Code Project</title>
+<Style>
+BODY, P, TD { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt }
+H2,H3,H4,H5 { color: #ff9900; font-weight: bold; }
+H2 { font-size: 13pt; }
+H3 { font-size: 12pt; }
+H4 { font-size: 10pt; color: black; }
+PRE { BACKGROUND-COLOR: #FBEDBB; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; }
+CODE { COLOR: #990000; FONT-FAMILY: "Courier New", Courier, mono; }
+</style>
+<link rel="stylesheet" type=text/css href="http://www.codeproject.com/styles/global.css">
+</head>
+<body bgcolor="#FFFFFF" color=#000000>
+<!--------------------------------------------------------------------------->  
+
+
+<!-------------------------------     STEP 1      --------------------------->
+<!--  Fill in the details (CodeProject will reformat this section for you) -->
+
+<pre>
+Title:       C# MP3 Sound Recording Component
+Author:      Lukasz Kwiecinski
+Email:       lukasz@istrib.org
+Member ID:   5165705
+Language:    C# 2.0
+Platform:    Windows, Managed DirectX 1.1, .NET 3.5 (2.0 compatible)
+Technology:  .NET, DirectSound Managed, LAME
+Level:       Intermediate
+Description: A .NET component capturing WAVE or MP3 sound from a sound card. LAME used for MP3 compression.
+Section      Multimetia
+SubSection   Audio and Video
+License:     <a href="http://www.codeproject.com/info/cpol10.aspx">CPOL</a>
+</pre>
+
+<!-------------------------------     STEP 2      --------------------------->
+<!--  Include download and sample image information.                       --> 
+
+<ul class=download>
+<li><a href="Mp3Capture.zip">Download source - 280 Kb</a></li>
+</ul>
+
+<p><img src="Mp3Capture.png" alt="Mp3 Capture Sample Application" width=300 height=315></p>
+
+
+<!-------------------------------     STEP 3      --------------------------->
+
+<!--  Add the article text. Please use simple formatting (<h2>, <p> etc)   --> 
+
+<h2>Introduction</h2>
+
+<p>It&#39;s surprising that there are no components for sound capture in .NET Framework 
+    3.5. Even designers of WPF and Silverlight 2.0 were focused on graphics so 
+    deeply that they forgot about applications which have to record sound from 
+    user&#39;s microphone. It is said that the next version of Silverlight will provide 
+    such functionality.</p>
+    <p>However, what you often want to achieve is to store the recorded sound in MP3 
+        file (or sent it as MP3 stream). That&#39;s legally complicated due to MP3 patent 
+        constraints. And for the same legal reason we can assume that we will not see 
+        MP3 functionality in Microsoft technologies soon (there is WMA instead).</p>
+    <p>Here you find an easy to use .NET 3.5 component providing Sound Capture 
+        functionality for a Windows application. It outputs data as raw PCM samples or a 
+        regular WAV file. Or you can just set one boolean property to use LAME dll to 
+        MP3-compress during the streaming process.</p>
+    <p>This article uses a subset of <a href="http://www.codeproject.com/KB/audio-video/MP3Compressor.aspx">C# MP3 Compressor</a> libraries written by
+        <a href="../../../script/Articles/MemberArticles.aspx?amid=325803">Idael Cardoso</a> which in turn are partially based on <A href="http://www.codeproject.com/cs/media/cswavplay.asp">A low level audio player in C#</A> by <A href="http://www.codeproject.com/script/profile/whos_who.asp?id=90428">Ianier Munoz</A>. See <A href="http://www.mp3dev.org/" target=_blank>this website</A> for technical and copyright information regarding the LAME project. </p>
+
+<h2>Background</h2>
+
+<p>I chose DirectX Managed (MDX) 1.1 as means of capturing sound. The MDX project is 
+    currently frozen since Microsoft moved to XNA Game Studio Express (a solution 
+    rather inadequate just for capturing bits of sound). MDX is descended by SlimDX Open 
+    Source project which roughly bases on similar interfaces to native DirectSound 
+    libraries. MDX is sufficient for our purpose. It is a set of .NET assemblies 
+    delegating calls to native DirectX dlls of 2006. We expect DirectX in a version 
+    backward compatible with the 2006 interfaces to be installed virtually on every 
+    Windows computer (yes, works also on Vista). </p>
+<p>The component captures sound via MDX (DirectX) from a sound card in raw PCM 
+    format. PCM format is a simple sequence of sound sample values. The samples can be 
+    8bit (0..255) or 16bit (-32768..32767) each. Stereo sound is a sequence of pairs 
+    of samples (left, right, left, right...). PCM is a proper format for streaming 
+    of raw data. Streaming means passing data in small chunks while the total volume 
+    of the data may be unknown. Raw PCM is the basic type of output of the 
+    <code>Mp3SoundCapture</code> component. If you direct stream of this format to a wav file, 
+    you <b>will not be able to play it</b> as WAV file must additionallycontain a 
+    RIFF header. </p>
+<p>WAV (RIFF) format requires the raw PCM data to be prefixed with RIFF header which 
+    apart from format information contains also information about the total length 
+    of the PCM data in the file. That&#39;s why you can&#39;t really stream RIFF data as the 
+    total size of the stream is usually unknown. WAV (RIFF) format is the second 
+    type of output of the <code>Mp3SoundCapture</code> component. If you direct stream of this 
+    format to a wav file, <b>you can play it</b>.</p>
+<p>The third type of <code>Mp3SoundCapture</code> component output is MP3. Bit rate (kbit/s) is a 
+        parameter which decides of MP3 sound quality. Apart from that, the sound quality 
+        depends on the format of PCM data being compressed. Currently <code>Mp3SoundCapture</code> 
+        component is only able to compress 22kHz, 16bit PCM data (that&#39;s what I needed, 
+        you may tweak the code referring to <a href="http://lame.sourceforge.net/">LAME documentation</a> in order to extend it). 
+    If you direct stream of this format to an MP3 file, <b>you can play it</b>.</p>
+    
+<h2>Using the code</h2>
+<h3>Setting up</h3>
+<p>From your application add a reference to <code>Istrib.Sound.Mp3.dll</code> assembly (see 
+    <code>Istrib.Sound.Example.WinForms</code> for example). MP3 compression requires also 
+    <code>lame_enc.dll</code> library to be located in binaries directory. If you 
+    experience &quot;Loader Lock&quot; warning while debugging your application refer <a href="#LoaderLock">here</a> for 
+    a workaround.</p>
+
+<p> <code>Istrib.Sound.Mp3.dll</code> assembly contains a single component: <code>Mp3SoundCapture</code>. You may think of this 
+    component as of a sound recorder. You set up its properties prior to calling <code>Start(...)</code> and <code>Stop()</code> 
+    methods 
+    (&quot;recorder buttons&quot;). You provide a writeable stream or a file 
+    path to each call to the <code>Start</code> method. Single instance of the 
+    component may capture sound many times to many streams/files one by one.</p>
+<h4>Component construction</h4>
+You may use VS Component Designer to drag and drop the <code>Mp3SoundCapture</code> component form VS toolbox to the component surface
+or create the component manually:
+<pre>
+    mp3SoundCapture = new Mp3SoundCapture();
+</pre>
+    <p>The 
+    component is ready to use just after construction. The default output is MP3 128kbit/s sampled at 22kHz, 16bit, mono. You specify sampling 
+    parameters and output format by setting the component&#39;s properties.</p>
+<h4>Specifying the capturing device (e.g. a microphone)</h4>
+<p>You may use a default Windows recording device:</p>
+<pre>
+    mp3SoundCapture.CaptureDevice = SoundCaptureDevice.Default;
+</pre>
+<p>Or choose one of the installed system sound capture devices:</p>
+<pre>
+    mp3SoundCapture.CaptureDevice = SoundCaptureDevice.AllAvailable.First();
+</pre>
+
+<h4>Specifying the output format</h4>
+<p>You set one of the 3 output types:</p>
+<ul>
+    <li><code>Mp3SoundCapture.Outputs.Mp3</code> - MP3 format</li>
+    <li><code>Mp3SoundCapture.Outputs.RawPcm</code> - Raw sample data (without a RIFF header)</li>
+    <li><code>Mp3SoundCapture.Outputs.Wav</code> - WAV file data (including the RIFF header)</li>    
+</ul>
+<pre>
+    mp3SoundCapture.OutputType = Mp3SoundCapture.Outputs.Mp3;
+</pre>
+
+<h4>Specifying the sampling parameters</h4>
+<p>For PCM or WAV output you may select any available sampling parameters supported by the sound card (<code>PcmSoundFormat.StandardFormats</code>):</p>
+<pre>
+    mp3SoundCapture.WaveFormat = PcmSoundFormat.StandardFormats.First();
+</pre>
+or
+    when you wish to hardcode it:
+<pre>
+    mp3SoundCapture.WaveFormat = PcmSoundFormat.Pcm22kHz16bitMono;
+</pre>
+<p>Sampling parameters for MP3 format are currently restricted to two values: <code>PcmSoundFormat.Pcm22kHz16bitMono</code> or <code>PcmSoundFormat.Pcm22kHz16bitStereo</code>:</p>
+<pre>
+    mp3SoundCapture.WaveFormat = Mp3SoundFormat.ValidSourceFormats.First();
+</pre>
+
+<h4>Specifying the MP3 bit rate</h4>
+<p>For MP3 output format you specify one of the available bit rates:</p>
+<pre>
+    mp3SoundCapture.Mp3BitRate = Mp3BitRate.ValidValues.First();
+</pre>
+or when you wish to hardcode it:
+<pre>
+    mp3SoundCapture.Mp3BitRate = Mp3BitRate.BitRate128;
+</pre>
+
+<h4>Specifying Volume Normalization Option</h4>
+<p>Often when an application records and stores many pieces of sound it is required to adjust volume o them so that all of them were at similar
+volume level. The <code>Mp3SoundCapture</code> has <code>NormalizeVolume</code> property at your disposal to perform the transform for you. Setting true
+causes all recorded sound pieces to be normalized i.e. volume of the most loud section of the piece will be turned up to the highest possible level and all
+other sections will be turned up proportionally.</p>
+<pre>
+    mp3SoundCapture.NormalizeVolume = true;
+</pre>
+<p>Note that normalization algorithm must read the whole stream to find the loudest place, then rewrite the whole stream adjusting the volume of each sample.
+It means that the entire stream must be buffered before it is directed to the output. <code>Mp3SoundCapture</code> uses a temporary file to buffer the data
+when normalizing. MP3 compression, if applied, is done after the normalization. When you have recorded a sizeable piece
+of sound the gross of processing takes place <b>after calling Stop()</b> method, not in the fly (as is when NormalizeVolume is false). It may take
+time. Here <code>Mp3SoundCapture</code> offers an <a href="#AsyncStop">asynchronous stopping</a>.</p>
+
+<h3>Capturing</h3>
+
+<p>To start capturing just call <code>Start(Stream)</code> method passing an open, writeable stream (you must close it yourself after capturing has stopped
+- not obvious when using <a href="#AsyncStop">asynchronous stopping</a>).
+You may also call <code>Start(string)</code> method passing an output file name.</p>
+<p>To stop capturing just call <code>Stop()</code> method.</p>
+
+<h3><a name="AsyncStop">Asynchronous Stop()</a></h3>
+
+<p>As mentioned <a href="#Normalization">above</a>, when normalizing, it may take some time after calling <code>Stop()</code> before all output data is ready. 
+    <code>Mp3SoundCapture</code> has an option of immediately leaving <code>Capturing</code> state and passing all buffer processing to a separate thread. You can then
+    start next recording not waiting for all data from the previous recording 
+    session to be written to the output buffer / file. By default the asynchronous 
+    behavior is disabled. To enable it, set:</p>
+<pre>
+    mp3SoundCapture.WaitOnStop = false;
+</pre>
+<p>Note that you cannot close your output buffer passed to <code>Start(Stream)</code> method until a <code>Mp3SoundCapture.Stopped</code> event is fired. 
+Use <code>Stopped</code> event arguments to get the reference to the stream which is ready for closing or - if you used <code>Start(string filePath)</code> 
+- a path of the file which has just been closed by <code>Mp3SoundCapture</code>.</p>
+
+<h2>Points of Interest</h2>
+
+<p>In some development environment configurations you may get <a name="LoaderLock"><b>&quot;Loader Lock&quot; error</b></a>
+    (which is really a warning) while starting your 
+    application under the debugger. It&#39;s a 
+    known design issue in Managed DirectX. You may disable this error in Visual 
+    Studio debugger settings (most of people do this without observable 
+    consequences). I preferred not to do this. Instead I found a workaround: if the 
+    project which references <code>Istrib.Sound.Mp3.dll</code> also explicitly 
+    references Managed DirectX assemblies (<code>Microsoft.DirectX</code> and 
+    <code>Microsoft.DirectX.DirectSound</code>), then the warning is not raised. 
+    Otherwise the warning is shown by the debugger each time any assembly 
+    referencing Managed DirectX libraries is loaded into the Application Domain. </p>
+<p>However - what I experienced - <b>you cannot use <i>Visual Studio Add Reference...</i> wizard</b> 
+    to add the DirectX assembly reference. If you did that the DirectX layer would 
+    not work at all. What you have to do is to open your csproj file with a text 
+    editor and add references manually:</p>
+<pre>
+    &lt;ItemGroup&gt;
+        ...
+        &lt;Reference Include="Microsoft.DirectX"&gt;
+          &lt;Name&gt;Microsoft.DirectX&lt;/Name&gt;
+        &lt;/Reference&gt;
+        &lt;Reference Include="Microsoft.DirectX.DirectSound"&gt;
+          &lt;Name&gt;Microsoft.DirectX.DirectSound&lt;/Name&gt;
+        &lt;/Reference&gt;
+        ...
+    &lt;/ItemGroup&gt;
+</pre>
+
+<i>Visual Studio Add Reference...</i> wizard generates identical XML except it includes full assembly version info. Should work as well... But it does
+not at least on my machines.
+
+<!-------------------------------    That's it!   --------------------------->
+</body>
+
+</html>

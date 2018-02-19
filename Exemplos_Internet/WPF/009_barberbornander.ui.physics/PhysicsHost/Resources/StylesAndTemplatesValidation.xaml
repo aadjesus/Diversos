@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="clr-namespace:PhysicsHost.ViewModel" 
+    xmlns:local="clr-namespace:PhysicsHost">
+	<!-- Resource dictionary entries should be defined here. -->
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="SolidRedBrush" Color="Red" />
+    <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+
+    <!-- Exception/ValidationRule ToolTip Style -->
+    <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="HasDropShadow" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Name="Border"
+                          Background="{StaticResource SolidRedBrush}"
+                          BorderBrush="{StaticResource SolidBorderBrush}"
+                          BorderThickness="1"
+                          Width="{TemplateBinding Width}"
+                          Height="{TemplateBinding Height}">
+                        <ContentPresenter
+                            TextElement.Foreground="White"
+                            Margin="4" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasDropShadow" Value="true">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="4"/>
+                            <Setter TargetName="Border" Property="SnapsToDevicePixels" Value="true"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <!-- Exception/ValidationRule Based Validitaion TextBox Style -->
+    <Style x:Key="validationStyleTextBox" TargetType="TextBox">
+        <Setter Property="Foreground" Value="#333333" />
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={RelativeSource Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

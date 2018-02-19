@@ -1,0 +1,72 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Show Missing Tags Category Properties</title>
+</head>
+
+<body>
+
+<h2>The Show Missing Tags Category Properties</h2>
+The following properties are available in the <b>Show Missing Tags</b>
+category.  These define for which help topic elements a red "missing"
+message will appear if the related tag has not been used where needed or
+contains no text.  These can help you locate help topics that need
+additional work to fully specify the documentation.  In addition to the
+inserted messages, a warning is written to the log file noting the missing
+item as well.
+
+<ul>
+    <li><a href="#AutoDocCtors">AutoDocumentConstructors</a></li>
+    <li><a href="#MissingParams">ShowMissingParams</a></li>
+    <li><a href="#MissingRemarks">ShowMissingRemarks</a></li>
+    <li><a href="#MissingReturns">ShowMissingReturns</a></li>
+    <li><a href="#MissingSummaries">ShowMissingSummaries</a></li>
+    <li><a href="#MissingValues">ShowMissingValues</a></li>
+</ul>
+
+<h3><a class="Reference" name="AutoDocCtors">AutoDocumentConstructors</a></h3>
+This is used to indicate whether or not constructors are automatically
+documented if they are missing the <code>&lt;summary&gt;</code> tag and for
+classes with compiler-generated constructors. Set this to true (the
+default) to automatically add default text for the <code>&lt;summary&gt;</code>
+tag on constructors that are missing it and for classes with a
+compiler-generated constructor. If set to false and
+<code>ShowMissingSummaries</code> is true, a "missing summary" warning will
+appear instead.  A message is also written to the log file when a
+constructor is auto-documented.
+
+<h3><a class="Reference" name="MissingParams">ShowMissingParams</a></h3>
+This property lets you indicate whether or not a red "missing" message is
+inserted into the help topic for each method parameter that is missing its
+related <code>&lt;param&gt;</code> tag documentation.  The default is true
+to add the message.
+
+<h3><a class="Reference" name="MissingRemarks">ShowMissingRemarks</a></h3>
+This property lets you indicate whether or not a red "missing" message is
+inserted into the help topic if the <code>&lt;remarks&gt;</code> tag has
+not been specified for the item.  The default is false to ignore items with
+missing or empty <code>&lt;remarks&gt;</code> tags.
+
+<h3><a class="Reference" name="MissingReturns">ShowMissingReturns</a></h3>
+This property lets you indicate whether or not a red "missing" message is
+inserted into the help topic if the method returns a value and the
+<code>&lt;returns&gt;</code> tag has not been specified for the item.  The
+default is True to add the message.
+
+<h3><a class="Reference" name="MissingSummaries">ShowMissingSummaries</a></h3>
+This property lets you indicate whether or not a red "missing" message is
+inserted into the help topic if the <code>&lt;summary&gt;</code> tag has
+not been specified for the item.  The default is True to add the message.
+
+<h3><a class="Reference" name="MissingValues">ShowMissingValues</a></h3>
+This property lets you indicate whether or not a red "missing" message is
+inserted into the help topic for property items that are missing the
+<code>&lt;value&gt;</code> tag documentation.  The default is false to
+ignore properties with missing or empty <code>&lt;value&gt;</code> tags.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 6 -->

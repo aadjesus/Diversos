@@ -1,0 +1,111 @@
+<!-- ==============================================
+      PaneledCube.xaml (c) 2007 by Charles Petzold
+     ============================================== -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Paneled Cube"
+      Title="Paneled Cube">
+    <DockPanel>
+        <ScrollBar Name="horz" DockPanel.Dock="Bottom" Orientation="Horizontal"
+                   Minimum="-180" Maximum="180"
+                   LargeChange="10" SmallChange="1" /> 
+
+        <ScrollBar Name="vert" DockPanel.Dock="Right" Orientation="Vertical"
+                   Minimum="-180" Maximum="180"
+                   LargeChange="10" SmallChange="1" /> 
+
+        <Viewport3D>
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup>
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+    
+                                <!-- Unit cube. -->
+                                <MeshGeometry3D
+                                    Positions="-0.5  0.5  0.5,  0.5  0.5  0.5,
+                                               -0.5 -0.5  0.5,  0.5 -0.5  0.5,
+                                                0.5  0.5 -0.5, -0.5  0.5 -0.5,
+                                                0.5 -0.5 -0.5, -0.5 -0.5 -0.5,
+                                               -0.5  0.5 -0.5, -0.5  0.5  0.5,
+                                               -0.5 -0.5 -0.5, -0.5 -0.5  0.5,
+                                                0.5  0.5  0.5,  0.5  0.5 -0.5,
+                                                0.5 -0.5  0.5,  0.5 -0.5 -0.5,
+                                               -0.5  0.5 -0.5,  0.5  0.5 -0.5,
+                                               -0.5  0.5  0.5,  0.5  0.5  0.5,
+                                                0.5 -0.5 -0.5, -0.5 -0.5 -0.5,
+                                                0.5 -0.5  0.5, -0.5 -0.5  0.5"
+
+                                    TriangleIndices=" 0  2  1,  1  2  3
+                                                      4  6  5,  5  6  7,
+                                                      8 10  9,  9 10 11,
+                                                     12 14 13, 13 14 15
+                                                     16 18 17, 17 18 19
+                                                     20 22 21, 21 22 23"
+
+                                    TextureCoordinates=
+                                        "0.000 0, 0.167 0, 0.000 1, 0.167 1,
+                                         0.167 0, 0.333 0, 0.167 1, 0.333 1,
+                                         0.333 0, 0.500 0, 0.333 1, 0.500 1,
+                                         0.500 0, 0.667 0, 0.500 1, 0.667 1,
+                                         0.667 0, 0.833 0, 0.667 1, 0.833 1,
+                                         0.833 0, 1.000 0, 0.833 1, 1.000 1" />
+                            </GeometryModel3D.Geometry>
+    
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial>
+                                    <DiffuseMaterial.Brush>
+                                        <VisualBrush 
+                                            RenderOptions.CachingHint="Cache">
+                                            <VisualBrush.Visual>
+                    <UniformGrid Rows="1" Columns="6">
+                        <Rectangle Width="10" Height="10" Fill="#FF0000" />
+                        <Rectangle Width="10" Height="10" Fill="#FFFF00" />
+                        <Rectangle Width="10" Height="10" Fill="#00FF00" />
+                        <Rectangle Width="10" Height="10" Fill="#00FFFF" />
+                        <Rectangle Width="10" Height="10" Fill="#0000FF" />
+                        <Rectangle Width="10" Height="10" Fill="#FF00FF" />
+                    </UniformGrid>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+
+                            <GeometryModel3D.Transform>
+                                <Transform3DGroup>
+                                    <RotateTransform3D>
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D Axis="0 1 0"
+                                                Angle="{Binding ElementName=horz,
+                                                                Path=Value}" />
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D>
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D Axis="1 0 0"
+                                                Angle="{Binding ElementName=vert,
+                                                                Path=Value}" />
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup>
+                            </GeometryModel3D.Transform>
+                        </GeometryModel3D>
+
+                        <!-- Light sources. -->
+                        <AmbientLight Color="Gray" />
+                        <DirectionalLight Color="Gray" Direction="2 -3 -1" />
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+
+            <!-- Camera. -->
+            <Viewport3D.Camera>
+                <PerspectiveCamera Position="-2 2 4"
+                                   LookDirection="2 -2 -4"
+                                   UpDirection="0 1 0"
+                                   FieldOfView="22.5" />
+            </Viewport3D.Camera>
+        </Viewport3D>
+    </DockPanel>
+</Page>

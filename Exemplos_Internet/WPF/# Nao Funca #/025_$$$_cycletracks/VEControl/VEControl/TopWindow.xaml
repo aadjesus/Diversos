@@ -1,0 +1,13 @@
+﻿<Window x:Class="VEControl.TopWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="TopWindow" Height="768" Width="1024"                   
+	WindowStyle="None" 
+	AllowsTransparency="True" 
+	Background="Transparent"
+    Topmost="True"
+    ShowInTaskbar="False">    
+    <Canvas Name="mainCanvas">        
+        <ContentControl Name="infoBox"/>
+    </Canvas>
+</Window>

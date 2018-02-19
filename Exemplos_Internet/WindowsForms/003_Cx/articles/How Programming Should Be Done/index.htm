@@ -1,0 +1,886 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>How Programming Should Be Done</title>
+</head>
+
+<body>
+
+<p>How Programming Should Be Done</p>
+<h2>Introduction</h2>
+<p>This is a concept piece for something I've figured we should all be able to 
+do at this point with regards to software development, but it seems we're still 
+years away from it.&nbsp; I was inspired to resurrect this idea from a 
+conversation I had with Jim Crafton today (June 10, 2009).&nbsp; It wasn't 
+anything specific that we talked about, but it inspired me to put this together.</p>
+<p>The idea is to keep components completely separated from each other, treating 
+them as producers and consumers of information, and to wire-up the communication 
+between them (which becomes the application domain glue, if you will) using 
+metadata.&nbsp; It's a simple and not original concept.&nbsp; Thus:</p>
+<ul>
+	<li>You have components, such as UI elements, business logic, persistent 
+	storage interfaces, services, and so forth.&nbsp; </li>
+	<li>These all implement consumer methods (event handlers) that are 
+	discoverable via reflection or attributes decorating the methods.</li>
+	<li>As well, there are events that the components (producers) can fire.&nbsp; A UI event 
+	will typically be something like a button click, list selection, or textbox 
+	change.&nbsp; A business component event will typically be a data value 
+	change.&nbsp; A data layer event will typically be a transaction response or 
+	&quot;here's some data&quot; event.</li>
+	<li>Now, what we should be able to do, by <i>drawing it</i>, is wire up 
+	producer events to consumer methods, thus connecting the components and 
+	implement the application-specific functionality.</li>
+</ul>
+<p>For this prototype, I'm not going to create a visual editor--I'm going 
+to illustrate the concept by showing you the end result of what would happen if you 
+were to wire up events and methods via metadata.&nbsp; Sound familiar?&nbsp; It 
+should.&nbsp; I expect (since I haven't written a 
+line of code yet as I write this introduction) that I'll use XML for this 
+wire-up (don't cringe, Jim.)&nbsp; </p>
+<p>Also, this approach can be implemented to perform the wire-up at runtime or 
+at compile-time by generating the necessary code from the metadata.&nbsp; I've 
+chosen runtime for this prototype.</p>
+<p>The biggest problem I'm facing is what to call this infrastructure.&nbsp; I 
+figure I'd go for something really basic.&nbsp; Cx.&nbsp; &quot;C&quot; because it's an 
+infrastructure for componentizing your application, &quot;x&quot; because anything cool 
+has to have an &quot;x&quot; in it.&nbsp; And if you say it really fast and slur the &quot;C&quot; and 
+&quot;x&quot; together, well, you get the idea, haha.</p>
+<h3>Why Not Do This All In XML?</h3>
+<p>It's definitely straightforward enough to do this with MyXaml and I would 
+assume XAML.&nbsp; The difference is primarily in the formatting of the XML.&nbsp; 
+For example, instead of listing assemblies using xmlns attributes, I'm defining 
+the assemblies by specifying their path and without all the additional stuff 
+that would otherwise be required: version numbers, etc.&nbsp; Also, the 
+assemblies are clearly defined in the metadata as being either a &quot;visual&quot; 
+component or a &quot;business&quot; component.&nbsp; I think that helps in understand the 
+concept.&nbsp; Besides, as a 
+future enhancement, I intend to support multiple components per assembly, and 
+list them under the assembly itself.&nbsp; What I've come to discover over 
+the years working with XML is that it's important to choose a schema (and thus 
+the XML format) that's appropriate for the task.&nbsp; And of course, I could 
+have created the classes for the object graph and used MyXaml or MycroXaml to 
+instantiate the graph, but that would have been overkill for the task at hand.</p>
+<h3>What About Existing Frameworks?</h3>
+<p><a href="http://msdn.microsoft.com/en-us/library/aa480450.aspx">Microsoft's 
+Composite UI Application Block (CAB)</a>,
+<a href="http://www.springframework.net/">Spring.NET</a>, 
+<a href="http://ninject.org/">NInject</a>, are frameworks that support concepts 
+such as <a href="http://www.martinfowler.com/articles/injection.html">Inversion 
+of Control (IoC), Dependency Injection (DI)</a>, and
+<a href="http://www.martinfowler.com/articles/injection.html">Aspect Oriented 
+Programming (AOP)</a>.&nbsp; They all deal with creating an architecture that supports a clean 
+separation of concern between components, so if you find this article 
+intriguing, I'd recommend you look into these and other frameworks.&nbsp; However, keep in 
+mind that while these frameworks claim to improve maintainability, 
+modularity, and so forth, the only way to achieve that (assuming the framework 
+is designed well) is if your application code utilizes that framework in a 
+consistent, well thought out manner.</p>
+<p>Ah, well, I'm not saying that my prototype Cx framework meets that criteria 
+as well.&nbsp; However, having worked with Spring.NET and CAB for a while, I 
+wanted to reduce the problem (is there a problem actually?) down to its simplest 
+form: how does a component with some important information communicate that 
+information to another component without creating a tight coupling between the 
+two?&nbsp; And can the wiring up of these components be done in a highly visual 
+manner, such as drawing a line from the producer's event to the consumer's 
+handler?&nbsp; Thus I created this 
+prototype because visually, this wire-up would be very simple to implement.&nbsp; 
+Maybe one of the WPF gods would be interested in helping me out with that!</p>
+<h2>Case Study Requirements</h2>
+<p>I'm going to choose something fairly simple--a basic calculator--for the case 
+study.&nbsp; The calculator will have four components:</p>
+<ol>
+	<li>a numeric keypad UI (buttons for the numbers 0 through 9 and a decimal 
+	point)</li>
+	<li>an arithmetic operator UI (buttons for the four basic operators, and 
+	equal button, and a clear button)</li>
+	<li>a display UI (for the number and result)</li>
+	<li>a business unit for processing the operations</li>
+</ol>
+<p>
+<img border="0" src="HowProgrammingShouldBeDon/components.jpg" width="498" height="229"></p>
+<h3>Component Communication</h3>
+<p>First, let's look at the communication between each component.</p>
+<ul>
+	<li>A button press on the numeric keypad UI updates the display UI, 
+	appending the number to the string displayed in the display UI</li>
+	<li>A change in the display UI updates the current value in the business 
+	unit data model</li>
+	<li>The clear button on the operator UI tells the business unit to clear 
+	it's state and set the current value to 0</li>
+	<li>An operator or equal button invokes the appropriate operator method on 
+	the business unit</li>
+	<li>An update to the business unit's current value updates the display UI</li>
+</ul>
+<h3>The Events</h3>
+<p>Given the above requirements for communication, we can describe the minimum 
+events required.&nbsp; All components participate in being information producers 
+and thus have at least one event.</p>
+<p>The numeric keypad UI component requires:</p>
+<ul>
+	<li>an event for each button representing the digits 0-9 and the decimal 
+	point</li>
+</ul>
+<p>The operator UI component requires:</p>
+<ul>
+	<li>an operator add event</li>
+	<li>an operator subtract event</li>
+	<li>an operator multiply event</li>
+	<li>an operator divide event</li>
+	<li>an equals event</li>
+	<li>a clear event</li>
+</ul>
+<p>The display UI component requires:</p>
+<ul>
+	<li>a text value changed event</li>
+</ul>
+<p>The business unit component requires:</p>
+<ul>
+	<li>a current value changed event</li>
+</ul>
+<h3>The Consumers</h3>
+<p>Only two components are consumers: the display UI component and the 
+business UI component.&nbsp; These are the components that are going to consume 
+to other components' events (nothing prevents a component from consuming to itself.)</p>
+<p>The display UI component has methods that can consume :</p>
+<ul>
+	<li>set display text</li>
+	<li>append display text</li>
+	<li>set state to display new text</li>
+</ul>
+<p>The business unit component:</p>
+<ul>
+	<li>current value is updated</li>
+	<li>operation plus</li>
+	<li>operation minus</li>
+	<li>operation multiply</li>
+	<li>operation divide</li>
+	<li>operation equals</li>
+	<li>operation clear</li>
+</ul>
+<h3>State Issues</h3>
+<p>Let's look briefly at state issues in the display UI and business unit 
+components.</p>
+<p>The display UI component needs to know whether to begin a new display text or 
+append to the existing display text when the &quot;append display text&quot; method is 
+invoked.&nbsp; This is determined as follows: the component is initially in the 
+&quot;display as new text&quot; state.&nbsp; When the first append display text method is 
+called, the component goes into the &quot;append&quot; state.&nbsp; When the &quot;set display 
+text&quot; method is called, the component returns to the &quot;display as new text&quot; 
+state.&nbsp; This state can also be forced by the operator events.</p>
+<p>The business unit also needs to retain some state information regarding the 
+disposition of the stack.&nbsp; Basically, when the clear method is called 
+(we're going for very simplistic here) the stack is cleared.</p>
+<h3>Wire-Up</h3>
+<p>Now let's look at what the event wire-up looks like.</p>
+<ul>
+	<li>The numeric keypad component events wire up to the append display text 
+	method on the display component.</li>
+	<li>The display component's text value changed event is wired up the 
+	business unit's current value updated method</li>
+	<li>Any operator event (operator UI component) is wired up to the set 
+	state to display new text method (display UI component)</li>
+	<li>the operator events (operator UI component) are wired up to their 
+	respective methods in the business component</li>
+	<li>the clear and equal events (operator UI component) are wired up to their 
+	respective methods in the business component</li>
+	<li>the business unit's current value changed event is wired up to the 
+	display component's set display text event</li>
+</ul>
+<p>Data binding could be used between the textbox in the display component and 
+the business model.&nbsp; I chose not to use data binding at this point to keep 
+this case study consistent and simple.</p>
+<h3>Concluding The Case Study Requirements</h3>
+<p>I've now defined all the events, interfaces, states, and wire-ups necessary 
+to create a basic calculator from discrete components.&nbsp; Granted, this seems 
+to be overkill, but the point here is that we're using the calculator as proof 
+of concept.&nbsp; What we're really vetting here is the infrastructure necessary 
+to support this kind of programming style.</p>
+<h2>Implementation</h2>
+<p>All the UI components are implemented as user controls, basically as a 
+container for a collection of controls.&nbsp; The actual layout of the 
+components in the application form is described in XML.&nbsp; The reader 
+familiar with my articles will be shocked when they realize that I didn't use 
+XML to define the component UI's!</p>
+<p>Please realize that none of the components knows anything about the other 
+components, and the only assembly reference required by the components is for 
+the interfaces (stubs basically) that components implement and specialized 
+EventArg class helpers to wire-up producers and consumers.</p>
+<p>Also, rather than start off with the infrastructure, I'm going to describe 
+the concept from the top down, looking first at the startup application, then 
+the visual components, then the business unit, and finally the infrastructure 
+that supports the assembly loading and wire-up.</p>
+<h3>The Metadata File</h3>
+<p>For reference in the discussion below, here is the metadata file:</p>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Cx&gt;
+  &lt;Components&gt;
+    &lt;VisualComponent Name=&quot;Display&quot; 
+        Assembly=&quot;..\..\..\TextDisplayComponent\bin\debug\TextDisplayComponent.dll&quot; 
+        Location=&quot;10, 10&quot;/&gt;
+    &lt;VisualComponent Name=&quot;Keypad&quot; 
+        Assembly=&quot;..\..\..\NumericKeypadComponent\bin\debug\NumericKeypadComponent.dll&quot; 
+        Location=&quot;10, 40&quot;/&gt;
+    &lt;VisualComponent Name=&quot;Operators&quot; 
+        Assembly=&quot;..\..\..\OperatorComponent\bin\debug\OperatorComponent.dll&quot; 
+        Location=&quot;130, 40&quot;/&gt;
+    &lt;BusinessComponent Name=&quot;Calculator&quot; 
+        Assembly=&quot;..\..\..\BusinessUnitComponent\bin\debug\BusinessUnitComponent.dll&quot;/&gt;
+  &lt;/Components&gt;
+  &lt;Wireups&gt;
+    &lt;WireUp Producer=&quot;Keypad.KeypadEvent&quot; Consumer=&quot;Display.OnChar&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnPlus.Click&quot; Consumer=&quot;Calculator.Add&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnMinus.Click&quot; Consumer=&quot;Calculator.Subtract&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnMultiply.Click&quot; Consumer=&quot;Calculator.Multiply&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnDivide.Click&quot; Consumer=&quot;Calculator.Divide&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnEqual.Click&quot; Consumer=&quot;Calculator.Equal&quot;/&gt;
+
+    &lt;WireUp Producer=&quot;Operators.btnPlus.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnMinus.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnMultiply.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnDivide.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;
+    &lt;WireUp Producer=&quot;Operators.btnEqual.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;
+
+    &lt;WireUp Producer=&quot;Operators.btnClear.Click&quot; Consumer=&quot;Calculator.Clear&quot;/&gt;
+    &lt;WireUp Producer=&quot;Display.DisplayTextChanged&quot; Consumer=&quot;Calculator.SetCurrentValue&quot;/&gt;
+    &lt;WireUp Producer=&quot;Calculator.CurrentValueChanged&quot; Consumer=&quot;Display.OnText&quot;/&gt;
+  &lt;/Wireups&gt;
+&lt;/Cx&gt;
+</pre>
+<h3>The Startup Application</h3>
+<p>The startup application consists of two pieces: initializing the 
+infrastructure and adding the visual components to the application form.</p>
+<h4>Initializing The Infrastructure</h4>
+<pre>static void Main()
+{
+  Application.EnableVisualStyles();
+  Application.SetCompatibleTextRenderingDefault(false);
+
+  CxApp cx = new CxApp();
+  cx.LoadXml(Path.GetFullPath(&quot;cx.xml&quot;));
+  cx.LoadVisualComponents();
+  cx.LoadBusinessComponents();
+  cx.WireUpComponents();
+
+  Application.Run(new Form1(cx.VisualComponents));
+}</pre>
+<p>As we can see, the infrastructure initialization consists of loading the the 
+XML metadata, then loading the visual and business components and wiring up the 
+components.&nbsp; Everything gets instantiated before the wire-up occurs (in 
+fact, that's a pre-requisite of wiring up the events.)&nbsp; </p>
+<p style="margin-left: 40px"><u>Note</u></p>
+<p style="margin-left: 40px">More sophisticated 
+frameworks allow for late initialization and wire-up, but to do so requires 
+instantiating the class through a helper service of the framework, something 
+like:</p>
+<pre style="margin-left: 40px">Foo foo=Framework.CreateObject&lt;Foo&gt;();</pre>
+<p style="margin-left: 40px">or is handled automatically when a component 
+definition has dependencies that must be instantiated at the same time.</p>
+<p>The Form object gets the collection of visual components and lays them out on 
+the form as described in the XML metadata:</p>
+<pre>public Form1(List&lt;ICxComponent&gt; visualComponents)
+{
+  InitializeComponent();
+
+  foreach (ICxComponent comp in visualComponents)
+  {
+    // Isn't there a Parse method to do this???
+    string[] loc=comp.Location.Split(',');
+    Point p = new Point(Convert.ToInt32(loc[0].Trim()), Convert.ToInt32(loc[1].Trim()));
+
+    Control ctrl = (Control)comp.Instance;
+    ctrl.Location = p;
+    Controls.Add(ctrl);
+  }
+}</pre>
+<p>The result is a form composing of the three visual components:</p>
+<p>
+<img border="0" src="HowProgrammingShouldBeDon/form.jpg" width="233" height="204"></p>
+<h3>The Display Component</h3>
+<p>The display component consists of a user control with a <code>TextBox</code> control: </p>
+<p>
+<img border="0" src="HowProgrammingShouldBeDon/display.jpg" width="171" height="43"></p>
+<p>The code implements everything I discussed above in the requirements:</p>
+<pre>public partial class TextDisplay : UserControl, ICxVisualComponent
+{
+  public event CxStringDlgt DisplayTextChanged;
+
+  protected enum State
+  {
+    NewText,
+  AddChar,
+  }
+
+  protected State state;
+
+  public TextDisplay()
+  {
+    InitializeComponent();
+    tbDisplay.TextChanged += new EventHandler(OnTextChanged);
+    state = State.NewText;
+  }
+
+  public void OnChar(object sender, CxEventArgs&lt;char&gt; args)
+  {
+    switch (state)
+    {
+      case State.AddChar:
+        tbDisplay.Text = tbDisplay.Text + args.Data;
+        break;
+
+      case State.NewText:
+        tbDisplay.Text = args.Data.ToString();
+        state = State.AddChar;
+        break;
+    }
+  }
+
+  public void OnText(object sender, CxEventArgs&lt;string&gt; args)
+  {
+    tbDisplay.Text = args.Data;
+    state = State.NewText;
+  }
+
+  public void StateIsNewText(object sender, EventArgs args)
+  {
+    state = State.NewText;
+  }
+
+  protected void OnTextChanged(object sender, EventArgs e)
+  {
+    if (DisplayTextChanged != null)
+    {
+      DisplayTextChanged(this, new CxEventArgs&lt;string&gt;(tbDisplay.Text));
+    }
+  }
+}</pre>
+<p>Barring my inconsistent method naming convention, you can see how the 
+component handles:</p>
+<ul>
+	<li>it's state (whether characters clear the current display or append to 
+	the current display)</li>
+	<li>is capable of consuming char and text messages</li>
+	<li>is capable of producing a text changed message</li>
+</ul>
+<p>This is simple enough, and not being entangled with any other functionality, 
+would be a piece of cake to unit test.</p>
+<h3>The Numeric Keypad Component</h3>
+<p>
+<img border="0" src="HowProgrammingShouldBeDon/keypad.jpg" width="130" height="131"></p>
+<p>This component is a producer of character messages, where the 
+character corresponds to the button pressed.&nbsp; The implementation is 
+trivial (read easily unit tested):</p>
+<pre>public partial class NumericKeypad : UserControl, ICxVisualComponent
+{
+  public event CxCharDlgt KeypadEvent;
+
+  public NumericKeypad()
+  {
+    InitializeComponent();
+  }
+
+  protected virtual void RaiseKeypadEvent(char c)
+  {
+    if (KeypadEvent != null)
+    {
+      KeypadEvent(this, new CxEventArgs&lt;char&gt;(c));
+    }
+  }
+
+  protected void KeypadClick(object sender, EventArgs e)
+  {
+    string padItem = (string)((Control)sender).Tag;
+    RaiseKeypadEvent(padItem[0]);
+  }
+}</pre>
+<p>Again note my inconsistent naming convention.&nbsp; It's somewhat of a 
+struggle to decide how to call a method that fires an event vs. handles an 
+event.</p>
+<h3>The Operator Component</h3>
+<p>
+<img border="0" src="HowProgrammingShouldBeDon/operators.jpg" width="75" height="111"></p>
+<p>This component is a bit different.&nbsp; Since the buttons are &quot;commands&quot;, 
+there is no implementation other than what Visual Studio creates:</p>
+<pre>public Operator()
+{
+  InitializeComponent();
+}</pre>
+<p>Instead, being command events, the metadata describes the wire-up by directly 
+referencing the button click events, for example:</p>
+<pre>&lt;WireUp Producer=&quot;Operators.btnPlus.Click&quot; Consumer=&quot;Display.StateIsNewText&quot;/&gt;</pre>
+<h3>The Business Unit Component</h3>
+<p>The code for this component should be self-explanatory.&nbsp; At this point, 
+it would be good to review the metadata to see how the business logic is 
+involved in the UI.</p>
+<pre>public class Calculator : ICxBusinessComponent
+{
+  public event CxStringDlgt CurrentValueChanged;
+
+  protected enum PendingOperation
+  {
+    None,
+    Add,
+    Subtract,
+    Multiply,
+    Divide,
+  }
+
+  protected PendingOperation pendingOperation;
+  protected string lastValue;
+  protected string currentValue;
+  
+  public string CurrentValue
+  {
+    get { return currentValue; }
+    set
+    {
+      if (currentValue != value)
+      {
+        currentValue = value;
+        OnCurrentValueChanged();
+      }
+    }
+  }
+
+  public Calculator()
+  {
+    pendingOperation = PendingOperation.None;
+  }
+
+  public void SetCurrentValue(object sender, CxEventArgs&lt;string&gt; args)
+  {
+    CurrentValue = args.Data;
+  }
+
+  public void Add(object sender, EventArgs e)
+  {
+    Calculate();
+    lastValue = currentValue;
+    pendingOperation = PendingOperation.Add;
+  }
+
+  public void Subtract(object sender, EventArgs e)
+  {
+    Calculate();
+    lastValue = currentValue;
+    pendingOperation = PendingOperation.Subtract;
+  }
+
+  public void Multiply(object sender, EventArgs e)
+  {
+    Calculate();
+    lastValue = currentValue;
+    pendingOperation = PendingOperation.Multiply;
+  }
+
+  public void Divide(object sender, EventArgs e)
+  {
+    Calculate();
+    lastValue = currentValue;
+    pendingOperation = PendingOperation.Divide;
+  }
+
+  public void Equal(object sender, EventArgs e)
+  {
+    Calculate();
+    pendingOperation = PendingOperation.None;
+  }
+
+  public void Clear(object sender, EventArgs e)
+  {
+    CurrentValue = &quot;0&quot;;
+    pendingOperation = PendingOperation.None;
+  }
+
+  protected void Calculate()
+  {
+    try
+    {
+      switch (pendingOperation)
+      {
+        case PendingOperation.Add:
+          CurrentValue = Convert.ToString(Convert.ToDouble(lastValue) + Convert.ToDouble(currentValue));
+          break;
+
+        case PendingOperation.Subtract:
+          CurrentValue = Convert.ToString(Convert.ToDouble(lastValue) - Convert.ToDouble(currentValue));
+          break;
+
+        case PendingOperation.Multiply:
+          CurrentValue = Convert.ToString(Convert.ToDouble(lastValue) * Convert.ToDouble(currentValue));
+          break;
+
+        case PendingOperation.Divide:
+          CurrentValue = Convert.ToString(Convert.ToDouble(lastValue) / Convert.ToDouble(currentValue));
+          break;
+      }
+    }
+    catch
+    {
+      CurrentValue = &quot;Error&quot;;
+    }
+
+  pendingOperation = PendingOperation.None;
+  }
+
+  protected void OnCurrentValueChanged()
+  {
+    if (CurrentValueChanged != null)
+    {
+      CurrentValueChanged(this, new CxEventArgs&lt;string&gt;(currentValue));
+    }
+  }
+}</pre>
+<h3>The Infrastructure</h3>
+<p>The following describes the code that implements the minimal infrastructure 
+for the Cx prototype.</p>
+<h4>Interfaces</h4>
+<p>There are a few interfaces I use to abstract out the concrete implementation, 
+which are defined in the Cx.Interfaces assembly.&nbsp; These are very 
+light-weight interfaces, mostly to represent the structure of the components.</p>
+<pre>namespace Cx.Interfaces
+{
+  /// &lt;summary&gt;
+  /// Base interface for a component instance.
+  /// &lt;/summary&gt;
+  public interface ICxComponent
+  {
+    ICxComponentClass Instance { get; }
+  }
+
+  /// &lt;summary&gt;
+  /// Properties and methods specific to visual components.
+  /// &lt;/summary&gt;
+  public interface ICxVisualComponent
+  {
+    string Location { get; }
+  }
+
+  /// &lt;summary&gt;
+  /// Properties and methods specific to business components.
+  /// &lt;/summary&gt;
+  public interface ICxBusinessComponent
+  {
+    // None right now.
+  }
+
+  /// &lt;summary&gt;
+  /// Base class for defining a class as a component. Should not be
+  /// directly inherited from a component class.
+  /// &lt;/summary&gt;
+  public interface ICxComponentClass
+  {
+  }
+
+  /// &lt;summary&gt;
+  /// Any class inheriting this interface is a visual component.
+  /// &lt;/summary&gt;
+  public interface ICxVisualComponentClass : ICxComponentClass
+  {
+  }
+
+  /// &lt;summary&gt;
+  /// Any class inheriting this interface is a business component.
+  /// &lt;/summary&gt;
+  public interface ICxBusinessComponentClass : ICxComponentClass
+  {
+  }
+}</pre>
+<h4>Loading Components</h4>
+<p>There are two methods for loading components--one for visual components and 
+one for business components.&nbsp; They're very similar, so I'll only show you 
+the visual component loader:</p>
+<pre>public void LoadVisualComponents()
+{
+  foreach (CxVisualComponent comp in from el in xdoc.Root.Elements(XName.Get(&quot;Components&quot;)).Elements(&quot;VisualComponent&quot;)
+  select new CxVisualComponent()
+  {
+    Name = el.Attribute(XName.Get(&quot;Name&quot;)).Value,
+    Assembly = el.Attribute(XName.Get(&quot;Assembly&quot;)).Value, 
+    Location=el.Attribute(XName.Get(&quot;Location&quot;)).Value,
+  })
+  {
+    ICxComponentClass compInst = AcquireComponent(comp.Assembly, typeof(ICxVisualComponentClass));
+    comp.Instance = compInst;
+    comp.Type = compInst.GetType();
+    components.Add(comp.Name, comp);
+    visCompList.Add(comp);
+  }
+}</pre>
+<p>Both business and visual components are added to a component collection (one 
+common thing about all these implementations is that they ultimately have at 
+least one container that holds all the different pieces), and the visual 
+components are placed into a separate list so that they can be easily 
+instantiated by the application's form.</p>
+<h4>The AcquireComponent Method</h4>
+<p>This is the important call.&nbsp; Why?&nbsp; Because implicit in this call is 
+that the assembly gets immediately loaded and the visual or business component 
+is instantiated now.&nbsp; Deferring assembly loading and instantiation of the 
+component is not supported, so we have to realize that this can create a huge 
+overhead in application startup, as well as other problems if components, on 
+initialization, want to communicate with services, databases, and so forth that 
+may not be available or introduce their own delays.&nbsp; </p>
+<p><i>It is vital, when using one of these frameworks, that you understand your 
+component initialization process, perhaps put some of the work into a worker 
+thread, so that you don't bog down the application startup.&nbsp; It is also 
+vital that you consider which components must be initialized immediately and 
+which can be deferred, loaded only if required.</i></p>
+<pre>protected virtual ICxComponentClass AcquireComponent(string assyPath, Type componentType)
+{
+  ICxComponentClass compInst = null;
+
+  Assembly assy = Assembly.LoadFrom(assyPath);
+  Type t = FindImplementor(assy, componentType);
+  compInst = InstantiateComponent(t);
+
+  return compInst;
+}</pre>
+<p>Of course, the problem with deferred loading and instantiation is that you 
+don't know whether the component throws an exception until you specifically do 
+whatever it necessary to activate the component instantiation.</p>
+<p><i>With deferred instantiation, it is vital that you thoroughly unit test 
+your component, because it is quite possible (and easy) to not realize, when 
+writing your acceptance test plan or other QA procedures, that a specific 
+sequence of steps may be necessary to fully exercise a deferred-load component.&nbsp; 
+Certainly, ad-hoc testing will almost always miss these deferred components.</i></p>
+<h4>The FindImplementor Method</h4>
+<p>Looking at this method, you should realize another drawback of my little 
+prototype--it permits only one component per assembly.&nbsp; This is an 
+artificial requirement that needs to be removed before this becomes a viable 
+framework.</p>
+<pre>protected virtual Type FindImplementor(Assembly assy, Type targetInterface)
+{
+  IEnumerable&lt;Type&gt; cxComponents = from classType in assy.GetTypes() where classType.IsClass &amp;&amp; classType.IsPublic
+  from classInterface in classType.GetInterfaces() where classInterface==targetInterface
+  select classType;
+
+  if (cxComponents.Count&lt;Type&gt;() == 0)
+  {
+    throw new CxException(&quot;Expected assembly &quot; + assy.FullName + &quot; to have one class implementing &quot;+targetInterface.Name);
+  }
+
+  if (cxComponents.Count&lt;Type&gt;() &gt; 1)
+  {
+    throw new CxException(&quot;Expected assembly &quot; + assy.FullName + &quot; to have one and only one class implementing &quot;+targetInterface.Name);
+  }
+
+  return cxComponents.ElementAt&lt;Type&gt;(0);
+}</pre>
+<p>If you think about it, it isn't even necessary to have visual and business 
+components inherit from an interface.&nbsp; The reason I want to take this 
+approach however is that it disturbs me that several of these professional 
+frameworks identify components by strings (assembly names, class names, method 
+names, tags, etc.)&nbsp; If you have a typo in your string definition, you won't 
+know it until runtime.&nbsp; In the end, I prefer using interfaces and 
+attributes declaring &quot;I'm a producer event&quot; or &quot;I'm a consumer method&quot; rather 
+than relying on someone typing the name of an assembly, method, or tag correctly 
+every time--which is why we should all really be using a visual designer for 
+wiring up the components.&nbsp; Certainly the metadata could go through a check 
+process against the assemblies, and that should be done whether we have a visual 
+designer or not, to ensure that any changes made outside of the designer doesn't 
+break the metadata wire-up.</p>
+<h4>The InstantiateComponent Method</h4>
+<p>This is very small method, and the salient point here is that I expect the 
+metadata to describe exactly where the assembly can be found.&nbsp; A more 
+professional approach would include an assembly resolver that would aid the .NET 
+framework in locating the assembly, based perhaps on some application-specific 
+configuration information, so that the path itself can be removed from the 
+metadata.&nbsp; This of course makes facilitates deployment.</p>
+<pre>protected virtual ICxComponentClass InstantiateComponent(Type t)
+{
+  ICxComponentClass inst = null;
+  inst = (ICxComponentClass)Activator.CreateInstance(t);
+
+  return inst;
+}</pre>
+<h4>Wiring Up Components</h4>
+<p>The real fun is in wiring up the components.&nbsp; I'm going to present all 
+the methods involved in this process.&nbsp; The piece that I fought with the 
+most was the <code>Delegate.CreateDelegate</code> call.&nbsp; Ultimately, the problem was 
+that I was passing in the <code>CxComponent</code> instance rather than the component 
+instance as the target parameter, much to my embarrassment when I realized the 
+problem.&nbsp; The other interesting piece is the <code>DrillInto</code> method, which is 
+useful in writing metadata like <code>Operators.btnPlus.Click</code>, as it allows one to 
+drill into the object graph to get to the desired event.&nbsp; This should be 
+familiar to anyone using WPF.</p>
+<pre>protected void WireUp(string producer, string consumer)
+{
+  object producerTarget = GetProducerTarget(producer);
+  object consumerTarget = GetConsumerComponent(consumer).Instance;
+  EventInfo ei = GetEventInfo(producer);
+  MethodInfo mi = GetMethodInfo(consumer);
+  Delegate dlgt = Delegate.CreateDelegate(ei.EventHandlerType, consumerTarget, mi);
+  ei.AddEventHandler(producerTarget, dlgt);
+}
+
+protected object GetProducerTarget(string producer)
+{
+  string[] parts = producer.Split('.');
+  object obj = components[parts[0]].Instance;
+  obj = DrillInto(obj, parts);
+
+  return obj;
+}
+
+protected CxComponent GetConsumerComponent(string consumer)
+{
+  string[] consumerParts = consumer.Split('.');
+
+  return components[consumerParts[0]];
+}
+
+protected EventInfo GetEventInfo(string producer)
+{
+  string[] parts = producer.Split('.');
+  object obj = components[parts[0]].Instance;
+  obj = DrillInto(obj, parts);
+  EventInfo ei = obj.GetType().GetEvent(parts[parts.Length-1]);
+
+  return ei;
+}
+
+protected MethodInfo GetMethodInfo(string consumer)
+{
+  string[] parts = consumer.Split('.');
+  MethodInfo mi = components[parts[0]].Type.GetMethod(parts[1], 
+  BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+
+  return mi;
+}
+
+/// &lt;summary&gt;
+/// Follow the field chain until we get to the event name.
+/// Allows us to do things like [component].[property].[property].[eventname]
+/// &lt;/summary&gt;
+protected object DrillInto(object obj, string[] parts)
+{
+  int n = 1;
+
+  while (n &lt; parts.Length - 1)
+  {
+    obj = obj.GetType().GetField(parts[n], 
+        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).GetValue(obj);
+    ++n;
+  }
+
+  return obj;
+}</pre>
+<h4>A Couple Common Delegates</h4>
+<p>For command events, like add, subtract, etc., there is no data, so we wire up 
+the UI event itself (in this case).&nbsp; For events in which there is data, for example, when 
+the display component's text changes, we end up wiring up the control's event 
+and then re-firing our own event with the data.&nbsp; This way, the data is 
+always pushed to the consumer, rather than the consumer having to query the 
+producer for the data--for example, casting the sender to a <code>TextBox</code> to get at 
+the <code>Text</code> property.&nbsp; This makes life a little more annoying, especially 
+since there are events that can be accessed (via the drill into mechanism) from 
+component objects, and events that are there to help with the Cx producer-consumer wire-up.</p>
+<pre>namespace Cx.EventArgs
+{
+  public delegate void CxCharDlgt(object sender, CxEventArgs&lt;char&gt; args);
+  public delegate void CxStringDlgt(object sender, CxEventArgs&lt;string&gt; args);
+
+  public class CxEventArgs&lt;T&gt; : System.EventArgs
+  {
+    public T Data { get; set; }
+
+    public CxEventArgs(T val)
+    {
+      Data = val;
+    }
+  }
+}</pre>
+<p>Obviously, we can add more common delegates here, and you can use the 
+<code>CxEventArgs&lt;T&gt;</code> class to define your own component-specific arguments.</p>
+<h2>Conclusion</h2>
+<p>Imagine if programming could be done this way, where you define small 
+components that are instantiated by a configuration file and all information 
+exchange and commands between them is wired up with some sort of a visual tool, 
+using producer &quot;events&quot; and consumer methods.&nbsp; This is the programming 
+should be done, and reminds me of the sci-fi movie concept of programming, which 
+is basically connecting up components in new configurations.&nbsp; So hopefully 
+this article has piqued your interest in such a concept.</p>
+<p>One thing I like about this approach is that unit testing becomes trivial.&nbsp; 
+The dependencies (entanglement) between components is eliminated, so your unit 
+tests consist of two things:</p>
+<ol>
+	<li>firing data/commands to test normal code paths</li>
+	<li>firing data/commands to test edge cases</li>
+</ol>
+<p><i>The need to perform complex initialization due to component dependencies 
+is eliminated.&nbsp; Since data/commands are associated with events produced by 
+components that the unit test simulates for testing a specific consumer 
+component, a lot of the unit test can end up being scripted.&nbsp; Keep in mind 
+that one can also script the component's &quot;result&quot; events along with the expected 
+values.&nbsp; This benefit should not be understated and I think it should be 
+strived for when using any framework of this kind.</i></p>
+<h3>Have I Re-Invented The Wheel?</h3>
+<p>I don't think so.&nbsp; I think I've taken a unique and lightweight approach 
+to the holy grail (was there actually a problem that needed solving?) of fully 
+separating components by implementing a very simple producer-consumer pattern.&nbsp; 
+And again, the purpose of this prototype is to lay down the foundation for 
+creating a visual designer and to extend the framework (keeping it lightweight) 
+into something actually useable.&nbsp; But if someone else has already done this 
+work, let me know!</p>
+<h3>Producer-Consumer vs. Producer-Consumer</h3>
+<p>The code I present is a producer-consumer pattern, in that components produce 
+data or commands via .NET's event capability and other components consume those 
+events, using the Cx framework to wire up the event to the event handler.&nbsp; 
+This is slightly different from a publisher-subscriber pattern, in which 
+data/commands are published (either in an event or in a queue of some sort) and 
+subscribers acquire the data or commands (either by hooking the event directly 
+or monitoring the queue.)&nbsp; Both patterns have their similarities and subtle 
+differences.</p>
+<h3>Recursive Property Change Events</h3>
+<p>If you were wondering, recursive notifications are 
+most easily addressed by only firing a property change event when the property 
+value actually changes--pretty standard practice. </p>
+<h3>EventHandler&lt;TEventArgs&gt; vs. CEventArgs&lt;T&gt;</h3>
+<p>Why am I not using EventHandler&lt;TEventArgs&gt;?&nbsp; No particular reason, and 
+keep in mind there's actually nothing stopping you from doing so yourself.&nbsp; 
+In my particular case, I like the fact that CxEventArgs&lt;T&gt; derives from 
+EventArgs, so you can still maintain the purity of the event signature, and 
+also, EventHandler&lt;char&gt; does not work--you get the compiler error <i>There is 
+no boxing conversion from 'char' to System.EventArgs.</i></p>
+
+<h3>Some Interesting Things That We Can Do</h3>
+<p>Here's a few thoughts of what else can be done with this prototype.&nbsp; The 
+neat thing about this is that these ideas can be applied uniformly to any code 
+that utilizes Cx.</p>
+<h4>Adding Event Monitoring</h4>
+<p>When an event is initially wired up, being multicast, we can add an internal 
+logging handler to log when the event is fired.</p>
+<h4>Logging The Event Data</h4>
+<p>Any object implements ToString(), so we can also log the data associated with 
+the event.</p>
+<h4>Asynchronous Events</h4>
+<p>It would be simple enough to specify that a consumer can execute in a thread.&nbsp; 
+The wire-up can maintain information for each consumer as to whether it executes 
+on the current thread, is executed asynchronously on a new thread, or is 
+assigned to a thread pool.</p>
+<h4>Monitoring Execution Time</h4>
+<p>We could easily add a stopwatch feature to monitor how long a consumer takes 
+(or all consumers take) to execute.</p>
+<h4>Safe Event Execution</h4>
+<p>What happens if a consumer throws an exception?&nbsp; Should other consumers 
+still be notified?&nbsp; Should the event chain be terminated?&nbsp; These 
+questions can be addressed by modifying the event wire-up in Cx to instead call 
+into a safe event execution method.</p>
+<h4>Execution Chains</h4>
+<p>We can also play with the execution chain itself.&nbsp; Do all consumers get 
+a chance to handle the event, or do we stop when the first consumer indicates 
+that it has handled the event?&nbsp; What about more sophisticated event chains 
+(like WPF supports), such as object graphs, in which we test whether a parent or 
+child can handle the event?</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,884 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nBASS</name>
+    </assembly>
+    <members>
+        <member name="T:nBASS.ChannelBase">
+            <summary>
+            ChannelBase. The class is not used directly.
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelBase.Bytes2Seconds(System.Int64)">
+            <summary>
+            Translate a byte position into time (seconds)
+            </summary>
+            <param name="pos">The position to translate</param>
+            <returns>The millisecond position</returns>
+        </member>
+        <member name="M:nBASS.ChannelBase.Seconds2Bytes(System.Single)">
+            <summary>
+            Translate a time (seconds) position into bytes 
+            </summary>
+            <param name="pos">The position to translate</param>
+            <returns>The byte position</returns>
+        </member>
+        <member name="M:nBASS.ChannelBase.Stop">
+            <summary>
+            Stop a channel.
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelBase.Pause">
+            <summary>
+            Pause a channel.
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelBase.Resume">
+            <summary>
+            Resume a paused channel.
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelBase._SetPosition(System.IntPtr,System.Int64)">
+            <summary>
+            Used to override in derived classes
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelBase._GetPosition(System.IntPtr)">
+            <summary>
+            Use to override in derived classes
+            </summary>
+        </member>
+        <member name="P:nBASS.ChannelBase.ActivityState">
+            <summary>
+            Gets the objects current State
+            </summary>
+        </member>
+        <member name="P:nBASS.ChannelBase.Attributes">
+            <summary>
+            Gets/Sets a channel's attributes. The actual setting may not be exactly
+            as specified, depending on the accuracy of the device and drivers.
+            </summary>
+            <remarks>Only the volume can be adjusted for the CD "channel", but not all
+            soundcards allow controlling of the CD volume level.</remarks>
+        </member>
+        <member name="P:nBASS.ChannelBase.Position">
+            <summary>
+            Gets/Sets the current playback position of a channel.
+            </summary>
+        </member>
+        <member name="T:nBASS.Helper">
+            <summary>
+            Summary description for Helper.
+            </summary>
+        </member>
+        <member name="T:nBASS.Channel">
+            <summary>
+            Provides common channel methods
+            </summary>
+        </member>
+        <member name="P:nBASS.Channel.Flags">
+            <summary>
+            Get some info about a channel.
+            </summary>
+        </member>
+        <member name="P:nBASS.Channel.Attributes3D">
+            <summary>
+            Gets/Sets a channel's 3D attributes.
+            </summary>
+        </member>
+        <member name="P:nBASS.Channel.Position3D">
+            <summary>
+            Gets/Sets a channel's 3D Position
+            </summary>
+        </member>
+        <member name="P:nBASS.Channel.ChannelEAXMix">
+            <summary>
+            Set the wet(reverb)/dry(no reverb) mix ratio on the channel. By default
+            the distance of the sound from the listener is used to calculate the mix.
+            </summary>
+            <value>The ratio (0.0=reverb off, 1.0=max reverb, -1.0=let EAX calculate
+            the reverb mix based on the distance)</value>
+            <remarks>The channel must have 3D functionality enabled for the EAX environment
+            to have any affect on it.</remarks> 
+        </member>
+        <member name="P:nBASS.Channel.Position">
+            <summary>
+            Gets/Sets the current position
+            </summary>
+        </member>
+        <member name="T:nBASS.Stream">
+            <summary>
+            Summary description for Stream.
+            </summary>
+        </member>
+        <member name="T:nBASS.AdvancedChannel">
+            <summary>
+            AdvancedChannel this class is not directly used
+            </summary>
+        </member>
+        <member name="M:nBASS.AdvancedChannel.GetData(System.Single[],nBASS.ChannelDataFlags)">
+            <summary>
+            Retrieves upto "length" bytes of the channel//s current sample data. This is
+            useful if you wish to "visualize" the sound.
+            </summary>
+            <param name="buffer">A buffer to place retrieved data</param>
+            <param name="flags">ChannelDataFlags</param>	
+        </member>
+        <member name="M:nBASS.AdvancedChannel.GetData(System.Byte[],System.Int32)">
+            <summary>
+            Retrieves upto "length" bytes of the channel//s current sample data. 8-bit data 
+            </summary>
+            <param name="buffer">A buffer to place retrieved data</param>
+            <param name="length">length in bytes</param>
+        </member>
+        <member name="M:nBASS.AdvancedChannel.GetData(System.Int16[],System.Int32)">
+            <summary>
+            Retrieves upto "length" bytes of the channel//s current sample data. 16-bit data
+            </summary>
+            <param name="buffer">A buffer to place retrieved data</param>
+            <param name="length">length in bytes</param>
+        </member>
+        <member name="M:nBASS.AdvancedChannel.SetFX(nBASS.ChannelFX)">
+            <summary>
+            Setup a DX8 effect on a channel. Can only be used when the channel
+            is not playing. Use FX.Parameters to set the effect parameters.
+            Obviously requires DX8.
+            </summary>
+            <param name="chanfx">ChannelFX</param>
+            <returns>An FX object</returns>
+        </member>
+        <member name="M:nBASS.AdvancedChannel.RemoveFX(nBASS.FX)">
+            <summary>
+            Remove a DX8 effect from a channel. Can only be used when the
+            channel is not playing.
+            </summary>
+            <param name="fx">The FX object to remove</param>
+        </member>
+        <member name="P:nBASS.AdvancedChannel.LeftLevel">
+            <summary>
+            Calculate a channel's current left output level.
+            </summary>
+        </member>
+        <member name="P:nBASS.AdvancedChannel.RightLevel">
+            <summary>
+            Calculate a channel's current right output level.
+            </summary>
+        </member>
+        <member name="M:nBASS.Stream.PreBuffer">
+            <summary>
+            Pre-buffer initial sample data ready for playback.
+            </summary>
+        </member>
+        <member name="M:nBASS.Stream.Play(System.Boolean,nBASS.StreamPlayFlags)">
+            <summary>
+            Play a sample stream, optionally flushing the buffer first.
+            </summary>
+            <param name="flush">Flush buffer contents. If you stop a stream and then want to
+            continue it from where it stopped, don't flush it. Flushing
+            a file stream causes it to restart from the beginning.</param>
+            <param name="flags">StreamFlags</param>
+        </member>
+        <member name="M:nBASS.Stream.GetFilePosition(nBASS.Stream.Mode)">
+            <summary>
+            Retrieves the file position of the decoding, the download (if streaming from
+            the internet), or the end (total length). Obviously only works with file streams.
+            </summary>
+            <param name="mode">The position to retrieve (0=decoding, 1=download, 2=end)</param>
+            <returns>The position</returns>
+        </member>
+        <member name="P:nBASS.Stream.Length">
+            <summary>
+            Retrieves the playback length (in bytes) of a file stream. It's not always
+            possible to 100% accurately guess the length of a stream, so the length returned
+            may be only an approximation when using some WAV codecs.
+            </summary>
+        </member>
+        <member name="T:nBASS.DSPCallBack">
+            <summary>
+            Summary description for Delegates.
+            </summary>
+        </member>
+        <member name="T:nBASS.BASSProgessHandler">
+            <summary>
+            Used for updating progress, just passes the channelbase derived object
+            </summary>
+        </member>
+        <member name="T:nBASS.WMAStream">
+            <summary>
+            Summary description for WMAStream.
+            </summary>
+        </member>
+        <member name="M:nBASS.WMAStream.GetTags">
+            <summary>
+            Retrieve the WMA tags, if available.
+            </summary>
+            <returns>An string array containing the tags</returns>
+        </member>
+        <member name="M:nBASS.WMAStream.Play(System.Boolean,System.Boolean)">
+            <summary>
+            Play a WMA stream.
+            </summary>
+            <param name="flush">restart from the beginning.</param>
+            <param name="loop">loop the file</param>
+        </member>
+        <member name="P:nBASS.WMAStream.Length">
+            <summary>
+            Retrieve the playback length (in bytes) of a WMA stream.
+            </summary>
+        </member>
+        <member name="P:nBASS.WMAStream.Position">
+            <summary>
+            Get/Set the current playback position of a WMA channel in bytes
+            </summary>
+        </member>
+        <member name="T:nBASS.BASS">
+            <summary>
+            Provides methods for initializing the BASS engine.
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS.#ctor(System.Int32,System.Int32,nBASS.DeviceSetupFlags,System.IntPtr)">
+            <summary>
+            Constructor for BASS
+            </summary>
+            <param name="device">Device to use (0=first, -1=default, -2=no sound)</param>
+            <param name="freq">Output sample rate</param>
+            <param name="flags">DeviceSetupFlags for device initialization</param>
+            <param name="hwnd"> Owner window (0=current foreground window)</param>
+            <remarks>The "no sound" device (device=-2), allows loading
+            and "playing" of MOD musics only (all sample/stream
+            functions and most other functions fail). This is so
+            that you can still use the MOD musics as synchronizers
+            when there is no soundcard present. When using device -2,
+            you should still set the other arguments as you would do
+            normally.</remarks> 
+        </member>
+        <member name="M:nBASS.BASS.LoadWMAStream(System.Boolean,System.String,System.Int32,System.Int32,nBASS.WMAStreamFlags)">
+            <summary>
+            Create a sample stream from a WMA file (or URL).
+            </summary>
+            <param name="mem">TRUE = Stream file from memory</param>
+            <param name="filename">Filename (mem=FALSE) or memory location (mem=TRUE)</param>
+            <param name="offset">ignored (set to 0)</param>
+            <param name="length">Data length (only used if mem=TRUE)</param>
+            <param name="flags">WMAStreamFlags</param>
+            <returns>WMAStream object</returns>
+        </member>
+        <member name="M:nBASS.BASS.LoadSample(System.Boolean,System.String,System.Int32,System.Int32,System.Int32,nBASS.SampleInfoFlags)">
+             <summary>
+            Load a WAV/MP3/MP2/MP1 sample. If you//re loading a sample with 3D
+            functionality, then you should use BASS_GetInfo and BASS_SetInfo to set
+            the default 3D parameters. You can also use these two functions to set
+            the sample//s default frequency/volume/pan/looping.
+             </summary>
+             <param name="mem">Load sample from memory</param>
+             <param name="filename">Filename or memory location</param>
+             <param name="offset">File offset to load the sample from </param>
+             <param name="length">Data length</param>
+             <param name="max">Maximum number of simultaneous playbacks (1-65535)</param>
+             <param name="flags">SampleInfoFlags</param>
+             <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.CreateSample(System.Int16[],System.Int32,System.Int32,nBASS.SampleInfoFlags)">
+            <summary>
+            Create a sample. This function allows you to generate custom samples, or
+            load samples that are not in the WAV format. A pointer is returned to the
+            memory location at which you should write the sample's data. After writing
+            the data, call BASS_SampleCreateDone to get the new sample's handle.
+            </summary>
+            <param name="length">The sample's length (in samples, NOT bytes)</param>
+            <param name="freq">default sample rate</param>
+            <param name="max">Maximum number of simultaneous playbacks (1-65535)</param>
+            <param name="flags">SampleInfoFlags</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.LoadMusic(System.Boolean,System.String,System.Int32,System.Int32,nBASS.MusicFlags)">
+            <summary>
+            Load a music (MO3/XM/MOD/S3M/IT/MTM). The amplification and pan
+            seperation are initially set to 50, use BASS_MusicSetAmplify()
+            and BASS_MusicSetPanSep() to adjust them.
+            </summary>
+            <param name="mem">Load music from memory</param>
+            <param name="filename">Filename or memory location </param>
+            <param name="offset">File offset to load the music from </param>
+            <param name="length">Data length ( 0=use to end of file)</param>
+            <param name="flags">MusicFlags</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.CreateStream(System.Int32,nBASS.StreamFlags,nBASS.StreamCallBack,System.Int32)">
+            <summary>
+            Create a user sample stream.
+            </summary>
+            <param name="freq">Stream playback rate</param>
+            <param name="flags">StreamFlags</param>
+            <param name="proc">StreamCallBack delegate</param>
+            <param name="user">The "user" value passed to the callback function</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.LoadStream(System.Boolean,System.String,System.Int32,System.Int32,nBASS.StreamFlags)">
+            <summary>
+            Create a sample stream from an MP3/MP2/MP1/OGG or WAV file.
+            </summary>
+            <param name="mem">Stream file from memory</param>
+            <param name="filename">Filename or memory location</param>
+            <param name="offset">File offset of the stream data</param>
+            <param name="length">File length (0=use whole file)</param>
+            <param name="flags">StreamFlags</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.CreateStreamFromURL(System.String,System.Int32,nBASS.StreamFlags,System.String)">
+            <summary>
+            Create a sample stream from an MP3/MP2/MP1/OGG or WAV file on the internet.
+            </summary>
+            <param name="url">The URL (beginning with "http://" or "ftp://")</param>
+            <param name="offset">File offset of start streaming from</param>
+            <param name="flags">StreamFlags</param>
+            <param name="savefile">Filename to save the streamed file as locally (""=don//t save)</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.BASS.GetDeviceDescription(System.Int32)">
+            <summary>
+            Gets a text description of a device. This function can be used to enumerate the available devices.
+            </summary>
+            <param name="device">The device (0=First)</param>
+            <returns>The text description of the device</returns>
+        </member>
+        <member name="M:nBASS.BASS.SetBufferLength(System.Single)">
+            <summary>
+            Set the amount that BASS mixes ahead new musics/streams.
+            Changing this setting does not affect musics/streams
+            that have already been loaded/created. Increasing the
+            buffer length, decreases the chance of the sound
+            possibly breaking-up on slower computers, but also
+            requires more memory. The default length is 0.5 secs.
+            </summary>
+            <param name="length">The buffer length in seconds</param>
+            <returns>The actual new buffer length</returns>
+        </member>
+        <member name="M:nBASS.BASS.SetLogCurves(nBASS.BASS.Curve,nBASS.BASS.Curve)">
+            <summary>
+            Make the volume/panning values translate to a logarithmic curve,
+            or a linear "curve" (the default)
+            </summary>
+            <param name="volume">Volume Curve</param>
+            <param name="panning">Panning Curve</param>
+        </member>
+        <member name="M:nBASS.BASS.Update">
+            <summary>
+            Update the MUSIC/STREAM channel buffers.
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS.Start">
+            <summary>
+            Start the digital output.
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS.Stop">
+            <summary>
+            Stop the digital output, stopping all musics/samples/streams.
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS.Pause">
+            <summary>
+            Stop the digital output, pausing all musics/samples/
+            streams. Use <see cref="M:nBASS.BASS.Start"/>Start to resume the digital output.
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS.Apply3D">
+            <summary>
+            Apply changes made to the 3D system. This must be called to apply any changes
+            made with BASS.Factors3D, BASS.Position3D, BASS.Channel3DAttributes or
+            BASS.Channel3DPosition. It improves performance to have DirectSound do all the
+            required recalculating at the same time like this, rather than recalculating after
+            every little change is made. 
+            </summary>
+            <remarks>This is automatically called when starting a 3D
+            sample with Sample.Play3D.</remarks>
+        </member>
+        <member name="P:nBASS.BASS.Version">
+            <summary>
+            Retrieve the version number of BASS DLL that is used.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.DeviceCount">
+            <summary>
+            Number of available devices
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.MusicVolume">
+            <summary>
+            Gets/sets music volume
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.SampleVolume">
+            <summary>
+            Gets/sets sample volume
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.StreamVolume">
+            <summary>
+            Gets/sets stream volume
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.CLSID">
+            <summary>
+            Set the class identifier of the object to create, that will be used
+            to initialize DirectSound.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.Info">
+            <summary>
+            Retrieve some information on the device being used.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.CPUUsage">
+            <summary>
+            Get the current CPU usage of BASS. This includes the time taken to mix
+            the MOD musics and sample streams, and also the time taken by any user
+            DSP functions. It does not include plain sample mixing which is done by
+            the output device (hardware accelerated) or DirectSound (emulated). Audio
+            CD playback requires no CPU usage.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.MasterVolume">
+            <summary>
+            Gets/sets the digital output master volume.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.EAXPreset">
+            <summary>
+            This function is a workaround, because VB/C# doesn,t support multiple comma seperated
+            paramaters for each Global Const, simply pass the BASSEAXPreset value to this function
+            instead of BASS_SetEasParamaets as you would to in C++
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.Algorithm3D">
+            <summary>
+            Set the 3D algorithm for software mixed 3D channels (does not affect
+            hardware mixed channels). Changing the mode only affects subsequently
+            created or loaded samples/streams/musics, not those that already exist.
+            Requires DirectX 7 or above.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.Factors3D">
+            <summary>
+            Gets/sets the factors that affect the calculations of 3D sound.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.Position3D">
+            <summary>
+            Gets/sets the position/velocity/orientation of the listener.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASS.EAXParameters">
+            <summary>
+            Get/Set the current EAX parameters. Obviously, EAX functions
+            have no effect if no EAX supporting device (ie. SB Live) is used.
+            </summary>
+        </member>
+        <member name="T:nBASS.Record">
+            <summary>
+            Summary description for Record.
+            </summary>
+        </member>
+        <member name="M:nBASS.Record.GetData(System.Single[],nBASS.ChannelDataFlags)">
+            <summary>
+            Retrieves upto "length" bytes of the channel//s current sample data. This is
+            useful if you wish to "visualize" the sound.
+            </summary>
+            <param name="buffer">A buffer to place retrieved data</param>
+            <param name="flags">ChannelDataFlags</param>
+        </member>
+        <member name="M:nBASS.Record.GetData(System.Byte[],System.Int32)">
+            <summary>
+            Retrieves upto "length" bytes of the channel's current sample data. 
+            </summary>
+            <param name="buffer">A buffer to place retrieved data</param>
+            <param name="length">length in bytes</param>
+        </member>
+        <member name="T:nBASS.Music">
+            <summary>
+            Summary description for Music.
+            </summary>
+        </member>
+        <member name="M:nBASS.Music.PreBuffer">
+            <summary>
+            Pre-buffer initial sample data ready for playback.
+            </summary>
+        </member>
+        <member name="M:nBASS.Music.Play">
+            <summary>
+            Play a music. Playback continues from where it was last stopped/paused.
+            Multiple musics may be played simultaneously.
+            </summary>
+        </member>
+        <member name="M:nBASS.Music.Play(System.Int32,nBASS.MusicFlags,System.Boolean)">
+            <summary>
+            Play a music, specifying start position and playback flags.
+            </summary>
+            <param name="pos">Position to start playback from, LOWORD=order HIWORD=row</param>
+            <param name="flags">MusicFlags</param>
+            <param name="reset">Stop all current playing notes and reset bpm/etc...</param>
+        </member>
+        <member name="M:nBASS.Music.SetChannelVolume(System.Int32,System.Int32)">
+            <summary>
+            Set the volume level of a channel in a music
+            </summary>
+            <param name="channel">Channel number (0=first)</param>
+            <param name="volume"> Volume level (0-100)</param>
+        </member>
+        <member name="M:nBASS.Music.GetChannelVolume(System.Int32)">
+            <summary>
+            Get the volume level of a channel in a music
+            </summary>
+            <param name="channel">Channel number (0=first)</param>
+            <returns> The channel's volume </returns>
+        </member>
+        <member name="P:nBASS.Music.Name">
+            <summary>
+            Get the music's name
+            </summary>
+        </member>
+        <member name="P:nBASS.Music.PlaybackLength">
+            <summary>
+            Retrieves the playback length in seconds. Must use MusicFlags.CalculateLength to function.
+            </summary>
+        </member>
+        <member name="P:nBASS.Music.PatternLength">
+            <summary>
+            Retrieves the pattern length of the music file.
+            </summary>
+        </member>
+        <member name="P:nBASS.Music.Amplification">
+            <summary>
+            Set a music's amplification level (0 - 100).
+            </summary>
+        </member>
+        <member name="P:nBASS.Music.PanningSeperation">
+            <summary>
+            Set a music's pan seperation (0 - 100, 50 = linear).
+            </summary>
+        </member>
+        <member name="P:nBASS.Music.PositionScaler">
+            <summary>
+            Set a music//s "GetPosition" scaler
+            When you call BASS_ChannelGetPosition, the "row" (HIWORD) will be
+            scaled by this value. By using a higher scaler, you can get a more
+            precise position indication. The scaler(1 - 256).
+            </summary>
+        </member>
+        <member name="T:nBASS.ID3v1Tag">
+            <summary>
+            Summary description for ID3v1Tag.
+            </summary>
+        </member>
+        <member name="T:nBASS.ChannelDataFlags">
+            <summary>
+            Summary description for Enums.
+            </summary>
+        </member>
+        <member name="T:nBASS.WMAEncoder">
+            <summary>
+            Summary description for WMAEncoder.
+            </summary>
+        </member>
+        <member name="M:nBASS.WMAEncoder.GetRates(System.Int32,nBASS.RateFlags)">
+            <summary>
+            Retrieve a list of the encoding bitrates available for a
+            specified input sample format.
+            </summary>
+            <param name="freq"> Sampling rate</param>
+            <param name="flags">RateFlags</param>
+            <returns>an array of bitrates</returns>
+        </member>
+        <member name="M:nBASS.WMAEncoder.OpenEncoderFile(System.Int32,nBASS.EncoderFlags,System.Int32,System.String)">
+            <summary>
+             Initialize WMA encoding to a file.
+            </summary>
+            <param name="freq">Sampling rate</param>
+            <param name="flags">EncoderFlags</param>
+            <param name="bitrate">Encoding bitrate</param>
+            <param name="filename">Filename</param>
+            <returns>WMAEncoder object</returns>
+        </member>
+        <member name="M:nBASS.WMAEncoder.OpenEncoderNetwork(System.Int32,nBASS.EncoderFlags,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initialize WMA encoding to the network.
+            </summary>
+            <param name="freq">Sampling rate</param>
+            <param name="flags">EncoderFlags</param>
+            <param name="bitrate">Encoding bitrate</param>
+            <param name="port">ort number for clients to conenct to (0=let system choose)</param>
+            <param name="clients">Maximum number of clients that can connect</param>
+            <returns>WMAEncoder object</returns>
+        </member>
+        <member name="M:nBASS.WMAEncoder.SetTag(nBASS.WMATag,System.String)">
+            <summary>
+            Set a tag. Requires that the BASS_WMA_ENCODE_TAGS flag was used in
+            the BASS_WMA_EncodeOpenFile/Network call. 
+            </summary>
+            <param name="tag">WMATag</param>
+            <param name="text">The tag's text</param>
+        </member>
+        <member name="M:nBASS.WMAEncoder.SetTagDone">
+            <summary>
+            Finish setting tags
+            </summary>
+        </member>
+        <member name="M:nBASS.WMAEncoder.Write(System.Int16[],System.Int32)">
+            <summary>
+            Encodes sample data, and writes it to the file or network.
+            </summary>
+            <param name="buffer">The buffer containing the sample data.</param>
+            <param name="length">The number of BYTES in the buffer.</param>
+        </member>
+        <member name="M:nBASS.WMAEncoder.Close">
+            <summary>
+            Finish encoding and close the file or network port.
+            </summary>
+        </member>
+        <member name="P:nBASS.WMAEncoder.Port">
+            <summary>
+            Retrieve the port for clients to connect to a network encoder.
+            </summary>
+        </member>
+        <member name="P:nBASS.WMAEncoder.Clients">
+            <summary>
+            Retrieve the number of clients connected.
+            </summary>
+        </member>
+        <member name="T:nBASS.BASSException">
+            <summary>
+            Summary description for BASSException.
+            </summary>
+        </member>
+        <member name="P:nBASS.BASSException.ErrorState">
+            <summary>
+            Get the error state
+            </summary>
+        </member>
+        <member name="P:nBASS.BASSException.ErrorDescription">
+            <summary>
+            Get an description for the error that occurred
+            </summary>
+        </member>
+        <member name="T:nBASS.WMAException">
+            <summary>
+            Summary description for WMAException.
+            </summary>
+        </member>
+        <member name="T:nBASS.Sample">
+            <summary>
+            Provides methods for playing audio samples.
+            </summary>
+        </member>
+        <member name="M:nBASS.Sample.Play">
+            <summary>
+            Play a sample, using the sample's default attributes.
+            </summary>
+            <returns>A channel object</returns>
+        </member>
+        <member name="M:nBASS.Sample.Play(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Play a sample, using specified attributes.
+            </summary>
+            <param name="start">Playback start position (in samples, not bytes)</param>
+            <param name="freq">Playback Rate(-1 = Default)</param>
+            <param name="volume">Volume (-1=default, 0=silent, 100=max)</param>
+            <param name="panning">pan position(-101 = Default, -100 = Left, 0 = middle, 100 = Right)</param>
+            <param name="loop">1 = Loop sample (-1=default)</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.Sample.Play3D(nBASS.Channel3DPosition)">
+            <summary>
+            Play a 3D sample, setting it's 3D position, orientation and velocity.
+            </summary>
+            <param name="p3d">A Channel3DPosition object to contain 3D parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.Sample.Play3D(nBASS.Channel3DPosition,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Play a 3D sample, using specified attributes.
+            </summary>
+            <param name="p3d">A Channel3DPosition object to contain 3D parameters</param>
+            <param name="start">Playback start position (in samples, not bytes)</param>
+            <param name="freq">Playback Rate(-1 = Default)</param>
+            <param name="volume">Volume (-1=default, 0=silent, 100=max)</param>
+            <param name="loop">1 = Loop sample (-1=default)</param>
+            <returns></returns>
+        </member>
+        <member name="M:nBASS.Sample.Stop">
+            <summary>
+            Stops all instances of a sample. For example, if a sample is playing
+            simultaneously 3 times, calling this function will stop all 3 of them,
+            which is obviously simpler than calling Channel.Stop() 3 times.
+            </summary>
+        </member>
+        <member name="P:nBASS.Sample.Info">
+            <summary>
+            Sets/Retrieves a sample's current default attributes.
+            </summary>
+            <value>
+            The SampleInfo struct
+            </value>
+        </member>
+        <member name="T:nBASS.ChannelAttributes">
+            <summary>
+            Used  with setting /getting ChannelAttributes
+            </summary>
+        </member>
+        <member name="M:nBASS.ChannelAttributes.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Used  with setting /getting ChannelAttributes
+            </summary>
+            <param name="freq">Playback rate (-1=leave current)</param>
+            <param name="volume">Volume (-1=leave current, 0=silent, 100=max)</param>
+            <param name="panning">pan position(-101 = current, -100 = Left, 0 = middle, 100 = Right)
+            panning has no effect on 3D channels</param>
+        </member>
+        <member name="T:nBASS.Channel3DAttributes">
+            <summary>
+            Used with setting and getting Channel3DAttributes
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:nBASS.Channel3DAttributes.#ctor(System.Int32,System.Single,System.Single,System.Int32,System.Int32,System.Int32)" -->
+        <member name="T:nBASS.Channel3DPosition">
+            <summary>
+            Used with getting and setting Channel3DPosition
+            </summary>
+        </member>
+        <member name="M:nBASS.Channel3DPosition.#ctor(nBASS.Vector3D,nBASS.Vector3D,nBASS.Vector3D)">
+            <summary>
+            Used with getting and setting Channel3DPosition
+            </summary>
+            <param name="pos">position of the sound </param>
+            <param name="orient">orientation of the sound, this is irrelevant if it//s an
+            omnidirectional sound source</param>
+            <param name="vel">velocity of the sound</param>
+        </member>
+        <member name="T:nBASS.BASS3DPosition">
+            <summary>
+            Use with setting and getting 3DPosition
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS3DPosition.#ctor(nBASS.Vector3D,nBASS.Vector3D,nBASS.Vector3D,nBASS.Vector3D)">
+            <summary>
+            Use with setting and getting 3DPosition
+            </summary>
+            <param name="pos">Position of the listener </param>
+            <param name="vel">listener's velocity, used to calculate doppler effect</param>
+            <param name="top">Direction that listener's front is pointing</param>
+            <param name="front">Direction that listener's top is pointing </param>
+        </member>
+        <member name="T:nBASS.BASS3DFactors">
+            <summary>
+            Creates a structure to be used with getting and setting 3DFactors 
+            </summary>
+        </member>
+        <member name="M:nBASS.BASS3DFactors.#ctor(System.Single,System.Single,System.Single)">
+             <summary>
+             Creates a structure to be used with getting and setting 3DFactors 
+             </summary>
+             <param name="distf">Distance factor (0.0-10.0, 1.0=use meters, 0.3=use feet, smaller than 0.0=leave current)
+             By default BASS measures distances in meters, you can change this
+             setting if you are using a different unit of measurement.</param>
+             <param name="rollf">Rolloff factor, how fast the sound quietens with distance
+            (0.0=no rolloff, 1.0=real world, 2.0=2x real... 10.0=max, smaller than 0.0=leave current)</param>
+             <param name="doppf">Doppler factor (0.0=no doppler, 1.0=real world, 2.0=2x real... 10.0=max, smaller than 0.0=leave current)
+             The doppler effect is the way a sound appears to change frequency when it is
+             moving towards or away from you. The listener and sound velocity settings are
+             used to calculate this effect, this "doppf" value can be used to lessen or
+             exaggerate the effect.</param>
+        </member>
+        <member name="T:nBASS.BASSEAXParameters">
+            <summary>
+            Used with setting / getting EAXParameters
+            </summary>
+        </member>
+        <member name="M:nBASS.BASSEAXParameters.#ctor(nBASS.EAXEnvironment,System.Single,System.Single,System.Single)">
+            <summary>
+            Used with setting / getting EAXParameters
+            </summary>
+            <param name="env">Reverb environment</param>
+            <param name="vol">Reverb volume (0.0=off, 1.0=max, smaller than 0.0=leave current)</param>
+            <param name="decay">Time in seconds it takes the reverb to diminish by 60dB (0.1-20.0, smaller than 0.0=leave current)</param>
+            <param name="damp">The damping, high or low frequencies decay faster (0.0=high decays quickest,
+            1.0=low/high decay equally, 2.0=low decays quickest, smaller than 0.0=leave current)</param>
+        </member>
+        <member name="T:nBASS.FX">
+            <summary>
+            Summary description for FX.
+            </summary>
+        </member>
+        <member name="P:nBASS.FX.FXType">
+            <summary>
+            Gets the type of effect that has been applied
+            </summary>
+        </member>
+        <member name="T:nBASS.CD">
+            <summary>
+            CD class. Can be used by itself.
+            </summary>
+        </member>
+        <member name="M:nBASS.CD.#ctor(System.String,nBASS.CDSetupFlags)">
+            <summary>
+            Initialize the CD functions, must be called before any other CD
+            functions. The volume is initially set to 100 (the maximum), use
+            BASS_ChannelSetAttributes() to adjust it.
+            </summary>
+            <param name="drive">The CD drive, for example: "d:" </param>
+            <param name="flags">CDSetupFlags</param>
+        </member>
+        <member name="M:nBASS.CD.#ctor(nBASS.CDSetupFlags)">
+            <summary>
+            Initialize the CD functions, must be called before any other CD
+            functions. The volume is initially set to 100 (the maximum), use
+            ChannelAttributes to adjust it. This will use the default drive.
+            </summary>
+            <param name="flags">CDSetupFlags</param>
+        </member>
+        <member name="M:nBASS.CD.Door(System.Boolean)">
+            <summary>
+            Opens or closes the CD door.
+            </summary>
+            <param name="open">open the door = true</param>
+        </member>
+        <member name="M:nBASS.CD.GetID(nBASS.CD.CDID)">
+            <summary>
+            Retrieves identification info from the CD in the drive.
+            </summary>
+            <param name="id">CDID</param>
+            <returns>The identification</returns>
+        </member>
+        <member name="M:nBASS.CD.Play(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Play a CD track.
+            </summary>
+            <param name="track">Track number to play (1=first)</param>
+            <param name="loop">Loop the track</param>
+            <param name="wait">don//t return until playback has started
+            (some drives will always wait anyway)</param>
+        </member>
+        <member name="M:nBASS.CD.GetTrackLength(System.Int32)">
+            <summary>
+            Retrieves the playback length (in milliseconds) of a cd track.
+            </summary>
+            <param name="track">The CD track (1=first)</param>
+            <returns>The playback length (in milliseconds)</returns>
+        </member>
+        <member name="P:nBASS.CD.Position">
+            <summary>
+            Gets/Sets the current position
+            </summary>
+        </member>
+        <member name="P:nBASS.CD.InDrive">
+            <summary>
+            Check if there is a CD in the drive.
+            </summary>
+        </member>
+        <member name="P:nBASS.CD.Tracks">
+            <summary>
+            The numbers of tracks on the CD
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Version Information Component</title>
+</head>
+
+<body>
+
+<h2>The Version Information Component</h2>
+The version information component is used to extract version information
+from the reflection information file and pass it on to the
+<code>PostTransformComponent</code> so that it can insert it into the help
+topic.  The functionality in this component used to be integrated with the
+<code>PostTranformComponent</code> itself.  However, looking up the version
+information after transformation of the topic proved to be too slow.  Moving
+the lookup so that it occurs before transformation allows for an optimized
+lookup of the version information and the whole reflection file does not
+need to be loaded thus reducing memory usage for large builds and speeding
+up the searches for version information.
+
+<h3>The Version Information Component Configuration</h3>
+The following is the default configuration for the version information
+component. It should be inserted into the configuration file before the
+<code>TransformComponent</code>.  As noted earlier, this component must be
+paired with the <code>PostTransformComponent</code> as it is used to insert
+the version information into the topic after the transformation to HTML.
+
+<pre lang="xml" title="Example Configuration">
+&lt;!-- Version information component configuration.  This must appear
+     before the TransformComponent.  See also: PostTransformComponent --&gt;
+&lt;component type="SandcastleBuilder.Components.VersionInfoComponent"
+  assembly="{@SHFBFolder}SandcastleBuilder.Components.dll"&gt;
+    &lt;!-- Reflection information file for version info (required) --&gt;
+    &lt;reflectionFile filename="reflection.xml" /&gt;
+&lt;/component&gt;
+</pre>
+
+The example given above is taken from the Sandcastle Help File Builder's
+configuration file.  When used with it, the replacement tag
+<code>{@SHFBFolder}</code> is used to insert the help file builder's folder
+in the file path.  This is replaced at build time with the appropriate
+value.  If using the component in your own build scripts, replace the tag
+with a relative or absolute path to the component assembly.  The
+<code>reflectionFile</code> element is required and should contain the path
+to the reflection information file.
+
+<p/>The help file builder contains the necessary modifications to its
+reference content files to add version information.  If you use this
+component in your own scripts or build tools, you will need to modify the
+Sandcastle reference content files in order to add the version parameter.
+To do so, add the text "Version: {2}" to the
+<code>locationInformation</code> entry in the <b>reference_content.xml</b>
+file for the Prototype and VS2005 styles and the
+<code>requirementsAssemblyLayout</code> entry in the
+<b>reference_content.xml</b> file for the VS2005 style.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 2 -->

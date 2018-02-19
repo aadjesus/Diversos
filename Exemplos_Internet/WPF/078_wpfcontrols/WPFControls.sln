@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowResizer", "WindowResizer\WindowResizer.csproj", "{484A8648-56A6-44A8-AD34-8B7E3E26A41A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleResizedWindow", "SampleResizedWindow\SampleResizedWindow.csproj", "{D6CF7E05-45AB-405C-AAD1-8E84C65FFBDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{484A8648-56A6-44A8-AD34-8B7E3E26A41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484A8648-56A6-44A8-AD34-8B7E3E26A41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484A8648-56A6-44A8-AD34-8B7E3E26A41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484A8648-56A6-44A8-AD34-8B7E3E26A41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6CF7E05-45AB-405C-AAD1-8E84C65FFBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6CF7E05-45AB-405C-AAD1-8E84C65FFBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6CF7E05-45AB-405C-AAD1-8E84C65FFBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6CF7E05-45AB-405C-AAD1-8E84C65FFBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

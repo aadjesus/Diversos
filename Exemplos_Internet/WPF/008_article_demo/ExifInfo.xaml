@@ -1,0 +1,178 @@
+﻿<Window x:Class="WPFExifInfo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="EXIF Information of Image" Height="540" Width="724"
+    >
+  <Window.Resources>
+
+    <Style TargetType="{x:Type Label}">
+      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontSize" Value="11" />
+    </Style>
+
+    <!-- Headers for metadata properties -->
+    <Style x:Key="MetadataHeader" TargetType="{x:Type Label}">
+      <Setter Property="Background">
+        <Setter.Value>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Offset="0.5" Color="{x:Static SystemColors.AppWorkspaceColor}" />
+              <GradientStop Offset="2" Color="Transparent" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Setter.Value>
+      </Setter>
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+
+  </Window.Resources>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="0.699720670391061*" />
+      <ColumnDefinition Width="0.255800802001577*" />
+      <ColumnDefinition Width="0.044478527607362*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="0.0619946091644205*" />
+      <RowDefinition Height="0.93800539083558*" />
+    </Grid.RowDefinitions>
+
+    <Border Grid.Row="1" CornerRadius="4" Background="#44000000" Margin="0,31.4447439353101,20.8466257668712,22.44474393531">
+      <Border.RenderTransform>
+        <TranslateTransform X="5" Y="5" />
+      </Border.RenderTransform>
+      <Border.BitmapEffect>
+        <BlurBitmapEffect Radius="4" />
+      </Border.BitmapEffect>
+    </Border>
+
+    <Label Height="24.2766666666667" HorizontalAlignment="Left" Margin="7.37,5.7233333333333,0,0" Name="label1" VerticalAlignment="Top" Width="136.63" Grid.Row="1">Please Select Image :</Label>
+    <TextBox Height="18" Margin="148,9,26.8466257668712,0" Name="textBox1" VerticalAlignment="Top" Grid.Row="1"></TextBox>
+    <Button Grid.Row="1" Height="21" HorizontalAlignment="Right" Margin="0,8,109,0" Name="button1" Click="button1_Click"  VerticalAlignment="Top" Width="86" Grid.ColumnSpan="2">Browse..</Button>
+    <Image Name="ViewedPhoto" Margin="19,53,39.8466257668712,35" Grid.Row="1" />
+    <Label Style="{StaticResource MetadataHeader}" Height="25.4312668463612" Margin="1,36.5687331536388,3.84662576687106,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1">Camera Brand</Label>
+    <Label Grid.Row="1" Height="27.2" Margin="3.37,61.3687331536389,6,0" Name="lblBrand" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"></Label>
+    <Label Height="25.4312668463612" Margin="1,86.5687331536388,3.84662576687106,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Model Name
+    </Label>
+    <Label Height="27.2" Margin="3,108.568733153639,6.37,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1" Name="lblModelName" Grid.Column="1"></Label>
+    <Label Height="25.4312668463612" Margin="1,135.568733153639,3.84662576687106,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Width Of Image
+    </Label>
+    <Label Height="25.4312668463612" Margin="2,187.568733153639,2.84662576687106,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Height Of Image
+    </Label>
+    <Label Margin="2,0,2.84662576687106,206.568733153639" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Height="25.4312668463612" VerticalAlignment="Bottom">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>ISO Speed Of Image
+    </Label>
+    <Label Height="25.4312668463612" Margin="1,0,3.84662576687106,149.568733153639" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Lens Aparature
+    </Label>
+    <Label Height="25.4312668463612" HorizontalAlignment="Right" Margin="0,0,5.84662576687106,91.5687331536388" VerticalAlignment="Bottom" Width="210.153374233129" Grid.ColumnSpan="3" Grid.Row="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Focal Length
+    </Label>
+    <Label Height="25.4312668463612" Margin="0,0,4.84662576687106,29.5687331536388" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="1" Name="lblCreationSoft" Grid.Column="1">
+      <Label.Style>
+        <Style TargetType="Label">
+          <Setter Property="Panel.Background">
+            <Setter.Value>
+              <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF808080" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="2" />
+              </LinearGradientBrush>
+            </Setter.Value>
+          </Setter>
+          <Setter Property="TextElement.Foreground" Value="#FFFFFFFF" />
+          <Setter Property="TextElement.FontWeight" Value="Bold" />
+        </Style>
+      </Label.Style>Creation Software
+    </Label>
+    <Label Grid.Row="1" Height="23.2" Margin="2.37,164.368733153639,34.1533742331288,0" Name="lblWidth" VerticalAlignment="Top" Grid.Column="1"></Label>
+    <Label Margin="3.00000000000011,216.568733153639,37.5233742331288,235.8" Grid.Row="1" Name="lblHeight" Grid.Column="1"  ></Label>
+    <Label Height="23.2" Margin="3.00000000000011,273.568733153639,36.5233742331288,0" VerticalAlignment="Top" Grid.Row="1" Name="lblISO" Grid.Column="1"></Label>
+    <Label Height="23.2" Margin="3.00000000000011,0,48.5233742331288,121.8" VerticalAlignment="Bottom" Grid.Row="1" Name="lblAparature" Grid.Column="1"></Label>
+    <Label Height="24.2" Margin="3.00000000000011,0,45.5233742331288,60.8" VerticalAlignment="Bottom" Grid.Row="1" Name="lblFocalLength" Grid.Column="1"></Label>
+    <Label Height="23.2" HorizontalAlignment="Left" Margin="1,0,0,12.8" VerticalAlignment="Bottom" Width="35.63" Grid.Row="1" Name="lblCreation" Grid.Column="1"></Label>
+  </Grid>
+</Window>

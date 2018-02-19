@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Desenvolvimento/pgms.jav/workspace/CTIFlexAPIView/plugin.jar"/>
+	<classpathentry kind="lib" path="C:/Desenvolvimento/pgms.jav/FlexJAPI_Distribution/api/lib15/flexapi1.5_1.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Desenvolvimento/pgms.jav/FlexJAPI_Distribution/api/lib15/sockets5.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Desenvolvimento/pgms.jav/FlexJAPI_Distribution/api/lib15/flexapiagentadapter1.5_1.5.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

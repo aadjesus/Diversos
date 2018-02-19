@@ -1,0 +1,49 @@
+﻿<Window x:Class="DisplayMultipleValuesInCombobox.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="DisplayingMultipleValuesInCombo: Niladri Biswas" Height="300" Width="700" Loaded="Window_Loaded">
+    <Window.Resources>
+
+        <Style x:Key="LabelValues" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="Red"></Setter>
+            <Setter Property="Background" Value="Yellow"></Setter>
+        </Style>
+
+        <Style x:Key="DataValues" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Background" Value="Cyan"></Setter>
+        </Style>
+
+        <DataTemplate x:Key="CompanyLocationTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Label Name ="lblCompanyNameHeader" Style="{StaticResource LabelValues}" Content="Company Name:"></Label>
+                <Label Name="lblCompanyName" Style="{StaticResource DataValues}" Content="{Binding Path=CompanyName}"></Label>
+                <Label Name ="lblSeparator1" Style="{StaticResource LabelValues}"  Content="is situated in: "></Label>
+                <Label Name="lblCountry" Style="{StaticResource DataValues}" Content="{Binding Path=Country}"></Label>
+                <Label Name ="lblSeparator2"  Style="{StaticResource LabelValues}" Content=", in the state:"></Label>
+                <Label Name="lblState"  Style="{StaticResource DataValues}" Content="{Binding Path=State}"></Label>
+                <Label Name ="lblSeparator3" Style="{StaticResource LabelValues}"  Content=", whose city is:"></Label>
+                <Label Name ="lblCity" Style="{StaticResource DataValues}" Content="{Binding Path=City}"></Label>
+            </StackPanel>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=LocationId}" Value="0">
+                    <Setter TargetName="lblCompanyNameHeader" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblCompanyName" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblCountry" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblSeparator1" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblState" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblSeparator2" Property="Content"  Value=""></Setter>
+                    <Setter TargetName="lblCity" Property="Content"  Value=""></Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <StackPanel>
+        <Label Height="28" Name="lblHeader" Width="300">Displaying Multiple Values In Combo Box</Label>
+        <ComboBox Height="21" Margin="27,27,30,0" Name="cmbDiplayInformation" VerticalAlignment="top" ItemsSource="{Binding CompanyLocations}" ItemTemplate="{StaticResource CompanyLocationTemplate}"/>
+
+    </StackPanel>
+
+</Window>

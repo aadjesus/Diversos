@@ -1,0 +1,101 @@
+body
+{
+	font-size: 8.5pt;
+	font-family: verdana, arial, sans-serif;
+	color: black;
+	background-color: white;
+}
+h1
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 16pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+h2
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 12pt;
+	margin-bottom: 5px;
+}
+h3
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 10pt;
+	margin-bottom: 5px;
+}
+pre
+{
+	background-color: #EFEFF7;
+	font-family: 'Courier New' , monospace;
+	font-size: 8pt;
+	padding: 5;
+}
+dt
+{
+	font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+li
+{
+	margin-bottom: 5px;
+}
+a
+{
+	color: Blue;
+}
+table
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 8.5pt;
+	width: 100%;
+	margin-top: .6em;
+	margin-bottom: .3em;
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #999999;
+	background-color: #999999;
+}
+th
+{
+	border-style: solid;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #999999;
+	padding: 4px 6px;
+	text-align: left;
+	background: #cccccc;
+	color: Black;
+	vertical-align: bottom;
+}
+td
+{
+	border-style: solid;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #999999;
+	padding: 4px 6px;
+	text-align: left;
+	background: #ffffff;
+	vertical-align: top;
+}
+code
+{
+	color: #990000;
+	font-family: "Courier New", Courier, mono;
+    font-size: 9.5pt;
+}
+.Reference
+{
+	color: black;
+}
+div#footer {
+	margin-top: 1em;
+	border-top: thin solid #003399;
+	padding-top: 0.5em;
+}
+div#footer p {
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}

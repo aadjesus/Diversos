@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="Arcane.Silverlight.Controls.Page"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:src="clr-namespace:Arcane.Silverlight.Controls"
+    Width="1024" Height="768">
+    <Grid x:Name="LayoutRoot" ShowGridLines="True" Background="LightBlue">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        <src:TreeView Margin="10, 10, 10, 10"  x:Name="myTreeView"  Grid.Column="0" Grid.Row="0">
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Hello"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="This is a test for a long text node ! Yeah, that's great !"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 2"></TextBlock>
+                <src:TreeNode.Nodes>
+                    <src:TreeNodeCollection>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.1"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.2"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.3"></TextBlock>
+                            <src:TreeNode.Nodes>
+                                <src:TreeNodeCollection>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 2.3.1"></TextBlock>
+                                    </src:TreeNode>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 2.3.2"></TextBlock>
+                                    </src:TreeNode>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 2.3.3"></TextBlock>
+                                    </src:TreeNode>
+                                </src:TreeNodeCollection>
+                            </src:TreeNode.Nodes>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.4"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.5"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 2.1"></TextBlock>
+                        </src:TreeNode>
+                    </src:TreeNodeCollection>
+                </src:TreeNode.Nodes>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 3"></TextBlock>
+                <src:TreeNode.Nodes>
+                    <src:TreeNodeCollection>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 3.1"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 3.2"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 3.3"></TextBlock>
+                        </src:TreeNode>
+                    </src:TreeNodeCollection>
+                </src:TreeNode.Nodes>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 4"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 5"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 6"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 7"></TextBlock>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 8"></TextBlock>
+                <src:TreeNode.Nodes>
+                    <src:TreeNodeCollection>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 8.1"></TextBlock>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 8.2"></TextBlock>
+                            <src:TreeNode.Nodes>
+                                <src:TreeNodeCollection>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 8.2.1"></TextBlock>
+                                    </src:TreeNode>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 8.2.2"></TextBlock>
+                                    </src:TreeNode>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 8.2.3"></TextBlock>
+                                    </src:TreeNode>
+                                </src:TreeNodeCollection>
+                            </src:TreeNode.Nodes>
+                        </src:TreeNode>
+                        <src:TreeNode>
+                            <TextBlock Text="Node 8.3"></TextBlock>
+                            <src:TreeNode.Nodes>
+                                <src:TreeNodeCollection>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 8.3.1"></TextBlock>
+                                    </src:TreeNode>
+                                    <src:TreeNode>
+                                        <TextBlock Text="Node 8.3.2"></TextBlock>
+                                    </src:TreeNode>
+                                </src:TreeNodeCollection>
+                            </src:TreeNode.Nodes>
+                        </src:TreeNode>
+                    </src:TreeNodeCollection>
+                </src:TreeNode.Nodes>
+            </src:TreeNode>
+            <src:TreeNode Background="Transparent">
+                <TextBlock Text="Node 9"></TextBlock>
+            </src:TreeNode>
+         </src:TreeView>
+
+        <src:TreeView x:Name="myTreeViewDataBinded" 
+                      Margin="10, 10, 10, 10" Background="White"  
+                      ItemContainerStyle="{StaticResource WinFormTreeView}"
+                      Grid.Column="1" Grid.Row="0" Width="300" Height="300">
+            <src:TreeView.ItemTemplate>
+                <DataTemplate>
+                    <Grid  Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </src:TreeView.ItemTemplate>
+
+        </src:TreeView>
+
+    </Grid>
+</UserControl>

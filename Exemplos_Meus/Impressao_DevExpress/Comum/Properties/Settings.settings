@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Globus5.WPF.Comum.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BgmRodotec_EscalaWS" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://localhost/globus5/escalaws.asmx</Value>
+    </Setting>
+    <Setting Name="BgmRodotec_GestaoDeFrotaOnLineWS" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://localhost/globus5/gestaoDeFrotaOnlinews.asmx</Value>
+    </Setting>
+    <Setting Name="BgmRodotec_FolhaWS" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://localhost/globus5/folhaws.asmx</Value>
+    </Setting>
+    <Setting Name="BgmRodotec_FrotaWS" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://localhost/globus5/frotaws.asmx</Value>
+    </Setting>
+    <Setting Name="BgmRodotec_GlobusWS" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://localhost/globus5/globusws.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

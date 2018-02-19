@@ -1,0 +1,212 @@
+﻿<UserControl x:Class="ClientUI.viewButtonEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:custom="clr-namespace:CustomControls;assembly=CustomControls"
+    xmlns:local="clr-namespace:ClientUI"
+    Width="auto" Height="auto">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="resStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            
+            <!-- ////////// Button Style Enum Values ////////// -->
+            
+            <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="StyleOptions">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="custom:Highlight" />
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Grid Name="mainGrid" >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        
+        <!-- ////////// Display Options Panel ////////// -->
+        
+        <Border Grid.Column="0" Style="{StaticResource SettingsPanelOuterBorderStyle}" FlowDirection="LeftToRight" >     
+            <Border Style="{StaticResource SettingsPanelInnerBorderStyle}" >
+                <Grid Margin="12" >
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="32" />
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="auto"/>
+                        <ColumnDefinition  Width="5" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Text:" />
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding Content, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Size W / H:" />
+                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,5" Width="70" Orientation="Horizontal">
+                        <TextBox Width="32" Text="{Binding Width, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox Width="32" Text="{Binding Height, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" Margin="6,0" />
+                    </StackPanel>
+                    
+                    <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Corners:" />
+                    <TextBox Grid.Row="2" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding CornerRadius, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}"/>
+                    
+                    <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Background" />
+                    <TextBox Grid.Row="3" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding Background, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Foreground:" />
+                    <TextBox Grid.Row="4" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding Foreground, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    
+                    <!-- Highlight Options -->
+                    
+                    <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Text="Highlight" Style="{StaticResource SettingsHeaderTextStyle}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Separator Grid.Row="5" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="5" />
+                    
+                    <ComboBox Grid.Row="6" Grid.ColumnSpan="3" Height="23" Background="{StaticResource brushChromeReplacement}"
+                              ItemsSource="{Binding Source={StaticResource StyleOptions}}"
+                              SelectedItem="{Binding HighlightStyle, ElementName=btnTarget}"
+                              HorizontalContentAlignment="Center" />
+                    
+                    <TextBlock Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Margin:" />
+                    <TextBox Grid.Row="7" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding HighlightMargin, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <TextBlock Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Brightness:" />
+                    <TextBox Grid.Row="8" Grid.Column="2" Margin="0,5" Width="32"
+                             HorizontalAlignment="Left" Text="{Binding (HighlightBrightness), ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <TextBlock Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Glow:" />
+                    <TextBox Grid.Row="9" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding GlowColor, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <!-- Outer Border Options -->
+                    
+                    <TextBlock Grid.Row="10" Grid.ColumnSpan="3" Text="Outer Border" Style="{StaticResource SettingsHeaderTextStyle}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Separator Grid.Row="10" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="5" />
+                    
+                    <TextBlock Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Color:" />
+                    <TextBox Grid.Row="11" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding OuterBorderBrush, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+            
+                    <TextBlock Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Thickness:" />
+                    <TextBox Grid.Row="12" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding OuterBorderThickness, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    
+                    <!-- Inner Border Options -->
+                    
+                    <TextBlock Grid.Row="13" Grid.ColumnSpan="3" Text="Inner Border" Style="{StaticResource SettingsHeaderTextStyle}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Separator Grid.Row="13" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="5" />
+                    
+                    <TextBlock Grid.Row="14" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Color:"/>
+                    <TextBox Grid.Row="14" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding InnerBorderBrush, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+            
+                    <TextBlock Grid.Row="15" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Thickness:" />
+                    <TextBox Grid.Row="15" Grid.Column="2" Margin="0,5" Width="70"
+                             HorizontalAlignment="Left" Text="{Binding InnerBorderThickness, ElementName=btnTarget, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                </Grid>
+            </Border>
+        </Border>
+
+
+        <Grid Grid.Column="2" FlowDirection="LeftToRight" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            
+            <!-- ////////// Demo Button Display Area ////////// -->
+            
+            <Grid Grid.Row="0" VerticalAlignment="Center" >
+
+                <Rectangle Name="demoArea" Style="{StaticResource DemoAreaBackgroundStyle}" />
+                
+                <custom:XSButton x:Name="btnTarget" Content="Demo" Margin="32,128"
+                                 Width="80" Height="80" CornerRadius="40"
+                                 Background="{StaticResource brushTargetButton}"
+                                 Foreground="{StaticResource brushTargetButtonText}" FontWeight="Bold"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+            
+            
+            <!-- ////////// Display Area Background Color ////////// -->
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Height="23" 
+                        HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,48" >
+                <TextBlock Text="Panel:" VerticalAlignment="Center" Margin="7,0" />
+                <TextBox Width="70" Text="{Binding Fill, ElementName=demoArea, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            
+            
+            <!-- ////////// Reset Button ////////// -->
+            
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,14" Orientation="Horizontal">
+                
+                <StackPanel.Resources>
+                    <local:ToggleStateToButtonPromptConverter x:Key="ToggleStateToButtonPromptConverter" />
+                    <local:FlowDirectionToVisibilityConverter x:Key="FlowDirectionToVisibilityConverter" />
+                </StackPanel.Resources>
+                
+                <custom:XSButton Content="Reset" Width="100" Height="32" Click="OnResetToDefaults"
+                                 Background="{StaticResource brushResetButton}"
+                                 Foreground="{StaticResource brushResetButtonText}"
+                                 GlowColor="{StaticResource brushResetButtonGlow}" HighlightStyle="Diffuse" />
+                
+                <custom:XSButton Width="20" Margin="2,0" Command="{x:Static local:CustomCommands.ToggleSecondView}"
+                                 Background="{StaticResource brushToggleButton}"
+                                 Foreground="{StaticResource brushToggleButtonText}"
+                                 GlowColor="{StaticResource brushToggleButtonGlow}" HighlightStyle="Diffuse"
+                                 Content="{Binding IsChecked, RelativeSource={RelativeSource Self},
+                                 Converter={StaticResource ToggleStateToButtonPromptConverter}}"
+                                 Visibility="{Binding FlowDirection, ElementName=mainGrid,
+                                 Converter={StaticResource FlowDirectionToVisibilityConverter}}"
+                                 ToolTip="Toggle Comparison View"/>
+                
+            </StackPanel>
+            
+
+        </Grid>
+
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFLocalizationTest.Window2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window2" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <ListBox Name="A" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Loc Text_HelloGeeks}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="YouViewer.YouTubeResultControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="150" Width="150">
+	<UserControl.Resources>
+        
+        <ControlTemplate x:Key="btnPlay">
+            <Grid>
+                <Ellipse Fill="Black" Width="90" Height="90" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"/>
+                <Ellipse Fill="White" Width="75" Height="75" 
+                         Opacity="0.3" HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"/>
+
+                <Polygon HorizontalAlignment="Left" 
+                         VerticalAlignment="Center" Margin="30,6,0,0" 
+                         Width="45" Height="45" Fill="Black">
+                    <Polygon.Points>
+                        <Point X="0" Y="0" />
+                        <Point X="0" Y="40" />
+                        <Point X="40" Y="20" />
+                    </Polygon.Points>
+                </Polygon>
+            </Grid>
+        </ControlTemplate>
+        
+		<Storyboard x:Key="OnMouseEnter">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                           Storyboard.TargetName="grid" 
+                                           Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.4"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="0.6"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="OnMouseLeave">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                           Storyboard.TargetName="grid" 
+                                           Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.6"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.4"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="0.0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Border BorderBrush="#ff525252" BorderThickness="3">
+        <DockPanel LastChildFill="True">
+            <Label x:Name="lblDragMode"  DockPanel.Dock="Top" 
+                   Content="Drag Mode" Background="#ff525252" 
+                   Foreground="White" FontFamily="Agency FB" 
+                   FontSize="14" FontWeight="Bold" 
+                   Margin="0" Height="25" />
+
+            <Grid Margin="0" Background="#ff525252">
+                <Image x:Name="imageMain" Stretch="Uniform" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Margin="0"/>
+                <Grid x:Name="grid" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Margin="0" Opacity="0.0" > 
+                    <Button x:Name="btnPlay" 
+                        Template="{StaticResource btnPlay}" 
+                            Click="btnPlay_Click"/>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Border>        
+</UserControl>

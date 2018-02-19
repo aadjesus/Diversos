@@ -1,0 +1,169 @@
+object Form1: TForm1
+  Left = 461
+  Top = 286
+  Width = 458
+  Height = 299
+  Caption = 'Teste comando de voz'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 72
+    Width = 87
+    Height = 13
+    Caption = 'N'#250'mero rastreador'
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 16
+    Width = 22
+    Height = 13
+    Caption = 'Host'
+  end
+  object Label3: TLabel
+    Left = 144
+    Top = 16
+    Width = 25
+    Height = 13
+    Caption = 'Porta'
+  end
+  object LblConexao: TLabel
+    Left = 0
+    Top = 247
+    Width = 442
+    Height = 16
+    Align = alBottom
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 144
+    Top = 72
+    Width = 94
+    Height = 13
+    Caption = 'Telefone autorizado'
+  end
+  object LblTextoEnvio: TLabel
+    Left = 16
+    Top = 197
+    Width = 113
+    Height = 16
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object BtnConectar: TButton
+    Left = 208
+    Top = 27
+    Width = 100
+    Height = 25
+    Caption = 'Conectar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = BtnConectarClick
+  end
+  object BtnEnviar: TButton
+    Left = 312
+    Top = 149
+    Width = 100
+    Height = 25
+    Caption = 'Enviar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BtnEnviarClick
+  end
+  object EdtHost: TEdit
+    Left = 16
+    Top = 32
+    Width = 121
+    Height = 21
+    TabOrder = 2
+    Text = '200.210.176.132'
+  end
+  object EdtPorta: TEdit
+    Left = 144
+    Top = 32
+    Width = 49
+    Height = 21
+    TabOrder = 3
+    Text = '6035'
+  end
+  object RgOpcao: TRadioGroup
+    Left = 9
+    Top = 114
+    Width = 278
+    Height = 53
+    ItemIndex = 1
+    Items.Strings = (
+      'Abre escuta silenciosa'
+      'Solicita conversa')
+    TabOrder = 4
+  end
+  object EdtRastreador: TEdit
+    Left = 16
+    Top = 88
+    Width = 121
+    Height = 21
+    TabOrder = 5
+    Text = '20084921'
+  end
+  object EdtTel: TEdit
+    Left = 144
+    Top = 88
+    Width = 121
+    Height = 21
+    TabOrder = 6
+    Text = '1178750024'
+  end
+  object BtnDesconectar: TButton
+    Left = 320
+    Top = 27
+    Width = 100
+    Height = 25
+    Caption = 'Desconectar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+    OnClick = BtnDesconectarClick
+  end
+  object ClientSocket1: TClientSocket
+    Active = False
+    ClientType = ctNonBlocking
+    Host = '200.210.176.132'
+    Port = 6035
+    OnConnecting = ClientSocket1Connecting
+    OnConnect = ClientSocket1Connect
+    OnDisconnect = ClientSocket1Disconnect
+    OnError = ClientSocket1Error
+    Left = 384
+    Top = 56
+  end
+end

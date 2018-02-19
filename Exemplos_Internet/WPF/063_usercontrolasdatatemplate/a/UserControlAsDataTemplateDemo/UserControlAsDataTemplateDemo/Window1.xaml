@@ -1,0 +1,33 @@
+﻿<Window x:Class="UserControlAsDataTemplateDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:UserControls="clr-namespace:UserControlAsDataTemplateDemo.UserControls"
+    Title="User Control As Data Template" 
+    Height="500" Width="500"
+    Background="#FF222222">
+    <Window.Resources>
+        <Style x:Key="ListBoxItemStretch" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+			<Setter Property="Background" Value="Transparent" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ListBox x:Name="peopleListBox" 
+                 HorizontalAlignment="Center" 
+				 VerticalAlignment="Center"
+                 ItemContainerStyle="{StaticResource ListBoxItemStretch}"
+				 Width="Auto" Height="Auto" 
+				 IsSynchronizedWithCurrentItem="True" 
+				 Foreground="Transparent" 
+				 BorderBrush="Transparent" 
+				 Background="Transparent">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <UserControls:ItemTemplateControl />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

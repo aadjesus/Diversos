@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConsultaHistDetec.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConsultaHistDetec_gfo_GestaoDeFrotaOnLineWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/globus5/gestaodefrotaonlinews.asmx</Value>
+    </Setting>
+    <Setting Name="ConsultaHistDetec_ctrl_ControleWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/globus5/controleWS.asmx</Value>
+    </Setting>
+    <Setting Name="ConsultaHistDetec_seg_SegurancaWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.1.1.7:8183/Alessandro.Augusto/SegurancaWS.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,104 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls">
+
+
+    <SolidColorBrush x:Key="brushClearGlass" Color="#2F000000" />
+
+    <SolidColorBrush x:Key="brushOuterBorder" Color="#4CFFFDFF" />
+    <SolidColorBrush x:Key="brushInnerBorder" Color="#99000000" />
+    <SolidColorBrush x:Key="brushGlow" Color="#FF929CFC" />
+    
+    <Storyboard x:Key="GlowOn">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+            <SplineDoubleKeyFrame KeyTime="00:00:00.1" Value="1"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="GlowOff">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+            <SplineDoubleKeyFrame KeyTime="00:00:00.5" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <local:ColorToAlphaColorConverter x:Key="ColorToAlphaColorConverter" />
+    <local:HighlightCornerRadiusConverter x:Key="HighlightCornerRadiusConverter" />
+    <local:BrightnessToColorConverter x:Key="BrightnessToColorConverter" />
+
+    
+    <Style TargetType="{x:Type local:XSButton}"
+           x:Key="{ComponentResourceKey {x:Type local:XSButton}, Diffuse }">
+
+        <Setter Property="HighlightMargin" Value="1,1,0,0" />
+        <Setter Property="HighlightBrightness" Value="184" />
+
+        <Setter Property="HighlightAppearance">
+            <Setter.Value>
+                <ControlTemplate TargetType="Control">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Margin="{Binding HighlightMargin, RelativeSource={RelativeSource Mode=FindAncestor,
+                            AncestorType={x:Type local:XSButton}}}" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource FindAncestor,
+                            AncestorLevel=1, AncestorType={x:Type Border}}, Converter={StaticResource HighlightCornerRadiusConverter}}" >
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                                    <GradientStop Offset="0" Color="{Binding HighlightBrightness,
+                                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:XSButton}},
+                                        Converter={StaticResource BrightnessToColorConverter}}" />
+                                    <GradientStop Color="#22FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type local:XSButton}"
+           x:Key="{ComponentResourceKey {x:Type local:XSButton}, Elliptical }">
+
+        <Setter Property="HighlightMargin" Value="2" />
+        <Setter Property="HighlightBrightness" Value="176" />
+
+        <Setter Property="HighlightAppearance">
+            <Setter.Value>
+                <ControlTemplate TargetType="Control">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Path Grid.Row="0" Stretch="Fill" Margin="{Binding HighlightMargin,
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:XSButton}}}"
+                            Data="M1,25 C6,0 94,0 99,25 50,15 50,15 1,25 z" >
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                                    <GradientStop Offset="0" Color="{Binding HighlightBrightness,
+                                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:XSButton}},
+                                        Converter={StaticResource BrightnessToColorConverter}}" />
+                                    <GradientStop Color="#00FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+
+</ResourceDictionary>

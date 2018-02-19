@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeConverterSample", "http://localhost:90/TypeConverterSample/TypeConverterSample.csproj", "{D0DD1A47-E0ED-41F7-A469-A0B94F841652}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLocationControl", "SimpleLocationControl\SimpleLocationControl.csproj", "{895789EB-D295-4F21-A460-869011DB6023}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D0DD1A47-E0ED-41F7-A469-A0B94F841652}.Debug.ActiveCfg = Debug|.NET
+		{D0DD1A47-E0ED-41F7-A469-A0B94F841652}.Debug.Build.0 = Debug|.NET
+		{D0DD1A47-E0ED-41F7-A469-A0B94F841652}.Release.ActiveCfg = Release|.NET
+		{D0DD1A47-E0ED-41F7-A469-A0B94F841652}.Release.Build.0 = Release|.NET
+		{895789EB-D295-4F21-A460-869011DB6023}.Debug.ActiveCfg = Debug|.NET
+		{895789EB-D295-4F21-A460-869011DB6023}.Debug.Build.0 = Debug|.NET
+		{895789EB-D295-4F21-A460-869011DB6023}.Release.ActiveCfg = Release|.NET
+		{895789EB-D295-4F21-A460-869011DB6023}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

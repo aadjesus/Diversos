@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropDownPanel", "DropDownPanel.csproj", "{C735F044-FB9C-4D89-A718-7338BAF18F73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{F5B7E193-90CA-4680-8BB7-AAE6DF459F50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C735F044-FB9C-4D89-A718-7338BAF18F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C735F044-FB9C-4D89-A718-7338BAF18F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C735F044-FB9C-4D89-A718-7338BAF18F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C735F044-FB9C-4D89-A718-7338BAF18F73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B7E193-90CA-4680-8BB7-AAE6DF459F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B7E193-90CA-4680-8BB7-AAE6DF459F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B7E193-90CA-4680-8BB7-AAE6DF459F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B7E193-90CA-4680-8BB7-AAE6DF459F50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

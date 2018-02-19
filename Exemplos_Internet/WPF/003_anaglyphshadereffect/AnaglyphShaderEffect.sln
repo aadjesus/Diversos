@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaglyphImage", "AnaglyphImage\AnaglyphImage.csproj", "{5655D246-8D47-42D2-84F9-7E1A6319CC19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransparentCube3D", "TransparentCube3D\TransparentCube3D.csproj", "{A922AA0D-3629-43C6-817B-C36E74FF4958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaglyphEffect", "AnaglyphEffect\AnaglyphEffect.csproj", "{65CC8683-2438-4837-9797-F19722CC2D32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cube3D", "Cube3D\Cube3D.csproj", "{C7410175-5EEE-452A-8D6B-3F6F45400DDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEffect", "TestEffect\TestEffect.csproj", "{161D893A-1F8A-4A4B-893F-8ACCC659AD92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phantogram", "Phantogram\Phantogram.csproj", "{B99F8844-4756-42C9-86C6-12D5419F050C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5655D246-8D47-42D2-84F9-7E1A6319CC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5655D246-8D47-42D2-84F9-7E1A6319CC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5655D246-8D47-42D2-84F9-7E1A6319CC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5655D246-8D47-42D2-84F9-7E1A6319CC19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A922AA0D-3629-43C6-817B-C36E74FF4958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A922AA0D-3629-43C6-817B-C36E74FF4958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A922AA0D-3629-43C6-817B-C36E74FF4958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A922AA0D-3629-43C6-817B-C36E74FF4958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CC8683-2438-4837-9797-F19722CC2D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CC8683-2438-4837-9797-F19722CC2D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CC8683-2438-4837-9797-F19722CC2D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CC8683-2438-4837-9797-F19722CC2D32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7410175-5EEE-452A-8D6B-3F6F45400DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7410175-5EEE-452A-8D6B-3F6F45400DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7410175-5EEE-452A-8D6B-3F6F45400DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7410175-5EEE-452A-8D6B-3F6F45400DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161D893A-1F8A-4A4B-893F-8ACCC659AD92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161D893A-1F8A-4A4B-893F-8ACCC659AD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161D893A-1F8A-4A4B-893F-8ACCC659AD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161D893A-1F8A-4A4B-893F-8ACCC659AD92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99F8844-4756-42C9-86C6-12D5419F050C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99F8844-4756-42C9-86C6-12D5419F050C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99F8844-4756-42C9-86C6-12D5419F050C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99F8844-4756-42C9-86C6-12D5419F050C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

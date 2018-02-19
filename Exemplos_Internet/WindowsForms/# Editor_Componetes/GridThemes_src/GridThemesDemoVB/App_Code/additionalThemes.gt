@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<themes>
+
+  <theme id="Additional1" title="Sample: Alternating Columns">
+    <Header>
+      <Apply BackColor="#999999" />
+      <If test="CellIndex = 0">
+        <Apply BackColor="#999999" />
+        <Else>
+          <If test="CellIndex mod 2 = 0">
+            <Apply BackColor="#9999CC" />
+            <ElseApply BackColor="#6666CC" />
+          </If>
+        </Else>
+      </If>
+    </Header>
+    
+    <DataRow>
+      <If test="CellIndex = 0">
+        <Apply BackColor="#CCCCCC" Font-Bold="True" />
+        <Else>
+          <Apply width="60px" horizontalAlign="right" />
+          <If test="CellIndex mod 2 = 0">
+            <Apply BackColor="#CCCCFF" />
+            <If test="IsNegative">
+              <Apply foreColor="Red" />
+            </If>
+
+            <Else>
+              <Apply BackColor="#9999FF" />
+              <If test="IsNegative">
+                <Apply foreColor="Yellow" />
+              </If>
+            </Else>
+          </If>
+        </Else>
+      </If>
+
+    </DataRow>  
+  </theme>
+
+  <theme id="Additional2" title="Sample: Alternating Rows and Columns">
+    <Header>
+      <Apply BackColor="#999999" />
+      <If test="CellIndex = 0">
+        <Apply BackColor="#999999" />
+        <Else>
+          <If test="CellIndex mod 2 = 0">
+            <Apply BackColor="#9999CC" />
+            <ElseApply BackColor="#6666CC" />
+          </If>
+        </Else>
+      </If>
+    </Header>
+
+    <DataRow>
+      <If test="CellIndex = 0">
+        <Apply BackColor="#CCCCCC" Font-Bold="True" />
+        <Else>
+          <Apply width="60px" horizontalAlign="right" />
+          <If test="CellIndex mod 2 = 0">
+            <Apply BackColor="#CCCCFF" />
+            <If test="IsNegative">
+              <Apply foreColor="Red" />
+            </If>
+
+            <Else>
+              <Apply BackColor="#9999FF" />
+              <If test="IsNegative">
+                <Apply foreColor="Yellow" />
+              </If>
+            </Else>
+          </If>
+        </Else>
+      </If>
+
+      <If test="RowIndex mod 2 = 0">
+        <Apply BackColorExpression='ColorUtility.BlendColors(cell.BackColor, "#9C9C9C")' />
+      </If>
+
+    </DataRow>
+  </theme>
+
+</themes>

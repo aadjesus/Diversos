@@ -1,0 +1,86 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>Sharing Summary and Namespace Settings Between Projects</title>
+</head>
+
+<body>
+
+<h2>Sharing Summary and Namespace Settings Between Projects</h2>
+If you are documenting multiple, related assemblies but wish to use a
+separate help file builder project for each assembly, you may want to share
+project summary and namespace comments between each of the projects and
+specify a common set of namespaces to exclude from the build.  Rather than
+managing this information in each individual project, you can create a
+standalone XML comments file to contain the information.
+
+    <p/>Start by creating an XML comments file like the following and give
+it a unique name that will not conflict with any other XML comments file in
+the related projects.
+
+<p/><pre lang="xml" title="Sample Project/Namespace XML Comments File">
+&lt;?xml version="1.0"?&gt;
+&lt;doc&gt;
+  &lt;assembly&gt;
+    &lt;name&gt;SharedItems&lt;/name&gt;
+  &lt;/assembly&gt;
+  &lt;members&gt;
+    &lt;member name="R:Project"&gt;
+      &lt;summary&gt;
+        Shared project summary comments go in here.
+      &lt;/summary&gt;
+    &lt;/member&gt;
+    &lt;member name="N:"&gt;
+      &lt;exclude /&gt;
+      &lt;summary&gt;
+        Exclude the global namespace from all projects.
+      &lt;/summary&gt;
+    &lt;/member&gt;
+    &lt;member name="N:CustomControls.Internal"&gt;
+      &lt;exclude /&gt;
+    &lt;/member&gt;
+    &lt;member name="N:CustomControls.Design"&gt;
+      &lt;summary&gt;
+        Common namespace summary info for the CustomControls.Design
+        namespace go here.
+      &lt;/summary&gt;
+    &lt;/member&gt;
+  &lt;/members&gt;
+&lt;/doc&gt;
+</pre>
+
+<p/>Next, do one or more of the following:
+
+<ul>
+    <li>To specify shared project summary comments, add them to the
+<code>&lt;summary&gt;</code> tag in the <b>R:Project</b> node.  Any project
+summary comments in the help file projects will be appended to these
+comments.  If you do not have any shared project summary notes, you may
+remove this node from the file.</li>
+    <li>To exclude a namespace from all shared projects, add a
+<code>&lt;member&gt;</code> node, set it's <code>name</code> attribute to
+the namespace name prefixed with "N:", and place an
+<code>&lt;exclude&gt;</code> tag in it.  Any other tags are optional.  The
+example above would exclude the unnamed global namespace and the
+<code>CustomControls.Internal</code> namespace from all projects.</li>
+    <li>To specify shared namespace summary comments, add a
+<code>&lt;member&gt;</code> node, set it's <code>name</code> attribute to
+the namespace name prefixed with "N:", and add the comments to the
+<code>&lt;summary&gt;</code> tag in the node.  Any namespace summary
+comments in the help file projects will be appended to these comments.</li>
+</ul>
+
+<p/>Once you have created the file, open each project that needs to use it,
+click the <b>Add</b> button in the <b>Assemblies to Document</b> section of
+the main form and select the shared settings file.  Once it has been added,
+select it in the list box, click the <b>Edit</b> button, and set the
+<code>CommentsOnly</code> property to true.  Click <b>OK</b> to save the
+change.  You may now build your project and the shared settings will be
+applied to it.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 2 -->

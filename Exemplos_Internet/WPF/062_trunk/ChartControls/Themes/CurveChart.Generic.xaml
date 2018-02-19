@@ -1,0 +1,290 @@
+<!--
+OpenWPFChart library CurveChart control default style.
+Copyright Oleg V. Polikarpotchkin 2008-2009
+-->
+<!--revision $Id: CurveChart.Generic.xaml 19239 2009-03-22 05:52:22Z unknown $-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+    xmlns:local="clr-namespace:OpenWPFChart.Controls">
+	
+	<!-- CurveChart Control Style -->
+	<Style TargetType="{x:Type local:CurveChart}">
+		<Style.Resources>
+			<!-- Curve templates -->
+			<DataTemplate x:Key="hardcodedTemplate">
+				<parts:HardcodedCurve ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+			<DataTemplate x:Key="polylineTemplate">
+				<parts:PolylineSampledCurve ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+			<DataTemplate x:Key="bezierTemplate">
+				<parts:BezierSampledCurve ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+			<DataTemplate x:Key="splineTemplate">
+				<parts:SplineSampledCurve ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+			<DataTemplate x:Key="scatteredPointsTemplate">
+				<parts:ScatteredPoints ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+			<DataTemplate x:Key="columnChartItemTemplate">
+				<parts:ColumnChartItem ItemDataView="{Binding}"
+					ToolTip="{Binding ItemData.ItemName}" 
+					ContextMenu="{Binding Path=ContextMenu, 
+						RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+			</DataTemplate>
+
+			<!-- CurveChart Items Template Selector -->
+			<parts:GenericDataTemplateSelector x:Key="chartItemsTemplateSelector">
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:HardcodedCurve}"
+					Template="{StaticResource hardcodedTemplate}"
+					TemplatedType="{x:Type parts:HardcodedCurveDataView}"
+					Description="Hardcoded Curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:PolylineSampledCurve}"
+					Template="{StaticResource polylineTemplate}"
+					TemplatedType="{x:Type parts:SampledCurveDataView}"
+					Description="Polyline Sampled Curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:BezierSampledCurve}"
+					Template="{StaticResource bezierTemplate}"
+					TemplatedType="{x:Type parts:SampledCurveDataView}"
+					Description="Bezier Sampled Curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:SplineSampledCurve}"
+					Template="{StaticResource splineTemplate}"
+					TemplatedType="{x:Type parts:SampledCurveDataView}"
+					Description="Spline Sampled Curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:ScatteredPoints}"
+					Template="{StaticResource scatteredPointsTemplate}"
+					TemplatedType="{x:Type parts:ScatteredPointsDataView}"
+					Description="Scattered points cloud"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:PolylineSampledCurve}"
+					Template="{StaticResource columnChartItemTemplate}"
+					TemplatedType="{x:Type parts:ColumnChartItemDataView}"
+					Description="Column Chart Item with polyline curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:BezierSampledCurve}"
+					Template="{StaticResource columnChartItemTemplate}"
+					TemplatedType="{x:Type parts:ColumnChartItemDataView}"
+					Description="Column Chart Item with Bezier curve"/>
+				<parts:GenericDataTemplateSelectorItem
+					PropertyName="VisualCue" 
+					Value="{x:Type parts:SplineSampledCurve}"
+					Template="{StaticResource columnChartItemTemplate}"
+					TemplatedType="{x:Type parts:ColumnChartItemDataView}"
+					Description="Column Chart Item with Cubic Spline curve"/>
+			</parts:GenericDataTemplateSelector>
+		</Style.Resources>
+		
+		<!-- Base ListBox ItemsPanel-->
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<Canvas />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+		
+		<!-- Base ListBox ItemContainerStyle -->
+		<Setter Property="ItemContainerStyle">
+			<Setter.Value>
+				<Style TargetType="{x:Type ListBoxItem}">
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="{x:Type ListBoxItem}">
+								<ContentPresenter x:Name="ContentHost"
+									  SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"/>
+								<ControlTemplate.Triggers>
+									<Trigger Property="Selector.IsSelected" Value="True">
+										<Setter TargetName="ContentHost" Property="BitmapEffect">
+											<Setter.Value>
+												<DropShadowBitmapEffect Color="Black" Direction="320" 
+																		ShadowDepth="5" Softness="0.2" 
+																		Opacity="0.8"/>
+											</Setter.Value>
+										</Setter>
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</Setter.Value>
+		</Setter>
+		
+		<!-- Base ListBox ItemTemplateSelector -->
+		<Setter Property="ItemTemplateSelector" Value="{StaticResource chartItemsTemplateSelector}"/>
+
+		<!-- CurveChart Control Template -->
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type local:CurveChart}">
+					<Border Name="Bd"
+							BorderThickness="{TemplateBinding Border.BorderThickness}" 
+							BorderBrush="{TemplateBinding Border.BorderBrush}" 
+							Background="{TemplateBinding Panel.Background}" 
+							Padding="1,1,1,1" 
+							SnapsToDevicePixels="True">
+						<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+								Padding="{TemplateBinding Control.Padding}" Focusable="False">
+							<Grid ShowGridLines="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+
+								<!-- Axes are placed into ContentPresenters to provide a way to replace 
+								Axis element when related ChartScale derived object type changes. -->
+
+								<!-- Horizontal Bottom axis -->
+								<Grid Grid.Row="1" Grid.Column="1" Focusable="False">
+									<Grid.Resources>
+										<!-- Axis templates -->
+										<DataTemplate DataType="{x:Type parts:ChartLinearScale}">
+											<parts:LinearAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=HorizontalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartLogarithmicScale}">
+											<parts:LogarithmicAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=HorizontalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartDateTimeScale}">
+											<parts:DateTimeAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=HorizontalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartSeriesScale}">
+											<parts:SeriesAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=HorizontalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+									</Grid.Resources>
+									
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+
+									<ContentPresenter Name="PART_HorizontalAxisHost" 
+										Content="{TemplateBinding HorizontalScale}" Focusable="False"/>
+									<TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top"
+									   Text="{TemplateBinding HorizontalAxisTitle}"
+										Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}
+											, Path=(parts:Axis.Pen).Brush}"/>
+								</Grid>
+
+								<!-- Vertical Left axis -->
+								<Grid Focusable="False">
+									<Grid.Resources>
+										<!-- Axis templates -->
+										<DataTemplate DataType="{x:Type parts:ChartLinearScale}">
+											<parts:LinearAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=VerticalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartLogarithmicScale}">
+											<parts:LogarithmicAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=VerticalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartDateTimeScale}">
+											<parts:DateTimeAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=VerticalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+										<DataTemplate DataType="{x:Type parts:ChartSeriesScale}">
+											<parts:SeriesAxis AxisScale="{Binding}"
+												LabelFormat="{Binding Path=VerticalAxisLabelFormat, 
+													RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CurveChart}}}"/>
+										</DataTemplate>
+									</Grid.Resources>
+									
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+
+									<ContentPresenter Name="PART_VerticalAxisHost" 
+										Content="{TemplateBinding VerticalScale}" Focusable="False"/>
+									<TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top"
+										Text="{TemplateBinding VerticalAxisTitle}"
+										Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}
+											, Path=(parts:Axis.Pen).Brush}"/>
+
+									<Grid.LayoutTransform>
+										<RotateTransform Angle="90"/>
+									</Grid.LayoutTransform>
+								</Grid>
+
+								<!-- CurveChart area -->
+								<Grid Grid.Column="1">
+									<!-- Coordinate grids -->
+									<parts:Grid Name="PART_VerticalGrid"
+											HorizontalScale="{TemplateBinding HorizontalScale}"
+											VerticalScale="{TemplateBinding VerticalScale}"
+											GridVisibility="{TemplateBinding VerticalGridVisibility}"
+										/>
+									<parts:Grid Name="PART_HorizontalGrid" Orientation="Horizontal"
+											HorizontalScale="{TemplateBinding HorizontalScale}"
+											VerticalScale="{TemplateBinding VerticalScale}"
+											GridVisibility="{TemplateBinding HorizontalGridVisibility}"
+										/>
+									<!-- CurveChart Items -->
+									<ItemsPresenter Name="PART_ItemsHost"
+										SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+								</Grid>
+							</Grid>
+						</ScrollViewer>
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="UIElement.IsEnabled">
+							<Trigger.Value>
+								<sys:Boolean>False</sys:Boolean>
+							</Trigger.Value>
+							<Setter Property="Panel.Background" TargetName="Bd">
+								<Setter.Value>
+									<DynamicResource ResourceKey="{x:Static SystemColors.ControlBrushKey}" />
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- Global - Shared Resources -->
+	<Pen x:Key="HighlightPen" Thickness="4" MiterLimit="2.75" Brush="#FFCCCCCC" />
+	
+	<!-- Playstation - Shared Resources -->
+	<SolidColorBrush x:Key="PSSquareBrush" Color="#FFF682A3" />
+	<SolidColorBrush x:Key="PSXBrush" Color="#FF878EB6" />
+	<SolidColorBrush x:Key="PSCircleBrush" Color="#FFE96E59" />
+	<SolidColorBrush x:Key="PSTriangleBrush" Color="#FF4FAE65" />
+	<Pen x:Key="PSSquarePen" Thickness="4" MiterLimit="2.75" Brush="{StaticResource PSSquareBrush}" />
+	<Pen x:Key="PSXPen" Thickness="4" MiterLimit="2.75" Brush="{StaticResource PSXBrush}" />
+	<Pen x:Key="PSCirclePen" Thickness="4" MiterLimit="2.75" Brush="{StaticResource PSCircleBrush}" />
+	<Pen x:Key="PSTrianglePen" Thickness="4" MiterLimit="2.75" Brush="{StaticResource PSTriangleBrush}" />
+	<Pen x:Key="PSXPenFilled" Thickness="8" MiterLimit="2.75" Brush="{StaticResource PSXBrush}" />
+	
+	<!-- Playstation - Basic Icons -->
+	<GeometryDrawing x:Key="PS-Square-Basic" Pen="{StaticResource PSSquarePen}" Geometry="F1 M 2,2L 34,2L 34,34L 2,34L 2,2 Z " />
+	<DrawingGroup x:Key="PS-X-Basic">
+		<GeometryDrawing Pen="{StaticResource PSXPen}" Geometry="F1 M 2,2L 34,34" />
+		<GeometryDrawing Pen="{StaticResource PSXPen}" Geometry="F1 M 34,2L 2,34" />
+	</DrawingGroup>
+	<GeometryDrawing x:Key="PS-Circle-Basic" Pen="{StaticResource PSCirclePen}" Geometry="F1 M 18,2C 26.8366,2 34,9.16345 34,18C 34,26.8366 26.8366,34 18,34C 9.16345,34 2,26.8366 2,18C 2,9.16345 9.16345,2 18,2 Z " />
+	<GeometryDrawing x:Key="PS-Triangle-Basic" Pen="{StaticResource PSTrianglePen}" Geometry="F1 M 18,2L 2,34L 34,34L 18,2 Z " />
+
+	<!-- Playstation - Filled Icons -->
+	<GeometryDrawing x:Key="PS-Square-Filled" Brush="{StaticResource PSSquareBrush}" Geometry="F1 M 2,2L 34,2L 34,34L 2,34L 2,2 Z " />
+	<DrawingGroup x:Key="PS-X-Filled">
+		<GeometryDrawing Pen="{StaticResource PSXPenFilled}" Geometry="F1 M 2,2L 34,34" />
+		<GeometryDrawing Pen="{StaticResource PSXPenFilled}" Geometry="F1 M 34,2L 2,34" />
+	</DrawingGroup>
+	<GeometryDrawing x:Key="PS-Circle-Filled" Brush="{StaticResource PSCircleBrush}" Geometry="F1 M 18,2C 26.8366,2 34,9.16345 34,18C 34,26.8366 26.8366,34 18,34C 9.16345,34 2,26.8366 2,18C 2,9.16345 9.16345,2 18,2 Z " />
+	<GeometryDrawing x:Key="PS-Triangle-Filled" Brush="{StaticResource PSTriangleBrush}" Geometry="F1 M 18,2L 2,34L 34,34L 18,2 Z " />
+	
+	<!-- Playstation - Buttoned Icons -->
+	<GeometryDrawing x:Key="PSButtonedBackground" Pen="{StaticResource HighlightPen}" Brush="#FF505050" Geometry="F1 M 32.1667,2C 48.8273,2 62.3334,15.5061 62.3334,32.1667C 62.3334,48.8273 48.8273,62.3334 32.1667,62.3334C 15.5061,62.3334 2,48.8273 2,32.1667C 2,15.5061 15.5061,2 32.1667,2 Z " />
+	<DrawingGroup x:Key="PS-Square-Buttoned">
+		<StaticResource ResourceKey="PSButtonedBackground" />
+		<GeometryDrawing Pen="{StaticResource PSSquarePen}" Geometry="F1 M 17.9483,17.9482L 46.3851,17.9482L 46.3851,46.3851L 17.9483,46.3851L 17.9483,17.9482 Z " />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PS-X-Buttoned">
+		<StaticResource ResourceKey="PSButtonedBackground" />
+		<GeometryDrawing Pen="{StaticResource PSXPen}" Geometry="F1 M 16.8632,16.8632L 47.4788,47.4788" />
+		<GeometryDrawing Pen="{StaticResource PSXPen}" Geometry="F1 M 47.4702,16.8545L 16.8545,47.4702" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PS-Circle-Buttoned">
+		<StaticResource ResourceKey="PSButtonedBackground" />
+		<GeometryDrawing Pen="{StaticResource PSCirclePen}" Geometry="F1 M 32.1667,14.6667C 41.8317,14.6667 49.6667,22.5017 49.6667,32.1667C 49.6667,41.8317 41.8317,49.6667 32.1667,49.6667C 22.5017,49.6667 14.6667,41.8317 14.6667,32.1667C 14.6667,22.5017 22.5017,14.6667 32.1667,14.6667 Z " />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PS-Triangle-Buttoned">
+		<StaticResource ResourceKey="PSButtonedBackground" />
+		<GeometryDrawing Pen="{StaticResource PSTrianglePen}" Geometry="F1 M 32.1667,13.9483L 15.9321,42.3851L 48.4013,42.3851L 32.1667,13.9483 Z " />
+	</DrawingGroup>
+
+	
+
+	<!-- Xbox - Shared Resources -->
+	<Pen x:Key="XboxTextOutlinePen" Thickness="1.5" MiterLimit="2.75" Brush="#FFCCCCCC" />
+	<SolidColorBrush x:Key="XboxFilledTextBrush" Color="White" />
+	<SolidColorBrush x:Key="XboxABrush" Color="#FF529B02" />
+	<SolidColorBrush x:Key="XboxBBrush" Color="#FF940505" />
+	<SolidColorBrush x:Key="XboxXBrush" Color="#FF034093" />
+	<SolidColorBrush x:Key="XboxYBrush" Color="#FFC7A026" />
+	<Pen x:Key="XboxAPen" Brush="{StaticResource XboxABrush}" />
+	<Pen x:Key="XboxBPen" Brush="{StaticResource XboxBBrush}" />
+	<Pen x:Key="XboxXPen" Brush="{StaticResource XboxXBrush}" />
+	<Pen x:Key="XboxYPen" Brush="{StaticResource XboxYBrush}" />
+	
+	
+	<!-- Xbox - Basic Icons -->	<GeometryDrawing x:Key="Xbox-A-Basic" Pen="{StaticResource XboxTextOutlinePen}" Brush="{StaticResource XboxABrush}" Geometry="F1 M 21.3003,24.0881L 16.1644,7.53744L 11.0197,24.0881L 21.3003,24.0881 Z M 22.5944,28.1461L 9.77843,28.1461L 5.66728,40.32L 0.159995,40.32L 13.9636,0.320011L 18.3564,0.320011L 32.16,40.32L 26.6527,40.32L 22.5944,28.1461 Z "/>	<GeometryDrawing x:Key="Xbox-B-Basic" Pen="{StaticResource XboxTextOutlinePen}" Brush="{StaticResource XboxBBrush}" Geometry="F1 M 17.7035,16.7113C 19.689,16.7113 21.3194,16.2146 22.5948,15.2213C 23.8702,14.2279 24.5078,13.4631 24.5078,10.9269C 24.5078,8.66842 23.8702,8.01233 22.5948,6.95858C 21.3194,5.90483 19.4535,5.37796 16.997,5.37796L 5.72522,5.37796L 5.72522,16.7113L 17.7035,16.7113 Z M 18.8883,35.262C 21.2723,35.262 23.1528,34.6536 24.5296,33.4369C 25.9064,32.2201 26.5948,30.9526 26.5948,28.4345C 26.5948,26.0009 25.9064,24.615 24.5296,23.4767C 23.1528,22.3384 21.2723,21.7693 18.8883,21.7693L 5.72522,21.7693L 5.72522,35.262L 18.8883,35.262 Z M 24.7905,19.2874C 26.6804,20.1117 27.3402,20.5006 29.1274,21.9006C 30.0187,22.6766 30.747,23.6352 31.3122,24.7765C 31.8774,25.9178 32.16,27.2645 32.16,28.8164C 32.16,30.7125 31.843,32.3867 31.2089,33.839C 30.5749,35.2913 29.6817,36.493 28.5296,37.4441C 27.3774,38.3952 25.9915,39.1123 24.372,39.5954C 22.7524,40.0785 20.9788,40.32 19.0513,40.32L 0.159999,40.32L 0.159999,0.320011L 17.1274,0.320011C 18.9245,0.320011 20.6129,0.522305 22.1926,0.926891C 23.7723,1.33148 25.1383,1.95798 26.2904,2.80642C 27.4426,3.65484 28.3611,4.73426 29.0459,6.04464C 29.7307,7.35503 30.073,8.91602 30.073,10.7276C 30.073,13.1552 29.4064,15.0543 28.073,16.4251C 26.7916,17.8617 26.4027,18.2229 24.7905,19.2874 Z "/>	<GeometryDrawing x:Key="Xbox-X-Basic" Pen="{StaticResource XboxTextOutlinePen}" Brush="{StaticResource XboxXBrush}" Geometry="F1 M 16.1644,15.2077L 25.1914,0.320057L 31.3765,0.320049L 19.6381,19.7403L 32.16,40.32L 26.0365,40.32L 16.1644,24.2185L 6.28352,40.32L 0.16,40.32L 12.629,19.7403L 0.952297,0.320049L 7.12864,0.320057L 16.1644,15.2077 Z "/>	<GeometryDrawing x:Key="Xbox-Y-Basic" Pen="{StaticResource XboxTextOutlinePen}" Brush="{StaticResource XboxYBrush}" Geometry="F1 M 16.2308,19.4504L 26.8469,0.32L 32.16,0.32L 18.7508,23.5627L 18.7508,40.32L 13.5692,40.32L 13.5692,23.5627L 0.159992,0.32L 5.47309,0.32L 16.2308,19.4504 Z "/>	<!-- Xbox - Filled Icons -->	<DrawingGroup x:Key="Xbox-A-Filled">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxABrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-B-Filled">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxBBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-X-Filled">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxXBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-Y-Filled">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxYBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+	</DrawingGroup>	<!-- Xbox - Buttoned Icons -->	<DrawingGroup x:Key="Xbox-A-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxABrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<GeometryDrawing Brush="{StaticResource XboxFilledTextBrush}" Geometry="F1 M 38.3804,36.0603L 31.9003,17.0199L 25.411,36.0603L 38.3804,36.0603 Z M 39.747,40.2253L 24.1001,40.2253L 19.7584,52.7206L 14.9983,52.7206L 29.5761,11.6648L 34.2153,11.6648L 48.7931,52.7206L 44.033,52.7206L 39.747,40.2253 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-B-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxBBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<GeometryDrawing Brush="{StaticResource XboxFilledTextBrush}" Geometry="F1 M 34.2159,29.5151C 35.9141,29.5151 37.3087,29.0054 38.3995,27.9858C 39.4904,26.9662 40.0358,25.1548 40.0358,22.5517C 40.0358,20.2336 39.4904,18.5338 38.3995,17.4522C 37.3087,16.3707 35.7127,15.8299 33.6116,15.8299L 23.9705,15.8299L 23.9705,29.5151L 34.2159,29.5151 Z M 35.2293,48.5555C 37.2684,48.5555 38.8768,47.931 40.0544,46.6821C 41.232,45.4332 41.8209,43.5165 41.8209,40.9319C 41.8209,38.4341 41.232,36.601 40.0544,35.4327C 38.8768,34.2644 37.2684,33.6802 35.2293,33.6802L 23.9705,33.6802L 23.9705,48.5555L 35.2293,48.5555 Z M 38.5669,31.1328C 39.4904,31.2506 40.434,31.528 41.3978,31.9649C 42.3616,32.4019 43.2247,33.0186 43.9871,33.815C 44.7494,34.6115 45.3723,35.5954 45.8558,36.7668C 46.3392,37.9383 46.5809,39.3204 46.5809,40.9133C 46.5809,42.8595 46.3098,44.5779 45.7675,46.0685C 45.2251,47.5592 44.4612,48.7926 43.4757,49.7687C 42.4902,50.7449 41.3049,51.481 39.9196,51.9768C 38.5344,52.4726 37.0174,52.7206 35.3687,52.7206L 19.2105,52.7206L 19.2105,11.6648L 33.7231,11.6648C 35.2602,11.6648 36.7044,11.8725 38.0556,12.2877C 39.4067,12.703 40.5751,13.346 41.5605,14.2169C 42.546,15.0877 43.3316,16.1956 43.9173,17.5405C 44.5031,18.8855 44.7959,20.4877 44.7959,22.3471C 44.7959,24.8387 44.2257,26.788 43.0853,28.195C 41.9448,29.6019 41.4927,29.9376 38.5669,31.1328 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-X-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxXBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<GeometryDrawing Brush="{StaticResource XboxFilledTextBrush}" Geometry="F1 M 31.9003,27.9718L 42.4897,11.6648L 47.9656,11.6648L 34.5128,31.5977L 48.7931,52.7206L 43.3822,52.7206L 31.9003,35.1677L 20.4092,52.7206L 14.9983,52.7206L 29.2228,31.5977L 15.8351,11.6648L 21.3017,11.6648L 31.9003,27.9718 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-Y-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="{StaticResource XboxYBrush}" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<GeometryDrawing Brush="{StaticResource XboxFilledTextBrush}" Geometry="F1 M 31.9608,31.3002L 41.7134,11.6648L 46.5943,11.6648L 34.2757,35.5211L 34.2757,52.7206L 29.5157,52.7206L 29.5157,35.5211L 17.1971,11.6648L 22.078,11.6648L 31.9608,31.3002 Z "/>
+	</DrawingGroup>
+
+	
+	<!-- PC - Shared Resources -->
+	<SolidColorBrush x:Key="PCBackgroundBrush" Color="#FF505050" />
+	<SolidColorBrush x:Key="PCTextBrush" Color="White" />
+	
+	<GeometryDrawing x:Key="PC-1" Brush="{StaticResource PCTextBrush}" Geometry="F1 M 43.4675,37.7712L 43.4675,41.1312L 39.4325,41.1312L 39.4325,50.2512L 35.5925,50.2512L 35.5925,41.1312L 20.4275,41.1312L 20.4275,37.6137L 35.495,17.1312L 39.4325,17.1312L 39.4325,37.7712L 43.4675,37.7712 Z M 24.365,37.7712L 35.5925,37.7712L 35.5925,22.4112L 24.365,37.7712 Z "/>
+	<GeometryDrawing x:Key="PC-2" Brush="{StaticResource PCTextBrush}" Geometry="F1 M 34.5513,47.3712C 35.3512,47.3712 37.3868,46.9317 38.6537,46.0587C 39.8868,45.0428 40.4562,43.6758 40.4562,41.3537C 40.4562,39.0316 40.0535,37.5984 37.9075,36.1512C 37.14,35.6912 32.9663,34.8912 31.7163,34.8912L 31.7162,31.5312C 32.9662,31.5312 36.1223,31.537 37.6712,30.2899C 39.2202,29.0428 39.8763,27.2836 39.8763,25.5237C 39.8762,23.7638 39.4648,21.9787 38.3425,21.1774C 37.2202,20.3762 35.9437,20.0112 34.2137,20.0112C 31.3281,20.0112 28.5535,20.9317 27.4487,24.1887C 26.4424,23.9872 24.9837,23.6087 23.7512,23.3187C 25.3313,17.7651 30.1059,16.6512 34.4087,16.6512C 37.4137,16.6512 39.7162,17.3662 41.3162,18.7962C 42.9162,20.2262 43.7163,22.1946 43.7162,24.5937C 43.7162,26.9928 43.3868,28.8762 42.3962,30.1475C 41.4057,31.4187 39.9424,32.3206 37.2363,33.0237C 39.7962,33.4637 41.7424,34.4872 42.5362,35.5262C 43.5762,36.8212 44.3962,38.4537 44.3962,41.7837C 44.3962,44.6537 43.34,46.8624 41.6275,48.4099C 39.915,49.9575 37.7202,50.7312 34.5513,50.7312C 28.7648,50.7312 25.4424,48.765 23.6988,47.4612C 23.6987,46.0407 23.6988,44.5862 23.6988,43.1487C 26.4424,46.3206 28.9806,47.3712 34.5513,47.3712 Z "/>
+	<GeometryDrawing x:Key="PC-3" Brush="{StaticResource PCTextBrush}" Geometry="F1 M 43.7875,47.1312L 43.7875,50.4912L 24.1075,50.4912L 24.1075,46.4037C 24.1075,44.6437 24.3025,43.1387 24.6925,41.8887C 26.7202,35.9595 37.3035,33.0012 39.505,28.3287C 39.8,27.5287 39.9475,26.5337 39.9475,25.3437C 39.9475,23.5187 39.5112,22.2137 38.6387,21.4287C 37.7662,20.6437 36.4748,20.2929 34.8475,20.2512C 31.5535,20.3345 28.6368,20.6678 27.9475,24.4812C 26.8868,24.2512 25.3875,23.9012 24.1075,23.6112C 24.6425,21.2762 25.7062,19.5724 27.2987,18.4999C 28.8912,17.4274 31.0275,16.6912 34.8475,16.6912C 37.7775,16.6912 40,17.6212 41.515,19.0812C 43.03,20.5412 43.7875,22.5887 43.7875,25.2237C 43.7875,26.9537 43.5462,28.4212 43.0637,29.6262C 41.0952,34.7928 32.0118,37.5845 29.6312,40.5087C 28.0118,42.0845 27.9475,43.2443 27.9475,47.1312L 43.7875,47.1312 Z "/>
+	<GeometryDrawing x:Key="PC-4" Brush="{StaticResource PCTextBrush}" Geometry="F1 M 33.1787,50.2512L 33.1787,21.4512L 24.8762,26.2962L 24.8762,22.7487L 34.5587,17.1312L 37.0187,17.1312L 37.0187,50.2512L 33.1787,50.2512 Z "/>
+	
+	<!-- PC - Gamepad Icons -->
+	<GeometryDrawing x:Key="GamepadBackground" Pen="{StaticResource HighlightPen}" Brush="{StaticResource PCBackgroundBrush}" Geometry="F1 M 34,2C 51.6731,2 66,16.3269 66,34C 66,51.6731 51.6731,66 34,66C 16.3269,66 2,51.6731 2,34C 2,16.3269 16.3269,2 34,2 Z " />
+	<DrawingGroup x:Key="PC-1-Gamepad">
+		<StaticResource ResourceKey="GamepadBackground" />
+		<StaticResource ResourceKey="PC-1" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-2-Gamepad">
+		<StaticResource ResourceKey="GamepadBackground" />
+		<StaticResource ResourceKey="PC-2" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-3-Gamepad">
+		<StaticResource ResourceKey="GamepadBackground" />
+		<StaticResource ResourceKey="PC-3" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-4-Gamepad">
+		<StaticResource ResourceKey="GamepadBackground" />
+		<StaticResource ResourceKey="PC-4" />
+	</DrawingGroup>
+
+	<!-- PC - Keyboard Icons -->
+	<GeometryDrawing x:Key="KeyboardBackground" Pen="{StaticResource HighlightPen}" Brush="{StaticResource PCBackgroundBrush}" Geometry="M 2,2L 66,2L 66,66L 2,66L 2,2 Z " />
+	<DrawingGroup x:Key="PC-1-Keyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<StaticResource ResourceKey="PC-1" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-2-Keyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<StaticResource ResourceKey="PC-2" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-3-Keyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<StaticResource ResourceKey="PC-3" />
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-4-Keyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<StaticResource ResourceKey="PC-4" />
+	</DrawingGroup>
+
+	<!-- PC - Alternate Keyboard Icons -->
+	<DrawingGroup x:Key="PC-1-AltKeyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<GeometryDrawing Brush="{StaticResource PCTextBrush}" Geometry="F1 M 50.0911,57.2535C 48.497,58.0854 41.497,58.5298 38.2973,55.8022C 36.6948,54.3647 35.8261,52.3085 35.6911,49.6335C 35.3061,49.6985 33.8561,49.7985 33.5161,49.7985C 20.5453,49.7985 17.4511,36.282 17.4511,31.3335C 17.4511,26.1943 20.6821,12.8385 33.5161,12.8384C 45.7223,12.8385 49.6111,24.8574 49.6111,31.3335C 49.6111,37.3635 46.7193,45.6132 40.0111,48.5385C 40.0711,50.1535 40.4823,51.4072 41.2448,52.2997C 43.1081,54.4743 47.5248,54.5021 50.0911,52.6785L 50.0911,57.2535 Z M 44.8111,31.3335C 44.8111,25.8566 41.6753,16.6785 33.5461,16.6785C 25.0784,16.6785 22.2511,25.5293 22.2511,31.3335C 22.2511,36.9472 25.3262,45.9585 33.5461,45.9585C 41.763,45.9585 44.8111,36.9529 44.8111,31.3335 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-2-AltKeyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<GeometryDrawing Brush="{StaticResource PCTextBrush}" Geometry="F1 M 45.5648,51.5984L 23.0048,51.5984L 23.0048,16.5585L 45.5648,16.5585L 45.5648,20.8785L 27.8048,20.8785L 27.8048,30.4785L 45.5648,30.4785L 45.5648,34.7985L 27.8048,34.7985L 27.8048,47.2784L 45.5648,47.2784L 45.5648,51.5984 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-3-AltKeyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<GeometryDrawing Brush="{StaticResource PCTextBrush}" Geometry="F1 M 47.2848,21.8785L 30.0048,21.8785L 30.0048,31.4785L 44.8848,31.4785L 44.8848,35.7985L 30.0048,35.7985L 30.0048,52.5984L 25.2048,52.5984L 25.2048,17.5585L 47.2848,17.5585L 47.2848,21.8785 Z "/>
+	</DrawingGroup>
+	<DrawingGroup x:Key="PC-4-AltKeyboard">
+		<StaticResource ResourceKey="KeyboardBackground" />
+		<GeometryDrawing Brush="{StaticResource PCTextBrush}" Geometry="F1 M 51.9823,51.5984L 46.6873,51.5984L 35.1148,37.6785L 27.9823,37.6785L 27.9823,51.5984L 23.1823,51.5984L 23.1823,16.5585L 33.0298,16.5585C 43.3372,16.5585 44.4348,20.2497 45.1498,21.4672C 45.8648,22.6848 46.2223,24.2285 46.2223,26.0984C 46.2223,28.6235 45.5798,30.7372 44.2948,32.4397C 43.0098,34.1422 41.2398,35.426 38.9848,36.291L 51.9823,51.5984 Z M 41.4223,26.3535C 41.4223,25.3335 41.2461,24.4285 40.8936,23.6385C 40.5411,22.8484 39.0528,20.3985 33.4648,20.3985L 27.9823,20.3985L 27.9823,33.8384L 32.6923,33.8384C 38.6302,33.8385 40.5786,30.5322 40.9161,29.6647C 41.2536,28.7972 41.4223,27.6935 41.4223,26.3535 Z "/>
+	</DrawingGroup>
+
+	
+	
+	<!-- * This was abandoned due to performance loss when scrubbing the list box scrollbar.
+	<GeometryDrawing x:Key="XboxButtonedHighlight" Geometry="F1 M 32,63.5C 43.2141,63.5 53.081,57.2316 58.7952,48.5C 53.081,39.7684 43.2142,34 32,34C 20.7858,34 10.919,39.7684 5.20476,48.5C 10.919,57.2316 20.7858,63.5 32,63.5 Z ">
+		<GeometryDrawing.Brush>
+			<RadialGradientBrush RadiusX="0.881356" RadiusY="0.485161" Center="0.486809,0.993497" GradientOrigin="0.486809,0.993497">
+				<RadialGradientBrush.GradientStops>
+					<GradientStop Color="#99FFFFFF" Offset="0"/>
+					<GradientStop Color="#59FFFFFF" Offset="0.639831"/>
+					<GradientStop Color="#00FFFFFF" Offset="1"/>
+				</RadialGradientBrush.GradientStops>
+				<RadialGradientBrush.RelativeTransform>
+					<TransformGroup>
+						<RotateTransform CenterX="0.486809" CenterY="0.993497" Angle="-90"/>
+					</TransformGroup>
+				</RadialGradientBrush.RelativeTransform>
+			</RadialGradientBrush>
+		</GeometryDrawing.Brush>
+	</GeometryDrawing>
+	<GeometryDrawing x:Key="XboxButtonedShine" Geometry="F1 M 32,0.755249C 48.9828,0.755249 63.0501,15.4696 63.0501,31.5054C 37.9259,31.5054 24.8383,31.5054 0.949869,31.5054C 0.949869,16.3047 15.0172,0.755249 32,0.755249 Z ">
+		<GeometryDrawing.Brush>
+			<LinearGradientBrush StartPoint="0.502035,-0.00369782" EndPoint="0.502035,0.982746">
+				<LinearGradientBrush.GradientStops>
+					<GradientStop Color="#BEFFFFFF" Offset="0.169492"/>
+					<GradientStop Color="#00FFFFFF" Offset="1"/>
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+		</GeometryDrawing.Brush>
+	</GeometryDrawing>	<OuterGlowBitmapEffect x:Key="XboxTextGlow" GlowColor="White" GlowSize="2" />	<DrawingGroup x:Key="Xbox-A-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="#FF529B02" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<StaticResource ResourceKey="XboxButtonedHighlight" />
+		<StaticResource ResourceKey="XboxButtonedShine" />
+		<DrawingGroup BitmapEffect="{StaticResource XboxTextGlow}">
+			<GeometryDrawing Brush="#FF376702" Geometry="F1 M 38.3804,35.0602L 34.5779,24.2106C 34.2556,23.2313 33.9364,22.249 33.6203,21.2634C 33.3414,20.4391 33.0439,19.5559 32.7278,18.6138C 32.4117,17.6717 32.1359,16.8071 31.9003,16.0199C 31.702,16.8071 31.4432,17.681 31.124,18.6417C 30.8048,19.6024 30.5058,20.498 30.2269,21.3286C 29.9108,22.3078 29.5761,23.2902 29.2228,24.2757L 25.411,35.0602L 38.3804,35.0602 Z M 39.747,39.2253L 24.1001,39.2253L 19.7584,51.7206L 14.9983,51.7206L 29.5761,10.6648L 34.2153,10.6648L 48.7931,51.7206L 44.033,51.7206L 39.747,39.2253 Z "/>
+		</DrawingGroup>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-B-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="#FF940505" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<StaticResource ResourceKey="XboxButtonedHighlight" />
+		<StaticResource ResourceKey="XboxButtonedShine" />
+		<DrawingGroup BitmapEffect="{StaticResource XboxTextGlow}">
+			<GeometryDrawing Brush="#FF690505" Geometry="F1 M 34.2159,29.5151C 35.9141,29.5151 37.3087,29.0054 38.3995,27.9858C 39.4904,26.9662 40.0358,25.1548 40.0358,22.5516C 40.0358,20.2336 39.4904,18.5338 38.3995,17.4522C 37.3087,16.3707 35.7127,15.8299 33.6116,15.8299L 23.9705,15.8299L 23.9705,29.5151L 34.2159,29.5151 Z M 35.2293,48.5555C 37.2684,48.5555 38.8768,47.931 40.0544,46.6821C 41.232,45.4332 41.8209,43.5165 41.8209,40.9319C 41.8209,38.4341 41.232,36.601 40.0544,35.4327C 38.8768,34.2644 37.2684,33.6802 35.2293,33.6802L 23.9705,33.6802L 23.9705,48.5555L 35.2293,48.5555 Z M 38.5669,31.1328C 39.4904,31.2506 40.434,31.528 41.3978,31.9649C 42.3616,32.4019 43.2247,33.0186 43.9871,33.815C 44.7494,34.6115 45.3723,35.5954 45.8558,36.7668C 46.3392,37.9382 46.5809,39.3204 46.5809,40.9133C 46.5809,42.8595 46.3098,44.5779 45.7675,46.0685C 45.2251,47.5591 44.4612,48.7925 43.4757,49.7687C 42.4902,50.7449 41.3049,51.481 39.9196,51.9768C 38.5344,52.4727 37.0174,52.7206 35.3687,52.7206L 19.2104,52.7206L 19.2104,11.6648L 33.7231,11.6648C 35.2602,11.6648 36.7044,11.8724 38.0556,12.2877C 39.4067,12.703 40.5751,13.346 41.5605,14.2169C 42.546,15.0876 43.3316,16.1956 43.9173,17.5405C 44.5031,18.8855 44.7959,20.4877 44.7959,22.3471C 44.7959,24.8387 44.2257,26.788 43.0853,28.1949C 41.9448,29.6019 40.4387,30.5812 38.5669,31.1328 Z "/>
+		</DrawingGroup>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-X-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="#FF034093" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<StaticResource ResourceKey="XboxButtonedHighlight" />
+		<StaticResource ResourceKey="XboxButtonedShine" />
+		<DrawingGroup BitmapEffect="{StaticResource XboxTextGlow}">
+			<GeometryDrawing Brush="#FF022E69" Geometry="F1 M 31.9003,27.9718L 42.4897,11.6648L 47.9656,11.6648L 34.5128,31.5977L 48.7931,52.7206L 43.3822,52.7206L 31.9003,35.1677L 20.4092,52.7206L 14.9983,52.7206L 29.2228,31.5977L 15.8351,11.6648L 21.3017,11.6648L 31.9003,27.9718 Z "/>
+		</DrawingGroup>
+	</DrawingGroup>
+	<DrawingGroup x:Key="Xbox-Y-Buttoned">
+		<GeometryDrawing Pen="{StaticResource HighlightPen}" Brush="#FFC7A026" Geometry="F1 M 32,0C 49.6731,0 64,14.3269 64,32C 64,49.6731 49.6731,64 32,64C 14.3269,64 -8.6697e-008,49.6731 -8.6697e-008,32C -8.6697e-008,14.3269 14.3269,0 32,0 Z "/>
+		<StaticResource ResourceKey="XboxButtonedHighlight" />
+		<StaticResource ResourceKey="XboxButtonedShine" />
+		<DrawingGroup BitmapEffect="{StaticResource XboxTextGlow}">
+			<GeometryDrawing Brush="#FF6B5716" Geometry="F1 M 31.9608,31.3002L 41.7134,11.6648L 46.5943,11.6648L 34.2757,35.5211L 34.2757,52.7206L 29.5157,52.7206L 29.5157,35.5211L 17.1971,11.6648L 22.078,11.6648L 31.9608,31.3002 Z "/>
+		</DrawingGroup>
+	</DrawingGroup>
+	-->
+
+</ResourceDictionary>

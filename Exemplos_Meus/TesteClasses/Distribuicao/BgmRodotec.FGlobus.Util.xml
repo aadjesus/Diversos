@@ -1,0 +1,1934 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BgmRodotec.FGlobus.Util</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Util.CriptografiaBO">
+            <summary>
+            Classe com métodos úteis à criptografia.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Criptografar(System.String,System.Byte,System.Boolean)">
+            <summary>
+            Retornar o texto informado criptografado pelas regras Globus/BGM.
+            </summary>
+            <param name="texto">Texto a criptografar.</param>
+            <param name="quantidadePosicoes">Quantidade de posições que o texto deve ter.</param>
+            <param name="posicional">Indicação de senha posicional ou não.</param>
+            <returns>Texto criptografado pelas regras Globus/BGM.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Criptografar(System.String,System.Int32)">
+            <summary>
+            Retornar o texto informado criptografado pelas regras Globus/BGM.
+            </summary>
+            <param name="texto">Texto a criptografar.</param>
+            <param name="vInt">Inteiro default 48.</param>
+            <returns>Texto criptografado pelas regras Globus/BGM.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Descriptografar(System.String)">
+            <summary>
+            Descriptografar o texto informado.
+            </summary>
+            <param name="texto">Texto a ser descriptografar.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.SimplesCriptografar(System.String)">
+            <summary>
+            Rotina para simples criptografia.
+            </summary>
+            <param name="cChave">Texto a criptografar.</param>
+            <returns>Texto criptografado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.SimplesDescriptografar(System.String)">
+            <summary>
+            Rotina para simples descriptografia.
+            </summary>
+            <param name="cChaveCripto">Texto a descriptografar.</param>
+            <returns>Texto descriptografado.</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoImagens.ExtensaoImagens">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe Imagens.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoImagens.ExtensaoImagens.ConverterImagemParaByteArray(System.Drawing.Image)">
+            <summary>
+            Converte System.Drawing.Image em byte[].
+            </summary>
+            <param name="image">Imagem</param>
+            <returns>Objeto do tipo byte[].</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoImagens.ExtensaoImagens.ConverterBitmapImageParaBitmap(System.Windows.Media.Imaging.BitmapImage)">
+            <summary>
+            Converte BitmapImage em Bitmap.
+            </summary>
+            <param name="bitmapImage">BitmapImage</param>
+            <returns>Objeto do tipo Bitmap.</returns>
+        </member>
+        <member name="T:FGlobus.Util.UFs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.AC">
+            <summary>
+              Looks up a localized string similar to Acre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.AL">
+            <summary>
+              Looks up a localized string similar to Alagoas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.AM">
+            <summary>
+              Looks up a localized string similar to Amazonas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.AP">
+            <summary>
+              Looks up a localized string similar to Amapá.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.BA">
+            <summary>
+              Looks up a localized string similar to Bahia.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.CE">
+            <summary>
+              Looks up a localized string similar to Ceará.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.DF">
+            <summary>
+              Looks up a localized string similar to Distrito Federal.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.ES">
+            <summary>
+              Looks up a localized string similar to Espírito Santo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.GO">
+            <summary>
+              Looks up a localized string similar to Goiás.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.MA">
+            <summary>
+              Looks up a localized string similar to Maranhão.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.MG">
+            <summary>
+              Looks up a localized string similar to Minas Gerais.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.MS">
+            <summary>
+              Looks up a localized string similar to Mato Grosso do Sul.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.MT">
+            <summary>
+              Looks up a localized string similar to Mato Grosso.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.PA">
+            <summary>
+              Looks up a localized string similar to Pará.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.PB">
+            <summary>
+              Looks up a localized string similar to Paraíba.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.PE">
+            <summary>
+              Looks up a localized string similar to Pernambuco.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.PI">
+            <summary>
+              Looks up a localized string similar to Piauí.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.PR">
+            <summary>
+              Looks up a localized string similar to Paraná.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.RJ">
+            <summary>
+              Looks up a localized string similar to Rio de Janeiro.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.RN">
+            <summary>
+              Looks up a localized string similar to Rio Grande do Norte.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.RO">
+            <summary>
+              Looks up a localized string similar to Rondônia.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.RR">
+            <summary>
+              Looks up a localized string similar to Roraima.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.RS">
+            <summary>
+              Looks up a localized string similar to Rio Grande do Sul.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.SC">
+            <summary>
+              Looks up a localized string similar to Santa Catarina.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.SE">
+            <summary>
+              Looks up a localized string similar to Sergipe.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.SP">
+            <summary>
+              Looks up a localized string similar to São Paulo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UFs.TO">
+            <summary>
+              Looks up a localized string similar to Tocantins.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.SerializacaoBO">
+            <summary>
+            Classe para a serialização e deserialização dos objetos.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.SerializacaoBO.Serializar(System.Object)">
+            <summary>
+            Transforma um objeto em string XML.
+            </summary>
+            <param name="objeto">Objeto a ser serializado.</param>
+            <returns>String contendo a serialização XML do objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.SerializacaoBO.Deserializar(System.String,System.Type)">
+            <summary>
+            Transforma uma serialização XML em objeto.
+            </summary>
+            <param name="xml">String contendo a serialiação XML a ser convertida.</param>
+            <param name="type">Tipo do objeto que a serialização representa.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoString.ExtensaoString">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe String.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.ConverteCor(System.String)">
+            <summary>
+            Converte string de cor em System.Windows.Media.Brush.
+            </summary>
+            <param name="valor">String</param>
+            <returns>Objeto do tipo System.Windows.Media.Brush</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.ConverteImage(System.String)">
+            <summary>
+            Converte string com byte[] em System.Drawing.Image.
+            </summary>
+            <param name="valor">String</param>
+            <returns>Objeto do tipo System.Drawing.Image</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.ConverterPrimeiraLetraParaMaiuscula(System.String,System.Boolean)">
+            <summary>
+            Converte a primeira letra de cada palavra para maiuscula.
+            </summary>
+            <param name="valor">String</param>
+            <param name="todas">Todas palavras da string</param>
+            <returns>Objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverCaracterEspecial(System.String,System.String)">
+            <summary>
+            Remove os caracteres especiais.
+            </summary>
+            <param name="valor">String.</param>
+            <param name="subistituirPor">Substitui caracter especial encontrado pelo informado.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverAcentuacao(System.String)">
+            <summary>
+            Remove acentuação dos caracteres.
+            </summary>
+            <param name="valor">String.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.Concatenar(System.IComparable,System.IComparable[])">
+            <summary>
+            Concatena os objetos em uma string separando os por ' - '.
+            </summary>
+            <param name="valor">String</param>
+            <param name="valores">Lista de objeto dos tipo object</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverNaoNumericos(System.String)">
+            <summary>
+            Remove os caracteres não numéricos da variável.
+            </summary>
+            <param name="valor">String.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverNaoNumericos``1(System.String)">
+            <summary>
+            Remove os caracteres não numéricos da variável e converte para o tipo informado.
+            <para>Observação: Se não existir nenhum numero, retorna Zero</para>
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno</typeparam>
+            <param name="valor">String.</param>
+            <returns>Objeto do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverCaracteres(System.String,System.Char[])">
+            <summary>
+            Remove os caracteres informados da string
+            </summary>
+            <param name="valor"><see cref="T:System.String"/></param>
+            <param name="caracteres">Lista de objetos do tipo <see cref="T:System.Char"/></param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RemoverCaracteres(System.String,System.String[])">
+            <summary>
+            Remove os caracteres informados da string
+            </summary>
+            <param name="valor"><see cref="T:System.String"/></param>
+            <param name="valores">Lista de objetos do tipo <see cref="T:System.String"/></param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.RetornarItemEnumPorValorAtributoXml``1(System.String)">
+            <summary>
+            Retorna um único item do Enum informado pelo valor que está no atributo "XmlEnumAttribute".
+            </summary>        
+            <param name="valor">Valor que está no "XmlEnumAttribute".</param>
+            <returns>Item do objeto informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.LimitarQuantidadeDeCaracteres(System.String,System.Int32)">
+            <summary>
+            Limita quantidade de caracteres.
+            </summary>
+            <param name="valor"><see cref="T:System.String"/></param>
+            <param name="qtd">Quantidade que deseja limitar.</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.NuloOuVazio(System.String)">
+            <summary>
+            Verificar se o valor esta nulo ou vazio.
+            </summary>
+            <param name="valor"><see cref="T:System.String"/></param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoString.ExtensaoString.PularLinha(System.String,System.String)">
+            <summary>
+            Substitui o valor informado ou a constante #PULAR_LINHA# contido na string por Environment.NewLine
+            </summary>
+            <param name="valor"><see cref="T:System.String"/></param>
+            <param name="caracter">Caracter ou valor que será substituído por nova linha.</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDeMetodos">
+            <summary>
+            Classe estático reservada para criação de "Extension Methods".
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaPorChave``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que esta sendo executado.</param>
+            <param name="chave">Chave com o valor da pesquisa.</param>
+            <returns>Objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoRetornarTodos``1(System.Web.Services.Protocols.SoapHttpClientProtocol)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasica``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicoes">Lista de objeto do tipo "sCondicaoAdicionalCriteria" com as condições da consulta.</param>        
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasica``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object)">
+            <summary>
+            Consulta básica por condição.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicao">Objeto do tipo "sCondicaoAdicionalCriteria" com a condição da consulta.</param>        
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasicaDosCampos``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object[],System.String[])">
+            <summary>
+            Consulta básica por condições dos campos informados.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicoes">Lista de objeto do tipo "sCondicaoAdicionalCriteria" com as condições da consulta.</param>        
+            <param name="campos">Lista de string com o nome dos campos</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasicaDosCampos``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object,System.String[])">
+            <summary>
+            Consulta básica por condição dos campos informados.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicao">Objeto do tipo "sCondicaoAdicionalCriteria" com a condição da consulta.</param>        
+            <param name="campos">Lista de string com o nome dos campos</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Update``1(System.Collections.Generic.IEnumerable{``0},FGlobus.Util.ExtensaoDeMetodos.Func{``0})">
+            <summary>
+            Atualiza os campos informados na lista.
+            </summary>
+            <typeparam name="TSource">Tipo de lista.</typeparam>
+            <param name="source">Lista.</param>
+            <param name="update">Campos.</param>
+            <returns>Retorna a lista atualizada.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Nulo``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Verificar se a lista está nula.
+            </summary>
+            <typeparam name="TSource">Lista.</typeparam>
+            <param name="source">Lista.</param>
+            <returns>Retorno verdadeiro ou falso.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Vazio``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Verificar se a lista está sem registros.
+            </summary>
+            <typeparam name="TSource">Lista.</typeparam>
+            <param name="source">Lista.</param>
+            <returns>Retorno verdadeiro ou falso.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.NuloOuVazio``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Verificar se a lista está nula ou sem registros.
+            </summary>
+            <typeparam name="TSource">Lista.</typeparam>
+            <param name="source">Lista.</param>
+            <returns>Retorno verdadeiro ou falso.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Contido(System.IComparable,System.IComparable[])">
+            <summary>
+            Verifica se o objeto esta contido na lista informada.
+            </summary>
+            <typeparam name="T">Tipo</typeparam>
+            <param name="valor">IComparable</param>
+            <param name="valores">Lista de objeto dos tipo IComparable</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Converter``1(System.IComparable)">
+            <summary>
+            Converte o valor para o tipo informado.
+            </summary>
+            <typeparam name="T">Tipo</typeparam>
+            <param name="valor">IComparable</param>
+            <returns>Retorna objeto conforme o tipo informado</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDeMetodos.Func`1">
+            <summary>
+            Delegate para controlar uma expressão linq
+            </summary>
+            <typeparam name="TArg0">Tipo de objeto"Generico".</typeparam>
+            <param name="element">Parametro.</param>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoWeb.ExtensaoWeb">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltadas à Web.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoWeb.ExtensaoWeb.RetornarJson(System.Collections.IEnumerable)">
+            <summary>
+            Retorna qualquer lista no formato Json.
+            </summary>
+            <param name="lista">Qualquer tipo de lista.</param>
+            <returns>Lista no formato Json.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoWeb.ExtensaoWeb.ValidarURL(System.String)">
+            <summary>
+            Valida se é uma URL valida e se o endereço está acessível.
+            </summary>
+            <param name="url">URL</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoBoolean.ExtensaoBoolean">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada aos objeto Boolean
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoBoolean.ExtensaoBoolean.ConverterParaString(System.Boolean)">
+            <summary>
+            Converte valor boolean em string retornado "S" para true ou "N" para false
+            </summary>
+            <param name="valor">bool</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.InscricaoEstadual.Valida(System.String,System.String)">
+            <summary>
+            Valida a Inscrição Estadual conforme o estado
+            </summary>
+            <param name="pUF">Sigla do estado</param>
+            <param name="pInscr">Inscrição estadual</param>
+            <returns>Inscrição estadual validada</returns>
+        </member>
+        <member name="M:FGlobus.Util.InscricaoEstadual.Formata(System.String,System.String)">
+            <summary>
+            Formata a Inscrição Estadual conforme o estado
+            </summary>
+            <param name="uf">Sigla do estado</param>
+            <param name="inscr">Inscrição estadual</param>
+            <returns>Inscrição estadual formatada</returns>
+        </member>
+        <member name="T:FGlobus.Util.OperacionalDePassageiros.OperacionalDePassageiros">
+            <summary>
+            Classe com métodos úteis para os modulos do Operacional De Passageiros
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.OperacaoDeCargas.OperacaoDeCargas">
+            <summary>
+            Classe com métodos úteis para os modulos do Operação de Cargas
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.OperacaoDeCargas.OperacaoDeCargas.RetornaDigitoVerificadorCteModulo11_Novo(System.String)">
+            <summary>
+            Cálculo do módulo 11 para o dígito verificador do CTe.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso CT-e contendo apenas números.</param>
+            <returns>Dígito verificador.</returns>
+        </member>
+        <member name="M:FGlobus.Util.OperacaoDeCargas.OperacaoDeCargas.RetornaDigitoVerificadorCTe_Modulo11(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Retorna dígito verificador da chave de acesso do CTe
+            </summary>
+            <param name="valor">Chave de acesso do CTe</param>
+            <param name="baseCte">Base default 9</param>
+            <param name="resto">Resto default falso</param>
+            <param name="incrementa">Incremento default true</param>
+            <returns>Dígito verificador</returns>
+        </member>
+        <member name="M:FGlobus.Util.OperacaoDeCargas.OperacaoDeCargas.RetornarDistanciaEntreAsCoordenadas(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Retorna a distancia entre as coordenadas
+            </summary>
+            <param name="latitudeOrigem">Latitude origem.</param>
+            <param name="longitudeOrigem">Longitude origem</param>
+            <param name="latitudeDestino"> Latitude destino</param>
+            <param name="longitudeDestino">Longitude destino</param>
+            <returns>double</returns>
+        </member>
+        <member name="T:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil">
+            <summary>
+            Classe com métodos úteis para os modulos do Financeiro E Contabil
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.RetornaGrauClassificador(System.String)">
+            <summary>
+            Retorna o grau do classificador
+            </summary>
+            <param name="pClass">Classificador da conta</param>
+            <returns>Retorna o grau do classificador informado, retorna -1 caso seja inválido</returns>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.RetornaInicioDoClassificador(System.String)">
+            <summary>
+            Retorna o inicio do classificador / Ex: "1.01.01.00" retorna "1.01.01."
+            </summary>
+            <param name="pClass">string, classificador</param>
+            <returns>string, inicio do classificador, pode ser utilizado como LIKE em um criteria</returns>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.RetornaClassificadorSinteticoAnterior(System.String)">
+            <summary>
+            Retorna o classificador sintético anterior ao informado
+            </summary>
+            <param name="pClass">string , classificador sintético ou analítico</param>
+            <returns>Retorna o classificador sintético anterior, porém não havendo um sintético anterior retorna "0"</returns>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.ClassificadorEhSintetico(System.String)">
+            <summary>
+            Retorna se o classificador informado é sintético ou não
+            </summary>
+            <param name="pClass">string, Classificador a ser utilizado na verificação</param>
+            <returns>Retorna se o classificador informado é sintético ou não, em caso de excessão retorna false</returns>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.RetornaClassificadorNoGrau(System.String,System.Int32)">
+            <summary>
+            Retorna o classificador sintético no grau informado
+            </summary>
+            <param name="pClass">string, classificador informado para a consulta</param>
+            <param name="pGrau">int, inteiro que representa o grau que deseja o classificador sintético de retorno</param>
+            <returns>Retorno o classificador sintético no grau informado, contato que o grau informado seja inteferior ao grau do classificador</returns>
+        </member>
+        <member name="M:FGlobus.Util.FinanceiroEContabil.FinanceiroEContabil.mod11(System.String)">
+            <summary>
+            Método utilizado para cálcular digitos
+            </summary>
+            <param name="v">string, valor informado para gerar o digito</param>
+            <returns>string, digito calculoado</returns>
+        </member>
+        <member name="T:FGlobus.Util.EnumeradoresUtil">
+            <summary>
+            Enumeradores
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.EnumeradoresUtil.eTipoMensagem">
+            <summary>
+            Enumerador tipo de mensagem
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.EnumeradoresUtil.eTipoMensagem.Recebidas">
+            <summary>
+            Mensagens recebidas
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.EnumeradoresUtil.eTipoMensagem.Enviadas">
+            <summary>
+            Mensagens enviadas
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDTO.ExtensaoDTO">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada aos DTOs.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDTO.ExtensaoDTO.ConverterListaDTO``1(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Converte a lista contendo DTOs, para o mesmo locado em outra instancia do WebService.
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno</typeparam>
+            <param name="valor">Lista do tipo object</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="valor"/> nulo.</exception>
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDTO.ExtensaoDTO.ConverterDTO``1(System.Object)">
+            <summary>
+            Converte o DTO informado, para o mesmo locado em outra instancia do WebService.
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno</typeparam>
+            <param name="valor">Object</param>
+            <example>Exemplo:  
+                <code>
+                    ws.cargas.VeiculoDTO cargasVeiculoDTO = new ws.cargas.VeiculoDTO();
+                    ws.frota.VeiculoDTO frotaVeiculoDTO = cargasVeiculoDTO.ConverterDTO&lt;ws.frota.VeiculoDTO&gt;();
+                    if (frotaVeiculoDTO == null)
+                        Console.WriteLine(frotaVeiculoDTO);
+                </code>
+            </example>
+            <exception cref="T:System.ArgumentNullException"><paramref name="valor"/> não pode ser nulo.</exception>
+            <exception cref="T:System.InvalidCastException">O objeto ou o tipo informado tem que ser do tipo 'DataTransferObject'.</exception>
+            <exception cref="T:System.ArgumentException">O tipo o objeto não é do mesmo tipo informado.</exception>
+            <returns>Objeto do tipo informado.</returns>
+        </member>
+        <member name="T:FGlobus.Util.RecursosHumanos.RecursosHumanos">
+            <summary>
+            Classe com métodos úteis para os modulos do Recursos Humanos
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDateTime.ExtensaoDateTime">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe DateTime.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDateTime.ExtensaoDateTime.RetornarUltimaHoraDoDia(System.DateTime)">
+            <summary>
+            Retorna a ultima hora do dia
+            </summary>
+            <param name="valor">DateTime</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDateTime.ExtensaoDateTime.RetornarDiaDaSemanaPorExtenso(System.DateTime)">
+            <summary>
+            Retorna o dia da semana por extenso
+            </summary>
+            <param name="valor">DateTime</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDateTime.ExtensaoDateTime.RetornarMesPorExtenso(System.DateTime)">
+            <summary>
+            Retorna o mês por extenso
+            </summary>
+            <param name="valor">DateTime</param>
+            <returns>string</returns>
+        </member>
+        <member name="T:FGlobus.Util.Util">
+            <summary>
+            Classe com métodos úteis
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.Util.VerificaUsuarioLiberado(System.String)">
+            <summary>
+            Verifica se o usuario informado é um usuario liberado.
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarTamanhoDoForm(System.Int32)">
+            <summary>
+            Retorna o tamanho do form conforme a resolução do monitor.
+            </summary>
+            <param name="percentual">Percentual da tela.</param>
+            <returns>Size.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.MessagemExcecao(System.String,System.Exception)">
+            <summary>
+            Mostra mensagem de exceçãoo.
+            </summary>
+            <param name="aplicacao">Nome aplicação.</param>
+            <param name="ex">Objeto do tipo Exception.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.StrToIntDef(System.String,System.Int32)">
+            <summary>
+            Converte uma String em Int, se der erro de conversão retorna o default
+            </summary>
+            <param name="intString">String que será convertida.</param>
+            <param name="intDefault">Inteiro default caso ocorra erro de conversão.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.CompararDataComDataServidor(System.DateTime,FGlobus.Util.Util.eOperador)">
+            <summary>
+            Compara a data informada com a data do servidor.
+            </summary>
+            <param name="dataHora">Data hora.</param>
+            <param name="operador">Tipo de operador para comparar com a data.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.CompararDataComDataServidor(System.DateTime,FGlobus.Util.Util.eOperador,System.Boolean)">
+            <summary>
+            Compara a data hora informada com a data hora do servidor.
+            </summary>
+            <param name="dataHora">Data hora.</param>
+            <param name="operador">Tipo de operador para comparar com a data.</param>
+            <param name="hora">Se compara a data junto com a hora.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConcatenarResultadoLinq(System.Object,System.String)">
+            <summary>
+            Concatena os campos de uma lista em uma lista de string.
+            </summary>
+            <param name="lista">Lista</param>
+            <param name="nomeTabela">Nome da tabela.</param>
+            <returns>Retorna lista de objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConcatenarResultadoLinq(System.Object)">
+            <summary>
+            Concatena os campos de uma lista em uma lista de string.
+            </summary>
+            <param name="lista">Lista</param>
+            <returns>Retorna lista de objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.DesConcatenarResultadoLinq(System.String[])">
+            <summary>
+            Desconcatena uma lista concatenada pelo metodo
+            </summary>
+            <param name="lista"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteListParaDataTable(System.Collections.IList)">
+            <summary>
+            Convertes uma lista generica para DataTable. 
+            </summary>
+            <param name="lista">Lista de objeto do tipo generica.</param>
+            <returns>DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteListParaDataTable(System.Collections.IList,System.String)">
+            <summary>
+            Convertes uma lista generica para DataTable. 
+            </summary>
+            <param name="lista">Lista de objeto do tipo generica.</param>
+            <param name="nomeTabela">Nome da tabela.</param>
+            <returns>DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.PopulaDataTable(System.Data.DataTable@,System.Collections.IList)">
+            <summary>
+            Popula o DataTable informado
+            </summary>
+            <param name="tabela">DataTable que vai ser populado.</param>
+            <param name="lista">Lista de objetos que contenha os mesmos campos do DataTable.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornaIntOuNull(System.Object)">
+            <summary>
+            Retorna o valor int ou null de um objeto.
+            </summary>
+            <param name="objeto">Objeto.</param>
+            <returns>Retorna um objeto int?.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.GetDescricaoEnum(System.Enum)">
+            <summary>
+            Retorna a descrição da proprienade de um enum.
+            </summary>
+            <param name="value">Propriedade do enum.</param>
+            <returns>Retorna umobjeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteStringEmStream(System.String)">
+            <summary>
+            Converte string para Stream.
+            </summary>
+            <param name="estruturaXml">String</param>
+            <returns>Retorna objeto do tipo Stream.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarValorKeyArquivoConfig(System.String,System.String)">
+            <summary>
+            Retornar o valor do Key do arquivo informado.
+            </summary>
+            <param name="pathArquivo">Arquivo com a path.</param>
+            <param name="key">Nome do key.</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarValorKeyArquivoConfig(System.String)">
+            <summary>
+            Retornar o valor do Key informado.
+            </summary>
+            <param name="key">Nome do key.</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarClasseDoAssemblyName``1(System.String,System.String,System.String)">
+            <summary>
+            Retorna objeto contido no assembly informado
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno.</typeparam>
+            <param name="assemblyName">Nome do assembly name.</param>
+            <param name="nomeClass">Nome da class.</param>
+            <param name="diretorioBase">Diretório que estão as DLLs.</param>
+            <returns>Objeto do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.StrZero(System.Object,System.Int32,System.Boolean)">
+            <summary>
+            Insere zeros a esquerda de um número ou string
+            </summary>
+            <param name="valor">string, Seu número ou string que deve ser preenchido com zeros a esquerda</param>
+            <param name="quantidade">int, Total de caracteres que a string de retorno deve possuir</param>
+            <param name="forcaZerosEmString">bool, se força zeros a esquerda de um valor alfanumérico, só funciona caso o primeiro digito seja um número</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.CompactarArquivo(System.String)">
+            <summary>
+            Compacta o arquivo informado.
+            <remarks></remarks>
+            </summary>
+            <param name="pathArquivo">Arquivo com o caminho completo. Obs: O arquivo tem que estar com a extensão.</param>
+            <returns>String com o nome e caminho do arquivo gerado</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.DesCompactarArquivo(System.String)">
+            <summary>
+            Descompact o arquivo informado
+            </summary>
+            <param name="pathArquivo">Arquivo com o caminho completo. Obs: O arquivo tem que estar com a extensão.</param>
+            <returns>Retorna stream do arquivo descompactado</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.TratamentoCaracteresEspeciais(System.String)">
+            <summary>
+            Substitui os "Symbol Entities-HTML" pelos caracteres especiais.
+            </summary>
+            <param name="campo">string</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarArquivosDoWPF(eTipoArquivoWPF,System.String,System.String)">
+            <summary>
+            Retorna as dll's da solução WPF
+            </summary>
+            <param name="eRetornoWPF">DLL ou EXE</param>
+            <param name="pastaProjeto">Nome do projeto</param>
+            <param name="diretorioBase">Diretorio base para as pesquisas.</param>
+            <returns>Lista de objetod do tipo string.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.DataHoraServidor">
+            <summary>
+            (Get) Retorna a data hora do servidor.
+            </summary>
+            <returns>Objeto do tipo DateTime.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.NameSpaceAutorizadas">
+            <summary>
+            (Get) Retorna o nome das namespaces autorizadas para o uso.
+            </summary>
+            <remarks>Utilizado no metodo <c>MasterFormCadastro</c> para alertar dos controles visuais que são implementados na tela.
+            <para>Se o controle não for da namespace <see cref="N:FGlobus"/> ou <see cref="!:DevExpress"/> ira aparecer mensagem para ter atenção.</para>
+            </remarks>
+        </member>
+        <member name="P:FGlobus.Util.Util.ResolucaoMonitor">
+            <summary>
+            (Get) Retorna o tamanho da resolução do monitor.
+            </summary>
+            <returns>Size.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.UsuarioOS">
+            <summary>
+            (Get) Retorna o nome do usuário do sistema operacional.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.Estacao">
+            <summary>
+            (Get) Retorna o nome do computador.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="T:FGlobus.Util.Util.UsuariosLiberados">
+            <summary>
+            Lista de usuários exclusivos da BgmRodotec.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.UsuariosLiberados.GLOBUS">
+            <summary>
+            Usuário GLOBUS
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.UsuariosLiberados.MANAGER">
+            <summary>
+            Usuário MANAGER
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util.eVersaoGlobus">
+            <summary>
+            Versões dos Globus.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eVersaoGlobus.Globus4">
+            <summary>
+            Globus4
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eVersaoGlobus.GlobusMais">
+            <summary>
+            Globus+
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util.eOperador">
+            <summary>
+            Enum de operadores.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Igual">
+            <summary>
+            Igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Diferente">
+            <summary>
+            Direferente.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.MaiorOuIgual">
+            <summary>
+            Maior ou igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.MenorOuIgual">
+            <summary>
+            Menor ou igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Maior">
+            <summary>
+            Maior.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Menor">
+            <summary>
+            Menor.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util.eParametrosDeAcesso">
+            <summary>
+            Enum para identificar os parâmetros de abertura do módulo
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.Usuario">
+            <summary>
+            Usuário 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.Senha">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.TipoTela">
+            <summary>
+            Tipo de tela que foi aberta
+            <list type="bullet">
+            <item><description>, C = MasterFormCadastro</description></item>
+            <item><description>, R = MasterFormRelatorio</description></item>
+            <item><description>, MasterForm</description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.AssemblyNamePontoClasse">
+            <summary>
+            Nome no AssemblyName e o nome da classe
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.NomeItemDeMenu">
+            <summary>
+            Nome do item de menu
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.Sistema">
+            <summary>
+            Sigla do sistema
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eParametrosDeAcesso.ParametrosTela">
+            <summary>
+            Parâmetros de acesso da tela
+            </summary>
+        </member>
+        <member name="T:eTipoArquivoWPF">
+            <summary>
+            Enumerador método RetornarArquivosDoWPF
+            </summary>
+        </member>
+        <member name="F:eTipoArquivoWPF.DLL">
+            <summary>
+            *.dll
+            </summary>
+        </member>
+        <member name="F:eTipoArquivoWPF.EXE">
+            <summary>
+            *.exe
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoLinq.ExtensaoLinq">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe Linq.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoLinq.ExtensaoLinq.Between``2(System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1,``1)">
+            <summary>
+            Executa o filtro na lista conforme o valor inicial e valor final
+            </summary>
+            <typeparam name="TSource">Lista</typeparam>
+            <typeparam name="TKey">Propriedade</typeparam>
+            <param name="source">Lista</param>
+            <param name="keySelector">Propriedade</param>
+            <param name="valorInicial">Valor inicial</param>
+            <param name="valorFinal">Valor final</param>
+            <example>Exemplo:  
+                <code>
+                    Lista.Between(p =&gt; p.NomeDaProrpiedade, 1, 10);
+                </code>
+            </example>
+            <exception cref="T:System.Exception">A propriedade informado não é derivada de 'MemberExpression'.</exception>
+            <exception cref="T:System.Exception">O tipo da propriedade informado não é derivada de 'IComparable'.</exception>
+            <exception cref="T:System.Exception">O valor inicial e final não pode ser nulo.</exception>
+            <exception cref="T:System.Exception">O valor inicial não pode ser maior que o valor final.</exception>
+            <returns>Objeto do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoLinq.ExtensaoLinq.Contido``2(System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)">
+            <summary>
+            Verifica se o valor esta contido em algum item da lista conforme a propriedade informada.
+            </summary>
+            <typeparam name="TSource">Lista</typeparam>
+            <typeparam name="TKey">Propriedade</typeparam>
+            <param name="source">Lista</param>
+            <param name="propriedade">Propriedade</param>
+            <param name="valor">Valor da propriedade</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoLinq.ExtensaoLinq.Concatenar``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Concatena os itens da lista com o caracter de separação informado.
+            </summary>
+            <typeparam name="TSource">Lista</typeparam>
+            <param name="source">Lista</param>
+            <param name="caracaterSeparacao">Caracater de separação.</param>
+            <returns>string</returns>
+        </member>
+        <member name="T:FGlobus.Util.ConversaoBO">
+            <summary>
+            Classe com métodos úteis à conversões de tipos de objetos.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ConversaoBO.StringParaAlfa(System.String)">
+            <summary>
+            Retornar um texto substituindo caracteres especiais do texto informado por espaços.
+            </summary>
+            <param name="texto">Cadeia de caracteres (string) a converter.</param>
+            <returns>Texto sem caracteres especiais (somente alfanuméricos).</returns>
+        </member>
+        <member name="M:FGlobus.Util.ConversaoBO.IListToDataSet(System.Collections.IList)">
+            <summary>
+            Converte IList tipado em DataSet
+            </summary>
+            <param name="list">IList a ser convertido. Utilizar o conversão cast para IList tipados.</param>
+            <returns>DataSet tipado.</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoEnum.ExtensaoEnum">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe Enum.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoEnum.ExtensaoEnum.RetornarDefaultValue(System.Enum)">
+            <summary>
+            Retorna o valor do Enum quando o mesmo estiver o atributo DefaultValue
+            </summary>
+            <param name="valor">Enum</param>
+            <example>Exemplo para o atributo <see cref="T:System.ComponentModel.DefaultValueAttribute"/>:
+                <code>
+                    public enum eEnumerador
+                    {
+                        [System.ComponentModel.DefaultValue("Teste")]
+                        Valor1,
+                        [System.ComponentModel.DefaultValue("Teste")]
+                        Valor2
+                    }
+                </code>
+            </example>
+            <exception>Retorna o ToString do enum informado, quando não encontra o atributo.</exception>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoEnum.ExtensaoEnum.RetornarDescricao(System.Enum)">
+            <summary>
+            Retorna descrição do enum utilizando um dos dois atributos:
+            <para>  <see cref="T:System.Xml.Serialization.XmlEnumAttribute"/>.</para>
+            <para>  <see cref="T:System.ComponentModel.DescriptionAttribute"/>.</para>
+            </summary>
+            <param name="valor">Enum</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoEnum.ExtensaoEnum.RetornarEnum``1(System.IComparable)">
+            <summary>
+            Retornar o enum conforme o tipo informado e o valor 
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno</typeparam>
+            <param name="valor">IComparable</param>
+            <returns>Objeto do tipo informado.</returns>
+            <exception cref="T:System.Exception">Quando tipo não for do tipo Enum</exception>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoEnum.ExtensaoEnum.RetornarAtributo``1(System.Enum)">
+            <summary>
+            Retorna o atributo do Enum informado
+            </summary>
+            <param name="valor">Enum</param>      
+            <returns>Objeto do tipo informado.</returns>
+        </member>
+        <member name="T:FGlobus.Util.Email">
+            <summary>
+            Classe para envio de e-mail.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.Email.EnviarEmail(FGlobus.Util.Email.ParametrosDeEmail)">
+            <summary>
+            Método de envio de e-mail.
+            </summary>
+            <param name="_parametrosDeEmail">Parâmetros para envio de e-mail.</param>
+        </member>
+        <member name="M:FGlobus.Util.Email.EnviarEmail(FGlobus.Util.Email.ParametrosDeEmail,System.Boolean)">
+            <summary>
+            Método de envio de e-mail.
+            </summary>
+            <param name="_parametrosDeEmail">Parâmetros para envio de e-mail.</param>        
+            <param name="apagaMensagem">Apagar mensagem de erro</param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Util.Email.VerificaEmailValido(System.String)">
+            <summary>
+            Verifica se e-mail é válido.
+            </summary>
+            <param name="enderecoEmail">E-mail.</param>
+            <returns>Retorna verdadeiro / falso.</returns>
+        </member>
+        <member name="T:FGlobus.Util.Email.ParametrosDeEmail">
+            <summary>
+            Classe com os parâmetros necessários para envio de e-mail.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.Remetente">
+            <summary>
+            Remente (e-mail, senha, STMP, porta e utilizarSll).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.ListaDestinatario">
+            <summary>
+            Lista com os destinatário.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.Assunto">
+            <summary>
+            Assunto.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.Mensagem">
+            <summary>
+            Mensagem.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.HTML">
+            <summary>
+            Corpo da mensagem do tipo HTML.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.ParametrosDeEmail.ListaDeAnexos">
+            <summary>
+            Lista com anexos.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Email.Remetente">
+            <summary>
+            Classe com os parâmetros do Remetente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.EmailRemetente">
+            <summary>
+            E-mail.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.NomeApresentacaoRemetente">
+            <summary>
+            Nome que aparece no e-mail.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.SenhaEmail">
+            <summary>
+            Senha.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.SMTP">
+            <summary>
+            SMTP.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.Porta">
+            <summary>
+            Porta
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Remetente.UtilizarSslEnvio">
+            <summary>
+            Utiliza SSL envio (SMTP).
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Email.Destinatario">
+            <summary>
+            Classe com os parâmetros do Destinatário.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Destinatario.EmailDestinatario">
+            <summary>
+            E-mail.
+            </summary>           
+        </member>
+        <member name="P:FGlobus.Util.Email.Destinatario.NomeApresentacaoDestinatario">
+            <summary>
+            Nome que aparece no e-mail.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.Destinatario.TipoEnvioDestinario">
+            <summary>
+            Tipo do destinatário.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Email.RetornoDoEmail">
+            <summary>
+            Classe com o Retorno do Email
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.RetornoDoEmail.ListaRetornoEmail">
+            <summary>
+            Lista Retorno Email
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.RetornoDoEmail.Enviado">
+            <summary>
+            Enviado
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Email.RetornoDoEmail.Mensagem">
+            <summary>
+            Mensagem
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Email.eTipoEnvioDestinario">
+            <summary>
+            Enumeradores do tipo de Destinatário.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eTipoEnvioDestinario.Para">
+            <summary>
+            Para.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eTipoEnvioDestinario.ComCopia">
+            <summary>
+            Com cópia.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eTipoEnvioDestinario.Oculto">
+            <summary>
+            Oculto.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Email.eRetornoEmail">
+            <summary>
+            Enumeradores dos tipos de retorno ao enviar o e-mail.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.EnviadoComSucesso">
+            <summary>
+            Enviado com sucesso.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.ErroAoEnviar">
+            <summary>
+            Erro ao enviar.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.RemetenteInvalido">
+            <summary>
+            Remetente inválido.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.DestinatarioInvalido">
+            <summary>
+            Destinatário inválido.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.EndereçoDoRemetenteNaoInformado">
+            <summary>
+            Endereço do Remetente não informado.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.SenhaDoRemetenteNaoInformado">
+            <summary>
+            Senha do Remetente não informado
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.PortaDoRemetenteNaoInformado">
+            <summary>
+            Porta do Remetente não informado
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.SmtpDoRemetenteNaoInformado">
+            <summary>
+            Smtp do Remetente não informado
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.EmailInvalido">
+            <summary>
+            E-mail inválido.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.EmailIndisponível">
+            <summary>
+            Senha inválida
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Email.eRetornoEmail.SmtpPortaInvalida">
+            <summary>
+            SMTP e/ou porta inválida
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.UF">
+            <summary>
+            Classe com métodos úteis para controlar as UFs inclusas no "Resources"
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.AC">
+            <summary>
+            Acre    
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.AL">
+            <summary>
+            Alagoas 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.AP">
+            <summary>
+            Amapá   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.AM">
+            <summary>
+            Amazonas      
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.BA">
+            <summary>
+            Bahia   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.CE">
+            <summary> 
+            Ceará   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.DF">
+            <summary>
+            Distrito Federal       
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.ES">
+            <summary>
+            Espírito Santo 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.GO">
+            <summary>
+            Goiás   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.MA">
+            <summary>
+            Maranhão
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.MT">
+            <summary>
+            Mato Grosso    
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.MS">
+            <summary>
+            Mato Grosso do Sul     
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.MG">
+            <summary>
+            Minas Gerais   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.PA">
+            <summary>
+            Pará    
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.PB">
+            <summary>
+            Paraíba 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.PR">
+            <summary>
+            Paraná  
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.PE">
+            <summary>
+            Pernambuco     
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.PI">
+            <summary>
+            Piauí   
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.RJ">
+            <summary>
+            Rio de Janeiro 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.RN">
+            <summary>
+            Rio Grande do Norte    
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.RS">
+            <summary>
+            Rio Grande do Sul      
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.RO">
+            <summary>
+            Rondônia
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.RR">
+            <summary>
+            Roraima 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.SC">
+            <summary>
+            Santa Catarina 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.SP">
+            <summary>
+            São Paulo      
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.SE">
+            <summary>
+            Sergipe 
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.UF.TO">
+            <summary>
+            Tocantins      
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.UF.Estado">
+            <summary>
+            Classe com métodos úteis para controlar os estados
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.#ctor">
+            <summary>
+            Construtor Default
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.#ctor(System.String,System.Resources.ResourceManager)">
+            <summary>
+            Construtor padrão
+            </summary>
+            <param name="codigo">Código do estado</param>
+            <param name="resourceManager">ResourceManager com os estados</param>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.#ctor(System.String)">
+            <summary>
+            Construtor padrão
+            </summary>
+            <param name="codigo">Código do estado</param>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.ToString">
+            <summary>
+            Retornar o código do estado
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos são iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.op_Equality(FGlobus.Util.UF.Estado,System.String)">
+            <summary>
+            Verifica se os objetos são iguais.
+            </summary>
+            <param name="origem">Origem</param>
+            <param name="destino">Destino</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.op_Inequality(FGlobus.Util.UF.Estado,System.String)">
+            <summary>
+            Verifica se os objetos são iguais.
+            </summary>
+            <param name="origem">Origem</param>
+            <param name="destino">Destino</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.Contido(System.String[])">
+            <summary>
+            Verifica se o objeto esta contido na lista informada
+            </summary>
+            <param name="valores">Lista de objetos do tipo <see cref="T:System.String"/></param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.UF.Estado.Contido(FGlobus.Util.UF.Estado[])">
+            <summary>
+            Verifica se o objeto esta contido na lista informada
+            </summary>
+            <param name="valores">Lista de objetos do tipo <see cref="T:FGlobus.Util.UF.Estado"/></param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="P:FGlobus.Util.UF.Estado.Codigo">
+            <summary>
+            (Get) Retorna o código do estado
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.UF.Estado.Descricao">
+            <summary>
+            (Get) Retorna a descrição do estado
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoException.ExtensaoException">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada à classe Exception.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoException.ExtensaoException.MostrarExcecao(System.Exception)">
+            <summary>
+            Mostrar MessageBox com o valor da Exception
+            </summary>
+            <param name="valor">Exception</param>
+        </member>
+        <member name="T:FGlobus.Util.Constantes">
+            <summary>
+            Constantes reservadas para o sistema.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CATEGORIA">
+            <summary>
+            Constante utilizada na definição da categoria que propriedade do objeto pertence.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SIGLA_BGM">
+            <summary>
+            Constante da sigla da BgmRodotec.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NOME_PRODUTO">
+            <summary>
+            Constante para identificar o nome do produto
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SIGLA_GLOBUS">
+            <summary>
+            Constante da sigla do Globus.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.COMPANHIA">
+            <summary>
+            Constante para identificar a companhia
+            <remarks>Utilizado no <c>AssemblyInfo.cs</c>.</remarks>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.DIREITOS_AUTORAIS">
+            <summary>
+            Constante para identificar os direitos autorais
+            <remarks>Utilizado no <c>AssemblyInfo.cs</c>.</remarks>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.MARCA_REGISTRADA">
+            <summary>
+            Constante para identificar a marca registrada
+            <remarks>Utilizado no <c>AssemblyInfo.cs</c>.</remarks>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.COR_RESERVADA">
+            <summary>
+            Constante para identificar a cor reservada
+            <para>Cor: Preto.</para>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CARACTER_SEPARACAO">
+            <summary>
+            Constante para identificar os caracteres de separação quando for concatenar uma string
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.PULAR_LINHA">
+            <summary>
+            Constante para identificar nas mensagens dos arquivos de Resources quando é para pular linha
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NONE_DEFAULT">
+            <summary>
+            Constante para identificar um nome default, utilizada em propriedades dos componentes
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NONE_NENHUM">
+            <summary>
+            Constante para identificar quando nenhum item estiver selecionado, utilizada em propriedades dos componentes
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CHECKSUM_ACESSO_WEBSERVICE">
+            <summary>
+            Constante que define Checksum de Acesso ao WebService
+            </summary>
+            <remarks>Quando alterar o valor mudar no Globus4 vcChecksumAutenticacaoWebService</remarks>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.EM_DESENVOLVIMENTO">
+            <summary>
+            Constante de controle interno para mensagem em desenvolvimento.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.COMPONENTE_DE_CONTROLE_INTERNO">
+            <summary>
+            Constante de controle interno, para identificar que controle pertence a FGlobus
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SIM">
+            <summary>
+            Constante para identificar o valor do "SIM" nas propriedades booleanas
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NAO">
+            <summary>
+            Constante para identificar o valor do "NAO" nas propriedades booleanas
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SIM_1">
+            <summary>
+            Constante para identificar o valor do "SIM" quando numérico nas propriedades booleanas, geralmente igual a "1"
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NAO_0">
+            <summary>
+            Constante para identificar o valor do "NAO" quando numérico nas propriedades booleanas, geralmente igual a "0"
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.AUTO_LOGIN">
+            <summary>
+            Constante utilizada para o Auto Login (Portal)
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.RESOURCE_PORTAL">
+            <summary>
+            Constante do Resource de imagens do Workflow.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.RESOURCE_PORTAL_REDUZIDO">
+            <summary>
+            Constante do Resource de imagens do Portal.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.RESOURCE_WORKFLOW">
+            <summary>
+            Constante do Resource de imagens do Workflow.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.FONT_SANS_SERIF">
+            <summary>
+            Constante do font Microsoft Sans Serif.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.FONT_SEGOE_UI_LIGHT">
+            <summary>
+            Constante do font Segoe UI Light.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.EXTENSAO_PNG">
+            <summary>
+            Constante da extensão PNG.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.HTCAPTION">
+            <summary>
+            Barra de titulo do formulario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.WM_NCLBUTTONDBLCLK">
+            <summary>
+            Double click na titulo do formulario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.WM_SYSCOMMAND">
+            <summary>
+            Clicou no formulário
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SC_MINIMIZE">
+            <summary>
+            Clicou no botão minimizar do formulario
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ValidacaoBO">
+            <summary>
+            Classe com métodos úteis à validação de entradas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidaInscricao(System.String)">
+            <summary>
+            Retorna o tipo de incrição validada da incrição informada.
+            </summary>
+            <param name="inscricao">Número da inscrição (CPF,CNPJ,etc...).</param>
+            <returns>eTiposIncricoes.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCEI(System.String)">
+            <summary>
+            Validar quantidade de caracteres da matrícula CEI informada.
+            </summary>
+            <param name="cei">Matrícula CEI.</param>
+            <exception cref="P:FGlobus.Mensagens.Informacoes.CEIInvalido">Gerada quando matricula CEI informada não for válida.</exception>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCPF(System.String)">
+            <summary>
+            Validar digito verificados de CPF informado.
+            </summary>
+            <param name="cpf">Número do CPF.</param>
+            <exception cref="P:FGlobus.Mensagens.Informacoes.CPFInvalido">Gerada quando CPF informado não for válido.</exception>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCNPJ(System.String)">
+            <summary>
+            Validar digito verificador de CNPJ informado.
+            </summary>
+            <param name="cnpj">Número do CNPJ.</param>
+            <exception cref="P:FGlobus.Mensagens.Informacoes.CNPJInvalido">Gerada quando CNPJ informado não for válido.</exception>        
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ConsisteInscricaoEstadual(System.String,System.String)">
+            <summary>
+            Valida consistência de Inscrição Estadual para a UF informada.
+            <remarks>
+            Necessita assembly DllInscE32.DLL disponibilizado em http://www.sintegra.gov.br
+            </remarks>
+            </summary>
+            <param name="Insc">Inscrição estadual a validar.</param>
+            <param name="UF">Código da unidade federativa da Inscrição Estadual a validar.</param>
+            <returns>
+            Inteiro:
+            <list type="bullet">
+            <item><description>0 Incrição estadual VÁLIDA para a UF informada.</description></item>
+            <item><description>1 Incrição estadual INVÁLIDA para a UF informada.</description></item>
+            <item><description>2 Parâmetros incorretos.</description></item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarIE(System.String,System.String)">
+            <summary>
+            Valida consistência de Inscrição Estadual para a UF informada.
+            <remarks>
+            Necessita DllInscE32.DLL instalada junto ao projeto.
+            </remarks>
+            </summary>
+            <param name="IE">Inscrição estadual a validar.</param>
+            <param name="UF">Código da unidade federativa da Inscrição Estadual a validar.</param>
+            <exception cref="P:FGlobus.Mensagens.Informacoes.ErroAcessarDllInscE32">Gerada se DLL da Sintegra (DllInscE32.DLL) não estiver devidadmente instalada junto ao assembly.</exception>
+            <exception cref="P:FGlobus.Mensagens.Informacoes.IEInvalida">Gerada quando IE não for válida para o estado informado.</exception>        
+        </member>
+        <member name="T:FGlobus.Util.ValidacaoBO.eTiposInscricoes">
+            <summary>
+            Tipo de incrição.
+            <remarks>
+            <list type="bullet">
+            <item><description>CNPJ</description></item>
+            <item><description>CPF</description></item>
+            <item><description>CEI</description></item>
+            <item><description>Desconhecido</description></item>/// 
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CNPJ">
+            <summary>
+            Número de incrição válida como CNPJ
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CPF">
+            <summary>
+            Número de incrição válida como CPF
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CEI">
+            <summary>
+            Número de incrição válida como CEI
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.Desconhecido">
+            <summary>
+            Número de desconhecido
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.OficinaEMateriais.OficinaEMateriais">
+            <summary>
+            Classe com métodos úteis para os modulos do Oficina E Materiais
+            </summary>    
+        </member>
+        <member name="T:FGlobus.Util.Cargas.ParametroPerguntaComResposta">
+            <summary>
+            Classe de acesso a lista com perguntas e respotas do parâmetros do Cargas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.Cargas.ParametroPerguntaComResposta.#ctor(System.Collections.Generic.List{FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta})">
+            <summary>
+            Contrutor default.
+            </summary>
+            <param name="respostas">Lista de objeto do tipo sRespostaCargas.</param>
+        </member>
+        <member name="M:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RetornarResposta(System.Int32)">
+            <summary>
+            Retorna a resposta do codigo interno da pergunta informada.
+            </summary>
+            <param name="codigoPergunta">Código interno da pergunta.</param>
+            <returns></returns>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.Codigo">
+            <summary>
+            Código interno da pergunta.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.Pergunta">
+            <summary>
+            Descrição da pergunta.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaLogico">
+            <summary>
+            Retorna a resposta na forma "bool", conforme o tipo do parâmetro "S/N".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaData">
+            <summary>
+            Retorna a resposta na forma "DateTime", conforme o tipo do parâmetro "DAT".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaTexto">
+            <summary>
+            Retorna a resposta na forma string, conforme o tipo do parâmetro "OPC ou TEX".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaNumerico">
+            <summary>
+            Retorna a resposta na forma "Decimal", conforme o tipo do parâmetro "NUM".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.AchouResposta">
+            <summary>
+            Retorna true se achar a resposta.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta">
+            <summary>
+            Estrutura para perguntas e respotas do parâmetros do Cargas.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.Codigo">
+            <summary>
+            Codigo interno da pergunta.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.Pergunta">
+            <summary>
+            Descrição da pergunta.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaLogico">
+            <summary>
+            Resposta na forma "bool", conforme o tipo do parâmetro "S/N".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaData">
+            <summary>
+            Resposta na forma "DateTime", conforme o tipo do parâmetro "DAT".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaTexto">
+            <summary>
+            Resposta na forma string, conforme o tipo do parâmetro "OPC ou TEX".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaNumerico">
+            <summary>
+            Resposta na forma "Decimal", conforme o tipo do parâmetro "NUM".
+            </summary>
+        </member>
+    </members>
+</doc>

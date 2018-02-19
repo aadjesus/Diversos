@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ComboDefinitions>
+	<Version>1.0.0</Version>
+	<Commands>
+		<Command id="S" name="Sword" />
+		<Command id="M" name="Magic" />
+		<Command id="D" name="Dagger" />
+		<Command id="A" name="Acrobatics" />
+	</Commands>
+	<DefaultButtonMappings>
+		<Platform name="PS3">
+			<ButtonMapping button="Square" command="S" />
+			<ButtonMapping button="Triangle" command="M" />
+			<ButtonMapping button="Circle" command="D" />
+			<ButtonMapping button="X" command="A" />
+		</Platform>
+		<Platform name="Xbox 360">
+			<ButtonMapping button="X" command="S" />
+			<ButtonMapping button="Y" command="M" />
+			<ButtonMapping button="B" command="D" />
+			<ButtonMapping button="A" command="A" />
+		</Platform>
+		<Platform name="PC">
+			<ButtonMapping button="1" command="S" />
+			<ButtonMapping button="2" command="M" />
+			<ButtonMapping button="3" command="D" />
+			<ButtonMapping button="4" command="A" />
+		</Platform>
+	</DefaultButtonMappings>
+	<StartingComboGroup>Normal</StartingComboGroup>
+	<ComboGroups>
+		<ComboGroup name="Normal">
+			<AttackCombo commandSequence="S,S,S,S" />
+			<AttackCombo commandSequence="M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="S,S,S,M" nextGroupInChain="Magic" />
+			<AttackCombo commandSequence="D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,S,S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,S,S,A" nextGroupInChain="Acrobatic" />
+		</ComboGroup>
+		<ComboGroup name="Magic">
+			<AttackCombo commandSequence="S,S" />
+			<AttackCombo commandSequence="M,S" />
+			<AttackCombo commandSequence="S,M,S" />
+			<AttackCombo commandSequence="M,M" /> 
+			<AttackCombo commandSequence="S,M,M" />
+			<AttackCombo commandSequence="D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="M,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,M,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,M,M,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,D,M,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,M,S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="S,D,S,D" nextGroupInChain="Dagger" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="M,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,A" nextGroupInChain="Acrobatic" />
+			<AttackCombo commandSequence="S,M,A" nextGroupInChain="Acrobatic" />
+		</ComboGroup>
+		<ComboGroup name="Dagger">
+			<AttackCombo commandSequence="S" />
+			<AttackCombo commandSequence="M,M,S" />
+			<AttackCombo commandSequence="M,S,S" />
+			<AttackCombo commandSequence="M,S,M,S" />
+			<AttackCombo commandSequence="M,M,M" />
+			<AttackCombo commandSequence="M,S,M,M" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,M,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,S,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="M,S,M,A" nextGroupInChain="Aerial" />
+			<AttackCombo commandSequence="D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,S,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,S,M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,S,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,S,M,D" nextGroupInChain="Spin" />
+		</ComboGroup>
+		<ComboGroup name="Acrobatic">
+			<AttackCombo commandSequence="S,S,S" />
+			<AttackCombo commandSequence="M,M,S" />
+			<AttackCombo commandSequence="M,S,S" />
+			<AttackCombo commandSequence="M,S,M,S" />
+			<AttackCombo commandSequence="M,M,M" />
+			<AttackCombo commandSequence="M,S,M,M" />
+			<AttackCombo commandSequence="A" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,A" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,M,A" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,S,A" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="M,S,M,A" nextGroupInChain="Throw" />
+			<AttackCombo commandSequence="D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,S,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,S,M,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,S,D" nextGroupInChain="Spin" />
+			<AttackCombo commandSequence="M,M,S,M,D" nextGroupInChain="Spin" />
+		</ComboGroup>
+		<ComboGroup name="Spin">
+			<AttackCombo commandSequence="D,S" />
+			<AttackCombo commandSequence="D,M,S" />
+			<AttackCombo commandSequence="D,M,M" />
+			<AttackCombo commandSequence="D,D" />
+			<AttackCombo commandSequence="D,M,D" />
+		</ComboGroup>
+		<ComboGroup name="Throw">
+			<AttackCombo commandSequence="A,S" />
+			<AttackCombo commandSequence="A,M,S" />
+			<AttackCombo commandSequence="A,M,M" />
+			<AttackCombo commandSequence="A,D" />
+			<AttackCombo commandSequence="A,M,D" />
+		</ComboGroup>
+		<ComboGroup name="Aerial">
+			<AttackCombo commandSequence="S" />
+			<AttackCombo commandSequence="M,S" />
+			<AttackCombo commandSequence="M,M" />
+			<AttackCombo commandSequence="D" />
+			<AttackCombo commandSequence="M,D" />
+		</ComboGroup>
+	</ComboGroups>
+</ComboDefinitions>

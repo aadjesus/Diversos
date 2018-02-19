@@ -1,0 +1,1085 @@
+From: <Salvo pelo Microsoft Internet Explorer 7>
+Subject: Comparando VB.NET com C#
+Date: Wed, 9 Apr 2008 09:29:35 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C89A24.39C19FF0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C89A24.39C19FF0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.macoratti.net/vbnxcshp.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from =
+url=3D(0068)http://www.harding.edu/USER/fmccown/WWW/vbnet_csharp_comparis=
+on.html --><HTML><HEAD><TITLE>Comparando VB.NET com C#</TITLE>
+<META content=3Dhttp://schemas.microsoft.com/intellisense/ie5=20
+name=3Dvs_targetSchema>
+<META http-equiv=3DContent-Language content=3Den-us>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"VB.NET and C# Comparison" name=3DDESCRIPTION>
+<META content=3D"VB.NET, C#, programming language, syntax comparison"=20
+name=3Dkeywords>
+<META content=3D"Frank McCown" name=3Dauthor>
+<STYLE>BODY {
+	FONT-SIZE: small; FONT-FAMILY: Tahoma
+}
+TD {
+	FONT-SIZE: x-small; PADDING-BOTTOM: 15px
+}
+.heading {
+	FONT-SIZE: large; COLOR: blue; PADDING-TOP: 5px; LETTER-SPACING: 2pt; =
+BACKGROUND-COLOR: rgb(230,230,230)
+}
+.comment {
+	COLOR: green; FONT-STYLE: italic
+}
+</STYLE>
+
+<META content=3D"MSHTML 6.00.6000.16608" name=3DGENERATOR></HEAD>
+<BODY><IMG height=3D32 src=3D"http://www.macoratti.net/maco10.gif" =
+width=3D233=20
+border=3D0><FONT color=3D#000080><B><SPAN lang=3Dpt-br><FONT=20
+size=3D5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;=20
+Comparando VB.NET com C#</FONT></SPAN></B></FONT>
+<HR>
+=20
+<P><FONT face=3DVerdana size=3D2><SPAN lang=3Dpt-br>A seguir um guia de =
+refer=EAncia=20
+r=E1pida comparando a sintaxe e defini=E7=F5es do VB.NET com=20
+C-Sharp.</SPAN></FONT></P>
+<TABLE style=3D"BORDER-COLLAPSE: collapse" borderColor=3D#111111 =
+height=3D7055=20
+cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D1>
+  <TBODY>
+  <TR>
+    <TD width=3D"50%" height=3D31>
+      <H2 align=3Dcenter><FONT =
+color=3D#000080><U>VB.NET</U></FONT></H2></TD>
+    <TD width=3D"50%" height=3D31>
+      <H2 align=3Dcenter><FONT =
+color=3D#000080><U>C#</U></FONT></H2></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dcomments><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Com</FONT><SPAN =
+lang=3Dpt-br><FONT=20
+      size=3D3>ent=E1rios</FONT></SPAN></B></TD></TR>
+  <TR>
+    <TD height=3D94><SPAN class=3Dcomment>' <SPAN lang=3Dpt-br>linha=20
+      =FAnica</SPAN><BR><STRONG>Rem</STRONG>&nbsp;<SPAN =
+lang=3Dpt-br>somente uma=20
+      linha</SPAN></SPAN></TD>
+    <TD height=3D94>
+      <P><SPAN class=3Dcomment>// <SPAN lang=3Dpt-br>somente uma =
+linha</SPAN><BR>/*=20
+      Multipl<SPAN lang=3Dpt-br>as</SPAN><BR>&nbsp;&nbsp;&nbsp; lin<SPAN =
+
+      lang=3Dpt-br>has</SPAN> */<BR>/// <SPAN lang=3Dpt-br>coment=E1rio =
+</SPAN>XML=20
+      <SPAN lang=3Dpt-br>em um linha<BR></SPAN>/** <SPAN =
+lang=3Dpt-br>coment=E1rio=20
+      </SPAN>XML <SPAN lang=3Dpt-br>em m=FAltiplas linhas</SPAN> =
+*/</SPAN></P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Ddatatypes><FONT=20
+      size=3D3></FONT></A><SPAN lang=3Dpt-br><FONT size=3D3>Tipos de=20
+      dados</FONT></SPAN></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D391>
+      <P><SPAN class=3Dcomment>Tipos por=20
+      Valor</SPAN><BR>Boolean<BR>Byte<BR>Char&nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>(ex<SPAN lang=3Dpt-br>e</SPAN>mpl<SPAN =
+lang=3Dpt-br>o</SPAN>:=20
+      "A")</SPAN><BR>Short, Integer, Long<BR>Single,=20
+      Double<BR>Decimal<BR>Date</P>
+      <P><SPAN class=3Dcomment>Tipos por=20
+      Refer=EAncia</SPAN><BR>Object<BR>String<BR></P>
+      <P><STRONG>Dim</STRONG> x <STRONG>As</STRONG> Integer=20
+      <BR>Console.WriteLine(x.GetType())&nbsp;&nbsp;&nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>'&nbsp;Imprime System.Int32</SPAN>=20
+      <BR>Console.WriteLine(TypeName(x))&nbsp; <SPAN class=3Dcomment>' =
+Imprime=20
+      Integer</SPAN></P>
+      <P><SPAN class=3Dcomment>'&nbsp;Convers=E3o de Tipos</SPAN><BR>Dim =
+numDecimal=20
+      As Single =3D 3.5 <BR>Dim numInt As Integer<BR>numInt =3D=20
+      <STRONG>CType</STRONG>(numDecimal, Integer)&nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>' Define para<SPAN lang=3Dpt-br> </SPAN>4 =
+</SPAN><BR>numInt =3D=20
+      <STRONG>CInt</STRONG>(numDecimal)&nbsp; <SPAN class=3Dcomment>' =
+<SPAN=20
+      lang=3Dpt-br>mesmo resultado que com </SPAN>CType</SPAN><BR>numInt =
+=3D=20
+      Int(numDecimal)&nbsp;&nbsp;&nbsp; <SPAN class=3Dcomment>' Define =
+para3=20
+      (<SPAN lang=3Dpt-br>A fun=E7=E3o </SPAN>Int <SPAN =
+lang=3Dpt-br>trunca o=20
+      decimal</SPAN>)</SPAN></P></TD>
+    <TD height=3D391>
+      <P><SPAN class=3Dcomment>Tipos por Valor</SPAN><BR>bool<BR>byte,=20
+      sbyte<BR>char&nbsp;&nbsp; <SPAN class=3Dcomment>(ex<SPAN=20
+      lang=3Dpt-br>e</SPAN>mpl<SPAN lang=3Dpt-br>o</SPAN>: =
+'A')</SPAN><BR>short,=20
+      ushort, int, uint, long,=20
+      ulong<BR>float,&nbsp;double<BR>decimal<BR>DateTime&nbsp;&nbsp; =
+</P>
+      <P><SPAN class=3Dcomment>Tipos por=20
+      Refer=EAncia</SPAN><BR>object<BR>string<BR></P>
+      <P>int =
+x;<BR>Console.WriteLine(x.GetType());&nbsp;&nbsp;&nbsp;&nbsp;<SPAN=20
+      class=3Dcomment>// Imprime=20
+      =
+System.Int32</SPAN><BR>Console.WriteLine(typeof(int));&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;=20
+      <SPAN class=3Dcomment>// Imprime System.Int32</SPAN> </P>
+      <P><SPAN class=3Dcomment><BR>// Convers=E3o de Tipos</SPAN> =
+<BR>double=20
+      numDecimal =3D 3.5; <BR>int numInt =3D <STRONG>(int)</STRONG>=20
+      numDecimal;&nbsp;&nbsp; <SPAN class=3Dcomment>// <SPAN =
+lang=3Dpt-br>define=20
+      para </SPAN>3&nbsp; (<SPAN lang=3Dpt-br>trunca o=20
+    decimal</SPAN>)</SPAN></P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dconstants><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Constant<SPAN=20
+      lang=3Dpt-br>e</SPAN>s</FONT></B></TD></TR>
+  <TR>
+    <TD height=3D30><STRONG>Const</STRONG>&nbsp;MAX_STUDENTS =
+<STRONG>As</STRONG>=20
+      Integer =3D 25</TD>
+    <TD height=3D30><STRONG>const</STRONG> int MAX_STUDENTS =3D =
+25;</TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Denumerations><FONT=20
+      size=3D3></FONT></A><FONT =
+size=3D3>Enumerations</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D302><SPAN><STRONG>Enum</STRONG> Action <BR>&nbsp;=20
+      Start&nbsp;<BR>&nbsp; [Stop]&nbsp;&nbsp;&nbsp;<SPAN =
+class=3Dcomment>'=20
+      Stop&nbsp;<SPAN lang=3Dpt-br>=E9 uma palavra =
+reservada</SPAN></SPAN><BR>&nbsp;=20
+      Rewind <BR>&nbsp; Forward <BR><STRONG>End Enum</STRONG>=20
+      <BR><BR><STRONG>Enum</STRONG>&nbsp;Status <BR>&nbsp; Flunk =3D 50 =
+<BR>&nbsp;=20
+      Pass =3D 70 <BR>&nbsp; Excel =3D 90 <BR><STRONG>End =
+Enum<BR></STRONG><BR>Dim a=20
+      As Action =3D Action.Stop <BR>If a &lt;&gt; Action.Start Then=20
+      Console.WriteLine(a)&nbsp;&nbsp; &nbsp; <SPAN class=3Dcomment>'=20
+      Imprime&nbsp;1</SPAN>=20
+      <BR><BR>Console.WriteLine(Status.Pass)&nbsp;&nbsp;&nbsp; =
+&nbsp;<SPAN=20
+      class=3Dcomment>' Imprime 70</SPAN>=20
+      <BR>Console.WriteLine(Status.Pass.ToString())&nbsp;&nbsp;&nbsp;=20
+      &nbsp;<SPAN class=3Dcomment>' Imprime Pass</SPAN> </SPAN></TD>
+    <TD height=3D302><STRONG>enum</STRONG> Action {Start, Stop, Rewind,=20
+      Forward};<BR><STRONG>enum</STRONG> Status {Flunk =3D 50, Pass =3D =
+70, Excel =3D=20
+      90};<BR><BR>Action a =3D Action.Stop;<BR>if (a !=3D =
+Action.Start)<BR>&nbsp;=20
+      Console.WriteLine(a + " <SPAN lang=3Dpt-br>e</SPAN> " + (int)=20
+      a);&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=3Dcomment>// Imprime "Stop =
+<SPAN=20
+      lang=3Dpt-br>e</SPAN>=20
+      1"</SPAN><BR><BR>Console.WriteLine(Status.Pass);&nbsp;&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>// Imprime Pass</SPAN></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Doperators><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Opera</FONT><SPAN =
+lang=3Dpt-br><FONT=20
+      size=3D3>dores</FONT></SPAN></B></TD></TR>
+  <TR>
+    <TD height=3D419>
+      <P><SPAN class=3Dcomment>Compar<SPAN =
+lang=3Dpt-br>a=E7=E3o</SPAN></SPAN></P>
+      <P>=3D&nbsp; &lt;&nbsp; &gt;&nbsp; &lt;=3D&nbsp; &gt;=3D&nbsp; =
+&lt;&gt;</P>
+      <P><SPAN class=3Dcomment>Ari<SPAN=20
+      lang=3Dpt-br>tim=E9tico</SPAN></SPAN><BR>+&nbsp; -&nbsp; *&nbsp;=20
+      /<BR>Mod<BR>\&nbsp; <SPAN class=3Dcomment>(<SPAN =
+lang=3Dpt-br>divis=E3o=20
+      inteira</SPAN>)</SPAN><BR>^&nbsp; <SPAN class=3Dcomment>(<SPAN=20
+      lang=3Dpt-br>eleva a pot=EAncia</SPAN>)</SPAN></P>
+      <P><SPAN class=3Dcomment>A<SPAN=20
+      lang=3Dpt-br>tribui=E7=E3o</SPAN></SPAN><BR>=3D&nbsp; +=3D&nbsp; =
+-=3D&nbsp; *=3D&nbsp;=20
+      /=3D&nbsp; \=3D &nbsp;^=3D&nbsp; &lt;&lt;=3D =
+&nbsp;&gt;&gt;=3D&nbsp; &amp;=3D</P>
+      <P><SPAN =
+class=3Dcomment>Bitwise</SPAN><BR>And&nbsp;&nbsp;AndAlso&nbsp;=20
+      Or&nbsp;&nbsp;OrElse&nbsp; Not&nbsp; &lt;&lt;&nbsp; &gt;&gt;</P>
+      <P><SPAN class=3Dcomment>Logic<SPAN =
+lang=3Dpt-br>o</SPAN></SPAN><BR>And&nbsp;=20
+      AndAlso&nbsp; Or&nbsp;&nbsp;OrElse&nbsp;&nbsp;Not</P>
+      <P><STRONG>Note:</STRONG> AndAlso and OrElse are for=20
+      <I>short-circuiting</I> logical evaluations</P>
+      <P><SPAN class=3Dcomment><SPAN lang=3Dpt-br>Concatena=E7=E3o de=20
+      strings</SPAN></SPAN><BR>&amp;</P></TD>
+    <TD height=3D419>
+      <P><SPAN class=3Dcomment>Compar<SPAN=20
+      lang=3Dpt-br>a=E7=E3o</SPAN></SPAN><BR><BR>=3D=3D&nbsp; &lt;&nbsp; =
+&gt;&nbsp;=20
+      &lt;=3D&nbsp; &gt;=3D&nbsp; !=3D</P>
+      <P><SPAN class=3Dcomment>Ari<SPAN=20
+      lang=3Dpt-br>tim=E9tico</SPAN></SPAN><BR>+&nbsp; -&nbsp; *&nbsp; =
+/<BR>%&nbsp;=20
+      <SPAN class=3Dcomment>(mod)</SPAN><BR>/&nbsp; <SPAN =
+class=3Dcomment>(i<SPAN=20
+      lang=3Dpt-br>divis=E3o inteira se ambos os operadores s=E3o=20
+      </SPAN>ints)</SPAN><BR>Math.Pow(x, y)<SPAN lang=3Dpt-br> =
+</SPAN><SPAN=20
+      class=3Dcomment>(<SPAN lang=3Dpt-br>eleva a =
+pot=EAncia</SPAN>)</SPAN></P>
+      <P><SPAN class=3Dcomment>A<SPAN=20
+      lang=3Dpt-br>tribui=E7=E3o</SPAN></SPAN><BR>=3D&nbsp; +=3D&nbsp; =
+-=3D &nbsp;*=3D&nbsp;=20
+      /=3D &nbsp; %=3D&nbsp; &amp;=3D&nbsp; |=3D&nbsp; ^=3D&nbsp; =
+&lt;&lt;=3D&nbsp;=20
+      &gt;&gt;=3D&nbsp; ++&nbsp; --</P>
+      <P><SPAN class=3Dcomment>Bitwise</SPAN><BR>&amp; &nbsp;|=20
+      &nbsp;^&nbsp;&nbsp;&nbsp;~&nbsp; &lt;&lt;&nbsp; &gt;&gt;</P>
+      <P><SPAN class=3Dcomment>Logic<SPAN=20
+      lang=3Dpt-br>o</SPAN></SPAN><BR>&amp;&amp;&nbsp; ||&nbsp;&nbsp; =
+!</P>
+      <P><STRONG>Note:</STRONG> &amp;&amp; and&nbsp;||&nbsp;perform=20
+      short-circuit logical evaluations</P>
+      <P><SPAN class=3Dcomment><SPAN lang=3Dpt-br>Concatena=E7=E3o de=20
+      strings</SPAN></SPAN><BR>+</P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dchoices><FONT=20
+      size=3D3></FONT></A><SPAN lang=3Dpt-br><FONT =
+size=3D3>If</FONT></SPAN></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D640>
+      <P><SPAN lang=3Dpt-br>saudacao</SPAN>=3D <STRONG>IIf</STRONG>(age =
+&lt; 20,=20
+      "<SPAN lang=3Dpt-br>Tudo bem </SPAN>?", "<SPAN =
+lang=3Dpt-br>Ola</SPAN>")</P>
+      <P><SPAN class=3Dcomment>' <SPAN lang=3Dpt-br>Uma linha n=E3o =
+requere=20
+      </SPAN>"End If", <SPAN lang=3Dpt-br>nem=20
+      </SPAN>"Else"</SPAN><BR><STRONG>If</STRONG> language =3D "VB.NET"=20
+      <STRONG>Then</STRONG> langType =3D "verbose"</P>
+      <P><SPAN class=3Dcomment>' Us<SPAN lang=3Dpt-br>ar</SPAN> : <SPAN=20
+      lang=3Dpt-br>para por dois comandos na mesma=20
+      linha</SPAN></SPAN><BR><STRONG>If</STRONG> x &lt;&gt; 100 And y =
+&lt; 5=20
+      <STRONG>Then</STRONG> x *=3D 5 <STRONG>:</STRONG> y *=3D =
+2&nbsp;&nbsp;</P>
+      <P><SPAN class=3Dcomment>' Pref<SPAN=20
+      lang=3Dpt-br>erido</SPAN></SPAN><BR><STRONG>If</STRONG> x &lt;&gt; =
+100 And y=20
+      &lt; 5 <STRONG>Then</STRONG><BR>&nbsp; x *=3D 5 <BR>&nbsp; y *=3D =
+2<BR><B>End=20
+      If</B></P>
+      <P><SPAN class=3Dcomment>'&nbsp;<SPAN lang=3Dpt-br>para quebrar =
+linhas longas=20
+      use&nbsp; </SPAN>_<SPAN lang=3Dpt-br>=20
+      (underscore)</SPAN></SPAN><BR><STRONG>If</STRONG>&nbsp;<SPAN=20
+      lang=3Dpt-br>teste1</SPAN> &lt;&nbsp;<SPAN =
+lang=3Dpt-br>teste2</SPAN> And=20
+      <SPAN lang=3Dpt-br>teste3</SPAN>&nbsp;&gt; <SPAN=20
+      lang=3Dpt-br>100</SPAN>&nbsp;<STRONG>Then</STRONG> =
+_<BR>&nbsp;<SPAN=20
+      lang=3Dpt-br> outra linha</SPAN></P>
+      <P><SPAN class=3Dcomment>'</SPAN><STRONG>If</STRONG> x &gt; 5=20
+      <STRONG>Then</STRONG> <BR>&nbsp; x *=3D y =
+<BR><STRONG>ElseIf</STRONG>&nbsp;x=20
+      =3D 5 <STRONG>Then</STRONG> <BR>&nbsp; x +=3D y =
+<BR><STRONG>ElseIf</STRONG> x=20
+      &lt; 10 <STRONG>Then</STRONG> <BR>&nbsp; x -=3D y =
+<BR><STRONG>Else</STRONG>=20
+      <BR>&nbsp; x /=3D y <BR><STRONG>End If</STRONG></P>
+      <P><STRONG>Select Case</STRONG> color&nbsp;&nbsp; <SPAN =
+class=3Dcomment>'=20
+      <SPAN lang=3Dpt-br>Deve ser um tipo =
+primitivo<BR></SPAN></SPAN>&nbsp;=20
+      <STRONG>Case</STRONG> "pink", "red"<BR>&nbsp;&nbsp;&nbsp; r +=3D 1 =
+
+      <BR>&nbsp; <STRONG>Case</STRONG> "blue" <BR>&nbsp;&nbsp;&nbsp; b =
++=3D 1=20
+      <BR>&nbsp; <STRONG>Case</STRONG> "green" <BR>&nbsp;&nbsp;&nbsp; g =
++=3D 1=20
+      <BR>&nbsp; <STRONG>Case Else</STRONG> <BR>&nbsp;&nbsp;&nbsp; other =
++=3D 1=20
+      <BR><STRONG>End Select</STRONG> </P></TD>
+    <TD height=3D640>
+      <P><SPAN lang=3Dpt-br>saudacao</SPAN>=3D age &lt; 20 =
+<STRONG>?</STRONG> "<SPAN=20
+      lang=3Dpt-br>Tudo bem </SPAN>?" <STRONG>:</STRONG> "<SPAN=20
+      lang=3Dpt-br>Ola</SPAN>";</P><BR><BR><BR><BR>
+      <P><STRONG>if</STRONG> (x !=3D 100 &amp;&amp; y &lt; 5) =
+{&nbsp;&nbsp;&nbsp;=20
+      <SPAN class=3Dcomment>// <SPAN lang=3Dpt-br>m=FAltiplos comandos =
+precisam estar=20
+      entre</SPAN> {}</SPAN><BR>&nbsp; x *=3D 5;<BR>&nbsp; y *=3D =
+2;<BR>}</P>
+      <P><SPAN class=3Dcomment><SPAN lang=3Dpt-br>N=E3o precisa de =
+</SPAN>&nbsp;_=20
+      <SPAN lang=3Dpt-br>ou</SPAN> : <SPAN lang=3Dpt-br>desde que</SPAN> =
+; <SPAN=20
+      lang=3Dpt-br>=E9 usado para terminar cada =
+comando</SPAN></SPAN></P>
+      <P><BR><BR><BR><BR><BR><STRONG><BR>if</STRONG> (x &gt; 5) =
+<BR>&nbsp; x *=3D=20
+      y; <BR><STRONG>else</STRONG> if (x =3D=3D 5) <BR>&nbsp; x +=3D y;=20
+      <BR><STRONG>else</STRONG> if (x &lt; 10) <BR>&nbsp; x -=3D y;=20
+      <BR><STRONG>else</STRONG> <BR>&nbsp; x /=3D y;<BR></P>
+      <P><BR><BR><STRONG>switch</STRONG>=20
+      =
+(color)&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;=20
+      <I><FONT color=3D#008000>// </FONT></I><SPAN lang=3Dpt-br><FONT=20
+      color=3D#008000><I>precisa ser um inteiro ou=20
+      string</I></FONT></SPAN><BR>&nbsp; <STRONG>case</STRONG> =
+"pink":<BR>&nbsp;=20
+      <STRONG>case</STRONG> "red":&nbsp;&nbsp;&nbsp; =
+r++;&nbsp;&nbsp;&nbsp;=20
+      <STRONG>break;</STRONG> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT =
+
+      color=3D#008000><I>// <SPAN lang=3Dpt-br>break =E9=20
+      obrigatorio</SPAN></I></FONT><BR>&nbsp; <STRONG>case</STRONG>=20
+      "blue":&nbsp;&nbsp; b++;&nbsp;&nbsp; =
+<STRONG>break;<BR></STRONG>&nbsp;=20
+      <STRONG>case</STRONG> "green": g++;&nbsp;&nbsp;=20
+      <STRONG>break;<BR></STRONG>&nbsp;=20
+      <STRONG>default:</STRONG>&nbsp;&nbsp;&nbsp; =
+other++;&nbsp;&nbsp;<STRONG>=20
+      break;</STRONG> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>} </P></TD></TR>
+  <TR>
+    <TD class=3Dheading align=3Dmiddle colSpan=3D2 height=3D37><B><A =
+name=3Dloops><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Loops </FONT></B></TD></TR>
+  <TR>
+    <TD height=3D397>
+      <TABLE id=3DTable1 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3D2><SPAN class=3Dcomment><SPAN lang=3Dpt-br>Loops =
+com Pr=E9=20
+            teste</SPAN></SPAN></TD></TR>
+        <TR>
+          <TD width=3D"50%"><STRONG>While</STRONG> c &lt; 10 <BR>&nbsp; =
+c +=3D 1=20
+            <BR><STRONG>End While</STRONG> </TD>
+          <TD width=3D"50%">
+            <P><STRONG>Do Until</STRONG> c =3D 10&nbsp;<BR>&nbsp; =
+c&nbsp;+=3D 1=20
+            <BR><STRONG>Loop</STRONG></P></TD></TR>
+        <TR>
+          <TD><STRONG>Do While</STRONG> c &lt; 10 <BR>&nbsp; c +=3D 1=20
+            <BR><STRONG>Loop</STRONG> </TD>
+          <TD>
+            <P><STRONG>For</STRONG> c =3D 2 <STRONG>To</STRONG> 10=20
+            <STRONG>Step</STRONG> 2 <BR>&nbsp; Console.WriteLine(c)=20
+            <BR><STRONG>Next</STRONG> </P></TD></TR>
+        <TR>
+          <TD colSpan=3D2><SPAN class=3Dcomment><BR><SPAN =
+lang=3Dpt-br>loop com=20
+            teste posterior</SPAN></SPAN></TD></TR>
+        <TR>
+          <TD><STRONG>Do</STRONG>&nbsp;<BR>&nbsp; c +=3D 1 =
+<BR><STRONG>Loop=20
+            While</STRONG> c &lt; 10 </TD>
+          <TD><STRONG>Do</STRONG>&nbsp;<BR>&nbsp; c +=3D 1 =
+<BR><STRONG>Loop=20
+            Until</STRONG> c =3D 10 </TD></TR></TBODY></TABLE>
+      <P><SPAN class=3Dcomment>'&nbsp; <SPAN lang=3Dpt-br>loopin em =
+</SPAN>Array=20
+      <SPAN lang=3Dpt-br>ou</SPAN> collection</SPAN><BR>Dim n<SPAN=20
+      lang=3Dpt-br>o</SPAN>mes As String() =3D {"<SPAN =
+lang=3Dpt-br>Janice</SPAN>",=20
+      "<SPAN lang=3Dpt-br>Miriam</SPAN>", "<SPAN =
+lang=3Dpt-br>Macoratti</SPAN>"}=20
+      <BR><STRONG>For Each</STRONG> s As String<STRONG>&nbsp;In</STRONG> =
+n<SPAN=20
+      lang=3Dpt-br>o</SPAN>mes <BR>&nbsp; Console.WriteLine(s)=20
+      <BR><STRONG>Next</STRONG> </P></TD>
+    <TD vAlign=3Dtop height=3D397><SPAN class=3Dcomment><SPAN =
+lang=3Dpt-br>Loops com=20
+      pr=E9 teste</SPAN></SPAN> &nbsp;=20
+      <P><SPAN class=3Dcomment>// <SPAN lang=3Dpt-br>n=E3o tem a palavra =
+chave=20
+      until<BR></SPAN></SPAN><STRONG>while</STRONG> (i &lt; 10) =
+<BR>&nbsp;=20
+      i++;<BR><BR><STRONG>for</STRONG> (i =3D 2; i &lt; =3D 10; i +=3D =
+2) <BR>&nbsp;=20
+      Console.WriteLine(i);</P>
+      <P><BR><BR><SPAN class=3Dcomment><SPAN lang=3Dpt-br>loop com teste =
+
+      posterior</SPAN></SPAN><BR><BR><STRONG>do</STRONG> <BR>&nbsp; i++; =
+
+      <BR><STRONG>while</STRONG> (i &lt; 10);<BR><BR><BR><SPAN=20
+      class=3Dcomment>'&nbsp; <SPAN lang=3Dpt-br>loopin em </SPAN>Array =
+<SPAN=20
+      lang=3Dpt-br>ou</SPAN> collection<BR></SPAN>string[] n<SPAN=20
+      lang=3Dpt-br>o</SPAN>mes =3D {"<SPAN lang=3Dpt-br>Janice</SPAN>", =
+"<SPAN=20
+      lang=3Dpt-br>Miriam</SPAN>", "<SPAN=20
+      lang=3Dpt-br>Macoratti</SPAN>"};<BR><STRONG>foreach</STRONG> =
+(string s=20
+      <STRONG>in</STRONG> n<SPAN lang=3Dpt-br>o</SPAN>mes)<BR>&nbsp;=20
+      Console.WriteLine(s);</P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Darrays><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Arrays </FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D356>
+      <P>Dim nums<STRONG>()</STRONG> As Integer =3D {1, 2, =
+3}&nbsp;<BR>For i As=20
+      Integer =3D 0 To nums.Length - 1 <BR>&nbsp; =
+Console.WriteLine(nums(i))=20
+      <BR>Next <BR><BR><SPAN class=3Dcomment>' 4 <SPAN lang=3Dpt-br>=E9 =
+o indice do=20
+      =FAltimo elemento, ent=E3o ele trata 5 =
+elementos</SPAN></SPAN><BR>Dim names(4)=20
+      As String <BR>names(0) =3D "<SPAN =
+lang=3Dpt-br>Macoratti</SPAN>"<BR>names(5) =3D=20
+      "<SPAN lang=3Dpt-br>Miriam</SPAN>"&nbsp; <SPAN class=3Dcomment>' =
+Throws=20
+      System.IndexOutOfRangeException</SPAN> <BR><BR><SPAN =
+class=3Dcomment>' <SPAN=20
+      lang=3Dpt-br>Redimensiona um array mantendo os valores=20
+      existentes</SPAN></SPAN><BR><STRONG>ReDim Preserve</STRONG> n<SPAN =
+
+      lang=3Dpt-br>o</SPAN>mes(6)<BR></P>
+      <P><BR><BR>Dim <SPAN lang=3Dpt-br>Duas</SPAN>D(rows-1, cols-1) As =
+Single=20
+      <BR><SPAN lang=3Dpt-br>DuasD</SPAN>(2, 0) =3D 4.5<BR><BR>Dim=20
+      jagged<STRONG>()()</STRONG> As Integer =3D { _ <BR>&nbsp; New =
+Integer(4) {},=20
+      New Integer(1) {}, New Integer(2) {} } <BR>jagged(0)(4) =3D 5 =
+</P></TD>
+    <TD height=3D356>
+      <P>int<STRONG>[] </STRONG>nums =3D {1, 2, 3};<BR>for (int i =3D 0; =
+i &lt;=20
+      nums.Length; i++)<BR>&nbsp; =
+Console.WriteLine(nums[i]);<BR><BR><BR><SPAN=20
+      class=3Dcomment>// 5 <SPAN lang=3Dpt-br>&nbsp;=E9 o tamanho do=20
+      array<BR></SPAN></SPAN>string[] names =3D new =
+string[5];<BR>names[0] =3D=20
+      "<SPAN lang=3Dpt-br>Macoratti</SPAN>";<BR>names[5] =3D "<SPAN=20
+      lang=3Dpt-br>Miriam</SPAN>";&nbsp;&nbsp; <SPAN class=3Dcomment>// =
+Throws=20
+      System.IndexOutOfRangeException</SPAN> <BR><BR><SPAN =
+class=3Dcomment>// C#=20
+      <SPAN lang=3Dpt-br>n=E3o pode redimensionar um array=20
+      dinamicamente.</SPAN>&nbsp;<SPAN lang=3Dpt-br>Copie em um novo=20
+      array<BR></SPAN></SPAN>string[] n<SPAN lang=3Dpt-br>o</SPAN>mes2 =
+=3D new=20
+      string[7]; <BR>Array.Copy(n<SPAN lang=3Dpt-br>o</SPAN>mes, n<SPAN=20
+      lang=3Dpt-br>o</SPAN>mes2, n<SPAN =
+lang=3Dpt-br>o</SPAN>mes.Length);&nbsp;=20
+      <SPAN class=3Dcomment>// <SPAN lang=3Dpt-br>ou</SPAN> n<SPAN=20
+      lang=3Dpt-br>o</SPAN>mes.CopyTo(n<SPAN lang=3Dpt-br>o</SPAN>mes2,=20
+      0);</SPAN>&nbsp;</P>
+      <P>float<STRONG>[,]</STRONG> <SPAN lang=3Dpt-br>Duas</SPAN>D =3D =
+new=20
+      float[rows, cols];<BR><SPAN lang=3Dpt-br>DuasD</SPAN>[2,0] =3D =
+4.5f;&nbsp;=20
+      <P>int<STRONG>[][]</STRONG> jagged =3D new int[3][] { <BR>&nbsp; =
+new int[5],=20
+      new int[2], new int[3] };<BR>jagged[0][4] =3D 5; </P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dfunctions><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Fun</FONT><SPAN =
+lang=3Dpt-br><FONT=20
+      size=3D3>=E7=F5es</FONT></SPAN></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD width=3D"50%" height=3D506>
+      <P><SPAN class=3Dcomment>' Pass<SPAN lang=3Dpt-br>a por valor (=E9 =
+o=20
+      padr=E3o)<BR></SPAN></SPAN><STRONG>Sub</STRONG>=20
+      TestFunc(<STRONG>ByVal</STRONG> x As Integer, =
+<STRONG>ByRef</STRONG> y As=20
+      Integer, <STRONG>ByRef</STRONG> z As Integer)<BR>&nbsp; x +=3D =
+1<BR>&nbsp; y=20
+      +=3D 1 <BR>&nbsp; z =3D 5 <BR><STRONG>End Sub</STRONG>=20
+      <P><SPAN>Dim a =3D 1, b =3D 1, c As Integer&nbsp; &nbsp;<SPAN=20
+      class=3Dcomment>'</SPAN><BR>Test<SPAN lang=3Dpt-br>a</SPAN>Func(a, =
+b, c)=20
+      <BR>Console.WriteLine("{0} {1} {2}", a, b, c)&nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>' 1&nbsp;2 5</SPAN></P>
+      <P><SPAN class=3Dcomment>' Ac<SPAN lang=3Dpt-br>eita n=FAmero de =
+argumentos=20
+      vari=E1veis<BR></SPAN></SPAN><STRONG>Function</STRONG> Sum(ByVal=20
+      <STRONG>ParamArray</STRONG> nums <B>As</B> Integer()) As Integer=20
+      <BR>&nbsp; Sum =3D 0&nbsp; <BR>&nbsp; For Each i As Integer In =
+nums=20
+      <BR>&nbsp;&nbsp;&nbsp; Sum +=3D i <BR>&nbsp; Next <BR><STRONG>End=20
+      Function</STRONG>&nbsp;&nbsp; <BR><BR>Dim total As Integer =3D =
+Sum(4, 3, 2,=20
+      1)&nbsp;&nbsp; <SPAN class=3Dcomment>' ret<SPAN lang=3Dpt-br>orna=20
+      </SPAN>10</SPAN></P>
+      <P><BR><B>Sub<SPAN lang=3Dpt-br> </SPAN></B>DizOla(ByVal n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me As String, <STRONG>Optional</STRONG> ByVal =
+prefix As=20
+      String =3D "")<BR>&nbsp;&nbsp;Console.WriteLine(<SPAN=20
+      lang=3Dpt-br>Saudacoes</SPAN>, " &amp; prefix &amp; " " &amp; =
+n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me) <BR><B>End Sub</B><BR><BR><SPAN=20
+      lang=3Dpt-br>DizOla</SPAN>("Strangelove", "Dr.")<BR><SPAN=20
+      lang=3Dpt-br>DizOla</SPAN>("<SPAN=20
+      lang=3Dpt-br>Macoratti</SPAN>")<BR></P></SPAN></TD>
+    <TD width=3D"50%" height=3D506><SPAN class=3Dcomment>// ' Pass<SPAN =
+lang=3Dpt-br>a=20
+      por valor (=E9 o padr=E3o)</SPAN></SPAN><BR>void TestFunc(int x,=20
+      <STRONG>ref</STRONG> int y, <STRONG>out</STRONG> int z) =
+{<BR>&nbsp;=20
+      x++;&nbsp;&nbsp;<BR>&nbsp; y++;<BR>&nbsp; z =3D 5;<BR>}=20
+      <P>int a =3D 1, b =3D 1, c;&nbsp; <FONT color=3D#008000><I>// c =
+</I></FONT><SPAN=20
+      lang=3Dpt-br><FONT color=3D#008000><I>n=E3o precisa=20
+      inicializa=E7=E3o</I></FONT></SPAN><BR>Tes<SPAN =
+lang=3Dpt-br>a</SPAN>tFunc(a,=20
+      <STRONG>ref</STRONG> b, <STRONG>out</STRONG> =
+c);<BR>Console.WriteLine("{0}=20
+      {1} {2}", a, b, c);&nbsp; <SPAN class=3Dcomment>// 1 2 =
+5</SPAN></P>
+      <P><SPAN><SPAN class=3Dcomment>' Ac<SPAN lang=3Dpt-br>eita =
+n=FAmero de=20
+      argumentos vari=E1veis<BR></SPAN></SPAN></SPAN>int=20
+      Sum(<STRONG>params</STRONG> int[] nums) {<BR>&nbsp; int sum =3D =
+0;<BR>&nbsp;=20
+      foreach (int i in nums)<BR>&nbsp;&nbsp;&nbsp; sum +=3D =
+i;<BR>&nbsp; return=20
+      sum;<BR>}</P>
+      <P>int total =3D Sum(4, 3, 2, 1);&nbsp;&nbsp; <FONT =
+color=3D#008000><I>//=20
+      ret<SPAN lang=3Dpt-br>orna</SPAN> 10</I></FONT></P>
+      <P><BR>void<SPAN lang=3Dpt-br> </SPAN>DizOla(string n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me, string prefix) {<BR>&nbsp;=20
+      Console.WriteLine("Greetings, " + prefix + " " + n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me);<BR>}&nbsp;<BR><BR>void<SPAN =
+lang=3Dpt-br>=20
+      </SPAN>DizOla(string n<SPAN lang=3Dpt-br>o</SPAN>me) {=20
+      <BR>&nbsp;DizOla(n<SPAN lang=3Dpt-br>o</SPAN>me, ""); <BR>} =
+</P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dexceptionhandling><FONT=20
+      size=3D3></FONT></A><FONT size=3D3><SPAN lang=3Dpt-br>Tratamento =
+de=20
+      exce=E7=E3o</SPAN> </FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D289>
+      <P><SPAN class=3Dcomment>' <SPAN lang=3Dpt-br>Tratamento de erro=20
+      desatualizado</SPAN></SPAN><BR><STRONG>On</STRONG> Error=20
+      <STRONG>GoTo</STRONG> MyErrorHandler<BR>...<BR>MyErrorHandler:=20
+      Console.WriteLine(Err.Description)<BR><BR>Dim ex As New =
+Exception("<SPAN=20
+      lang=3Dpt-br>Alguma coisa esta errada")</SPAN> =
+<BR><STRONG>Throw</STRONG>=20
+      &nbsp;ex&nbsp; </P>
+      <P><STRONG>Try</STRONG>&nbsp;<BR>&nbsp; y =3D 0<BR>&nbsp; x =3D 10 =
+/=20
+      y<BR><STRONG>Catch</STRONG> ex As =
+Exception&nbsp;<STRONG>When</STRONG> y =3D=20
+      0 <SPAN class=3Dcomment>' Argument<SPAN lang=3Dpt-br>o e =
+</SPAN>When <SPAN=20
+      lang=3Dpt-br>=E9 opcional</SPAN></SPAN>&nbsp; <SPAN =
+lang=3Dpt-br>&nbsp;&nbsp;=20
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>Console.WriteLine(ex.Message) =
+
+      <BR><STRONG>Finally</STRONG> <BR>&nbsp; Beep() <BR><STRONG>End=20
+      Try<BR></STRONG></P></TD>
+    <TD height=3D289>
+      <P><BR><BR><BR><BR>Exception up =3D new Exception("<SPAN =
+lang=3Dpt-br>Alguma=20
+      coisa esta errada</SPAN>."); <BR><STRONG>throw</STRONG> =
+up;&nbsp;</P>
+      <P><STRONG>try</STRONG> {&nbsp;<BR>&nbsp; y =3D 0; <BR>&nbsp; x =
+=3D 10 / y;=20
+      <BR>} <BR><STRONG>catch</STRONG> (Exception ex) {&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>// Argument<SPAN lang=3Dpt-br>o =E9 opcional=20
+      </SPAN></SPAN>&nbsp; Console.WriteLine(ex.Message); <BR>}=20
+      <BR><STRONG>finally</STRONG> { <BR>} </P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dnamespaces><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Namespaces =
+</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D263>
+      <P><STRONG>Namespace</STRONG> =
+Harding.Compsci.Graphics&nbsp;<BR>&nbsp;=20
+      ...<BR><STRONG>End Namespace</STRONG></P>
+      <P><SPAN class=3Dcomment>' or</SPAN></P>
+      <P><STRONG>Namespace</STRONG> Harding <BR>&nbsp;=20
+      <STRONG>Namespace</STRONG> Compsci <BR>&nbsp;&nbsp;&nbsp;=20
+      <STRONG>Namespace</STRONG>=20
+      Graphics&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+...<BR>&nbsp;&nbsp;&nbsp;=20
+      <STRONG>End Namespace</STRONG> <BR>&nbsp; <STRONG>End Namespace =
+<BR>End=20
+      Namespace</STRONG></P>
+      <P><STRONG>Imports</STRONG> Harding.Compsci.Graphics </P></TD>
+    <TD height=3D263>
+      <P><STRONG>namespace</STRONG> Harding.Compsci.Graphics {<BR>&nbsp; =
+
+      ...<BR>} </P>
+      <P><SPAN class=3Dcomment>// or</SPAN> </P>
+      <P><STRONG>namespace</STRONG> Harding {<BR>&nbsp;=20
+      <STRONG>namespace</STRONG> Compsci {<BR>&nbsp;&nbsp;&nbsp;=20
+      <STRONG>namespace</STRONG> Graphics =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+      ...<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>} </P>
+      <P><STRONG>using</STRONG> Harding.Compsci.Graphics; </P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dclassesinterfaces><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Classes / Interfaces =
+</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D506>
+      <P><I><FONT color=3D#808000><SPAN lang=3Dpt-br>'Modificadores de=20
+      =
+acesso</SPAN></FONT></I><BR>Public<BR>Private<BR>Friend&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;=20
+      <BR>Protected<BR>Protected Friend<BR>Shared</P>
+      <P><SPAN class=3Dcomment>' <SPAN=20
+      =
+lang=3Dpt-br>heran=E7a</SPAN></SPAN><BR><STRONG>Class</STRONG>&nbsp;Footb=
+allGame<BR>&nbsp;=20
+      <STRONG>Inherits</STRONG>&nbsp;Competition<BR>&nbsp; =
+...<BR><STRONG>End=20
+      Class</STRONG>&nbsp;</P>
+      <P><SPAN class=3Dcomment>' <SPAN lang=3Dpt-br>Defini=E7=E3o de=20
+      interface<BR></SPAN></SPAN><STRONG>Interface</STRONG>=20
+      IAlarmClock&nbsp;<BR>&nbsp; ...<BR><STRONG>End =
+Interface</STRONG></P>
+      <P><SPAN class=3Dcomment>// Extend<SPAN lang=3Dpt-br>endo uma=20
+      interface</SPAN>&nbsp;</SPAN><BR><STRONG>Interface</STRONG> =
+IAlarmClock=20
+      <BR>&nbsp; <STRONG>Inherits</STRONG> IClock<BR>&nbsp; =
+...<BR><STRONG>End=20
+      Interface</STRONG></P>
+      <P><SPAN class=3Dcomment>// <SPAN lang=3Dpt-br>Implementando uma=20
+      interface</SPAN></SPAN><BR><STRONG>Class</STRONG>=20
+      WristWatch&nbsp;<BR>&nbsp; <STRONG>Implements</STRONG> =
+IAlarmClock,=20
+      ITimer&nbsp;<BR>&nbsp;&nbsp; ...<BR><STRONG>End=20
+Class</STRONG>&nbsp;</P></TD>
+    <TD height=3D506>
+      <P><I><FONT color=3D#808000><SPAN lang=3Dpt-br>'Modificadores de=20
+      =
+acesso</SPAN></FONT></I><BR>public<BR>private<BR>internal<BR>protected<BR=
+>protected=20
+      internal<BR>static</P>
+      <P><SPAN class=3Dcomment>' <SPAN=20
+      =
+lang=3Dpt-br>heran=E7a</SPAN></SPAN><BR><STRONG>class</STRONG>&nbsp;Footb=
+allGame=20
+      <STRONG>:</STRONG> Competition {<BR>&nbsp; ...<BR>} </P>
+      <P><SPAN class=3Dcomment><BR>//' <SPAN lang=3Dpt-br>Defini=E7=E3o =
+de=20
+      interface<BR></SPAN></SPAN><STRONG>interface</STRONG> IAlarmClock=20
+      {<BR>&nbsp; ...<BR>} </P>
+      <P><SPAN class=3Dcomment>// Extend<SPAN lang=3Dpt-br>endo uma=20
+      interface<BR></SPAN></SPAN><STRONG>interface</STRONG> IAlarmClock=20
+      <STRONG>:</STRONG> IClock {<BR>&nbsp; ...<BR>} </P>
+      <P><SPAN class=3Dcomment><BR>//<SPAN lang=3Dpt-br>Implementando =
+uma=20
+      interface</SPAN></SPAN><BR><STRONG>class</STRONG> WristWatch=20
+      <STRONG>:</STRONG> IAlarmClock, ITimer {<BR>&nbsp;&nbsp; ...<BR>}=20
+  </P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A=20
+      name=3Dconstructorsdestructors><FONT size=3D3></FONT></A><FONT=20
+      size=3D3>Construtor<SPAN =
+lang=3Dpt-br>e</SPAN>s</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D254><STRONG>Class</STRONG> SuperHeroi<SPAN=20
+      lang=3Dpt-br>i</SPAN><BR>&nbsp; Private&nbsp;_nivelPoder As =
+Integer=20
+      <BR><BR>&nbsp; Public Sub <STRONG>New</STRONG> () =
+<BR>&nbsp;&nbsp;&nbsp;=20
+      _nivelPoder =3D 0 <BR>&nbsp; End Sub <BR><BR>&nbsp; Public Sub=20
+      <STRONG>New</STRONG> (ByVal nivelPoder As Integer) =
+<BR>&nbsp;&nbsp;&nbsp;=20
+      Me._nivelPoder =3D nivelPoder <BR>&nbsp; End Sub<BR><BR>&nbsp; =
+Protected=20
+      Overrides Sub <STRONG>Finalize</STRONG>=20
+      ()&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.Finalize() =
+
+      <BR>&nbsp; End Sub<BR><STRONG>End Class</STRONG></TD>
+    <TD height=3D254>
+      <P><STRONG>class</STRONG> SuperHeroi {<BR>&nbsp; private int=20
+      _nivelPoder;<BR><BR>&nbsp; public SuperHero<SPAN =
+lang=3Dpt-br>i</SPAN>()=20
+      {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_nivelPoder =3D 0;<BR>&nbsp;=20
+      }<BR><BR>&nbsp; public SuperHero<SPAN lang=3Dpt-br>8</SPAN>(int =
+nivelPoder)=20
+      {<BR>&nbsp;&nbsp;&nbsp; this._nivelPoder=3D =
+nivelPoder;&nbsp;<BR>&nbsp;=20
+      }<BR><BR>&nbsp; <STRONG>~</STRONG>SuperHero<SPAN =
+lang=3Dpt-br>i</SPAN>()=20
+      {<BR>&nbsp;&nbsp; }<BR>}</P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dobjects><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Objet<SPAN =
+lang=3Dpt-br>o</SPAN>s=20
+    </FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D416>
+      <P>Dimheroi<SPAN lang=3Dpt-br>i</SPAN> As SuperHero<SPAN =
+lang=3Dpt-br>i</SPAN>=20
+      =3D New SuperHero<SPAN lang=3Dpt-br>i</SPAN> =
+<BR><STRONG>With</STRONG>heroi=20
+      <BR>&nbsp; .N<SPAN lang=3Dpt-br>o</SPAN>me =3D "<SPAN=20
+      lang=3Dpt-br>HomedeFerro</SPAN>" <BR>&nbsp; .nivelPoder =3D 3 =
+<BR><STRONG>End=20
+      With</STRONG> <BR><BR>hero<SPAN =
+lang=3Dpt-br>i</SPAN>.Defend("<SPAN=20
+      lang=3Dpt-br>Miriam</SPAN>") <BR>hero<SPAN=20
+      lang=3Dpt-br>i</SPAN>.Rest()&nbsp;&nbsp;&nbsp;&nbsp; <SPAN =
+class=3Dcomment>'=20
+      <SPAN lang=3Dpt-br>Chamando um m=E9todo =
+Shared</SPAN></SPAN><BR><SPAN=20
+      class=3Dcomment>' <SPAN =
+lang=3Dpt-br>ou</SPAN></SPAN><BR>SuperHeroi.Rest()=20
+</P>
+      <P>Dim<SPAN lang=3Dpt-br> </SPAN>heroi2 As SuperHeroi =
+=3Dheroi&nbsp; <SPAN=20
+      class=3Dcomment>' <SPAN lang=3Dpt-br>ambos se referem ao mesmo=20
+      objeto</SPAN></SPAN> <BR>hero2.N<SPAN lang=3Dpt-br>o</SPAN>me =3D =
+"<SPAN=20
+      lang=3Dpt-br>MulherGato</SPAN>" <BR>Console.WriteLine(hero<SPAN=20
+      lang=3Dpt-br>i</SPAN>.N<SPAN lang=3Dpt-br>o</SPAN>me)&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>' Imprime </SPAN><I><FONT color=3D#808000><SPAN=20
+      lang=3Dpt-br>MulherGato</SPAN></FONT></I></P>
+      <P>hero =3D <STRONG>Nothing</STRONG> &nbsp;&nbsp; <SPAN =
+class=3Dcomment>'=20
+      <SPAN lang=3Dpt-br>Libera o objeto</SPAN></SPAN></STRONG> </P>
+      <P>If<SPAN lang=3Dpt-br> </SPAN>heroi <STRONG>Is</STRONG>=20
+      <STRONG>Nothing</STRONG> Then _ <BR>&nbsp;heroi =3D New =
+SuperHeroi</P>
+      <P>Dim obj As Object =3D New SuperHeroi <BR>If =
+<STRONG>TypeOf</STRONG> obj=20
+      <STRONG>Is</STRONG> SuperHeroi Then _<BR>&nbsp; =
+Console.WriteLine("<SPAN=20
+      lang=3Dpt-br>=E8 um objeto</SPAN> SuperHeroi .")</P></TD>
+    <TD height=3D416>
+      <P>SuperHeroi<SPAN lang=3Dpt-br> </SPAN>heroi =3D new =
+SuperHeroi();=20
+      <BR><BR>hero.N<SPAN lang=3Dpt-br>o</SPAN>me =3D "<SPAN=20
+      lang=3Dpt-br>HomedeFerro</SPAN>"; <BR>hero.nivelPoder =3D 3; </P>
+      <P>hero.Defend("<SPAN=20
+      lang=3Dpt-br>Miriam</SPAN>");<BR>SuperHeroi.Rest();&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>// <SPAN lang=3Dpt-br>Chamando um m=E9todo=20
+      est=E1tico</SPAN></SPAN></P>
+      <P><BR>SuperHeroiheroi2 =3Dheroi;&nbsp;&nbsp; <SPAN =
+class=3Dcomment>// <SPAN=20
+      lang=3Dpt-br>ambos se referem ao mesmo objeto</SPAN></SPAN> =
+<BR>hero2.Name =3D=20
+      "<SPAN lang=3Dpt-br>MulherGato</SPAN>"; =
+<BR>Console.WriteLine(hero<SPAN=20
+      lang=3Dpt-br>i</SPAN>.N<SPAN lang=3Dpt-br>o</SPAN>me);&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>// Imprime </SPAN><I><FONT color=3D#808000><SPAN=20
+      lang=3Dpt-br>MulherGato</SPAN></FONT></I></P>
+      <P>&nbsp;</P>
+      <P>hero =3D <STRONG>null</STRONG> ;&nbsp;&nbsp; <SPAN =
+class=3Dcomment>// <SPAN=20
+      lang=3Dpt-br>libera o objeto</SPAN></SPAN></P>
+      <P>if (hero<SPAN lang=3Dpt-br>i</SPAN> =3D=3D=20
+      <STRONG>null</STRONG>)<BR>&nbsp;heroi =3D new SuperHeroi();</P>
+      <P><BR>Object obj =3D new SuperHeroi();&nbsp;<BR>if (obj =
+<STRONG>is</STRONG>=20
+      SuperHeroi) <BR>&nbsp; Console.WriteLine("<SPAN lang=3Dpt-br>=E8 =
+um=20
+      objeto</SPAN> SuperHeroi");</P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dstructs><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Structs</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD height=3D273>
+      <P><STRONG>Structure</STRONG> Aluno <BR>&nbsp; Public nome As =
+String=20
+      <BR>&nbsp; Public gpa As Single <BR><BR>&nbsp; Public Sub =
+New(ByVal n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me As String, ByVal gpa As Single)=20
+      <BR>&nbsp;&nbsp;&nbsp; Me.n<SPAN lang=3Dpt-br>o</SPAN>me =3D =
+n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me <BR>&nbsp;&nbsp;&nbsp; Me.gpa =3D gpa =
+<BR>&nbsp; End=20
+      Sub <BR><STRONG>End Structure</STRONG></P>
+      <P>Dim stu As Aluno =3D New Aluno("<SPAN =
+lang=3Dpt-br>Jefferson</SPAN>", 3.5)=20
+      <BR>Dim stu2 As Aluno =3D stu&nbsp;&nbsp; <BR><BR>stu2.n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me =3D "<SPAN lang=3Dpt-br>Jessica</SPAN>"=20
+      <BR>Console.WriteLine(stu.n<SPAN =
+lang=3Dpt-br>o</SPAN>me)&nbsp;&nbsp;=20
+      &nbsp;<SPAN class=3Dcomment>' Imprime <SPAN=20
+      =
+lang=3Dpt-br>Jefferson</SPAN></SPAN><BR>Console.WriteLine(stu2.n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me) &nbsp;<SPAN class=3Dcomment>' Imprime =
+<SPAN=20
+      lang=3Dpt-br>Jessica</SPAN></SPAN></P></TD>
+    <TD height=3D273><STRONG>struct</STRONG> Aluno {<BR>&nbsp; public =
+string=20
+      n<SPAN lang=3Dpt-br>o</SPAN>me;<BR>&nbsp; public float =
+gpa;<BR><BR>&nbsp;=20
+      public Aluno(string n<SPAN lang=3Dpt-br>o</SPAN>me, float gpa)=20
+      {<BR>&nbsp;&nbsp;&nbsp; this.n<SPAN lang=3Dpt-br>o</SPAN>me =3D =
+n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me;<BR>&nbsp;&nbsp;&nbsp; this.gpa =3D =
+gpa;<BR>&nbsp;=20
+      }<BR>}<BR>
+      <P>Aluno stu =3D new Aluno("<SPAN lang=3Dpt-br>Jefferson</SPAN>",=20
+      3.5f);<BR>Aluno stu2 =3D stu;&nbsp;&nbsp;<BR><BR>stu2.n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me =3D "<SPAN=20
+      lang=3Dpt-br>Jessica</SPAN>";<BR>Console.WriteLine(stu.n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me);&nbsp;&nbsp;&nbsp; <SPAN =
+class=3Dcomment>// Imprime=20
+      <SPAN =
+lang=3Dpt-br>Jefferson</SPAN></SPAN><BR>Console.WriteLine(stu2.n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me);&nbsp;&nbsp; <SPAN class=3Dcomment>// =
+Imprime <SPAN=20
+      lang=3Dpt-br>Jessica</SPAN></SPAN></P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dproperties><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Pro</FONT><SPAN =
+lang=3Dpt-br><FONT=20
+      size=3D3>priedades</FONT></SPAN></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD width=3D"50%" height=3D273>
+      <P>Private _size As Integer<BR><BR>Public =
+<STRONG>Property</STRONG> Size()=20
+      As Integer<BR>&nbsp; <STRONG>Get</STRONG> <BR>&nbsp;&nbsp; =
+&nbsp;Return=20
+      _size <BR>&nbsp; <STRONG>End Get</STRONG> <BR>&nbsp; =
+<STRONG>Set</STRONG>=20
+      (ByVal Value As Integer) <BR>&nbsp;&nbsp;&nbsp; If Value &lt; 0 =
+Then=20
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _size =3D 0 =
+<BR>&nbsp;&nbsp;&nbsp; Else=20
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _size =3D Value =
+<BR>&nbsp;&nbsp;&nbsp;=20
+      End If <BR>&nbsp; <STRONG>End Set</STRONG> <BR><STRONG>End=20
+      Property</STRONG></P>
+      <P>foo.Size +=3D 1</P></TD>
+    <TD width=3D"50%" height=3D273>private int _size;<BR><BR>public int =
+Size {=20
+      <BR>&nbsp; <STRONG>get</STRONG> { <BR>&nbsp;&nbsp;&nbsp; return =
+_size;=20
+      <BR>&nbsp; } <BR>&nbsp; <STRONG>set</STRONG> { <BR>&nbsp; &nbsp; =
+if (value=20
+      &lt; 0) <BR>&nbsp; &nbsp; &nbsp; _size =3D 0; <BR>&nbsp; &nbsp; =
+else=20
+      <BR>&nbsp; &nbsp; &nbsp; _size =3D value; <BR>&nbsp; } <BR>}=20
+      <P><BR>foo.Size++; </P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3D#consoleio><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>Console =
+I/O</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD width=3D"50%" height=3D359>
+      <P><SPAN class=3Dcomment><SPAN lang=3Dpt-br>Caracteres=20
+      especiais<BR></SPAN></SPAN>vbCrLf, vbCr, vbLf, vbNewLine =
+<BR>vbNullString=20
+      <BR>vbTab <BR>vbBack <BR>vbFormFeed <BR>vbVerticalTab<BR>""=20
+      <BR>Chr(65)&nbsp; <SPAN class=3Dcomment>' Ret<SPAN=20
+      lang=3Dpt-br>o</SPAN>rn<SPAN =
+lang=3Dpt-br>a</SPAN>&nbsp;'A'</SPAN></P>
+      <P>Console.Write("<SPAN lang=3Dpt-br>Qual o seu nome</SPAN> ") =
+<BR>Dim name=20
+      As String =3D Console.ReadLine() <BR>Console.Write("<SPAN =
+lang=3Dpt-br>Quantos=20
+      anos voce tem</SPAN>? ") <BR>Dim <SPAN lang=3Dpt-br>idade</SPAN> =
+As Integer=20
+      =3D Val(Console.ReadLine()) <BR>Console.WriteLine("{0} <SPAN=20
+      lang=3Dpt-br>tem</SPAN> {1} <SPAN lang=3Dpt-br>anos</SPAN>.", =
+name, <SPAN=20
+      lang=3Dpt-br>idade</SPAN>)&nbsp; <BR><SPAN class=3Dcomment>' <SPAN =
+
+      lang=3Dpt-br>ou</SPAN></SPAN><BR>Console.WriteLine(n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me &amp; " <SPAN lang=3Dpt-br>tem</SPAN> " =
+&amp; <SPAN=20
+      lang=3Dpt-br>idade</SPAN> &amp; "<SPAN lang=3Dpt-br> anos</SPAN>") =
+<BR><BR>Dim=20
+      c As Integer <BR>c =3D Console.Read() &nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>'<SPAN lang=3Dpt-br>Le um =FAnico=20
+      caractere<BR></SPAN></SPAN>Console.WriteLine(c)&nbsp;&nbsp; <SPAN=20
+      class=3Dcomment>' Imprime 65 <SPAN lang=3Dpt-br>&nbsp;se usuario =
+entrar=20
+      </SPAN>"A"</SPAN></P></TD>
+    <TD width=3D"50%" height=3D359>
+      <P><SPAN class=3Dcomment><SPAN lang=3Dpt-br>Sequencia de =
+e</SPAN>scape=20
+      </SPAN><BR>\n, \r<BR>\t<BR>\\<BR>\"</P>
+      <P>Convert.ToChar(65)&nbsp; <SPAN class=3Dcomment>// Ret<SPAN=20
+      lang=3Dpt-br>o</SPAN>rn<SPAN lang=3Dpt-br>a</SPAN> 'A' -<BR>// =
+<SPAN=20
+      lang=3Dpt-br>ou</SPAN></SPAN><BR>(char) 65</P>
+      <P>Console.Write("<SPAN lang=3Dpt-br>Qual o seu nome</SPAN> =
+");<BR>string=20
+      name =3D Console.ReadLine();<BR>Console.Write("<SPAN =
+lang=3Dpt-br>Quantos anos=20
+      voce tem</SPAN>? ");<BR>int <SPAN lang=3Dpt-br>idade</SPAN> =3D=20
+      Convert.ToInt32(Console.ReadLine());<BR>Console.WriteLine("{0} =
+<SPAN=20
+      lang=3Dpt-br>tem</SPAN> {1}<SPAN lang=3Dpt-br> anos</SPAN>.", =
+name, <SPAN=20
+      lang=3Dpt-br>idade</SPAN>);<BR><SPAN class=3Dcomment>// <SPAN=20
+      lang=3Dpt-br>ou</SPAN></SPAN><BR>Console.WriteLine(n<SPAN=20
+      lang=3Dpt-br>o</SPAN>me + " <SPAN lang=3Dpt-br>tem</SPAN> " + =
+<SPAN=20
+      lang=3Dpt-br>idade</SPAN> + " <SPAN lang=3Dpt-br>anos</SPAN>."); =
+</P>
+      <P><BR>int c =3D Console.Read();&nbsp; <SPAN class=3Dcomment>// =
+'<SPAN=20
+      lang=3Dpt-br>Le um =FAnico=20
+      caractere<BR></SPAN></SPAN>Console.WriteLine(c);&nbsp;&nbsp;&nbsp; =
+<SPAN=20
+      class=3Dcomment>// Imprime 65 <SPAN lang=3Dpt-br>se usuario entrar =
+
+      </SPAN>"A"</SPAN></P></TD></TR>
+  <TR align=3Dmiddle>
+    <TD class=3Dheading colSpan=3D2 height=3D37><B><A =
+name=3Dfileio><FONT=20
+      size=3D3></FONT></A><FONT size=3D3>File I/O</FONT></B></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD width=3D"50%" height=3D442>
+      <P>Imports System.IO</P>
+      <P>Dim writer As <STRONG>StreamWriter</STRONG> =3D =
+File.CreateText("c:\<SPAN=20
+      lang=3Dpt-br>arquivo</SPAN>.txt") <BR>writer.WriteLine("<SPAN=20
+      lang=3Dpt-br>Teste</SPAN>.") <BR>writer.Close() </P>
+      <P>Dim reader As <STRONG>StreamReader</STRONG> =3D =
+File.OpenText("c:\<SPAN=20
+      lang=3Dpt-br>arquivo</SPAN>.txt") <BR>Dim line As String =3D =
+reader.ReadLine()=20
+      <BR>While Not line Is Nothing <BR>&nbsp; Console.WriteLine(line)=20
+      <BR>&nbsp; line =3D reader.ReadLine() <BR>End While =
+<BR>reader.Close() </P>
+      <P>Dim str As String =3D "Text<SPAN lang=3Dpt-br>o</SPAN> data" =
+<BR>Dim num As=20
+      Integer =3D 123 <BR>Dim binWriter As New =
+<STRONG>BinaryWriter</STRONG>=20
+      (File.OpenWrite("c:\<SPAN lang=3Dpt-br>arquivo</SPAN>.dat"))&nbsp; =
+
+      <BR>binWriter.Write(str)&nbsp;=20
+      <BR>binWriter.Write(num)&nbsp;<BR>binWriter.Close()</P>
+      <P>Dim binReader As New <STRONG>BinaryReader</STRONG>=20
+      (File.OpenRead("c:\<SPAN lang=3Dpt-br>arquivo</SPAN>.dat")) =
+<BR>str =3D=20
+      binReader.ReadString() <BR>num =3D binReader.ReadInt32()=20
+      <BR>binReader.Close()</P></TD>
+    <TD width=3D"50%" height=3D442>
+      <P>using System.IO;</P>
+      <P><STRONG>StreamWriter</STRONG> writer =3D =
+File.CreateText("c:\\<SPAN=20
+      lang=3Dpt-br>arquivo</SPAN>.txt"); <BR>writer.WriteLine("<SPAN=20
+      lang=3Dpt-br>Teste</SPAN>."); <BR>writer.Close(); </P>
+      <P><STRONG>StreamReader</STRONG> reader =3D =
+File.OpenText("c:\\<SPAN=20
+      lang=3Dpt-br>arquivo</SPAN>.txt"); <BR>string line =3D =
+reader.ReadLine();=20
+      <BR>while (line !=3D null) {<BR>&nbsp; Console.WriteLine(line); =
+<BR>&nbsp;=20
+      line =3D reader.ReadLine(); <BR>} <BR>reader.Close(); </P>
+      <P>string str =3D "Text<SPAN lang=3Dpt-br>o</SPAN> data"; <BR>int =
+num =3D 123;=20
+      <BR><STRONG>BinaryWriter</STRONG> binWriter =3D new=20
+      BinaryWriter(File.OpenWrite("c:\\<SPAN =
+lang=3Dpt-br>arquivo</SPAN>.dat"));=20
+      <BR>binWriter.Write(str); <BR>binWriter.Write(num); =
+<BR>binWriter.Close();=20
+      </P>
+      <P><STRONG>BinaryReader</STRONG> binReader =3D new=20
+      BinaryReader(File.OpenRead("c:\\<SPAN =
+lang=3Dpt-br>arquivo</SPAN>.dat"));=20
+      <BR>str =3D binReader.ReadString(); <BR>num =3D =
+binReader.ReadInt32();=20
+      <BR>binReader.Close();</P></TD></TR></TBODY></TABLE>
+<P><FONT face=3DVerdana size=3D2><SPAN lang=3Dpt-br>At=E9 o pr=F3ximo =
+artigo ... <IMG=20
+height=3D15 src=3D"http://www.macoratti.net/1.gif" width=3D15=20
+border=3D0></SPAN></FONT></P>
+<HR>
+
+<P align=3Dcenter><FONT face=3DVerdana size=3D2><SPAN =
+lang=3Dpt-br>Jos=E9 Carlos=20
+Macoratti</SPAN></FONT></P>
+<P>&nbsp;</P></BODY></HTML>
+
+------=_NextPart_000_0000_01C89A24.39C19FF0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.macoratti.net/maco10.gif
+
+R0lGODdh6QAgALMAAExbZbm6uyCHx+3t7YaJizFtkxSX6KKkpdPT0/7+/l2CmWhxdpGquguY8zB7
+q0FlfCwAAAAA6QAgAAAE/zDJSau9WI7Mu/9gKI5kaZ4nwiisEmzUEKwsg8Boru987/+TgcJAbBgN
+jgOMISgeBQoEcEqtWq+egcDIPRoEBITC2zVGsei0eh0aOMrl75toOHKJCxx7z9Pz/wxlAg4OW3Z3
+g28NdGB/jicyDC+Pe1qLRgULBAQLD3V1Rw+anE10C1KUbAMIAQioQa6uMQ5EUH5qsTdpAXcFBAEa
+B4pFD2ESCAt0XwepbAhcSUGBRGcSvEUFzJWGBgRpQ8TAQWNPxhMHpV8LzWu8Ro0T4AbZ514O3nsI
+hg2naPIG/SgQWETEV4UBBZQRuMWOygGC9yiMKagtQYBhDyqu0cclDxYhRf/A+HlIh16Ffw9eNawi
+g6AAjwNAUkywYQCBBwWKqcTFLSUWfYw8Unh4pIA4icp8Xlilq00CVzEzxFwVNQsrSRZi3mBojVwD
+KAdoyHOwgIEkGQoWKNC4VCtUEFqrwmICSgEBs0eBAP2Ej0IAUPPy0gzExUWMBCtKDTInVQgtOdX8
+MmkyyAXXAXSpiVvFoJCcJH72guKyxcnoe4r4XVYhwFBrwxkSt0byiwItgpeMCNWbTmQFkouMWhgY
+6uiqOaON3Lv8r0u0YxOTL4o8rswDYJiVAW4A21oROqTvJCfrVenBv11G+44RIB0ZMFKEEARvxPwP
+LYz6TkBfUHCCf8LRxF//bnYYQN0xj9H3Dj4IaAdeXXlZcohwwziBSF9AzReehqBkkpp9GrgDxx3U
+MbDdfHRE4YYXn9S3Uw+irVcPNv4R8B1s1ygzW3oLxVCaS60tuEoTKAaZWzXy3eFATgR49UQpRzwn
+RoLzLInTPgIUsKSHXIBIU2q1GPmJUNcUSKQXUSxApZYFZPJiH73pZ40d1x1k4iV1ijZPMQt0clpf
+mN0hiiZ9arkQlQ4M2uc+AG3QIGkAbHJXFwIoquZosB2QTC2jLADAAwT5IulFhb2InnKicOJJlMzs
+tUilfXqK5QIBLJDOKJtUgUCC8Ax1SWAWOFmAFCbSUcwBUrBia6nH7OPL/wtajepFJsg+VWtqwk1j
+BABKPHVmpWFEu+oifR1QxHIaDIFJRSu6aAFhXy2gREwBeFLLQuZ2KO9W10IUQHsEBWQFfpxa4E5/
+FhBV3wsJ+rITMh1qA+9L/sWkrjqCDZDMEQuN1aNFgnY7VGoB5fsFoBc/J8Ec/LzolUFBmAxfb5pA
+dUMAF4MBcB276cqyjBIAB+xJXRjVoLH+JYDOmBK8zFYQHz79FMm7RjwBcfEytGkDz+XL9TrxfGLS
+l8S8iHWdfqVDwNKftDab20TiIUzAb/7A0atyggwK2gIV/a9iPUNNkIrlJe3tEQLHUHh05jmNwV98
+bXBwr/9xMbYbe7tMEP+Ie71ksjLppWdAMVAGPkWGX31cT6gZE1fHdZCnjsGK9yZANQYZNopBeQeU
+94q6DYxdAeR1nGHughJBwy7LiUvgOueKbaIdgYd0SUBpul9xd9ZTxXR8HUZFFRU4wf07mumHmyJG
+qHVXvYiXX3ZJqm6/gxLRBYQREdGpAPW97jhlCxaeHgY4tn2hNYWAmwKLkaDm+aAmuyJNHqjiCoUF
+D1k2s0kXrhNBd73rExRZADTypoECKO8Cj1qEvJBjnuOpcCnRwYMMboUKmyhjHTW5zehqCIOJNAB6
+BPkFtnAlKVyN4iJ0UFkPajKV7b3EFa2oYG4ykgtXCKsVF8veBLZnCnT/FMZwW2vZQVIDH3LscD+p
+AU0MvAYRZJExXDMU27w6+EMsOsAyNnrdw0DxRFAFEVpuOQAgY7IpPOiCKyXoHisYRatW/CsAeQTf
+LxyprNFkxCY/Agi0Fim6HzapRUnYihiigEQa8Qs5P1RCglIivo0pB1laKZaDTuHKL6yFFfZSzlqQ
+WB9hJPGT75tETdpDB3zFDQqbJOYp4jK3d4RSfDlQJCffcYpH/ouNxbDmv5xExVppJxFnCg5pNqHD
+RdyxEFwLg63UQwjsFeQUYggHBQ+QEEaAU0fpuA49xWMAANQqHXUQAAASsggAFJJnoCLCdZhyM9fA
+s5Zcaycf4QlFP04L/5A0gQRNbrDIiWoTkuDJhjaRMcVJ3oQ+ChodALpAKzXhpgxk+dc6paMkbrHi
+MQ3wpzYXYMKXskig9cSYS+m0tnW6ZKB4mukXPtUlQToyAGx7IlRXpaANru0AgjwpCB02lWi6BWDU
+jGIsBkKMX+QCZ6PxBVYPQAAAMAo8sBpq8IpKUOrFFJJuHREmIrXWnqYSqlAVpJ/gUAcHGPSg3ArA
+QMHDLbYC4GdI3RYBCDqPTuDJqY/0YrzWKivTzEcUbGVrUR8Qt+XIBQVf9QwSaFXF65WCime93hf6
+eVWsqkqHXyiAQbG6ztbIS1OP1ZFuJ8nb4LbNsJpY6wFIu1TMCrK4BeaIGxIAsNvJuk2twNVSpbAK
+VU9F17CkbQ23vJsqWzUBtk/1jEBF61jmtk23fFXu2tr6gEL4ApGJXEWtPEXdMNgMAcCl7r4oCGD+
+7la5vDWwgOfLCeoKeK0NdrBBf4HgCDu4Twh27GH/FYvMBvjCyV3bheOb4ANDuE+HvbBt+zRf/rKW
+o8oyKIlDq+AFf/SaK95tV/ugX+VCBYKsWGsUYcAU5Q65w4ENLXetaWQm23ZtHD5rkjexZLEGmbtb
+oQlTPExlzHoYy0x+JBS/jGDAXjPJgpRFE5NsZVYEtstO3QqQ3Rznul0gAgA7
+
+------=_NextPart_000_0000_01C89A24.39C19FF0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.macoratti.net/1.gif
+
+R0lGODlhDwAPALMAAP//////AP/4AP/xAP/lAP/YAP/KACEQAAAAAMDAwAAAAAAAAAAAAAAAAAAA
+AAAAACH5BAEAAAkALAAAAAAPAA8AQARWMEmJap2UjICC38NRGEiCbFyXjiVlFHBskNgZoMFIm7jn
+DwSW6UU4aYrBVs2ixJg6GwKpqfLdgsJqylMJTq3WAZCFIEJvYhGtXCAUDwcEbEcpz2YXSQQAOw==
+
+------=_NextPart_000_0000_01C89A24.39C19FF0--

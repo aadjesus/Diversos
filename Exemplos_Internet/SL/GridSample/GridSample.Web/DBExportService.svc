@@ -1,0 +1,4 @@
+﻿<!--
+See http://www.devexpress.com/example=E2635, to get the detailed example on using the Silverlight-enabled ExportService.
+-->
+<%@ ServiceHost Service="GridSample.Web.DBExportService" %>

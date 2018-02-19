@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<mbean
+		code="br.com.voicetechnology.ctiflexapi.CTIFlexAPI"
+		name="VoiceTechnology.CTIServerFlex:service=japi">
+		<attribute name="FlexAddress">127.0.0.1</attribute>
+		<attribute name="Name">VOICE-JB1</attribute>
+	</mbean>
+</server>

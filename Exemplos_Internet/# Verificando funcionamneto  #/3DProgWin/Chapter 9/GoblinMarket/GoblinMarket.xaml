@@ -1,0 +1,9 @@
+﻿<!-- ===============================================
+      GoblinMarket.xaml (c) 2007 by Charles Petzold
+     =============================================== -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      x:Class="Petzold.GoblinMarket.GoblinMarket"
+      Title='"Goblin Market" by Christina Rossetti'
+      WindowTitle='"Goblin Market" by Christina Rossetti'
+      Background="AliceBlue" />

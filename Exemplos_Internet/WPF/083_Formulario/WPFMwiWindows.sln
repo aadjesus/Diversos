@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Window1.xaml", "WPFMwiWindows\Window1.xaml.csproj", "{4D5D88AA-593E-482E-ACC7-4B577224490B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D5D88AA-593E-482E-ACC7-4B577224490B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5D88AA-593E-482E-ACC7-4B577224490B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5D88AA-593E-482E-ACC7-4B577224490B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5D88AA-593E-482E-ACC7-4B577224490B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

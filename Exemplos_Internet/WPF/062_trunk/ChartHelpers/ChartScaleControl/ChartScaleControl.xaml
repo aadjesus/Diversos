@@ -1,0 +1,133 @@
+﻿<!--revision $Id: ChartScaleControl.xaml 18093 2009-03-16 04:15:06Z unknown $-->
+<UserControl x:Class="OpenWPFChart.Helpers.ChartScaleControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:OpenWPFChart.Helpers"
+	Name="chartScaleControl"
+    >
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../DialogStyle.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+			<DataTemplate DataType="{x:Type local:ChartNumericScaleDataView}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Scale Veriety row -->
+					<Label Target="{Binding ElementName=cbxScaleVeriety}">Scale Veriety</Label>
+					<ComboBox Grid.Column="1" Name="cbxScaleVeriety"
+						ItemsSource="{Binding Path=ScaleVerieties}"
+						SelectedItem="{Binding Path=ScaleVeriety}"/>
+
+					<!-- Start row -->
+					<Label Grid.Row="1" Target="{Binding ElementName=txtStart}">Start</Label>
+					<TextBox Grid.Row="1" Grid.Column="1" Name="txtStart"
+						Text="{Binding Path=Start, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+					<!-- Stop row -->
+					<Label Grid.Row="2" Target="{Binding ElementName=txtStop}">Stop</Label>
+					<TextBox Grid.Row="2" Grid.Column="1" Name="txtStop"
+						Text="{Binding Path=Stop, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+					<!-- Scale row -->
+					<Label Grid.Row="3" Target="{Binding ElementName=txtScale}">Scale</Label>
+					<TextBox Grid.Row="3" Grid.Column="1" Name="txtScale"
+						Text="{Binding Path=Scale, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+				</Grid>
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type local:ChartDateTimeScaleDataView}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Scale Veriety row -->
+					<TextBlock Margin="5, 10, 5, 5" VerticalAlignment="Center">Scale Veriety</TextBlock>
+					<TextBlock Grid.Column="1" Text="{Binding Path=ScaleVeriety}" 
+							   Margin="5, 10, 5, 5" VerticalAlignment="Center"/>
+
+					<!-- Start row -->
+					<Label Grid.Row="1" Target="{Binding ElementName=txtStart}">Start</Label>
+					<TextBox Grid.Row="1" Grid.Column="1" Name="txtStart"
+						Text="{Binding Path=Start, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+					<!-- Stop row -->
+					<Label Grid.Row="2" Target="{Binding ElementName=txtStop}">Stop</Label>
+					<TextBox Grid.Row="2" Grid.Column="1" Name="txtStop"
+						Text="{Binding Path=Stop, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+					<!-- Scale row -->
+					<Label Grid.Row="3" Target="{Binding ElementName=txtScale}">Scale</Label>
+					<TextBox Grid.Row="3" Grid.Column="1" Name="txtScale"
+						Text="{Binding Path=Scale, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+				</Grid>
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type local:ChartSeriesScaleDataView}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Scale Veriety row -->
+					<TextBlock Margin="5, 10, 5, 5" VerticalAlignment="Center">Scale Veriety</TextBlock>
+					<TextBlock Grid.Column="1" Text="{Binding Path=ScaleVeriety}"
+							   Margin="5, 10, 5, 5" VerticalAlignment="Center"/>
+
+					<!-- Start row -->
+					<Label Grid.Row="1" Target="{Binding ElementName=cbxStart}">Start</Label>
+					<ComboBox Grid.Row="1" Grid.Column="1" Name="cbxStart"
+						ItemsSource="{Binding Path=Series}"
+						SelectedItem="{Binding Path=Start}"/>
+
+					<!-- Stop row -->
+					<Label Grid.Row="2" Target="{Binding ElementName=cbxStop}">Stop</Label>
+					<ComboBox Grid.Row="2" Grid.Column="1" Name="cbxStop"
+						ItemsSource="{Binding Path=Series}"
+						SelectedItem="{Binding Path=Stop}"/>
+
+					<!-- Scale row -->
+					<Label Grid.Row="3" Target="{Binding ElementName=txtScale}">Scale</Label>
+					<TextBox Grid.Row="3" Grid.Column="1" Name="txtScale"
+						Text="{Binding Path=Scale, UpdateSourceTrigger=PropertyChanged,
+							ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<ContentControl Content="{Binding ElementName=chartScaleControl, Path=ScaleDataView}"/>
+</UserControl>

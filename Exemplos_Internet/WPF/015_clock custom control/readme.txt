@@ -1,0 +1,1 @@
+Open the solution file "Solutions/WindowsApplication.sln" to run the sample.

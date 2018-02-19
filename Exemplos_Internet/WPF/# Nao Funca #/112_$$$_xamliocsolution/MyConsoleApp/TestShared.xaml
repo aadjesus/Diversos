@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:ioc="clr-namespace:XamlIoc;assembly=XamlIoc"
+		xmlns:my="clr-namespace:MyLib;assembly=MyLib"
+    >
+	<!--	TestShared	-->
+	<my:Address x:Shared="false" x:Key="protoAddress"/>
+	<my:Person x:Shared="false" x:Key="objectFactoryPerson" my:Address="{ioc:ObjectFactory protoAddress}"/>
+	<my:Person x:Shared="false" x:Key="staticResourcePerson" my:Address="{wpf:StaticResource protoAddress}"/>
+</wpf:ResourceDictionary>

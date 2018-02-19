@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns2="http://ws.server.fann/FANNServiceTypes/Request" xmlns:intf="http://ws.server.fann/FANNService.wsdl" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://ws.server.fann/FANNServiceTypes/Result" xmlns:impl="http://ws.server.fann/FANNService.wsdl" targetNamespace="http://ws.server.fann/FANNService.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ws.server.fann/FANNServiceTypes/Request">
+      <xsd:import namespace="http://ws.server.fann/FANNServiceTypes/Result" />
+      <xsd:import namespace="http://ws.server.fann/FANNService.wsdl" />
+      <xsd:complexType name="TransactionObject" abstract="true">
+        <xsd:sequence />
+        <xsd:attribute name="action" type="xsd:string" use="required" />
+        <xsd:attribute name="doctype" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="TransactionRequestType">
+        <xsd:sequence>
+          <xsd:element name="transactionObject" type="tns2:TransactionObject" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CheckAliveRequestType">
+        <xsd:sequence>
+          <xsd:element name="checkId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="destinationOutputTime" type="xsd:string" />
+          <xsd:element minOccurs="1" name="originOutputTime" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfferObject" abstract="true">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns2:TransactionObject">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:simpleType name="YesNoType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="N" />
+          <xsd:enumeration value="Y" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ScopeType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="2" />
+          <xsd:enumeration value="3" />
+          <xsd:enumeration value="4" />
+          <xsd:enumeration value="5" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Locality">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="city" type="xsd:string" />
+          <xsd:element minOccurs="1" name="country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="district" type="xsd:string" />
+          <xsd:element minOccurs="0" name="latitude" type="xsd:double" />
+          <xsd:element minOccurs="0" name="longitude" type="xsd:double" />
+          <xsd:element minOccurs="0" name="scope" type="tns2:ScopeType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Phone">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="phonecountry" type="xsd:string" />
+          <xsd:element minOccurs="1" name="phonenumber" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfferOwner">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="company" type="xsd:string" />
+          <xsd:element minOccurs="1" name="companycountry" type="xsd:string" />
+          <xsd:element minOccurs="1" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="mobile" type="xsd:string" />
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="1" name="phones" type="impl:ArrayOf_tns2_Phone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TypeoffreightType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="2" />
+          <xsd:enumeration value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="LoadOffer">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns2:OfferObject">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="adr" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="infointernal" type="xsd:string" />
+              <xsd:element minOccurs="0" name="bolsaid" type="impl:ArrayOf_tns2_Int" />
+              <xsd:element minOccurs="0" name="typeExchangeList" type="impl:ArrayOf_tns2_Int" />
+              <xsd:element minOccurs="0" name="alert" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="ofeoculta" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="okfrigo" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="oklowside" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="samespec" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="aux1" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux2" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux3" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux4" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux5" type="xsd:string" />
+              <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+              <xsd:element minOccurs="0" name="date" type="xsd:string" />
+              <xsd:element minOccurs="0" name="dateexpiring" type="xsd:string" />
+              <xsd:element minOccurs="1" name="delivery" type="impl:ArrayOf_tns2_Locality" />
+              <xsd:element minOccurs="0" name="deliverydate" type="xsd:string" />
+              <xsd:element minOccurs="0" name="distance" type="xsd:int" />
+              <xsd:element minOccurs="0" name="height" type="xsd:double" />
+              <xsd:element minOccurs="0" name="length" type="xsd:string" />
+              <xsd:element minOccurs="0" name="loadbehind" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="loadlateral" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="loadtop" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="notes" type="xsd:string" />
+              <xsd:element minOccurs="1" name="offerOwner" type="tns2:OfferOwner" />
+              <xsd:element minOccurs="0" name="paletizada" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="paydays" type="xsd:string" />
+              <xsd:element minOccurs="1" name="pickup" type="impl:ArrayOf_tns2_Locality" />
+              <xsd:element minOccurs="1" name="pickupdate" type="xsd:string" />
+              <xsd:element minOccurs="0" name="price" type="xsd:double" />
+              <xsd:element minOccurs="1" name="speciality" type="xsd:int" />
+              <xsd:element minOccurs="0" name="trips" type="xsd:int" />
+              <xsd:element minOccurs="0" name="typeoffreight" type="tns2:TypeoffreightType" />
+              <xsd:element minOccurs="0" name="typeofoffer" type="xsd:int" />
+              <xsd:element minOccurs="0" name="typeoftruck" type="xsd:int" />
+              <xsd:element minOccurs="0" name="volume" type="xsd:int" />
+              <xsd:element minOccurs="0" name="weight" type="xsd:double" />
+              <xsd:element minOccurs="0" name="wide" type="xsd:double" />
+            </xsd:sequence>
+            <xsd:attribute name="extId" type="xsd:string" use="required" />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="TruckOffer">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns2:OfferObject">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="adr" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="infointernal" type="xsd:string" />
+              <xsd:element minOccurs="0" name="bolsaid" type="impl:ArrayOf_tns2_Int" />
+              <xsd:element minOccurs="0" name="alert" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="ofeoculta" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="okfrigo" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="oklowside" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="samespec" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="aux1" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux2" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux3" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux4" type="xsd:string" />
+              <xsd:element minOccurs="0" name="aux5" type="xsd:string" />
+              <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+              <xsd:element minOccurs="0" name="date" type="xsd:string" />
+              <xsd:element minOccurs="0" name="dateexpiring" type="xsd:string" />
+              <xsd:element minOccurs="1" name="delivery" type="impl:ArrayOf_tns2_Locality" />
+              <xsd:element minOccurs="0" name="deliverydate" type="xsd:string" />
+              <xsd:element minOccurs="0" name="distance" type="xsd:int" />
+              <xsd:element minOccurs="0" name="height" type="xsd:double" />
+              <xsd:element minOccurs="0" name="length" type="xsd:string" />
+              <xsd:element minOccurs="0" name="loadbehind" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="loadlateral" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="loadtop" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="notes" type="xsd:string" />
+              <xsd:element minOccurs="1" name="offerOwner" type="tns2:OfferOwner" />
+              <xsd:element minOccurs="0" name="paletizada" type="tns2:YesNoType" />
+              <xsd:element minOccurs="0" name="paydays" type="xsd:string" />
+              <xsd:element minOccurs="1" name="pickup" type="impl:ArrayOf_tns2_Locality" />
+              <xsd:element minOccurs="1" name="pickupdate" type="xsd:string" />
+              <xsd:element minOccurs="0" name="price" type="xsd:double" />
+              <xsd:element minOccurs="1" name="speciality" type="xsd:int" />
+              <xsd:element minOccurs="0" name="trips" type="xsd:int" />
+              <xsd:element minOccurs="0" name="typeoffreight" type="tns2:TypeoffreightType" />
+              <xsd:element minOccurs="0" name="typeofoffer" type="xsd:int" />
+              <xsd:element minOccurs="0" name="typeoftruck" type="xsd:int" />
+              <xsd:element minOccurs="0" name="volume" type="xsd:int" />
+              <xsd:element minOccurs="0" name="weight" type="xsd:double" />
+              <xsd:element minOccurs="0" name="wide" type="xsd:double" />
+            </xsd:sequence>
+            <xsd:attribute name="extId" type="xsd:string" use="required" />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ws.server.fann/FANNService.wsdl">
+      <xsd:import namespace="http://ws.server.fann/FANNServiceTypes/Request" />
+      <xsd:import namespace="http://ws.server.fann/FANNServiceTypes/Result" />
+      <xsd:element name="transactionRequest" type="tns2:TransactionRequestType" />
+      <xsd:element name="transactionRequestReturn" type="xsd:string" />
+      <xsd:element name="transactionResult" type="tns1:TransactionResultType" />
+      <xsd:element name="transactionResultReturn" type="xsd:string" />
+      <xsd:element name="deliveryResult" type="tns1:DeliveryResultType" />
+      <xsd:element name="deliveryResultReturn" type="xsd:string" />
+      <xsd:element name="checkAliveRequest" type="tns2:CheckAliveRequestType" />
+      <xsd:element name="checkAliveRequestReturn" type="xsd:string" />
+      <xsd:element name="checkAliveResult" type="tns1:CheckAliveResultType" />
+      <xsd:element name="checkAliveResultReturn" type="xsd:string" />
+      <xsd:complexType name="ArrayOf_tns2_Locality">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns2:Locality" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns2_Phone">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns2:Phone" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns2_Int">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ws.server.fann/FANNServiceTypes/Result">
+      <xsd:import namespace="http://ws.server.fann/FANNServiceTypes/Request" />
+      <xsd:import namespace="http://ws.server.fann/FANNService.wsdl" />
+      <xsd:complexType name="TransactionResultObject" abstract="true">
+        <xsd:sequence />
+        <xsd:attribute name="action" type="xsd:string" use="required" />
+        <xsd:attribute name="doctype" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="TransactionResultType">
+        <xsd:sequence>
+          <xsd:element name="transactionResultObject" type="tns1:TransactionResultObject" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="DeliveryResultCodes">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="2001" />
+          <xsd:enumeration value="2002" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DeliveryErrorCodes">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="2201" />
+          <xsd:enumeration value="2202" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="MemberDelivery">
+        <xsd:sequence>
+          <xsd:element name="code" type="tns1:DeliveryErrorCodes" />
+          <xsd:element name="description" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="memberId" type="xsd:string" use="required" />
+      </xsd:complexType>
+      <xsd:complexType name="DeliveryResultType">
+        <xsd:sequence>
+          <xsd:element name="code" type="tns1:DeliveryResultCodes" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="member" type="tns1:MemberDelivery" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="CheckAliveResultCodes">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="3001" />
+          <xsd:enumeration value="3002" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="CheckAliveResultType">
+        <xsd:sequence>
+          <xsd:element name="checkId" type="xsd:string" />
+          <xsd:element name="code" type="tns1:CheckAliveResultCodes" />
+          <xsd:element minOccurs="1" name="originOutputTime" type="xsd:string" />
+          <xsd:element minOccurs="1" name="destinationOutputTime" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfferResultObject" abstract="true">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns1:TransactionResultObject">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:simpleType name="TransactionResultCodes">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="1001" />
+          <xsd:enumeration value="1002" />
+          <xsd:enumeration value="1003" />
+          <xsd:enumeration value="1004" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OfferErrorCodes">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="1201" />
+          <xsd:enumeration value="1201" />
+          <xsd:enumeration value="1202" />
+          <xsd:enumeration value="1203" />
+          <xsd:enumeration value="1211" />
+          <xsd:enumeration value="1212" />
+          <xsd:enumeration value="1213" />
+          <xsd:enumeration value="1214" />
+          <xsd:enumeration value="1314" />
+          <xsd:enumeration value="1221" />
+          <xsd:enumeration value="1222" />
+          <xsd:enumeration value="1223" />
+          <xsd:enumeration value="1324" />
+          <xsd:enumeration value="1233" />
+          <xsd:enumeration value="1334" />
+          <xsd:enumeration value="1235" />
+          <xsd:enumeration value="1335" />
+          <xsd:enumeration value="1336" />
+          <xsd:enumeration value="1337" />
+          <xsd:enumeration value="1338" />
+          <xsd:enumeration value="1339" />
+          <xsd:enumeration value="1241" />
+          <xsd:enumeration value="1242" />
+          <xsd:enumeration value="1251" />
+          <xsd:enumeration value="1111" />
+          <xsd:enumeration value="1112" />
+          <xsd:enumeration value="1113" />
+          <xsd:enumeration value="1114" />
+          <xsd:enumeration value="1115" />
+          <xsd:enumeration value="1116" />
+          <xsd:enumeration value="1117" />
+          <xsd:enumeration value="1120" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ResultError">
+        <xsd:sequence>
+          <xsd:element name="code" type="tns1:OfferErrorCodes" />
+          <xsd:element name="description" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResultErrors">
+        <xsd:sequence>
+          <xsd:element name="error" type="tns1:ResultError" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LoadOfferResult">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns1:OfferResultObject">
+            <xsd:sequence>
+              <xsd:element name="code" type="tns1:TransactionResultCodes" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="errors" type="tns1:ResultErrors" />
+            </xsd:sequence>
+            <xsd:attribute name="extId" type="xsd:string" use="required" />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="TruckOfferResult">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns1:OfferResultObject">
+            <xsd:sequence>
+              <xsd:element name="code" type="tns1:TransactionResultCodes" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="errors" type="tns1:ResultErrors" />
+            </xsd:sequence>
+            <xsd:attribute name="extId" type="xsd:string" use="required" />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendCheckAliveRequestResponse">
+    <wsdl:part name="checkAliveRequestReturn" element="impl:checkAliveRequestReturn" />
+  </wsdl:message>
+  <wsdl:message name="sendDeliveryResultResponse">
+    <wsdl:part name="deliveryResultReturn" element="impl:deliveryResultReturn" />
+  </wsdl:message>
+  <wsdl:message name="sendDeliveryResultRequest">
+    <wsdl:part name="deliveryResult" element="impl:deliveryResult" />
+  </wsdl:message>
+  <wsdl:message name="sendCheckAliveResultResponse">
+    <wsdl:part name="checkAliveResultReturn" element="impl:checkAliveResultReturn" />
+  </wsdl:message>
+  <wsdl:message name="sendCheckAliveRequestRequest">
+    <wsdl:part name="checkAliveRequest" element="impl:checkAliveRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendCheckAliveResultRequest">
+    <wsdl:part name="checkAliveResult" element="impl:checkAliveResult" />
+  </wsdl:message>
+  <wsdl:message name="sendTransactionResultRequest">
+    <wsdl:part name="transactionResult" element="impl:transactionResult" />
+  </wsdl:message>
+  <wsdl:message name="sendTransactionRequestResponse">
+    <wsdl:part name="transactionRequestReturn" element="impl:transactionRequestReturn" />
+  </wsdl:message>
+  <wsdl:message name="sendTransactionRequestRequest">
+    <wsdl:part name="transactionRequest" element="impl:transactionRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendTransactionResultResponse">
+    <wsdl:part name="transactionResultReturn" element="impl:transactionResultReturn" />
+  </wsdl:message>
+  <wsdl:portType name="FANNServiceIF">
+    <wsdl:operation name="sendTransactionRequest" parameterOrder="transactionRequest">
+      <wsdl:input name="sendTransactionRequestRequest" message="impl:sendTransactionRequestRequest" />
+      <wsdl:output name="sendTransactionRequestResponse" message="impl:sendTransactionRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendTransactionResult" parameterOrder="transactionResult">
+      <wsdl:input name="sendTransactionResultRequest" message="impl:sendTransactionResultRequest" />
+      <wsdl:output name="sendTransactionResultResponse" message="impl:sendTransactionResultResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendDeliveryResult" parameterOrder="deliveryResult">
+      <wsdl:input name="sendDeliveryResultRequest" message="impl:sendDeliveryResultRequest" />
+      <wsdl:output name="sendDeliveryResultResponse" message="impl:sendDeliveryResultResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCheckAliveRequest" parameterOrder="checkAliveRequest">
+      <wsdl:input name="sendCheckAliveRequestRequest" message="impl:sendCheckAliveRequestRequest" />
+      <wsdl:output name="sendCheckAliveRequestResponse" message="impl:sendCheckAliveRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendCheckAliveResult" parameterOrder="checkAliveResult">
+      <wsdl:input name="sendCheckAliveResultRequest" message="impl:sendCheckAliveResultRequest" />
+      <wsdl:output name="sendCheckAliveResultResponse" message="impl:sendCheckAliveResultResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FANNServiceSoapBinding" type="impl:FANNServiceIF">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sendTransactionRequest">
+      <wsdlsoap:operation soapAction="sendTransactionRequest" />
+      <wsdl:input name="sendTransactionRequestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendTransactionRequestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendTransactionResult">
+      <wsdlsoap:operation soapAction="sendTransactionResult" />
+      <wsdl:input name="sendTransactionResultRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendTransactionResultResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDeliveryResult">
+      <wsdlsoap:operation soapAction="sendDeliveryResult" />
+      <wsdl:input name="sendDeliveryResultRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendDeliveryResultResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCheckAliveRequest">
+      <wsdlsoap:operation soapAction="sendCheckAliveRequest" />
+      <wsdl:input name="sendCheckAliveRequestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendCheckAliveRequestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCheckAliveResult">
+      <wsdlsoap:operation soapAction="sendCheckAliveResult" />
+      <wsdl:input name="sendCheckAliveResultRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sendCheckAliveResultResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FANNServiceIFService">
+    <wsdl:port name="FANNService" binding="impl:FANNServiceSoapBinding">
+      <wsdlsoap:address location="http://demos.wtransnet.com/FANN/services/FANNService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

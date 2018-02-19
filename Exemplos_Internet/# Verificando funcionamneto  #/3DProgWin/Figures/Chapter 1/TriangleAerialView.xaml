@@ -1,0 +1,65 @@
+<!-- =====================================================
+      TriangleAerialView.xaml (c) 2007 by Charles Petzold
+     ===================================================== -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Triangle Aerial View"
+      Title="Triangle Aerial View">
+
+    <Page.Resources>
+        <Style TargetType="Line">
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+        </Style>
+
+        <Style TargetType="Path">
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+        </Style>
+    </Page.Resources>
+
+    <Canvas RenderTransform="1 0 0 1 288 288">
+
+        <!-- X Axis. -->
+        <Line X1="-120" Y1="0" X2="72" Y2="0" Stroke="Black" />
+
+        <Line X1="-24" Y1="-4" X2="-24" Y2="4" Stroke="Black" />
+        <Line X1="-48" Y1="-4" X2="-48" Y2="4" Stroke="Black" />
+        <Line X1="-72" Y1="-4" X2="-72" Y2="4" Stroke="Black" />
+        <Line X1="-96" Y1="-4" X2="-96" Y2="4" Stroke="Black" />
+        <TextBlock Canvas.Left="-132" Canvas.Top="0" Text="-X" />
+
+        <Line X1="24" Y1="-4" X2="24" Y2="4" Stroke="Black" />
+        <Line X1="48" Y1="-4" X2="48" Y2="4" Stroke="Black" />
+        <TextBlock Canvas.Left="72" Canvas.Top="0" Text="+X" />
+
+        <!-- Z Axis. -->
+        <Line X1="0" Y1="-72" X2="0" Y2="144" Stroke="Black" />
+
+        <Line X1="-4" Y1="-24" X2="4" Y2="-24" Stroke="Black" />
+        <Line X1="-4" Y1="-48" X2="4" Y2="-48" Stroke="Black" />
+        <TextBlock Canvas.Left="0" Canvas.Top="-80" Text="-Z" />
+
+        <Line X1="-4" Y1="24" X2="4" Y2="24" Stroke="Black" />
+        <Line X1="-4" Y1="48" X2="4" Y2="48" Stroke="Black" />
+        <Line X1="-4" Y1="72" X2="4" Y2="72" Stroke="Black" />
+        <Line X1="-4" Y1="96" X2="4" Y2="96" Stroke="Black" />
+        <Line X1="-4" Y1="120" X2="4" Y2="120" Stroke="Black" />
+        <TextBlock Canvas.Left="0" Canvas.Top="140" Text="+Z" />
+
+        <!-- Triangle. -->
+        <Rectangle Canvas.Left="-3" Canvas.Top="-48" Width="6" Height="48" Fill="Gray" />
+
+        <!-- Camera and field of view. -->
+        <Rectangle Canvas.Left="-60" Canvas.Top="120" Width="24" Height="24" Fill="Gray" />
+
+        <Line X1="-48" Y1="120" X2="23" Y2="-48" Stroke="Black" />
+        <Line X1="-48" Y1="120" X2="-118" Y2="-48" Stroke="Black" />
+
+        <Path Stroke="Black" 
+              Data="M -54 100 A 25 25 0 0 1 -42 100" />
+
+        <TextBlock Canvas.Left="-54" Canvas.Top="80" Text="45&#x00B0;"
+                   VerticalAlignment="Center" />
+    </Canvas>
+</Page>

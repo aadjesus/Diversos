@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="GamepadBackground" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF505050" Geometry="F1 M 34,2C 51.6731,2 66,16.3269 66,34C 66,51.6731 51.6731,66 34,66C 16.3269,66 2,51.6731 2,34C 2,16.3269 16.3269,2 34,2 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" MiterLimit="2.75" Brush="#FF808080"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="KeyboardBackground" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF505050" Geometry="M 2,2L 66,2L 66,66L 2,66L 2,2 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" MiterLimit="2.75" Brush="#FF797979"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="__Number" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 43.4675,37.7712L 43.4675,41.1312L 39.4325,41.1312L 39.4325,50.2512L 35.5925,50.2512L 35.5925,41.1312L 20.4275,41.1312L 20.4275,37.6137L 35.495,17.1312L 39.4325,17.1312L 39.4325,37.7712L 43.4675,37.7712 Z M 24.365,37.7712L 35.5925,37.7712L 35.5925,22.4112L 24.365,37.7712 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="__Number_0" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 34.5513,47.3712C 35.3512,47.3712 37.3868,46.9317 38.6537,46.0587C 39.8868,45.0428 40.4562,43.6758 40.4562,41.3537C 40.4562,39.0316 40.0535,37.5984 37.9075,36.1512C 37.14,35.6912 32.9663,34.8912 31.7163,34.8912L 31.7162,31.5312C 32.9662,31.5312 36.1223,31.537 37.6712,30.2899C 39.2202,29.0428 39.8763,27.2836 39.8763,25.5237C 39.8762,23.7638 39.4648,21.9787 38.3425,21.1774C 37.2202,20.3762 35.9437,20.0112 34.2137,20.0112C 31.3281,20.0112 28.5535,20.9317 27.4487,24.1887C 26.4424,23.9872 24.9837,23.6087 23.7512,23.3187C 25.3313,17.7651 30.1059,16.6512 34.4087,16.6512C 37.4137,16.6512 39.7162,17.3662 41.3162,18.7962C 42.9162,20.2262 43.7163,22.1946 43.7162,24.5937C 43.7162,26.9928 43.3868,28.8762 42.3962,30.1475C 41.4057,31.4187 39.9424,32.3206 37.2363,33.0237C 39.7962,33.4637 41.7424,34.4872 42.5362,35.5262C 43.5762,36.8212 44.3962,38.4537 44.3962,41.7837C 44.3962,44.6537 43.34,46.8624 41.6275,48.4099C 39.915,49.9575 37.7202,50.7312 34.5513,50.7312C 28.7648,50.7312 25.4424,48.765 23.6988,47.4612C 23.6987,46.0407 23.6988,44.5862 23.6988,43.1487C 26.4424,46.3206 28.9806,47.3712 34.5513,47.3712 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="__Number_1" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 43.7875,47.1312L 43.7875,50.4912L 24.1075,50.4912L 24.1075,46.4037C 24.1075,44.6437 24.3025,43.1387 24.6925,41.8887C 26.7202,35.9595 37.3035,33.0012 39.505,28.3287C 39.8,27.5287 39.9475,26.5337 39.9475,25.3437C 39.9475,23.5187 39.5112,22.2137 38.6387,21.4287C 37.7662,20.6437 36.4748,20.2929 34.8475,20.2512C 31.5535,20.3345 28.6368,20.6678 27.9475,24.4812C 26.8868,24.2512 25.3875,23.9012 24.1075,23.6112C 24.6425,21.2762 25.7062,19.5724 27.2987,18.4999C 28.8912,17.4274 31.0275,16.6912 34.8475,16.6912C 37.7775,16.6912 40,17.6212 41.515,19.0812C 43.03,20.5412 43.7875,22.5887 43.7875,25.2237C 43.7875,26.9537 43.5462,28.4212 43.0637,29.6262C 41.0952,34.7928 32.0118,37.5845 29.6312,40.5087C 28.0118,42.0845 27.9475,43.2443 27.9475,47.1312L 43.7875,47.1312 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="__Number_2" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 33.1787,50.2512L 33.1787,21.4512L 24.8762,26.2962L 24.8762,22.7487L 34.5587,17.1312L 37.0187,17.1312L 37.0187,50.2512L 33.1787,50.2512 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="Q_Letter" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 50.0911,57.2535C 48.497,58.0854 41.497,58.5298 38.2973,55.8022C 36.6948,54.3647 35.8261,52.3085 35.6911,49.6335C 35.3061,49.6985 33.8561,49.7985 33.5161,49.7985C 20.5453,49.7985 17.4511,36.282 17.4511,31.3335C 17.4511,26.1943 20.6821,12.8385 33.5161,12.8384C 45.7223,12.8385 49.6111,24.8574 49.6111,31.3335C 49.6111,37.3635 46.7193,45.6132 40.0111,48.5385C 40.0711,50.1535 40.4823,51.4072 41.2448,52.2997C 43.1081,54.4743 47.5248,54.5021 50.0911,52.6785L 50.0911,57.2535 Z M 44.8111,31.3335C 44.8111,25.8566 41.6753,16.6785 33.5461,16.6785C 25.0784,16.6785 22.2511,25.5293 22.2511,31.3335C 22.2511,36.9472 25.3262,45.9585 33.5461,45.9585C 41.763,45.9585 44.8111,36.9529 44.8111,31.3335 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="E_Letter" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 45.5648,51.5984L 23.0048,51.5984L 23.0048,16.5585L 45.5648,16.5585L 45.5648,20.8785L 27.8048,20.8785L 27.8048,30.4785L 45.5648,30.4785L 45.5648,34.7985L 27.8048,34.7985L 27.8048,47.2784L 45.5648,47.2784L 45.5648,51.5984 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="R_Letter" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 51.9823,51.5984L 46.6873,51.5984L 35.1148,37.6785L 27.9823,37.6785L 27.9823,51.5984L 23.1823,51.5984L 23.1823,16.5585L 33.0298,16.5585C 43.3372,16.5585 44.4348,20.2497 45.1498,21.4672C 45.8648,22.6848 46.2223,24.2285 46.2223,26.0984C 46.2223,28.6235 45.5798,30.7372 44.2948,32.4397C 43.0098,34.1422 41.2398,35.426 38.9848,36.291L 51.9823,51.5984 Z M 41.4223,26.3535C 41.4223,25.3335 41.2461,24.4285 40.8936,23.6385C 40.5411,22.8484 39.0528,20.3985 33.4648,20.3985L 27.9823,20.3985L 27.9823,33.8384L 32.6923,33.8384C 38.6302,33.8385 40.5786,30.5322 40.9161,29.6647C 41.2536,28.7972 41.4223,27.6935 41.4223,26.3535 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush x:Key="F_Letter" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 47.2848,21.8785L 30.0048,21.8785L 30.0048,31.4785L 44.8848,31.4785L 44.8848,35.7985L 30.0048,35.7985L 30.0048,52.5984L 25.2048,52.5984L 25.2048,17.5585L 47.2848,17.5585L 47.2848,21.8785 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

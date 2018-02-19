@@ -1,0 +1,15 @@
+﻿<!-- =========================================== 
+      Slider3D.xaml (c) 2007 by Charles Petzold
+     =========================================== -->
+<Slider xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Petzold.Slider3D.Slider3D">
+    <Slider.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="HorizontalSlider3DTemplate.xaml" />
+                <ResourceDictionary Source="VerticalSlider3DTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Slider.Resources>
+</Slider>

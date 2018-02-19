@@ -1,0 +1,176 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Clock.Window1"
+	x:Name="Window"
+	Title="Window1"
+	Width="270" Height="425" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen">
+
+	<Grid Height="204" Width="204" x:Name="rootLayout" MaxWidth="Infinity" HorizontalAlignment="Stretch" VerticalAlignment="Top" MouseLeftButtonDown="rootLayout_MouseLeftButtonDown">
+		
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.915*"/>
+			<ColumnDefinition Width="0.085*"/>
+		</Grid.ColumnDefinitions>
+		<Grid Margin="0,18.073,13.587,6.927" x:Name="Clock" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		
+			<Ellipse ClipToBounds="False" Opacity="1" SnapsToDevicePixels="False" Stretch="Fill" Stroke="#FFFFFFFF" StrokeThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+				<Ellipse.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="#FF000000" GlowSize="9" Opacity="0.87"/>
+				</Ellipse.BitmapEffect>
+				<Ellipse.Fill>
+					<LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" SpreadMethod="Pad">										
+						<GradientStop Color="#FF646464" Offset="0.942"/>
+						<GradientStop Color="#FF5B5B5B" Offset="0.004"/>					
+						<GradientStop Color="#FF333333" Offset="0.339"/>
+						<GradientStop Color="#FF333333" Offset="0.786"/>
+					</LinearGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" TextWrapping="Wrap" d:LayoutOverrides="Width" Margin="80.5,1.5,80.566,0" VerticalAlignment="Top"><Run Text="12"/></TextBlock>
+			<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="6" TextWrapping="Wrap" Width="Auto" Height="Auto" FontFamily="Tahoma" FontStyle="Normal" FontWeight="Normal" d:LayoutOverrides="Width" Margin="83.503,0,83.567,2.723" VerticalAlignment="Bottom"/>
+			<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="3" TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Right" Margin="0,82.5,4.913,83.223" d:LayoutOverrides="Height"/>
+			<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="9" TextWrapping="Wrap" Width="Auto" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" Margin="4.5,82,0,83.723"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="1" TextWrapping="Wrap" d:LayoutOverrides="Width" HorizontalAlignment="Right" Margin="0,13,44.57,0" VerticalAlignment="Top"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="2" TextWrapping="Wrap" HorizontalAlignment="Right" Margin="0,42,15.57,0" VerticalAlignment="Top"/>
+			<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="4" TextWrapping="Wrap" Width="Auto" d:LayoutOverrides="Height" HorizontalAlignment="Right" Margin="0,0,16.07,42.223" VerticalAlignment="Bottom"/>
+			<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="5" TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Right" Margin="0,0,44.57,13.723" VerticalAlignment="Bottom"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="11" TextWrapping="Wrap" d:LayoutOverrides="Width" HorizontalAlignment="Left" Margin="43.5,14,0,0" VerticalAlignment="Top"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="10" TextWrapping="Wrap" d:LayoutOverrides="Width" HorizontalAlignment="Left" Margin="15,42,0,0" VerticalAlignment="Top"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="8" TextWrapping="Wrap" d:LayoutOverrides="Height" HorizontalAlignment="Left" Margin="15.5,0,0,41.723" VerticalAlignment="Bottom"/>
+			<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="7" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="45.5,0,0,13.223" VerticalAlignment="Bottom"/>
+		
+			<Rectangle Fill="#FFDCDCDC" Margin="86.169,8,85.904,88.555" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="0.8" x:Name="rectangleSecond" RenderTransformOrigin="0.5,1" d:IsHidden="True">				
+				<Rectangle.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform x:Name="secondHand" Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Rectangle.RenderTransform>
+			</Rectangle>
+		
+			<Rectangle Fill="#FFDCDCDC" Margin="86.169,20.445,85.904,88.555" Width="Auto" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="0.8" d:LayoutOverrides="VerticalAlignment, Width" Height="70" x:Name="rectangleMinute" RenderTransformOrigin="0.5,1">
+				<Rectangle.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform x:Name="minuteHand" Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Rectangle.RenderTransform>
+			</Rectangle>
+			<Rectangle Fill="#FFDCDCDC" Width="1" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="0.8" Height="50" d:LayoutOverrides="Height" x:Name="rectangleHour" RenderTransformOrigin="0.5,1" HorizontalAlignment="Left" Margin="86.536,39.968,0,89.032">
+				<Rectangle.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform x:Name="hourHand" Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Rectangle.RenderTransform>		
+			</Rectangle>
+		
+			<Label x:Name="christianityCalendar" Foreground="White" d:LayoutOverrides="Width" FontSize="8" FontWeight="Normal" Margin="0,0,0,35.34" VerticalAlignment="Bottom" Height="Auto" FontFamily="Tahoma" HorizontalAlignment="Center" Content="Christianity calendar"/>
+			<Label x:Name="persianCalendar" Foreground="White" Margin="0,45,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" d:LayoutOverrides="Width, Height" FontSize="8" HorizontalAlignment="Center" Content="Persian Calendar"/>
+			<Path Stretch="Fill" Stroke="{x:Null}" StrokeThickness="1" Margin="1.298,1.5,3.442,88.055" x:Name="light" Opacity="0.405" Data="M83.997276,0 C107.61765,-1.5258878E-05 129.00157,9.9056773 144.48072,25.921049 152.22023,33.928729 158.48353,43.463826 162.8119,54.051802 164.97608,59.345801 166.65655,64.903014 167.79598,70.66416 L168.33241,74.300756 166.89617,74.987349 C146.33684,83.92003 117.93435,89.444998 86.561775,89.444998 55.189315,89.444998 26.78677,83.920043 6.227375,74.987349 L0,72.010344 0.19857216,70.66416 C4.7562613,47.619626 17.970657,27.83771 36.173008,15.114408 45.274114,8.7527771 55.622216,4.1558091 66.75869,1.7980032 72.326905,0.61910678 78.092209,-3.8147019E-06 83.997276,0 z" d:LayoutOverrides="GridBox">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#00FFFFFF" Offset="1"/>
+						<GradientStop Color="#FFFFFFFF" Offset="0.42"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+				<Path.BitmapEffect>
+					<BlurBitmapEffect/>
+				</Path.BitmapEffect>
+			</Path>
+		
+		</Grid>
+		<Grid Margin="0,0,13.587,-180.063" x:Name="Shadow" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Height="179" Background="{x:Null}">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="-1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="-180"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+			<Viewbox Stretch="Fill" Opacity="0.695">
+				<Viewbox.OpacityMask>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#00000000" Offset="0.415"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</LinearGradientBrush>
+				</Viewbox.OpacityMask>
+				<Grid Width="173.073" Height="179">
+		
+					<Ellipse ClipToBounds="False" Opacity="1" SnapsToDevicePixels="False" Stretch="Fill" Stroke="#FFFFFFFF" StrokeThickness="2" OpacityMask="{x:Null}">
+						<Ellipse.BitmapEffect>
+							<OuterGlowBitmapEffect GlowColor="#FF000000" GlowSize="9" Opacity="0.87"/>
+						</Ellipse.BitmapEffect>
+						<Ellipse.Fill>
+							<LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" SpreadMethod="Pad">										
+								<GradientStop Color="#FF646464" Offset="0.942"/>
+								<GradientStop Color="#FF5B5B5B" Offset="0.004"/>					
+								<GradientStop Color="#FF333333" Offset="0.339"/>
+								<GradientStop Color="#FF333333" Offset="0.786"/>
+							</LinearGradientBrush>
+						</Ellipse.Fill>
+					</Ellipse>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" TextWrapping="Wrap" d:LayoutOverrides="Width" OpacityMask="{x:Null}" Margin="80.5,1.5,80.566,0" VerticalAlignment="Top" Opacity="1"><Run Text="12"/></TextBlock>
+					<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="6" TextWrapping="Wrap" Width="Auto" Height="Auto" FontFamily="Tahoma" FontStyle="Normal" FontWeight="Normal" d:LayoutOverrides="Width" OpacityMask="{x:Null}" Margin="83.503,0,83.567,2.723" VerticalAlignment="Bottom" Opacity="1"/>
+					<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="3" TextWrapping="Wrap" Width="Auto" d:LayoutOverrides="Height" OpacityMask="{x:Null}" HorizontalAlignment="Right" Margin="0,82.5,4.913,83.223" Opacity="1"/>
+					<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="9" TextWrapping="Wrap" Width="Auto" d:LayoutOverrides="Width, Height" OpacityMask="{x:Null}" HorizontalAlignment="Left" Margin="4.5,82,0,83.723" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="1" TextWrapping="Wrap" d:LayoutOverrides="Width" OpacityMask="{x:Null}" HorizontalAlignment="Right" Margin="0,13,44.57,0" VerticalAlignment="Top" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="2" TextWrapping="Wrap" OpacityMask="{x:Null}" HorizontalAlignment="Right" Margin="0,42,15.57,0" VerticalAlignment="Top" Opacity="1"/>
+					<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="4" TextWrapping="Wrap" Width="Auto" d:LayoutOverrides="Height" OpacityMask="{x:Null}" HorizontalAlignment="Right" Margin="0,0,16.07,42.223" VerticalAlignment="Bottom" Opacity="1"/>
+					<TextBlock Background="{x:Null}" Foreground="#FFFFFFFF" Text="5" TextWrapping="Wrap" Width="Auto" OpacityMask="{x:Null}" HorizontalAlignment="Right" Margin="0,0,44.57,13.723" VerticalAlignment="Bottom" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="11" TextWrapping="Wrap" d:LayoutOverrides="Width" OpacityMask="{x:Null}" HorizontalAlignment="Left" Margin="43.5,14,0,0" VerticalAlignment="Top" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="10" TextWrapping="Wrap" d:LayoutOverrides="Width" OpacityMask="{x:Null}" HorizontalAlignment="Left" Margin="15,42,0,0" VerticalAlignment="Top" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="8" TextWrapping="Wrap" d:LayoutOverrides="Height" OpacityMask="{x:Null}" HorizontalAlignment="Left" Margin="15.5,0,0,41.723" VerticalAlignment="Bottom" Opacity="1"/>
+					<TextBlock Width="Auto" Height="Auto" Background="{x:Null}" Foreground="#FFFFFFFF" Text="7" TextWrapping="Wrap" OpacityMask="{x:Null}" HorizontalAlignment="Left" Margin="45.5,0,0,13.223" VerticalAlignment="Bottom" Opacity="1"/>
+		
+					<Rectangle Fill="#FFDCDCDC" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="1" x:Name="rectangleSecond1" RenderTransformOrigin="0.5,1" OpacityMask="{x:Null}" Margin="86.169,8,85.904,88.555">				
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1" ScaleY="1"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform x:Name="secondHand1" Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+		
+					<Rectangle Fill="#FFDCDCDC" Width="Auto" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="1" d:LayoutOverrides="VerticalAlignment, Width" Height="70" x:Name="rectangleMinute1" RenderTransformOrigin="0.5,1" OpacityMask="{x:Null}" Margin="86.169,20.445,85.904,88.555">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1" ScaleY="1"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform x:Name="minuteHand1" Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+		
+					<Rectangle Fill="#FFDCDCDC" Width="Auto" Stroke="#FFDCDCDC" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="1" Height="50" d:LayoutOverrides="Width, Height" x:Name="rectangleHour1" RenderTransformOrigin="0.5,1" OpacityMask="{x:Null}" Margin="86.169,40.445,85.904,88.555">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1" ScaleY="1"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform x:Name="hourHand1" Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>		
+					</Rectangle>
+		
+					<Label x:Name="christianityCalendar1" Foreground="White" d:LayoutOverrides="Width" FontSize="8" FontWeight="Normal" Height="Auto" Content="تاریخ میلادی" FontFamily="Tahoma" OpacityMask="{x:Null}" VerticalAlignment="Bottom" Opacity="1" HorizontalAlignment="Center" Margin="0,0,0,35.34"/>
+					<Label x:Name="persianCalendar1" Foreground="White" Height="Auto" Width="Auto" d:LayoutOverrides="HorizontalAlignment, Width, Height" FontSize="8" Content="تاریخ شمسی" OpacityMask="{x:Null}" Margin="58.04,45,58.04,0" VerticalAlignment="Top" Opacity="1"/>
+		
+				</Grid>
+			</Viewbox>
+		
+		</Grid>
+		
+	</Grid>
+</Window>

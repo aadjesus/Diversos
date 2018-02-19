@@ -1,0 +1,26 @@
+<!-- =================================================
+      AxesWithVector.xaml (c) 2007 by Charles Petzold
+     ================================================= -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:cp="http://schemas.charlespetzold.com/2007/xaml"
+      WindowTitle="Axes with Vector"
+      Title="Axes with Vector">
+    <Page.Resources>
+       <Point3DCollection x:Key="arrow">
+            0.5 0.5 0, 1 1 0.5
+        </Point3DCollection>
+    </Page.Resources>
+
+    <Viewport3D Width="3in">
+        <cp:Axes Extent="2" ShowNumbers="false" Rounding="16" />
+
+        <cp:WirePolyline Points="{StaticResource arrow}" 
+                           ArrowEnds="End" Rounding="16" />
+
+        <Viewport3D.Camera>
+            <OrthographicCamera Width="4"
+                Position="-5 3 11" LookDirection="5 -3 -11" />
+        </Viewport3D.Camera>
+    </Viewport3D>
+</Page>

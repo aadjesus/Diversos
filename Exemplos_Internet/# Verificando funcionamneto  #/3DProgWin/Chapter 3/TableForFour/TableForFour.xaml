@@ -1,0 +1,277 @@
+<!-- ===============================================
+      TableForFour.xaml (c) 2007 by Charles Petzold
+     =============================================== -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      x:Class="Petzold.TableForFour.TableForFour"
+      WindowTitle="Table for Four"
+      Title="Table for Four">
+
+    <Page.Resources>
+        
+        <!-- Unit cube: front, back, left, right, top, bottom. -->
+        <MeshGeometry3D x:Key="cube"
+                        Positions="-0.5  0.5  0.5,  0.5  0.5  0.5,
+                                   -0.5 -0.5  0.5,  0.5 -0.5  0.5,
+                                    0.5  0.5 -0.5, -0.5  0.5 -0.5,
+                                    0.5 -0.5 -0.5, -0.5 -0.5 -0.5,
+                                   -0.5  0.5 -0.5, -0.5  0.5  0.5,
+                                   -0.5 -0.5 -0.5, -0.5 -0.5  0.5,
+                                    0.5  0.5  0.5,  0.5  0.5 -0.5,
+                                    0.5 -0.5  0.5,  0.5 -0.5 -0.5,
+                                   -0.5  0.5 -0.5,  0.5  0.5 -0.5,
+                                   -0.5  0.5  0.5,  0.5  0.5  0.5,
+                                    0.5 -0.5 -0.5, -0.5 -0.5 -0.5,
+                                    0.5 -0.5  0.5, -0.5 -0.5  0.5"
+
+                        TriangleIndices=" 0  2  1,  1  2  3
+                                          4  6  5,  5  6  7,
+                                          8 10  9,  9 10 11,
+                                         12 14 13, 13 14 15
+                                         16 18 17, 17 18 19
+                                         20 22 21, 21 22 23" />
+
+        <DiffuseMaterial x:Key="wood" Brush="BurlyWood"  />
+
+        <!-- Table leg. -->
+        <GeometryModel3D x:Key="tableLeg" 
+                         Geometry="{StaticResource cube}"
+                         Material="{StaticResource wood}">
+            <GeometryModel3D.Transform>
+                <ScaleTransform3D CenterY="-1" ScaleX="0.1" 
+                                  ScaleY="2" ScaleZ="0.1" />
+            </GeometryModel3D.Transform>
+        </GeometryModel3D>
+
+        <!-- Table. -->
+        <Model3DGroup x:Key="table">
+
+            <!-- Four table legs. -->
+            <Model3DGroup>
+                <StaticResource ResourceKey="tableLeg" />
+                <Model3DGroup.Transform>
+                    <TranslateTransform3D OffsetX="-1" OffsetZ="-1" />
+                </Model3DGroup.Transform>
+            </Model3DGroup>
+
+            <Model3DGroup>
+                <StaticResource ResourceKey="tableLeg" />
+                <Model3DGroup.Transform>
+                    <TranslateTransform3D OffsetX="1" OffsetZ="-1" />
+                </Model3DGroup.Transform>
+            </Model3DGroup>
+
+            <Model3DGroup>
+                <StaticResource ResourceKey="tableLeg" />
+                <Model3DGroup.Transform>
+                    <TranslateTransform3D OffsetX="-1" OffsetZ="1" />
+                </Model3DGroup.Transform>
+            </Model3DGroup>
+
+            <Model3DGroup>
+                <StaticResource ResourceKey="tableLeg" />
+                <Model3DGroup.Transform>
+                    <TranslateTransform3D OffsetX="1" OffsetZ="1" />
+                </Model3DGroup.Transform>
+            </Model3DGroup>
+
+            <!-- Table top. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="2.5" ScaleZ="2.5" ScaleY="0.1" />
+                        <TranslateTransform3D OffsetY="2.05" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+        </Model3DGroup>
+
+        <!-- Chair. -->
+        <Model3DGroup x:Key="chair">
+
+            <!-- Front right leg. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="0.1" ScaleY="1.5" ScaleZ="0.1" />
+                        <TranslateTransform3D 
+                            OffsetX="0.5" OffsetY="0.75" OffsetZ="0.5" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+    
+            <!-- Front left leg. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="0.1" ScaleY="1.5" ScaleZ="0.1" />
+                        <TranslateTransform3D 
+                            OffsetX="-0.5" OffsetY="0.75" OffsetZ="0.5" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+
+            <!-- Back right leg. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="0.1" ScaleY="3.0" ScaleZ="0.1" />
+                        <TranslateTransform3D 
+                            OffsetX="0.5" OffsetY="1.5" OffsetZ="-0.5" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+    
+            <!-- Back left leg. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="0.1" ScaleY="3.0" ScaleZ="0.1" />
+                        <TranslateTransform3D 
+                            OffsetX="-0.5" OffsetY="1.5" OffsetZ="-0.5" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+
+            <!-- Chair seat. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="1.25" ScaleY="0.1" ScaleZ="1.25" />
+                        <TranslateTransform3D OffsetY="1.55" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+
+            <!-- Back brace. -->
+            <GeometryModel3D Geometry="{StaticResource cube}"
+                             Material="{StaticResource wood}">
+                <GeometryModel3D.Transform>
+                    <Transform3DGroup>
+                        <ScaleTransform3D 
+                            ScaleX="0.9" ScaleY="0.25" ScaleZ="0.1" />
+                        <TranslateTransform3D OffsetZ="-0.5" OffsetY="2.75" />
+                    </Transform3DGroup>
+                </GeometryModel3D.Transform>
+            </GeometryModel3D>
+        </Model3DGroup>
+    </Page.Resources>
+
+    <Viewport3D Name="viewport3d">
+
+        <!-- Green linoleum floor. -->
+        <ModelVisual3D x:Name="floor">
+            <ModelVisual3D.Content>
+                <GeometryModel3D Geometry="{StaticResource cube}">
+                    <GeometryModel3D.Material>
+                        <DiffuseMaterial Brush="Lime" />
+                    </GeometryModel3D.Material>
+                </GeometryModel3D>
+            </ModelVisual3D.Content>
+
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <ScaleTransform3D ScaleX="8" ScaleY="0.1" ScaleZ="8" />
+                    <TranslateTransform3D OffsetY="-0.05" />
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <!-- Table in the middle. -->
+        <ModelVisual3D x:Name="table" Content="{StaticResource table}">
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <TranslateTransform3D x:Name="translate" />
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D x:Name="rotate" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D> 
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <!-- Four chairs. -->
+        <ModelVisual3D Content="{StaticResource chair}">
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D Angle="-90" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <TranslateTransform3D OffsetX="2.5" />
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <ModelVisual3D Content="{StaticResource chair}">
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D Angle="180" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <TranslateTransform3D OffsetZ="2.5" />
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <ModelVisual3D Content="{StaticResource chair}">
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D Angle="90" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <TranslateTransform3D OffsetX="-2.5" />
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <ModelVisual3D Content="{StaticResource chair}">
+            <ModelVisual3D.Transform>
+                <Transform3DGroup>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D Angle="0" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <TranslateTransform3D OffsetZ="-2.5" />
+                </Transform3DGroup>
+            </ModelVisual3D.Transform>
+        </ModelVisual3D>
+
+        <!-- Light sources. -->
+        <ModelVisual3D>
+            <ModelVisual3D.Content>
+                <Model3DGroup>
+                    <AmbientLight Color="#404040" />
+                    <DirectionalLight Color="#C0C0C0" Direction="2, -3 -1" />
+                </Model3DGroup>
+            </ModelVisual3D.Content>
+        </ModelVisual3D>
+
+        <!-- Camera. -->
+        <Viewport3D.Camera>
+            <PerspectiveCamera Position="3 4 12"
+                               LookDirection="-1.5 -1.5 -5"
+                               UpDirection="0 1 0"
+                               FieldOfView="45" />
+        </Viewport3D.Camera>
+    </Viewport3D>
+</Page>

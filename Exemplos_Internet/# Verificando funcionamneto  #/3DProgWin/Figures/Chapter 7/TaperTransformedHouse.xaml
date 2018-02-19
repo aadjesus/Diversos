@@ -1,0 +1,57 @@
+<!-- ========================================================
+      TaperTransformedHouse.xaml (c) 2007 by Charles Petzold
+     ======================================================== -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:cp="http://schemas.charlespetzold.com/2007/xaml"
+      WindowTitle="Taper-Transformed House"
+      Title="Taper-Transformed House">
+
+    <Page.Resources>
+        <GeometryGroup x:Key="axes">
+            <LineGeometry StartPoint="-72 0" EndPoint="72 0" />
+            <LineGeometry StartPoint="0 24" EndPoint="0 -168" />
+        </GeometryGroup>
+
+        <PathGeometry x:Key="house" 
+                      Figures="M 0 -100 L -50 -60, -50   0
+                                           50   0,  50 -60 Z" />
+
+        <Style TargetType="Path">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+            <Setter Property="StrokeLineJoin" Value="Round" />
+            <Setter Property="Canvas.Top" Value="288" />
+        </Style>
+
+        <Style TargetType="cp:ArrowLine">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+            <Setter Property="StrokeLineJoin" Value="Round" />
+            <Setter Property="Canvas.Top" Value="288" />
+        </Style>
+
+    </Page.Resources>
+
+    <Canvas>
+        <Path Canvas.Left="96"
+              Data="{StaticResource axes}" />
+
+        <Path Canvas.Left="96"
+              Data="{StaticResource house}" 
+              StrokeThickness="3" />
+
+        <cp:ArrowLine X1="192" Y1="-48" X2="288" Y2="-48"
+                      StrokeThickness="4" 
+                      ArrowLength="24" />
+
+        <Path Canvas.Left="384"
+              Data="{StaticResource axes}" />
+
+        <Path Canvas.Left="384"
+              Data="M 0 -100 L -33 -40, -33 0, 100 0, 100 -120 Z" 
+              StrokeThickness="3" />
+    </Canvas>
+</Page>

@@ -1,0 +1,300 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:build="clr-namespace:Microsoft.TeamFoundation.Build.Client;assembly=Microsoft.TeamFoundation.Build.Client"
+        xmlns:local="clr-namespace:TFS_API_AdvancedBuildActions.IValueConverters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="TFS_API_AdvancedBuildActions.MainWindow"
+        Title="MainWindow" Height="527" Width="1196" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ObjectDataProvider  MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="ContinuousIntegrationTypes" >
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="build:ContinuousIntegrationType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider  MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="BuildStatuss" >
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="build:BuildStatus"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <local:UriToStringConverter x:Key="UriToStringConverter"/>
+        <local:ProcessTemplateValueConverter x:Key="ProcessTemplateValueConverter"/>
+        <Storyboard x:Key="OnClick1">
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path2">
+        		<EasingColorKeyFrame KeyTime="0" Value="Green"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path4">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF080A08"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path3">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF030403"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF060806"/>
+        	</ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TeamProjectOnSelectionChanged">
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path2">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path3">
+        		<EasingColorKeyFrame KeyTime="0" Value="Green"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path4">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF121612"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0B0E0B"/>
+        	</ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="BuildDefinitionOnSelectionChanged">
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path2">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path3">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path4">
+        		<EasingColorKeyFrame KeyTime="0" Value="Green"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0E140E"/>
+        	</ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="BuildControllerOnSelectionChanged">
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path2">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path3">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path4">
+        		<EasingColorKeyFrame KeyTime="0" Value="Gray"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+        		<EasingColorKeyFrame KeyTime="0" Value="Green"/>
+        	</ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="BuildAgentOnSelectionChanged">
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0ACDFF"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path2">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0ACDFF"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path3">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0ACDFF"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path4">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0ACDFF"/>
+        	</ColorAnimationUsingKeyFrames>
+        	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+        		<EasingColorKeyFrame KeyTime="0" Value="#FF0ACDFF"/>
+        	</ColorAnimationUsingKeyFrames>
+        </Storyboard>       
+    </Window.Resources>
+    <Window.Triggers>
+    	<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnConnectTFS">
+    		<BeginStoryboard Storyboard="{StaticResource OnClick1}"/>
+    	</EventTrigger>
+    	<EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="listProjects">
+    		<BeginStoryboard x:Name="TeamProjectOnSelectionChanged_BeginStoryboard" Storyboard="{StaticResource TeamProjectOnSelectionChanged}"/>
+    	</EventTrigger>
+    	<EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="listBuildDefs">
+    		<BeginStoryboard x:Name="BuildDefinitionOnSelectionChanged_BeginStoryboard" Storyboard="{StaticResource BuildDefinitionOnSelectionChanged}"/>
+    	</EventTrigger>
+    	<EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="listControllers">
+    		<BeginStoryboard x:Name="BuildControllerOnSelectionChanged_BeginStoryboard" Storyboard="{StaticResource BuildControllerOnSelectionChanged}"/>
+    	</EventTrigger>
+    	<EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="listAgents">
+    		<BeginStoryboard x:Name="BuildAgentOnSelectionChanged_BeginStoryboard" Storyboard="{StaticResource BuildAgentOnSelectionChanged}"/>
+    	</EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Button Content="Connect TFS" Height="28" Margin="47,16,0,0" x:Name="btnConnectTFS" VerticalAlignment="Top" Click="BtnConnectTfsClick" HorizontalAlignment="Left" Width="110" />
+        <Path Canvas.Left="0" Canvas.Top="6.10352e-005" Data="F1 M 18.1798,24.7591L 0.226563,25.9135L 0,14.3503L 17.9845,14.8406L 14.8022,2.35687L 14.7891,1.64392L 14.9948,0.884827L 15.5183,0.296997L 16.2709,0.0149536L 17.0236,6.10352e-005L 17.7864,0.250732L 43.9792,17.6211L 44.2526,17.8815L 44.5236,18.1446L 44.7109,18.5417L 44.849,18.849L 44.8646,19.6498L 44.7396,20.0527L 44.5678,20.3672L 44.3074,20.685L 44.0468,20.9557L 18.5574,39.3901L 17.8074,39.6733L 17.0522,39.6868L 16.2891,39.3458L 15.7448,38.823L 15.5078,38.1152L 15.4922,37.3145L 18.1798,24.7591 Z " Fill="#FF000000" Height="20" Margin="16,19,0,0" x:Name="path1" Stretch="Fill" Width="25" HorizontalAlignment="Left" d:LayoutOverrides="Width" VerticalAlignment="Top" />
+        <TabControl Margin="12,52,12,12" Name="tabControl" IsEnabled="False" SelectionChanged="TabControlSelectionChanged">
+            <TabItem Header="Flow" Name="flowTab">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListBox Height="120.568" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="42,116,0,0" Name="listProjects" SelectionChanged="ListProjectsSelectionChanged" VerticalAlignment="Top" Width="143">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox Height="121" HorizontalAlignment="Left" Margin="332,116,0,0" Name="listBuildDefs" SelectionChanged="ListBuildDefsSelectionChanged" VerticalAlignment="Top" Width="143">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Content="Build Definitions:" Height="28" HorizontalAlignment="Left" Margin="332,88,0,0" Name="label1" VerticalAlignment="Top" />
+                    <ListBox Height="121" HorizontalAlignment="Left" Margin="635,116,0,0" Name="listControllers" SelectionChanged="ListControllersSelectionChanged" VerticalAlignment="Top" Width="143">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Content="Build Controllers:" Height="28" HorizontalAlignment="Left" Margin="635,88,0,0" Name="label2" VerticalAlignment="Top" />
+                    <ListBox Height="120.568" HorizontalAlignment="Left" Margin="913,116,0,0" Name="listAgents" VerticalAlignment="Top" Width="143">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Path Canvas.Left="0" Canvas.Top="6.10352e-005" Data="F1 M 18.1798,24.7591L 0.226563,25.9135L 0,14.3503L 17.9845,14.8406L 14.8022,2.35687L 14.7891,1.64392L 14.9948,0.884827L 15.5183,0.296997L 16.2709,0.0149536L 17.0236,6.10352e-005L 17.7864,0.250732L 43.9792,17.6211L 44.2526,17.8815L 44.5236,18.1446L 44.7109,18.5417L 44.849,18.849L 44.8646,19.6498L 44.7396,20.0527L 44.5678,20.3672L 44.3074,20.685L 44.0468,20.9557L 18.5574,39.3901L 17.8074,39.6733L 17.0522,39.6868L 16.2891,39.3458L 15.7448,38.823L 15.5078,38.1152L 15.4922,37.3145L 18.1798,24.7591 Z " Fill="#FF000000" Height="20" HorizontalAlignment="Left" Margin="832,165,0,0" Name="Path" Stretch="Fill" Width="25" VerticalAlignment="Top" />
+                    <Label Content="Build Agents:" Height="28" HorizontalAlignment="Left" Margin="913,88,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Label Content="Team Projects:" Height="28" HorizontalAlignment="Left" Margin="42,88,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Path Canvas.Left="0" Canvas.Top="6.10352e-005" Data="F1 M 14.9277,18.1799L 13.7734,0.226624L 25.3366,6.10352e-005L 24.8463,17.9846L 37.33,14.8022L 38.043,14.7891L 38.802,14.9949L 39.3899,15.5184L 39.6719,16.2709L 39.6868,17.0236L 39.4361,17.7864L 22.0657,43.9793L 21.8054,44.2526L 21.5423,44.5236L 21.1452,44.711L 20.8379,44.8491L 20.0371,44.8647L 19.6342,44.7397L 19.3196,44.5679L 19.0019,44.3074L 18.7311,44.0469L 0.296814,18.5574L 0.0136108,17.8074L 0,17.0522L 0.341064,16.2891L 0.863831,15.7449L 1.57159,15.5078L 2.37238,15.4922L 14.9277,18.1799 Z " Fill="#FF000000" Height="20" HorizontalAlignment="Left" Margin="100,35,0,0" Name="path2" Stretch="Fill" Width="25" VerticalAlignment="Top" />
+                    <Path Canvas.Left="0" Canvas.Top="6.10352e-005" Data="F1 M 18.1798,24.7591L 0.226563,25.9135L 0,14.3503L 17.9845,14.8406L 14.8022,2.35687L 14.7891,1.64392L 14.9948,0.884827L 15.5183,0.296997L 16.2709,0.0149536L 17.0236,6.10352e-005L 17.7864,0.250732L 43.9792,17.6211L 44.2526,17.8815L 44.5236,18.1446L 44.7109,18.5417L 44.849,18.849L 44.8646,19.6498L 44.7396,20.0527L 44.5678,20.3672L 44.3074,20.685L 44.0468,20.9557L 18.5574,39.3901L 17.8074,39.6733L 17.0522,39.6868L 16.2891,39.3458L 15.7448,38.823L 15.5078,38.1152L 15.4922,37.3145L 18.1798,24.7591 Z " Fill="#FF000000" Height="20" HorizontalAlignment="Left" Margin="245,165,0,0" Name="path3" Stretch="Fill" VerticalAlignment="Top" Width="25" />
+                    <Path Canvas.Left="0" Canvas.Top="6.10352e-005" Data="F1 M 18.1798,24.7591L 0.226563,25.9135L 0,14.3503L 17.9845,14.8406L 14.8022,2.35687L 14.7891,1.64392L 14.9948,0.884827L 15.5183,0.296997L 16.2709,0.0149536L 17.0236,6.10352e-005L 17.7864,0.250732L 43.9792,17.6211L 44.2526,17.8815L 44.5236,18.1446L 44.7109,18.5417L 44.849,18.849L 44.8646,19.6498L 44.7396,20.0527L 44.5678,20.3672L 44.3074,20.685L 44.0468,20.9557L 18.5574,39.3901L 17.8074,39.6733L 17.0522,39.6868L 16.2891,39.3458L 15.7448,38.823L 15.5078,38.1152L 15.4922,37.3145L 18.1798,24.7591 Z " Fill="#FF000000" Height="20" HorizontalAlignment="Left" Margin="540,165,0,0" Name="path4" Stretch="Fill" VerticalAlignment="Top" Width="25" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Add \ Delete Controllers" Name="adControllersTab" >
+                <Grid>
+                    <GroupBox Header="Add Controllers" Height="329" HorizontalAlignment="Left" Margin="213,8,0,0" Name="addControllerGroup" VerticalAlignment="Top" Width="196.697">
+                        <Grid Margin="0,0,-4,-2.392">
+                            <Label Content="Controller Name:" Height="28" HorizontalAlignment="Left" Margin="8,8,0,0" Name="label3_Copy" VerticalAlignment="Top" />
+                            <TextBox Margin="8,34,8,0" Name="txtControllerName" Text="{Binding Mode=OneWay,ElementName=listTfsControllers, Path=SelectedItem.Name}" TextWrapping="Wrap" VerticalAlignment="Top" />
+                            <Button Click="BtnAddControllerClick" Content="Add" HorizontalAlignment="Right" Margin="0,0,7,10" Name="btnAddController" VerticalAlignment="Bottom" Width="75" />
+                            <Label Content="Service Host Name:" Height="28" HorizontalAlignment="Left" Margin="8,59,0,0" Name="label5" VerticalAlignment="Top" />
+                            <TextBox Margin="8,88,8,0" Name="txtServiceHostName" Text="{Binding Mode=OneWay,ElementName=listTfsControllers, Path=SelectedItem.ServiceHost.Name}" TextWrapping="Wrap" VerticalAlignment="Top" />
+                            <Label Content="Machine Name:" Height="28" HorizontalAlignment="Left" Margin="6,159,0,0" Name="label6" VerticalAlignment="Top" />
+                            <TextBox Margin="6,186,8,0" Name="txtMachineName" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Mode=OneWay, ElementName=listTfsControllers, Path=SelectedItem.ServiceHost.BaseUrl, Converter={StaticResource UriToStringConverter}, ConverterParameter=Host}" />
+                            <Label Content="Service Host Port:" Height="28" HorizontalAlignment="Left" Margin="6,108,0,0" Name="label7" VerticalAlignment="Top" />
+                            <TextBox Margin="8,136,8,0" Name="txtPort" Text="{Binding Mode=OneWay, ElementName=listTfsControllers, Path=SelectedItem.ServiceHost.BaseUrl, Converter={StaticResource UriToStringConverter}, ConverterParameter=Port}" TextWrapping="Wrap" VerticalAlignment="Top" />
+                            <Button Click="BtnRemoveClick" Content="Remove" HorizontalAlignment="Left" Margin="8,0,0,11" Name="btnRemove" VerticalAlignment="Bottom" Width="75" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add \ Delete Definitions" Name="adDefinitionTab">
+                <Grid>
+
+                    <GroupBox Header="Add Build Definition" Height="335" HorizontalAlignment="Left" Margin="617,2,0,0" Name="groupBox4" VerticalAlignment="Top" Width="308">
+                        <Grid>
+                            <ComboBox Height="62" HorizontalAlignment="Left" Margin="6,26,0,0" Name="comboProcessTemplates" ItemsSource="{Binding}" VerticalAlignment="Top" Width="278">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding TemplateType, StringFormat=TemplateType: {0}}" />
+                                            <TextBlock Text="{Binding Description, StringFormat=Description: {0}}" />
+                                            <TextBlock Text="{Binding ServerPath, StringFormat=ServerPath: {0}}" />
+                                            <TextBlock Text="{Binding SupportedReasons, StringFormat=SupportedReasons: {0}}" />
+                                            <Separator />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,106,0,0" Name="textBlock1" Text="Definition Name:" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Text="{Binding Mode=OneWay,ElementName=listAddDefinitionBuildDefinitions, Path=SelectedItem.Name}" Margin="99,103,0,0" Name="txtDefinitionName" VerticalAlignment="Top" Width="185" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,143,0,0" Name="textBlock2" Text="Continuous Integration Type :" VerticalAlignment="Top" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,181,0,0" Name="textBlock3" Text="Drop Location:" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="99,178,0,0" Name="txtDropLocation" Text="{Binding Mode=OneWay,ElementName=listAddDefinitionBuildDefinitions, Path=SelectedItem.DefaultDropLocation}" VerticalAlignment="Top" Width="185" ToolTip="\\SomeFakeMachine\Drops" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,219,0,0" Name="textBlock4" Text="Description:" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="99,216,0,0" Name="txtDescription" Text="{Binding Mode=OneWay,ElementName=listAddDefinitionBuildDefinitions, Path=SelectedItem.Description}" VerticalAlignment="Top" Width="185" />
+                            <ComboBox Style="{DynamicResource ComboBoxStyle}" Height="23" HorizontalAlignment="Left" Margin="164,143,0,0" Name="comboContinuousIntegrationTypes" SelectedItem="{Binding Mode=OneWay,ElementName=listAddDefinitionBuildDefinitions, Path=SelectedItem.ContinuousIntegrationType}" ItemsSource="{Binding Source={StaticResource ContinuousIntegrationTypes}}" VerticalAlignment="Top" Width="120" />
+                            <CheckBox Content="Enabled" Height="16" HorizontalAlignment="Left" IsChecked="{Binding Mode=OneWay,ElementName=listAddDefinitionBuildDefinitions, Path=SelectedItem.Enabled}" Margin="99,250,0,0" Name="chxIsEnabled" VerticalAlignment="Top" />
+                            <Button Content="Add" Height="23" HorizontalAlignment="Right" Margin="0,0,12,11" Name="btnAddDefinition" VerticalAlignment="Bottom" Width="64" Click="BtnAddDefinitionClick" />
+                            <Button Content="Remove" Height="23" Margin="0,0,116,11" Name="btnRemoveDefinition" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="65" Click="BtnRemoveDefinitionClick" />
+                            <Button Content="Clear" Height="23" HorizontalAlignment="Right" Margin="0,0,229,11" Name="btnClear" VerticalAlignment="Bottom" Width="60" Click="BtnClearClick" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="7,5,0,0" Name="textBlock5" Text="Process Template:" VerticalAlignment="Top" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add \ Delete Builds" Name="adBuildTab">
+                <Grid>
+                    <GroupBox Header="Builds" Height="329" HorizontalAlignment="Left" Margin="617,5,0,0" Name="groupBox1" VerticalAlignment="Top" Visibility="Visible" Width="197">
+                        <Grid>
+                            <ListBox IsEnabled="True" Margin="6,5,6,6" Name="listBuilds">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding BuildNumber}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Add New Build" Height="329" HorizontalAlignment="Left" Margin="820,5,0,0" Name="groupBox2" VerticalAlignment="Top" Width="288">
+                        <Grid>
+                            <Button Content="Add" Height="23" HorizontalAlignment="Right" Margin="0,0,6,6" Name="btnAddBuild" VerticalAlignment="Bottom" Width="75" Click="BtnAddBuildClick" />
+                            <Button Content="Remove" Height="23" HorizontalAlignment="Right" Margin="0,0,95,6" Name="btnRemoveBuild" VerticalAlignment="Bottom" Width="75" Click="BtnRemoveBuildClick" />
+                            <TextBox Height="23" Text="{Binding Mode=OneWay, ElementName=listBuilds, Path=BuildNumber}" HorizontalAlignment="Left" Margin="75,34,0,0" Name="txtBuildName" VerticalAlignment="Top" Width="195" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,34,0,0" Name="textBlock6" Text="Build Name:" VerticalAlignment="Top" />
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="75,179,0,0" Name="comboBuildStatus" ItemsSource="{Binding Source={StaticResource BuildStatuss}}" SelectedItem="{Binding ElementName=listBuilds,Path=Status}" VerticalAlignment="Top" Width="195" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,179,0,0" Name="textBlock7" Text="Status:" VerticalAlignment="Top" />
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="75,121,0,0" Name="comboFlavor" VerticalAlignment="Top" Width="120">
+                                <ComboBoxItem Content="Debug" IsSelected="True" />
+                                <ComboBoxItem Content="Release" />
+                            </ComboBox>
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,124,0,0" Name="textBlock8" Text="Flavor:" VerticalAlignment="Top" />
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="75,150,0,0" Name="comboPlatform" VerticalAlignment="Top" Width="120">
+                                <ComboBoxItem Content="x86" />
+                                <ComboBoxItem Content="x64" />
+                                <ComboBoxItem Content="Itanium" />
+                                <ComboBoxItem Content="Any CPU" IsSelected="True" />
+                            </ComboBox>
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,153,0,0" Name="textBlock9" Text="Platform:" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="75,63,0,0" Name="txtLocalPath" VerticalAlignment="Top" Width="195" Text="Dummy.sln" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,63,0,0" Name="textBlock10" Text="Local Path:" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="75,92,0,0" Name="txtServerPath" VerticalAlignment="Top" Width="195" Text="$/SR/Dev/Main/Dummy.sln" />
+                            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,95,0,0" Name="textBlock11" Text="Server Path:" VerticalAlignment="Top" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <GroupBox Header="Team Projects" Height="328" HorizontalAlignment="Left" Margin="243,107,0,0" Name="groupTeamProjects" VerticalAlignment="Top" Width="191" Visibility="Hidden">
+            <Grid>
+                <ListBox Margin="6,5,6,6" Name="listDefinitionsTeamProject" SelectionChanged="ListDefinitionsTeamProjectSelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Build Definitions" Height="329" HorizontalAlignment="Left" Margin="442,106,0,0" Name="groupBuildDefinitions" VerticalAlignment="Top" Width="197" Visibility="Hidden">
+            <Grid>
+                <ListBox Margin="6,5,6,6" Name="listAddDefinitionBuildDefinitions" IsEnabled="True" SelectionChanged="ListAddDefinitionBuildDefinitionsSelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="TFS Controllers" Height="330" HorizontalAlignment="Left" Margin="39,108,0,0" Name="groupTFSControllers" VerticalAlignment="Top" Width="197" Visibility="Hidden">
+            <Grid>
+                <ListBox Margin="6" Name="listTfsControllers" SelectionChanged="ListTfsControllersSelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWControlsTest", "MWControlsTest.csproj", "{D8611A32-5B54-4F87-AB6B-9F30C858FB7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWControls", "..\MWControls\MWControls.csproj", "{9986C595-9BF5-42B1-935E-C1203108248D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWCommon", "..\MWCommon\MWCommon.csproj", "{FAD9A8E2-EE7C-4192-82DA-11DF9A1BB717}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8611A32-5B54-4F87-AB6B-9F30C858FB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8611A32-5B54-4F87-AB6B-9F30C858FB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8611A32-5B54-4F87-AB6B-9F30C858FB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8611A32-5B54-4F87-AB6B-9F30C858FB7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9986C595-9BF5-42B1-935E-C1203108248D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9986C595-9BF5-42B1-935E-C1203108248D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9986C595-9BF5-42B1-935E-C1203108248D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9986C595-9BF5-42B1-935E-C1203108248D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD9A8E2-EE7C-4192-82DA-11DF9A1BB717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD9A8E2-EE7C-4192-82DA-11DF9A1BB717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD9A8E2-EE7C-4192-82DA-11DF9A1BB717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD9A8E2-EE7C-4192-82DA-11DF9A1BB717}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

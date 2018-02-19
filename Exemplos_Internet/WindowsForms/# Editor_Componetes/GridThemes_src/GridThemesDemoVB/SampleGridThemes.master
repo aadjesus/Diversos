@@ -1,0 +1,54 @@
+<%@ Master Language="VB" %>
+<%@ Register Assembly="GridThemes" Namespace="UNLV.IAP.GridThemes" TagPrefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>GridThemes Demo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="masterTable" cellpadding="6" cellspacing="0">
+          <tr valign="middle">
+            <td colspan="2" class="masterHeader">
+                GridThemes Demo - VB.NET
+            </td>
+          </tr>
+          <tr valign="top">
+            <td class="masterMenu">
+                <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1"
+                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
+                    StaticDisplayLevels="3" StaticSubMenuIndent="10px">
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="#E3EAEB" />
+                    <StaticSelectedStyle BackColor="#1C5E55" ForeColor="White" />
+                    <DynamicSelectedStyle BackColor="#1C5E55" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticHoverStyle BackColor="#666666" ForeColor="White" />
+                    <LevelMenuItemStyles>
+                        <asp:MenuItemStyle Font-Underline="False" />
+                        <asp:MenuItemStyle Font-Bold="True" Font-Italic="False" Font-Underline="False" HorizontalPadding="4px"
+                            ItemSpacing="4px" VerticalPadding="2px" />
+                    </LevelMenuItemStyles>
+                </asp:Menu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                                 
+            </td>
+            <td class="masterContent">
+                <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                </asp:contentplaceholder>
+            </td>
+          </tr>
+        </table>
+            
+    </div>
+    </form>
+</body>
+</html>

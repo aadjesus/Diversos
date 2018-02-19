@@ -1,0 +1,19 @@
+﻿<Border x:Class="VirtualDreams.TouchReader.View.FeedItemView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
+        Style="{StaticResource FeedContainer}"
+        Width="500">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top"
+                   Text="{Binding Title}"
+                   Style="{StaticResource FeedTitle}" />
+        <Rectangle DockPanel.Dock="Bottom"
+                   Style="{StaticResource FeedBottomRectangle}" />
+        <mt:ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <FlowDocumentScrollViewer Foreground="White"
+                                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                      Document="{Binding Content}"  />
+        </mt:ScrollViewer>
+    </DockPanel>
+</Border>

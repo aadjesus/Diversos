@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridThemes", "GridThemes\GridThemes.csproj", "{BF6DABFB-B942-4CB7-9820-3087753463D2}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GridThemesDemoCS", "GridThemesDemoCS\", "{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{BF6DABFB-B942-4CB7-9820-3087753463D2}|GridThemes.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/GridThemesDemoCS"
+		Debug.AspNetCompiler.PhysicalPath = "GridThemesDemoCS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GridThemesDemoCS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/GridThemesDemoCS"
+		Release.AspNetCompiler.PhysicalPath = "GridThemesDemoCS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GridThemesDemoCS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4743"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GridThemesDemoVB", "GridThemesDemoVB\", "{680BDFC6-9AD9-4781-B412-B1985E018A17}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{BF6DABFB-B942-4CB7-9820-3087753463D2}|GridThemes.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/GridThemesDemoVB"
+		Debug.AspNetCompiler.PhysicalPath = "GridThemesDemoVB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GridThemesDemoVB\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/GridThemesDemoVB"
+		Release.AspNetCompiler.PhysicalPath = "GridThemesDemoVB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GridThemesDemoVB\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3413"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Release|.NET.ActiveCfg = Release|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BF6DABFB-B942-4CB7-9820-3087753463D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Debug|.NET.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Debug|.NET.Build.0 = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Release|.NET.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Release|.NET.Build.0 = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{6212BB2C-492D-4ED8-BE4F-8B9A465C1316}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Debug|.NET.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Debug|.NET.Build.0 = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Release|.NET.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Release|.NET.Build.0 = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{680BDFC6-9AD9-4781-B412-B1985E018A17}.Release|Mixed Platforms.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

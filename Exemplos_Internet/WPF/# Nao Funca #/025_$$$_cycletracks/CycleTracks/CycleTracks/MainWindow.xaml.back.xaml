@@ -1,0 +1,686 @@
+﻿<r:RibbonWindow
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+  xmlns:me="clr-namespace:CycleTracks"
+  xmlns:ve="clr-namespace:VEControl;assembly=VEControl"
+  xmlns:Converters="clr-namespace:CycleTracks.Converters"
+  xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+  x:Class="CycleTracks.MainWindow"
+  x:Name="Window"
+  Title="Cycle Tracks"
+  WindowState="Maximized"
+  Background="#0f8d9e"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+  <!-- Command bindings -->
+  <Window.CommandBindings>
+    <CommandBinding
+      Command="me:AppCommands.AddNew"
+      Executed="OnAddNewEntry" />
+    <CommandBinding
+      Command="me:AppCommands.AddMesh"
+      Executed="OnAddMeshEntry" />
+    <CommandBinding
+      Command="me:AppCommands.Clear"
+      Executed="OnClearEntry" />
+    <CommandBinding
+      Command="me:AppCommands.Help"
+      Executed="OnIgnore" />
+    <CommandBinding
+      Command="me:AppCommands.Share"
+      Executed="OnIgnore" />
+    <CommandBinding
+      Command="me:AppCommands.Compare"
+      Executed="OnIgnore" />
+    <CommandBinding
+      Command="me:AppCommands.Register"
+      Executed="OnIgnore" />
+    <CommandBinding
+      Command="me:AppCommands.Options"
+      Executed="OnIgnore" />
+  </Window.CommandBindings>
+  <Window.Resources>
+    <!-- Converters -->
+    <Converters:HartRateToColorConverter
+      x:Key="hartRateConverter"
+      SafeColor="Green"
+      DangerColor="Red"
+      DangerLevel="140" />
+    <Converters:HartRatePositionConverter
+      x:Key="posCalculator"
+      HartRateFactor="0.65"
+      DistanceFactor="500.0" />
+    <Converters:TrackToPointCollectionConverter
+      x:Key="TrackToPointCollection"
+      HartRatePositionConverter="{StaticResource posCalculator}" />
+  </Window.Resources>
+  <Window.Triggers>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseEnter"
+      SourceName="bdNotes">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdNotes"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseLeave"
+      SourceName="bdNotes">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdNotes"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0.7" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseEnter"
+      SourceName="bdLive">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdLive"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseLeave"
+      SourceName="bdLive">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdLive"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0.7" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseEnter"
+      SourceName="bdPics">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdPics"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseLeave"
+      SourceName="bdPics">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdPics"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0.7" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseEnter"
+      SourceName="bdMaps">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdMaps"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseLeave"
+      SourceName="bdMaps">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="bdMaps"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0.7" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+  </Window.Triggers>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition
+        Height="Auto"/>
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <!-- The Ribbon menu -->
+    <r:Ribbon
+      Grid.Row="0"
+      Grid.ColumnSpan="2"
+      Title="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path=Title}">
+      <r:Ribbon.Resources>
+        <r:RibbonGroupSizeDefinitionCollection
+          x:Key="RibbonLayout">
+          <r:RibbonGroupSizeDefinition>
+            <!-- Control sizes: L,L,L -->
+            <r:RibbonControlSizeDefinition
+              ImageSize="Large"
+              IsLabelVisible="True" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Large"
+              IsLabelVisible="True" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Large"
+              IsLabelVisible="True" />
+          </r:RibbonGroupSizeDefinition>
+          <r:RibbonGroupSizeDefinition>
+            <!-- Control sizes: L,M,M -->
+            <r:RibbonControlSizeDefinition
+              ImageSize="Large"
+              IsLabelVisible="True" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Small"
+              IsLabelVisible="True" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Small"
+              IsLabelVisible="True" />
+          </r:RibbonGroupSizeDefinition>
+          <r:RibbonGroupSizeDefinition>
+            <!-- Control sizes: L,S,S -->
+            <r:RibbonControlSizeDefinition
+              ImageSize="Large"
+              IsLabelVisible="True" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Small"
+              IsLabelVisible="False" />
+            <r:RibbonControlSizeDefinition
+              ImageSize="Small"
+              IsLabelVisible="False" />
+          </r:RibbonGroupSizeDefinition>
+          <!-- Collapsed -->
+          <r:RibbonGroupSizeDefinition
+            IsCollapsed="True" />
+        </r:RibbonGroupSizeDefinitionCollection>
+      </r:Ribbon.Resources>
+      <!-- Define the application icon in the org -->
+      <r:Ribbon.ApplicationMenu>
+        <r:RibbonApplicationMenu>
+          <r:RibbonApplicationMenu.Command>
+            <r:RibbonCommand
+              Executed="OnCloseApplication"
+              LabelTitle="Application Button"
+              LabelDescription="Close the application."
+              SmallImageSource="images/Bike.png"
+              LargeImageSource="images/Bike.png"
+              ToolTipTitle="Cycling"
+              ToolTipDescription="Good for you." />
+          </r:RibbonApplicationMenu.Command>
+          <r:RibbonApplicationMenuItem>
+            <r:RibbonApplicationMenuItem.Command>
+              <r:RibbonCommand
+                LabelTitle="_Close"
+                LabelDescription="Close the Application"
+                Executed="OnCloseApplication" />
+            </r:RibbonApplicationMenuItem.Command>
+          </r:RibbonApplicationMenuItem>
+        </r:RibbonApplicationMenu>
+      </r:Ribbon.ApplicationMenu>
+      <!-- Quick pick menu -->
+      <r:Ribbon.QuickAccessToolBar>
+        <r:RibbonQuickAccessToolBar
+          CanUserCustomize="True">
+          <r:RibbonButton
+            Command="me:AppCommands.AddNew"
+            r:RibbonQuickAccessToolBar.Placement="InCustomizeMenuAndToolBar" />
+          <r:RibbonButton
+            Command="me:AppCommands.Cut"
+            r:RibbonQuickAccessToolBar.Placement="InCustomizeMenuAndToolBar" />
+          <r:RibbonButton
+            Command="me:AppCommands.Copy"
+            r:RibbonQuickAccessToolBar.Placement="InCustomizeMenuAndToolBar" />
+          <r:RibbonButton
+            Command="me:AppCommands.Paste"
+            r:RibbonQuickAccessToolBar.Placement="InCustomizeMenuAndToolBar" />
+          <r:RibbonButton
+            Command="me:AppCommands.Help"
+            r:RibbonQuickAccessToolBar.Placement="InToolBar" />
+        </r:RibbonQuickAccessToolBar>
+      </r:Ribbon.QuickAccessToolBar>
+      <r:RibbonTab
+        Label="Cycling">
+        <!-- Define the groups in this tab -->
+        <r:RibbonTab.Groups>
+          <!-- Clipboard commands -->
+          <r:RibbonGroup
+            GroupSizeDefinitions="{StaticResource RibbonLayout}">
+            <r:RibbonGroup.Command>
+              <r:RibbonCommand
+                LabelTitle="Clipboard"
+                SmallImageSource="images/Paste.png" />
+            </r:RibbonGroup.Command>
+            <r:RibbonButton
+              Command="me:AppCommands.Cut" />
+            <r:RibbonButton
+              Command="me:AppCommands.Copy" />
+            <r:RibbonButton
+              Command="me:AppCommands.Paste" />
+          </r:RibbonGroup>
+          <r:RibbonGroup
+            GroupSizeDefinitions="{StaticResource RibbonLayout}">
+            <r:RibbonGroup.Command>
+              <r:RibbonCommand
+                LabelTitle="GPS Files"
+                SmallImageSource="images/AddNew.png" />
+            </r:RibbonGroup.Command>
+            <r:RibbonButton
+              Command="me:AppCommands.AddNew" />
+            <r:RibbonButton
+              Command="me:AppCommands.AddMesh" />
+            <r:RibbonButton
+              Command="me:AppCommands.Clear" />
+          </r:RibbonGroup>
+          <r:RibbonGroup
+            GroupSizeDefinitions="{StaticResource RibbonLayout}">
+            <r:RibbonGroup.Command>
+              <r:RibbonCommand
+                LabelTitle="Friends"
+                SmallImageSource="images/CreditCards.png" />
+            </r:RibbonGroup.Command>
+            <r:RibbonButton
+              Command="me:AppCommands.Share" />
+            <r:RibbonButton
+              Command="me:AppCommands.Compare" />
+          </r:RibbonGroup>
+          <r:RibbonGroup
+            GroupSizeDefinitions="{StaticResource RibbonLayout}">
+            <r:RibbonGroup.Command>
+              <r:RibbonCommand
+                LabelTitle="Registration"
+                SmallImageSource="images/Backup.png" />
+            </r:RibbonGroup.Command>
+            <r:RibbonButton
+              Command="me:AppCommands.Register" />
+            <r:RibbonButton
+              Command="me:AppCommands.Options" />
+            <r:RibbonButton
+              Command="me:AppCommands.Help" />
+          </r:RibbonGroup>
+        </r:RibbonTab.Groups>
+      </r:RibbonTab>
+      <r:RibbonTab
+        Label="Running">
+        <r:RibbonTab.Groups>
+          <r:RibbonGroup
+            GroupSizeDefinitions="{StaticResource RibbonLayout}">
+            <r:RibbonGroup.Command>
+              <r:RibbonCommand
+                LabelTitle="Reports"
+                SmallImageSource="images/CashflowReport.png" />
+            </r:RibbonGroup.Command>
+            <r:RibbonDropDownButton
+              Command="me:AppCommands.Help">
+              <MenuItem
+                Header="Cash Flow Report" />
+              <MenuItem
+                Header="Favorites Report" />
+              <MenuItem
+                Header="Spending Report" />
+              <MenuItem
+                Header="Savings Report" />
+              <MenuItem
+                Header="Credit Report" />
+            </r:RibbonDropDownButton>
+          </r:RibbonGroup>
+        </r:RibbonTab.Groups>
+      </r:RibbonTab>
+    </r:Ribbon>
+    <!-- Other UI -->
+    <Grid ShowGridLines="True"
+      Grid.Row="1">
+      <Grid.Background>
+        <LinearGradientBrush
+          EndPoint="0.5,1"
+          StartPoint="0.5,0">
+          <GradientStop
+            Color="#FFA1C0E8"
+            Offset="0" />
+          <GradientStop
+            Color="#0f8d9e"
+            Offset="1" />
+        </LinearGradientBrush>
+      </Grid.Background>
+      <Grid.ColumnDefinitions>
+        <!-- Notes and Pictures-->
+        <ColumnDefinition
+          Width="1*" />
+        <!-- The Map -->
+        <ColumnDefinition
+          Width="2*" />
+        <!-- HeartRate spans both -->
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <!-- Notes and Map-->
+        <RowDefinition
+          Height="*" />
+        <!-- Images and Map -->
+        <RowDefinition
+          Height="2*" />
+        <!-- HeartRate -->
+        <RowDefinition
+          Height="2*" />
+      </Grid.RowDefinitions>
+      <!-- Notes -->
+      <StackPanel Grid.Row="0">
+        <Image
+          Source="Images\ico-notes.png"
+          Height="40" Width="200" HorizontalAlignment="Left" />
+        <!-- 400 100 -->
+        <Border VerticalAlignment="Stretch"
+          BorderBrush="#B2606060"
+          BorderThickness="0,0,1,1"
+          CornerRadius="3,3,3,3"
+          Margin="15,0,0,0"
+          x:Name="bdNotes"
+          Opacity="0.7"
+          RenderTransformOrigin="0.5,0.5">
+          <Border.Background>
+            <LinearGradientBrush
+              EndPoint="0.5,1"
+              StartPoint="0.5,0">
+              <GradientStop
+                Color="#FFE2E2E2"
+                Offset="1" />
+              <GradientStop
+                Color="#FFFFFFFF"
+                Offset="0" />
+            </LinearGradientBrush>
+          </Border.Background>
+          <Border
+            BorderBrush="#FFFFFFFF"
+            BorderThickness="2,2,2,2"
+            CornerRadius="3,3,3,3">
+            <Grid
+              Margin="5,5,5,5" />
+          </Border>
+        </Border>
+      </StackPanel>
+      <!-- Pictures -->
+      <StackPanel
+        Orientation="Vertical"
+        Grid.Row="1">
+        <Image
+          Source="Images\ico-pics.png"
+          Height="40"
+          Width="200"
+          HorizontalAlignment="Left"
+          Margin="12,0,0,0" />
+        <Border
+          Height="200"
+          Width="250"
+          BorderBrush="#B2606060"
+          BorderThickness="0,0,1,1"
+          CornerRadius="3,3,3,3"
+          Margin="15,0,0,0"
+          x:Name="bdPics"
+          Opacity="0.8">
+          <Border.Background>
+            <LinearGradientBrush
+              EndPoint="0.5,1"
+              StartPoint="0.5,0">
+              <GradientStop
+                Color="#FFE2E2E2"
+                Offset="1" />
+              <GradientStop
+                Color="#FFFFFFFF"
+                Offset="0" />
+            </LinearGradientBrush>
+          </Border.Background>
+          <Border
+            Width="Auto"
+            Height="Auto"
+            BorderBrush="#FFFFFFFF"
+            BorderThickness="2,2,2,2"
+            CornerRadius="3,3,3,3">
+            <Grid
+              Height="185">
+              <xcdg:DataGridControl
+                ItemsSource="{Binding Mode=OneWay}"
+                x:Name="pictures">
+                <xcdg:DataGridControl.View>
+                  <xcdg:CardflowView3D
+                    x:Name="cardFlowView"
+                    ShowReflections="True">
+                    <xcdg:CardflowView3D.Theme>
+                      <xcdg:ElementalBlueTheme>
+                        <xcdg:ElementalBlueTheme.SurfaceConfigurations>
+                          <xcdg:ImageAndTitleSurfaceConfiguration
+                            xcdg:CardflowView3D.Surfaces="Left,Center,Right" />
+                        </xcdg:ElementalBlueTheme.SurfaceConfigurations>
+                      </xcdg:ElementalBlueTheme>
+                    </xcdg:CardflowView3D.Theme>
+                  </xcdg:CardflowView3D>
+                </xcdg:DataGridControl.View>
+              </xcdg:DataGridControl>
+            </Grid>
+          </Border>
+        </Border>
+      </StackPanel>
+      <!-- Virtual Earth Map -->
+      <StackPanel
+        Grid.Row="0"
+        Grid.Column="1"
+        Grid.RowSpan="2"
+        Margin="15,0,0,0">
+        <!-- 53 252-->
+        <Image
+          Source="Images\ico-maps.png"
+          Height="40"
+          Width="200"
+          HorizontalAlignment="Left" />
+        <Border
+          BorderBrush="#B2606060"
+          BorderThickness="0,0,1,1"
+          CornerRadius="3,3,3,3"
+          VerticalAlignment="Stretch"
+          x:Name="bdMaps"
+          Opacity="0.7">
+          <Border.Background>
+            <LinearGradientBrush
+              EndPoint="0.5,1"
+              StartPoint="0.5,0">
+              <GradientStop
+                Color="#FFE2E2E2"
+                Offset="1" />
+              <GradientStop
+                Color="#FFFFFFFF"
+                Offset="0" />
+            </LinearGradientBrush>
+          </Border.Background>
+          <Border
+            BorderBrush="#FFFFFFFF"
+            BorderThickness="2,2,2,2"
+            CornerRadius="3,3,3,3">
+            <ve:VEMap
+              x:Name="map" />
+          </Border>
+        </Border>
+      </StackPanel>
+      <!-- Heart Rate -->
+      <StackPanel
+        Orientation="Vertical"
+        Grid.Row="2" Grid.ColumnSpan="2">
+        <Image
+          Source="Images\ico-live.png"
+          Margin="8,0,0,0"
+          Height="40"
+          Width="200"
+          HorizontalAlignment="Left" />
+        <Border
+          BorderBrush="#B2606060"
+          BorderThickness="0,0,1,1"
+          CornerRadius="3,3,3,3"
+          Margin="15,0,15,15"
+          x:Name="bdLive"
+          Opacity="0.7">
+          <Border.Background>
+            <LinearGradientBrush
+              EndPoint="0.5,1"
+              StartPoint="0.5,0">
+              <GradientStop
+                Color="#FFE2E2E2"
+                Offset="1" />
+              <GradientStop
+                Color="#FFFFFFFF"
+                Offset="0" />
+            </LinearGradientBrush>
+          </Border.Background>
+          <Border
+            BorderBrush="#FFFFFFFF"
+            BorderThickness="2,2,2,2"
+            CornerRadius="3,3,3,3">
+            <Grid
+              x:Name="graph"
+              Margin="5,5,5,5">
+              <!-- Graph -->
+              <Border
+                x:Name="bd"
+                BorderBrush="DarkGray"
+                BorderThickness="1"
+                Background="#C0FFFFFF">
+                <Border.Effect>
+                  <DropShadowEffect
+                    ShadowDepth="3"
+                    Color="DarkGray"
+                    Opacity="0.85" />
+                </Border.Effect>
+                <Viewbox
+                  Stretch="Uniform"
+                  Margin="10"
+                  HorizontalAlignment="Left">
+                  <Canvas
+                    Width="100"
+                    Height="140"
+                    RenderTransformOrigin=".5,.5">
+                    <Canvas.RenderTransform>
+                      <TransformGroup>
+                        <ScaleTransform
+                          ScaleY="-1" />
+                      </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <Polyline
+                      Stroke="Black"
+                      StrokeThickness="1"
+                      Points="{Binding Converter={StaticResource TrackToPointCollection}, Mode=OneWay}"
+                      RenderTransformOrigin=".5,.5">
+                      <Polyline.Effect>
+                        <DropShadowEffect />
+                      </Polyline.Effect>
+                    </Polyline>
+                    <ItemsControl
+                      ItemsSource="{Binding Mode=OneWay}"
+                      Background="{x:Null}"
+                      Margin="-2">
+                      <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                          <Canvas />
+                        </ItemsPanelTemplate>
+                      </ItemsControl.ItemsPanel>
+                      <ItemsControl.ItemContainerStyle>
+                        <Style
+                          TargetType="ContentPresenter">
+                          <Setter
+                            Property="Canvas.Left"
+                            Value="{Binding Converter={StaticResource posCalculator}, ConverterParameter=1, Mode=OneWay}" />
+                          <Setter
+                            Property="Canvas.Top"
+                            Value="{Binding Converter={StaticResource posCalculator}, Mode=OneWay}" />
+                        </Style>
+                      </ItemsControl.ItemContainerStyle>
+                      <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                          <Ellipse
+                            Fill="{Binding Path=HeartRate, Converter={StaticResource hartRateConverter}, Mode=OneWay}"
+                            Tag="{Binding}"
+                            Width="4"
+                            Height="4"
+                            Stroke="Black"
+                            StrokeThickness=".5"
+                            MouseEnter="TrackPointEnter"
+                            MouseLeave="TrackPointLeave">
+                            <Ellipse.ToolTip>
+                              <StackPanel
+                                Orientation="Horizontal">
+                                <TextBlock
+                                  Margin="5"
+                                  Text="{Binding Path=HeartRate}" />
+                              </StackPanel>
+                            </Ellipse.ToolTip>
+                          </Ellipse>
+                        </DataTemplate>
+                      </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                  </Canvas>
+                </Viewbox>
+              </Border>
+            </Grid>
+          </Border>
+        </Border>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</r:RibbonWindow>

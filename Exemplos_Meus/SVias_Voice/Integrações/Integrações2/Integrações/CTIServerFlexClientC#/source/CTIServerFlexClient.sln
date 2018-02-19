@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTIServerFlexClientAPI", "CTIServerFlexClientAPI\CTIServerFlexClientAPI.csproj", "{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTIServerFlexClientTest", "CTIServerFlexClientTest\CTIServerFlexClientTest.csproj", "{A79B1503-96CD-4629-948F-E727058BCACC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0} = {520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79B1503-96CD-4629-948F-E727058BCACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79B1503-96CD-4629-948F-E727058BCACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79B1503-96CD-4629-948F-E727058BCACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79B1503-96CD-4629-948F-E727058BCACC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

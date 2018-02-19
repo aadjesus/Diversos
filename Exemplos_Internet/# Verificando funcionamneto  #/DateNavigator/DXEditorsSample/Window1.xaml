@@ -1,0 +1,44 @@
+﻿<Window x:Class="DXEditorsSample.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="300" Width="300" xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler">
+    <Grid>
+        <dxsch:SchedulerControl Height="86" HorizontalAlignment="Left" Margin="102,96,0,0" Name="schedulerControl1" VerticalAlignment="Top" Width="58">
+            <dxsch:SchedulerControl.DayView>
+                <dxsch:DayView>
+                    <dxsch:DayView.AppointmentDisplayOptions>
+                        <dxsch:SchedulerDayViewAppointmentDisplayOptions />
+                    </dxsch:DayView.AppointmentDisplayOptions>
+                </dxsch:DayView>
+            </dxsch:SchedulerControl.DayView>
+            <dxsch:SchedulerControl.MonthView>
+                <dxsch:MonthView>
+                    <dxsch:MonthView.AppointmentDisplayOptions>
+                        <dxsch:SchedulerMonthViewAppointmentDisplayOptions />
+                    </dxsch:MonthView.AppointmentDisplayOptions>
+                </dxsch:MonthView>
+            </dxsch:SchedulerControl.MonthView>
+            <dxsch:SchedulerControl.TimelineView>
+                <dxsch:TimelineView>
+                    <dxsch:TimelineView.AppointmentDisplayOptions>
+                        <dxsch:SchedulerTimelineViewAppointmentDisplayOptions />
+                    </dxsch:TimelineView.AppointmentDisplayOptions>
+                </dxsch:TimelineView>
+            </dxsch:SchedulerControl.TimelineView>
+            <dxsch:SchedulerControl.WeekView>
+                <dxsch:WeekView>
+                    <dxsch:WeekView.AppointmentDisplayOptions>
+                        <dxsch:SchedulerWeekViewAppointmentDisplayOptions />
+                    </dxsch:WeekView.AppointmentDisplayOptions>
+                </dxsch:WeekView>
+            </dxsch:SchedulerControl.WeekView>
+            <dxsch:SchedulerControl.WorkWeekView>
+                <dxsch:WorkWeekView>
+                    <dxsch:WorkWeekView.AppointmentDisplayOptions>
+                        <dxsch:SchedulerDayViewAppointmentDisplayOptions />
+                    </dxsch:WorkWeekView.AppointmentDisplayOptions>
+                </dxsch:WorkWeekView>
+            </dxsch:SchedulerControl.WorkWeekView>
+        </dxsch:SchedulerControl>
+    </Grid>
+</Window>

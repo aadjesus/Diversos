@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MediaMania.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MediaMania_com_amazon_soap_AmazonSearchService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://soap.amazon.com/onca/soap3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

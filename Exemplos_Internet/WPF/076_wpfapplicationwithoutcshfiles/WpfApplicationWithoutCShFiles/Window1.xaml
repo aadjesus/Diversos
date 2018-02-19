@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfApplicationWithoutCShFiles.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WPF Application Without CSharp Files" 
+    SizeToContent="WidthAndHeight"
+    ResizeMode="CanMinimize"
+    Height="300" Width="1000">
+    
+    <Grid Height="255" Width="930">
+        
+                <Button Margin="400,67,404,126"
+                Click="ButtonOnClick">
+            Press the Button
+        </Button>
+        
+        <x:Code>  
+            <![CDATA[
+
+            void ButtonOnClick(object sender, RoutedEventArgs args)
+            {
+                Button btn = sender as Button;
+                MessageBox.Show("Xisto 1 '" +
+                                btn.Content + 
+                                "' Xisto 1.","Xisto10");
+            
+                        System.Windows.Window xxx = new System.Windows.Window();
+                        xxx.Show();
+
+            }
+            ]]>
+        </x:Code> 
+    </Grid>
+</Window>
+

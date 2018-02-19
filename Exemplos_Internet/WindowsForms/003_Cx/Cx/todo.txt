@@ -1,0 +1,27 @@
+﻿If I add a DAL, does this mean that the DAL would duplicate the same "model" as is in use by Calculator?
+Let's also add a validation component to show this is wired up.
+Let's add a scientific calculator operators and show how these can be swapped at runtime
+
+* Easier wireup of control data messages, so we don't have to code event handlers that convert .NET events to Cx data events.
+
+* Multiple components per assembly
+
+A UI for wiring up producers and consumers
+
+Add a keyboard component for the calculator.
+
+Consider reformatting the components metadata to:
+
+<Components>
+  <Assembly>
+    <VisualComponent>
+    <VisualComponent>
+    ...
+  </Assembly>
+  
+  <Assembly>
+  ...
+</Components>  
+  
+Need way of specifying the generic type and the fully qualified assembly name when working with generic components like the list converter.
+

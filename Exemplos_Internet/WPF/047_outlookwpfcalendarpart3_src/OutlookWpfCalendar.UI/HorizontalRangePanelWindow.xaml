@@ -1,0 +1,17 @@
+﻿<Window x:Class="OutlookWpfCalendar.UI.HorizontalRangePanelWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="clr-namespace:OutlookWpfCalendar.Windows.Controls;assembly=OutlookWpfCalendar"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Horizontal Range Panel Window" Height="300" Width="300">
+    <controls:RangePanel Minimum="100" Maximum="200" Orientation="Horizontal">
+        <Border BorderBrush="Blue" BorderThickness="1,1,1,1" controls:RangePanel.Begin="110" controls:RangePanel.End="120">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Begin: 100, End: 120" />
+        </Border>
+        <Border BorderBrush="Red" BorderThickness="1,1,1,1" controls:RangePanel.Begin="130" controls:RangePanel.End="135">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Begin: 130, End: 135" />
+        </Border>
+        <Border BorderBrush="Orange" BorderThickness="1,1,1,1" controls:RangePanel.Begin="180" controls:RangePanel.End="200">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Begin: 180, End: 200" />
+        </Border>
+    </controls:RangePanel>
+</Window>

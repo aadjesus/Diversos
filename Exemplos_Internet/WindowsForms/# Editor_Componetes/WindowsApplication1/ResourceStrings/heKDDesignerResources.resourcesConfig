@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Resources Extension=".resx">
+  <Resource Name="eMailTask" Type="System.Drawing.Bitmap" FileName="" Value="" />
+  <Resource Name="FTPTask" Type="System.Drawing.Bitmap" FileName="" Value="" />
+  <Resource Name="WebTask" Type="System.Drawing.Bitmap" FileName="" Value="" />
+  <Resource Name="LANTask" Type="System.Drawing.Bitmap" FileName="" Value="" />
+  <Resource Name="Rule" Type="System.Drawing.Bitmap" FileName="" Value="" />
+  <Resource Name="OCRTask" Type="System.Drawing.Bitmap" FileName="E:\FONTNAME.BMP" Value="" />
+</Resources>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfPopup.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WpfPopup DEMO" Height="300" Width="400"   WindowStyle="None" Name="winMain" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Window.Triggers>
+
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard Name="FormFade">
+                    <DoubleAnimation  Name="FormFadeAnimation"
+                                            Storyboard.TargetName="winMain" 
+                                            Storyboard.TargetProperty="(Window.Opacity)"
+                                            From="0.0" To="1.0" Duration="0:0:2" 
+                                            AutoReverse="False" RepeatBehavior="1x" 
+                                         />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid >
+        <Image Name="image1" Stretch="Fill" Source="bg.png">
+            <Image.BitmapEffect>
+                <DropShadowBitmapEffect />
+            </Image.BitmapEffect>
+        </Image>
+        <Button Height="23" HorizontalAlignment="Left" Margin="81,0,0,65" Name="btnShow" VerticalAlignment="Bottom" Width="91" Click="btnShow_Click">Show Popup</Button>
+        <TextBlock Height="21" Margin="0,76,0,0" Name="textBlock1" VerticalAlignment="Top" TextAlignment="Center">Enter your message here: 
+        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard Name="ApplicationTypeMessageStoryBoard">
+                                        <DoubleAnimation  Name="ApplicationTypeMessageAnimation"
+                                            Storyboard.TargetName="textBlock1" 
+                                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                                            From="1.0" To="0.0" Duration="0:0:1" 
+                                            AutoReverse="True" RepeatBehavior="Forever" 
+                                         />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+        </TextBlock>
+        <TextBox Margin="24,102,19,104" Name="txtMsg" TextWrapping="Wrap">Hello, World</TextBox>
+        <Label Height="26" Margin="0,34,0,0" Name="label1" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" HorizontalContentAlignment="Center">
+             WPF Popup DEMO</Label>
+        <Button Height="23" Margin="0,0,72,65" Name="btnClose" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="btnClose_Click">Close</Button>
+    </Grid>
+</Window>

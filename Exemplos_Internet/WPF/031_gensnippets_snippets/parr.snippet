@@ -1,0 +1,1563 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr1</Title>
+    <Shortcut>parr1</Shortcut>
+    <Description>Executes 1 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr2</Title>
+    <Shortcut>parr2</Shortcut>
+    <Description>Executes 2 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr3</Title>
+    <Shortcut>parr3</Shortcut>
+    <Description>Executes 3 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr4</Title>
+    <Shortcut>parr4</Shortcut>
+    <Description>Executes 4 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr5</Title>
+    <Shortcut>parr5</Shortcut>
+    <Description>Executes 5 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr6</Title>
+    <Shortcut>parr6</Shortcut>
+    <Description>Executes 6 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr7</Title>
+    <Shortcut>parr7</Shortcut>
+    <Description>Executes 7 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr8</Title>
+    <Shortcut>parr8</Shortcut>
+    <Description>Executes 8 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr9</Title>
+    <Shortcut>parr9</Shortcut>
+    <Description>Executes 9 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr10</Title>
+    <Shortcut>parr10</Shortcut>
+    <Description>Executes 10 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr11</Title>
+    <Shortcut>parr11</Shortcut>
+    <Description>Executes 11 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr12</Title>
+    <Shortcut>parr12</Shortcut>
+    <Description>Executes 12 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr13</Title>
+    <Shortcut>parr13</Shortcut>
+    <Description>Executes 13 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr14</Title>
+    <Shortcut>parr14</Shortcut>
+    <Description>Executes 14 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr15</Title>
+    <Shortcut>parr15</Shortcut>
+    <Description>Executes 15 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr16</Title>
+    <Shortcut>parr16</Shortcut>
+    <Description>Executes 16 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+AutoResetEvent are16 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 16 code here
+are16.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15, are16});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr17</Title>
+    <Shortcut>parr17</Shortcut>
+    <Description>Executes 17 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+AutoResetEvent are16 = new AutoResetEvent(false);
+AutoResetEvent are17 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 16 code here
+are16.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 17 code here
+are17.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15, are16, are17});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr18</Title>
+    <Shortcut>parr18</Shortcut>
+    <Description>Executes 18 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+AutoResetEvent are16 = new AutoResetEvent(false);
+AutoResetEvent are17 = new AutoResetEvent(false);
+AutoResetEvent are18 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 16 code here
+are16.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 17 code here
+are17.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 18 code here
+are18.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15, are16, are17, are18});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr19</Title>
+    <Shortcut>parr19</Shortcut>
+    <Description>Executes 19 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+AutoResetEvent are16 = new AutoResetEvent(false);
+AutoResetEvent are17 = new AutoResetEvent(false);
+AutoResetEvent are18 = new AutoResetEvent(false);
+AutoResetEvent are19 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 16 code here
+are16.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 17 code here
+are17.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 18 code here
+are18.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 19 code here
+are19.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15, are16, are17, are18, are19});
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>parr20</Title>
+    <Shortcut>parr20</Shortcut>
+    <Description>Executes 20 processes in parallel.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations />
+    <Code Language="CSharp"><![CDATA[AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+AutoResetEvent are4 = new AutoResetEvent(false);
+AutoResetEvent are5 = new AutoResetEvent(false);
+AutoResetEvent are6 = new AutoResetEvent(false);
+AutoResetEvent are7 = new AutoResetEvent(false);
+AutoResetEvent are8 = new AutoResetEvent(false);
+AutoResetEvent are9 = new AutoResetEvent(false);
+AutoResetEvent are10 = new AutoResetEvent(false);
+AutoResetEvent are11 = new AutoResetEvent(false);
+AutoResetEvent are12 = new AutoResetEvent(false);
+AutoResetEvent are13 = new AutoResetEvent(false);
+AutoResetEvent are14 = new AutoResetEvent(false);
+AutoResetEvent are15 = new AutoResetEvent(false);
+AutoResetEvent are16 = new AutoResetEvent(false);
+AutoResetEvent are17 = new AutoResetEvent(false);
+AutoResetEvent are18 = new AutoResetEvent(false);
+AutoResetEvent are19 = new AutoResetEvent(false);
+AutoResetEvent are20 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 1 code here
+are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 2 code here
+are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 3 code here
+are3.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 4 code here
+are4.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 5 code here
+are5.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 6 code here
+are6.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 7 code here
+are7.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 8 code here
+are8.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 9 code here
+are9.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 10 code here
+are10.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 11 code here
+are11.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 12 code here
+are12.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 13 code here
+are13.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 14 code here
+are14.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 15 code here
+are15.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 16 code here
+are16.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 17 code here
+are17.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 18 code here
+are18.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 19 code here
+are19.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+// Thread 20 code here
+are20.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3, are4, are5, are6, are7, are8, are9, are10, are11, are12, are13, are14, are15, are16, are17, are18, are19, are20});
+]]></Code>
+  </Snippet>
+</CodeSnippet></CodeSnippets>

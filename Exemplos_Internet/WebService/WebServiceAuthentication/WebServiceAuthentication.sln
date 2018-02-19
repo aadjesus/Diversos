@@ -1,0 +1,34 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 10
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "src_VS2010", ".", "{C046DCF1-1691-44E2-8083-3315923A4260}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version=v2.0"
+		Debug.AspNetCompiler.VirtualPath = "/WebServiceAuthentication"
+		Debug.AspNetCompiler.PhysicalPath = "..\src_VS2010\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebServiceAuthentication\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebServiceAuthentication"
+		Release.AspNetCompiler.PhysicalPath = "..\src_VS2010\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebServiceAuthentication\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50122"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C046DCF1-1691-44E2-8083-3315923A4260}.Debug|.NET.ActiveCfg = Debug|.NET
+		{C046DCF1-1691-44E2-8083-3315923A4260}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

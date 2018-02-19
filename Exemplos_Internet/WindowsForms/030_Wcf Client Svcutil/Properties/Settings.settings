@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WCF_Client_SvcUtil.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SvcUtilPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SvcUtilFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SvcUtil.exe</Value>
+    </Setting>
+    <Setting Name="ParamAsync" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ParamMergeConfig" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ParamSerializable" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TxtOutputDirectory_Text" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TxtProxyFilename_Text" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GeneratedProxy.cs</Value>
+    </Setting>
+    <Setting Name="TxtConfigFilename_Text" Type="System.String" Scope="User">
+      <Value Profile="(Default)">app.config</Value>
+    </Setting>
+    <Setting Name="TxtServiceAddress_Text" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://</Value>
+    </Setting>
+    <Setting Name="StartWithAereoGlass" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

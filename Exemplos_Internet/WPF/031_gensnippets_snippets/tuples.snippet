@@ -1,0 +1,4523 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple1simple</Title>
+    <Shortcut>tuple1simple</Shortcut>
+    <Description>A tuple of size 1.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple1</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 1.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+internal class $ClassName$ <T1> : IEquatable<$ClassName$<T1>> {
+#region Fields
+  private T1 element1;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+  internal $ClassName$(T1 element1) {
+    this.element1 = element1;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1> other = obj as $ClassName$<T1>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1> other)
+{
+return
+  Element1.Equals(other.Element1);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple2simple</Title>
+    <Shortcut>tuple2simple</Shortcut>
+    <Description>A tuple of size 2.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple2</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 2.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2> : IEquatable<$ClassName$<T1, T2>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+  internal $ClassName$(T1 element1, T2 element2) {
+    this.element1 = element1;
+    this.element2 = element2;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2> other = obj as $ClassName$<T1, T2>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple3simple</Title>
+    <Shortcut>tuple3simple</Shortcut>
+    <Description>A tuple of size 3.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple3</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 3.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3> : IEquatable<$ClassName$<T1, T2, T3>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3> other = obj as $ClassName$<T1, T2, T3>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple4simple</Title>
+    <Shortcut>tuple4simple</Shortcut>
+    <Description>A tuple of size 4.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple4</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 4.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4> : IEquatable<$ClassName$<T1, T2, T3, T4>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4> other = obj as $ClassName$<T1, T2, T3, T4>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple5simple</Title>
+    <Shortcut>tuple5simple</Shortcut>
+    <Description>A tuple of size 5.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple5</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 5.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5> : IEquatable<$ClassName$<T1, T2, T3, T4, T5>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5> other = obj as $ClassName$<T1, T2, T3, T4, T5>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple6simple</Title>
+    <Shortcut>tuple6simple</Shortcut>
+    <Description>A tuple of size 6.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple6</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 6.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple7simple</Title>
+    <Shortcut>tuple7simple</Shortcut>
+    <Description>A tuple of size 7.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple7</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 7.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple8simple</Title>
+    <Shortcut>tuple8simple</Shortcut>
+    <Description>A tuple of size 8.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple8</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 8.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple9simple</Title>
+    <Shortcut>tuple9simple</Shortcut>
+    <Description>A tuple of size 9.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple9</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 9.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple10simple</Title>
+    <Shortcut>tuple10simple</Shortcut>
+    <Description>A tuple of size 10.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple10</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 10.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple11simple</Title>
+    <Shortcut>tuple11simple</Shortcut>
+    <Description>A tuple of size 11.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple11</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 11.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple12simple</Title>
+    <Shortcut>tuple12simple</Shortcut>
+    <Description>A tuple of size 12.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple12</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 12.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple13simple</Title>
+    <Shortcut>tuple13simple</Shortcut>
+    <Description>A tuple of size 13.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple13</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 13.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple14simple</Title>
+    <Shortcut>tuple14simple</Shortcut>
+    <Description>A tuple of size 14.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple14</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 14.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple15simple</Title>
+    <Shortcut>tuple15simple</Shortcut>
+    <Description>A tuple of size 15.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple15</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 15.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple16simple</Title>
+    <Shortcut>tuple16simple</Shortcut>
+    <Description>A tuple of size 16.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple16</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 16.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+/// <typeparam name="T16">The type of the 16th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+  private T16 element16;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 16th element.
+  /// </summary>
+  /// <value>The 16th element.</value>
+  internal T16 Element16 {
+    get { return element16; }
+    set { element16 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+/// <param name="element16">The 16th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15, T16 element16) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+    this.element16 = element16;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15) &&
+  Element16.Equals(other.Element16);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15 + ";");
+sb.Append("Element16 = " + Element16);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple17simple</Title>
+    <Shortcut>tuple17simple</Shortcut>
+    <Description>A tuple of size 17.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple17</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 17.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+/// <typeparam name="T16">The type of the 16th element of the tuple.</typeparam>
+/// <typeparam name="T17">The type of the 17th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+  private T16 element16;
+  private T17 element17;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 16th element.
+  /// </summary>
+  /// <value>The 16th element.</value>
+  internal T16 Element16 {
+    get { return element16; }
+    set { element16 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 17th element.
+  /// </summary>
+  /// <value>The 17th element.</value>
+  internal T17 Element17 {
+    get { return element17; }
+    set { element17 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+/// <param name="element16">The 16th element.</param>
+/// <param name="element17">The 17th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15, T16 element16, T17 element17) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+    this.element16 = element16;
+    this.element17 = element17;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15) &&
+  Element16.Equals(other.Element16) &&
+  Element17.Equals(other.Element17);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15 + ";");
+sb.Append("Element16 = " + Element16 + ";");
+sb.Append("Element17 = " + Element17);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple18simple</Title>
+    <Shortcut>tuple18simple</Shortcut>
+    <Description>A tuple of size 18.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple18</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 18.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+/// <typeparam name="T16">The type of the 16th element of the tuple.</typeparam>
+/// <typeparam name="T17">The type of the 17th element of the tuple.</typeparam>
+/// <typeparam name="T18">The type of the 18th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+  private T16 element16;
+  private T17 element17;
+  private T18 element18;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 16th element.
+  /// </summary>
+  /// <value>The 16th element.</value>
+  internal T16 Element16 {
+    get { return element16; }
+    set { element16 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 17th element.
+  /// </summary>
+  /// <value>The 17th element.</value>
+  internal T17 Element17 {
+    get { return element17; }
+    set { element17 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 18th element.
+  /// </summary>
+  /// <value>The 18th element.</value>
+  internal T18 Element18 {
+    get { return element18; }
+    set { element18 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+/// <param name="element16">The 16th element.</param>
+/// <param name="element17">The 17th element.</param>
+/// <param name="element18">The 18th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15, T16 element16, T17 element17, T18 element18) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+    this.element16 = element16;
+    this.element17 = element17;
+    this.element18 = element18;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15) &&
+  Element16.Equals(other.Element16) &&
+  Element17.Equals(other.Element17) &&
+  Element18.Equals(other.Element18);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15 + ";");
+sb.Append("Element16 = " + Element16 + ";");
+sb.Append("Element17 = " + Element17 + ";");
+sb.Append("Element18 = " + Element18);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple19simple</Title>
+    <Shortcut>tuple19simple</Shortcut>
+    <Description>A tuple of size 19.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple19</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 19.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+/// <typeparam name="T16">The type of the 16th element of the tuple.</typeparam>
+/// <typeparam name="T17">The type of the 17th element of the tuple.</typeparam>
+/// <typeparam name="T18">The type of the 18th element of the tuple.</typeparam>
+/// <typeparam name="T19">The type of the 19th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+  private T16 element16;
+  private T17 element17;
+  private T18 element18;
+  private T19 element19;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 16th element.
+  /// </summary>
+  /// <value>The 16th element.</value>
+  internal T16 Element16 {
+    get { return element16; }
+    set { element16 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 17th element.
+  /// </summary>
+  /// <value>The 17th element.</value>
+  internal T17 Element17 {
+    get { return element17; }
+    set { element17 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 18th element.
+  /// </summary>
+  /// <value>The 18th element.</value>
+  internal T18 Element18 {
+    get { return element18; }
+    set { element18 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 19th element.
+  /// </summary>
+  /// <value>The 19th element.</value>
+  internal T19 Element19 {
+    get { return element19; }
+    set { element19 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+/// <param name="element16">The 16th element.</param>
+/// <param name="element17">The 17th element.</param>
+/// <param name="element18">The 18th element.</param>
+/// <param name="element19">The 19th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15, T16 element16, T17 element17, T18 element18, T19 element19) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+    this.element16 = element16;
+    this.element17 = element17;
+    this.element18 = element18;
+    this.element19 = element19;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15) &&
+  Element16.Equals(other.Element16) &&
+  Element17.Equals(other.Element17) &&
+  Element18.Equals(other.Element18) &&
+  Element19.Equals(other.Element19);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15 + ";");
+sb.Append("Element16 = " + Element16 + ";");
+sb.Append("Element17 = " + Element17 + ";");
+sb.Append("Element18 = " + Element18 + ";");
+sb.Append("Element19 = " + Element19);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>tuple20simple</Title>
+    <Shortcut>tuple20simple</Shortcut>
+    <Description>A tuple of size 20.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of this tuple class.</ToolTip>
+        <Default>Tuple20</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// A tuple of size 20.
+/// </summary>
+/// <typeparam name="T1">The type of the 1st element of the tuple.</typeparam>
+/// <typeparam name="T2">The type of the 2nd element of the tuple.</typeparam>
+/// <typeparam name="T3">The type of the 3rd element of the tuple.</typeparam>
+/// <typeparam name="T4">The type of the 4th element of the tuple.</typeparam>
+/// <typeparam name="T5">The type of the 5th element of the tuple.</typeparam>
+/// <typeparam name="T6">The type of the 6th element of the tuple.</typeparam>
+/// <typeparam name="T7">The type of the 7th element of the tuple.</typeparam>
+/// <typeparam name="T8">The type of the 8th element of the tuple.</typeparam>
+/// <typeparam name="T9">The type of the 9th element of the tuple.</typeparam>
+/// <typeparam name="T10">The type of the 10th element of the tuple.</typeparam>
+/// <typeparam name="T11">The type of the 11th element of the tuple.</typeparam>
+/// <typeparam name="T12">The type of the 12th element of the tuple.</typeparam>
+/// <typeparam name="T13">The type of the 13th element of the tuple.</typeparam>
+/// <typeparam name="T14">The type of the 14th element of the tuple.</typeparam>
+/// <typeparam name="T15">The type of the 15th element of the tuple.</typeparam>
+/// <typeparam name="T16">The type of the 16th element of the tuple.</typeparam>
+/// <typeparam name="T17">The type of the 17th element of the tuple.</typeparam>
+/// <typeparam name="T18">The type of the 18th element of the tuple.</typeparam>
+/// <typeparam name="T19">The type of the 19th element of the tuple.</typeparam>
+/// <typeparam name="T20">The type of the 20th element of the tuple.</typeparam>
+internal class $ClassName$ <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20> : IEquatable<$ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20>> {
+#region Fields
+  private T1 element1;
+  private T2 element2;
+  private T3 element3;
+  private T4 element4;
+  private T5 element5;
+  private T6 element6;
+  private T7 element7;
+  private T8 element8;
+  private T9 element9;
+  private T10 element10;
+  private T11 element11;
+  private T12 element12;
+  private T13 element13;
+  private T14 element14;
+  private T15 element15;
+  private T16 element16;
+  private T17 element17;
+  private T18 element18;
+  private T19 element19;
+  private T20 element20;
+#endregion
+#region Properties
+  /// <summary>
+  /// Gets or sets the 1st element.
+  /// </summary>
+  /// <value>The 1st element.</value>
+  internal T1 Element1 {
+    get { return element1; }
+    set { element1 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 2nd element.
+  /// </summary>
+  /// <value>The 2nd element.</value>
+  internal T2 Element2 {
+    get { return element2; }
+    set { element2 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 3rd element.
+  /// </summary>
+  /// <value>The 3rd element.</value>
+  internal T3 Element3 {
+    get { return element3; }
+    set { element3 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 4th element.
+  /// </summary>
+  /// <value>The 4th element.</value>
+  internal T4 Element4 {
+    get { return element4; }
+    set { element4 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 5th element.
+  /// </summary>
+  /// <value>The 5th element.</value>
+  internal T5 Element5 {
+    get { return element5; }
+    set { element5 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 6th element.
+  /// </summary>
+  /// <value>The 6th element.</value>
+  internal T6 Element6 {
+    get { return element6; }
+    set { element6 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 7th element.
+  /// </summary>
+  /// <value>The 7th element.</value>
+  internal T7 Element7 {
+    get { return element7; }
+    set { element7 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 8th element.
+  /// </summary>
+  /// <value>The 8th element.</value>
+  internal T8 Element8 {
+    get { return element8; }
+    set { element8 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 9th element.
+  /// </summary>
+  /// <value>The 9th element.</value>
+  internal T9 Element9 {
+    get { return element9; }
+    set { element9 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 10th element.
+  /// </summary>
+  /// <value>The 10th element.</value>
+  internal T10 Element10 {
+    get { return element10; }
+    set { element10 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 11th element.
+  /// </summary>
+  /// <value>The 11th element.</value>
+  internal T11 Element11 {
+    get { return element11; }
+    set { element11 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 12th element.
+  /// </summary>
+  /// <value>The 12th element.</value>
+  internal T12 Element12 {
+    get { return element12; }
+    set { element12 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 13th element.
+  /// </summary>
+  /// <value>The 13th element.</value>
+  internal T13 Element13 {
+    get { return element13; }
+    set { element13 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 14th element.
+  /// </summary>
+  /// <value>The 14th element.</value>
+  internal T14 Element14 {
+    get { return element14; }
+    set { element14 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 15th element.
+  /// </summary>
+  /// <value>The 15th element.</value>
+  internal T15 Element15 {
+    get { return element15; }
+    set { element15 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 16th element.
+  /// </summary>
+  /// <value>The 16th element.</value>
+  internal T16 Element16 {
+    get { return element16; }
+    set { element16 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 17th element.
+  /// </summary>
+  /// <value>The 17th element.</value>
+  internal T17 Element17 {
+    get { return element17; }
+    set { element17 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 18th element.
+  /// </summary>
+  /// <value>The 18th element.</value>
+  internal T18 Element18 {
+    get { return element18; }
+    set { element18 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 19th element.
+  /// </summary>
+  /// <value>The 19th element.</value>
+  internal T19 Element19 {
+    get { return element19; }
+    set { element19 = value; }
+  }
+  /// <summary>
+  /// Gets or sets the 20th element.
+  /// </summary>
+  /// <value>The 20th element.</value>
+  internal T20 Element20 {
+    get { return element20; }
+    set { element20 = value; }
+  }
+#endregion
+#region Constructors
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20&gt;"/> class.
+/// </summary>
+internal $ClassName$() {}
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$&lt;T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20&gt;"/> class.
+/// </summary>
+/// <param name="element1">The 1st element.</param>
+/// <param name="element2">The 2nd element.</param>
+/// <param name="element3">The 3rd element.</param>
+/// <param name="element4">The 4th element.</param>
+/// <param name="element5">The 5th element.</param>
+/// <param name="element6">The 6th element.</param>
+/// <param name="element7">The 7th element.</param>
+/// <param name="element8">The 8th element.</param>
+/// <param name="element9">The 9th element.</param>
+/// <param name="element10">The 10th element.</param>
+/// <param name="element11">The 11th element.</param>
+/// <param name="element12">The 12th element.</param>
+/// <param name="element13">The 13th element.</param>
+/// <param name="element14">The 14th element.</param>
+/// <param name="element15">The 15th element.</param>
+/// <param name="element16">The 16th element.</param>
+/// <param name="element17">The 17th element.</param>
+/// <param name="element18">The 18th element.</param>
+/// <param name="element19">The 19th element.</param>
+/// <param name="element20">The 20th element.</param>
+  internal $ClassName$(T1 element1, T2 element2, T3 element3, T4 element4, T5 element5, T6 element6, T7 element7, T8 element8, T9 element9, T10 element10, T11 element11, T12 element12, T13 element13, T14 element14, T15 element15, T16 element16, T17 element17, T18 element18, T19 element19, T20 element20) {
+    this.element1 = element1;
+    this.element2 = element2;
+    this.element3 = element3;
+    this.element4 = element4;
+    this.element5 = element5;
+    this.element6 = element6;
+    this.element7 = element7;
+    this.element8 = element8;
+    this.element9 = element9;
+    this.element10 = element10;
+    this.element11 = element11;
+    this.element12 = element12;
+    this.element13 = element13;
+    this.element14 = element14;
+    this.element15 = element15;
+    this.element16 = element16;
+    this.element17 = element17;
+    this.element18 = element18;
+    this.element19 = element19;
+    this.element20 = element20;
+}
+#endregion
+#region Methods
+/// <summary>
+/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+/// <returns>
+/// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+/// </returns>
+/// <exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.</exception>
+public override bool Equals(object obj)
+{
+  $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20> other = obj as $ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20>;
+  if (other != null)
+    return Equals(other);
+  return false;
+}
+/// <summary>
+/// Indicates whether the current object is equal to another object of the same type.
+/// </summary>
+/// <param name="other">An object to compare with this object.</param>
+/// <returns>
+/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+/// </returns>
+public bool Equals($ClassName$<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20> other)
+{
+return
+  Element1.Equals(other.Element1) &&
+  Element2.Equals(other.Element2) &&
+  Element3.Equals(other.Element3) &&
+  Element4.Equals(other.Element4) &&
+  Element5.Equals(other.Element5) &&
+  Element6.Equals(other.Element6) &&
+  Element7.Equals(other.Element7) &&
+  Element8.Equals(other.Element8) &&
+  Element9.Equals(other.Element9) &&
+  Element10.Equals(other.Element10) &&
+  Element11.Equals(other.Element11) &&
+  Element12.Equals(other.Element12) &&
+  Element13.Equals(other.Element13) &&
+  Element14.Equals(other.Element14) &&
+  Element15.Equals(other.Element15) &&
+  Element16.Equals(other.Element16) &&
+  Element17.Equals(other.Element17) &&
+  Element18.Equals(other.Element18) &&
+  Element19.Equals(other.Element19) &&
+  Element20.Equals(other.Element20);
+}
+/// <summary>
+/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </summary>
+/// <returns>
+/// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+/// </returns>
+public override string ToString()
+{
+StringBuilder sb = new StringBuilder();
+sb.Append("Element1 = " + Element1 + ";");
+sb.Append("Element2 = " + Element2 + ";");
+sb.Append("Element3 = " + Element3 + ";");
+sb.Append("Element4 = " + Element4 + ";");
+sb.Append("Element5 = " + Element5 + ";");
+sb.Append("Element6 = " + Element6 + ";");
+sb.Append("Element7 = " + Element7 + ";");
+sb.Append("Element8 = " + Element8 + ";");
+sb.Append("Element9 = " + Element9 + ";");
+sb.Append("Element10 = " + Element10 + ";");
+sb.Append("Element11 = " + Element11 + ";");
+sb.Append("Element12 = " + Element12 + ";");
+sb.Append("Element13 = " + Element13 + ";");
+sb.Append("Element14 = " + Element14 + ";");
+sb.Append("Element15 = " + Element15 + ";");
+sb.Append("Element16 = " + Element16 + ";");
+sb.Append("Element17 = " + Element17 + ";");
+sb.Append("Element18 = " + Element18 + ";");
+sb.Append("Element19 = " + Element19 + ";");
+sb.Append("Element20 = " + Element20);
+return sb.ToString();
+}
+#endregion
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet></CodeSnippets>

@@ -1,0 +1,46 @@
+<!-- =============================================================
+      TwoDimensionalCoordinates4.xaml (c) 2007 by Charles Petzold
+     ============================================================= -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Two-Dimensional Coordinates #4"
+      Title="Two-Dimensional Coordinates #4">
+
+    <Page.Resources>
+        <Style TargetType="Polyline">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+            <Setter Property="StrokeLineJoin" Value="Round" />
+            <Setter Property="StrokeDashCap" Value="Round" />
+        </Style>
+
+        <Style TargetType="Path">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeStartLineCap" Value="Round" />
+            <Setter Property="StrokeEndLineCap" Value="Round" />
+            <Setter Property="StrokeLineJoin" Value="Round" />
+            <Setter Property="StrokeDashCap" Value="Round" />
+        </Style>
+    </Page.Resources>
+
+    <Canvas>
+
+        <!-- Coordinate system -->
+        <Polyline Points="96 96, 96 336" />
+        <Polyline Points="288 288, 48 288" />
+        <TextBlock Canvas.Left="290" Canvas.Top="279" Text="Reals" />
+        <TextBlock Canvas.Left="65" Canvas.Top="80" Text="Imaginaries" />
+
+        <!-- Point at (170, 150) -->
+        <Ellipse Canvas.Left="168" Canvas.Top="148" Width="5" Height="5" Fill="Black" />
+        <TextBlock Canvas.Left="174" Canvas.Top="135" Text="c=a+bi" />
+
+        <!-- Dotted lines and labels -->
+        <Polyline Points="170 288, 170 150" StrokeDashArray="3 2" />
+        <Polyline Points="96 150, 170 150" StrokeDashArray="3 2" />
+        <TextBlock Canvas.Left="167" Canvas.Top="286" Text="a" />
+        <TextBlock Canvas.Left="85" Canvas.Top="140" Text="b" />
+
+    </Canvas>
+</Page>

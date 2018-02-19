@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApplication1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="Window_Loaded"
+        Title="Window1" Height="368" Width="839" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" xmlns:my="clr-namespace:DevExpress.Wpf.Printing.Native;assembly=DevExpress.Wpf.Printing.v9.3" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
+   
+    <Window.Resources>
+        <DataTemplate x:Key="TestTemplate">
+            <ContentPresenter Content="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                  Path=Content}"
+                 dxp:ExportSettings.TargetType="Text"
+                 dxp:ExportSettings.BorderThickness="0" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="PrintingTemplate">
+            <ContentControl Margin="0" Padding="0" Content="{Binding Path=Canvas}"/>
+        </DataTemplate>       
+        
+    </Window.Resources>
+    
+    <Grid>
+        <dxp:PrintPreviewControl Name="PrintPreview1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  >
+           
+        </dxp:PrintPreviewControl>
+    </Grid>
+</Window>

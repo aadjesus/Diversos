@@ -1,0 +1,100 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Defining the Table of Content Layout</title>
+</head>
+
+<body>
+
+<h2>Defining the Table of Content Layout</h2>
+All HTML files copied as additional content will automatically be added
+to the help file's table of content.  When the sub-folders of "*.*"
+wildcard entries are copied that contain HTML files, the sub-folders will
+also create folder entries within the table of content and the HTML files
+within them become children of the folder entry in the table of content.
+This makes it fairly simple to create hierarchical content with matching
+table of content entries.  The table of content will mimic the folder
+structure on disk.
+
+<p/>The help file builder scans each HTML file for the following tags and
+specially formatted comments that allow you to define the related properties
+of the table of content entries.  They can appear anywhere in the file.
+
+<ul>
+    <li><code>&lt;title&gt;Page Title&lt;/title&gt;</code> -  The value
+from the title tag in the HTML file is used as the title in the table of
+content.  If no title tag is found, the filename without the path and extension
+is used as the title.</li>
+    <li><code>&lt;!-- @TOCExclude --&gt;</code> - This special comment can
+be used to exclude the page from the table of content.  The file will still
+be copied to the output folder but will not appear in the table of content.
+Instead, a link to it must exist from another help page.  This is also
+useful for setting the title and sort order on folder entries without
+associating a page with the folder entry in the table of content.  See
+below for more information.</li>
+    <li><code>&lt;!-- @DefaultTopic --&gt;</code> - This special comment is
+used to indicate that the page should be selected as the default topic for
+the help file.  If multiple pages contain this comment, the last one seen
+will be used as the default topic.  If no additional content items are defined
+or none are marked as the default topic, the root namespaces page is selected
+as the default topic.</li>
+    <li><code>&lt;!-- @SortOrder nnn --&gt;</code> - This special comment
+is used to set the sort order of the item within the group where "nnn"
+represents an integer value.  The "group" is all other additional content
+table of content entries at the same level as the current item.  In the
+absence of a sort order indicator, table of content entries are sorted
+alphabetically.  By specifying a sort order, you can rearrange the entries
+in a different order.  Items within a group that have the same sort order
+value will also sort alphabetically.  Items without a sort order indicator
+are placed below those with a sort order indicator and are sorted
+alphabetically.</li>
+</ul>
+
+<p/>By default, folder entries in the table of content will not have any
+HTML page associated with them and will not show a specific page in the
+help file when selected.  The title will be the folder name and they will
+be sorted alphabetically within the same group of items below any items
+that have a sort order indicator.  You can control these properties for
+folder entries by placing an HTML file in the folder that has the same name
+as the folder (i.e. place a file called <b>OtherContent.html</b> in the
+<b>OtherContent</b> folder to set its properties).  If the
+<code>@TOCExclude</code> comment does not appear in the file, the
+associated page will be displayed when the folder is selected in the table
+of content.  Below are a couple of examples:
+
+<pre lang="xml" title="OtherContent\OtherContent.html">
+&lt;!-- @TOCExclude --&gt;
+&lt;!-- @SortOrder 3 --&gt;
+&lt;title&gt;Other Content&lt;/title&gt;
+</pre>
+
+<p/>This example sets the sort order and title of the folder entry but does
+not display anything when the folder is selected as it contains the
+<code>@TOCExclude</code> comment.
+
+<pre lang="xml" title="FolderWithPage\FolderWithPage.html">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Folder Entry with a Content Page&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;!-- @SortOrder 2 --&gt;
+
+&lt;body&gt;
+This is a content page for a folder entry in the
+table of content.
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p/>This example sets the sort order and title of the folder entry and
+specifies content that will be displayed when the folder is selected as the
+<code>@TOCExclude</code> comment is omitted.  It could also be made the
+default topic by adding the <code>@DefaultTopic</code> comment.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 2 -->

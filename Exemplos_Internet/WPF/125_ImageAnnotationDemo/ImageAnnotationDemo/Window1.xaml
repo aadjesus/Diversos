@@ -1,0 +1,77 @@
+﻿<Window x:Class="ImageAnnotationDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Image Annotation Demo" Width="500" Height="650"
+    FontSize="14"  WindowStartupLocation="CenterScreen"
+    >
+  <Window.Resources>
+    <!-- This is the Style applied to the TextBlock within 
+         an ImageAnnotationControl. -->
+    <Style x:Key="AnnotationStyle" TargetType="TextBlock">
+      <Setter Property="Background" Value="#AAFFFFFF" />
+      <Setter Property="FontWeight" Value="Bold" />      
+      <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+          <Setter Property="Background" Value="#CCFFFFFF" />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+
+    <!-- This is the Style applied to the TextBox within 
+         an ImageAnnotationControl. -->
+    <Style x:Key="AnnotationEditorStyle" TargetType="TextBox">
+      <Setter Property="Background" Value="#FFFFFFFF" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="Padding" Value="-2,0,-1,0" />
+    </Style>
+  </Window.Resources>
+
+  <Grid Margin="6">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <TextBlock Grid.Row="0" HorizontalAlignment="Center" Margin="4" TextWrapping="Wrap">
+      Left-click image to create an annotation.<LineBreak />
+      Shift + Enter inserts a newline.<LineBreak />
+      Press Enter, Escape, or Tab to finish editing.<LineBreak />
+      Left-click annotation to modify it.<LineBreak />
+      Right-click annotation to delete it.
+    </TextBlock>
+
+    <TabControl x:Name="tabControl" Grid.Row="1">
+      <TabItem Header="X-Ray">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Image
+            Margin="1"
+            MouseLeftButtonDown="image_MouseLeftButtonDown"
+            Source="Images/xray.jpg"
+          />
+        </Border>
+      </TabItem>
+
+      <TabItem Header="Natural Habitat">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Image
+            Margin="1"
+            MouseLeftButtonDown="image_MouseLeftButtonDown"
+            Source="Images/natural_habitat.jpg"            
+          />
+        </Border>
+      </TabItem>
+    </TabControl>
+
+    <Button
+      Grid.Row="2"
+      Click="OnDeleteButtonClick"
+      HorizontalAlignment="Center"
+      Margin="0,2,0,6"
+      >
+      Delete Annotations
+    </Button>
+
+  </Grid>
+</Window>

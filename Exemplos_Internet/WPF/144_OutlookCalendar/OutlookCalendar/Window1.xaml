@@ -1,0 +1,15 @@
+﻿<Window x:Class="OutlookCalendar.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:OutlookCalendar.Controls"
+        Background="#ACCAF1"
+    Title="Outlook Calendar" Height="600" Width="800">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <controls:Calendar Margin="5,5,5,5" AddAppointment="Calendar_AddAppointment" 
+                           
+                           Appointments="{Binding}"  > 
+        </controls:Calendar>
+    </Grid>
+</Window>

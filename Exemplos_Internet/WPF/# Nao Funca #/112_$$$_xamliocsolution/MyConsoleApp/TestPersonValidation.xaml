@@ -1,0 +1,22 @@
+﻿<wpf:ResourceDictionary
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:ioc="clr-namespace:XamlIoc;assembly=XamlIoc"
+		xmlns:my="clr-namespace:MyLib;assembly=MyLib"
+    >
+	<!--	TestPersonValidation	-->
+	<!--	Configured Person Validator	-->
+	<my:PersonValidator x:Shared="false" x:Key="MyLib.PersonValidator">
+		<my:PersonValidator.PersistenceService>
+			<my:ResourcePersistenceService/>
+		</my:PersonValidator.PersistenceService>
+		<my:PersonValidator.AlertService>
+			<my:ConsoleAlertService/>
+		</my:PersonValidator.AlertService>
+	</my:PersonValidator>
+	<!--	Dummy persons supposed to be loaded from a store	-->
+	<my:Person x:Shared="false" x:Key="42" Age="33"/>
+	<my:Person x:Shared="false" x:Key="12" Age="158"/>
+	<my:Person x:Shared="false" x:Key="79" Age="1045"/>
+	<my:Person x:Shared="false" x:Key="14" Age="46"/>
+</wpf:ResourceDictionary>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrRSS_XLINQ", "FlickrRSS_XLINQ\FlickrRSS_XLINQ.csproj", "{0EC43776-8A1A-4F40-9F55-D5C1C4E222CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{4036E3E3-FBA2-4C98-8104-865E2AAF84F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EC43776-8A1A-4F40-9F55-D5C1C4E222CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC43776-8A1A-4F40-9F55-D5C1C4E222CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC43776-8A1A-4F40-9F55-D5C1C4E222CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC43776-8A1A-4F40-9F55-D5C1C4E222CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4036E3E3-FBA2-4C98-8104-865E2AAF84F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4036E3E3-FBA2-4C98-8104-865E2AAF84F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4036E3E3-FBA2-4C98-8104-865E2AAF84F0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4036E3E3-FBA2-4C98-8104-865E2AAF84F0}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

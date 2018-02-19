@@ -1,0 +1,379 @@
+﻿<!--
+OpenWPFChart library.
+Copyright Oleg V. Polikarpotchkin 2008-2009
+Temperature Chart Sample. Chart is composed in MainWindow.
+It has three axis - one X-axis for dates and two Y-axes for temperature in Celsius and Fahrenheit.
+-->
+<!--revision $Id: MainWindow.xaml 19130 2009-03-21 16:58:26Z unknown $-->
+
+<Window x:Class="TemperatureSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+    xmlns:local="clr-namespace:TemperatureSample"
+	Name="mainWindow"
+    Title="Temperature Chart Sample" MinWidth="300" MinHeight="300" SizeToContent="WidthAndHeight"
+		>
+
+	<Window.InputBindings>
+		<KeyBinding Key="Add" Modifiers="Control" CommandParameter="1.2" Command="NavigationCommands.Zoom" />
+		<KeyBinding Key="Subtract" Modifiers="Control" CommandParameter="-1.2" Command="NavigationCommands.Zoom" />
+	</Window.InputBindings>
+	<Window.CommandBindings>
+		<CommandBinding Command="ApplicationCommands.Open" Executed="OpenExecutedCommandHandler"/>
+		<CommandBinding Command="NavigationCommands.Zoom" Executed="ZoomExecutedCommandHandler"/>
+		<CommandBinding Command="ApplicationCommands.Properties" Executed="PropertiesExecutedCommandHandler"/>
+	</Window.CommandBindings>
+
+	<Window.Resources>
+		<ContextMenu x:Key="chartItemCtxMnu">
+			<MenuItem Header="Properties" Command="ApplicationCommands.Properties"/>
+		</ContextMenu>
+		
+		<!-- Curve templates -->
+		<DataTemplate x:Key="polylineTemplate">
+			<parts:PolylineSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+		<DataTemplate x:Key="bezierTemplate">
+			<parts:BezierSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+		<DataTemplate x:Key="splineTemplate">
+			<parts:SplineSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+
+		<!-- Chart Items Template Selector -->
+		<parts:GenericDataTemplateSelector x:Key="chartItemsTemplateSelector">
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:PolylineSampledCurve}"
+				Template="{StaticResource polylineTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Polyline Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:BezierSampledCurve}"
+				Template="{StaticResource bezierTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Bezier Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:SplineSampledCurve}"
+				Template="{StaticResource splineTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Spline Sampled Curve"/>
+		</parts:GenericDataTemplateSelector>
+
+		<!-- Chart Style -->
+		<Style x:Key="chartAreaStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="ItemsPanel">
+				<Setter.Value>
+					<ItemsPanelTemplate>
+						<Canvas />
+					</ItemsPanelTemplate>
+				</Setter.Value>
+			</Setter>
+
+			<Setter Property="ItemContainerStyle">
+				<Setter.Value>
+					<Style TargetType="{x:Type ListBoxItem}">
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type ListBoxItem}">
+									<ContentPresenter x:Name="ContentHost"/>
+									<ControlTemplate.Triggers>
+										<Trigger Property="Selector.IsSelected" Value="True">
+											<Setter TargetName="ContentHost" Property="BitmapEffect">
+												<Setter.Value>
+													<DropShadowBitmapEffect Color="Black" Direction="320" 
+																		ShadowDepth="5" Softness="0.2" 
+																		Opacity="0.8"/>
+												</Setter.Value>
+											</Setter>
+										</Trigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</Setter.Value>
+			</Setter>
+
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+							Padding="{TemplateBinding Control.Padding}"
+							BorderBrush="{TemplateBinding Border.BorderBrush}"
+							Background="{TemplateBinding Panel.Background}"
+							SnapsToDevicePixels="True">
+							<Grid>
+								<parts:Grid Name="vGrid"
+									HorizontalScale="{Binding ElementName=mainWindow, Path=HorizontalScale}"
+									VerticalScale="{Binding ElementName=mainWindow, Path=VerticalScale}"
+								/>
+								<parts:Grid Name="hGrid" Orientation="Horizontal"
+									HorizontalScale="{Binding ElementName=mainWindow, Path=HorizontalScale}"
+									VerticalScale="{Binding ElementName=mainWindow, Path=VerticalScale}"
+								/>
+								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+							</Grid>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<!-- Legend Items Templates -->
+		<DataTemplate x:Key="legendSampledCurve">
+			<Grid Margin="3" ShowGridLines="False">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" SharedSizeGroup="ItemName"/>
+					<ColumnDefinition Width="30"/>
+					<ColumnDefinition Width="Auto" SharedSizeGroup="PointMarker"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Text="{Binding Path=ItemData.ItemName}" VerticalAlignment="Center"/>
+				<Rectangle Grid.Column="1" 
+						Fill="{Binding Path=Pen.Brush}" Height="2"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						Margin="5"/>
+				<Image Grid.Column="2" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<Image.Source>
+						<DrawingImage>
+							<DrawingImage.Drawing>
+								<Binding Path="PointMarker"/>
+							</DrawingImage.Drawing>
+						</DrawingImage>
+					</Image.Source>
+				</Image>
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="legendCurve">
+			<Grid Margin="3" ShowGridLines="False">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" SharedSizeGroup="ItemName"/>
+					<ColumnDefinition Width="30"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Text="{Binding Path=ItemData.ItemName}" VerticalAlignment="Center"/>
+				<Rectangle Grid.Column="1" 
+						Fill="{Binding Path=Pen.Brush}" Height="2"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						Margin="5"/>
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="legendItem">
+			<TextBlock Text="{Binding Path=ItemData.ItemName}" VerticalAlignment="Center" Margin="3"/>
+		</DataTemplate>
+
+		<!-- Legend Items Template Selector -->
+		<parts:GenericDataTemplateSelector x:Key="legendItemsTemplateSelector">
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:PolylineSampledCurve}"
+				Template="{StaticResource legendSampledCurve}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Polyline Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:BezierSampledCurve}"
+				Template="{StaticResource legendSampledCurve}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Bezier Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:SplineSampledCurve}"
+				Template="{StaticResource legendSampledCurve}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Spline Sampled Curve"/>
+		</parts:GenericDataTemplateSelector>
+
+		<local:CelsiusVsFahrenheitConverter x:Key="CelsiusVsFahrenheit"/>
+		<local:ItemCountToVisibilityConverter x:Key="ItemCountToVisibility"/>
+	</Window.Resources>
+
+	<DockPanel>
+		<!-- Menu -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Command="Open"/>
+				<Separator/>
+				<MenuItem Header="_Recent Files" Name="mnuRecentFiles"/>
+				<Separator/>
+				<MenuItem Header="_Exit" Click="Exit_Click"/>
+			</MenuItem>
+			<MenuItem Header="_View">
+				<MenuItem Header="_Interpolator">
+					<MenuItem Header="_Polyline" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Bezier" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Spline" Click="mnuViewInterpolator_Click"/>
+				</MenuItem>
+				<Separator/>
+				<MenuItem Header="Zoom_In (Ctrl+NumPad+)" Command="Zoom" CommandParameter="1.2"/>
+				<MenuItem Header="Zoom_Out (Ctrl+NumPad-)" Command="Zoom" CommandParameter="-1.2"/>
+			</MenuItem>
+		</Menu>
+
+		<Border BorderBrush="Cornsilk" BorderThickness="10">
+			<!-- CurveChart -->
+			<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+				<Grid Name="panel" HorizontalAlignment="Left" Margin="10">
+					<Grid.Style>
+						<Style TargetType="Grid">
+							<Style.Triggers>
+								<!-- Shouldn't show the Grid if ChartScales attached properties aren't set. -->
+								<DataTrigger Binding="{Binding ElementName=mainWindow, Path=HorizontalScale}" Value="{x:Null}">
+									<Setter Property="Visibility" Value="Collapsed"/>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding ElementName=mainWindow, Path=VerticalScale}" Value="{x:Null}">
+									<Setter Property="Visibility" Value="Collapsed"/>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Grid.Style>
+
+					<Grid.Resources>
+						<!-- Axis templates -->
+						<DataTemplate DataType="{x:Type parts:ChartLinearScale}">
+							<parts:LinearAxis AxisScale="{Binding}"/>
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type parts:ChartLogarithmicScale}">
+							<parts:LogarithmicAxis AxisScale="{Binding}"/>
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type parts:ChartDateTimeScale}">
+							<parts:DateTimeAxis AxisScale="{Binding}"/>
+						</DataTemplate>
+					</Grid.Resources>
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- ChartScales attached to Grid "panel" container -->
+					<!--<parts:Item.HorizontalScale>
+						<x:Null/>
+					</parts:Item.HorizontalScale>
+					<parts:Item.VerticalScale>
+						<x:Null/>
+					</parts:Item.VerticalScale>-->
+
+					<!-- Axis must be placed into some container (like ContentControl) to provide
+						a way to replace Axis element when related ChartScale-derived object type 
+						changes. -->
+
+					<!-- Horizontal Bottom axis -->
+					<Grid Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<ContentControl Name="hAxisHost" parts:Axis.FontWeight="Bold">
+							<Binding Path="HorizontalScale" ElementName="mainWindow"/>
+						</ContentControl>
+						<!--parts:AxisVisual.FontWeight="Bold"-->
+						<TextBlock Grid.Row="1" HorizontalAlignment="Center">Months</TextBlock>
+					</Grid>
+
+					<!-- Vertical axis (Fahrenheit) -->
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<!--<ContentControl parts:AxisVisual.LongTickLength="20">-->
+						<ContentControl Name="vAxisFahrenheitHost">
+							<Binding Path="VerticalScale" ElementName="mainWindow"
+									 Converter="{StaticResource CelsiusVsFahrenheit}"/>
+							<!--<parts:AxisVisual.Pen>
+								<Pen Brush="Blue" Thickness="1"/>
+							</parts:AxisVisual.Pen>-->
+						</ContentControl>
+						<TextBlock Grid.Row="1" HorizontalAlignment="Center">Temperature, Fahrenheit</TextBlock>
+
+						<Grid.LayoutTransform>
+							<RotateTransform Angle="90"/>
+						</Grid.LayoutTransform>
+					</Grid>
+
+					<!-- Vertical axis (Celsius) -->
+					<Grid Grid.Column="1">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<!--<ContentControl parts:AxisVisual.LongTickLength="20">-->
+						<ContentControl Name="vAsixCelsiusHost">
+							<Binding Path="VerticalScale" ElementName="mainWindow"/>
+							<!--<parts:AxisVisual.Pen>
+								<Pen Brush="Blue" Thickness="1"/>
+							</parts:AxisVisual.Pen>-->
+						</ContentControl>
+						<TextBlock Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">Temperature, Celsius</TextBlock>
+
+						<Grid.LayoutTransform>
+							<RotateTransform Angle="90"/>
+						</Grid.LayoutTransform>
+					</Grid>
+
+					<!-- Curve Chart area -->
+					<AdornerDecorator Grid.Column="2">
+						<ListBox Name="chart" Style="{StaticResource chartAreaStyle}"
+							ItemsSource="{Binding}" 
+							ItemTemplateSelector="{StaticResource chartItemsTemplateSelector}"
+							SnapsToDevicePixels="true" 
+							parts:Item.MouseEnterItem="item_Enter"
+							parts:Item.MouseLeaveItem="item_Leave"
+							parts:Item.VisualCueChanged="item_VisualCueChanged"
+							SelectionChanged="chart_SelectionChanged">
+							<!--<parts:GridVisual.Pen>
+								<Pen Brush="Green" Thickness="0.3">
+									<Pen.DashStyle>
+										<DashStyle Dashes="2,4"/>
+									</Pen.DashStyle>
+								</Pen>
+							</parts:GridVisual.Pen>-->
+
+							<!-- Bind to "panel" container ChartScales -->
+							<!--<parts:Item.HorizontalScale>
+								<Binding Path="(parts:Item.HorizontalScale)" ElementName="panel"/>
+							</parts:Item.HorizontalScale>
+							<parts:Item.VerticalScale>
+								<Binding Path="(parts:Item.VerticalScale)" ElementName="panel"/>
+							</parts:Item.VerticalScale>-->
+						</ListBox>
+					</AdornerDecorator>
+
+					<!-- Legend -->
+					<Grid Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20"
+						Visibility="{Binding ElementName=chart, Path=Items.Count, 
+							Converter={StaticResource ItemCountToVisibility}}">
+						<Border BorderBrush="BurlyWood" BorderThickness="5" CornerRadius="5" Background="White">
+							<StackPanel>
+								<TextBlock Margin="3" FontWeight="Bold">Legend</TextBlock>
+								<ListBox
+									ItemsSource="{Binding}" 
+									ItemTemplateSelector="{StaticResource legendItemsTemplateSelector}"
+									Grid.IsSharedSizeScope="True"/>
+							</StackPanel>
+						</Border>
+					</Grid>
+				</Grid>
+			</ScrollViewer>
+		</Border>
+	</DockPanel>
+</Window>

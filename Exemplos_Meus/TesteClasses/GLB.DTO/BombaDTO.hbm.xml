@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.Abastecimento.DTO.BombaDTO,GLB.DTO" table="ABA_CADBOMBA" lazy="false">
+
+		<id name="Codigo" column="CODIGOBOMBA" type="int" unsaved-value="0">
+			<generator class="assigned"/>
+		</id>
+		<property name="Descricao" type="String" column="DESCRICAOBOMBA" not-null="true" length="40" />
+		<property name="CodigoGaragem" type="int" column="CODIGOGA" not-null="true" />
+		<property name="CodigoTipoOleo" type="String" column="CODIGOTPOLEO" not-null="true" length="4" />
+    <property name="ViradaHodometroBomba" type="int" column="VIRADAHODOMETROBOMBA" not-null="true" />
+    <property name="CodigoBombaNoArquivoCTF" type="String" column="CODIGOBOMBACTF" length="5" />
+    <property name="TerminalGtFrota" type="String" column="TERMINAL_GTFROTA" length="2" />
+    <property name="BombaGtFrota" type="String" column="BOMBA_GTFROTA" length="1" />
+    <property name="CodigoEmpresaGtFrota" type="int" column="CODIGOEMPRESA_GTFROTA" not-null="true" />
+    <property name="CodigoFilialGtFrota" type="int" column="CODIGOFL_GTFROTA" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="WFA_VerificaAcessoRemoto.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid>
+        <Image x:Name="imgFundo" Source="MenuPrincipal_Fundo.jpg" Stretch="UniformToFill" >
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=form:SystemInformation.TerminalServerSession}" Value="true">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=form:SystemInformation.TerminalServerSession}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image x:Name="imgLogoGlobusMais" Source="MenuPrincipal_LogoGlobusMais.png" 
+               Width="279" Stretch="None" Margin="10,35,10,26" Visibility="{Binding ElementName=imgFundo, Path=Visibility}" />
+
+    </Grid>
+</UserControl>

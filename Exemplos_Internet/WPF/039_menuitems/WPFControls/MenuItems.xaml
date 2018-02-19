@@ -1,0 +1,73 @@
+<MenuItem x:Class="WPFControls.MenuItems"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+  <MenuItem.Resources>
+    <!-- Moved this to the code behind -->
+    <!--DataTemplate x:Key="ItemTemplate" >
+      <MenuItem x:Name="MyMenuItem"
+                Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MenuItem}}, Path=Background}" 
+                IsCheckable="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MenuItem}}, Path=IsCheckable}" 
+                IsChecked="True"                 
+                >        
+      </MenuItem>
+    </DataTemplate-->
+    <Style TargetType="ListView" x:Key="ListViewStyle" >
+      <Setter Property="Template" >
+        <Setter.Value>
+          <ControlTemplate TargetType="ListView" >
+            <Grid Margin="-2,0,0,0" >              
+              <ItemsPresenter />
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </MenuItem.Resources>
+  <MenuItem.Style>
+    <Style TargetType="MenuItem" >
+      <Setter Property="Template" >
+        <Setter.Value>
+          <ControlTemplate TargetType="MenuItem" >
+            <StackPanel >
+              <Separator >
+                <Separator.Style>
+                  <Style TargetType="Separator" >
+                    <Setter Property="Visibility" 
+                            Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MenuItem}}, Path=TopSeparatorVisibility}" />
+                    <Style.Triggers>
+                      <DataTrigger Binding="{Binding ElementName=MyListView, Path=Items.Count}" Value="0" >
+                        <Setter Property="Visibility" Value="Collapsed" />
+                      </DataTrigger>
+                    </Style.Triggers>
+                  </Style>
+                </Separator.Style>
+              </Separator>
+              <ListView x:Name="MyListView"                    
+                        Style="{StaticResource ListViewStyle}" >
+                <ListView.ItemContainerStyle>
+                  <Style TargetType="ListViewItem" >
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                  </Style>
+                </ListView.ItemContainerStyle>
+              </ListView>
+              <Separator >
+                <Separator.Style>
+                  <Style TargetType="Separator" >
+                    <Setter Property="Visibility"                             
+                            Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MenuItem}}, Path=BottomSeparatorVisibility}" />
+                    <Style.Triggers>
+                      <DataTrigger Binding="{Binding ElementName=MyListView, Path=Items.Count}" Value="0" >
+                        <Setter Property="Visibility" Value="Collapsed" />
+                      </DataTrigger>
+                    </Style.Triggers>
+                  </Style>
+                </Separator.Style>
+              </Separator>
+            </StackPanel>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </MenuItem.Style>
+</MenuItem>

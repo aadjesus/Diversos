@@ -1,0 +1,647 @@
+﻿<!--revision $Id: AxisPropertiesDialog.xaml 18093 2009-03-16 04:15:06Z unknown $-->
+<Window x:Class="OpenWPFChart.Helpers.AxisPropertiesDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+	xmlns:local="clr-namespace:OpenWPFChart.Helpers"
+    Title="Axis Properties"
+	Style="{DynamicResource dialogWindow}"
+	MinWidth="150" MinHeight="100"  WindowStartupLocation="CenterOwner"
+	FocusManager.FocusedElement="{Binding ElementName=txtStart}"
+	>
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../DialogStyle.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+			
+			<DataTemplate DataType="{x:Type local:LinearAxisDataView}">
+				<TabControl>
+					<TabItem Header="Scale">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<local:ChartScaleControl x:Name="scale" 
+													 ChartScale="{Binding Path=AxisScale}"/>
+
+							<GroupBox Header="Layout">
+								<StackPanel>
+									<StackPanel Orientation="Horizontal">
+										<RadioButton IsChecked="{Binding Path=IsAtLeftOrBelow}">At Left Or Below</RadioButton>
+										<RadioButton IsChecked="{Binding Path=IsAtRightOrAbove}">At Right Or Above</RadioButton>
+									</StackPanel>
+									<CheckBox IsChecked="{Binding Path=IsTicksCentered}">Ticks Centered</CheckBox>
+								</StackPanel>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Ticks" Grid.IsSharedSizeScope="True">
+						<StackPanel>
+							<GroupBox Header="Ticks">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- TickStep row -->
+									<Label Target="{Binding ElementName=txtTickStep}">Tick Step</Label>
+									<TextBox Grid.Column="1" Name="txtTickStep"
+								Text="{Binding Path=TickStep, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickAnchor row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLongTickAnchor}">Long Tick Anchor</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLongTickAnchor"
+								Text="{Binding Path=LongTickAnchor, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickRate row -->
+									<Label Grid.Row="2" Target="{Binding ElementName=txtLongTickRate}">Long Tick Rate</Label>
+									<TextBox Grid.Row="2" Grid.Column="1" Name="txtLongTickRate"
+								Text="{Binding Path=LongTickRate, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- TickLength row -->
+									<Label Grid.Row="3" Target="{Binding ElementName=txtTickLength}">Tick Length</Label>
+									<TextBox Grid.Row="3" Grid.Column="1" Name="txtTickLength"
+								Text="{Binding Path=TickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickLength row -->
+									<Label Grid.Row="4" Target="{Binding ElementName=txtLongTickLength}">Long Tick Length</Label>
+									<TextBox Grid.Row="4" Grid.Column="1" Name="txtLongTickLength"
+								Text="{Binding Path=LongTickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Label">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- LabelFormat row -->
+									<Label Target="{Binding ElementName=txtLabelFormat}">Label Format</Label>
+									<TextBox Grid.Column="1" Name="txtLabelFormat"
+								Text="{Binding Path=LabelFormat, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LabelMargin row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLabelMargin}">Label Margin</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLabelMargin"
+								Text="{Binding Path=LabelMargin, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Decorations">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<GroupBox Header="Pen">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- PenColor row -->
+									<Label Target="{Binding ElementName=btnPenColor}">Color</Label>
+									<Button Grid.Column="1" Name="btnPenColor" Click="btnPenColor_Click">
+										<Rectangle Width="50" Height="17">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding PenColor}"/>
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+
+									<!-- PenThickness row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtPenThickness}">Thickness</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtPenThickness"
+								Text="{Binding Path=PenThickness, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Font">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- Font row -->
+									<Label Target="{Binding ElementName=btnFont}">Font</Label>
+									<Button Grid.Column="1" Name="btnFont" Click="btnFont_Click"
+									FontFamily="{Binding Path=FontFamily}"
+									FontSize="{Binding Path=FontSize}"
+									FontStretch="{Binding Path=FontStretch}"
+									FontStyle="{Binding Path=FontStyle}"
+									FontWeight="{Binding Path=FontWeight}"
+									>
+										Choose Font
+									</Button>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+			</DataTemplate>
+			
+			<DataTemplate DataType="{x:Type local:LogarithmicAxisDataView}">
+				<TabControl>
+					<TabItem Header="Scale">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<local:ChartScaleControl x:Name="scale" 
+													 ChartScale="{Binding Path=AxisScale}"/>
+
+							<GroupBox Header="Layout">
+								<StackPanel>
+									<StackPanel Orientation="Horizontal">
+										<RadioButton IsChecked="{Binding Path=IsAtLeftOrBelow}">At Left Or Below</RadioButton>
+										<RadioButton IsChecked="{Binding Path=IsAtRightOrAbove}">At Right Or Above</RadioButton>
+									</StackPanel>
+									<CheckBox IsChecked="{Binding Path=IsTicksCentered}">Ticks Centered</CheckBox>
+								</StackPanel>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Ticks" Grid.IsSharedSizeScope="True">
+						<StackPanel>
+							<GroupBox Header="Ticks">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- TickMask row -->
+									<Label Target="{Binding ElementName=chkSecond}">Tick Mask</Label>
+									<UniformGrid Grid.Column="1" Rows="4" Columns="2">
+										<CheckBox Name="chkSecond" IsChecked="{Binding Path=IsTickMaskSecondChecked}">Second</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskThirdChecked}">Third</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskFourthChecked}">Fourth</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskFifthChecked}">Fifth</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskSixthChecked}">Sixth</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskSeventhChecked}">Seventh</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskEighthChecked}">Eighth</CheckBox>
+										<CheckBox IsChecked="{Binding Path=IsTickMaskNinthChecked}">Ninth</CheckBox>
+									</UniformGrid>
+
+									<!-- TickLength row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtTickLength}">Tick Length</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtTickLength"
+								Text="{Binding Path=TickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickLength row -->
+									<Label Grid.Row="2" Target="{Binding ElementName=txtLongTickLength}">Long Tick Length</Label>
+									<TextBox Grid.Row="2" Grid.Column="1" Name="txtLongTickLength"
+								Text="{Binding Path=LongTickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Label">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- LabelFormat row -->
+									<Label Target="{Binding ElementName=txtLabelFormat}">Label Format</Label>
+									<TextBox Grid.Column="1" Name="txtLabelFormat"
+								Text="{Binding Path=LabelFormat, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LabelMargin row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLabelMargin}">Label Margin</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLabelMargin"
+								Text="{Binding Path=LabelMargin, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Decorations">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<GroupBox Header="Pen">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- PenColor row -->
+									<Label Target="{Binding ElementName=btnPenColor}">Color</Label>
+									<Button Grid.Column="1" Name="btnPenColor" Click="btnPenColor_Click">
+										<Rectangle Width="50" Height="17">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding PenColor}"/>
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+
+									<!-- PenThickness row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtPenThickness}">Thickness</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtPenThickness"
+								Text="{Binding Path=PenThickness, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Font">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- Font row -->
+									<Label Target="{Binding ElementName=btnFont}">Font</Label>
+									<Button Grid.Column="1" Name="btnFont" Click="btnFont_Click"
+									FontFamily="{Binding Path=FontFamily}"
+									FontSize="{Binding Path=FontSize}"
+									FontStretch="{Binding Path=FontStretch}"
+									FontStyle="{Binding Path=FontStyle}"
+									FontWeight="{Binding Path=FontWeight}"
+									>
+										Choose Font
+									</Button>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+			</DataTemplate>
+
+			<ObjectDataProvider x:Key="tickUnitsData"
+						MethodName="GetValues" 
+						ObjectType="{x:Type sys:Enum}">
+				<ObjectDataProvider.MethodParameters>
+					<x:Type TypeName="parts:DateTimeTickUnits" />
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
+
+			<DataTemplate DataType="{x:Type local:DateTimeAxisDataView}">
+				<TabControl>
+					<TabItem Header="Scale">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<local:ChartScaleControl x:Name="scale" 
+													 ChartScale="{Binding Path=AxisScale}"/>
+
+							<GroupBox Header="Layout">
+								<StackPanel>
+									<StackPanel Orientation="Horizontal">
+										<RadioButton IsChecked="{Binding Path=IsAtLeftOrBelow}">At Left Or Below</RadioButton>
+										<RadioButton IsChecked="{Binding Path=IsAtRightOrAbove}">At Right Or Above</RadioButton>
+									</StackPanel>
+									<CheckBox IsChecked="{Binding Path=IsTicksCentered}">Ticks Centered</CheckBox>
+								</StackPanel>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Ticks" Grid.IsSharedSizeScope="True">
+						<StackPanel>
+							<GroupBox Header="Ticks">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- TickUnits row -->
+									<Label Target="{Binding ElementName=txtTickStep}">TickUnits</Label>
+									<ComboBox Grid.Column="1" Name="cbxTickUnits"
+									  ItemsSource="{Binding Source={StaticResource tickUnitsData}}"
+									  SelectedItem="{Binding Path=TickUnits}"
+									  IsSynchronizedWithCurrentItem="True"/>
+
+									<!-- TickStep row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtTickStep}">Tick Step</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtTickStep"
+								Text="{Binding Path=TickStep, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickAnchor row -->
+									<Label Grid.Row="2" Target="{Binding ElementName=txtLongTickAnchor}">Long Tick Anchor</Label>
+									<TextBox Grid.Row="2" Grid.Column="1" Name="txtLongTickAnchor"
+								Text="{Binding Path=LongTickAnchor, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickRate row -->
+									<Label Grid.Row="3" Target="{Binding ElementName=txtLongTickRate}">Long Tick Rate</Label>
+									<TextBox Grid.Row="3" Grid.Column="1" Name="txtLongTickRate"
+								Text="{Binding Path=LongTickRate, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- TickLength row -->
+									<Label Grid.Row="4" Target="{Binding ElementName=txtTickLength}">Tick Length</Label>
+									<TextBox Grid.Row="4" Grid.Column="1" Name="txtTickLength"
+								Text="{Binding Path=TickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickLength row -->
+									<Label Grid.Row="5" Target="{Binding ElementName=txtLongTickLength}">Long Tick Length</Label>
+									<TextBox Grid.Row="5" Grid.Column="1" Name="txtLongTickLength"
+								Text="{Binding Path=LongTickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Label">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- LabelFormat row -->
+									<Label Target="{Binding ElementName=txtLabelFormat}">Label Format</Label>
+									<TextBox Grid.Column="1" Name="txtLabelFormat"
+								Text="{Binding Path=LabelFormat, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LabelMargin row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLabelMargin}">Label Margin</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLabelMargin"
+								Text="{Binding Path=LabelMargin, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Decorations">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<GroupBox Header="Pen">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- PenColor row -->
+									<Label Target="{Binding ElementName=btnPenColor}">Color</Label>
+									<Button Grid.Column="1" Name="btnPenColor" Click="btnPenColor_Click">
+										<Rectangle Width="50" Height="17">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding PenColor}"/>
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+
+									<!-- PenThickness row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtPenThickness}">Thickness</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtPenThickness"
+								Text="{Binding Path=PenThickness, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Font">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- Font row -->
+									<Label Target="{Binding ElementName=btnFont}">Font</Label>
+									<Button Grid.Column="1" Name="btnFont" Click="btnFont_Click"
+									FontFamily="{Binding Path=FontFamily}"
+									FontSize="{Binding Path=FontSize}"
+									FontStretch="{Binding Path=FontStretch}"
+									FontStyle="{Binding Path=FontStyle}"
+									FontWeight="{Binding Path=FontWeight}"
+									>
+										Choose Font
+									</Button>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+			</DataTemplate>
+			
+			<DataTemplate DataType="{x:Type local:SeriesAxisDataView}">
+				<TabControl>
+					<TabItem Header="Scale">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<local:ChartScaleControl x:Name="scale" 
+													 ChartScale="{Binding Path=AxisScale}"/>
+
+							<GroupBox Header="Layout">
+								<StackPanel>
+									<StackPanel Orientation="Horizontal">
+										<RadioButton IsChecked="{Binding Path=IsAtLeftOrBelow}">At Left Or Below</RadioButton>
+										<RadioButton IsChecked="{Binding Path=IsAtRightOrAbove}">At Right Or Above</RadioButton>
+									</StackPanel>
+									<CheckBox IsChecked="{Binding Path=IsTicksCentered}">Ticks Centered</CheckBox>
+								</StackPanel>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Ticks" Grid.IsSharedSizeScope="True">
+						<StackPanel>
+							<GroupBox Header="Ticks">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- LongTickAnchor row -->
+									<Label Target="{Binding ElementName=cbxLongTickAnchor}">Long Tick Anchor</Label>
+									<ComboBox Grid.Column="1" Name="cbxLongTickAnchor"
+									  ItemsSource="{Binding Path=Series}"
+									  SelectedItem="{Binding Path=LongTickAnchor}"/>
+
+									<!-- LongTickRate row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLongTickRate}">Long Tick Rate</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLongTickRate"
+								Text="{Binding Path=LongTickRate, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- TickLength row -->
+									<Label Grid.Row="2" Target="{Binding ElementName=txtTickLength}">Tick Length</Label>
+									<TextBox Grid.Row="2" Grid.Column="1" Name="txtTickLength"
+								Text="{Binding Path=TickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LongTickLength row -->
+									<Label Grid.Row="3" Target="{Binding ElementName=txtLongTickLength}">Long Tick Length</Label>
+									<TextBox Grid.Row="3" Grid.Column="1" Name="txtLongTickLength"
+								Text="{Binding Path=LongTickLength, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Label">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- LabelFormat row -->
+									<Label Target="{Binding ElementName=txtLabelFormat}">Label Format</Label>
+									<TextBox Grid.Column="1" Name="txtLabelFormat"
+								Text="{Binding Path=LabelFormat, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+
+									<!-- LabelMargin row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtLabelMargin}">Label Margin</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtLabelMargin"
+								Text="{Binding Path=LabelMargin, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+
+					<TabItem Header="Decorations">
+						<StackPanel Grid.IsSharedSizeScope="True">
+							<GroupBox Header="Pen">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- PenColor row -->
+									<Label Target="{Binding ElementName=btnPenColor}">Color</Label>
+									<Button Grid.Column="1" Name="btnPenColor" Click="btnPenColor_Click">
+										<Rectangle Width="50" Height="17">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding PenColor}"/>
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+
+									<!-- PenThickness row -->
+									<Label Grid.Row="1" Target="{Binding ElementName=txtPenThickness}">Thickness</Label>
+									<TextBox Grid.Row="1" Grid.Column="1" Name="txtPenThickness"
+								Text="{Binding Path=PenThickness, UpdateSourceTrigger=PropertyChanged,
+									ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+								</Grid>
+							</GroupBox>
+
+							<GroupBox Header="Font">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+										<ColumnDefinition SharedSizeGroup="editor"/>
+									</Grid.ColumnDefinitions>
+
+									<!-- Font row -->
+									<Label Target="{Binding ElementName=btnFont}">Font</Label>
+									<Button Grid.Column="1" Name="btnFont" Click="btnFont_Click"
+									FontFamily="{Binding Path=FontFamily}"
+									FontSize="{Binding Path=FontSize}"
+									FontStretch="{Binding Path=FontStretch}"
+									FontStyle="{Binding Path=FontStyle}"
+									FontWeight="{Binding Path=FontWeight}"
+									>
+										Choose Font
+									</Button>
+								</Grid>
+							</GroupBox>
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+			</DataTemplate>
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<DockPanel>
+		<!-- Dialog buttons row -->
+		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" 
+					HorizontalAlignment="Right" VerticalAlignment="Bottom">
+			<Button Name="btnOK" Click="btnOK_Click" Style="{StaticResource dialogButton}" 
+					IsDefault="True" IsEnabled="False">OK</Button>
+			<Button Style="{StaticResource dialogButton}" IsCancel="True">Cancel</Button>
+		</StackPanel>
+		
+		<ContentControl x:Name="host" Content="{Binding}"/>
+	</DockPanel>
+</Window>

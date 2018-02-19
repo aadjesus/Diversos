@@ -1,0 +1,28 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="clr-namespace:ImageTest" 
+  >
+
+  <Storyboard x:Key="borderImage_MouseEnter_SCALE">
+    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="borderImage" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+      <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0.5"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+    </DoubleAnimationUsingKeyFrames>
+    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="borderImage" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+      <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0.5"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+    </DoubleAnimationUsingKeyFrames>
+  </Storyboard>
+
+  <Storyboard x:Key="imgSkew_OnMouseMove_SKEW">
+    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="borderImage" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)">
+      <SplineDoubleKeyFrame KeyTime="00:00:00" Value="45"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:01" Value="215"/>
+      <SplineDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+    </DoubleAnimationUsingKeyFrames>
+  </Storyboard>
+
+</ResourceDictionary>

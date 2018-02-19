@@ -1,0 +1,3342 @@
+%{
+//
+// cs-parser.jay: The Parser for the C# compiler
+//
+// Modified by IZ for purposes of CS CODEDOM Parser, 2002
+//(c) 2002 Ivan Zderadicka (ivan.zderadicka@seznam.cz)
+// based on Mono CS parser - see below
+//
+// Author: Miguel de Icaza (miguel@gnu.org)
+//
+// Licensed under the terms of the GNU GPL
+//
+// (C) 2001 Ximian, Inc (http://www.ximian.com)
+//
+
+using System.Text;
+using System;
+using IvanZ.CSParser;
+using System.Globalization;
+
+namespace Mono.CSharp
+{
+	using System.Collections;
+	using System.CodeDom;
+	using Mono.Languages;
+	using IvanZ.CSParser;
+	
+
+	/// <summary>
+	///    The C# Parser
+	/// </summary>
+	public class CSharpParser : GenericParser {
+		%}
+
+%token EOF
+%token NONE   /* This token is never returned by our lexer */
+%token ERROR		// This is used not by the parser, but by the tokenizer.
+			// do not remove.
+
+/*
+ *These are the C# keywords
+ */
+%token ABSTRACT	
+%token AS
+%token ADD
+%token ASSEMBLY
+%token BASE	
+%token BOOL	
+%token BREAK	
+%token BYTE	
+%token CASE	
+%token CATCH	
+%token CHAR	
+%token CHECKED	
+%token CLASS	
+%token CONST	
+%token CONTINUE	
+%token DECIMAL	
+%token DEFAULT	
+%token DELEGATE	
+%token DO	
+%token DOUBLE	
+%token ELSE	
+%token ENUM	
+%token EVENT	
+%token EXPLICIT	
+%token EXTERN	
+%token FALSE	
+%token FINALLY	
+%token FIXED	
+%token FLOAT	
+%token FOR	
+%token FOREACH	
+%token GOTO	
+%token IF	
+%token IMPLICIT	
+%token IN	
+%token INT	
+%token INTERFACE
+%token INTERNAL	
+%token IS	
+%token LOCK	
+%token LONG	
+%token NAMESPACE
+%token NEW	
+%token NULL	
+%token OBJECT	
+%token OPERATOR	
+%token OUT	
+%token OVERRIDE	
+%token PARAMS	
+%token PRIVATE	
+%token PROTECTED
+%token PUBLIC	
+%token READONLY	
+%token REF	
+%token RETURN	
+%token REMOVE
+%token SBYTE	
+%token SEALED	
+%token SHORT	
+%token SIZEOF	
+%token STACKALLOC
+%token STATIC	
+%token STRING	
+%token STRUCT	
+%token SWITCH	
+%token THIS	
+%token THROW	
+%token TRUE	
+%token TRY	
+%token TYPEOF	
+%token UINT	
+%token ULONG	
+%token UNCHECKED
+%token UNSAFE	
+%token USHORT	
+%token USING	
+%token VIRTUAL	
+%token VOID	
+%token VOLATILE
+%token WHILE	
+
+/* C# keywords which are not really keywords */
+%token GET           "get"
+%token SET           "set"
+
+/* C# single character operators/punctuation. */
+%token OPEN_BRACE    "{"
+%token CLOSE_BRACE   "}"
+%token OPEN_BRACKET  "["
+%token CLOSE_BRACKET "]"
+%token OPEN_PARENS   "("
+%token CLOSE_PARENS  ")"
+%token DOT           "."
+%token COMMA         ","
+%token COLON         ":"
+%token SEMICOLON     ";"
+%token TILDE         "~"
+
+%token PLUS           "+"
+%token MINUS          "-"
+%token BANG           "!"
+%token ASSIGN         "="
+%token OP_LT          "<"
+%token OP_GT          ">"
+%token BITWISE_AND    "&"
+%token BITWISE_OR     "|"
+%token STAR           "*"
+%token PERCENT        "%"
+%token DIV            "/"
+%token CARRET         "^"
+%token INTERR         "?"
+
+/* C# multi-character operators. */
+%token OP_INC                 "++"
+%token OP_DEC                 "--"
+%token OP_SHIFT_LEFT          "<<"
+%token OP_SHIFT_RIGHT         ">>"
+%token OP_LE                  "<="
+%token OP_GE                  ">="
+%token OP_EQ                  "=="
+%token OP_NE                  "!="
+%token OP_AND                 "&&"
+%token OP_OR                  "||"
+%token OP_MULT_ASSIGN         "*="
+%token OP_DIV_ASSIGN          "/="
+%token OP_MOD_ASSIGN          "%="
+%token OP_ADD_ASSIGN          "+="
+%token OP_SUB_ASSIGN          "-="
+%token OP_SHIFT_LEFT_ASSIGN   "<<="
+%token OP_SHIFT_RIGHT_ASSIGN  ">>="
+%token OP_AND_ASSIGN          "&="
+%token OP_XOR_ASSIGN          "^="
+%token OP_OR_ASSIGN           "|="
+%token OP_PTR                 "->"
+
+/* Numbers */
+%token LITERAL_INTEGER           "int literal"
+%token LITERAL_FLOAT             "float literal"
+%token LITERAL_DOUBLE            "double literal"
+%token LITERAL_DECIMAL           "decimal literal"
+%token LITERAL_CHARACTER         "character literal"
+%token LITERAL_STRING            "string literal"
+
+%token IDENTIFIER
+
+/* Add precedence rules to solve dangling else s/r conflict */
+%nonassoc LOWPREC
+%nonassoc IF
+%nonassoc ELSE
+%right ASSIGN
+%left OP_OR
+%left OP_AND
+%left BITWISE_OR
+%left BITWISE_AND
+%left OP_SHIFT_LEFT OP_SHIFT_RIGHT
+%left PLUS MINUS
+%left STAR DIV PERCENT
+%right BANG CARRET UMINUS
+%nonassoc OP_INC OP_DEC
+%left OPEN_PARENS
+%left OPEN_BRACKET OPEN_BRACE
+%left DOT
+%nonassoc HIGHPREC
+
+%start compilation_unit
+/*%start namespace_declaration */
+%%
+
+// IZ change position of assembly attributes 
+compilation_unit
+	: opt_using_directives opt_attributes opt_namespace_member_declarations  opt_EOF
+	  {  
+	  // Compile unit
+	  bd.AddAssemblyAttributeMultiple((CodeAttributeDeclarationCollection) $2);
+	  }
+	;
+
+opt_EOF
+	: /* empty */
+	| EOF
+	{
+	//EOF
+	//Console.WriteLine("FILE finished");
+	}
+	;
+
+using_directives
+	: using_directive 
+	| using_directives using_directive
+	;
+
+using_directive
+	: using_alias_directive
+	| using_namespace_directive
+	;
+
+using_alias_directive
+	: USING IDENTIFIER ASSIGN 
+	  namespace_or_type_name SEMICOLON
+	  {
+	  // Using alias directive is not supported by CODEDOM
+	  Report.Warning(9003,lexer.Location, "Using alias directives not supported, they will not be parsed");
+	  }
+	;
+
+using_namespace_directive
+	: USING namespace_name SEMICOLON 
+	  {
+	  //Add using directive to ns
+	  bd.AddUsingDirective($2.ToString());
+	  }
+	;
+
+//  namespace_declarations
+//  	: namespace_declaration
+//  	| namespace_declarations namespace_declaration
+
+
+namespace_declaration
+	: NAMESPACE qualified_identifier 
+	  {
+	  // Add ns to compile unit 
+	  
+	  bd.AddNamespace($2.ToString());
+	  } 
+	  namespace_body opt_semicolon
+	  {
+	  // Leaving ns
+	  bd.Up();
+	  }
+	;
+
+opt_semicolon
+	: /* empty */
+	| SEMICOLON
+	;
+
+opt_comma
+	: /* empty */
+	| COMMA
+	;
+
+qualified_identifier
+	: IDENTIFIER
+	| qualified_identifier DOT IDENTIFIER {
+	  //qualified identifier value
+	  $$ = (($1).ToString ()) + "." + ($3.ToString ());
+	  }
+	;
+
+
+namespace_name
+	: namespace_or_type_name
+	;
+
+namespace_body
+	: OPEN_BRACE
+	  opt_using_directives
+	  opt_namespace_member_declarations
+	  CLOSE_BRACE
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_using_directives
+	: /* empty */
+	| using_directives
+	;
+
+opt_namespace_member_declarations
+	: /* empty */
+	{$$=null;}
+	
+	| namespace_member_declarations
+	;
+
+namespace_member_declarations
+	: namespace_member_declaration
+	| namespace_member_declarations namespace_member_declaration
+	;
+
+namespace_member_declaration
+	: type_declaration
+	  {
+	  // Replaced
+	  } 
+	  
+	| namespace_declaration
+	;
+
+type_declaration
+	: class_declaration		
+	| struct_declaration		
+	| interface_declaration		
+	| enum_declaration		
+	| delegate_declaration
+//
+// Enable this when we have handled all errors, because this acts as a generic fallback
+//
+//	| error 
+	;
+
+//
+// Attributes 17.2
+//
+opt_attributes
+	: /* empty */ {
+	  // No attributes
+	  $$=null;
+	  }
+	| attribute_section opt_attributes
+	  {
+	  // Attrs section
+	  CodeAttributeDeclarationCollection atrs=null;
+	  
+	  if ($1 != null)
+	  {
+	    atrs=  (CodeAttributeDeclarationCollection) $1;
+	    if ($2 != null)
+	    atrs.AddRange((CodeAttributeDeclarationCollection) $2);
+	  }
+	 $$=atrs;
+	  }
+	  
+
+	;
+
+attribute_section
+	: OPEN_BRACKET 
+	  attribute_target_specifier 
+	   attribute_list CLOSE_BRACKET
+	  {
+	  // Attribute section with target
+	  
+	  CodeAttributeDeclarationCollection c= (CodeAttributeDeclarationCollection) $3;
+	  foreach( CodeAttributeDeclarationExt d in c)
+	      d.Target= (AttributeTargets) $2;
+	  $$=c;
+	  }
+        | OPEN_BRACKET attribute_list CLOSE_BRACKET
+	  {
+	  // Attribute section
+	  $$=$2;
+	  }
+	;
+
+
+ 
+attribute_target_specifier
+	: attribute_target COLON
+	  {
+	  // Atr target
+	  $$=$1;
+	  }
+	;
+
+attribute_target
+	: IDENTIFIER
+	  {
+	  // Other targets
+	  $$=CheckAttributeTarget($1.ToString());
+	  }
+        | EVENT  {
+	  // Event target
+	  $$=AttributeTargets.Event;
+	  }	  
+        | RETURN {
+	  // Return target
+	  $$=AttributeTargets.Return;
+	  }
+	  | ASSEMBLY {
+	  // Return target
+	  $$=AttributeTargets.Assembly;
+	  }
+	;
+
+attribute_list
+	: attribute
+	  {
+	  // Attribute list
+	  CodeAttributeDeclarationCollection c= new CodeAttributeDeclarationCollection();
+	  c.Add((CodeAttributeDeclaration) $1);
+	  $$=c;
+	  }
+	| attribute_list COMMA opt_attribute
+	  {
+	  // Attribute list
+	  CodeAttributeDeclarationCollection c= (CodeAttributeDeclarationCollection) $1;
+	  if ($3!= null)
+	  c.Add((CodeAttributeDeclaration) $3);
+	  $$=c;
+	  }
+	;
+	
+opt_attribute
+	: /* empty */ { 
+	$$= null;}
+	| attribute
+	;
+	
+
+attribute
+	: attribute_name
+	  opt_attribute_arguments
+	  {
+	  // Attribute
+	  CodeAttributeDeclarationExt atr = new CodeAttributeDeclarationExt($1.ToString());
+	 
+	  if ($2!= null)
+	    atr.Arguments.AddRange((CodeAttributeArgumentCollection) $2);
+	  $$=atr;
+	  }
+	;
+
+attribute_name
+	: type_name  
+	;
+
+//IZ change - it seem that empty argument can be presented - ()
+opt_attribute_arguments
+	: /* empty */   {
+	  // No args
+	  $$=null;
+	  }
+	| OPEN_PARENS attribute_arguments_opt CLOSE_PARENS
+	  {
+	  // arguments
+	  $$=$2;
+	  }
+	;
+	
+attribute_arguments_opt
+	: /* empty */   {
+	  // No args
+	  $$=null;
+	  }
+	| attribute_arguments
+	;	
+
+
+attribute_arguments
+	: positional_argument_list
+	  {
+	  // Positional args
+	  $$=$1;
+	  }
+        | positional_argument_list COMMA named_argument_list
+	  {
+	  // Positional plus named args
+	  CodeAttributeArgumentCollection c= (CodeAttributeArgumentCollection) $1;
+	  c.AddRange((CodeAttributeArgumentCollection) $3);
+	  $$=c;
+	  }
+        | named_argument_list
+	  {
+	  // named args
+	  $$=$1;
+	  }
+        ;
+
+
+positional_argument_list
+	: expression
+	  {
+	  // Pos args list
+	  CodeAttributeArgumentCollection c = new CodeAttributeArgumentCollection();
+	  c.Add(new CodeAttributeArgument((CodeExpression) $1));
+	  $$=c;
+	  }
+        | positional_argument_list COMMA expression
+	 {
+	  // Pos args list
+	  CodeAttributeArgumentCollection c = (CodeAttributeArgumentCollection) $1;
+	  c.Add(new CodeAttributeArgument((CodeExpression) $3));
+	  $$=c;
+	  }
+        ;
+
+named_argument_list
+	: named_argument
+	  {
+	   // Named args list
+	  CodeAttributeArgumentCollection c = new CodeAttributeArgumentCollection();
+	  c.Add((CodeAttributeArgument) $1);
+	  $$=c;
+	  }
+        | named_argument_list COMMA named_argument
+	  {
+	  // Named args list
+	  CodeAttributeArgumentCollection c = (CodeAttributeArgumentCollection) $1;
+	  c.Add((CodeAttributeArgument) $3);
+	  $$=c;
+	  }
+        ;
+
+named_argument
+	: IDENTIFIER ASSIGN expression
+	  {
+	  // Name argument
+	  $$= new CodeAttributeArgument($1.ToString(), (CodeExpression) $3);
+	  }
+	;
+
+		  
+class_body
+	:  OPEN_BRACE opt_class_member_declarations CLOSE_BRACE
+	;
+
+opt_class_member_declarations
+	: /* empty */
+	| class_member_declarations
+	;
+
+class_member_declarations
+	: class_member_declaration
+	| class_member_declarations 
+	  class_member_declaration
+	;
+
+class_member_declaration
+	: constant_declaration			// done
+	| field_declaration			// done
+	| method_declaration			// done
+	| property_declaration			// done
+	| event_declaration			// done
+	| indexer_declaration			// done
+	| operator_declaration			// done
+	| constructor_declaration		// done
+	| destructor_declaration		// done
+	| type_declaration
+	;
+
+struct_declaration
+	: opt_attributes
+	  opt_modifiers
+	  STRUCT IDENTIFIER
+	  opt_struct_interfaces
+	  {
+	  // add struct to ns
+	  bd.AddType($4.ToString(),(ModifierAttribs)$2, Types.Struct, 
+	  ((CodeTypeReferenceCollection) $5), classScope>0, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  classScope++;
+	  }
+	  struct_body
+	  {
+	  // Leaving struct definition
+	  classScope--;
+	  bd.Up();
+	  }
+	  opt_semicolon
+	;
+
+opt_struct_interfaces
+	: /* empty */
+	{
+	// Empty struct interface
+	$$=null;
+	}
+	| struct_interface
+	;
+
+/*
+//I think this is not correct
+struct_interfaces
+	: struct_interface
+	| struct_interfaces struct_interface
+	; 
+*/
+
+struct_interface
+	: COLON interface_type_list
+	{
+	// Struct interface
+	$$=$2;
+	}
+	;
+
+struct_body
+	: OPEN_BRACE opt_struct_member_declarations CLOSE_BRACE
+	;
+
+opt_struct_member_declarations
+	: /* empty */
+	| struct_member_declarations
+	;
+
+struct_member_declarations
+	: struct_member_declaration
+	| struct_member_declarations struct_member_declaration
+	;
+
+struct_member_declaration
+	: constant_declaration
+	| field_declaration
+	| method_declaration
+	| property_declaration
+	| event_declaration
+	| indexer_declaration
+	| operator_declaration
+	| constructor_declaration
+	| type_declaration
+
+	/*
+	 * This is only included so we can flag error 575: 
+	 * destructors only allowed on class types
+	 */
+	| destructor_declaration 
+	;
+
+constant_declaration
+	: opt_attributes 
+	  opt_modifiers
+	  CONST
+	  type
+	  constant_declarators
+	  SEMICOLON
+	  {
+	  // Add Const to type
+	  bd.AddFieldMultiple((CodeTypeMemberCollection) $5, (ModifierAttribs) $2, 
+	  (CodeTypeReference) $4, Members.Constant, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  }
+	  
+	;
+
+constant_declarators
+	: constant_declarator 
+	  {
+	  // Const declarations
+	  CodeTypeMemberCollection mc= new CodeTypeMemberCollection();
+	  mc.Add((CodeTypeMember) $1);
+	  $$=mc;
+	  }
+	| constant_declarators COMMA constant_declarator
+	  {
+	  // Const declarations
+	  CodeTypeMemberCollection mc= (CodeTypeMemberCollection) $1;
+	  mc.Add((CodeTypeMember) $3);
+	  $$=mc;
+	  }
+	;
+
+constant_declarator
+	: IDENTIFIER ASSIGN constant_expression
+	  {
+	  // Const declaration
+	  // No init expresion implemented yet
+	  CodeMemberField mf=new CodeMemberField();
+	  mf.Name=$1.ToString();
+	  mf.InitExpression=(CodeExpression) $3;
+	  $$= mf;
+	  }
+	;
+
+field_declaration
+	: opt_attributes
+	  opt_modifiers
+	  type 
+	  variable_declarators
+	  SEMICOLON
+	  {
+	  // Add Field to type
+	  bd.AddFieldMultiple((CodeTypeMemberCollection) $4, (ModifierAttribs) $2, 
+	  (CodeTypeReference) $3, Members.Field, (CodeAttributeDeclarationCollection) $1);
+	  }
+	  
+	;
+
+variable_declarators
+	: variable_declarator 
+	  {
+	  // Field declarations
+	  CodeTypeMemberCollection mc= new CodeTypeMemberCollection();
+	  mc.Add((CodeTypeMember) $1);
+	  $$=mc;
+	  }
+	| variable_declarators COMMA variable_declarator
+	  {
+	   // Field declarations
+	  CodeTypeMemberCollection mc= (CodeTypeMemberCollection) $1;
+	  mc.Add((CodeTypeMember) $3);
+	  $$=mc;
+	  }
+	;
+
+variable_declarator
+	: IDENTIFIER ASSIGN variable_initializer
+	  {
+	  // Field declaration
+	  // No init expresion implemented yet
+	  CodeMemberField mf=new CodeMemberField();
+	  mf.Name=$1.ToString();
+	  mf.InitExpression=((CodeExpression) $3);
+	  mf.Comments.AddRange(cmtBuilder.CurrComments);
+	  cmtBuilder.ClearComments();
+	  $$= mf;
+	  }
+	| IDENTIFIER
+	  {
+	  // Field declaration
+	  CodeMemberField mf=new CodeMemberField();
+	  mf.Name=$1.ToString();
+	  mf.Comments.AddRange(cmtBuilder.CurrComments);
+	  cmtBuilder.ClearComments();
+	  $$= mf;
+	  }
+	;
+
+variable_initializer
+	: expression
+	  {
+	  // Replaced
+	  }
+	| array_initializer
+	  {
+	  // Replaced
+	  // TODO: (? Expression for array initializer)
+	  
+	 CodeArrayCreateExpression a = new CodeArrayCreateExpression();
+			a.CreateType= new CodeTypeReference("");
+
+			CodeExpressionCollection init =(CodeExpressionCollection) $1;
+
+			if (init!=null && init.Count>0) 
+			{
+				a.Initializers.AddRange(init);
+			}
+			
+
+			$$=a;
+	  }
+	| STACKALLOC type OPEN_BRACKET expression CLOSE_BRACKET
+	  {
+	  // Replaced
+	  // Todo
+	  }
+	;
+
+method_declaration
+	: opt_attributes
+	  opt_modifiers
+	  type
+	  member_name
+	  OPEN_PARENS opt_formal_parameter_list CLOSE_PARENS 
+	  {
+	  // Add method
+	  bd.AddMethod($4.ToString(), (ModifierAttribs) $2, (CodeTypeReference) $3,
+	  (CodeParameterDeclarationExpressionCollection) $6, Members.Method, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  }
+	  method_body
+	  {
+	  // Leaving method
+	  bd.Up();
+	  }
+	| opt_attributes
+	  opt_modifiers
+	  VOID
+	  member_name
+	  OPEN_PARENS opt_formal_parameter_list CLOSE_PARENS 
+	  {
+	  // Add method
+	  bd.AddMethod($4.ToString(), (ModifierAttribs) $2, null,
+	  (CodeParameterDeclarationExpressionCollection) $6, Members.Method, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  
+	  }
+	  method_body
+	  {
+	  // Leaving method
+	  bd.Up();
+	  }
+	;
+
+method_body
+	: block
+	| SEMICOLON		{
+	  // Replaced
+	  }
+	;
+
+opt_formal_parameter_list
+	: /* empty */			{
+	  // Empty param list
+	  $$=null;
+	  }
+	| formal_parameter_list
+	;
+
+formal_parameter_list
+	: fixed_parameters		
+	  {
+	  // fixed params
+	  $$=$1;
+	  } 
+	| fixed_parameters COMMA parameter_array
+	  {
+	  // Adds parram array to fixed params
+	  CodeParameterDeclarationExpressionCollection parCollection= 
+	  (CodeParameterDeclarationExpressionCollection) $1;
+	  parCollection.Add((CodeParameterDeclarationExpression) $3);
+	  $$=parCollection;
+	  }
+	| parameter_array 
+	  {
+	  // Param Array
+	  CodeParameterDeclarationExpressionCollection parCollection= 
+	  new CodeParameterDeclarationExpressionCollection();
+	  parCollection.Add((CodeParameterDeclarationExpression) $1);
+	  $$=parCollection;
+	  }
+	;
+
+fixed_parameters
+	: fixed_parameter	
+	  {
+	  // Fixed param
+	  CodeParameterDeclarationExpressionCollection parCollection= 
+	  new CodeParameterDeclarationExpressionCollection();
+	  parCollection.Add((CodeParameterDeclarationExpression) $1);
+	  $$=parCollection;
+	  }
+	| fixed_parameters COMMA fixed_parameter
+	  {
+	  // Fixed params
+	  CodeParameterDeclarationExpressionCollection parCollection= 
+	  (CodeParameterDeclarationExpressionCollection) $1;
+	  parCollection.Add((CodeParameterDeclarationExpression) $3);
+	  $$=parCollection;
+	  }
+	;
+
+fixed_parameter
+	: opt_attributes
+	  opt_parameter_modifier
+	  type
+	  IDENTIFIER
+	  {
+	  // Param
+	  CodeParameterDeclarationExpression parDecl= 
+	  new CodeParameterDeclarationExpression((CodeTypeReference) $3, $4.ToString());
+	  if (((ParamModifiers)$2)==ParamModifiers.Out)
+		parDecl.Direction=FieldDirection.Out;
+	  if (((ParamModifiers)$2)==ParamModifiers.Ref)
+		parDecl.Direction=FieldDirection.Ref;
+		if ($1 !=null)
+		bd.AddAttributeToParamMultiple((CodeAttributeDeclarationCollection) $1, parDecl);
+	  
+	  parDecl.UserData["Location"]= new CodeLinePragma(name, lexer.Line);
+	  $$=parDecl;
+	  }
+	;
+
+opt_parameter_modifier
+	: /* empty */		{
+	  // Empty modifier
+	  $$=ParamModifiers.In;
+	  }
+	| parameter_modifier
+	;
+
+parameter_modifier
+	: REF			{
+	  // ref modifier
+	  $$=ParamModifiers.Ref;
+	  }
+	| OUT			{
+	  // out modifier
+	  $$=ParamModifiers.Out;
+	  }
+	;
+
+parameter_array
+	: opt_attributes PARAMS type IDENTIFIER
+	  {
+	  // Params keyword - params array
+	  Report.Warning(9005, lexer.Location, "Params keyword will not be mapped to CodeDom, it will be a regular param");
+	  // Param
+	  CodeParameterDeclarationExpression parDecl= 
+	  new CodeParameterDeclarationExpression((CodeTypeReference) $3, $4.ToString());
+	  if ($1 !=null)
+		bd.AddAttributeToParamMultiple((CodeAttributeDeclarationCollection) $1, parDecl);
+	  $$=parDecl;
+	  }
+	;
+
+member_name 
+	: qualified_identifier
+	;
+
+property_declaration
+	: opt_attributes
+	  opt_modifiers
+	  type member_name
+	  {
+	  // Start parsing property body
+	  lexer.PropertyParsing = true;
+	  // Add property
+	  bd.AddProperty($4.ToString(), (ModifierAttribs) $2, (CodeTypeReference) $3,
+		null, Members.Property, (CodeAttributeDeclarationCollection) $1);
+	  
+	  }
+	  OPEN_BRACE 
+	  accessor_declarations 
+	  {
+	  //End parsing property body
+	  lexer.PropertyParsing = false;
+	  
+	  }
+	  CLOSE_BRACE
+	  {
+	  // Leaving property
+	  bd.Up();
+	  }
+	;
+
+accessor_declarations
+	: get_accessor_declaration opt_set_accessor_declaration
+	  {
+	  // Property accessors 
+	  }
+	| set_accessor_declaration opt_get_accessor_declaration
+	  {
+	  // Property accessors 
+	  
+	  }
+	;
+
+opt_get_accessor_declaration
+	: /* empty */			{
+	  // Empty get accessor
+	  $$=null;
+	  }
+	| get_accessor_declaration
+	;
+
+opt_set_accessor_declaration
+	: /* empty */			{
+	  // Empty set accessor
+	  $$=null;
+	  }
+	| set_accessor_declaration
+	;
+
+get_accessor_declaration
+	: opt_attributes GET
+	  {
+	  // Get Accessor
+	  lexer.PropertyParsing = false;
+	  ((CodeMemberProperty)bd.CurrMember).HasGet=true;
+	  }
+          accessor_body
+	  {
+	  // Leaving get accessor
+	  lexer.PropertyParsing = true;
+	  }
+	;
+
+set_accessor_declaration
+	: opt_attributes SET 
+	  {
+	  // Set Accessor
+	  lexer.PropertyParsing = false;
+	  ((CodeMemberProperty)bd.CurrMember).HasSet=true;
+	  } 
+	  accessor_body
+	  {
+	  // leaving set accessor
+	  lexer.PropertyParsing = true;
+	  
+	  }
+	;
+
+accessor_body
+	: block 
+	| SEMICOLON		{
+	  // Replaced
+	  }
+	;
+
+interface_declaration
+	: opt_attributes
+	  opt_modifiers
+	  INTERFACE IDENTIFIER
+	  opt_interface_base
+	  {
+	  // Add interface to ns
+	  bd.AddType($4.ToString(),(ModifierAttribs)$2, Types.Interface, 
+	  ((CodeTypeReferenceCollection) $5), classScope>0, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  classScope++;
+	  }
+	  interface_body
+	  {
+	  // Leaving interface definnition
+	  classScope--;
+	  bd.Up();
+	  }
+	  opt_semicolon
+	;
+
+opt_interface_base
+	: /* empty */			  {
+	  // Interface base
+	  $$=null;
+	  }
+	| interface_base
+	;
+
+interface_base
+	: COLON interface_type_list	  {
+	  // Interface base
+	  $$=$2;
+	  }
+	;
+
+interface_type_list
+	: interface_type
+	  {
+	  // Add type to collection of interface types
+	  CodeTypeReferenceCollection tl=new CodeTypeReferenceCollection();
+	  tl.Add((CodeTypeReference) $1);
+	  $$=tl;
+	  }
+	| interface_type_list COMMA interface_type
+	  {
+	  // Add type to collection of interface types
+	  CodeTypeReferenceCollection tl= (CodeTypeReferenceCollection) $1;
+	  tl.Add((CodeTypeReference) $3);
+	  $$=tl;
+	  }
+	;
+
+interface_body
+	: OPEN_BRACE
+	  opt_interface_member_declarations
+	  CLOSE_BRACE
+	;
+
+opt_interface_member_declarations
+	: /* empty */
+	| interface_member_declarations
+	;
+
+interface_member_declarations
+	: interface_member_declaration
+	| interface_member_declarations interface_member_declaration
+	;
+
+interface_member_declaration
+	: interface_method_declaration		
+	| interface_property_declaration	
+	| interface_event_declaration 
+	| interface_indexer_declaration
+	;
+
+opt_new
+	: /* empty */	{
+	  $$=0;
+	  }
+	| NEW		{
+	// new modifier
+	  $$=  ModifierAttribs.New;
+	  }
+	;
+
+interface_method_declaration
+	: opt_attributes opt_new type IDENTIFIER 
+	  OPEN_PARENS opt_formal_parameter_list CLOSE_PARENS
+	  SEMICOLON
+	  {
+	  // Add interface method 
+	   bd.AddMethod($4.ToString(), (ModifierAttribs) $2, (CodeTypeReference) $3,
+	  (CodeParameterDeclarationExpressionCollection) $6, Members.Method, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  bd.Up();
+	  }
+	| opt_attributes opt_new VOID IDENTIFIER 
+	  OPEN_PARENS opt_formal_parameter_list CLOSE_PARENS
+	  SEMICOLON
+	  {
+	  // Add Method
+	  bd.AddMethod($4.ToString(), (ModifierAttribs) $2, null,
+	  (CodeParameterDeclarationExpressionCollection) $6, Members.Method, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  bd.Up();
+	  }
+	;
+
+interface_property_declaration
+	: opt_attributes
+	  opt_new
+	  type IDENTIFIER 
+	  OPEN_BRACE 
+	  {
+	  // Interface property
+	  lexer.PropertyParsing = true;
+	   bd.AddProperty($4.ToString(), (ModifierAttribs) $2, (CodeTypeReference) $3,
+		null, Members.Property, (CodeAttributeDeclarationCollection) $1);
+	  }
+	  interface_accesors 
+	  {
+	  // Interface property 2
+	  lexer.PropertyParsing = false;
+	 
+	  }
+	  CLOSE_BRACE
+	  {
+	  //Leaving interface property 
+	   bd.Up();
+	  }
+	;
+
+interface_accesors
+	: opt_attributes GET SEMICOLON		{
+	  // Interface get accessor
+	  ((CodeMemberProperty)bd.CurrMember).HasGet=true;
+	  }
+	| opt_attributes SET SEMICOLON		{
+	  // Interface set accessor
+	  ((CodeMemberProperty)bd.CurrMember).HasSet=true;
+	  }
+	| opt_attributes GET SEMICOLON opt_attributes SET SEMICOLON 
+	  {
+	  // Intreface get and set accessor
+	  ((CodeMemberProperty)bd.CurrMember).HasGet=true;
+	  ((CodeMemberProperty)bd.CurrMember).HasSet=true;
+	  }
+	| opt_attributes SET SEMICOLON opt_attributes GET SEMICOLON
+	  {
+	  // Intreface get and set accessor
+	  ((CodeMemberProperty)bd.CurrMember).HasGet=true;
+	  ((CodeMemberProperty)bd.CurrMember).HasSet=true;
+	  }
+	;
+
+interface_event_declaration
+	: opt_attributes opt_new EVENT type IDENTIFIER SEMICOLON
+	  {
+	  // Add evebt
+	  bd.AddEvent($5.ToString(), (ModifierAttribs)$2, 
+	  (CodeTypeReference) $4, Members.Event, (CodeAttributeDeclarationCollection) $1);
+	  bd.Up();
+	  }
+	;
+
+interface_indexer_declaration 
+	: opt_attributes opt_new type THIS 
+	  OPEN_BRACKET formal_parameter_list CLOSE_BRACKET
+	  OPEN_BRACE 
+	  {
+	  // Interface indexer
+	  
+	  bd.AddProperty("Item", (ModifierAttribs) $2, (CodeTypeReference) $3,
+		(CodeParameterDeclarationExpressionCollection) $6, Members.Indexer, 
+		(CodeAttributeDeclarationCollection) $1);
+	  lexer.PropertyParsing = true;
+	  }
+	  interface_accesors 
+	  {
+	  // Interface idexer 2
+	  lexer.PropertyParsing = false;
+	  }
+	  CLOSE_BRACE
+	  {
+	  // Leaving interface indexer
+	  bd.Up();
+	  }
+	;
+
+operator_declaration
+	: opt_attributes opt_modifiers operator_declarator block
+	  {
+	  // Operator
+	  Report.Warning(9008, lexer.Location, "Operator will not be parsed (no support in CODEDOM)");
+	  }
+	;
+
+operator_declarator
+	: type OPERATOR overloadable_operator 
+	  OPEN_PARENS type IDENTIFIER CLOSE_PARENS
+	{
+	  // Replaced
+	  }
+	| type OPERATOR overloadable_operator
+	  OPEN_PARENS 
+		type IDENTIFIER COMMA
+	  	type IDENTIFIER 
+	  CLOSE_PARENS
+        {
+	  // Replaced
+	  }
+	| conversion_operator_declarator
+	;
+
+overloadable_operator
+// Unary operators:
+	: BANG   {
+	  // Replaced
+	  }
+        | TILDE  {
+	  // Replaced
+	  }  
+        | OP_INC {
+	  // Replaced
+	  }
+        | OP_DEC {
+	  // Replaced
+	  }
+        | TRUE   {
+	  // Replaced
+	  }
+        | FALSE  {
+	  // Replaced
+	  }
+// Unary and binary:
+        | PLUS {
+	  // Replaced
+	  }
+        | MINUS {
+	  // Replaced
+	  }
+// Binary:
+        | STAR {
+	  // Replaced
+	  }
+        | DIV {
+	  // Replaced
+	  }
+        | PERCENT {
+	  // Replaced
+	  }
+        | BITWISE_AND {
+	  // Replaced
+	  }
+        | BITWISE_OR {
+	  // Replaced
+	  }
+        | CARRET {
+	  // Replaced
+	  }
+        | OP_SHIFT_LEFT {
+	  // Replaced
+	  }
+        | OP_SHIFT_RIGHT {
+	  // Replaced
+	  }
+        | OP_EQ {
+	  // Replaced
+	  }
+        | OP_NE {
+	  // Replaced
+	  }
+        | OP_GT {
+	  // Replaced
+	  }
+        | OP_LT {
+	  // Replaced
+	  }
+        | OP_GE {
+	  // Replaced
+	  }
+        | OP_LE {
+	  // Replaced
+	  }
+	;
+
+conversion_operator_declarator
+	: IMPLICIT OPERATOR type OPEN_PARENS type IDENTIFIER CLOSE_PARENS
+	  {
+	  // Replaced
+	  }
+	| EXPLICIT OPERATOR type OPEN_PARENS type IDENTIFIER CLOSE_PARENS
+	  {
+	  // Replaced
+	  }
+	| IMPLICIT error 
+	  {
+	  // Replaced
+	  }
+	| EXPLICIT error 
+	  {
+	  // Replaced
+	  }
+	;
+
+constructor_declaration
+	: opt_attributes
+	  opt_modifiers
+	  constructor_declarator
+	  {
+	  // Constructor declaration
+	  bd.AddConstructor((ConstructorDecl )$3, (ModifierAttribs) $2, 
+		Members.Constructor , (CodeAttributeDeclarationCollection) $1);
+	  }
+	  block
+	  {
+	  //leaving constructor declaration
+	  bd.Up();
+	  
+	  }
+	;
+
+constructor_declarator
+	: IDENTIFIER 
+	  OPEN_PARENS opt_formal_parameter_list CLOSE_PARENS 
+	  opt_constructor_initializer
+	  {
+	  $$= new ConstructorDecl($1.ToString(), 
+	  (CodeParameterDeclarationExpressionCollection) $3, 
+			null);
+	  }
+	;
+
+opt_constructor_initializer
+	: /* empty */			{
+	  // Empty constructor initializer
+	  $$=null;
+	  }
+	| constructor_initializer
+	;
+
+constructor_initializer
+	: COLON BASE OPEN_PARENS opt_argument_list CLOSE_PARENS
+	  {
+	  // base const. initializer
+	  //should implement initializer
+	  $$=null;
+	  }
+	| COLON THIS OPEN_PARENS opt_argument_list CLOSE_PARENS
+	  {
+	  // this const. initializer
+	  //should implement initializer
+	  $$=null;
+	  }
+	;
+
+destructor_declaration
+	: opt_attributes TILDE IDENTIFIER OPEN_PARENS CLOSE_PARENS block
+	  {
+	  // Replaced
+	   Report.Warning(9009, lexer.Location, "Destructor will not be parsed (no support in CODEDOM)");
+	  } 
+	;
+
+event_declaration
+	: opt_attributes
+	  opt_modifiers
+	  EVENT type variable_declarators SEMICOLON
+	  {
+	  // Event Declaration
+	  bd.AddEventMultiple((CodeTypeMemberCollection) $5, (ModifierAttribs)$2, 
+	  (CodeTypeReference) $4, Members.Event, (CodeAttributeDeclarationCollection) $1);
+	  bd.Up();
+	  }
+	| opt_attributes
+	  opt_modifiers
+	  EVENT type member_name
+	  OPEN_BRACE
+	  {
+	  // Replaced
+	  lexer.EventParsing = true;
+	  bd.AddEvent($5.ToString(), (ModifierAttribs)$2, 
+	  (CodeTypeReference) $4, Members.Event, (CodeAttributeDeclarationCollection) $1);
+	  }
+	  event_accessor_declarations
+	  {
+	  // Replaced
+	  lexer.EventParsing = false;
+	  }
+	  CLOSE_BRACE
+	  {
+	  // Leaving event
+	  bd.Up();
+	  }
+	;
+
+event_accessor_declarations
+	: add_accessor_declaration remove_accessor_declaration
+	{
+	  // Replaced
+	  }
+	| remove_accessor_declaration add_accessor_declaration
+	{
+	  // Replaced
+	  }	
+	;
+
+add_accessor_declaration
+	: opt_attributes ADD
+	  {
+	  // Replaced
+	   Report.Warning(9010, lexer.Location, "Add accessor will not be parsed (no support in CODEDOM)");
+	  lexer.EventParsing = false;
+	  }
+          block
+	  {
+	  // Replaced
+	  lexer.EventParsing = true;
+	  }
+	;
+
+remove_accessor_declaration
+	: opt_attributes REMOVE
+	  {
+	  // Replaced
+	   Report.Warning(9011, lexer.Location, "Remove accessor not be parsed (no support in CODEDOM)");
+	  lexer.EventParsing = false;
+	  }
+          block
+	  {
+	  // Replaced
+	  lexer.EventParsing = true;
+	  }
+	;
+
+indexer_declaration
+	: opt_attributes opt_modifiers indexer_declarator 
+	  OPEN_BRACE 
+	  {
+	  // Add Indexer
+	  IndexerDecl d =(IndexerDecl) $3;
+	  bd.AddProperty(d.Name, (ModifierAttribs) $2, d.Type,
+		d.Params, Members.Indexer, (CodeAttributeDeclarationCollection) $1);
+	  lexer.PropertyParsing = true;
+	  }
+          accessor_declarations 
+	  {
+	  // Replaced
+	  lexer.PropertyParsing = false;
+	  }
+	  CLOSE_BRACE
+	  {
+	  // Exiting Indexer declaration
+	  bd.Up();
+	  }
+	;
+
+indexer_declarator
+	: type THIS OPEN_BRACKET opt_formal_parameter_list CLOSE_BRACKET
+	  {
+	  //Indexer declarator
+	  $$=new IndexerDecl("Item", (CodeParameterDeclarationExpressionCollection) $4, (CodeTypeReference) $1);
+	  }
+	| type qualified_identifier DOT THIS OPEN_BRACKET opt_formal_parameter_list CLOSE_BRACKET
+	  {
+	  // Indexer declarator
+	  $$=new IndexerDecl("Item", (CodeParameterDeclarationExpressionCollection) $6, (CodeTypeReference) $1);
+	  }
+	;
+
+enum_declaration
+	: opt_attributes
+	  opt_modifiers
+	  ENUM IDENTIFIER
+	  opt_enum_base
+	  {
+	  // add enum to ns
+	  bd.AddType($4.ToString(),(ModifierAttribs)$2, Types.Enum, 
+	  ((CodeTypeReferenceCollection) $5), classScope>0, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  classScope++;
+	  }
+	  enum_body
+	  {
+	  // Leaving enum declaration
+	  classScope--;
+	  bd.Up();
+	  }
+	  opt_semicolon
+	;
+
+opt_enum_base
+	: /* empty */		{
+	  // Empty enum base type
+	  }
+	| COLON type		{
+	  // Enum base type
+	  CodeTypeReferenceCollection tl=new CodeTypeReferenceCollection();
+	  tl.Add((CodeTypeReference) $2);
+	  $$=tl;
+	  
+	  }
+	;
+
+enum_body
+	: OPEN_BRACE opt_enum_member_declarations CLOSE_BRACE
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_enum_member_declarations
+	: /* empty */			{
+	  // Replaced
+	  }
+	| enum_member_declarations opt_comma {
+	  // Replaced
+	  }
+	;
+
+enum_member_declarations
+	: enum_member_declaration 
+	  {
+	  // Replaced
+	  }
+	| enum_member_declarations COMMA enum_member_declaration
+	  {
+	  // Replaced
+	  }
+	;
+
+enum_member_declaration
+	: opt_attributes IDENTIFIER 
+	  {
+	  //Enum member
+	  bd.AddField($2.ToString(), 0, null, 
+	  Members.Constant, (CodeAttributeDeclarationCollection) $1);
+			
+	  }
+	| opt_attributes IDENTIFIER
+	  ASSIGN expression
+	  {
+	  // Enum member
+	  CodeMemberField m= new CodeMemberField();
+	  m.Name=$2.ToString();
+	  m.InitExpression=(CodeExpression) $4;
+	  m.Comments.AddRange(cmtBuilder.CurrComments);
+	  cmtBuilder.ClearComments();
+	  bd.AddField(m, 0, null, 
+	  Members.Constant ,  (CodeAttributeDeclarationCollection) $1);
+	
+	  }
+	;
+
+delegate_declaration
+	: opt_attributes
+	  opt_modifiers
+	  DELEGATE type	  
+	  IDENTIFIER OPEN_PARENS 
+	  opt_formal_parameter_list
+	  CLOSE_PARENS 
+	  SEMICOLON
+	  {
+	  // Add delegate to ns
+	  bd.AddDelegate($5.ToString(), (ModifierAttribs) $2, 
+			(CodeParameterDeclarationExpressionCollection) $7,
+			(CodeTypeReference) $4, classScope>0, 
+			(CodeAttributeDeclarationCollection) $1);
+	  }	
+	| opt_attributes
+	  opt_modifiers
+	  DELEGATE VOID	  
+	  IDENTIFIER OPEN_PARENS 
+	  opt_formal_parameter_list
+	  CLOSE_PARENS 
+	  SEMICOLON
+	  {
+	  // Add delegate to ns
+	  bd.AddDelegate($5.ToString(), (ModifierAttribs) $2, 
+			(CodeParameterDeclarationExpressionCollection) $7,
+			null, classScope>0, (CodeAttributeDeclarationCollection) $1);
+	  	
+	  }
+	;
+
+type_name
+	: namespace_or_type_name
+	;
+
+namespace_or_type_name
+	: qualified_identifier
+	;
+
+/* 
+ * Before you think of adding a return_type, notice that we have been
+ * using two rules in the places where it matters (one rule using type
+ * and another identical one that uses VOID as the return type).  This
+ * gets rid of a shift/reduce couple
+ */
+type
+	: type_name {
+	  // Type name
+	  $$ = new CodeTypeReference($1.ToString());
+	  }
+	| builtin_types {
+	  // Build In Types
+	  $$ = new CodeTypeReference($1.ToString());
+	  }
+	| array_type
+	  {
+	  // Array type
+	  $$ = $1;
+	  }
+	| pointer_type	{
+	  // Pointer Type ???
+	  $$ = $1;
+	  }  
+	;
+
+
+pointer_type
+	: type STAR
+	  {
+	  // Pointer Type ???
+	  CodeTypeReference c= (CodeTypeReference) $1;
+	  c.BaseType+="*";
+	  $$ =  c;
+	  }
+	| VOID STAR
+	  {
+	  // Void pointer
+	  $$ = "System.Void*";
+	  }
+	;
+
+non_expression_type
+	: builtin_types	
+	  {
+	  // bi types
+	  //$$=new CodeTypeReference($1.
+	  }
+	| non_expression_type rank_specifier
+	  {
+	  // Replaced
+	  }
+	| non_expression_type STAR
+	  {
+	  // Replaced
+	  }
+	| expression rank_specifiers 
+	  {
+	  // Replaced
+	  }
+	| expression STAR 
+	  {
+	  // Replaced
+	  }
+	;
+
+type_list
+	: type
+	  {
+	   // Add type to collection
+	  CodeTypeReferenceCollection tl=new CodeTypeReferenceCollection();
+	  tl.Add((CodeTypeReference) $1);
+	  $$=tl;
+	  }
+	| type_list COMMA type
+	  {
+	  // Add type to collection
+	  CodeTypeReferenceCollection tl= (CodeTypeReferenceCollection) $1;
+	  tl.Add((CodeTypeReference) $3);
+	  $$=tl;
+	  }
+	;
+
+
+builtin_types
+	: OBJECT	{ $$ = "System.Object"; }
+	| STRING	{ $$ = "System.String"; }
+	| BOOL		{ $$ = "System.Boolean"; }
+	| DECIMAL	{ $$ = "System.Decimal"; }
+	| FLOAT		{ $$ = "System.Single"; }
+	| DOUBLE	{ $$ = "System.Double"; }
+	| integral_type
+	;
+
+integral_type
+	: SBYTE		{ $$ = "System.SByte"; }
+	| BYTE		{ $$ = "System.Byte"; }
+	| SHORT		{ $$ = "System.Int16"; }
+	| USHORT	{ $$ = "System.UInt16"; }
+	| INT		{ $$ = "System.Int32"; }
+	| UINT		{ $$ = "System.UInt32"; }
+	| LONG		{ $$ = "System.Int64"; }
+	| ULONG		{ $$ = "System.UInt64"; }
+	| CHAR		{ $$ = "System.Char"; }
+	;
+
+interface_type
+	: type_name 
+	{
+	// Interface type
+	$$= new CodeTypeReference($1.ToString());
+	}
+	;
+
+array_type
+	: type rank_specifiers
+	  {
+	  // Array Type
+	  
+	  $$=CommonUtil.CreateArrayType((CodeTypeReference) $1, $2.ToString());
+	  }
+	;
+
+//
+// Expressions, section 7.5
+//
+primary_expression
+	: literal
+	| qualified_identifier
+	{
+	//QI as primary expression
+	//this is problem we cannot say what is it right now
+	$$=bd.ResolveIdentifier($1.ToString());
+	}
+	| parenthesized_expression
+	| member_access
+	| invocation_expression
+	| element_access
+	| this_access
+	| base_access
+	| post_increment_expression
+	| post_decrement_expression
+	| new_expression
+	| typeof_expression
+	| sizeof_expression
+	| checked_expression
+	| unchecked_expression
+	| pointer_member_access
+//	| pointer_element_access
+//	| sizeof_expression
+	;
+
+literal
+	: boolean_literal
+	| integer_literal
+	| real_literal
+	| LITERAL_CHARACTER     {
+	   //Char literal
+	  $$=new CodePrimitiveExpression(Char.Parse($1.ToString()));
+	  }
+	| LITERAL_STRING        {
+	  // Char literal
+	  $$=new CodePrimitiveExpression($1.ToString());
+	  }
+	| NULL			{
+	  // Null literal
+	  $$=new CodePrimitiveExpression(null);
+	  }
+	;
+
+real_literal
+	: LITERAL_FLOAT         {
+	  // Real literal
+	  $$=new CodePrimitiveExpression((Single) $1);
+	  }
+	| LITERAL_DOUBLE        {
+	  // Double literal
+	  $$=new CodePrimitiveExpression((Double) $1);
+	  
+	  }
+	| LITERAL_DECIMAL       {
+	//Decimal literal
+	  $$=new CodePrimitiveExpression((Decimal)$1 );
+	  }
+	;
+
+integer_literal
+	: LITERAL_INTEGER       {
+	  // Int literal
+	  //$$=new CodePrimitiveExpression($1 );
+	  $$=new CodePrimitiveExpression(lexer.Value);
+	  }
+	;
+
+boolean_literal
+	: TRUE			{
+	  // Bool literal
+	  $$=new CodePrimitiveExpression(true);
+	  }
+	| FALSE			{
+	   // Bool literal
+	    $$=new CodePrimitiveExpression(true);
+	  }
+	;
+
+parenthesized_expression
+	: OPEN_PARENS expression CLOSE_PARENS
+	  {
+	  // parenthesized_expression
+	  $$=$2;
+	  }
+	;
+
+member_access
+	: primary_expression DOT IDENTIFIER
+	  {
+	  // Field access
+	  
+	  $$= new CodeFieldReferenceExpression((CodeExpression) $1, $3.ToString());
+	  }
+	| predefined_type DOT IDENTIFIER
+	  {
+	  // predef type field access
+	  $$= new CodeFieldReferenceExpression(new CodeTypeReferenceExpression($1.ToString()), $3.ToString());
+	  }
+	;
+
+predefined_type
+	: builtin_types
+	;
+
+invocation_expression
+	: primary_expression OPEN_PARENS opt_argument_list CLOSE_PARENS
+	  {
+	  // Method call
+			CodeExpression e = (CodeExpression) $1;
+			CodeExpression tg;
+			string name;
+	  
+			if ((e is CodeFieldReferenceExpression))
+			{
+				tg= ((CodeFieldReferenceExpression) e).TargetObject;
+				name = ((CodeFieldReferenceExpression) e).FieldName;
+			}
+			else
+			{
+				tg=null;
+				name=$1.ToString();
+			}
+
+			CodeExpressionCollection p= (CodeExpressionCollection) $3;
+			CodeExpression[] pa= new CodeExpression[p.Count];
+			p.CopyTo(pa,0);
+	  
+			CodeMethodReferenceExpression m= new CodeMethodReferenceExpression(tg, name);
+			
+			$$=new CodeMethodInvokeExpression(m,pa);
+	  }
+	; 
+
+opt_argument_list
+	: /* empty */		{
+	  $$ = new CodeExpressionCollection();
+	  }
+	| argument_list
+	;
+
+argument_list
+	: argument		
+	  {
+	  //args list
+		CodeExpressionCollection c= new CodeExpressionCollection();
+		c.Add((CodeExpression) $1);
+		$$=c;
+	  
+	  }
+	| argument_list COMMA argument
+	  {
+	  // args list
+	    CodeExpressionCollection c= (CodeExpressionCollection) $1;
+		c.Add((CodeExpression) $3);
+		$$=c;
+	  }
+	;
+
+argument
+	: expression
+	| REF variable_reference 
+	  {
+	  // Ref direction
+	  $$=new CodeDirectionExpression(FieldDirection.Ref, (CodeExpression) $2);
+	  }
+	| OUT variable_reference 
+	  {
+	  // out ref
+	  $$=new CodeDirectionExpression(FieldDirection.Ref, (CodeExpression) $2);
+	  }
+	;
+
+variable_reference
+	: expression {
+	  // Replaced
+	  }
+	;
+
+element_access
+	: primary_expression OPEN_BRACKET expression_list CLOSE_BRACKET	
+	  {
+	  // Indexer access
+	  CodeExpressionCollection p= (CodeExpressionCollection) $3;
+			CodeExpression[] pa= new CodeExpression[p.Count];
+			p.CopyTo(pa,0);
+	  $$=new CodeIndexerExpression((CodeExpression) $1,pa); 
+	  }
+	| primary_expression rank_specifiers
+	  {
+	  // Indexer access
+	  // TODO: - need fix
+	  $$=$1;
+	  }
+	;
+
+expression_list
+	: expression
+	  {
+	 //exps list
+		CodeExpressionCollection c= new CodeExpressionCollection();
+		c.Add((CodeExpression) $1);
+		$$=c;
+	  }
+	| expression_list COMMA expression
+	  {
+	  // exps list
+	    CodeExpressionCollection c= (CodeExpressionCollection) $1;
+		c.Add((CodeExpression) $3);
+		$$=c;
+	  }
+	;
+
+this_access
+	: THIS
+	  {
+	  // this exp
+	  $$=new CodeThisReferenceExpression();
+	  }
+	;
+
+base_access
+	: BASE DOT IDENTIFIER
+	  {
+	  // base access 1
+	  CodeBaseReferenceExpression b= new CodeBaseReferenceExpression();
+	  $$ = new CodeFieldReferenceExpression(b, $3.ToString());
+	  }
+	| BASE OPEN_BRACKET expression_list CLOSE_BRACKET
+	  {
+	  // base access 2
+	  CodeBaseReferenceExpression b= new CodeBaseReferenceExpression();
+	  CodeExpressionCollection p= (CodeExpressionCollection) $3;
+			CodeExpression[] pa= new CodeExpression[p.Count];
+			p.CopyTo(pa,0);
+	  $$=new CodeIndexerExpression(b,pa); 
+	  }
+	;
+
+post_increment_expression
+	: primary_expression OP_INC
+	  {
+	  // post increment
+	  //TODO: extend
+	  $$=new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Add, 
+	  new CodePrimitiveExpression(1));
+	  }
+	;
+
+post_decrement_expression
+	: primary_expression OP_DEC
+	  {
+	  // Post Decr
+	  //TODO: extend
+	  $$=new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Subtract, 
+	  new CodePrimitiveExpression(1));
+	  }
+	;
+
+new_expression
+	: object_or_delegate_creation_expression
+	| array_creation_expression
+	;
+
+object_or_delegate_creation_expression
+	: NEW type OPEN_PARENS opt_argument_list CLOSE_PARENS
+	  {
+	  //object creation expression
+	  CodeExpressionCollection p= (CodeExpressionCollection) $4;
+			CodeExpression[] pa= new CodeExpression[p.Count];
+			p.CopyTo(pa,0);
+	  $$=new CodeObjectCreateExpression((CodeTypeReference) $2, pa);
+	  }
+	;
+
+array_creation_expression
+	: NEW type OPEN_BRACKET expression_list CLOSE_BRACKET 
+	  opt_rank_specifier
+	  opt_array_initializer
+	  {
+	  // Array creation
+	  // TODO: extend
+	  
+	  CodeArrayCreateExpression a= new CodeArrayCreateExpression();
+			if ($6 != null && $6.ToString()!="")
+				a.CreateType=CommonUtil.CreateArrayType((CodeTypeReference) $2,$6.ToString());
+			
+			else 
+				a.CreateType= (CodeTypeReference) $2;
+
+			a.CreateType= (CodeTypeReference) $2;
+
+			CodeExpressionCollection c= (CodeExpressionCollection) $4;
+			CodeExpressionCollection init =(CodeExpressionCollection) $7;
+
+			if (init!=null && init.Count>0) 
+			{
+				a.Initializers.AddRange(init);
+			}
+			
+			if  (c!=null && c.Count>0) 
+			{
+				
+				a.SizeExpression= c[0];
+				if (c.Count>1)
+				
+					Report.Warning(9014,lexer.Location,"CodeDom supports only one dim array"); 
+			}
+
+           $$=a;
+	  
+	  }
+	| NEW type rank_specifiers array_initializer
+	  {
+	  // Array
+	  //TODO - extend
+	  
+	  CodeArrayCreateExpression a= new CodeArrayCreateExpression();
+	  CodeTypeReference type=CommonUtil.CreateArrayType((CodeTypeReference) $2, $3.ToString());
+	  if (type.ArrayRank>1 )
+		  Report.Warning(9014,lexer.Location,"CodeDom supports only one dim array"); 
+	  a.CreateType = type.ArrayElementType;
+	  
+	  
+			CodeExpressionCollection init =(CodeExpressionCollection) $4;
+
+			if (init!=null && init.Count>0) 
+			{
+				a.Initializers.AddRange(init);
+			}
+			
+
+           $$=a;
+	  }
+	| NEW type error 
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_rank_specifier
+	: /* empty */
+	  {
+	  // Empty rank specifier
+	  $$ = "";
+	  }
+	| rank_specifiers
+	  {
+	  // Rank specifier
+	  $$ = $1;
+	  }
+	;
+
+rank_specifiers
+	: rank_specifier
+	  {
+	  // Rank specifier
+	  $$ = $1;
+	  }
+	| rank_specifiers rank_specifier
+	  {
+	  // Rank specifier
+	  $$ = $1.ToString() + $2.ToString();
+	  }     	
+        ;
+
+rank_specifier
+	: OPEN_BRACKET opt_dim_separators CLOSE_BRACKET
+	  {
+	  // Rank specifier
+	  $$="["+$2.ToString()+"]";
+	  }
+	;
+
+opt_dim_separators
+	: /* empty */
+	  {
+	  // Empty separators
+	  $$="";
+	  }
+	| dim_separators
+	  {
+	  // Separators
+	  $$=$1;
+	  }		  
+	;
+
+dim_separators
+	: COMMA
+	  {
+	  // Comma
+	  $$=",";
+	  }
+	| dim_separators COMMA
+	  {
+	  // Separators
+	  $$=$1.ToString()+ ",";
+	  }
+	;
+
+opt_array_initializer
+	: /* empty */
+	  {
+	  // Replaced
+	  $$=null;
+	  }
+        | array_initializer
+	  {
+	  // Replaced
+	  }
+	;
+
+array_initializer
+	: OPEN_BRACE CLOSE_BRACE
+	  {
+	  // Replaced
+	  $$=null;
+	  }
+	| OPEN_BRACE variable_initializer_list opt_comma CLOSE_BRACE
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	;
+
+variable_initializer_list
+	: variable_initializer
+	  {
+	  // Initializer collection
+	  CodeExpressionCollection c= new CodeExpressionCollection();
+		c.Add((CodeExpression) $1);
+		$$=c;
+	  }
+	| variable_initializer_list COMMA variable_initializer
+	  {
+	  // Initializer collection
+	  CodeExpressionCollection c= (CodeExpressionCollection) $1;
+		c.Add((CodeExpression) $3);
+		$$=c;
+	  }
+	;
+
+typeof_expression
+	: TYPEOF OPEN_PARENS type CLOSE_PARENS
+	  {
+	  // typeof epxression
+	  $$= new CodeTypeOfExpression((CodeTypeReference)$3);
+	  }
+	  |
+	  TYPEOF OPEN_PARENS VOID CLOSE_PARENS
+	  {
+	  // typeof epxression
+	  $$= new CodeTypeOfExpression(new CodeTypeReference("System.Void"));
+	  }
+	;
+
+sizeof_expression
+	: SIZEOF OPEN_PARENS type CLOSE_PARENS {
+	  // Sizeof exp
+	  //TODO:
+	  }
+	;
+
+checked_expression
+	: CHECKED OPEN_PARENS expression CLOSE_PARENS
+	  {
+	  // checked
+	  //TODO:
+	  $$=$3;
+	  }
+	;
+
+unchecked_expression
+	: UNCHECKED OPEN_PARENS expression CLOSE_PARENS
+	  {
+	  // unchecked
+	  //TODO:
+	  $$=$3;
+	  
+	  }
+	;
+
+pointer_member_access 
+	: primary_expression OP_PTR IDENTIFIER
+	  {
+	  // Replaced
+	  //TODO:
+	  }
+	  
+	  //TODO: Unary expression not supported - needs extension !!!
+	  // Now just skipped to prevent rt errors
+
+unary_expression
+	: primary_expression
+	| BANG prefixed_unary_expression
+	  {
+	  // Negation
+	  $$=$2;
+	  }
+	| TILDE prefixed_unary_expression
+	  {
+	  // Replaced
+	  $$=$2;
+	  }	
+	  /*  
+	 | OPEN_PARENS type CLOSE_PARENS prefixed_unary_expression
+	  {
+	  // Cast 
+	  $$=new CodeCastExpression((CodeTypeReference) $2, (CodeExpression) $4);
+	  }
+	  */
+        | OPEN_PARENS expression CLOSE_PARENS unary_expression
+	  {
+	  // Cast 1
+	  // TODO
+	  $$=new CodeCastExpression(new CodeTypeReference("UknownType"), (CodeExpression) $4);
+	  }
+        | OPEN_PARENS non_expression_type CLOSE_PARENS prefixed_unary_expression
+	  {
+	  //TODO
+	  // cast 2
+	  $$=new CodeCastExpression(new CodeTypeReference("UknownType"), (CodeExpression) $4);
+	  }
+  
+	;
+
+	
+prefixed_unary_expression
+	: unary_expression
+	| PLUS prefixed_unary_expression
+	  {
+	  // Replaced
+	  $$=$2;
+	  } 
+	| MINUS prefixed_unary_expression 
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	| OP_INC prefixed_unary_expression 
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	| OP_DEC prefixed_unary_expression 
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	| STAR prefixed_unary_expression
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	| BITWISE_AND prefixed_unary_expression
+	  {
+	  // Replaced
+	  $$=$2;
+	  }
+	;
+
+pre_increment_expression
+	: OP_INC prefixed_unary_expression 
+	  {
+	  //increment
+	  //TODO
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $2, CodeBinaryOperatorType.Add, new CodePrimitiveExpression(1));
+	  }
+	;
+
+pre_decrement_expression
+	: OP_DEC prefixed_unary_expression 
+	  {
+	  // decrement
+	  //TODO
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $2, CodeBinaryOperatorType.Subtract, new CodePrimitiveExpression(1));
+	  
+	  }
+	;
+
+multiplicative_expression
+	: prefixed_unary_expression
+	| multiplicative_expression STAR prefixed_unary_expression
+	  {
+	  // Multiple
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Multiply, (CodeExpression) $3);
+	  }
+	| multiplicative_expression DIV prefixed_unary_expression
+	  {
+	  // Divide
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Divide, (CodeExpression) $3);
+	  }
+	| multiplicative_expression PERCENT prefixed_unary_expression 
+	  {
+	  // Modulo
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Modulus, (CodeExpression) $3);
+	  }
+	;
+
+additive_expression
+	: multiplicative_expression
+	| additive_expression PLUS multiplicative_expression 
+	  {
+	  // Add
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Add, (CodeExpression) $3);
+	  }
+	| additive_expression MINUS multiplicative_expression
+	  {
+	  // Subtract
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Subtract, (CodeExpression) $3);
+	  }
+	;
+
+//Shift expressions are not supported
+shift_expression
+	: additive_expression
+	| shift_expression OP_SHIFT_LEFT additive_expression
+	  {
+	  // Replaced
+	  }
+	| shift_expression OP_SHIFT_RIGHT additive_expression
+	  {
+	  // Replaced
+	  }
+	; 
+
+relational_expression
+	: shift_expression
+	| relational_expression OP_LT shift_expression
+	  {
+	  // Less than
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.LessThan, (CodeExpression) $3);
+	  }
+	| relational_expression OP_GT shift_expression
+	  {
+	   // Greater than
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.GreaterThan, (CodeExpression) $3);
+	  }
+	| relational_expression OP_LE shift_expression
+	  {
+	   // Less or equal than
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.LessThanOrEqual, (CodeExpression) $3);
+	  }
+	| relational_expression OP_GE shift_expression
+	  {
+	   // Greater or equal than
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.GreaterThanOrEqual, (CodeExpression) $3);
+	  }
+	| relational_expression IS type
+	  {
+	  // Replaced
+	  //TODO:
+	  }
+	| relational_expression AS type
+	  {
+	  // TODO:
+	  }
+	;
+
+equality_expression
+	: relational_expression
+	| equality_expression OP_EQ relational_expression
+	  {
+	  
+	   // Equal
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.IdentityEquality, (CodeExpression) $3);
+	  }
+	| equality_expression OP_NE relational_expression
+	  {
+	  // Not Equal
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.IdentityInequality, (CodeExpression) $3);
+	  }
+	; 
+
+and_expression
+	: equality_expression
+	| and_expression BITWISE_AND equality_expression
+	  {
+	  // Bit or
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.BitwiseAnd, (CodeExpression) $3);
+	  }
+	;
+
+exclusive_or_expression
+	: and_expression
+	| exclusive_or_expression CARRET and_expression
+	  {
+	  // Replaced
+	  //TODO:
+	  }
+	;
+
+inclusive_or_expression
+	: exclusive_or_expression
+	| inclusive_or_expression BITWISE_OR exclusive_or_expression
+	  {
+	  // Bit or
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.BitwiseOr, (CodeExpression) $3);
+	  }
+	;
+
+conditional_and_expression
+	: inclusive_or_expression
+	| conditional_and_expression OP_AND inclusive_or_expression
+	  {
+	  // and
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.BooleanAnd, (CodeExpression) $3);
+	  }
+	;
+
+conditional_or_expression
+	: conditional_and_expression
+	| conditional_or_expression OP_OR conditional_and_expression
+	  {
+	  //  or
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.BooleanOr, (CodeExpression) $3);
+	  }
+	;
+
+conditional_expression
+	: conditional_or_expression
+	| conditional_or_expression INTERR expression COLON expression 
+	  {
+	  // Replaced
+	  // TODO:
+	  }
+	;
+
+assignment_expression
+	: prefixed_unary_expression ASSIGN expression
+	  {
+	  // Assign
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, (CodeExpression) $3);
+	  }
+	| prefixed_unary_expression OP_MULT_ASSIGN expression
+	  {
+	  // Assign Multiple
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.Multiply,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_DIV_ASSIGN expression
+	  {
+	  // Assign Divide
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.Divide,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_MOD_ASSIGN expression
+	  {
+	  // Assign Modulo
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.Modulus,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_ADD_ASSIGN expression
+	  {
+	 // Assign Add
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.Add,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_SUB_ASSIGN expression
+	  {
+	  // Assign Subtract
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.Subtract,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_SHIFT_LEFT_ASSIGN expression
+	  {
+	  // Replaced
+	  //TODO
+	  }
+	| prefixed_unary_expression OP_SHIFT_RIGHT_ASSIGN expression
+	  {
+	  // Replaced
+	  //TODO
+	  }
+	| prefixed_unary_expression OP_AND_ASSIGN expression
+	  {
+	  // Assign and
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.BitwiseAnd,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_OR_ASSIGN expression
+	  {
+	  // Assign or
+	  $$= new CodeBinaryOperatorExpression((CodeExpression) $1, CodeBinaryOperatorType.Assign, 
+	  new CodeBinaryOperatorExpression((CodeExpression) $1,CodeBinaryOperatorType.BitwiseOr,(CodeExpression) $3));
+	  }
+	| prefixed_unary_expression OP_XOR_ASSIGN expression
+	  {
+	  // Replaced
+	  //TODO
+	  }
+	;
+
+expression
+	: conditional_expression
+	| assignment_expression
+	;
+
+constant_expression
+	: expression
+	;
+
+boolean_expression
+	: expression
+	;
+
+//
+// 10 classes
+//
+class_declaration
+	: opt_attributes
+	  opt_modifiers
+	  CLASS IDENTIFIER
+	  opt_class_base
+	  {
+	  // add class to ns
+	  bd.AddType($4.ToString(),(ModifierAttribs)$2, Types.Class, 
+	  ((CodeTypeReferenceCollection) $5), classScope>0, 
+	  (CodeAttributeDeclarationCollection) $1);
+	  classScope++;
+	  }
+	  class_body 
+	  {
+	  // Leaving class definition
+	  classScope--;
+	  bd.Up();
+	  }
+	  opt_semicolon 
+	;	
+
+opt_modifiers
+	: /* empty */		{
+	  $$ =(ModifierAttribs) 0;
+	  }
+	| modifiers
+	;
+
+modifiers
+	: modifier
+	| modifiers modifier
+	  {
+	  // Concat modifiers
+	  if ((((int)$1) & ((int) $2)) != 0) {
+			Location l = lexer.Location;
+			Report.Error (1004, l, "Duplicate modifier: `" + $2.ToString() + "'");
+		}
+		$$ = (ModifierAttribs) (((ModifierAttribs) $1) | ((ModifierAttribs) $2));
+	  }
+        ;
+
+modifier
+	: NEW			{
+	  // New modifier
+	  $$= ModifierAttribs.New;
+	  }
+	| PUBLIC		{
+	  // Public modifier
+	  $$= ModifierAttribs.Public;
+	  }
+	| PROTECTED		{
+	  // Protected modifier
+	  $$= ModifierAttribs.Protected;
+	  }
+	| INTERNAL		{
+	  // Internal modifier
+	  $$= ModifierAttribs.Internal;
+	  }
+	| PRIVATE		{
+	  // Private modifier
+	  $$= ModifierAttribs.Private;
+	  }
+	| ABSTRACT		{
+	  // Abstract modifier
+	  $$= ModifierAttribs.Abstract;
+	  }
+	| SEALED		{
+	  // Sealed modifier
+	  $$= ModifierAttribs.Sealed;
+	  }
+	| STATIC		{
+	  // Static modifier
+	  $$= ModifierAttribs.Static;
+	  }
+	| READONLY		{
+	  // Readonly modifier
+	   Report.Warning(9012, lexer.Location, "Readonly modifier has no support in CODEDOM)");
+	  $$= ModifierAttribs.Readonly;
+	  }
+	| VIRTUAL		{
+	  // Virtual modifier
+	  $$= ModifierAttribs.Virtual;
+	  }
+	| OVERRIDE 		{
+	  // Override modifier
+	  $$= ModifierAttribs.Override;
+	  }
+	| EXTERN		{
+	  // Extern modifier
+	  $$= ModifierAttribs.Extern;
+	  }
+	| VOLATILE		{
+	  // Volatile modifier
+	  Report.Warning(9012, lexer.Location, "Volatile modifier has no support in CODEDOM)");
+	  $$= ModifierAttribs.Volatile;
+	  }
+	| UNSAFE		{
+	  // Unsafe modifier
+	  Report.Warning(9012, lexer.Location, "Unsafe modifier has no support in CODEDOM)");
+	  $$= ModifierAttribs.Unsafe;
+	  }
+	;
+
+opt_class_base
+	: /* empty */		{
+	  // Null class base
+	  $$=null;
+	  }
+	| class_base		{
+	  // Class base
+	  $$=$1;
+	  }
+	;
+
+//IZ - needs to change to allow only simple types here
+class_base
+	: COLON type_list {
+	  // Class base
+	  $$=$2;
+	  }
+	;
+
+//
+// Statements (8.2)
+//
+
+//
+// A block is "contained" on the following places:
+//	method_body
+//	property_declaration as part of the accessor body (get/set)
+//      operator_declaration
+//	constructor_declaration
+//	destructor_declaration
+//	event_declaration as part of add_accessor_declaration or remove_accessor_declaration
+//      
+block
+	: OPEN_BRACE 
+	  {
+	  // Replaced
+	  } 
+	  opt_statement_list CLOSE_BRACE 
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_statement_list
+	: /* empty */
+	| statement_list 
+	;
+
+statement_list
+	: statement
+	| statement_list statement
+	;
+
+statement
+	: declaration_statement
+	  {
+	  // Replaced
+	  }
+	| embedded_statement
+	  {
+	  // Replaced
+	  }
+	| labeled_statement
+	;
+
+embedded_statement
+	: block
+	| empty_statement
+        | expression_statement
+	| selection_statement
+	| iteration_statement
+	| jump_statement		  
+	| try_statement
+	| checked_statement
+	| unchecked_statement
+	| lock_statement
+	| using_statement
+	| unsafe_statement
+	| fixed_statement
+	;
+
+empty_statement
+	: SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+labeled_statement
+	: IDENTIFIER COLON 
+	  {
+	  // Replaced
+	  }	
+	  statement
+	;
+
+declaration_statement
+	: local_variable_declaration SEMICOLON
+	  {
+	  // Replaced
+	  }
+
+	| local_constant_declaration SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+/* 
+ * The following is from Rhys' grammar:
+ * > Types in local variable declarations must be recognized as 
+ * > expressions to prevent reduce/reduce errors in the grammar.
+ * > The expressions are converted into types during semantic analysis.
+ */
+local_variable_type
+	: primary_expression opt_rank_specifier
+	  {
+	  // Replaced
+	  }
+	| builtin_types opt_rank_specifier
+	  {
+	  // Replaced
+	  }
+        ;
+
+local_variable_pointer_type
+	: primary_expression STAR
+	  {
+	  // Replaced
+	  }
+        | builtin_types STAR
+	  {
+	  // Replaced
+	  }
+        | VOID STAR
+	  {
+	  // Replaced
+	  }
+	| local_variable_pointer_type STAR
+          {
+	  // Replaced
+	  }
+        ;
+
+local_variable_declaration
+	: local_variable_type variable_declarators
+	  {
+	  // Replaced
+	  }
+        | local_variable_pointer_type opt_rank_specifier variable_declarators
+	{
+	  // Replaced
+	  }
+ 	;
+
+local_constant_declaration
+	: CONST local_variable_type constant_declarator
+	  {
+	  // Replaced
+	  }
+	;
+
+expression_statement
+	: statement_expression SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+	//
+	// We have to do the wrapping here and not in the case above,
+	// because statement_expression is used for example in for_statement
+	//
+statement_expression
+	: invocation_expression		{
+	  // Replaced
+	  }
+	| object_creation_expression	{
+	  // Replaced
+	  }
+	| assignment_expression		{
+	  // Replaced
+	  }
+	| post_increment_expression	{
+	  // Replaced
+	  }
+	| post_decrement_expression	{
+	  // Replaced
+	  }
+	| pre_increment_expression	{
+	  // Replaced
+	  }
+	| pre_decrement_expression	{
+	  // Replaced
+	  }
+	| error {
+	  // Replaced
+	  }
+	;
+
+object_creation_expression
+	: object_or_delegate_creation_expression
+	  {
+	  // Replaced
+	  } 
+	;
+
+selection_statement
+	: if_statement
+	| switch_statement
+	; 
+
+if_statement
+	: IF OPEN_PARENS boolean_expression CLOSE_PARENS 
+	  embedded_statement
+	  {
+	  // Replaced
+	  }
+	| IF OPEN_PARENS boolean_expression CLOSE_PARENS
+	  embedded_statement ELSE embedded_statement
+	  {
+	  // Replaced
+	  }
+	;
+
+switch_statement
+	: SWITCH OPEN_PARENS 
+	  {
+	  // Replaced
+	  }
+	  expression CLOSE_PARENS 
+	  switch_block
+	  {
+	  // Replaced
+	  }
+	;
+
+switch_block
+	: OPEN_BRACE
+	  opt_switch_sections
+	  CLOSE_BRACE
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_switch_sections
+	: /* empty */ 		
+          {
+	  // Replaced
+	  }
+	| switch_sections
+	;
+
+switch_sections
+	: switch_section 
+	  {
+	  // Replaced
+	  }
+	| switch_sections switch_section
+	  {
+	  // Replaced
+	  }
+	;
+
+switch_section
+	: switch_labels
+	  {
+	  // Replaced
+	  }
+ 	  statement_list 
+	  {
+	  // Replaced
+	  }
+	;
+
+switch_labels
+	: switch_label 
+	  {
+	  // Replaced
+	  }
+	| switch_labels switch_label 
+	  {
+	  // Replaced
+	  }
+	;
+
+switch_label
+	: CASE constant_expression COLON 	{
+	  // Replaced
+	  }
+	| DEFAULT COLON				{
+	  // Replaced
+	  }
+	| error {
+	  // Replaced
+	  }
+	;
+
+iteration_statement
+	: while_statement
+	| do_statement
+	| for_statement
+	| foreach_statement
+	;
+
+while_statement
+	: WHILE OPEN_PARENS boolean_expression CLOSE_PARENS embedded_statement
+	{
+	  // Replaced
+	  }
+	;
+
+do_statement
+	: DO embedded_statement 
+	  WHILE OPEN_PARENS boolean_expression CLOSE_PARENS SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+for_statement
+	: FOR OPEN_PARENS 
+	  opt_for_initializer SEMICOLON
+	  {
+	  // Replaced
+	  } 
+	  opt_for_condition SEMICOLON
+	  opt_for_iterator CLOSE_PARENS 
+	  embedded_statement
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_for_initializer
+	: /* empty */		{
+	  // Replaced
+	  }
+	| for_initializer	
+	;
+
+for_initializer
+	: local_variable_declaration
+	| statement_expression_list
+	;
+
+opt_for_condition
+	: /* empty */		{
+	  // Replaced
+	  }
+	| boolean_expression
+	;
+
+opt_for_iterator
+	: /* empty */		{
+	  // Replaced
+	  }
+	| for_iterator
+	;
+
+for_iterator
+	: statement_expression_list
+	;
+
+statement_expression_list
+	: statement_expression	
+	  {
+	  // Replaced
+	  }
+	| statement_expression_list COMMA statement_expression
+	  {
+	  // Replaced
+	  }
+	;
+
+foreach_statement
+	: FOREACH OPEN_PARENS type IDENTIFIER IN 
+	  {
+	  // Replaced
+	  }
+	  expression CLOSE_PARENS 
+	  {
+	  // Replaced
+	  }
+	  embedded_statement 
+	  {
+	  // Replaced
+	  }
+	;
+
+jump_statement
+	: break_statement
+	| continue_statement
+	| goto_statement
+	| return_statement
+	| throw_statement
+	;
+
+break_statement
+	: BREAK SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+continue_statement
+	: CONTINUE SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+goto_statement
+	: GOTO IDENTIFIER SEMICOLON 
+	  {
+	  // Replaced
+	  }
+	| GOTO CASE constant_expression SEMICOLON
+	  {
+	  // Replaced
+	  }
+	| GOTO DEFAULT SEMICOLON 
+	  {
+	  // Replaced
+	  }
+	; 
+
+return_statement
+	: RETURN opt_expression SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+throw_statement
+	: THROW opt_expression SEMICOLON
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_expression
+	: /* empty */
+	| expression
+	;
+
+try_statement
+	: TRY block catch_clauses 
+	{
+	  // Replaced
+	  }
+	| TRY block opt_catch_clauses FINALLY block
+	  {
+	  // Replaced
+	  }
+	| TRY block error 
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_catch_clauses
+	: /* empty */  {
+	  // Replaced
+	  }
+        | catch_clauses
+	;
+
+catch_clauses
+	: catch_clause 
+	  {
+	  // Replaced
+	  }
+	| catch_clauses catch_clause
+	  {
+	  // Replaced
+	  }
+	;
+
+opt_identifier
+	: /* empty */	{
+	  // Replaced
+	  }
+	| IDENTIFIER
+	;
+
+catch_clause 
+	: CATCH opt_catch_args 
+	{
+	  // Replaced
+	  }
+	 block {
+	  // Replaced
+	  }
+        ;
+
+opt_catch_args
+	: /* empty */ {
+	  // Replaced
+	  }
+        | catch_args
+	;	  
+
+catch_args 
+        : OPEN_PARENS type opt_identifier CLOSE_PARENS 
+        {
+	  // Replaced
+	  }
+        ;
+
+checked_statement
+	: CHECKED block
+	  {
+	  // Replaced
+	  }
+	;
+
+unchecked_statement
+	: UNCHECKED block
+	  {
+	  // Replaced
+	  }
+	;
+
+unsafe_statement
+	: UNSAFE 
+	{
+	  // Replaced
+	  }
+	 block {
+	  // Replaced
+	  }
+	;
+
+fixed_statement
+	: FIXED OPEN_PARENS 
+	  pointer_type fixed_pointer_declarators 
+	  CLOSE_PARENS 
+	  {
+	  // Replaced
+	  }
+	  embedded_statement 
+	  {
+	  // Replaced
+	  }
+	;
+
+fixed_pointer_declarators
+	: fixed_pointer_declarator	{
+	  // Replaced
+	  }
+	| fixed_pointer_declarators COMMA fixed_pointer_declarator
+	  {
+	  // Replaced
+	  }
+	;
+
+fixed_pointer_declarator
+	: IDENTIFIER ASSIGN expression
+	  {
+	  // Replaced
+	  }
+	;
+
+lock_statement
+	: LOCK OPEN_PARENS expression CLOSE_PARENS 
+	  {
+	  // Replaced
+	  } 
+	  embedded_statement
+	  {
+	  // Replaced
+	  }
+	;
+
+using_statement
+	: USING OPEN_PARENS resource_acquisition CLOSE_PARENS 
+	  {
+	  // Replaced
+	  }
+	  embedded_statement
+	  {
+	  // Replaced
+	  }
+	; 
+
+resource_acquisition
+	: local_variable_declaration
+	| expression
+	;
+
+%%
+
+
+Tokenizer lexer;
+private CodeDomBuilder bd;
+private CommentBuilder cmtBuilder;
+private int classScope=0;
+
+public CodeDomBuilder Builder
+{
+ get 
+ {
+ return bd;
+ }
+}
+
+public Tokenizer Lexer {
+	get {
+		return lexer;
+	}
+}	
+
+ 
+
+public CSharpParser (string name, System.IO.Stream input, ArrayList defines)
+{
+	
+	this.name = name;
+	this.input = input;
+
+    cmtBuilder=new CommentBuilder(name);
+	lexer = new Tokenizer (input, name, defines, cmtBuilder);
+	bd = new CodeDomBuilder(name, lexer, cmtBuilder);
+	
+	
+}
+
+public override int parse ()
+{
+	StringBuilder value = new StringBuilder ();
+
+	global_errors = 0;
+	Report.Clear();
+	try {
+		if (yacc_verbose_flag)
+			yyparse (lexer, new yydebug.yyDebugSimple ());
+		else
+			yyparse (lexer);
+	} 
+
+	
+	    catch(Mono.CSharp.yyParser.yyException e)
+	    {
+	    Report.Error(1, lexer.Location, "Syntax error: " + e.Message + 
+	    " <Detail location: "+ name +":"+lexer.location+">");
+	    global_errors++;
+	    }
+	    
+		catch (Exception e){	
+		Console.WriteLine ("Fatal error [input pos.: {0}]", lexer.location);
+		Console.WriteLine (e);
+		global_errors++;
+		}
+	global_errors+=Report.Errors;
+	
+	return global_errors;
+}
+
+AttributeTargets CheckAttributeTarget (string a)
+{
+	switch (a) {
+
+	case "assembly" : 
+	  return AttributeTargets.Assembly;
+	case "field" : 
+	  return AttributeTargets.Field;
+	case "method" : 
+	  return AttributeTargets.Method;
+	case "param" : 
+	  return AttributeTargets.Param;
+	case "property" : 
+	  return AttributeTargets.Property;
+	case "type" :
+	  return AttributeTargets.Type;
+		
+		
+	default :
+		Location l = lexer.Location;
+		Report.Error (658, l, "`" + a + "' is an invalid attribute target");
+		return 0;
+	}
+
+}
+}

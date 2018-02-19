@@ -1,0 +1,54 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>Project and Namespace Summaries</title>
+</head>
+
+<body>
+
+<h2>Project Summary Comments</h2>
+The <b>Prj Summary</b> button in the <b>Assemblies to Document</b> section
+of the main form opens a form in which you can enter summary comments that
+should appear in the root namespaces page of the compiled help file.  This
+is the standard default page unless additional content is defined that is
+marked as the default page.  The Namespaces page is also accessible via the
+breadcrumb link available at the top of the namespace item help pages in
+the generated help file.  These comments will appear above the list of
+namespaces and can contain HTML markup (i.e. text formatting, e-mail links,
+etc).  If none are defined, the page just shows the list of namespaces.
+
+<h2>Namespace Summaries</h2>
+The <b>Namespaces</b> button in the <b>Assemblies to Document</b> section
+of the main form allows you to specify which namespaces should appear in
+the help file and the namespace summaries to display in the root namespaces
+page and on the help page for each namespace.
+
+<p/><div align="center"><img src="../Images/Namespaces.jpg"
+    alt="Namespace Summaries" width="888" height="583" /></div>
+
+<p/>Check the namespaces that you want to appear and uncheck those that you do
+not want to appear.  By default, all namespaces in all assemblies are
+documented with the exception of the global (unnamed) namespace that
+sometimes appears and contains private module details.
+
+<p/>To edit a namespace summary, select the namespace in the list and edit
+the comments in the text box at the bottom of the form.  The comments can
+include HTML markup (i.e. bolding, e-mail links, etc).  If no summary is
+defined, a red warning note will appear for the namespace on the root
+namespaces page and above the namespace content in the help page for the
+namespace itself.  When this form is opened, it scans the documentation
+assemblies for new namespaces and adds them to the list if it finds any.
+If you build a help file without updating the namespace list, any unknown
+namespaces will appear in the help file but they will also contain a red
+warning message indicating that the namespace summary is missing.
+
+<p/>Namespaces are never removed from the list even if the namespace no longer
+appears in one of the documented assemblies.  You can remove old namespaces
+from the list by selecting them and clicking the <b>Delete</b> button.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 1 -->

@@ -1,0 +1,14 @@
+﻿<Window x:Class="Catalyst.PresentationFramework.UI.CalendarViewItemWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catalyst="clr-namespace:Catalyst.Windows.Controls;assembly=Catalyst.Windows.Controls"
+    xmlns:local="clr-namespace:Catalyst.PresentationFramework.UI"
+    Title="Calendar View Item Window" Height="300" Width="300">
+    <Grid>
+        <catalyst:CalendarViewItem>
+            <catalyst:CalendarViewItem.DataContext>
+                <local:Appointment Begin="03/02/2009 2:00 AM" End="03/02/2009 3:00 AM" Subject="Meet with John" Location="Southwest Meeting Room" Organizer="Jim Smith" />
+            </catalyst:CalendarViewItem.DataContext>
+        </catalyst:CalendarViewItem>
+    </Grid>
+</Window>

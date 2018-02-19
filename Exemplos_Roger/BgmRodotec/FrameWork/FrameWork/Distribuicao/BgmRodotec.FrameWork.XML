@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BgmRodotec.FrameWork</name>
+    </assembly>
+    <members>
+        <member name="T:BgmRodotec.FrameWork.BaseCadastro">
+            <summary>
+            Classe base para classes de entidades de banco de dados, geralmente utilizadas para efetuar cadastros (Gravação / Alteração / Exclusão). 
+            Implementa interface IClonable garantindo que todos os objetos da aplicação herdarão os métodos de clone de objetos.
+            </summary>
+        </member>
+        <member name="P:BgmRodotec.FrameWork.BaseCadastro.AchouRegistro">
+            <summary>
+            Property para controlar se o registro existe.
+            </summary>
+        </member>
+        <member name="T:BgmRodotec.FrameWork.DatabaseProduct">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

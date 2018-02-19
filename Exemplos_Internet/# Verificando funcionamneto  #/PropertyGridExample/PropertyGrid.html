@@ -1,0 +1,570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:st1 xmlns:o>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</head>
+	<body>
+		<P align="center">Using the Property Grid in C#</P>
+		<P align="center"><IMG alt="" src="PropertyGridExample.JPG"></P>
+		<P align="center">Figure 1 - The property grid in action</P>
+		<P align="left">
+			Are you familiar with&nbsp;that window in Visual Studio .NET that lets you edit 
+			all your forms? You know, the one that you wish you could add to all your 
+			programs because it has such a cool interface? You know, the Property 
+			Window!&nbsp; Well guess what? You can add it to your windows form as part 
+			of&nbsp;your design and use it to allow users to&nbsp;edit class properties 
+			directly&nbsp;because Microsoft has provided it, they just don't display it 
+			initially in the toolbox.&nbsp; The control is called the Property Grid and you 
+			have full&nbsp;access to it. Simply right click on the toolbox and choose <STRONG>Add/Remove 
+				Items... </STRONG>as shown in figure 2 below:</P>
+		<P align="center"><IMG alt="" src="AddRemoveItem.JPG"></P>
+		<P align="center">Figure 2 - Adding the Property Grid to the ToolBox</P>
+		<P align="left">This will bring up the Customize Toolbox dialog which will give you 
+			a choice of either .NET Components or COM Components.&nbsp;&nbsp; Scroll down 
+			to PropertyGrid, check this item and click OK.&nbsp; Walla!&nbsp; You now have 
+			access to a&nbsp; very powerful editting control in which you can allow users 
+			to edit properties in your classes through the slick interface of the property 
+			grid.</P>
+		<P align="center"><IMG alt="" src="ComponentChoiceDialog.JPG"></P>
+		<P align="center">Figure 3 - Customize ToolBox Dialog for Adding your PropertyGrid 
+			Control to the Toolbox</P>
+		<P align="left"><STRONG>Readying your Class for the Property Grid</STRONG></P>
+		<P align="left">The property grid is fairly easy to use.&nbsp; The hard part is 
+			making the class that you want to display in the grid "Property Grid 
+			Friendly".&nbsp; The first step is to create public properties for fields you 
+			want to expose.&nbsp; All properties should have <STRONG>get</STRONG> and <STRONG>set</STRONG>
+			methods.&nbsp; (If you don't have a get method, the property won't show up in 
+			the PropertyGrid).&nbsp;&nbsp; If you just do the bare minimum of making public 
+			properties with get and set methods, &nbsp;your class instance can be displayed 
+			in the property grid.&nbsp; However, your property grid will be void of 
+			descriptions, categories and other niceties that property grids&nbsp;such 
+			as&nbsp;Visual Studio.NET contains.&nbsp; In order to really make your property 
+			grid soar, you need to add special attributes to each of your properties.&nbsp; 
+			These attributes are contained in the <STRONG>System.ComponentModel</STRONG> namespace 
+			and are shown in the table below:</P>
+		<TABLE id="Table1" style="WIDTH: 483px; HEIGHT: 149px" cellSpacing="0" cellPadding="0"
+			width="483" align="center" border="1">
+			<TR>
+				<TD align="left" bgColor="#f1f1f1" style="WIDTH: 145px; HEIGHT: 21px"><STRONG>Attribute</STRONG></TD>
+				<TD align="left" bgColor="#f1f1f1" style="HEIGHT: 21px"><STRONG>Description</STRONG></TD>
+			</TR>
+			<TR>
+				<TD align="left" style="WIDTH: 145px"><B>CategoryAttribute</B></TD>
+				<TD align="left">&nbsp;This attribute places your property in the appropriate 
+					category in a node on the property grid.</TD>
+			</TR>
+			<TR>
+				<TD style="WIDTH: 145px; HEIGHT: 21px" align="left"><B>DescriptionAttribute</B></TD>
+				<TD style="HEIGHT: 21px" align="left">This attribute places a description of your 
+					property at the bottom of the property grid</TD>
+			</TR>
+			<TR>
+				<TD align="left" style="WIDTH: 145px"><B>BrowsableAttribute</B></TD>
+				<TD align="left">This is used to determine whether or not the property is shown or 
+					hidden in the property grid</TD>
+			</TR>
+			<TR>
+				<TD align="left" style="WIDTH: 145px"><B>ReadOnlyAttribute</B></TD>
+				<TD align="left">Use this attribute to make your property read only inside the 
+					property grid</TD>
+			</TR>
+			<TR>
+				<TD align="left" style="WIDTH: 145px"><B>DefaultValueAttribute</B></TD>
+				<TD align="left">Specifies the default value of the property shown in the property 
+					grid</TD>
+			</TR>
+			<TR>
+				<TD align="left" style="WIDTH: 145px"><B>DefaultPropertyAttribute</B></TD>
+				<TD align="left">If placed above a property, this property gets the focus when the 
+					property grid is first launched. Unlike the other attributes, this attribute 
+					goes above the class.</TD>
+			</TR>
+		</TABLE>
+		<P align="center">Table 1 - Attributes to ready your class's properties for the 
+			property grid</P>
+		<P align="left"><STRONG>The Customer Class</STRONG></P>
+		<P align="left">Now we are ready to create our customer class to make it 
+			displayable in the property grid.&nbsp; In order to utilize the property grid 
+			attributes in Table 1, we need to import the namespace for these attributes so 
+			we add the using clause for the System.ComponentModel:</P>
+		<P align="center"><FONT color="#3366ff">using</FONT> System.ComponentModel;</P>
+		<P align="left">Then we simply create the customer class with private fields and 
+			public properties that access these fields.&nbsp; Attributes are placed above 
+			the properties to ready each property for the property grid.</P>
+		<P align="left"><STRONG>&nbsp;&nbsp;&nbsp;&nbsp; <U>Listing 1 - PropertyGrid-Ready Customer 
+					Class</U></STRONG></P>
+		<P align="left">
+			<TABLE id="Table2" style="WIDTH: 539px; HEIGHT: 23px" cellSpacing="1" cellPadding="1" width="539"
+				align="center" border="0">
+				<TR>
+					<TD bgColor="#f6ffff">
+						<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: gray">///</SPAN><SPAN style="COLOR: green"> </SPAN><SPAN style="COLOR: gray">
+									&lt;summary&gt;<BR>
+								</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: gray">///</SPAN><SPAN style="COLOR: green">
+									Customer class to be displayed in the property grid<BR>
+								</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: gray">///</SPAN><SPAN style="COLOR: green">
+								</SPAN><SPAN style="COLOR: gray">&lt;/summary&gt;<BR>
+								</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: gray">///</SPAN><SPAN style="COLOR: green">&nbsp;<BR>
+								</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>[DefaultPropertyAttribute("Name")]<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">public</SPAN>
+								<SPAN style="COLOR: blue">class</SPAN> Customer<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_name;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">int</SPAN><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_age;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>DateTime<SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_dateOfBirth;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_SSN;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_address;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN>_email;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+									private</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</SPAN><SPAN style="COLOR: blue">bool</SPAN> <SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_frequentBuyer;
+								</SPAN>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color="#008000">//&nbsp;Name 
+												property with category attribute and&nbsp;<BR>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 
+												description attribute added</FONT> </SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<SPAN style="mso-tab-count: 2">
+											<BR>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>[CategoryAttribute("ID 
+										Settings"),&nbsp;
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Name of the customer")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>Name<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+											&nbsp;</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _name;<BR>
+										&nbsp;</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p>&nbsp;</o:p></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<BR>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_name = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+										&nbsp;</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("ID Settings"),
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Social Security Number
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										of the customer")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>SSN<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+											&nbsp;</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _SSN;<BR>
+										&nbsp;</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p>&nbsp;</o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_SSN = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("ID Settings"),
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Address of the customer")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>Address<BR>
+										&nbsp;</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _address;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p>&nbsp;</o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_address = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("ID Settings"),
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Date of Birth of the
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										Customer (optional)")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>DateTime<SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>DateOfBirth<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _dateOfBirth;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_dateOfBirth = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("ID Settings"),</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Age of the customer")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">int</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>Age<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _age;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_age = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("Marketting Settings"),
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("If the customer has bought<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										&nbsp;more than 10 times, this is set to true")]<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">bool</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>FrequentBuyer<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _frequentBuyer;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_frequentBuyer = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}</SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>[CategoryAttribute("Marketting Settings"),
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										DescriptionAttribute("Most current e-mail of the
+										<BR>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										customer")]&nbsp;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">
+											public</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">string</SPAN><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>Email<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">get<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">return</SPAN> _email;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN><SPAN style="COLOR: blue">set<BR>
+										</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>{<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 4">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>_email = <SPAN style="COLOR: blue">value</SPAN>;<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}</SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+										<o:p>&nbsp;</o:p></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN style="COLOR: blue">public</SPAN>
+										Customer()<BR>
+									</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+									</SPAN>
+								</P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+								<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</SPAN>}
+										<o:p></o:p></SPAN></P>
+							</SPAN>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><STRONG>Assigning the PropertyGrid an Object</STRONG></P>
+		<P>All that is left to do to get the grid&nbsp;running&nbsp;is assign an instance 
+			of our customer class to the property grid.&nbsp; The property grid will 
+			automatically figure out all the fields of the customer through reflection and 
+			display the property name along with the property value on each line of the 
+			grid.&nbsp; Another nice feature of the property grid is it will create special 
+			editing controls on each line that correspond to the value type on that 
+			line.&nbsp; For example, a Date of Birth property (of type DateTime)&nbsp;of 
+			the customer will allow you to edit the value of the the date with the calendar 
+			control.&nbsp; Booleans can be edited with a combo box showing True or False 
+			(saves&nbsp;you from excess typing).</P>
+		<P>
+			In Listing 2 we created a new customer and populated it with values through its 
+			properties.&nbsp; We&nbsp;then use the <STRONG>SelectObject</STRONG> property 
+			of the PropertyGrid and assign our customer object to this property.&nbsp; Upon 
+			assigning the customer to the grid, the grid will display all of the public 
+			properties we defined in our Customer class.&nbsp;
+		</P>
+		<P><STRONG><STRONG><U>Listing 2 - Assigning the customer object to the property grid.</U></STRONG></P>
+		<P>
+			<TABLE id="Table3" style="WIDTH: 566px; HEIGHT: 23px" cellSpacing="1" cellPadding="1" width="566"
+				align="center" bgColor="#f4ffff" border="0">
+				<TR>
+					<TD>
+						<P class="MsoNormal" style="mso-layout-grid-align: none"><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">&nbsp;</SPAN><SPAN style="COLOR: blue">private</SPAN>
+								<SPAN style="COLOR: blue">void</SPAN> Form1_Load(<SPAN style="COLOR: blue">object</SPAN>
+								sender, System.EventArgs e)<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+									&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>{<BR>
+								<FONT color="#339933">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+								<FONT color="#339933">//&nbsp;Create the customer object we&nbsp;want to display</FONT><BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Customer bill 
+								= <SPAN style="COLOR: blue">new</SPAN> Customer();<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+									<BR>
+									<FONT color="#339933">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Assign 
+										values to the properties<BR>
+									</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>bill.Age 
+								= 50;<BR>
+							</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bill.Address = "</SPAN>
+								<st1:Street>
+									<st1:address>
+										<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">114 Maple Drive</SPAN></st1:address>
+								</st1:Street><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">";<BR>
+								</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>bill.DateOfBirth 
+									= Convert.ToDateTime("</SPAN>
+								<st1:date Month="9" Day="14" Year="1978">
+									<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">9/14/78</SPAN></st1:date><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">");<BR>
+								</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>bill.SSN = 
+									"123-345-3566";<BR>
+								</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>bill.Email = <A href="mailto:bill@aol.com">
+										bill@aol.com</A>;<BR>
+								</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>bill.Name = 
+									"Bill Smith";</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>&nbsp;&nbsp;<BR>
+									<BR>
+									<FONT color="#339933">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Sets 
+										the the grid with the customer instance to be<BR>
+									</FONT></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><FONT color="#339933">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;browsed<BR>
+									</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+									propertyGrid1.SelectedObject = bill;<BR>
+								</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 2">
+										&nbsp;&nbsp;&nbsp; </SPAN>}
+									<o:p></o:p></SPAN></P>
+						</SPAN></TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P>Examining the Results<BR>
+			<BR>
+			</STRONG>Figure 1 shows the results of our efforts of creating a property grid 
+			in our form.&nbsp; If we examine figure 1 again we see that the two categories 
+			we defined in our CategoryAttribute,&nbsp; ID Settings and Market Settings, are 
+			shown as headers in the two tree nodes.&nbsp; The description of the 
+			FrequentBuyer is shown at the bottom of the PropertyGrid retrieved from our 
+			DescriptionAttribute for the FrequentBuyer property.&nbsp; Upon selecting the 
+			boolean FrequentBuyer property value, we get a drop down for the possible 
+			boolean values, True or False.</P>
+		<P><STRONG>Conclusion<BR>
+				<BR>
+			</STRONG>The property grid is a powerful control for allowing users to edit the 
+			internals of your published classes.&nbsp; Because of the ability for the 
+			property grid to reflect and bind to your class, there is not much work 
+			involved in getting the property grid up and working.&nbsp; You can add 
+			categories and descriptions to your property grid by using the special grid 
+			attributes in the System.Component model.&nbsp; Anyway, here is yet another 
+			powerful control available to you and the latest <EM>property</EM> of your .NET 
+			mindshare.</P>
+	</body>
+</html>

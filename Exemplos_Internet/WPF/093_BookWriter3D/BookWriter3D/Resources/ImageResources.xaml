@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="Image_Background">Images/darkaurora.png</ImageSource>
+
+    <ImageSource x:Key="Image_FrontCover">Images/cover.jpg</ImageSource>
+
+    <ImageSource x:Key="Image_Cover">Images/cover.jpg</ImageSource>
+
+    <ImageSource x:Key="Image_Edge">Images/edge.png</ImageSource>
+
+</ResourceDictionary>

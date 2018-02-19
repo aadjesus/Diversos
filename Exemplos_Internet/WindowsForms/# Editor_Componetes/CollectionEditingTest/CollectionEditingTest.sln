@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{D52BF972-1BD3-49C2-9008-BBECD96BF2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "CustomControls\CustomControls.csproj", "{DA14869F-BA45-4192-A9A2-DAD99A44C996}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D52BF972-1BD3-49C2-9008-BBECD96BF2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52BF972-1BD3-49C2-9008-BBECD96BF2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52BF972-1BD3-49C2-9008-BBECD96BF2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52BF972-1BD3-49C2-9008-BBECD96BF2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA14869F-BA45-4192-A9A2-DAD99A44C996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA14869F-BA45-4192-A9A2-DAD99A44C996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA14869F-BA45-4192-A9A2-DAD99A44C996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA14869F-BA45-4192-A9A2-DAD99A44C996}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

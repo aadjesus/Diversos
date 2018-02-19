@@ -1,0 +1,203 @@
+﻿<Window 
+    x:Class="U2UConsult.WPF.Template.Sample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+    Title="U2U Consult WPF ListBox Template Sample" 
+    Icon="/U2UConsult.WPF.Template.Sample;component/Assets/Images/dotbay.png"
+    SizeToContent="WidthAndHeight"
+    Background="Beige" >
+
+    <Window.Resources>
+        <LinearGradientBrush 
+            x:Key="SelectedItemBrush"
+            EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Lavender" Offset="0.15" />
+            <GradientStop Color="AliceBlue" Offset="0.85" />
+            <GradientStop Color="CadetBlue" Offset="1" />
+        </LinearGradientBrush>
+        <DataTemplate
+            x:Key="RockstarTemplate"
+            DataType="Whatever">
+            <Border
+                x:Name="TheBorder" 
+                BorderBrush="Gray"
+                BorderThickness="1"
+                Padding="4"
+                CornerRadius="4"
+                Margin="2">
+                <TextBlock
+                    Text="{Binding Name}"
+                    Width="320">
+                </TextBlock>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="AliceBlue" Offset="0.15" />
+                        <GradientStop Color="White" Offset="0.85" />
+                        <GradientStop Color="Lavender" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger 
+                    Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBoxItem}},Path=IsSelected}" 
+                    Value="True">
+                    <Setter 
+                        TargetName="TheBorder" 
+                        Property="Background" 
+                        Value="{StaticResource SelectedItemBrush}" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <GroupBox
+            Header="Unstyled"
+            BorderBrush="Black"
+            Margin="6 6 6 3"
+            Grid.Row="0">
+            <ListBox 
+                x:Name="UnstyledBox"
+                BorderBrush="Transparent"
+                Background="Transparent"
+                />
+        </GroupBox>
+
+        <GroupBox
+            Header="Item Template"
+            BorderBrush="Black"
+            Margin="6 3"
+            Grid.Row="1">
+            <ListBox
+            x:Name="ItemTemplateBox"
+            ItemTemplate="{StaticResource RockstarTemplate}"
+            BorderBrush="Transparent"
+            Background="Transparent"            
+            />
+        </GroupBox>
+
+        <GroupBox
+            Header="ListBox Style"
+            BorderBrush="Black"
+            Margin="6 3 6 6"
+            Grid.Row="3">
+            <ListBox 
+                x:Name="FullyStyledBox"
+                ItemTemplate="{StaticResource RockstarTemplate}"
+                BorderBrush="Transparent"
+                Background="Transparent">
+                <ListBox.Resources>
+                    <!-- Style used if item is selected and listbox has keyboard focus -->
+                    <Style x:Key="NoFocusVisualStyle"  TargetType="Control">
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </Style>
+                    <!-- Apply this style -->
+                    <Style x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource NoFocusVisualStyle}" />
+                    </Style>
+                    <!-- Color used if item is selected and listbox has focus -->
+                    <SolidColorBrush 
+                    x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                    Color="Transparent"/>
+                    <!-- Color used if item is selected and listbox does not have focus -->
+                    <SolidColorBrush 
+                    x:Key="{x:Static SystemColors.ControlBrushKey}" 
+                    Color="Transparent"/>
+                    <!-- Font color used if item is selected and listbox has focus -->
+                    <SolidColorBrush 
+                    x:Key="{x:Static SystemColors.HighlightTextBrushKey}"  
+                    Color="Black" />
+                </ListBox.Resources>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox
+            Header="Empty Template"
+            BorderBrush="Black"
+            Margin="6 3 6 6"
+            Grid.Row="4">
+            <Grid>
+                <ListBox 
+                    x:Name="EmptyTemplateBox"
+                    ItemTemplate="{StaticResource RockstarTemplate}"
+                    BorderBrush="Transparent"
+                    Background="Transparent"
+                    Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+                    <ListBox.Resources>
+                        <!-- Style used if item is selected and listbox has keyboard focus -->
+                        <Style x:Key="NoFocusVisualStyle"  TargetType="Control">
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                        </Style>
+                        <!-- Apply this style -->
+                        <Style x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource NoFocusVisualStyle}" />
+                        </Style>
+                        <!-- Color used if item is selected and listbox has focus -->
+                        <SolidColorBrush 
+                            x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                            Color="Transparent"/>
+                        <!-- Color used if item is selected and listbox does not have focus -->
+                        <SolidColorBrush 
+                            x:Key="{x:Static SystemColors.ControlBrushKey}" 
+                            Color="Transparent"/>
+                        <!-- Font color used if item is selected and listbox has focus -->
+                        <SolidColorBrush 
+                            x:Key="{x:Static SystemColors.HighlightTextBrushKey}"  
+                            Color="Black" />
+                    </ListBox.Resources>
+                </ListBox>
+                <TextBlock 
+                    Margin="4" 
+                    FontStyle="Italic"
+                    Text="No data found..."
+                    Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"> 
+                    <TextBlock.Style> 
+                        <Style TargetType="{x:Type TextBlock}"> 
+                           <Setter Property="Visibility" Value="Collapsed" /> 
+                            <Style.Triggers> 
+                                <DataTrigger Binding="{Binding ElementName=EmptyTemplateBox, Path=Items.Count}" Value="0"> 
+                                    <Setter Property="Visibility" Value="Visible" /> 
+                                </DataTrigger>   
+                            </Style.Triggers> 
+                        </Style>                             
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="5">
+            <Button
+                Click="PopulateButton_Click"
+                Content="Populate"
+                Height="24" Width="72"
+                Margin="6 0 6 6"
+                Grid.Row="5" Grid.Column="0" />
+            <Button
+                Click="ClearButton_Click"
+                Content="Clear"
+                Height="24" Width="72"
+                Margin="0 0 6 6"
+                Grid.Row="5" Grid.Column="1" />
+        </StackPanel>
+        
+        <Image
+            Source="/U2UConsult.WPF.Template.Sample;component/Assets/Images/U2UC.jpg"
+            Height="24"
+            Margin="6 0 6 6"
+            HorizontalAlignment="Right"
+            Grid.Row="5" />
+
+    </Grid>
+</Window>

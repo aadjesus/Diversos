@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Importing and Colorizing Code from Source Files</title>
+</head>
+
+<body>
+
+<h2>Importing and Colorizing Code from Source Files</h2>
+The help file builder allows you to import source code into an additional
+content page and colorize it using the <code>&lt;code&gt;</code> tag.  It
+supports the same colorizer options as the <code>&lt;pre&gt;</code> tag and
+the <code>CodeBlockComponent</code>. The main difference is that you
+specify a required <code>source</code> attribute to specify the source code
+file and an optional <code>region</code> attribute to limit the code to a
+defined region of the source file.  The tag is always self-closing and
+contains no content.  The <code>lang</code> attribute must also appear in
+order to specify the language to use for colorizing the code. All other
+colorizer attributes are optional.  The path specified can be relative.
+If so, it is always assumed to be relative to the project file's folder.
+
+
+<p/>See the <a href="../../CompConfig/CodeBlockComponent.html">Code Block
+Component</a> help topic for option details.  Below are several examples of
+its use.<br/><br/>
+
+<pre lang="xml" title=" ">
+&lt;!-- Import an entire file --&gt;
+&lt;code lang="xml" source="..\Test.xml" numberLines="true" title=" "/&gt;
+
+&lt;!-- Import a defined region --&gt;
+&lt;code lang="vbnet" source="..\Class1.vb" region="Test Region"
+    title="Test region from class" /&gt;
+
+&lt;!-- A few more examples --&gt;
+&lt;code lang="vbnet" source="..\Class1.vb" region="Embedded snippet"
+    title="Test region from method" numberLines="true" /&gt;
+
+&lt;code lang="cs" source="..\TestClass.cs" region="Methods"
+    numberLines="true" outlining="true" /&gt;
+
+&lt;code source="..\GenericClass.cs" lang="cs" /&gt;
+</pre>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 7 -->

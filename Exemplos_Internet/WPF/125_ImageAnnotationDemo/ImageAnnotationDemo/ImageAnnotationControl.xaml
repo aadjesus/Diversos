@@ -1,0 +1,59 @@
+<ContentControl
+  x:Class="ImageAnnotationDemo.ImageAnnotationControl"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="clr-namespace:ImageAnnotationDemo"
+  x:Name="mainControl"
+  >
+  <ContentControl.Resources>
+    <!-- The template used to create a TextBox for the user to edit an annotation. -->
+    <DataTemplate x:Key="EditModeTemplate">
+      <TextBox
+        KeyDown="OnTextBoxKeyDown"
+        Loaded="OnTextBoxLoaded"
+        LostFocus="OnTextBoxLostFocus"
+        Style="{DynamicResource STYLE_AnnotationEditor}"
+        Text="{Binding ElementName=mainControl, Path=Content, UpdateSourceTrigger=PropertyChanged}"
+        />
+    </DataTemplate>
+
+    <!-- The template used to create a TextBlock for the user to read an annotation. -->
+    <DataTemplate x:Key="DisplayModeTemplate">
+      <TextBlock
+        MouseLeftButtonDown="OnTextBlockMouseLeftButtonDown"
+        Style="{DynamicResource STYLE_Annotation}"
+        Text="{Binding ElementName=mainControl, Path=Content}"
+        >
+        <TextBlock.ContextMenu>
+          <ContextMenu>
+            <MenuItem Header="Delete" Click="OnDeleteAnnotation">
+              <MenuItem.Icon>
+                <Image Source="delete.ico" />
+              </MenuItem.Icon>
+            </MenuItem>
+          </ContextMenu>
+        </TextBlock.ContextMenu>
+      </TextBlock>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type local:ImageAnnotationControl}">
+      <Style.Triggers>
+        <!-- Applies the 'edit mode' template to the Content property. -->
+        <Trigger Property="IsInEditMode" Value="True">
+          <Setter
+            Property="ContentTemplate" 
+            Value="{StaticResource EditModeTemplate}" 
+            />
+        </Trigger>
+
+        <!-- Applies the 'display mode' template to the Content property. -->
+        <Trigger Property="IsInEditMode" Value="False">
+          <Setter
+            Property="ContentTemplate" 
+            Value="{StaticResource DisplayModeTemplate}" 
+            />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+  </ContentControl.Resources>
+</ContentControl>

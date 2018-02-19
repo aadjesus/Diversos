@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPControlDesigner", "CPControlDesigner\CPControlDesigner.csproj", "{22060F79-CC7E-4DCE-B65A-9CA6DD184D73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPControlDesignerDemo", "CPControlDesignerDemo\CPControlDesignerDemo.csproj", "{8B21FFCA-0110-4BEE-BEE4-A046D8E35F1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22060F79-CC7E-4DCE-B65A-9CA6DD184D73}.Debug|x86.ActiveCfg = Debug|x86
+		{22060F79-CC7E-4DCE-B65A-9CA6DD184D73}.Debug|x86.Build.0 = Debug|x86
+		{22060F79-CC7E-4DCE-B65A-9CA6DD184D73}.Release|x86.ActiveCfg = Release|x86
+		{22060F79-CC7E-4DCE-B65A-9CA6DD184D73}.Release|x86.Build.0 = Release|x86
+		{8B21FFCA-0110-4BEE-BEE4-A046D8E35F1E}.Debug|x86.ActiveCfg = Debug|x86
+		{8B21FFCA-0110-4BEE-BEE4-A046D8E35F1E}.Debug|x86.Build.0 = Debug|x86
+		{8B21FFCA-0110-4BEE-BEE4-A046D8E35F1E}.Release|x86.ActiveCfg = Release|x86
+		{8B21FFCA-0110-4BEE-BEE4-A046D8E35F1E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

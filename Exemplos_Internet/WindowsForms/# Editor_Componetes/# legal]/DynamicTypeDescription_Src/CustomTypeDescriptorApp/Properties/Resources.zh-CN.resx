@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ErrorState1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErrorState1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorState2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErrorState2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HappyFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HappyFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OkFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OkFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UnhappyFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnhappyFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuiltInEnum_CenterParent_Desc" xml:space="preserve">
+    <value>形式是集中在它的父窗体的边界。</value>
+  </data>
+  <data name="BuiltInEnum_CenterParent_Name" xml:space="preserve">
+    <value>中心家长</value>
+  </data>
+  <data name="BuiltInEnum_CenterScreen_Desc" xml:space="preserve">
+    <value>形式是围绕当前的显示屏上，并指定在窗体的大小尺寸。</value>
+  </data>
+  <data name="BuiltInEnum_CenterScreen_Name" xml:space="preserve">
+    <value>屏幕中心</value>
+  </data>
+  <data name="BuiltInEnum_Manual_Desc" xml:space="preserve">
+    <value>是由Location属性表格的位置。</value>
+  </data>
+  <data name="BuiltInEnum_Manual_Name" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="BuiltInEnum_WindowsDefaultBounds_Desc" xml:space="preserve">
+    <value>形式定位在Windows默认的位置，并确定Windows默认的界限。</value>
+  </data>
+  <data name="BuiltInEnum_WindowsDefaultBounds_Name" xml:space="preserve">
+    <value>Windows预设界的</value>
+  </data>
+  <data name="BuiltInEnum_WindowsDefaultLocation_Desc" xml:space="preserve">
+    <value>形式定位在Windows默认的位置，并指定在窗体的大小尺寸。</value>
+  </data>
+  <data name="BuiltInEnum_WindowsDefaultLocation_Name" xml:space="preserve">
+    <value>Windows默认位置</value>
+  </data>
+  <data name="PropC_False_Desc" xml:space="preserve">
+    <value>它是消极的。</value>
+  </data>
+  <data name="PropC_False_Name" xml:space="preserve">
+    <value>你可以不远矣。</value>
+  </data>
+  <data name="PropC_True_Desc" xml:space="preserve">
+    <value>这是积极的。</value>
+  </data>
+  <data name="PropC_True_Name" xml:space="preserve">
+    <value>是的，这是绝对正确的。</value>
+  </data>
+  <data name="Days_Fri_Desc" xml:space="preserve">
+    <value>金星的一天。</value>
+  </data>
+  <data name="Days_Fri_Name" xml:space="preserve">
+    <value>星期五</value>
+  </data>
+  <data name="Days_Mon_Desc" xml:space="preserve">
+    <value>日月亮。</value>
+  </data>
+  <data name="Days_Mon_Name" xml:space="preserve">
+    <value>星期一</value>
+  </data>
+  <data name="Days_None_Desc" xml:space="preserve">
+    <value>事件不会再发生。</value>
+  </data>
+  <data name="Days_None_Name" xml:space="preserve">
+    <value>没有被选中</value>
+  </data>
+  <data name="Days_NoWork_Desc" xml:space="preserve">
+    <value>只有星期六和星期天。</value>
+  </data>
+  <data name="Days_NoWork_Name" xml:space="preserve">
+    <value>周末</value>
+  </data>
+  <data name="Days_Sat_Desc" xml:space="preserve">
+    <value>土星的一天。</value>
+  </data>
+  <data name="Days_Sat_Name" xml:space="preserve">
+    <value>星期六</value>
+  </data>
+  <data name="Days_Sun_Desc" xml:space="preserve">
+    <value>太阳日。</value>
+  </data>
+  <data name="Days_Sun_Name" xml:space="preserve">
+    <value>星期日</value>
+  </data>
+  <data name="Days_Thr_Desc" xml:space="preserve">
+    <value>日木星。</value>
+  </data>
+  <data name="Days_Thr_Name" xml:space="preserve">
+    <value>周四</value>
+  </data>
+  <data name="Days_Tue_Desc" xml:space="preserve">
+    <value>火星日。</value>
+  </data>
+  <data name="Days_Tue_Name" xml:space="preserve">
+    <value>星期二</value>
+  </data>
+  <data name="Days_Wed_Desc" xml:space="preserve">
+    <value>水星日。</value>
+  </data>
+  <data name="Days_Wed_Name" xml:space="preserve">
+    <value>星期三</value>
+  </data>
+  <data name="Days_Work_Desc" xml:space="preserve">
+    <value>除周六和周日的所有日子。</value>
+  </data>
+  <data name="Days_Work_Name" xml:space="preserve">
+    <value>平日</value>
+  </data>
+  <data name="TC_Cat1" xml:space="preserve">
+    <value>枚举功能</value>
+  </data>
+  <data name="TC_Cat2" xml:space="preserve">
+    <value>一般特点</value>
+  </data>
+  <data name="TC_Cat3" xml:space="preserve">
+    <value>图像特征</value>
+  </data>
+  <data name="TC_Cat4" xml:space="preserve">
+    <value>使用标准值</value>
+  </data>
+  <data name="TC_Cat5" xml:space="preserve">
+    <value>扩展IEnumerable的</value>
+  </data>
+  <data name="TC_CenterParent_Desc" xml:space="preserve">
+    <value>形式是围绕当前的显示屏上，并指定在窗体的大小尺寸。</value>
+  </data>
+  <data name="TC_CenterParent_Name" xml:space="preserve">
+    <value>中心家长</value>
+  </data>
+  <data name="TC_CenterScreen_Desc" xml:space="preserve">
+    <value>形式定位在Windows默认的位置，并指定在窗体的大小尺寸。</value>
+  </data>
+  <data name="TC_CenterScreen_Name" xml:space="preserve">
+    <value>屏幕中心</value>
+  </data>
+  <data name="TC_Manual_Desc" xml:space="preserve">
+    <value>是由Location属性表格的位置。</value>
+  </data>
+  <data name="TC_Manual_Name" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="TC_PropA_Desc" xml:space="preserve">
+    <value>演示如何在不使用的FlagsAttribute枚举。</value>
+  </data>
+  <data name="TC_PropA_Name" xml:space="preserve">
+    <value>枚举无标志</value>
+  </data>
+  <data name="TC_PropB_Desc" xml:space="preserve">
+    <value>演示如何使用的FlagsAttribute枚举。</value>
+  </data>
+  <data name="TC_PropB_Name" xml:space="preserve">
+    <value>枚举与标志</value>
+  </data>
+  <data name="TC_PropC_Desc" xml:space="preserve">
+    <value>演示如何使用枚举booean的。</value>
+  </data>
+  <data name="TC_PropC_Name" xml:space="preserve">
+    <value>布尔没有真/假</value>
+  </data>
+  <data name="TC_PropD_Desc" xml:space="preserve">
+    <value>演示如何使用内置的枚举。</value>
+  </data>
+  <data name="TC_PropD_Name" xml:space="preserve">
+    <value>内置的枚举</value>
+  </data>
+  <data name="TC_PropE_Desc" xml:space="preserve">
+    <value>此属性在运行时创建的。</value>
+  </data>
+  <data name="TC_PropE_Name" xml:space="preserve">
+    <value>上飞财产</value>
+  </data>
+  <data name="TC_PropF_Desc" xml:space="preserve">
+    <value>演示如何禁用财产。</value>
+  </data>
+  <data name="TC_PropF_Name" xml:space="preserve">
+    <value>残疾人财产</value>
+  </data>
+  <data name="TC_PropG_Desc" xml:space="preserve">
+    <value>显示图像的属性值。测试值0，1，2和3。</value>
+  </data>
+  <data name="TC_PropG_Name" xml:space="preserve">
+    <value>值图像</value>
+  </data>
+  <data name="TC_PropH_Desc" xml:space="preserve">
+    <value>显示你如何能显示你的财产的国家形象。测试值0，1，2和3。</value>
+  </data>
+  <data name="TC_PropH_Name" xml:space="preserve">
+    <value>国家形象（S）</value>
+  </data>
+  <data name="TC_PropI_Desc" xml:space="preserve">
+    <value>演示使用的标准值。这份名单是不是排他性的，这意味着你可以在字段中键入。测试值亚当，布莱恩，拉塞尔，琼斯，雅各布，101，102，103，104，105和任何整数值。</value>
+  </data>
+  <data name="TC_PropI_Name" xml:space="preserve">
+    <value>标准值非排他性</value>
+  </data>
+  <data name="TC_PropJ_Desc" xml:space="preserve">
+    <value>演示使用的标准值。这个名单是排他性的，这意味着你不能在字段中键入。</value>
+  </data>
+  <data name="TC_PropJ_Name" xml:space="preserve">
+    <value>标准值独家</value>
+  </data>
+  <data name="TC_PropK_Desc" xml:space="preserve">
+    <value>演示使用的扩展列表。</value>
+  </data>
+  <data name="TC_PropK_Name" xml:space="preserve">
+    <value>膨胀清单</value>
+  </data>
+  <data name="TC_PropL_Desc" xml:space="preserve">
+    <value>演示使用的扩展阵列。</value>
+  </data>
+  <data name="TC_PropL_Name" xml:space="preserve">
+    <value>膨胀数组</value>
+  </data>
+  <data name="TC_PropM_Desc" xml:space="preserve">
+    <value>演示使用的扩展集合。</value>
+  </data>
+  <data name="TC_PropM_Name" xml:space="preserve">
+    <value>膨胀收集</value>
+  </data>
+  <data name="Placement_First_Desc" xml:space="preserve">
+    <value>金牌得主</value>
+  </data>
+  <data name="Placement_Frist_Name" xml:space="preserve">
+    <value>第一名</value>
+  </data>
+  <data name="Placement_None_Desc" xml:space="preserve">
+    <value>安置还没有作出决定。</value>
+  </data>
+  <data name="Placement_None_Name" xml:space="preserve">
+    <value>没有被选中</value>
+  </data>
+  <data name="Placement_Second_Desc" xml:space="preserve">
+    <value>银牌得主。</value>
+  </data>
+  <data name="Placement_Second_Name" xml:space="preserve">
+    <value>排在第二位。</value>
+  </data>
+  <data name="Placement_Third_Desc" xml:space="preserve">
+    <value>铜牌得主。</value>
+  </data>
+  <data name="Placement_Third_Name" xml:space="preserve">
+    <value>第三位</value>
+  </data>
+  <data name="BuiltinBool_False_Desc" xml:space="preserve">
+    <value>它是假的。</value>
+  </data>
+  <data name="BuiltinBool_False_Name" xml:space="preserve">
+    <value>没有</value>
+  </data>
+  <data name="BuiltinBool_True_Desc" xml:space="preserve">
+    <value>这是真的。</value>
+  </data>
+  <data name="BuiltinBool_True_Name" xml:space="preserve">
+    <value>是</value>
+  </data>
+</root>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rules FriendlyName="Custom Rules BGMRodotec">
+  <Rule TypeName="RegrasBGMRodotec" Category="Category" CheckId="CR1000"  >
+    <Name>Name</Name>
+    <Description>Description.</Description>
+    <Url>http://www.bgmrodotec.com.br/</Url>
+    <Resolution>Resolution {0} </Resolution>
+    <MessageLevel Certainty="95">Warning</MessageLevel>
+    <FixCategories>Breaking</FixCategories>
+    <Email />
+    <Owner />
+  </Rule>
+</Rules>

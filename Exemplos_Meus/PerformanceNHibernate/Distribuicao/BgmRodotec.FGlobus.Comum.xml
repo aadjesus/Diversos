@@ -1,0 +1,2142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BgmRodotec.FGlobus.Comum</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Comum.WebService.BaseWS">
+            <summary>
+            Classe base para WebService.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.WebService.BaseWS.AutenticacaoWebService">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="P:FGlobus.Comum.WebService.BaseWS.AutenticacaoWebService"/>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.BaseWS.AutenticacaoMetodo(System.String)">
+            <summary>
+            Retornar a autenticação para o método informado
+            </summary>
+            <param name="nomeMetodo">Nome do metodo</param>
+            <returns>AutenticacaoWebService</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.BaseWS.ConverterSoapException(System.Exception)">
+            <summary>
+            Converte uma Exception em SoapException.
+            </summary>
+            <param name="ex">Exception.</param>
+            <returns>SoapException.</returns>
+        </member>
+        <member name="T:FGlobus.Comum.WebService.GlobusBaseWS">
+            <summary>
+            Classe base para WebService Globus.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoApagaLista(System.String,FGlobus.Comum.DTO.DataTransferObject[])">
+            <summary>
+            Apaga listas genérico.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoSalvarOuAlterarLista(System.String,FGlobus.Comum.DTO.DataTransferObject[])">
+            <summary>
+            Salvar ou alterar lista genérico
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarMaximoValor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições.
+            </summary>
+            <param name="chaveAcesso"></param>
+            <param name="nomeDTO">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">String com as condições.</param>
+            <returns>string.</returns>      
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaPorChave(System.String,System.String,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaBasica(System.String,System.String,System.String,System.String)">
+            <summary>
+            Retorna lista do DTO informado
+            </summary>
+            <param name="chaveAcesso"></param>
+            <param name="nomeDTO">Objeto do tipo DTO.</param>
+            <param name="condicoes">String com as condições.</param>
+            <param name="propriedades">Lista de string com o nome das propriedades.</param>
+            <returns>Lista de objetos do tipo DataTransferObject</returns>
+        </member>
+        <member name="T:FGlobus.Comum.BLL.BusinessObject">
+            <summary>
+            Classe base para classes de regras de negócios (BO).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.BusinessObject.#ctor">
+            <summary>
+            Construtor padrão
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.BusinessObject.#ctor(FGlobus.Comum.BLL.IAutenticacaoWebService)">
+            <summary>
+            Construtor padrão
+            </summary>
+            <param name="iAutenticacaoWebService"></param>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.BusinessObject.IAutenticacaoWebService">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="P:FGlobus.Comum.BLL.BusinessObject.IAutenticacaoWebService"/>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.BLL.IAutenticacaoWebService">
+            <summary>
+            Classe para definir as caracteristicas da classe de autenticação para SoapHeader
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.IAutenticacaoWebService.Token">
+            <summary>
+            (Set/Get) Informa ou retorna o Token.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.IAutenticacaoWebService.ShortCode">
+            <summary>
+            (Set/Get) Informa ou retorna o ShortCode.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.IAutenticacaoWebService.ValidarAcesso">
+            <summary>
+            Metodo para validar o acesso
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.IAutenticacaoWebService.VerificaAutenticacaoDoMetodo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.IAutenticacaoWebService.CompararToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.IAutenticacaoWebService.NomeMetodo">
+            <summary>
+            (Set/Get) Informa ou retorna o Token.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.BLL.AutenticacaoWebService">
+            <summary>
+            Classe para controlar a autenticação do SoapHeader
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.AutenticacaoWebService.Token">
+            <summary>
+            (Set/Get) Informa ou retorna o Token.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.AutenticacaoWebService.ShortCode">
+            <summary>
+            (Set/Get) Informa ou retorna o ShortCode.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.BLL.AutenticacaoWebService.NomeMetodo">
+            <summary>
+            (Set/Get) Informa ou retorna o NomeMetodo.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.AutenticacaoWebService.ValidarAcesso">
+            <summary>
+            Metodo para validar o acesso
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.AutenticacaoWebService.CompararToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.AutenticacaoWebService.VerificaAutenticacaoDoMetodo">
+            <summary>
+            Verifica se autenticação é valida para o método informado
+            </summary>
+            <returns>bool</returns>
+        </member>
+        <member name="T:FGlobus.Comum.BLL.UtilBLL">
+            <summary>
+            Classe estática voltada ao projeto BLL.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.BLL.UtilBLL.RetornarBO``1(System.String)">
+            <summary>
+            Retornar o BO associado na interface informada conforme a sigla do modulo
+            </summary>
+            <typeparam name="TSource">Objeto herdado de <see cref="T:FGlobus.Comum.IBLL"/></typeparam>
+            <param name="sigla">Sigla do modulo
+            <para>Obs: Utilizar o resource <see cref="T:FGlobus.Util.Sistema"/></para></param>
+            <returns>Retornar o objeto associado com o tipo informado</returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.DataAccessBase`1">
+            <summary>
+            Classe base genérica para classes de acesso a dados sem persistencias (View DAO).
+            </summary>
+            <typeparam name="T">Objeto do tipos DataTransferObject</typeparam>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.GetSessionLocal">
+            <summary>
+            Retornar uma nova sessão com o nHibernate independente de já existir uma outra sessão aberta pela mesma aplicação.
+            </summary>
+            <returns>Sessão do nHibernate.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.AddSort(NHibernate.ICriteria,System.String)">
+            <summary>
+            Adicona ordenação de consulta ao "critéria' informado.
+            </summary>
+            <param name="crit">Critéria que será adicionado o Order.</param>
+            <param name="sort">String contendo informalções de ordenação.</param>
+            <returns>"Critéria" com orders adicionados.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.ConsultarPorChave(System.Object)">
+            <summary>
+            Método CRUD ConsultarPorChave (Read). Buscar na base de dados o objeto pela chave passada e retorna o ObjetoDTO caso seja encontrado.
+            </summary>
+            <param name="chave">Objeto chave do ObjetoDTO.
+                <example>
+                    A objeto chave po ser um string simples ou um inteiro simples.
+                        ConsultarPorChave("A") -> Consultar o ObjetoDTO que a chave seja "A"
+                    Caso a chave do objetoDTO seja composta utilizar uma instancia do ObjetoDTO.
+                        ConsultarPorChave(new ClienteDTO(1,"A")) -> Consultar Cliente com a chave 1,"A".
+                </example>
+            </param>
+            <returns>Objeto do tipos DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornarTodos">
+            <summary>
+            Retornar lista com todos os ObjetoDTO da base de dados.
+            </summary>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornaLista(NHibernate.ICriteria)">
+            <summary>
+            Retorna lista com o valor AchouRegistro igual a true.
+            </summary>
+            <param name="crit">Objeto do tipo ICriteria.</param>
+            <returns>Lista de objetos do tipo generico.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornaDataTransferObject(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Retorna objeto com o valor AchouRegistro igual a true.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.AlteraPropriedadeRegistroNovo(System.Collections.Generic.IList{`0})">
+            <summary>
+            Altera a propriedade registro novo para false.
+            </summary>
+            <param name="listaObjetos">Lista de objetos do tipo T.</param>
+            <returns>Lista de objetos do tipo T. </returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornarPaginado(System.Int32,System.Int32)">
+            <summary>
+            Retornar quantidade informada de objetosDTO da base de dados inciando 
+            no registro informado.
+            <remarks>
+            Método necessário para ObjectDataSource paginado.
+            </remarks>
+            </summary>
+            <param name="inicial">Registro inicial.</param>
+            <param name="quantidade">Quantidade máxima de registro.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornarPaginadoOrdenado(System.Int32,System.Int32,System.String)">
+            <summary>
+            Retornar quantidade informada de objetosDTO da base de dados inciando 
+            no registro informado e ordenado pela propriedade informada.
+            <remarks>
+            Método necessário para ObjectDataSource paginado.
+            </remarks>
+            </summary>
+            <param name="inicial">Registro inicial.</param>
+            <param name="quantidade">Quantidade máxima de registro.</param>
+            <param name="sort">Propriedade para ordenação.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornarQuantidadeDeRegistro">
+            <summary>
+            Retorna quantidade total de registros persistidos.
+            <remarks>
+            Método necessário para ObjectDataSource paginado.
+            </remarks>
+            </summary>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessBase`1.RetornarMaximoValorPropriedade(System.String)">
+            <summary>
+            Retorna o maximo valor da propriedade informada.
+            </summary>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.ADOHelper">
+            <summary>
+            Classe abstrata reservada para métodos de controle de conexões para ADO.NET
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.ADOHelper.StringDeConexao">
+            <summary>
+            Retornar a string de conexão
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.ADOHelper.DefaultCulture">
+            <summary>
+            Retornar a cultura default definido no web.config
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.DataAccessObject`1">
+            <summary>
+            Classe base genérica para classes de acesso a dados e persistência (DAO).
+            <para>Documentação comandos do "Criteria"</para>
+            <para>http://tfsserver/sites/BGMRodotec/GlobusMais/Globus/Desenvolvimento/NHibernateExpression.mht
+            </para>
+            </summary>
+            <typeparam name="T">Objeto do tipos DataTransferObject</typeparam>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.Salvar(`0)">
+            <summary>
+            Método CRUD Salvar (Create). Persistir o ObjetoDTO passado na base de dados.
+            </summary>
+            <param name="objetoDTO">Objeto do tipos DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.SalvarLista(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Persistir a lista de ObjetoDTO passado na base de dados.
+            </summary>
+            <param name="listaDTO">Lista de Objetos do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.Alterar(`0)">
+            <summary>
+            Método CRUD Alterar (Update). Persistir as alterações do ObjetoDTO passado na base de dados.
+            </summary>
+            <param name="objetoDTO">Objeto do tipos DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.AlterarLista(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Persistir as alterações da lista de ObjetoDTO passado na base de dados.
+            </summary>
+            <param name="listaDTO">Lista de Objetos do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.SalvarOuAlterar(`0)">
+            <summary>
+            Método CRUD Salvar ou Alterar (SaveOrUpdade). Verificar no banco de dados se existe um ObjetoDTO com a mesma chave do ObjetoDTO passado e persistir as alterações caso exista ou um novo ObjetoDTO caso não exista.
+            </summary>
+            <param name="objetoDTO">Objeto do tipos DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.SalvarOuAlterarLista(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Para cada um dos ObjetosDTO da lista passada verificar no banco de dados se existe um ObjetoDTO com a mesma chave e persistir as alterações caso exista ou um novo ObjetoDTO caso não exista.
+            </summary>
+            <param name="listaDTO">Lista de Objetos do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.Apagar(`0)">
+            <summary>
+            Método CRUD Apagar (Delete). Apagar o objetoDTO da base de dados.
+            </summary>
+            <param name="objetoDTO">Objeto do tipos DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.ApagarLista(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Apagar a lista de ObjetoDTO passado da base de dados.
+            </summary>
+            <param name="listaDTO">Lista de Objetos do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.Propriedade``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.String)">
+            <summary>
+            Retorna o "NaneTMP" da propriedade correspondente ou o próprio "Name" da propriedade informada ou o valor do atributo "Description" informado na propriedade
+            <para>Exemplo criteria:</para>
+            <para> </para>
+            <para>ISession session = GetSessionLocal();</para>
+            <para>ICriteria crit = session.CreateCriteria(typeof(NomeDTO))</para>
+            <para>     .Add(Expression.Eq(base.Propriedade(p => p.NomePropriedade), valor));</para>
+            <para> </para>
+            <para>Propriedade original do XML, alterada para 'private', retirado o 'virtual' e incluido 'TMP' no final.</para>
+            <para>private string DigitaLinhaManTMP { get; set; } .</para>
+            <para> </para>
+            <para>1° Propriedade auxiliar que manipula a propriedade original com os métodos genericos.</para>
+            <para></para>
+            <para>     public virtual Enumeradores.eCondicao Condicao</para>
+            <para>     {</para>
+            <para>          get { return this.RetornarPropriedadeTMP(p => p.Condicao); }</para>
+            <para>          set { this.PopularPropriedadeTMP(p => p.Condicao, value); }</para>
+            <para>     }</para>
+            <para> </para>
+            <para>2° Propriedade auxiliar que manipula conforme a propriedade original com o atributo 'Description'.</para>
+            <para>     [System.ComponentModel.Description("DigitaLinhaManTMP")]</para>
+            <para>     public virtual bool DigitaLinhaNaManutencao { get; set; }</para>
+            </summary>
+            <param name="propriedade">Propriedade</param>
+            <param name="alias">Alias</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.NomeCampoDaPropriedade``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Retorna o nome do campo da tabela conforme a propriedade informada
+            </summary>
+            <param name="propriedade">Propriedade</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.Condicao``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0[])">
+            <summary>
+            Condição para execução dos métodos <c>AlterarMultiplos</c> ou <c>ApagarMultiplos</c>
+            </summary>
+            <typeparam name="TKey">Tipo da propriedade</typeparam>
+            <param name="propriedade">Propriedade</param>
+            <param name="listaValorPropriedade">Lista de objeto do tipo da propriedade informada</param>
+            <returns><see cref="T:FGlobus.Comum.DAL.DataAccessObject`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.AlterarPropriedade``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Adiciona no objeto a propriedade que sera alterada
+            </summary>
+            <typeparam name="TKey">Tipo da propriedade informada</typeparam>
+            <param name="propriedade">Propriedade</param>
+            <param name="valorPropriedade">Valor</param>
+            <returns><see cref="T:FGlobus.Comum.DAL.DataAccessObject`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.AlterarMultiplos">
+            <summary>
+            Altera múltiplos registros conforme o(s) filtro(s) informado(s)
+            </summary>
+            <remarks>Documentação: https://www.yammer.com/bgmrodotec.com.br/uploaded_files/32960482 </remarks>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.AlterarMultiplos``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Altera múltiplos registros conforme o(s) filtro(s) informado(s)
+            </summary>
+            <typeparam name="TKey">Tipo da propriedade informada</typeparam>
+            <param name="propriedade">Propriedade</param>
+            <param name="valorPropriedade">Valor</param>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.ApagarMultiplos">
+            <summary>
+            Exclui múltiplos registros conforme o(s) filtro(s) informado(s)
+            </summary>
+            <remarks>Documentação: https://www.yammer.com/bgmrodotec.com.br/uploaded_files/32960479 </remarks>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.DataAccessObject`1.ApagarMultiplos``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Exclui múltiplos registros conforme o(s) filtro(s) informado(s)
+            </summary>
+            <typeparam name="TKey">Tipo da propriedade informada</typeparam>
+            <param name="propriedade">Propriedade</param>
+            <param name="valorPropriedade">Valor</param>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.sDadosDeConexao">
+            <summary>
+            Estrutura de Conexão com o banco
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sDadosDeConexao.DataSource">
+            <summary>
+            Data Source
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sDadosDeConexao.UserID">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sDadosDeConexao.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sDadosDeConexao.StringDeConexao">
+            <summary>
+            String de Conexão
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados">
+            <summary>
+            Informações do Banco de dados.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados.Usuario">
+            <summary>
+            SYS_CONTEXT('USERENV','OS_USER' )
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados.Maquina">
+            <summary>
+            SYS_CONTEXT('USERENV','TERMINAL' )
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados.Host">
+            <summary>
+            SYS_CONTEXT('USERENV','HOST' )
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados.IP">
+            <summary>
+            SYS_CONTEXT('USERENV','IP_ADDRESS' )
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sInformacoesDoBancoDeDados.UsuarioBancoDeDados">
+            <summary>
+            SYS_CONTEXT('USERENV','SESSION_USER' )
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.sAutenticacaoWebService">
+            <summary>
+            Estrutura de Acesso ao WebService
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sAutenticacaoWebService.Sistema">
+            <summary>
+            Sistema
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sAutenticacaoWebService.Usuario">
+            <summary>
+            Usuario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.DAL.sAutenticacaoWebService.Checksum">
+            <summary>
+            Checksum
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.Expressao">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.TodosIguais(System.Collections.IDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="propertyNameValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.E(NHibernate.Criterion.ICriterion,NHibernate.Criterion.ICriterion)">
+            <summary>
+            
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Entre(System.String,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="lo"></param>
+            <param name="hi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Conjuncao">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Disjuncao">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Igual(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.IgualPropriedades(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MaiorOuIgual(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MaiorOuIgualPropriedade(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Maior(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MaiorPropriedade(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.IDIgual(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Contido(System.String,System.Collections.ICollection)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Contidor(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valores"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.ContidoG``1(System.String,System.Collections.Generic.ICollection{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyName"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.InsensivelComo(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.InsensivelComo(System.String,System.String,NHibernate.Criterion.MatchMode)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <param name="matchMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Vazio(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.NaoEVazio(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.NaoENulo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Nulo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MenorOuIgual(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MenorOuIgualPropriedade(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Like(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Like(System.String,System.String,NHibernate.Criterion.MatchMode)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="value"></param>
+            <param name="matchMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Menor(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="valor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.MenorPropriedade(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Diferente(NHibernate.Criterion.ICriterion)">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Diferente(System.String,System.Object)">
+            <summary>
+            Retornar <see cref="T:NHibernate.Criterion.AbstractCriterion"/>
+            </summary>
+            <param name="propriedade">Nome da propriedade</param>
+            <param name="valor">Valor da propriedade</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.DiferentePropriedade(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propriedade"></param>
+            <param name="outraPropriedade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.Ou(NHibernate.Criterion.ICriterion,NHibernate.Criterion.ICriterion)">
+            <summary>
+            
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(NHibernate.SqlCommand.SqlString)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(NHibernate.SqlCommand.SqlString,System.Object,NHibernate.Type.IType)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(NHibernate.SqlCommand.SqlString,System.Object[],NHibernate.Type.IType[])">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <param name="values"></param>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(System.String,System.Object,NHibernate.Type.IType)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.Expressao.SQL(System.String,System.Object[],NHibernate.Type.IType[])">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <param name="values"></param>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.ExtensionMethods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.ExpressionOr``1(System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+            Retorna AbstractCriterion agrupando as propriedades informadas.
+            </summary>
+            <typeparam name="TSource">Tipo Tipo do objeto</typeparam>
+            <param name="lista">Lista do tipo informado </param>
+            <param name="propriedade">Propriedade</param>
+            <param name="alias">Alias</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.ExpressionOr``1(FGlobus.Comum.DAL.DataAccessObject{``0},System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+            Retorna AbstractCriterion agrupando as propriedades informadas.
+            </summary>
+            <typeparam name="TSource">Tipo do objeto</typeparam>
+            <param name="valor">Objeto</param>
+            <param name="lista">Lista do tipo informado</param>
+            <param name="propriedade">Propriedade</param>
+            <param name="alias">Alias</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.RetornarProjectionList``1(NHibernate.ICriteria,System.Boolean)">
+            <summary>
+            Retornar lista, projetando os dados nas propriedades correspondentes do objeto de retorno informado.
+            </summary>
+            <typeparam name="TResult">Tipo do retorno</typeparam>
+            <param name="criteria">Criteria</param>
+            <param name="fecharSessao">Informa se fecha a sessão.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.RetornarProjectionList``1(NHibernate.ICriteria,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)">
+            <summary>
+            Retornar lista, projetando os dados nas propriedades informadas do objeto de retorno.
+            </summary>
+            <remarks>Documentação: https://www.yammer.com/bgmrodotec.com.br/uploaded_files/29826462 </remarks>
+            <typeparam name="TResult">Tipo do retorno</typeparam>
+            <param name="criteria">Criteria</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <param name="fecharSessao">Informa se fecha a sessão.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.CriarProjectionList``1(NHibernate.ICriteria,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)">
+            <summary>
+            Cria ProjectionList para as propriedades informadas
+            </summary>
+            <remarks>Documentação: https://www.yammer.com/bgmrodotec.com.br/uploaded_files/29826462 </remarks>
+            <typeparam name="TSource">Tipo do objeto</typeparam>
+            <param name="criteria">Criteria</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <param name="groupBy">Informa se é uma projeção com agrupamento</param>
+            <returns><see cref="T:NHibernate.ICriteria"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.ExpressionBetweenDataHora``1(NHibernate.ICriteria,System.Linq.Expressions.Expression{System.Func{``0,System.DateTime}},System.DateTime)">
+            <summary>
+            Retorna Expression.Between com a data hora inicial e data hora final da data base informada.
+            </summary>
+            <typeparam name="TSource">Tipo do objeto</typeparam>
+            <param name="criteria">Criteria</param>
+            <param name="propriedade">Propriedade</param>
+            <param name="dataBase">Data</param>
+            <returns><see cref="T:NHibernate.ICriteria"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.RetornarTipoDTO(NHibernate.ISession,System.String)">
+            <summary>
+            Retorna tipo para o DTO informado
+            </summary>
+            <param name="session"><see cref="T:NHibernate.ISession"/></param>
+            <param name="dataTransferObject">Nome do DTO</param>
+            <returns><see cref="T:System.Type"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.ExtensionMethods.GetSQL(NHibernate.ICriteria,System.Boolean)">
+            <summary>
+            Retorna o select do criteria informado
+            </summary>
+            <param name="criteria">Criteria</param>
+            <param name="copiaParaClipboard">Informa se copia para área de transferência</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.GenericaDAO">
+            <summary>
+            Classe base genérica para classes de acesso a dados e persistência (DAO).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarMaximoValorDaPropriedade(System.Type,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria},System.Boolean)">
+            <summary>
+            Retorna o maximo valor da propriedade informada conforme a condição.
+            </summary>
+            <param name="type">Objeto do tipo <see cref="T:System.Type"/>.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipos sCondicaoAdicionalCriteria, com as condições.</param>
+            <param name="ignoraNaoNumericos">Ignora valores não numéricos.</param>
+            <returns><see cref="T:System.Object"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarMaximoValor(System.Type,System.String,System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições.
+            </summary>
+            <param name="typeDTO">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objetos do tipo sCondicaoAdicionalCriteria</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria},System.Boolean)">
+            <summary>
+            Retorna o maximo valor da propriedade informada conforme a condição.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo <see cref="T:FGlobus.Comum.DTO.DataTransferObject"/>.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipos sCondicaoAdicionalCriteria, com as condições.</param>
+            <param name="ignoraNaoNumericos">Ignora valores não numéricos.</param>
+            <returns><see cref="T:System.Object"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retorna o maximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo <see cref="T:FGlobus.Comum.DTO.DataTransferObject"/>.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.Object"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarDataHoraBanco">
+            <summary>
+            Retorna a data hora do banco de dados.
+            </summary>
+            <returns><see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarInformacoesDoBancoDeDados">
+            <summary>
+            Retornar informações do banco de dados.
+            </summary>
+            <returns>Retorno do tipo sInformacoesDoBancoDeDados.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarDiferencaHorarioUTC">
+            <summary>
+            Retorna a diferença de horário UTC.
+            <remarks>
+            <para>Universal Time Coordinated (Tempo Universal Coordenado)</para>
+            </remarks>
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarProximaSequenciaBD(System.String)">
+            <summary>
+            Retorna numero da proxima sequence de acordo com o nome da sequence informada.
+            </summary>
+            <param name="nomeSequence">Nome da sequence</param>
+            <returns><see cref="T:System.Double"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarTodos(System.String)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaPorChave(System.String,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaBasica(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaBasicaDosCampos(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[],System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Consulta básica por condições dos compos informados.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <param name="campos">Lista de string com o nome dos campos</param>
+            <returns>Objeto com dois elementos, sendo o 1º o DTO e o 2º o resultado da consulta.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarCondicoesCriteria(System.Type,System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar Junction conforme a lista de condições.
+            </summary>
+            <param name="tipo">Objeto do Type.</param>
+            <param name="condicoes">Lista de objetos do tipo sCondicaoAdicionalCriteria</param>
+            <returns><see cref="T:NHibernate.Criterion.Junction"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarCondicoesCriteria(FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[])">
+            <summary>
+            Retornar Junction conforme a lista de condições.
+            </summary>
+            <param name="condicoes">Lista de objetos do tipo sCondicaoAdicionalCriteria</param>
+            <returns>Junction</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarExpressionIn(System.String,System.Object)">
+            <summary>
+            Retorna AbstractCriterion conforme o valor
+            </summary>
+            <param name="propriedade">Nome da propriedade.</param>
+            <param name="valor">Objeto como valor</param>
+            <returns>AbstractCriterion</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaBasica_Novo``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0}})">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicoes">Lista de objetos do tipo CondicaoAdicionalCriteria conforme o tipo informado.</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaBasicaDosCampos_Novo``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0}},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Consulta básica por condições, populando somente as propriedades informadas.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicoes">Lista de objetos do tipo CondicaoAdicionalCriteria conforme o tipo informado.</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarTodos_Novo``1">
+            <summary>
+            Retornar lista com todos os objetos do tipo informado.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.ConsultaPorChave_Novo``1(System.Object)">
+            <summary>
+            Consulta por chave
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarCondicoesCriteria_Novo``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0}})">
+            <summary>
+            Retornar Junction conforme a lista de condições.
+            </summary>
+            <param name="condicoes">Lista de objetos do tipo CondicaoAdicionalCriteria</param>
+            <returns>Junction</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.GenericaDAO.RetornarExpressionIn_Novo``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+            Retorna AbstractCriterion conforme o valor
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="propriedade">Propriedade do objeto</param>
+            <param name="valor">Valor da propriedade</param>
+            <returns>AbstractCriterion</returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1">
+            <summary>
+            Classe de condiçõe para consultas basicas
+            </summary>
+            <typeparam name="T">Objeto generico do tipo DataTransferObject</typeparam>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Object,FGlobus.Comum.DAL.eOperador)">
+            <summary>
+            Construtor basico
+            </summary>
+            <param name="propriedade">Propriedade do objeto</param>
+            <param name="valor">Valor da propriedade</param>
+            <param name="operador">Operador</param>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.Propriedade">
+            <summary>
+            Nome da(s) propriedade(s).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.Valor">
+            <summary>
+            Valor da propriedade.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.Operador">
+            <summary>
+            Operador da condição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.ValorInicial">
+            <summary>
+            Valor inicial da propriedade.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.CondicaoAdicionalCriteria`1.ValorFinal">
+            <summary>
+            Valor final da propriedade.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.HQL">
+            <summary>
+            Classe comun para montar um HQL(Hibernate Query Language).
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.HQL.Query">
+            <summary>
+            Monta a query que será executada.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.DAL.HQL.Lista">
+            <summary>
+            Lista com o resultado da query.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.Propriedades(System.String[])">
+            <summary>
+            Nome da propriedade que vai para o "Select".
+            </summary>
+            <param name="propriedades">Propriedades do Select.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.Classes(System.String[])">
+            <summary>
+            Nome da classes DTO que vai para o "Select".
+            <remarks>Obs.: Com o alias.</remarks>
+            <example>hql.Classe("ClasseDTO alias");</example>
+            </summary>
+            <param name="classes">Nome da classe DTO.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.Links(System.String[])">
+            <summary>
+            Link que vai para o "Select".
+            <example>hql.Link("AND Alias1.Campo1 = Alias2.Campo1");</example>
+            </summary>
+            <param name="links">Definição do link.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.LimparPropriedades">
+            <summary>
+            Limpa as propriedades.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.LimparClasses">
+            <summary>
+            Limpa as classes.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.LimparLinks">
+            <summary>
+            Limpa os links.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.RetornarPropriedades">
+            <summary>
+            Retorna as propriedades para montar "Select".
+            </summary>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.RetornarClasses">
+            <summary>
+            Retorna as classes para montar "Select".
+            </summary>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.RetornarLinks">
+            <summary>
+            Retorna os links para montar "Select".
+            </summary>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.Executar">
+            <summary>
+            Executa o select montado.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemString(System.Collections.IList,System.String)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemInt(System.Collections.IList,System.String)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemDateTime(System.Collections.IList,System.String)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemDecimal(System.Collections.IList,System.String)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.Decimal"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemBoolean(System.Collections.IList,System.String,System.Object)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <param name="simOuNao">Valor do Sim ou Não.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.ItemChar(System.Collections.IList,System.String)">
+            <summary>
+            Retorna o valor do item.
+            </summary>
+            <param name="itens">Lista com dados "Select".</param>
+            <param name="propriedade">Nome da propriedade.</param>
+            <returns><see cref="T:System.Char"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.HQL.RetornarListaPropriedades">
+            <summary>
+            Retorna a lista de propriedades incluidas no HQL
+            </summary>
+            <returns>Lista do tipo <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:FGlobus.Comum.DAL.UtilDAL">
+            <summary>
+            Classe de utilidades comuns à camada DAL.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionDataNulaOuInicial(System.String)">
+            <summary>
+            Retorna um Expression filtrando a propriedade passada em Null ou data zerada no estilo cargas.
+            </summary>
+            <param name="propertName">Nome da propriedade a filtrar.</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.DataInicial">
+            <summary>
+            Retornar data zerada no estilo cargas (01/01/0001).
+            </summary>
+            <returns><see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionIn``1(System.String,``0[])">
+            <summary>
+            Retorna um Expression com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="propertName">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <exception cref="1: Lista vazia.">Lista vazia.</exception>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionIn(System.Type,System.String,System.Object)">
+            <summary>
+            Retorna um Expression com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <param name="tipo">Tipo do objeto</param>
+            <param name="propertName">Nome da propriedade.</param>
+            <param name="valor">Objeto com a lista de valores</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionOr``1(System.Collections.Generic.IEnumerable{``0},System.String[])">
+            <summary>
+            Retorna AbstractCriterion agrupando as propriedades informadas.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="lista">Lista de objeto.</param>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <returns><see cref="T:NHibernate.Criterion.AbstractCriterion"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionInHQL``1(System.String,``0[])">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionInHQL``1(System.String,System.String,``0[])">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="operadorLogicoIni">Operador lógico que vai ser concatenado no inicio do retorno.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionInHQL``1(System.String,``0[],System.String)">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <param name="operadorLogicoFim">Operador lógico que vai ser concatenado no fim do retorno.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.FormatarRetorno(System.Type,System.Object)">
+            <summary>
+            Formata retorno para os metodos "ExpressionInHQL" e "ExpressionInHQL"
+            </summary>
+            <param name="tipoCampo">Tipo do campo.</param>
+            <param name="valor">Valor do campo.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionOrHQL``1(System.String[],``0[])">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionOrHQL``1(System.String,System.String[],``0[])">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="operadorLogicoIni">Operador lógico que vai ser concatenado no inicio do retorno.</param>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.ExpressionOrHQL``1(System.String[],``0[],System.String)">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <param name="operadorLogicoFim">Operador lógico que vai ser concatenado no fim do retorno.</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.RetornarStringDeConexao(System.Boolean,FGlobus.Comum.eItensConnectionString,System.String)">
+            <summary>
+            Retorna string de conexão ou o item informado
+            </summary>
+            <param name="retornarConnectionString">Informa se é para trazer a string de conexão.</param>
+            <param name="item">Item da string de conexão que é pra retornar</param>
+            <param name="stringDeConexao">String de conexão</param>
+            <returns><see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DAL.UtilDAL.RetornarValorConformeTipo(System.Type,System.String,System.Object)">
+            <summary>
+            Retorna o valor conforme o tipo da propriedade
+            </summary>
+            <param name="tipoObjeto">Tipo do objeto</param>
+            <param name="propriedade">Nome da propriedade</param>
+            <param name="valor">Valor</param>
+            <returns><see cref="T:System.Object"/>.</returns>
+        </member>
+        <member name="T:FGlobus.Comum.DTO.DataTransferObject">
+            <summary>
+            Classe base para classes de entidades de banco de dados (DTO). Implementa interface IClonable garantindo que todos os objetos DTO da aplicação herdarão os métodos de clone de objetos.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.Clone">
+            <summary>
+            Clonar (copiar/duplicar) e retornar objeto.
+            </summary>
+            <returns>Clone do objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.GetValueProperty(System.String)">
+            <summary>
+            Retornar o valor (objeto) de uma propriedade informada.
+            </summary>
+            <param name="property">Nome da propriedade.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.GetCharProperty(System.String)">
+            <summary>
+            Retornar o valor de uma propriedade informada no convertido em Char.
+            </summary>
+            <param name="property">Nome da propriedade.</param>
+            <returns>Char.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.GetDecimalProperty(System.String)">
+            <summary>
+            Retornar o valor de uma propriedade informada no convertido em Decimal.
+            </summary>
+            <param name="property">Nome da propriedade.</param>
+            <returns>
+            Decimal.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.SetValueProperty(System.String,System.Object)">
+            <summary>
+            Atribuir o valor (objeto) passado à propriedade informada.
+            </summary>
+            <param name="property">Nome da propriedade.</param>
+            <param name="value">Valor para atribuir à propriedade.</param>
+        </member>
+        <member name="M:FGlobus.Comum.DTO.DataTransferObject.GetTypeProperty(System.String)">
+            <summary>
+            Retornar o tipo do propriedade informada.
+            </summary>
+            <param name="property">Nome da propriedade.</param>
+            <returns>Type.</returns>
+        </member>
+        <member name="P:FGlobus.Comum.DTO.DataTransferObject.AchouRegistro">
+            <summary>
+            Property para controlar se o registro existe.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.EnumeradoresFGlobus">
+            <summary>
+            Classe para criação de enumeradores.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco">
+            <summary>
+            Enum para controlar o tipo de operação CRUD
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco.Inclusao">
+            <summary>
+            Inclusão
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco.Alteracao">
+            <summary>
+            Alteração
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco.NovaAlteracao">
+            <summary>
+            Nova alteração
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco.Exclusao">
+            <summary>
+            Exclusão
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade">
+            <summary>
+            Enum para controlar o tipo de uma propriedade
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade.Numerico">
+            <summary>
+            Numerico
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade.DataHora">
+            <summary>
+            DataHora
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade.AlfaNumerico">
+            <summary>
+            AlfaNumerico
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.EnumeradoresFGlobus.eTipoDePropriedade.Booleano">
+            <summary>
+            Booleano
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.IBLL">
+            <summary>
+            Interface base utilizada nos projetos de interface onde os métodos serão utilizados em múltiplos projetos.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.NHibernateHelper">
+            <summary>
+            Classe abstrata reservada para métodos de controle de sessões, transações e construção do mapeamento de entidades de banco de dados (XML) para nHibernate.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.NHibernateHelper.#cctor">
+            <summary>
+            Construir o mapeamento de entidades de banco de dados a partir dos arquivos hbm.XML dos pacotes DTOs. Requerido para os controles do nHibernate.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.NHibernateHelper._sessionFactory">
+            <summary>
+            Metodo de controle da sessão.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.NHibernateHelper.Sessao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:NHibernate.ISession"/>.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.NHibernateHelper.Transacao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:NHibernate.ITransaction"/>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.NHibernateHelper.GetSession">
+            <summary>
+            Retornar a sessão do nHibernate aberta ou abrir e retornar nova.
+            </summary>
+            <returns>Sessão do nHibernate.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.NHibernateHelper.IniciaSessaoETransacao">
+            <summary>
+            Abrir nova sessão do nHibernate e iniciar transação caso não exista uma aberta.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.NHibernateHelper.FechaSessaoETransacao">
+            <summary>
+            Finalizar transação (Commit) e fechar sessão do nHibernate caso exista uma aberta.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.NHibernateHelper.CancelaSessaoETransacao">
+            <summary>
+            Cancelar transação (Rollback) e fechar sessão do nHibernate caso exista uma aberta.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.eItensConnectionString">
+            <summary>
+            Enum com os itens da string de conexao
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Provider">
+            <summary>
+            Provider
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Servidor">
+            <summary>
+            Servidor
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Persist_Security_Info">
+            <summary>
+            Persist_Security_Info
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Usuario">
+            <summary>
+            Usuario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Senha">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="F:FGlobus.Comum.eItensConnectionString.Unicode">
+            <summary>
+            Unicode
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.ChaveCRUD">
+            <summary>
+            Classe de controle para o acesso aos métodos de (Create, Read, Update and Delete)
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.LiberaAcessoChaveCRUD">
+            <summary>
+            Libera acesso da chave CRUD.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.Conecta(System.String,System.String)">
+            <summary>
+            Conecta na base informada.
+            </summary>
+            <param name="dataBase">Base.</param>
+            <param name="usuario">Usuario.</param>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.Conecta(System.String,System.String,System.String)">
+            <summary>
+            Conecta na base informada.
+            </summary>
+            <param name="dataBase">Base.</param>
+            <param name="usuario">Usuario.</param>
+            <param name="senha">Senha.</param>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.Conecta">
+            <summary>
+            Conecta na base, com as informações do Web.config que está no localhost.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.Conecta(System.String)">
+            <summary>
+            Conecta na base, com as informações arquivo informado.
+            </summary>
+            <param name="pathArquivoWebConfig">Arquivo de configuração com o caminho.</param>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.ConectaLinqPad(System.String)">
+            <summary>
+            Retorna sessão do banco de dados conforme os dados do arquivo.
+            <para>Obs: Método para ser utilizado no aplicativo "LinqPad"</para>
+            </summary>
+            <param name="pathArquivoWebConfig">Arquivo de configuração com o caminho.</param>
+            <returns>ISession</returns>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.ConectaLinqPad(System.String,System.String,System.String)">
+            <summary>
+            Retorna sessão do banco de dados conforme os dados informados.
+            <para>Obs: Método para ser utilizado no aplicativo "LinqPad"</para>
+            </summary>
+            <param name="dataBase">Data base</param>
+            <param name="usuario">Usuario</param>
+            <param name="senha">Senha</param>
+            <returns>ISession</returns>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.ConectaLinqPad(System.String,System.String)">
+            <summary>
+            Retorna sessão do banco de dados conforme os dados informados.
+            <para>Obs: Método para ser utilizado no aplicativo "LinqPad"</para>
+            </summary>
+            <param name="dataBase">Data base</param>
+            <param name="usuario">Usuario</param>
+            <returns>ISession</returns>
+        </member>
+        <member name="M:FGlobus.Comum.ChaveCRUD.ConectaLinqPad">
+            <summary>
+            Retorna sessão do banco de dados conforme os dados do arquivo.
+            <para>c:\Servers\Globus5\Web.config ou w:\Web.config</para>
+            <para>Obs: Método para ser utilizado no aplicativo "LinqPad"</para>
+            </summary>
+            <returns>ISession</returns>
+        </member>
+        <member name="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO">
+            <summary>
+            Parâmetros dinâmico mobile
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobileVO.#ctor">
+            <summary>
+            Construtor padrão
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobileVO.#ctor(System.String,System.Object)">
+            <summary>
+            Construtor default
+            </summary>
+            <param name="nome">Nome do parâmetro.</param>
+            <param name="valor">Valor do parâmetro.</param>
+        </member>
+        <member name="P:FGlobus.Comum.VO.ParametrosDinamicoMobileVO.Nome">
+            <summary>
+            (Set/Get) Informa ou retorna o nome do parâmetro
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.VO.ParametrosDinamicoMobileVO.Valor">
+            <summary>
+            (Set/Get) Informa ou retorna o valor do parâmetro
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.VO.RetornoGenerico">
+            <summary>
+            RetornoGenerico
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.VO.RetornoGenerico.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.VO.RetornoGenerico.#ctor(System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construtor
+            </summary>
+            <param name="retorno">Retorno</param>
+            <param name="httpStatusCode">status http</param>
+        </member>
+        <member name="P:FGlobus.Comum.VO.RetornoGenerico.Retorno">
+            <summary>
+            (Set/Get) Informa ou retorna crítica de retorno quando houver
+            </summary>
+        </member>
+        <member name="P:FGlobus.Comum.VO.RetornoGenerico.HttpStatusCode">
+            <summary>
+            Http status code
+            </summary>
+        </member>
+        <member name="T:FGlobus.Comum.VO.ParametrosDinamicoMobile">
+            <summary>
+            Classe estática reservada para criação de "Extension Methods" voltada aos <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.Parametro``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.VO.ParametrosDinamicoMobileVO},System.String)">
+            <summary>
+            Retorna o valor do parametro informado
+            </summary>
+            <typeparam name="TResult">Tipo do retorno</typeparam>
+            <param name="listaParametrosDinamicoMobileVO">Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</param>
+            <param name="nome">Nome</param>
+            <returns><see cref="T:System.Func`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.Parametro``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.VO.ParametrosDinamicoMobileVO})">
+            <summary>
+            Retorna o valor do primeiro parâmetro informado
+            </summary>
+            <typeparam name="TResult">Tipo do retorno</typeparam>
+            <param name="listaParametrosDinamicoMobileVO">Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</param>
+            <returns><see cref="T:System.Func`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.ValidarParametros(System.Collections.Generic.IEnumerable{FGlobus.Comum.VO.ParametrosDinamicoMobileVO},System.String[])">
+            <summary>
+            Valida os parametros necessários para a execução do método
+            </summary>
+            <param name="listaParametrosDinamicoMobileVO">Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</param>
+            <param name="parametro">Lista de objetos do tipo <see cref="T:System.String"/> com o nome dos parâmetro.</param>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.Add(System.Collections.Generic.IEnumerable{FGlobus.Comum.VO.ParametrosDinamicoMobileVO},System.String,System.Object)">
+            <summary>
+            Adiciona parametros
+            </summary>
+            <param name="listaParametrosDinamicoMobileVO">Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</param>
+            <param name="nome">Nome</param>
+            <param name="valor">Valor</param>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.PopularObjeto``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.VO.ParametrosDinamicoMobileVO})">
+            <summary>
+            Popula o objeto informado
+            </summary>
+            <typeparam name="TResult">Tipo do objeto</typeparam>
+            <param name="listaParametrosDinamicoMobileVO">Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</param>
+            <returns><see cref="T:System.Func`1"/></returns>
+        </member>
+        <member name="M:FGlobus.Comum.VO.ParametrosDinamicoMobile.Criar">
+            <summary>
+            Cria lista de parâmetros com um parâmetros identificado para não validar o acesso
+            </summary>
+            <returns>Lista de objetos do tipo <see cref="T:FGlobus.Comum.VO.ParametrosDinamicoMobileVO"/>.</returns>
+        </member>
+        <member name="T:FGlobus.Comum.XmlCleanupSoapExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.ChainStream(System.IO.Stream)">
+            <summary>
+            
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.GetInitializer(System.Web.Services.Protocols.LogicalMethodInfo,System.Web.Services.Protocols.SoapExtensionAttribute)">
+            <summary>
+            
+            </summary>
+            <param name="methodInfo"></param>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.GetInitializer(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.Initialize(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="initializer"></param>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.ProcessMessage(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.ProcessInput(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FGlobus.Comum.XmlCleanupSoapExtension.ProcessOutput(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:FGlobus.Util.GenericoBO">
+            <summary>
+            Classe reservada aos métodos de regras de negócio relacionada a movimentação de serviços do Cargas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.#ctor">
+            <summary>
+            Construtor padrão
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.#ctor(FGlobus.Comum.BLL.IAutenticacaoWebService)">
+            <summary>
+            Construtor padrão
+            </summary>
+            <param name="iAutenticacaoWebService">Objeto do tipo IAutenticacaoWebService</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.Apagar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Apaga genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ApagaLista(System.Collections.Generic.IEnumerable{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Apaga listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarOuAlterar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Salva ou altera genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarLista(System.Collections.Generic.IEnumerable{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Salva listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarOuAlterarLista(System.Collections.Generic.IEnumerable{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Salvar ou alterar lista genérico
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedadeDouble(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedadeDouble(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retornar o próximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedadeDouble(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retornar o próximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria},System.Boolean)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <param name="ignoraNaoNumericos">Ignora valores não numéricos.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retorna o maximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarTodos(System.String)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaPorChave(System.String,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasicaDosCampos(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[],System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Consulta básica por condições dos campos informados.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <param name="campos">Lista de string com o nome dos campos.</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarDataHoraBanco">
+            <summary>
+            Retorna a data hora do banco de dados.
+            </summary>
+            <returns>Objeto do tipo DateTime.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarInformacoesDoBancoDeDados">
+            <summary>
+            Retornar informações do banco de dados.
+            </summary>
+            <returns>Retorno do tipo sInformacoesDoBancoDeDados.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximaSequenciaBD(System.String)">
+            <summary>
+            Retorna numero da proxima sequence de acordo com o nome da sequence informada.
+            </summary>
+            <param name="nomeSequence">Nome da sequence</param>
+            <returns><see cref="T:System.Double"/></returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.AcessoWebService(FGlobus.Comum.DAL.sAutenticacaoWebService)">
+            <summary>
+            Permissão Acesso ao WebService
+            </summary>
+            <param name="AcessoWebService">Parâmetros</param>
+            <returns>Bool</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarDadosDeConexao(System.String)">
+            <summary>
+            Retornar dados de conexão do banco(StringDeConexao\Servidor\Usuario\Senha).
+            </summary>
+            <param name="senha">Senha para acessar o método.</param>
+            <returns>sDadosDeConexao</returns>
+        </member>
+        <member name="P:FGlobus.Util.GenericoBO.RetornarDataHoraBanco_Novo">
+            <summary>
+            Retorna data hora do banco
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object,FGlobus.Comum.DAL.eOperador)">
+            <summary>
+            Consulta básica por condição, populando somente as propriedades informadas.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="propriedade">Propriedade do objeto</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <param name="valor">Valor da propriedade</param>
+            <param name="operador">Operador logico</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object,FGlobus.Comum.DAL.eOperador)">
+            <summary>
+            Consulta básica por condição
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="propriedade">Propriedade do objeto</param>
+            <param name="valor">Valor da propriedade</param>
+            <param name="operador">Operador logico</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0}})">
+            <summary>
+            Consulta básica por condições
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicoes">Lista de objetos do tipo CondicaoAdicionalCriteria conforme o tipo informado.</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(System.Collections.Generic.IEnumerable{FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Consulta básica por condições, populando somente as propriedades informadas.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicoes">Lista de objetos do tipo CondicaoAdicionalCriteria conforme o tipo informado.</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Consulta básica por condição, populando somente as propriedades informadas.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicao">Objeto do tipo CondicaoAdicionalCriteria</param>
+            <param name="propriedades">Lista de propriedades</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``1(FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0})">
+            <summary>
+            Consulta básica por condição
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="condicao">Objeto do tipo CondicaoAdicionalCriteria</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica_Novo``2(FGlobus.Comum.DAL.CondicaoAdicionalCriteria{``0})">
+            <summary>
+            Consulta básica por condição
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <typeparam name="TRetorno">Tipo de retorno</typeparam>
+            <param name="condicao">Objeto do tipo CondicaoAdicionalCriteria</param>
+            <returns>Lista de objetos do tipo de retorno informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarTodos_Novo``1">
+            <summary>
+            Retornar lista com todos os objetos do tipo informado.
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarTodos_Novo``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Retornar lista com todos os objetos do tipo informado, com apenas as propriedades especificadas
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="propriedades">Propriedades a serem retornadas</param>
+            <returns>Lista de objetos do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaPorChave_Novo``1(System.Object)">
+            <summary>
+            Consulta por chave
+            </summary>
+            <typeparam name="T">Objeto do tipo DataTransferObject</typeparam>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo informado</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.Criar(FGlobus.Comum.BLL.IAutenticacaoWebService,System.String)">
+            <summary>
+            Cria a classe GenericoBO
+            </summary>
+            <param name="iAutenticacaoWebService">Objeto do tipo IAutenticacaoWebService</param>
+            <param name="chaveAcesso">Chave de acesso</param>
+            <returns>GenericoBO</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.Criar(FGlobus.Comum.BLL.IAutenticacaoWebService)">
+            <summary>
+            Cria a classe GenericoBO
+            </summary>
+            <param name="iAutenticacaoWebService">Objeto do tipo IAutenticacaoWebService</param>
+            <returns>GenericoBO</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.VerificarChaveAcesso(System.String)">
+            <summary>
+            Verificar se a chave acesso informada é igual a ValorChaveCRUD.
+            </summary>
+            <param name="chaveAcesso">Valor da chave acesso.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.GenericoConsultaBasica(System.String,System.String,System.String)">
+            <summary>
+            Retorna lista do DTO informado
+            </summary>
+            <param name="nomeDTO">Objeto do tipo DTO.</param>
+            <param name="condicoes">String com as condições.</param>
+            <param name="propriedades">Lista de string com o nome das propriedades.</param>
+            <returns>Lista de objetos do tipo DataTransferObject</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValor(System.String,System.String,System.String)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições.
+            </summary>
+            <param name="nomeDTO">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">String com as condições.</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarAlterarOuExcluirLista``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Salva, altera ou exclui os itens da lista informada, se exisitir uma propriedade do tipo <see cref="T:FGlobus.Comum.EnumeradoresFGlobus.eTipoOperacaoBanco"/>
+            </summary>
+            <typeparam name="T">Objeto do tipo <see cref="T:FGlobus.Comum.DTO.DataTransferObject"/></typeparam>
+            <param name="lista">Lista do tipo informada</param>
+        </member>
+    </members>
+</doc>

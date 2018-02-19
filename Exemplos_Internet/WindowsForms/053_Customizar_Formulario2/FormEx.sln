@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormEx", "FormEx\FormEx.csproj", "{788D66DC-FA3D-4B9D-8E4A-AFB4503C50C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{52513FB0-E093-43EE-8ECE-92A674B9C209}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{788D66DC-FA3D-4B9D-8E4A-AFB4503C50C5}.Debug|x86.ActiveCfg = Debug|x86
+		{788D66DC-FA3D-4B9D-8E4A-AFB4503C50C5}.Debug|x86.Build.0 = Debug|x86
+		{788D66DC-FA3D-4B9D-8E4A-AFB4503C50C5}.Release|x86.ActiveCfg = Release|x86
+		{788D66DC-FA3D-4B9D-8E4A-AFB4503C50C5}.Release|x86.Build.0 = Release|x86
+		{52513FB0-E093-43EE-8ECE-92A674B9C209}.Debug|x86.ActiveCfg = Debug|x86
+		{52513FB0-E093-43EE-8ECE-92A674B9C209}.Debug|x86.Build.0 = Debug|x86
+		{52513FB0-E093-43EE-8ECE-92A674B9C209}.Release|x86.ActiveCfg = Release|x86
+		{52513FB0-E093-43EE-8ECE-92A674B9C209}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

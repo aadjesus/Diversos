@@ -1,0 +1,60 @@
+
+
+
+a:link		{ color:#FFFF00}
+
+			}
+a:visited   {
+ 			color:#FFFF00
+
+			}
+			
+			
+body         { font-family: Arial; 
+				color:  #000066 ; 
+				background-color:#6699FF 
+				}
+				
+				
+				
+.logo		 {	border:1px solid #FFFFFF; 
+				font-family: Arial; 
+				font-size: 12pt; 
+				font-weight: bold;  
+				vertical-align: middle; 
+				padding-left:4; 
+				padding-right:4; 
+				padding-top:1; 
+				padding-bottom:1
+				}
+
+.header     {	border:1px solid #FFFFFF; 
+				font-size: 12pt; 
+				font-weight: bold; 
+				color: white; 
+				background-color: #999999;
+				padding-left: 10; 
+				padding-right:4; 
+				padding-top:1; 
+				padding-bottom:1;
+						
+				}		
+				
+.menu		{	border: 1px solid #FFFFFF; 
+				color: white; 
+				background-color: #999999;
+				padding-left: 10; 
+				padding-right: 10; 
+				padding-top: 10; 
+				padding-bottom: 1 
+			}
+			
+.text		{	border:1px solid #FFFFFF; 
+				font-size: 10pt; 
+				padding-left: 10; 
+				padding-top: 10; 
+				padding-right:10; 
+				padding-bottom:1
+				}
+H1 			{ font-size:14 px
+			}

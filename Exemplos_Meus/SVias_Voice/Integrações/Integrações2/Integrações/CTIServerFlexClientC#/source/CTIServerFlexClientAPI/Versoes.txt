@@ -1,0 +1,30 @@
+Informações sobre versões:
+1.0.0:
+Inicial
+Sem documentação.
+Faltando comandos.
+Liberada para avaliação.
+
+1.1.0:
+Sem documentação.
+Todos os comandos implementados.
+
+1.2.0:
+Data:
+	31-08-2007
+Alterações:
+	Todas as classe que notificavam eventos através de listeners, passam a utilizar também "events delegates".
+Problema:
+	Classe Command chamava o ClearTimeout somente no construtor.
+	O problema é que o usuário da API poderia criar o Command e enviar para o servidor somente depois de um tempo decorrido.
+	O controlador do comando, neste caso enviaria um timeout incorreto.
+Solução:
+	Classe controladora dos comandos "CommandControl" passa a chamar o clear quando adiciona para verificação, que é o momento
+	instantaneamente antes do envio para o servidor.
+
+Problema:
+	No logon da API não estava enviando o nome ou o IP da máquina cliente corretamente.
+Solução:
+	Utilizado método: System.Net.Dns.GetHostName().
+	
+	

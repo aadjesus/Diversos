@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="PhysicsHost.OrderUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Width="140" Height="90" >
+
+    <!-- Resources -->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/StylesAndTemplatesGlobal.xaml"/>
+                <ResourceDictionary Source="../Resources/StylesAndTemplatesCommon.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!-- ToolTip -->
+    <UserControl.ToolTip>
+        <StackPanel Orientation="Vertical" >
+            <Border CornerRadius="5" Margin="5" Background="Black" BorderBrush="Black" BorderThickness="1">
+                <Label Height="auto" FontSize="20" FontWeight="Bold"  
+                                   Foreground="White" Content="ORDER DATA"/>
+            </Border>
+
+            <!-- OrderID -->
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="OrderID" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=OrderID}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+            <!-- OrderDate -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Order Date" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=OrderDate}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+            <!-- Freight -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Freight" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=Freight}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+            <!-- ShipAddress -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ship Address" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=ShipAddress}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+            <!-- ShipCity -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ship City" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=ShipCity}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+            <!-- ShipCountry -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ship Country" Style="{StaticResource toolTipLabelLeft}"/>
+                <Label Content="{Binding Path=ShipCountry}" Style="{StaticResource toolTipLabelRight}"/>
+            </StackPanel>
+
+        </StackPanel>
+    </UserControl.ToolTip>
+
+
+
+</UserControl>

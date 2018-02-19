@@ -1,0 +1,2472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reflection xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ddue="urn:ddue-extensions">
+  <assemblies>
+    <assembly name="TestDoc" version="1.0.0.0" culture="" key="" hash="SHA1">
+      <attributes>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyTrademarkAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value />
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyCopyrightAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>Copyright © Spokane County 2006</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute" ref="true" />
+          <assignment name="WrapNonExceptionThrows">
+            <type api="T:System.Boolean" ref="false" />
+            <value>True</value>
+          </assignment>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>1.0.0.0</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Runtime.InteropServices.GuidAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>b2de7307-1c32-4aac-ac78-1711dfc65dad</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Runtime.InteropServices.ComVisibleAttribute" ref="true" />
+          <argument>
+            <type api="T:System.Boolean" ref="false" />
+            <value>False</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyConfigurationAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value />
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyProductAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>TestDoc</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyCompanyAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>Spokane County</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyTitleAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>TestDoc</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Runtime.CompilerServices.CompilationRelaxationsAttribute" ref="true" />
+          <argument>
+            <type api="T:System.Int32" ref="false" />
+            <value>8</value>
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyDescriptionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value />
+          </argument>
+        </attribute>
+        <attribute>
+          <type api="T:System.Diagnostics.DebuggableAttribute" ref="true" />
+          <argument>
+            <type api="T:System.Diagnostics.DebuggableAttribute.DebuggingModes" ref="false">
+              <type api="T:System.Diagnostics.DebuggableAttribute" ref="true" />
+            </type>
+            <enumValue>
+              <field name="None" />
+              <field name="Default" />
+              <field name="DisableOptimizations" />
+              <field name="IgnoreSymbolStoreSequencePoints" />
+              <field name="EnableEditAndContinue" />
+            </enumValue>
+          </argument>
+        </attribute>
+      </attributes>
+    </assembly>
+  </assemblies>
+  <apis>
+    <api id="R:Project">
+      <apidata group="root" pseudo="true" />
+      <elements>
+        <element api="N:TestDoc" />
+        <element api="N:XMLTagsDemo" />
+      </elements>
+      <file name="R_Project" />
+    </api>
+    <api id="N:TestDoc">
+      <apidata name="TestDoc" group="namespace" />
+      <elements>
+        <element api="T:TestDoc.GenericClass`2" />
+        <element api="T:TestDoc.TestClass" />
+        <element api="T:TestDoc.TestDerivedClass" />
+        <element api="T:TestDoc.TestSealedDerivedClass" />
+        <element api="T:TestDoc.TestGeneral" />
+        <element api="T:TestDoc.TestSerializable" />
+        <element api="T:TestDoc.TestFlags" />
+        <element api="T:TestDoc.TestFlagsSerializable" />
+        <element api="T:TestDoc.OverloadClass" />
+        <element api="T:TestDoc.BaseTest" />
+        <element api="T:TestDoc.SealedTest" />
+        <element api="T:TestDoc.ExplicitImplementation" />
+      </elements>
+      <file name="N_TestDoc" />
+    </api>
+    <api id="T:TestDoc.BaseTest">
+      <apidata name="BaseTest" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+        <descendents>
+          <type api="T:TestDoc.SealedTest" ref="true" />
+        </descendents>
+      </family>
+      <elements>
+        <element api="M:TestDoc.BaseTest.Help" />
+        <element api="M:TestDoc.BaseTest.#ctor" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_BaseTest" />
+    </api>
+    <api id="M:TestDoc.BaseTest.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.BaseTest" ref="true" />
+      </containers>
+      <file name="M_TestDoc_BaseTest__ctor" />
+    </api>
+    <api id="M:TestDoc.BaseTest.Help">
+      <apidata name="Help" group="member" subgroup="method" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.BaseTest" ref="true" />
+      </containers>
+      <file name="M_TestDoc_BaseTest_Help" />
+    </api>
+    <api id="T:TestDoc.ExplicitImplementation">
+      <apidata name="ExplicitImplementation" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <implements>
+        <type api="T:System.Collections.ICollection" ref="true" />
+        <type api="T:System.Collections.IEnumerable" ref="true" />
+        <type api="T:System.ICloneable" ref="true" />
+      </implements>
+      <elements>
+        <element api="M:TestDoc.ExplicitImplementation.Clone" />
+        <element api="M:TestDoc.ExplicitImplementation.#ctor" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_ExplicitImplementation" />
+    </api>
+    <api id="M:TestDoc.ExplicitImplementation.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.ExplicitImplementation" ref="true" />
+      </containers>
+      <file name="M_TestDoc_ExplicitImplementation__ctor" />
+    </api>
+    <api id="M:TestDoc.ExplicitImplementation.Clone">
+      <apidata name="Clone" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="true" />
+      <returns>
+        <type api="T:System.Object" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.ExplicitImplementation" ref="true" />
+      </containers>
+      <file name="M_TestDoc_ExplicitImplementation_Clone" />
+    </api>
+    <api id="T:TestDoc.GenericClass`2">
+      <apidata name="GenericClass" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <templates>
+        <template name="TKey" />
+        <template name="TValue" />
+      </templates>
+      <elements>
+        <element api="F:TestDoc.GenericClass`2.xkey" />
+        <element api="F:TestDoc.GenericClass`2.yvalue" />
+        <element api="M:TestDoc.GenericClass`2.#ctor(`0,`1)" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_GenericClass_2" />
+    </api>
+    <api id="M:TestDoc.GenericClass`2.#ctor(`0,`1)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <parameters>
+        <parameter name="x">
+          <template name="TKey" api="T:TestDoc.GenericClass`2" />
+        </parameter>
+        <parameter name="y">
+          <template name="TValue" api="T:TestDoc.GenericClass`2" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.GenericClass`2" ref="true" />
+      </containers>
+      <file name="M_TestDoc_GenericClass_2__ctor" />
+    </api>
+    <api id="F:TestDoc.GenericClass`2.xkey">
+      <apidata name="xkey" group="member" subgroup="field" />
+      <memberdata visibility="private" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <template name="TKey" api="T:TestDoc.GenericClass`2" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.GenericClass`2" ref="true" />
+      </containers>
+      <file name="F_TestDoc_GenericClass_2_xkey" />
+    </api>
+    <api id="F:TestDoc.GenericClass`2.yvalue">
+      <apidata name="yvalue" group="member" subgroup="field" />
+      <memberdata visibility="private" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <template name="TValue" api="T:TestDoc.GenericClass`2" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.GenericClass`2" ref="true" />
+      </containers>
+      <file name="F_TestDoc_GenericClass_2_yvalue" />
+    </api>
+    <api id="T:TestDoc.OverloadClass">
+      <apidata name="OverloadClass" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:TestDoc.OverloadClass.Test(System.String)" />
+        <element api="M:TestDoc.OverloadClass.Test(System.Int32)" />
+        <element api="M:TestDoc.OverloadClass.HtmlTagCommentTest" />
+        <element api="M:TestDoc.OverloadClass.#ctor" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_OverloadClass" />
+    </api>
+    <api id="Overload:TestDoc.OverloadClass.Test">
+      <apidata name="Test" group="member" subgroup="method" pseudo="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.OverloadClass" />
+      </containers>
+      <elements>
+        <element api="M:TestDoc.OverloadClass.Test(System.Int32)" />
+        <element api="M:TestDoc.OverloadClass.Test(System.String)" />
+      </elements>
+      <file name="Overload_TestDoc_OverloadClass_Test" />
+    </api>
+    <api id="M:TestDoc.OverloadClass.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.OverloadClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_OverloadClass__ctor" />
+    </api>
+    <api id="M:TestDoc.OverloadClass.HtmlTagCommentTest">
+      <apidata name="HtmlTagCommentTest" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.OverloadClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_OverloadClass_HtmlTagCommentTest" />
+    </api>
+    <api id="M:TestDoc.OverloadClass.Test(System.Int32)">
+      <apidata name="Test" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" overload="true" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <parameters>
+        <parameter name="y">
+          <type api="T:System.Int32" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.OverloadClass" ref="true" />
+      </containers>
+      <attributes>
+        <attribute>
+          <type api="T:System.ObsoleteAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>This method is now obsolete</value>
+          </argument>
+        </attribute>
+      </attributes>
+      <file name="M_TestDoc_OverloadClass_Test" />
+    </api>
+    <api id="M:TestDoc.OverloadClass.Test(System.String)">
+      <apidata name="Test" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" overload="true" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <parameters>
+        <parameter name="x">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.OverloadClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_OverloadClass_Test_1" />
+    </api>
+    <api id="T:TestDoc.SealedTest">
+      <apidata name="SealedTest" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:TestDoc.BaseTest" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:TestDoc.SealedTest.#ctor" />
+        <element api="M:TestDoc.SealedTest.Help" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <attributes>
+        <attribute>
+          <type api="T:System.ObsoleteAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>Obsolete class</value>
+          </argument>
+        </attribute>
+      </attributes>
+      <file name="T_TestDoc_SealedTest" />
+    </api>
+    <api id="M:TestDoc.SealedTest.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="private" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.SealedTest" ref="true" />
+      </containers>
+      <file name="M_TestDoc_SealedTest__ctor" />
+    </api>
+    <api id="M:TestDoc.SealedTest.Help">
+      <apidata name="Help" group="member" subgroup="method" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="M:TestDoc.BaseTest.Help">
+          <type api="T:TestDoc.BaseTest" ref="true" />
+        </member>
+      </overrides>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.SealedTest" ref="true" />
+      </containers>
+      <file name="M_TestDoc_SealedTest_Help" />
+    </api>
+    <api id="T:TestDoc.TestClass">
+      <apidata name="TestClass" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+        <descendents>
+          <type api="T:TestDoc.TestDerivedClass" ref="true" />
+        </descendents>
+      </family>
+      <elements>
+        <element api="F:TestDoc.TestClass.publicStringField" />
+        <element api="F:TestDoc.TestClass.protectedStringField" />
+        <element api="F:TestDoc.TestClass.internalStringField" />
+        <element api="F:TestDoc.TestClass.protectedInternalStringField" />
+        <element api="F:TestDoc.TestClass.privateStringField" />
+        <element api="F:TestDoc.TestClass.privateStaticField" />
+        <element api="M:TestDoc.TestClass.#cctor" />
+        <element api="M:TestDoc.TestClass.#ctor" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Int32)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Int64)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Decimal)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Single)" />
+        <element api="M:TestDoc.TestClass.PublicMethod" />
+        <element api="M:TestDoc.TestClass.ProtectedMethod" />
+        <element api="M:TestDoc.TestClass.InternalMethod" />
+        <element api="M:TestDoc.TestClass.ProtectedInternalMethod" />
+        <element api="M:TestDoc.TestClass.PrivateMethod" />
+        <element api="P:TestDoc.TestClass.PublicProperty" />
+        <element api="P:TestDoc.TestClass.ProtectedProperty" />
+        <element api="P:TestDoc.TestClass.InternalProperty" />
+        <element api="P:TestDoc.TestClass.ProtectedInternalProperty" />
+        <element api="P:TestDoc.TestClass.PrivateProperty" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_TestClass" />
+    </api>
+    <api id="Overload:TestDoc.TestClass.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" pseudo="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" />
+      </containers>
+      <elements>
+        <element api="M:TestDoc.TestClass.#ctor" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Decimal)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Int32)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Int64)" />
+        <element api="M:TestDoc.TestClass.#ctor(System.String,System.Single)" />
+      </elements>
+      <file name="Overload_TestDoc_TestClass__ctor" />
+    </api>
+    <api id="M:TestDoc.TestClass.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" overload="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__ctor" />
+    </api>
+    <api id="M:TestDoc.TestClass.#ctor(System.String,System.Decimal)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family or assembly" static="false" special="true" overload="true" />
+      <parameters>
+        <parameter name="test">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="test2">
+          <type api="T:System.Decimal" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__ctor_1" />
+    </api>
+    <api id="M:TestDoc.TestClass.#ctor(System.String,System.Int32)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="family" static="false" special="true" overload="true" />
+      <parameters>
+        <parameter name="test">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="test2">
+          <type api="T:System.Int32" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__ctor_2" />
+    </api>
+    <api id="M:TestDoc.TestClass.#ctor(System.String,System.Int64)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="assembly" static="false" special="true" overload="true" />
+      <parameters>
+        <parameter name="test">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="test2">
+          <type api="T:System.Int64" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__ctor_3" />
+    </api>
+    <api id="M:TestDoc.TestClass.#ctor(System.String,System.Single)">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="private" static="false" special="true" overload="true" />
+      <parameters>
+        <parameter name="test">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="test2">
+          <type api="T:System.Single" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__ctor_4" />
+    </api>
+    <api id="M:TestDoc.TestClass.#cctor">
+      <apidata name=".cctor" group="member" subgroup="constructor" />
+      <memberdata visibility="private" static="true" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass__cctor" />
+    </api>
+    <api id="M:TestDoc.TestClass.InternalMethod">
+      <apidata name="InternalMethod" group="member" subgroup="method" />
+      <memberdata visibility="assembly" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass_InternalMethod" />
+    </api>
+    <api id="P:TestDoc.TestClass.InternalProperty">
+      <apidata name="InternalProperty" group="member" subgroup="property" />
+      <memberdata visibility="assembly" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestClass_InternalProperty" />
+    </api>
+    <api id="F:TestDoc.TestClass.internalStringField">
+      <apidata name="internalStringField" group="member" subgroup="field" />
+      <memberdata visibility="assembly" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_internalStringField" />
+    </api>
+    <api id="M:TestDoc.TestClass.PrivateMethod">
+      <apidata name="PrivateMethod" group="member" subgroup="method" />
+      <memberdata visibility="private" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass_PrivateMethod" />
+    </api>
+    <api id="P:TestDoc.TestClass.PrivateProperty">
+      <apidata name="PrivateProperty" group="member" subgroup="property" />
+      <memberdata visibility="private" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestClass_PrivateProperty" />
+    </api>
+    <api id="F:TestDoc.TestClass.privateStaticField">
+      <apidata name="privateStaticField" group="member" subgroup="field" />
+      <memberdata visibility="private" static="true" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_privateStaticField" />
+    </api>
+    <api id="F:TestDoc.TestClass.privateStringField">
+      <apidata name="privateStringField" group="member" subgroup="field" />
+      <memberdata visibility="private" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_privateStringField" />
+    </api>
+    <api id="M:TestDoc.TestClass.ProtectedInternalMethod">
+      <apidata name="ProtectedInternalMethod" group="member" subgroup="method" />
+      <memberdata visibility="family or assembly" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass_ProtectedInternalMethod" />
+    </api>
+    <api id="P:TestDoc.TestClass.ProtectedInternalProperty">
+      <apidata name="ProtectedInternalProperty" group="member" subgroup="property" />
+      <memberdata visibility="family or assembly" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestClass_ProtectedInternalProperty" />
+    </api>
+    <api id="F:TestDoc.TestClass.protectedInternalStringField">
+      <apidata name="protectedInternalStringField" group="member" subgroup="field" />
+      <memberdata visibility="family or assembly" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_protectedInternalStringField" />
+    </api>
+    <api id="M:TestDoc.TestClass.ProtectedMethod">
+      <apidata name="ProtectedMethod" group="member" subgroup="method" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass_ProtectedMethod" />
+    </api>
+    <api id="P:TestDoc.TestClass.ProtectedProperty">
+      <apidata name="ProtectedProperty" group="member" subgroup="property" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestClass_ProtectedProperty" />
+    </api>
+    <api id="F:TestDoc.TestClass.protectedStringField">
+      <apidata name="protectedStringField" group="member" subgroup="field" />
+      <memberdata visibility="family" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_protectedStringField" />
+    </api>
+    <api id="M:TestDoc.TestClass.PublicMethod">
+      <apidata name="PublicMethod" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestClass_PublicMethod" />
+    </api>
+    <api id="P:TestDoc.TestClass.PublicProperty">
+      <apidata name="PublicProperty" group="member" subgroup="property" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestClass_PublicProperty" />
+    </api>
+    <api id="F:TestDoc.TestClass.publicStringField">
+      <apidata name="publicStringField" group="member" subgroup="field" />
+      <memberdata visibility="public" static="false" special="false" />
+      <fielddata literal="false" initonly="false" volatile="false" serialized="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestClass" ref="true" />
+      </containers>
+      <file name="F_TestDoc_TestClass_publicStringField" />
+    </api>
+    <api id="T:TestDoc.TestDerivedClass">
+      <apidata name="TestDerivedClass" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:TestDoc.TestClass" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+        <descendents>
+          <type api="T:TestDoc.TestSealedDerivedClass" ref="true" />
+        </descendents>
+      </family>
+      <elements>
+        <element api="E:TestDoc.TestDerivedClass.DirtyChanged" />
+        <element api="M:TestDoc.TestDerivedClass.ProtectedMethod" />
+        <element api="M:TestDoc.TestDerivedClass.ProtectedInternalMethod" />
+        <element api="M:TestDoc.TestDerivedClass.OnDirtyChanged(System.EventArgs)" />
+        <element api="M:TestDoc.TestDerivedClass.#ctor" />
+        <element api="P:TestDoc.TestDerivedClass.PublicProperty" />
+        <element api="F:TestDoc.TestClass.publicStringField" />
+        <element api="F:TestDoc.TestClass.protectedStringField" />
+        <element api="F:TestDoc.TestClass.internalStringField" />
+        <element api="F:TestDoc.TestClass.protectedInternalStringField" />
+        <element api="F:TestDoc.TestClass.privateStringField" />
+        <element api="M:TestDoc.TestClass.PublicMethod" />
+        <element api="M:TestDoc.TestClass.InternalMethod" />
+        <element api="M:TestDoc.TestClass.PrivateMethod" />
+        <element api="P:TestDoc.TestClass.ProtectedProperty" />
+        <element api="P:TestDoc.TestClass.InternalProperty" />
+        <element api="P:TestDoc.TestClass.ProtectedInternalProperty" />
+        <element api="P:TestDoc.TestClass.PrivateProperty" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_TestDerivedClass" />
+    </api>
+    <api id="M:TestDoc.TestDerivedClass.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestDerivedClass__ctor" />
+    </api>
+    <api id="E:TestDoc.TestDerivedClass.DirtyChanged">
+      <apidata name="DirtyChanged" group="member" subgroup="event" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <eventdata add="true" remove="true" />
+      <eventhandler>
+        <type api="T:System.EventHandler" ref="true" />
+      </eventhandler>
+      <eventargs>
+        <type api="T:System.EventArgs" ref="true" />
+      </eventargs>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="E_TestDoc_TestDerivedClass_DirtyChanged" />
+    </api>
+    <api id="M:TestDoc.TestDerivedClass.OnDirtyChanged(System.EventArgs)">
+      <apidata name="OnDirtyChanged" group="member" subgroup="method" />
+      <memberdata visibility="private" static="false" special="false" />
+      <proceduredata abstract="false" virtual="false" final="false" />
+      <parameters>
+        <parameter name="e">
+          <type api="T:System.EventArgs" ref="true" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestDerivedClass_OnDirtyChanged" />
+    </api>
+    <api id="M:TestDoc.TestDerivedClass.ProtectedInternalMethod">
+      <apidata name="ProtectedInternalMethod" group="member" subgroup="method" />
+      <memberdata visibility="family or assembly" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="M:TestDoc.TestClass.ProtectedInternalMethod">
+          <type api="T:TestDoc.TestClass" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestDerivedClass_ProtectedInternalMethod" />
+    </api>
+    <api id="M:TestDoc.TestDerivedClass.ProtectedMethod">
+      <apidata name="ProtectedMethod" group="member" subgroup="method" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="M:TestDoc.TestClass.ProtectedMethod">
+          <type api="T:TestDoc.TestClass" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestDerivedClass_ProtectedMethod" />
+    </api>
+    <api id="P:TestDoc.TestDerivedClass.PublicProperty">
+      <apidata name="PublicProperty" group="member" subgroup="property" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="P:TestDoc.TestClass.PublicProperty">
+          <type api="T:TestDoc.TestClass" ref="true" />
+        </member>
+      </overrides>
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestDerivedClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestDerivedClass_PublicProperty" />
+    </api>
+    <api id="T:TestDoc.TestFlags">
+      <apidata name="TestFlags" group="type" subgroup="enumeration" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="false" layout="auto" format="ansi" />
+      <enumerationbase>
+        <type api="T:System.Int32" ref="false" />
+      </enumerationbase>
+      <elements>
+        <element api="F:TestDoc.TestFlags.None" />
+        <element api="F:TestDoc.TestFlags.One" />
+        <element api="F:TestDoc.TestFlags.Two" />
+        <element api="F:TestDoc.TestFlags.Four" />
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <attributes>
+        <attribute>
+          <type api="T:System.FlagsAttribute" ref="true" />
+        </attribute>
+      </attributes>
+      <file name="T_TestDoc_TestFlags" />
+    </api>
+    <api id="T:TestDoc.TestFlagsSerializable">
+      <apidata name="TestFlagsSerializable" group="type" subgroup="enumeration" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="true" layout="auto" format="ansi" />
+      <enumerationbase>
+        <type api="T:System.Int32" ref="false" />
+      </enumerationbase>
+      <elements>
+        <element api="F:TestDoc.TestFlagsSerializable.None" />
+        <element api="F:TestDoc.TestFlagsSerializable.One" />
+        <element api="F:TestDoc.TestFlagsSerializable.Two" />
+        <element api="F:TestDoc.TestFlagsSerializable.Four" />
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <attributes>
+        <attribute>
+          <type api="T:System.FlagsAttribute" ref="true" />
+        </attribute>
+      </attributes>
+      <file name="T_TestDoc_TestFlagsSerializable" />
+    </api>
+    <api id="T:TestDoc.TestGeneral">
+      <apidata name="TestGeneral" group="type" subgroup="enumeration" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="false" layout="auto" format="ansi" />
+      <enumerationbase>
+        <type api="T:System.Int32" ref="false" />
+      </enumerationbase>
+      <elements>
+        <element api="F:TestDoc.TestGeneral.None" />
+        <element api="F:TestDoc.TestGeneral.One" />
+        <element api="F:TestDoc.TestGeneral.Two" />
+        <element api="F:TestDoc.TestGeneral.Three" />
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_TestGeneral" />
+    </api>
+    <api id="T:TestDoc.TestSealedDerivedClass">
+      <apidata name="TestSealedDerivedClass" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="false" layout="auto" format="ansi" />
+      <family>
+        <ancestors>
+          <type api="T:TestDoc.TestDerivedClass" ref="true" />
+          <type api="T:TestDoc.TestClass" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:TestDoc.TestSealedDerivedClass.PublicMethod" />
+        <element api="M:TestDoc.TestSealedDerivedClass.ProtectedMethod" />
+        <element api="M:TestDoc.TestSealedDerivedClass.#ctor" />
+        <element api="P:TestDoc.TestSealedDerivedClass.PublicProperty" />
+        <element api="M:TestDoc.TestDerivedClass.ProtectedInternalMethod" />
+        <element api="M:TestDoc.TestDerivedClass.OnDirtyChanged(System.EventArgs)" />
+        <element api="F:TestDoc.TestClass.publicStringField" />
+        <element api="F:TestDoc.TestClass.protectedStringField" />
+        <element api="F:TestDoc.TestClass.internalStringField" />
+        <element api="F:TestDoc.TestClass.protectedInternalStringField" />
+        <element api="F:TestDoc.TestClass.privateStringField" />
+        <element api="M:TestDoc.TestClass.InternalMethod" />
+        <element api="M:TestDoc.TestClass.PrivateMethod" />
+        <element api="P:TestDoc.TestClass.ProtectedProperty" />
+        <element api="P:TestDoc.TestClass.InternalProperty" />
+        <element api="P:TestDoc.TestClass.ProtectedInternalProperty" />
+        <element api="P:TestDoc.TestClass.PrivateProperty" />
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" overload="true" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="true" final="false" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+          <attributes>
+            <attribute>
+              <type api="T:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute" ref="true" />
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Consistency" ref="false" />
+                <enumValue>
+                  <field name="WillNotCorruptState" />
+                </enumValue>
+              </argument>
+              <argument>
+                <type api="T:System.Runtime.ConstrainedExecution.Cer" ref="false" />
+                <enumValue>
+                  <field name="Success" />
+                </enumValue>
+              </argument>
+            </attribute>
+          </attributes>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldSetter(System.String,System.String,System.Object)">
+          <apidata name="FieldSetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.FieldGetter(System.String,System.String,System.Object@)">
+          <apidata name="FieldGetter" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="val">
+              <referenceTo>
+                <type api="T:System.Object" ref="true" />
+              </referenceTo>
+            </parameter>
+          </parameters>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetFieldInfo(System.String,System.String)">
+          <apidata name="GetFieldInfo" group="member" subgroup="method" />
+          <memberdata visibility="private" static="false" special="false" />
+          <proceduredata abstract="false" virtual="false" final="false" />
+          <parameters>
+            <parameter name="typeName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+            <parameter name="fieldName">
+              <type api="T:System.String" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Reflection.FieldInfo" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_TestSealedDerivedClass" />
+    </api>
+    <api id="M:TestDoc.TestSealedDerivedClass.#ctor">
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" static="false" special="true" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestSealedDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestSealedDerivedClass__ctor" />
+    </api>
+    <api id="M:TestDoc.TestSealedDerivedClass.ProtectedMethod">
+      <apidata name="ProtectedMethod" group="member" subgroup="method" />
+      <memberdata visibility="family" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="M:TestDoc.TestDerivedClass.ProtectedMethod">
+          <type api="T:TestDoc.TestDerivedClass" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestSealedDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestSealedDerivedClass_ProtectedMethod" />
+    </api>
+    <api id="M:TestDoc.TestSealedDerivedClass.PublicMethod">
+      <apidata name="PublicMethod" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="M:TestDoc.TestClass.PublicMethod">
+          <type api="T:TestDoc.TestClass" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestSealedDerivedClass" ref="true" />
+      </containers>
+      <file name="M_TestDoc_TestSealedDerivedClass_PublicMethod" />
+    </api>
+    <api id="P:TestDoc.TestSealedDerivedClass.PublicProperty">
+      <apidata name="PublicProperty" group="member" subgroup="property" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="false" virtual="true" final="false" />
+      <overrides>
+        <member api="P:TestDoc.TestDerivedClass.PublicProperty">
+          <type api="T:TestDoc.TestDerivedClass" ref="true" />
+        </member>
+      </overrides>
+      <propertydata get="true" />
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+        <type api="T:TestDoc.TestSealedDerivedClass" ref="true" />
+      </containers>
+      <file name="P_TestDoc_TestSealedDerivedClass_PublicProperty" />
+    </api>
+    <api id="T:TestDoc.TestSerializable">
+      <apidata name="TestSerializable" group="type" subgroup="enumeration" />
+      <typedata visibility="public" abstract="false" sealed="true" serializable="true" layout="auto" format="ansi" />
+      <enumerationbase>
+        <type api="T:System.Int32" ref="false" />
+      </enumerationbase>
+      <elements>
+        <element api="F:TestDoc.TestSerializable.None" />
+        <element api="F:TestDoc.TestSerializable.One" />
+        <element api="F:TestDoc.TestSerializable.Two" />
+        <element api="F:TestDoc.TestSerializable.Three" />
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:TestDoc" />
+      </containers>
+      <file name="T_TestDoc_TestSerializable" />
+    </api>
+    <api id="N:XMLTagsDemo">
+      <apidata name="XMLTagsDemo" group="namespace" />
+      <elements>
+        <element api="T:XMLTagsDemo.IMyInstalledModules" />
+      </elements>
+      <file name="N_XMLTagsDemo" />
+    </api>
+    <api id="T:XMLTagsDemo.IMyInstalledModules">
+      <apidata name="IMyInstalledModules" group="type" subgroup="interface" />
+      <typedata visibility="public" abstract="true" sealed="false" serializable="false" layout="auto" format="ansi" />
+      <elements>
+        <element api="M:XMLTagsDemo.IMyInstalledModules.Load" />
+      </elements>
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:XMLTagsDemo" />
+      </containers>
+      <file name="T_XMLTagsDemo_IMyInstalledModules" />
+    </api>
+    <api id="M:XMLTagsDemo.IMyInstalledModules.Load">
+      <apidata name="Load" group="member" subgroup="method" />
+      <memberdata visibility="public" static="false" special="false" />
+      <proceduredata abstract="true" virtual="true" final="false" />
+      <containers>
+        <library assembly="TestDoc" module="TestDoc" />
+        <namespace api="N:XMLTagsDemo" />
+        <type api="T:XMLTagsDemo.IMyInstalledModules" ref="true" />
+      </containers>
+      <file name="M_XMLTagsDemo_IMyInstalledModules_Load" />
+    </api>
+  </apis>
+</reflection>

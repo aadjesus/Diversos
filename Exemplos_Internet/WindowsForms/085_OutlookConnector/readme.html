@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Magi Outlook Connector</title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<style type="text/css">
+			.datebox {
+				color: #111111;
+				background-color: #eeeeee;
+				font-family: Tahoma, Veranda;
+				font-size: 7pt;
+				text-align: center;
+				vertical-align: baseline;
+				float: left;
+				clear: left;
+				margin: 2px 3px 3px 2px;
+				border: 1px solid #999999;
+				padding: 0px 4px 0px 4px;
+			}
+			th {
+				text-align: left;
+				border-left: 1px solid #666666;
+				border-bottom: 1px dashed #000000;
+			}
+			.comment {
+				font-size: x-small;
+				border-bottom: 1px dotted #999999;
+				border-left: 1px solid #666666;
+				padding: 5px 2px 10px 2px;
+			}
+			.header {
+				border-bottom: 1px solid #333333;
+				font-size: smaller;
+				padding: 2px;
+			}	
+			.footer {
+				border-top: 1px solid #666666;
+				font-size: xx-small;
+				padding: 2px;
+			}	
+			table {
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+			h3 {
+				margin-bottom: 0px;
+			}
+			a {
+				color: #0000FF;
+				text-decoration: none;
+			}
+			a:visited {
+				color: #0000CC;
+			}
+			a:hover {
+				color: #0000FF;
+				text-decoration: underline;
+			}
+			body {
+				background-color: #F8F8F8;
+			}
+		</style>
+	</head>
+	<body>
+		<table width="100%" class="header">
+			<tr>
+				<td width="50%"><h3>Magi .NET Connector for Microsoft Outlook</h3>
+				</td>
+				<td width="50%" align="right">by <a href="http://innovativemagi.com/">Magi Innovations</a></td>
+			</tr>
+		</table>
+		<p>
+			The Microsoft Outlook Connector is written in C# using the .NET 1.1 Framework. 
+			It attempts to abstract the data access with Microsoft Outlook and visual 
+			components using the data.
+		</p>
+		<table width="100%">
+			<tr>
+				<th colspan="2">Version 1.0</th>
+			</tr>
+			<tr>
+				<td><img src="screenshot.png" border="0" alt="Outlook Data Export Screenshot" hspace="15" vspace="15"></td>
+				<td valign="top"><br>
+					<p>
+						Data from your Microsoft Outlook application can be exported to an XML file by 
+						simply checking the folder options and clicking Export. The source provides a 
+						simple example of mapping the COM object properties to a XML-friendly DataSet 
+						that could be used in any .NET application.
+					</p>
+					<p>
+						If your system does not have <a href="http://www.microsoft.com/office/outlook/">Microsoft Office Outlook 2003</a> you 
+						may have to change the References used by the "OutlookConnector" project. The 
+						original distribution uses Microsoft Outlook 11.0 Object Library (TypeLib 9.2) 
+						which was found as "C:\Program Files\Microsoft Office\OFFICE11\MSOUTL.OLB". 
+						There shouldn't be any issues with using Microsoft Outlook 10.0 Object Library, 
+						I just don't have it installed to verify. Good luck with that.
+					</p>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<th>
+					Commentaries</th>
+			</tr>
+			<tr>
+				<td class="comment">
+					<div class="datebox">11-23-2003<br>
+						04:00 CST</div>
+					<div>
+						<p>
+							This component for exporting Outlook objects stemmed from a couple years 
+							passively looking for a sync between my database and Outlook. I somehow 
+							stumbled on a VBA article on it (<a href="http://www.devasp.com/search/res/r9981.html">http://www.devasp.com/search/res/r9981.html</a>) 
+							and decided to make a C# app to do the same.
+						</p>
+					</div>
+					<div class="datebox">11-23-2003<br>
+						04:40 CST</div>
+					<div>
+						<p>
+							I wanted to limit this project to a single evening so it currently uses untyped 
+							DataSets. The real advantage of this application would come from using strong 
+							types and hooking in some DataAdapter(s) to really try to sync with some other 
+							system. I will probably end up tying in a MySQL data adapter in the coming 
+							weeks as time permits but if someone starts/finishes before I get to it, 
+							please! <a href="mailto:mataylor@innovativemagi.com">let me know</a>.
+						</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr>
+				<td class='footer'>
+					Last Modified: <script language="JavaScript" type="text/javascript">document.write(document.lastModified);</script>
+				</td>
+				<td class='footer' align='right'>
+					Author: <a href="mailto:mataylor@innovativemagi.com">mataylor@innovativemagi.com</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="WPF_Mysteries.ContentTestControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="auto" Width="auto">
+    <StackPanel Orientation="Vertical">
+        <Label Content="There are currently"/>
+        <Label Content="{Binding SomeContent.Count}"/>
+        <Label Content="elements, on the SomeContent property"/>
+    </StackPanel>
+ 
+</UserControl>

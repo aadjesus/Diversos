@@ -1,0 +1,824 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GLB.DTO</name>
+    </assembly>
+    <members>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional GFO_USUARIO_LINHA
+            <remarks>
+            Mapeamento OR em UsuarioLinhaDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.#ctor(System.Int32,System.String)">
+            <summary>
+            Construtor com chave primária.
+            </summary>
+            <param name="codintlinha">codintlinha</param>
+            <param name="usuario">usuario</param>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.IsChanged"/> e <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.CodIntLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.Usuario">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.IsChanged">
+            <summary>
+            (Get) Retorna um valor indicando se a classe foi alterada.
+            </summary>
+            <value>
+            <c>true</c> Se alguma propriedade foi alterada, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO.IsDeleted">
+            <summary>
+            (Get) Retorna um valor indicando se o registro foi marcado para delecao.
+            </summary>
+            <value>
+            <c>true</c> Se o registro foi marcado para delecao, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeLocal">
+            <summary>
+            Enum para identificar os tipos de locais com o código reservado para o sistema.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeLocal.PontoDeControle">
+            <summary>
+            Código reservado para sistema: 50
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeLocal.SolturaDeFrota">
+            <summary>
+            Código reservado para sistema: 51
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem">
+            <summary>
+            Enum para identificar o tipo de mensagem do validador.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem.Recebimento">
+            <summary>
+            Mensagem recebida do validador.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem.Envio">
+            <summary>
+            Mensagem enviada para o validador.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem.NaoValidarHorario">
+            <summary>
+            Mensagem recebida do validador que não valida horario.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem.InicioDeViagem">
+            <summary>
+            Mensagem recebida do validador que identitificar o inicio da viagem,
+            <para>
+            Obs: Tambem não valida horario.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoDeMensagem.FimDeViagem">
+            <summary>
+            Mensagem recebida do validador que identitificar o fim da viagem.
+            <para>
+            Obs: Tambem não valida horario.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoOperadora">
+            <summary>
+            Enum para identificar o tipo de oreradora.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoOperadora.Prodata">
+            <summary>
+            Prodata
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EnumeradoresGestaoDeFrotaOnLine.eTipoOperadora.Wap">
+            <summary>
+            BGMRodotec
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens">
+            <summary>
+            Estrutura para o envio e recebimento de mensagens do validador.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.Tipo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            <remarks>
+            <list type="bullet">
+            <item>N: <description>Nova mensagem.</description></item>
+            <item>R: <description>Resposta de uma mensagem.</description></item>
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.Grupo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.Codigo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.IDMensagem">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.IDMensagemRetorno">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.IDOperador">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.Prefixo">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.IDEmpresa">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sMensagens.Linha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sQtdeMensagens">
+            <summary>
+            Estrutura para retornar q a quantidade de mensagens enviadas do validador.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sQtdeMensagens.CodIntLinha">
+            <summary>
+            Codigo interno da linha.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sQtdeMensagens.CodigoVeic">
+            <summary>
+            Codigo interno do veiculo.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sQtdeMensagens.QtdeMsg">
+            <summary>
+            Quantidade de mensagens.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sQtdeMensagens.CorMensagem">
+            <summary>
+            Cor da mensagem.
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS">
+            <summary>
+            Estrutura para retornar os veiculos que vao passar no local informado
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.TempoPrevisto">
+            <summary>
+            Tempo previsto para chegar no local
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.CodigoLinha">
+            <summary>
+            Código da linha
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.NomeAbrevLinha">
+            <summary>
+            Nome abreviado da linha
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.OrigemLinha">
+            <summary>
+            Origem da linha
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.DestinoLinha">
+            <summary>
+            Destino da linha
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sRetornoSMS.Sentido">
+            <summary>
+            Sentido
+            </summary>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho">
+            <summary>
+            Estrutura para retornar o tempo do veiculo no trecho
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.Realizado">
+            <summary>
+            Data hora execução.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.CodIntLinha">
+            <summary>
+            Codigo interno da linha.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.CodigoLinha">
+            <summary>
+            Codigo da linha.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.Sentido">
+            <summary>
+            Sentido
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.CodIntVeiculo">
+            <summary>
+            Codigo interno do veiculo.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.Passageiros">
+            <summary>
+            Qtde passageiros entre o trecho.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.Filial">
+            <summary>
+            Filial da linha.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.PCOrigem">
+            <summary>
+            Hora de ponto de controle origem.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.PCDestino">
+            <summary>
+            Hora de ponto de controle destino.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.Tempo">
+            <summary>
+            Tempo entre os trechos.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.CodigoServico">
+            <summary>
+            Código do serviço.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.CodigoHorario">
+            <summary>
+            Código do horario.
+            </summary>
+        </member>
+        <member name="F:Globus5.GestaoDeFrotaOnLine.DTO.EstruturasGestaoDeFrotaOnLine.sTempoNoTrecho.FaixaHoraria">
+            <summary>
+            Faixa horario
+            </summary>
+        </member>
+        <member name="T:Globus5.Globus.DTO.CadastroDeUfDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional BGMCADUF
+            <remarks>
+            Mapeamento OR em CadastroDeUf.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.CadastroDeUfDTO.#ctor">
+            <summary>
+            Construtor default.
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.CadastroDeUfDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:Globus5.Globus.DTO.CadastroDeUfDTO.IsChanged"/> e <see cref="P:Globus5.Globus.DTO.CadastroDeUfDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.CadastroDeUfDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Globus5.Globus.DTO.CadastroDeUfDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.CodigoUf">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.DescricaoUf">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.AliquotaIcmsInterna">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Decimal"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.AliquotaIcmsExterna">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Decimal"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.AliqPrestServico">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Decimal"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.CodigoIbge">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.IsChanged">
+            <summary>
+            (Get) Retorna um valor indicando se a classe foi alterada.
+            </summary>
+            <value>
+            <c>true</c> Se alguma propriedade foi alterada, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Globus5.Globus.DTO.CadastroDeUfDTO.IsDeleted">
+            <summary>
+            (Get) Retorna um valor indicando se o registro foi marcado para delecao.
+            </summary>
+            <value>
+            <c>true</c> Se o registro foi marcado para delecao, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional GFO_PARAMETROS
+            <remarks>
+            Mapeamento OR em ParametrosDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Construtor com chave primária.
+            </summary>
+            <param name="codigoEmpresa">codigoempresa</param>
+            <param name="codigoFl">codigofl</param>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.IsChanged"/> e <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.CodigoEmpresa">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.CodigoFl">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.MinutosAtraso">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.MinutosAdiantado">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaComboio">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaAtraso">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaAdiantado">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaNoHorario">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaProgNaoRea">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.OcorrenciaReaNaoProg">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.KeyGoogleMaps">
+            <summary>
+            Chave (key) para acessar a API do Google Maps.
+            </summary>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.IdAgenciaGoogleTransit">
+            <summary>
+            Identificação agência Google Transit
+            </summary>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.IsChanged">
+            <summary>
+            (Get) Retorna um valor indicando se a classe foi alterada.
+            </summary>
+            <value>
+            <c>true</c> Se alguma propriedade foi alterada, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO.IsDeleted">
+            <summary>
+            (Get) Retorna um valor indicando se o registro foi marcado para delecao.
+            </summary>
+            <value>
+            <c>true</c> Se o registro foi marcado para delecao, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Globus5.Globus.DTO.LinhaDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional BGM_CADLINHAS
+            <remarks>
+            Mapeamento OR em LinhaDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.LinhaDTO.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.LinhaDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:Globus5.Globus.DTO.LinhaDTO.IsChanged"/> e <see cref="P:Globus5.Globus.DTO.LinhaDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DTO.LinhaDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Globus5.Globus.DTO.LinhaDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodIntLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoOrgConc">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodLocalTerminalSec">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoEmpresa">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoGrupoLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoGa">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.NroFicialLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.NomeLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.NomeAbreviado">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.LoteLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.ComissaoMotLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Decimal"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.ComissaoCobLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Decimal"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.TipoDeServico">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.DataInicOperacaoLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.DateTime"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FlgRespGuia">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoRegiao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.OrigemLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.DestinoLinha">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodAgenciaIda">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodAgenciaVolta">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.Categoria">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FlgMunicInterest">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.Ordem">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FlgPaese">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FlgCircular">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.LogAlter">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoFl">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.NaoCriticaCircular">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoImportacao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FlgLinhaPrincipal">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.DigitaSecao">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.TipoCircular">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.DigitaQtd">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodIntLinhaComp">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.TempoMinViagem">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodigoLinhaMin">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.DigitaOrigemDestino">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.CodGrupoLinhaPvt">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.IntervaloComboio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.FatorRenovacao">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.IsChanged">
+            <summary>
+            (Get) Retorna um valor indicando se a classe foi alterada.
+            </summary>
+            <value>
+            <c>true</c> Se alguma propriedade foi alterada, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Globus5.Globus.DTO.LinhaDTO.IsDeleted">
+            <summary>
+            (Get) Retorna um valor indicando se o registro foi marcado para delecao.
+            </summary>
+            <value>
+            <c>true</c> Se o registro foi marcado para delecao, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO">
+            <summary>
+            Classe de entidade de banco de dados que representa a tabela relacional GFO_OPERADORA
+            <remarks>
+            Mapeamento OR em OperadoraDTO.hbm.xml
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.MarkAsDeleted">
+            <summary>
+            Marca <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.IsChanged"/> e <see cref="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.IsDeleted"/> para <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.Equals(System.Object)">
+            <summary>
+            Verifica se os objetos sao iguais.
+            </summary>
+            <param name="obj">Objeto que vai ser comparado.</param>
+            <returns><see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.GetHashCode">
+            <summary>
+            Retorna o valor do objeto.
+            </summary>
+            <returns><see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.CodOperadora">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.Int32"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.DescOperadora">
+            <summary>
+            (Get/Set) Retorna ou informa o valor da propriedade do tipo <see cref="T:System.String"/>.
+            </summary>		
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.IsChanged">
+            <summary>
+            (Get) Retorna um valor indicando se a classe foi alterada.
+            </summary>
+            <value>
+            <c>true</c> Se alguma propriedade foi alterada, caso contrario, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO.IsDeleted">
+            <summary>
+            (Get) Retorna um valor indicando se o registro foi marcado para delecao.
+            </summary>
+            <value>
+            <c>true</c> Se o registro foi marcado para delecao, caso contrario, <c>false</c>.
+            </value>
+        </member>
+    </members>
+</doc>

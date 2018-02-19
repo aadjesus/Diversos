@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity version="1.0.0.2" name="CTIServerFlexClientTest.exe" publicKeyToken="a4bb985f51ee9a47" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="CTIServerFlexClientTest" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="CTIServerFlexClientTest.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet class="System.Security.PermissionSet" version="1" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Core" version="3.5.0.0" publicKeyToken="b77a5c561934e089" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="WindowsBase" version="3.0.0.0" publicKeyToken="31bf3856ad364e35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CTIServerFlexClientAPI.dll" size="37376">
+      <assemblyIdentity name="CTIServerFlexClientAPI" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>zq9wFzeY05w6Z1Dd2OaT1GzB6OE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CTIServerFlexClientTest.exe" size="11776">
+      <assemblyIdentity name="CTIServerFlexClientTest" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>VMVw8RWDHLRogSLAN+CUZ2/1xvs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="CTIServerFlexClientTest.exe.config" size="884">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>v7SUQP2umMJBXYeTIzZ0gSAcTlg=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=NOTE-ROBERTO\Roberto" issuerKeyHash="f0b716f132d5aae5904f571d67e3f328fa44279b" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>4OoGwXuh4qm7/iYe1clkb16xpYE=</DigestValue></Reference></SignedInfo><SignatureValue>Y0Mce3SijWHHmgYiDlrHh/d9f12ihGP1m14RNtDIA58Nq7MEfNWthkulrlOC75B2dbXAXmDq8iXIdDGqMnQJvZUuJuZ+81v9W13/dW+pqxAOSWLabuHNn2fkdo/avLKhJufWqUUmlRBkTzFSRMM39mI0qI9xRTTknpCEtM8ofk0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>1U/46D8DRar3wZL0ADt1TfmHlLI8/l5PT4Lmef/Ch5gYukumvPowuBcpShZWqXg0byb1+P7YN03cIlDzcEIgEzSLjvzFQvqvkwuWHDkvdJ9bjHwPVY+Gc42FvjQHdqoh3xonZJa4ydbqDLDhdMTlsPIk7+vS2v+/6HJBwoBr4P8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="81a5b15e6f64c9d51e26febba9e2a17bc106eae0" Description="" Url=""><as:assemblyIdentity version="1.0.0.2" name="CTIServerFlexClientTest.exe" publicKeyToken="a4bb985f51ee9a47" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=NOTE-ROBERTO\Roberto</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>h78hrjYs9Zq80dv3yoV9OmGrHts=</DigestValue></Reference></SignedInfo><SignatureValue>AXAUM8eEBJ8n8EDgPHnoTMwWyry3qtosG31qGy+RSks8yaDi+DxchlKKCle1wO+sUiEDr5AgfgZixYQGIxR5C5fVN8WV2m7NSXGdw0pMM/8szc7DdGJI7VwVbLctcxLXkhuzCD+cRZhb1wvFWWYmxOdpow4OHjwo3yDw6XJp1uw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1U/46D8DRar3wZL0ADt1TfmHlLI8/l5PT4Lmef/Ch5gYukumvPowuBcpShZWqXg0byb1+P7YN03cIlDzcEIgEzSLjvzFQvqvkwuWHDkvdJ9bjHwPVY+Gc42FvjQHdqoh3xonZJa4ydbqDLDhdMTlsPIk7+vS2v+/6HJBwoBr4P8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB4TCCAU6gAwIBAgIQCgo5Ds+Gx4xClRqq6HnAojAJBgUrDgMCHQUAMDMxMTAvBgNVBAMeKABOAE8AVABFAC0AUgBPAEIARQBSAFQATwBcAFIAbwBiAGUAcgB0AG8wHhcNMDgxMDA2MTUxNzI4WhcNMDkxMDA2MjExNzI4WjAzMTEwLwYDVQQDHigATgBPAFQARQAtAFIATwBCAEUAUgBUAE8AXABSAG8AYgBlAHIAdABvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDVT/joPwNFqvfBkvQAO3VN+YeUsjz+Xk9PguZ5/8KHmBi6S6a8+jC4FylKFlapeDRvJvX4/tg3TdwiUPNwQiATNIuO/MVC+q+TC5YcOS90n1uMfA9Vj4ZzjYW+NAd2qiHfGidklrjJ1uoMsOF0xOWw8iTv69La/7/ockHCgGvg/wIDAQABMAkGBSsOAwIdBQADgYEAYTTpJswH6lf6UeQte4Ov19la3Wc0+zzHHBT2CCNxYXVD4Bw8sbZQz5oZmgjEEerHH9hnf18olAacxklloT7wGPPSaK8KgavdLFa4vjOgWtxjHds8eYWuR9lOyks0TDNx5qme9r5tDyhWw1ovwKW7cBPw/eS7KnrQGUk33Qc6q9g=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

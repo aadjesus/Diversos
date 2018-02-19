@@ -1,0 +1,9 @@
+﻿<Window x:Class="LINQWinFXApplication1.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/avalon/2005"
+    xmlns:x="http://schemas.microsoft.com/winfx/xaml/2005"
+    Title="LINQWinFXApplication1"
+    >
+    <Grid>
+        
+    </Grid>
+</Window>

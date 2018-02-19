@@ -1,0 +1,21 @@
+<!--
+OpenWPFChart library controls generic default style.
+Copyright © Oleg V. Polikarpotchkin 2008-2009
+-->
+<!--revision $Id: Generic.xaml 18093 2009-03-16 04:15:06Z unknown $-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+	<ResourceDictionary.MergedDictionaries>
+		<!-- Can't use just <ResourceDictionary Source="Chart.Generic.xaml"/>
+		Reason: This is a known bug in WPF. Using relative uris within the context of a theme level 
+		ResourceDictionary does not work. The workaround is to use an absolute uris instead.
+		This should be fixed in a future release.
+		http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/21e305a2-033d-4e7d-80cc-22ee05f6a0b8/
+		-->
+		<ResourceDictionary Source="OpenWPFChart.Controls;component/Themes/CurveChart.Generic.xaml"/>
+		<ResourceDictionary Source="OpenWPFChart.Controls;component/Themes/ChartLegend.Generic.xaml"/>
+		<ResourceDictionary Source="OpenWPFChart.Controls;component/Themes/WellLogChart.Generic.xaml"/>
+		<ResourceDictionary Source="OpenWPFChart.Controls;component/Themes/ColumnChart.Generic.xaml"/>
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

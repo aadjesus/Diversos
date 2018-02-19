@@ -1,0 +1,145 @@
+﻿<Window
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  x:Class="CycleTracks.SplashScreen"
+  x:Name="Window"
+  WindowStyle="None"
+  Width="640"
+  Height="598"
+  WindowStartupLocation="CenterScreen"
+  Topmost="True"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+  <Window.Triggers>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseLeave"
+      SourceName="start">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="ellipse"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+    <EventTrigger
+      RoutedEvent="Mouse.MouseEnter"
+      SourceName="start">
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <Storyboard>
+            <DoubleAnimationUsingKeyFrames
+              BeginTime="00:00:00"
+              Storyboard.TargetName="ellipse"
+              Storyboard.TargetProperty="(UIElement.Opacity)">
+              <SplineDoubleKeyFrame
+                KeyTime="00:00:00.3"
+                Value="0.8" />
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+  </Window.Triggers>
+  <Window.Background>
+    <LinearGradientBrush
+      EndPoint="0.5,1"
+      StartPoint="0.5,0">
+      <GradientStop
+        Color="#FFA1C0E8"
+        Offset="0" />
+      <GradientStop
+        Color="#0f8d9e"
+        Offset="1" />
+    </LinearGradientBrush>
+  </Window.Background>
+  <Grid
+    x:Name="LayoutRoot">
+    <Ellipse
+      Stroke="{x:Null}"
+      Margin="3,0,3,-227"
+      VerticalAlignment="Bottom"
+      Height="334">
+      <Ellipse.Fill>
+        <RadialGradientBrush>
+          <GradientStop
+            Color="#00FFFFFF"
+            Offset="1" />
+          <GradientStop
+            Color="#FFFFFFFF"
+            Offset="0" />
+        </RadialGradientBrush>
+      </Ellipse.Fill>
+    </Ellipse>
+    <StackPanel
+      Orientation="Vertical">
+      <Image
+        Source="Images\splash.png"
+        Stretch="Fill"
+        Width="499"
+        Height="377"
+        HorizontalAlignment="Center"
+        Margin="32,0,0,0" />
+      <Grid
+        Width="291"
+        Height="86"
+        Opacity="1">
+        <Ellipse
+          Stroke="{x:Null}"
+          Margin="11.5,8,4.5,6"
+          RenderTransformOrigin="0.5,0.5"
+          x:Name="ellipse"
+          Opacity="0">
+          <Ellipse.RenderTransform>
+            <TransformGroup>
+              <ScaleTransform
+                ScaleX="1"
+                ScaleY="1" />
+              <SkewTransform
+                AngleX="0"
+                AngleY="0" />
+              <RotateTransform
+                Angle="0" />
+              <TranslateTransform
+                X="0"
+                Y="0" />
+            </TransformGroup>
+          </Ellipse.RenderTransform>
+          <Ellipse.Fill>
+            <RadialGradientBrush>
+              <GradientStop
+                Color="#FFFFFFFF"
+                Offset="0" />
+              <GradientStop
+                Color="#00FFFFFF"
+                Offset="1" />
+            </RadialGradientBrush>
+          </Ellipse.Fill>
+        </Ellipse>
+        <Image
+          Cursor="Hand"
+          Source="Images\start.png"
+          Width="155"
+          Stretch="Fill"
+          Height="39"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center"
+          x:Name="start" />
+      </Grid>
+      <TextBlock
+        Text="©TechDays 2009"
+        HorizontalAlignment="Center"
+        FontSize="11"
+        Foreground="#FFFFFFFF"
+        Margin="0,75,0,0" />
+    </StackPanel>
+  </Grid>
+</Window>

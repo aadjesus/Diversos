@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsUpper00", "IsUpper00\IsUpper00.csproj", "{AD75F77F-A9FC-4229-89E1-63416B2D4CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsUpper01", "IsUpper01\IsUpper01.csproj", "{92091514-C998-4E39-83DA-0A049691F84A}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92091514-C998-4E39-83DA-0A049691F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92091514-C998-4E39-83DA-0A049691F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92091514-C998-4E39-83DA-0A049691F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92091514-C998-4E39-83DA-0A049691F84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD75F77F-A9FC-4229-89E1-63416B2D4CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD75F77F-A9FC-4229-89E1-63416B2D4CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD75F77F-A9FC-4229-89E1-63416B2D4CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD75F77F-A9FC-4229-89E1-63416B2D4CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

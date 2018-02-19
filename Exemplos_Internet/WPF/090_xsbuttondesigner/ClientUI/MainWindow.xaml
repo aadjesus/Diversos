@@ -1,0 +1,30 @@
+﻿<Window x:Class="ClientUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ClientUI"
+    Title="Button Design Workbench"
+    SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <local:PanelVisibilityToMarginConverter x:Key="PanelVisibilityToMarginConverter" />
+    </Window.Resources>
+
+
+    <Grid Background="{StaticResource brushMainWindow}"
+          TextElement.Foreground="{StaticResource brushMainWindowText}" >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        
+        <local:viewButtonEditor Grid.Column="0" Margin="{Binding Visibility, ElementName=panelRight,
+            Converter={StaticResource PanelVisibilityToMarginConverter}}" />
+        
+        <local:viewButtonEditor Grid.Column="1" Margin="0,12,12,12" x:Name="panelRight"
+                                FlowDirection="RightToLeft" Visibility="Collapsed" />
+        
+    </Grid>
+
+    
+</Window>

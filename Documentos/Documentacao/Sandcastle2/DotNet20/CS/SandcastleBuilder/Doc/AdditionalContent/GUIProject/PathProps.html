@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Path Category Properties</title>
+</head>
+
+<body>
+
+<h2>The Path Category Properties</h2>
+The following properties are available in the <b>Path</b> category.  These
+define the location of the tools and the output location of the help file.
+
+<ul>
+    <li><a href="#HHCPath">HtmlHelp1xCompilerPath</a></li>
+    <li><a href="#HXCompPath">HtmlHelp2xCompilerPath</a></li>
+    <li><a href="#OutputPath">OutputPath</a></li>
+    <li><a href="#SCPath">SandcastlePath</a></li>
+    <li><a href="#WorkingPath">WorkingPath</a></li>
+</ul>
+
+<h3><a class="Reference" name="HHCPath">HtmlHelp1xCompilerPath</a></h3>
+This property lets you specify the path to the HTML 1.x help compiler
+(<b>HHC.EXE</b>).  By default, the builder will try to locate it
+automatically by searching the Program Files special folder on all fixed
+hard drives.  As such, you only need to specify the path if the build fails
+with a message stating that it could not be found.
+
+<h3><a class="Reference" name="HXCompPath">HtmlHelp2xCompilerPath</a></h3>
+This property lets you specify the path to the HTML help 2.x compiler
+(<b>HXCOMP.EXE</b>).  By default, the builder will try to locate it
+automatically by searching the Program Files special folder on all fixed
+hard drives.  As such, you only need to specify the path if the build fails
+with a message stating that it could not be found.
+
+<h3><a class="Reference" name="OutputPath">OutputPath</a></h3>
+This property lets you specify where the compiled help file should be
+placed.  The default is to store it in a folder called <b>.\Help\</b>
+relative to the project folder.  It is also the location of the temporary
+<b>.\Working\</b> folder used to store the generated build files unless it
+is changed with the <code>WorkingPath</code> property.
+
+<h3><a class="Reference" name="SCPath">SandcastlePath</a></h3>
+This property lets you specify the path to Sandcastle.  By default, the
+builder will try to locate it automatically by extracting its location from
+the system path and, if not found there, by searching the Program Files
+special folder on all fixed hard drives.  As such, you only need to specify
+the path if the build fails with a message stating that it could not be
+found.
+
+<h3><a class="Reference" name="WorkingPath">WorkingPath</a></h3>
+This property lets you specify an alternate location with a shorter path in
+which to perform the build if it fails due to long file path names.  If
+not specified, the working folder will be placed under the output path and
+will be called <b>.\Working</b>.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 3 -->

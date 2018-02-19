@@ -1,0 +1,28 @@
+﻿<Window x:Class="MasterPages.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MasterPages" Height="350" Width="500"
+    >
+	<Window.CommandBindings>
+		<CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageExecuteHandler" CanExecute="GoToPageCanExecuteHandler" />
+	</Window.CommandBindings>
+	
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Menu Grid.Column="0" Grid.Row="0">
+			<MenuItem Header="Page 1" Command="NavigationCommands.GoToPage" CommandParameter="Page/Page1.xaml" CommandTarget="{Binding ElementName=frmContent}" />
+			<MenuItem Header="Page 2" Command="NavigationCommands.GoToPage" CommandParameter="Page/Page2.xaml" CommandTarget="{Binding ElementName=frmContent}" />
+			<MenuItem Header="Page 3" Command="NavigationCommands.GoToPage" CommandParameter="Page/Page3.xaml" CommandTarget="{Binding ElementName=frmContent}" />
+			<MenuItem Header="Page without master" Command="NavigationCommands.GoToPage" CommandParameter="Page/PageWithoutMaster.xaml" CommandTarget="{Binding ElementName=frmContent}" />
+		</Menu>
+
+		<Frame NavigationUIVisibility="Hidden" Name="frmContent" Grid.Column="0" Grid.Row="1" Source="Page/Page1.xaml" />
+    </Grid>
+</Window>

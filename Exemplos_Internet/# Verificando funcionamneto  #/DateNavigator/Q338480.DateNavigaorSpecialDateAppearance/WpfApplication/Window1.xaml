@@ -1,0 +1,214 @@
+﻿<Window x:Class="WpfApplication.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="clr-namespace:DevExpress.Xpf.Core;assembly=DevExpress.Xpf.Core.v11.2"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler"
+        xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+        xmlns:dxedn="clr-namespace:DevExpress.Xpf.Editors.DateNavigator;assembly=DevExpress.Xpf.Core.v11.2"
+        xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
+        xmlns:dxei="http://schemas.devexpress.com/winfx/2008/xaml/editors/internal"
+        xmlns:dxednc="clr-namespace:DevExpress.Xpf.Editors.DateNavigator.Controls;assembly=DevExpress.Xpf.Core.v11.2"
+        xmlns:local="clr-namespace:WpfApplication"
+        dxc:ThemeManager.ThemeName="LightGray"
+        x:Name="window" Title="MainWindow" Height="250" Width="700">
+
+    <Window.Resources>
+
+        <!-- DateNavigator templates for LightGray theme -->
+        <ControlTemplate x:Key="{dxet:DateNavigatorThemeKey ResourceKey=Template, ThemeName=LightGray}" TargetType="{x:Type dxedn:DateNavigator}">
+            <Grid Background="Red">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Background="Red" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=HeaderStyle}}">
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <RepeatButton Grid.Column="0" HorizontalAlignment="Left" Content="zz" x:Name="PART_ArrowLeft" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=LeftArrowStyle}}" />
+                        <Button Grid.Column="1" Content="{TemplateBinding CurrentDateText}" x:Name="PART_CurrentDateButton" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=CurrentDateButtonStyle}}" />
+                        <RepeatButton Grid.Column="2" HorizontalAlignment="Right" Content="zz" x:Name="PART_ArrowRight" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=RightArrowStyle}}" />
+                    </Grid>
+                </Border>
+                <dxednc:DateNavigatorPanel Grid.Row="1" VerticalAlignment="Top">
+                    <Grid>
+                        <dxednc:DateNavigatorContent Opacity="0" State="Month" x:Name="PART_ContentMonth" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="Year" x:Name="PART_ContentYear" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="Years" x:Name="PART_ContentYears" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="YearsRange" x:Name="PART_ContentYearsRange" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                    </Grid>
+                    <Button x:Name="PART_TodayButton" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=TodayButtonStyle}}" Visibility="Collapsed" />
+                </dxednc:DateNavigatorPanel>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="{dxet:DateNavigatorThemeKey ResourceKey=CalendarTemplate, ThemeName=LightGray}" TargetType="{x:Type dxednc:DateNavigatorCalendar}">
+            <Grid Margin="8" SnapsToDevicePixels="True" Background="LightGreen">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{DynamicResource {dxet:DateNavigatorThemeKey IsVisibleInBlend=True, ResourceKey=CalendarCurrentDateStyle}}" Text="{Binding Path=CurrentDateText, RelativeSource={RelativeSource TemplatedParent}}" />
+                </StackPanel>
+                <Border Grid.Row="1">
+                    <Grid>
+                        <Grid x:Name="PART_ContentPaddingPanel" />
+                        <dxednc:DateNavigatorCalendarContent x:Name="PART_Content" dx:FocusHelper2.Focusable="False" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <!-- DateNavigator templates for Office2007Blue theme -->
+        <ControlTemplate x:Key="{dxet:DateNavigatorThemeKey ResourceKey=Template, ThemeName=Office2007Blue}" TargetType="{x:Type dxedn:DateNavigator}">
+            <Grid Background="LightBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Background="LightBlue" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=HeaderStyle}}">
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <RepeatButton Grid.Column="0" HorizontalAlignment="Left" Content="xx" x:Name="PART_ArrowLeft" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=LeftArrowStyle}}" />
+                        <Button Grid.Column="1" Content="{TemplateBinding CurrentDateText}" x:Name="PART_CurrentDateButton" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=CurrentDateButtonStyle}}" />
+                        <RepeatButton Grid.Column="2" HorizontalAlignment="Right" Content="xx" x:Name="PART_ArrowRight" dx:FocusHelper2.Focusable="False" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=RightArrowStyle}}" />
+                    </Grid>
+                </Border>
+                <dxednc:DateNavigatorPanel Grid.Row="1" VerticalAlignment="Top">
+                    <Grid>
+                        <dxednc:DateNavigatorContent Opacity="0" State="Month" x:Name="PART_ContentMonth" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="Year" x:Name="PART_ContentYear" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="Years" x:Name="PART_ContentYears" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                        <dxednc:DateNavigatorContent Opacity="0" State="YearsRange" x:Name="PART_ContentYearsRange" ColumnCount="{TemplateBinding ColumnCount}" RowCount="{TemplateBinding RowCount}" IsHitTestVisible="False" />
+                    </Grid>
+                    <Button x:Name="PART_TodayButton" Style="{DynamicResource {dxet:DateNavigatorThemeKey ResourceKey=TodayButtonStyle}}" />
+                </dxednc:DateNavigatorPanel>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="{dxet:DateNavigatorThemeKey ResourceKey=CalendarTemplate, ThemeName=Office2007Blue}" TargetType="{x:Type dxednc:DateNavigatorCalendar}">
+            <Grid Margin="8" SnapsToDevicePixels="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--<StackPanel>
+                    <TextBlock Style="{DynamicResource {dxet:DateNavigatorThemeKey IsVisibleInBlend=True, ResourceKey=CalendarCurrentDateStyle}}" Text="{Binding Path=CurrentDateText, RelativeSource={RelativeSource TemplatedParent}}"/>
+                </StackPanel>-->
+                <Border Grid.Row="1">
+                    <Grid>
+                        <Grid x:Name="PART_ContentPaddingPanel" />
+                        <dxednc:DateNavigatorCalendarContent x:Name="PART_Content" dx:FocusHelper2.Focusable="False" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="{dxet:DateNavigatorThemeKey ResourceKey=CellButtonTemplate, ThemeName=Office2007Blue}" TargetType="{x:Type dxei:DateNavigatorCalendarCellButton}">
+            <Grid SnapsToDevicePixels="True" Background="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderMouseOver" Storyboard.TargetProperty="Visibility" dxi:ValueSetter.Visibility="Visible" />
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor2" Duration="0" To="White" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled" />
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesSpecial">
+                        <VisualState x:Name="CellStateSpecial">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="FontWeight" dxi:ValueSetter.FontWeight="Bold" />
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor4" Duration="0" To="Red" />
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderSpecial" Storyboard.TargetProperty="Visibility" dxi:ValueSetter.Visibility="Visible"/>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="CellStateNotSpecial" />
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesHoliday">
+                        <VisualState x:Name="CellStateHoliday">
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor5" Duration="0" To="#FFCC3333" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="CellStateNotHoliday" />
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesSelected">
+                        <VisualState x:Name="CellStateSelected">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderSelected" Storyboard.TargetProperty="Visibility" dxi:ValueSetter.Visibility="Visible" />
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor1" Duration="0" To="#FFFFFFFF" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="CellStateNotSelected" />
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesToday">
+                        <VisualState x:Name="CellStateToday">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderToday" Storyboard.TargetProperty="Visibility" dxi:ValueSetter.Visibility="Visible" />
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor3" Duration="0" To="Transparent" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="CellStateNotToday" />
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesFocused">
+                        <VisualState x:Name="CellStateNotFocused" />
+                        <VisualState x:Name="CellStateFocused">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderFocused" Storyboard.TargetProperty="Visibility" dxi:ValueSetter.Visibility="Visible" />
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CellStatesInactive">
+                        <VisualState x:Name="CellStateActive" />
+                        <VisualState x:Name="CellStateInactive">
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="ForegroundSolidColor4" Duration="0" To="#FFD3D3D3" />
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Border x:Name="BorderToday" Background="#FF9FC8F2" CornerRadius="2" Visibility="Collapsed" />
+                <Border x:Name="BorderFocused" BorderBrush="#FF3C619B" BorderThickness="1" CornerRadius="2" Visibility="Collapsed" />
+                <Border x:Name="BorderMouseOver" Background="Black" CornerRadius="5" Visibility="Collapsed" />
+                <Border x:Name="BorderSpecial" Background="Yellow" CornerRadius="2" Visibility="Collapsed" />
+                <Border x:Name="BorderSelected" Background="#FF3C619B" CornerRadius="2" Visibility="Collapsed" />
+                <dx:ContentContainer x:Name="Content" Content="{TemplateBinding Content}" HorizontalAlignment="Center" Margin="-1,-2,-1,-1" VerticalAlignment="Center" />
+            </Grid>
+        </ControlTemplate>
+
+    </Window.Resources>
+
+    <DockPanel LastChildFill="True">
+        <dxe:ComboBoxEdit Name="comboBoxEdit1" DockPanel.Dock="Top" IsTextEditable="False" Width="200" EditValue="{Binding ElementName=window, Path=(dxc:ThemeManager.ThemeName), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxe:ComboBoxEdit.StyleSettings>
+                <dxe:ComboBoxStyleSettings />
+            </dxe:ComboBoxEdit.StyleSettings>
+
+            <dxe:ComboBoxEditItem Content="LightGray" />
+            <dxe:ComboBoxEditItem Content="Office2007Blue" />
+        </dxe:ComboBoxEdit>
+        <dxe:DateNavigator Name="dateNavigator1" DockPanel.Dock="Left" Width="250">
+            <dxe:DateNavigator.StyleSettings>
+                <dxsch:SchedulerDateNavigatorStyleSettings SchedulerControl="{Binding ElementName=schedulerControl1}" />
+            </dxe:DateNavigator.StyleSettings>
+        </dxe:DateNavigator>
+        <dxsch:SchedulerControl Name="schedulerControl1" />
+    </DockPanel>
+</Window>
+
+

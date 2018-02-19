@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+spec="1.0+"
+codebase="http://127.0.0.1/jaws/apps/ctifleapi"
+href="viewflexagentapi.jnlp">
+<information>
+<title>CTI Flex Agent API Teste</title>
+<vendor>Voice Technology Ind.</vendor>
+<homepage href="docs/help.html"/>
+<description>CTI Flex Agent API Teste Application</description>
+<description kind="short">Aplicativo de teste da API do CTI Server Flex.</description>
+<icon href="images/ctv.jpg"/>
+<icon kind="splash" href="images/ctv.gif"/>
+<offline-allowed/>
+</information>
+<resources>
+<j2se version="1.5.0"/>
+<jar href="flexapiagentadaptersamples.jar"/>
+<jar href="flexapiagentadapter.jar"/>
+<jar href="flexapi.jar"/>
+<jar href="VoiceSockets.jar"/>
+<jar href="log4j-1.2.8.jar"/>
+</resources>
+<application-desc main-class="examples.apps.ViewFlexAgentAPI"/>
+</jnlp>

@@ -1,0 +1,81 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="resXSButtonStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style TargetType="{x:Type local:XSButton}" >
+        
+        <!-- Provide DEFAULT values for some properties -->
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Background" Value="{StaticResource brushClearGlass}" />
+        <Setter Property="OuterBorderBrush" Value="{StaticResource brushOuterBorder}" />
+        <Setter Property="OuterBorderThickness" Value="1" />
+        <Setter Property="InnerBorderBrush" Value="{StaticResource brushInnerBorder}" />
+        <Setter Property="InnerBorderThickness" Value="1" />
+        <Setter Property="GlowColor" Value="{StaticResource brushGlow}" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:XSButton}">
+
+                    <Border Name="OuterBorder" CornerRadius="{Binding CornerRadius, ElementName=InnerBorder}"
+                            BorderBrush="{TemplateBinding OuterBorderBrush}" BorderThickness="{TemplateBinding OuterBorderThickness}" >
+                        
+                        <Border Name="InnerBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding InnerBorderBrush}" BorderThickness="{TemplateBinding InnerBorderThickness}" >
+                            
+                            <Grid >
+
+                                <Border Name="Glow" Opacity="0" CornerRadius="{Binding CornerRadius, ElementName=InnerBorder}">
+                                    <Border.Background>
+                                        <RadialGradientBrush>
+                                            <GradientStop Offset="0" Color="{Binding GlowColor, RelativeSource={RelativeSource TemplatedParent},
+                                                Converter={StaticResource ColorToAlphaColorConverter}, ConverterParameter=176}" />
+                                            <GradientStop Offset="1" Color="{Binding GlowColor, RelativeSource={RelativeSource TemplatedParent},
+                                                Converter={StaticResource ColorToAlphaColorConverter}, ConverterParameter=0}" />
+                                        </RadialGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                
+                                <Border Name="padding" Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <ContentPresenter Name="content" />
+                                </Border>
+                                
+                                <Control Name="Highlight" Template="{TemplateBinding HighlightAppearance}" />
+                                
+                            </Grid>
+                        </Border>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="OuterBorder" Property="Opacity" Value="0.9" />
+                            <Setter TargetName="InnerBorder" Property="Opacity" Value="0.9"/>
+                            <Setter TargetName="content" Property="Margin" Value="2,2,0,0"/>
+                            <Setter TargetName="Glow" Property="Opacity" Value="0.5" />
+                            <Setter TargetName="Highlight" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                        
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOn}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOff}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

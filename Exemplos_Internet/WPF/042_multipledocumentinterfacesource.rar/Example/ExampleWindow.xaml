@@ -1,0 +1,14 @@
+﻿<Window x:Class="Example.ExampleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mdi="clr-namespace:MultipleDocumentInterface;assembly=MultipleDocumentInterface"
+    Title="MDI Example" Height="652" Width="900" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="22">
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Name="About" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+        <mdi:MDIParent x:Name="MDIHost" />
+    </DockPanel>
+</Window>

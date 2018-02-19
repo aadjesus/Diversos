@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{9709A1EC-EFA9-4D28-8285-83B2650CD708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService1", "WebService1\WebService1.csproj", "{27594F1B-F064-4D5B-B03A-C554AF74C766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9709A1EC-EFA9-4D28-8285-83B2650CD708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9709A1EC-EFA9-4D28-8285-83B2650CD708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9709A1EC-EFA9-4D28-8285-83B2650CD708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9709A1EC-EFA9-4D28-8285-83B2650CD708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27594F1B-F064-4D5B-B03A-C554AF74C766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27594F1B-F064-4D5B-B03A-C554AF74C766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27594F1B-F064-4D5B-B03A-C554AF74C766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27594F1B-F064-4D5B-B03A-C554AF74C766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

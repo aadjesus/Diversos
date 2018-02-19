@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiClientController", "MdiClientController\MdiClientController.csproj", "{D375F314-72F7-477F-9C82-EDB5786031FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiClientDemo", "MdiClientDemo\MdiClientDemo.csproj", "{431CD5E8-6FCD-4784-A947-13ACDA8AEB7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D375F314-72F7-477F-9C82-EDB5786031FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D375F314-72F7-477F-9C82-EDB5786031FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D375F314-72F7-477F-9C82-EDB5786031FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D375F314-72F7-477F-9C82-EDB5786031FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431CD5E8-6FCD-4784-A947-13ACDA8AEB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431CD5E8-6FCD-4784-A947-13ACDA8AEB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431CD5E8-6FCD-4784-A947-13ACDA8AEB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431CD5E8-6FCD-4784-A947-13ACDA8AEB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

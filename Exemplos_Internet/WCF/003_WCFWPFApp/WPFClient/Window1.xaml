@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPFClient.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="550" Width="834" MaxHeight="550" MaxWidth="834" MinHeight="550" MinWidth="834">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="LightSlateGray" Offset="0"/>
+                <GradientStop Color="White" Offset="0.5"/>
+                <GradientStop Color="LightSlateGray" Offset="0.9"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Label x:Name="loginLabelUName" Height="25" HorizontalAlignment="Left" Margin="179,200,0,0" VerticalAlignment="Top" Width="70">User Name:
+        </Label>
+        <TextBox x:Name="loginTxtBoxUName" Height="23" Margin="277,200,313,0" VerticalAlignment="Top" />
+        <Label x:Name="loginLabelIP"  HorizontalAlignment="Left" Margin="179,232,0,255"  Width="70">Service IP:</Label>
+        <TextBox x:Name="loginTxtBoxIP" Margin="277,232,313,0" Text="41.235.135.104" Height="23" VerticalAlignment="Top" />
+        <Button x:Name="loginButtonConnect"  Background="Transparent" Margin="277,0,313,222" Click="buttonConnect_Click"  Height="23" VerticalAlignment="Bottom">Connect</Button>
+        <Label x:Name="loginLabelStatus" Height="44" VerticalAlignment="Bottom" FontFamily="Jokerman" FontSize="20" Foreground="White" HorizontalAlignment="Right" Width="167" Margin="0,0,40,71">Offline</Label>
+        <ComboBox x:Name="loginComboBoxImgs" HorizontalAlignment="Right" Margin="0,200,197,222" Width="98" Background="Transparent" />
+        <Label x:Name="loginLabelTitle" Height="57" FontFamily="Jokerman" FontSize="25" Foreground="White" Margin="16,16,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="293">WCF / WPF Chat App.</Label>
+<Polyline x:Name="loginPolyLine"  StrokeThickness="2" Stroke="White" Points="140,90 140,300 700,300 700,90 140,90" Margin="-9,42,116,165" />
+        
+        
+        
+        <ListBox x:Name="chatListBoxMsgs" Margin="10,62,167,84" />
+    <ListBox x:Name="chatListBoxNames" HorizontalAlignment="Right" Margin="0,62,10,84" Width="139" />
+    <CheckBox x:Name="chatCheckBoxWhisper" Height="15" HorizontalAlignment="Right" Margin="0,37,10,0" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="12">Whisper Mode</CheckBox>
+    <TextBox x:Name="chatTxtBoxType" Height="39" Margin="10,0,313,9" VerticalAlignment="Bottom" />
+    <Button x:Name="chatButtonSend" Click="chatButtonSend_Click" Height="39" Margin="0,0,167,9" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="136">Send</Button>
+    <Button x:Name="chatButtonDisconnect"  Click="chatButtonDisconnect_Click" Height="39" HorizontalAlignment="Right" Margin="0,0,10,9"  VerticalAlignment="Bottom" Width="139">Disconnect</Button>
+    <Image x:Name="chatCurrentImage" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="Fill" Width="60" Height="70" VerticalAlignment="Top" />
+    <Label x:Name="chatLabelCurrentUName" Height="23" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="85"  Foreground="White"></Label>
+    <Label x:Name="chatLabelCurrentStatus" Height="23" Margin="87,37,0,0" VerticalAlignment="Top" Foreground="Green" HorizontalAlignment="Left" Width="85"></Label>
+    <Label x:Name="chatLabelWritingMsg" Height="30" Margin="10,0,167,49" VerticalAlignment="Bottom" Foreground="Gray"></Label>
+    <Button x:Name="chatButtonSendFile" Click="chatButtonSendFile_Click" Background="Transparent" Height="23" Margin="270,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105">Send File</Button>
+    <Label x:Name="chatLabelSendFileStatus" Height="28" Margin="270,32,316,0" VerticalAlignment="Top"></Label>
+    <Button x:Name="chatButtonOpenReceived" Click="chatButtonOpenReceived_Click" Background="Transparent" Height="23" Margin="382,10,313,0" VerticalAlignment="Top">Open Received Files</Button>
+
+        
+        
+    </Grid>
+</Window>

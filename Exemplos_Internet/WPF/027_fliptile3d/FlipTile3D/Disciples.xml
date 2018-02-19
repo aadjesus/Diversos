@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Disciples>
+  <Disciple>
+    <ImageUrl>images/bill.jpg</ImageUrl>
+    <BlogUrl>http://wekempf.spaces.live.com/default.aspx</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/disciples.png</ImageUrl>
+    <BlogUrl>http://wpfdisciples.wordpress.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/drwpf.jpg</ImageUrl>
+    <BlogUrl>http://www.drwpf.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/josh.jpg</ImageUrl>
+    <BlogUrl>http://joshsmithonwpf.wordpress.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/karl.jpg</ImageUrl>
+    <BlogUrl>http://karlshifflett.wordpress.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/marlon.jpg</ImageUrl>
+    <BlogUrl>http://marlongrech.wordpress.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/mike.jpg</ImageUrl>
+    <BlogUrl>http://mbrownchicago.spaces.live.com/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/rudi.jpg</ImageUrl>
+    <BlogUrl>http://dotnet.org.za/rudi/</BlogUrl>
+  </Disciple>
+  <Disciple>
+    <ImageUrl>images/sacha.jpg</ImageUrl>
+    <BlogUrl>http://sachabarber.net/</BlogUrl>
+  </Disciple>
+</Disciples>

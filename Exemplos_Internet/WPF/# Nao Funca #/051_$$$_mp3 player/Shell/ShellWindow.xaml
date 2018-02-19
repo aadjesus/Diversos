@@ -1,0 +1,9 @@
+﻿<Window x:Class="Framework.Shell.ShellWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:cab="http://schemas.scsfcontrib.com/extensions/wpf/wpfcab" 
+    Title="Shell" Height="300" Width="300" 
+    >
+  <cab:DeckWorkspace x:Name="_mainShellWorkspace"/>
+
+</Window>

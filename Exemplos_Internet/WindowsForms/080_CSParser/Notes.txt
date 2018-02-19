@@ -1,0 +1,21 @@
+Problems with the CodeDom:
+CodeCompile unit do not have space for using directives or ns mebers, so they are placed now into first default NS
+using_alias_directive - no support found
+nested namespaces - no support found ( so parser is flattening ns hierarchy)
+variable declaration list (int i,j,k;) - no support - transformend to individual var declarations
+pointer_type - no support found
+"jagged" array type (array of arrays) - MS CSharpCodeProvider reverses order of ranks 
+params keyword - not supported - param is there as orinary array type param
+private modifier on nested delagate is not shown by CSharpCodeProvider (all other nested types works fine)
+unsafe modifier - no support found
+readonly modifier - no support found
+volatile modifier - no support found
+explicit interface implementation - not implemented yet (I think this can be done)
+add and remove accessors for Event - no support found
+virtual and override modifiers do not work in MS CSharpCodeProvider for events
+Operator members and Destructors - no support found
+Expressions - no unary expressions at all !!!, only one dim arrays, some operators not supported and more
+Attribute targets : no support found
+Attributes on accessor : no support found
+If CompileUnit contains custom attributes in global scope, CSSharpCodeProvider prints then before global using directives 
+(it is due to that using has to be in the first ns)

@@ -1,0 +1,19 @@
+﻿<Window x:Class="SeeThru.CrazyWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="A Crazy Window" Height="300" Width="300"
+    WindowStyle="None" AllowsTransparency="True"
+    Background="{x:Null}"
+    >
+    <Grid MouseRightButtonDown="WindowClicked">
+      <Viewbox Stretch="Uniform">
+        <Path Fill="#80D0E0FF" Stroke="Red" StrokeThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+              Data="M79,3L65,82 17,91 50,138 96,157 104,192 175,154 190,167 218,78 156,76 157,9 111,39z"/>
+      </Viewbox>
+      <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=Title}" 
+                 FontSize="18" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" 
+                 MouseLeftButtonDown="DragWindow" FontFamily="Impact" Foreground="#C030A060"/>
+      <TextBlock Text="Right Click Anywhere to Close" Background="Black" Width="200" Foreground="White" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" TextWrapping="Wrap" />
+    </Grid>
+</Window>

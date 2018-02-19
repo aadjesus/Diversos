@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Globus5.Abastecimento.DTO.BGMClienteDTO,GLB.DTO" table ="BGM_CLIENTE" lazy="false">
+
+    <id name="CODCLI" column ="CODCLI" type ="int" unsaved-value="0">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="NRCLI"                             column="NRCLI"                    type ="string"/>
+    <!--<property name="CODTPRECEITA"                      column="CODTPRECEITA"             type ="string"/>
+    <property name="UFCOBRANCACLI"                     column="UFCOBRANCACLI"            type ="string"/>
+    <property name="CODOPERFISCAL"                     column="CODOPERFISCAL"            type ="int"   />
+    <property name="CODIGOUF"                          column="CODIGOUF"                 type ="string"/>
+    <property name="CODCLASSFISC"                      column="CODCLASSFISC"             type ="int"   />
+    <property name="RSOCIALCLI"                        column="RSOCIALCLI"               type ="string"/>
+    <property name="NFANTASIACLI"                      column="NFANTASIACLI"             type ="string"/>
+    <property name="ENDERECOCLI"                       column="ENDERECOCLI"              type ="string"/>
+    <property name="BAIRROCLI"                         column="BAIRROCLI"                type ="string"/>
+    <property name="CIDADECLI"                         column="CIDADECLI"                type ="string"/>
+    <property name="CEPCLI"                            column="CEPCLI"                   type ="string"/>
+    <property name="TELEFONECLI"                       column="TELEFONECLI"              type ="string"/>
+    <property name="FAXCLI"                            column="FAXCLI"                   type ="string"/>
+    <property name="HOMEPAGECLI"                       column="HOMEPAGECLI"              type ="string"/>
+    <property name="EMAILCLI"                          column="EMAILCLI"                 type ="string"/>
+    <property name="TPINSCRICAOCLI"                    column="TPINSCRICAOCLI"           type ="string"/>
+    <property name="NRINSCRICAOCLI"                    column="NRINSCRICAOCLI"           type ="string"/>
+    <property name="INSCESTADUALCLI"                   column="INSCESTADUALCLI"          type ="string"/>
+    <property name="INSCMUNICIPALCLI"                  column="INSCMUNICIPALCLI"         type ="string"/>
+    <property name="CONTATOCLI"                        column="CONTATOCLI"               type ="string"/>
+    <property name="OBSERVACAOCLI"                     column="OBSERVACAOCLI"            type ="string"/>
+    <property name="RSCOBRANCACLI"                     column="RSCOBRANCACLI"            type ="string"/>
+    <property name="ENDCOBRANCACLI"                    column="ENDCOBRANCACLI"           type ="string"/>
+    <property name="BAIRROCOBRANCACLI"                 column="BAIRROCOBRANCACLI"        type ="string"/>
+    <property name="CIDADECOBRANCACLI"                 column="CIDADECOBRANCACLI"        type ="string"/>
+    <property name="CEPCOBRANCACLI"                    column="CEPCOBRANCACLI"           type ="string"/>
+    <property name="TPINSCCOBRANCACLI"                 column="TPINSCCOBRANCACLI"        type ="string"/>
+    <property name="NRINSCCOBRANCACLI"                 column="NRINSCCOBRANCACLI"        type ="string"/>
+    <property name="INSCESTADUALCOBRANCACLI"           column="INSCESTADUALCOBRANCACLI"  type ="string"/>
+    <property name="CONDICAOCLI"                       column="CONDICAOCLI"              type ="string"/>
+    <property name="DATAULTIMOMOVTOCLI"                column="DATAULTIMOMOVTOCLI"       type ="DateTime"/>
+    <property name="CONDRECEBCLI"                      column="CONDRECEBCLI"             type ="string"/>
+    <property name="TIPOCLI"                           column="TIPOCLI"                  type ="string"/>
+    <property name="CTO_LOCALIDADE"                    column="CTO_LOCALIDADE"           type ="int"   />
+    <property name="TIPO_COBRANCA"                     column="TIPO_COBRANCA"            type ="string"/>
+    <property name="TIPO_FATURA"                       column="TIPO_FATURA"              type ="string"/>
+    <property name="LOCAL_COLETA"                      column="LOCAL_COLETA"             type ="string"/>
+    <property name="BANCO_FAT"                         column="BANCO_FAT"                type ="int"   />
+    <property name="AGENCIA_FAT"                       column="AGENCIA_FAT"              type ="int"   />
+    <property name="CONTA_FAT"                         column="CONTA_FAT"                type ="string"/>
+    <property name="CLIENTE_FAT"                       column="CLIENTE_FAT"              type ="int"   />
+    <property name="EMITE_A_PRAZO"                     column="EMITE_A_PRAZO"            type ="string"/>
+    <property name="VARIA_NF_CTRC"                     column="VARIA_NF_CTRC"            type ="string"/>
+    <property name="FRETE_DIRIGIDO"                    column="FRETE_DIRIGIDO"           type ="string"/>
+    <property name="MICRO_EMPRESA"                     column="MICRO_EMPRESA"            type ="string"/>
+    <property name="PERC_DESC_FAT"                     column="PERC_DESC_FAT"            type ="int"   />
+    <property name="PROTESTAR"                         column="PROTESTAR"                type ="string"/>
+    <property name="DATA_CADASTRO"                     column="DATA_CADASTRO"            type ="DateTime"/>
+    <property name="DATA_ALTERACAO"                    column="DATA_ALTERACAO"           type ="DateTime"/>
+    <property name="DATA_INTEGRACAO"                   column="DATA_INTEGRACAO"          type ="DateTime"/>
+    <property name="CD_CONTRATO"                       column="CD_CONTRATO"              type ="int"     />
+    <property name="DT_CANC_CRED"                      column="DT_CANC_CRED"             type ="DateTime"/>
+    <property name="DT_REAB_CRED"                      column="DT_REAB_CRED"             type ="DateTime"/>
+    <property name="DIA_VENCIMENTO"                    column="DIA_VENCIMENTO"           type ="int"     />
+    <property name="ICMS_EMBUTIDO"                     column="ICMS_EMBUTIDO"            type ="string"  />
+    <property name="DATA_ULT_TRANSP"                   column="DATA_ULT_TRANSP"          type ="DateTime"/>
+    <property name="CONTRIBUINTEICMS"                  column="CONTRIBUINTEICMS"         type ="string"  />
+    <property name="VLRLIMITECOMPRACLI"                column="VLRLIMITECOMPRACLI"       type ="decimal" />
+    <property name="COND_PGTO_1"                       column="COND_PGTO_1"              type ="int"     />
+    <property name="COND_PGTO_2"                       column="COND_PGTO_2"              type ="int"     />
+    <property name="COND_PGTO_3"                       column="COND_PGTO_3"              type ="int"     />
+    <property name="COND_PGTO_4"                       column="COND_PGTO_4"              type ="int"     />
+    <property name="COND_PGTO_5"                       column="COND_PGTO_5"              type ="int"     />
+    <property name="COND_PGTO_6"                       column="COND_PGTO_6"              type ="int"     />
+    <property name="VENDEDOR"                          column="VENDEDOR"                 type ="int"     />
+    <property name="NR_ENDERECO"                       column="NR_ENDERECO"              type ="int"     />
+    <property name="COD_BAIRRO"                        column="COD_BAIRRO"               type ="int"     />
+    <property name="TIPO_VENCTO"                       column="TIPO_VENCTO"              type ="string"  />
+    <property name="ROTA_ENTREG_COL"                   column="ROTA_ENTREG_COL"          type ="int"     />
+    <property name="CUBAGEM"                           column="CUBAGEM"                  type ="int"     />
+    <property name="COMPROVA_ENTREG"                   column="COMPROVA_ENTREG"          type ="string"  />
+    <property name="INDICE_REENTREG"                   column="INDICE_REENTREG"          type ="decimal"/>
+    <property name="TIPO_JUROS_MORA"                   column="TIPO_JUROS_MORA"          type ="string" />
+    <property name="PERCENTUAL_JURO"                   column="PERCENTUAL_JURO"          type ="decimal" />
+    <property name="FATURA_DOCTO"                      column="FATURA_DOCTO"             type ="string"  />
+    <property name="SIT_PEDAGIO"                       column="SIT_PEDAGIO"              type ="string"  />
+    <property name="TIPO_BASE_TAB"                     column="TIPO_BASE_TAB"            type ="string"  />
+    <property name="CODIGO_EDI"                        column="CODIGO_EDI"               type ="int"     />
+    <property name="TAXA_ADMINISTRA"                   column="TAXA_ADMINISTRA"          type ="decimal" />
+    <property name="RETER_INSS"                        column="RETER_INSS"               type ="string"  />
+    <property name="QTDE_FRANQUIA_1"                   column="QTDE_FRANQUIA_1"          type ="int"     />
+    <property name="QTDE_FRANQUIA_2"                   column="QTDE_FRANQUIA_2"          type ="int"     />
+    <property name="TIPO_EMPRESA"                      column="TIPO_EMPRESA"             type ="int"     />
+    <property name="SEQ_TABELA_NEG"                    column="SEQ_TABELA_NEG"           type ="int"     />
+    <property name="SERIE_NF"                          column="SERIE_NF"                 type ="string"  />
+    <property name="SENHA_WEB"                         column="SENHA_WEB"                type ="string"  />
+    <property name="GERA_AVERBACAO"                    column="GERA_AVERBACAO"           type ="string"  />
+    <property name="VLCREDITOCGS"                      column="VLCREDITOCGS"             type ="decimal"/>
+    <property name="AGENCIADETURISMO"                  column="AGENCIADETURISMO"         type ="string" />
+    <property name="PARCELAPAGTOSTUR"                  column="PARCELAPAGTOSTUR"         type ="string" />
+    <property name="REGISTROEMBRATUR"                  column="REGISTROEMBRATUR"         type ="string" />
+    <property name="PERCDESCONTOTUR"                   column="PERCDESCONTOTUR"          type ="decimal"/>
+    <property name="SALDOCREDORTUR"                    column="SALDOCREDORTUR"           type ="decimal"/>
+    <property name="TEMDIREITOACORTESIATUR"            column="TEMDIREITOACORTESIATUR"   type ="string" />
+    <property name="TEMDIREITOADESCONTOTUR"            column="TEMDIREITOADESCONTOTUR"   type ="string" />
+    <property name="NR_ENDCOBRANCACLI"                 column="NR_ENDCOBRANCACLI"        type ="int"    />
+    <property name="COMPLCLI"                          column="COMPLCLI"                 type ="string" />
+    <property name="COMPLCOBRANCACLI"                  column="COMPLCOBRANCACLI"         type ="string" />
+    <property name="CELULARCLI"                        column="CELULARCLI"               type ="string" />
+    <property name="TELEFONECOBRANCACLI"               column="TELEFONECOBRANCACLI"      type ="string" />
+    <property name="CAIXAPOSTALCLI"                    column="CAIXAPOSTALCLI"           type ="string" />
+    <property name="LOCALENTREGACLI"                   column="LOCALENTREGACLI"          type ="string" />
+    <property name="CODCLI_NOTADEBITO"                 column="CODCLI_NOTADEBITO"        type ="int"    />
+    <property name="NATUREZAJURIDICA"                  column="NATUREZAJURIDICA"         type ="string" />
+    <property name="QTD_PARCELAS"                      column="QTD_PARCELAS"             type ="int"    />
+    <property name="PERMITEFATURARPEDIDOSTUR"          column="PERMITEFATURARPEDIDOSTUR" type ="string" />
+    <property name="CODREGIAOTRANSP"                   column="CODREGIAOTRANSP"          type ="int"    />
+    <property name="CODIGOZONA"                        column="CODIGOZONA"               type ="int"    />
+    <property name="TIPOFRETE"                         column="TIPOFRETE"                type ="string" />
+    <property name="COD_CONDPAGTO_COMBUST"             column="COD_CONDPAGTO_COMBUST"    type ="int"    />
+    <property name="COD_CONDPAGTO_LUBR"                column="COD_CONDPAGTO_LUBR"       type ="int"    />
+    <property name="COD_CONDPAGTO_FILTRO"              column="COD_CONDPAGTO_FILTRO"     type ="int"    />
+    <property name="COD_CONDPAGTO_OUTROS"              column="COD_CONDPAGTO_OUTROS"     type ="int"    />
+    <property name="CODIGOAUX1"                        column="CODIGOAUX1"               type ="string" />
+    <property name="CODROTA"                           column="CODROTA"                  type ="int"    />
+    <property name="DESCEXIGENCIAS"                    column="DESCEXIGENCIAS"           type ="string" />
+    <property name="CAIXAPOSTAL"                       column="CAIXAPOSTAL"              type ="string" />
+    <property name="DIREITOCREDITOICMS"                column="DIREITOCREDITOICMS"       type ="string" />
+    <property name="COD_SEQ_AGENCIA"                   column="COD_SEQ_AGENCIA"          type ="int"    />
+    <property name="PERC_DESCONTO_MES"                 column="PERC_DESCONTO_MES"        type ="decimal"/>
+    <property name="CGS_EMPRESA_RESPCOML"              column="CGS_EMPRESA_RESPCOML"     type ="int"    />
+    <property name="CGS_FILIAL_RESPCOML"               column="CGS_FILIAL_RESPCOML"      type ="int"    />
+    <property name="CGS_GARAGEM_RESPCOML"              column="CGS_GARAGEM_RESPCOML"     type ="int"    />
+    <property name="PERC_MULTA"                        column="PERC_MULTA"               type ="decimal"/>
+    <property name="INSTRUCAO_PROTESTO"                column="INSTRUCAO_PROTESTO"       type ="string" />
+    <property name="SIGLA_PAIS"                        column="SIGLA_PAIS"               type ="string" />
+    <property name="PRIORIDADE"                        column="PRIORIDADE"               type ="int"    />
+    <property name="TPINSCESTADUALCLI"                 column="TPINSCESTADUALCLI"        type ="string" />
+    <property name="PRODUTORRURAL"                     column="PRODUTORRURAL"            type ="string" />
+    <property name="PRODRURALCOB"                      column="PRODRURALCOB"             type ="string" />
+    <property name="CODSEGNEG"                         column="CODSEGNEG"                type ="int"    />
+    <property name="VENC_CAPRESENTACAO"                column="VENC_CAPRESENTACAO"       type ="string" />
+    <property name="CODAGREGULADO"                     column="CODAGREGULADO"            type ="int"    />
+    <property name="CODINSTALACAO"                     column="CODINSTALACAO"            type ="int"    />
+    <property name="ATIV_ECONOMICA"                    column="ATIV_ECONOMICA"           type ="int"    />
+    <property name="INF_ADICIONAIS"                    column="INF_ADICIONAIS"           type ="string" />
+    <property name="CODIGO_EMP_HISTO"                  column="CODIGO_EMP_HISTO"         type ="int"    />
+    <property name="CODIGO_FL_HISTO"                   column="CODIGO_FL_HISTO"          type ="int"    />
+    <property name="CODIGO_HISTO_TUR"                  column="CODIGO_HISTO_TUR"         type ="int"    />
+    <property name="UTILIZA_VEND_DIVISAO"              column="UTILIZA_VEND_DIVISAO"     type ="string" />
+    <property name="CONSULTOU_CNPJ_RECEITA"            column="CONSULTOU_CNPJ_RECEITA"   type ="string" />
+    <property name="CODMUNIC"                          column="CODMUNIC"                 type ="int"    />
+    <property name="CLI_OPT_SIMPLES_NACIONAL"          column="CLI_OPT_SIMPLES_NACIONAL" type ="string" />-->
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,5 @@
+The WPF Bag-O-Tricks by Kevin Moore (http://j832.com)
+
+Last Update 2008-03-08
+
+Find updates and see change log at http://j832.com/bagotricks/

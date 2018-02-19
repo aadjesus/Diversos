@@ -1,0 +1,22 @@
+﻿<Window x:Class="MarsaX.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MarsaX"      
+    WindowStartupLocation="CenterScreen"
+    Title="MarsaX" MinHeight="800" MinWidth="600" Icon="images/icon.png">
+
+ 
+    
+    
+    <DockPanel LastChildFill="True" >
+        <local:ucslideImages3DViewPort x:Name="imageResults" Margin="0"/>
+    </DockPanel>
+    
+    
+    
+    
+
+
+
+
+</Window>

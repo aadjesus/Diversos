@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TreeList", "TreeList.vbproj", "{05871555-BEFF-4880-B982-1F412A50E27C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Test", "Test\Test.vbproj", "{5AD93900-2115-4C45-80C0-05EFF4FD2990}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05871555-BEFF-4880-B982-1F412A50E27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05871555-BEFF-4880-B982-1F412A50E27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05871555-BEFF-4880-B982-1F412A50E27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05871555-BEFF-4880-B982-1F412A50E27C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD93900-2115-4C45-80C0-05EFF4FD2990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD93900-2115-4C45-80C0-05EFF4FD2990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD93900-2115-4C45-80C0-05EFF4FD2990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD93900-2115-4C45-80C0-05EFF4FD2990}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

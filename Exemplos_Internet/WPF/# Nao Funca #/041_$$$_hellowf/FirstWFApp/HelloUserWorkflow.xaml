@@ -1,0 +1,9 @@
+﻿<wf:SequenceActivity 
+  xmlns="http://FirstWFLibrary" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:wf="http://schemas.microsoft.com/winfx/2006/xaml/workflow"
+  >
+  <PromptForUserName />
+  <ReadConsoleLine x:Name="getUserName" />
+  <GreetUser UserName="{wf:ActivityBind Name=getUserName, Path=InputText}" />
+</wf:SequenceActivity>

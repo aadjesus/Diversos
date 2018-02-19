@@ -1,0 +1,77 @@
+﻿<Window x:Class="SampleApplication.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SampleApplication"
+    Title="Main Window" Height="300" Width="500">
+    <Window.Resources>
+        <local:FormatConverter x:Key="formatConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <local:TreeListView AllowsColumnReorder="True">
+            <!--Create an item template to specify the ItemsSource-->
+            <local:TreeListView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}" />
+            </local:TreeListView.ItemTemplate>
+            <local:TreeListView.Columns>
+                <!--Create the first column containing the expand button and the type name.-->
+                <GridViewColumn Header="Name" Width="200">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <!--The Expander Button (can be used in any column (typically the first one))-->
+                                <local:TreeListViewExpander/>
+                                <!--Display the name of the DataElement-->
+                                <TextBlock Text="{Binding}"/>
+                        </StackPanel>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <!--Create a second column containing the number of children.-->
+                <GridViewColumn Header="Children" Width="100">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--Display the size of the DataElement-->
+                            <TextBlock Text="{Binding Children.Count}" HorizontalAlignment="Right"/>                        
+                    </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <!--Create a third column containing the brush of the material.-->
+                <GridViewColumn Header="Brush" Width="100">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <!--Border showing the actual color-->
+                                <Border Background="{Binding Brush}" CornerRadius="2"
+                                    Width="16" Height="16"
+                                    BorderThickness="1" BorderBrush="DarkGray"/>
+                                <!--Display the brush-->
+                                <TextBlock Text="{Binding Brush}"/>
+                        </StackPanel>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </local:TreeListView.Columns>
+            <!--Create some sample data-->
+            <MaterialGroup>
+                <MaterialGroup>
+                    <DiffuseMaterial Brush="Blue"/>
+                    <DiffuseMaterial Brush="Red"/>
+                    <SpecularMaterial Brush="Orange"/>
+                </MaterialGroup>
+                <EmissiveMaterial Brush="AliceBlue"/>
+            </MaterialGroup>
+        </local:TreeListView>
+        <TextBlock Grid.Row="1"
+                   x:Name="xisto1010"
+                   FontSize="11" 
+                   Text="{Binding Converter={StaticResource formatConverter}, ConverterParameter='\{0:HH:mm:ss\}'}"
+                   FontWeight="Bold" 
+                   Foreground="#FF456188"/>
+        <Button Content="sss" Foreground="Red" Width="20" Grid.Row="1" Click="Button_Click"/>
+    </Grid>
+
+</Window>

@@ -1,0 +1,318 @@
+﻿<!--revision $Id: WellLogWindow.xaml 19239 2009-03-22 05:52:22Z unknown $-->
+<Window x:Class="WellLogSample.WellLogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:parts="clr-namespace:OpenWPFChart.Parts;assembly=OpenWPFChart.Parts"
+    xmlns:local="clr-namespace:WellLogSample"
+	Title="WellLog Chart Sample"
+	MinWidth="200" MinHeight="300" SizeToContent="Width">
+
+	<Window.InputBindings>
+		<KeyBinding Key="Add" Modifiers="Control" CommandParameter="1.2" Command="NavigationCommands.Zoom" />
+		<KeyBinding Key="Subtract" Modifiers="Control" CommandParameter="-1.2" Command="NavigationCommands.Zoom" />
+	</Window.InputBindings>
+	<Window.CommandBindings>
+		<CommandBinding Command="ApplicationCommands.Open" Executed="OpenExecutedCommandHandler"/>
+		<CommandBinding Command="NavigationCommands.Zoom" Executed="ZoomExecutedCommandHandler"/>
+		<CommandBinding Command="ApplicationCommands.Properties" Executed="PropertiesExecutedCommandHandler"/>
+	</Window.CommandBindings>
+
+	<Window.Resources>
+		<ContextMenu x:Key="chartItemCtxMnu">
+			<MenuItem Header="Properties" Command="ApplicationCommands.Properties"/>
+		</ContextMenu>
+		
+		<!-- Curve templates -->
+		<DataTemplate x:Key="polylineTemplate">
+			<parts:PolylineSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+		<DataTemplate x:Key="bezierTemplate">
+			<parts:BezierSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+		<DataTemplate x:Key="splineTemplate">
+			<parts:SplineSampledCurve ItemDataView="{Binding}"
+				ToolTip="{Binding ItemData.ItemName}"
+				ContextMenu="{StaticResource chartItemCtxMnu}"/>
+		</DataTemplate>
+
+		<!-- Chart Items Template Selector -->
+		<parts:GenericDataTemplateSelector x:Key="chartItemsTemplateSelector">
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:PolylineSampledCurve}"
+				Template="{StaticResource polylineTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Polyline Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:BezierSampledCurve}"
+				Template="{StaticResource bezierTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Bezier Sampled Curve"/>
+			<parts:GenericDataTemplateSelectorItem
+				PropertyName="VisualCue" 
+				Value="{x:Type parts:SplineSampledCurve}"
+				Template="{StaticResource splineTemplate}"
+				TemplatedType="{x:Type parts:SampledCurveDataView}"
+				Description="Spline Sampled Curve"/>
+		</parts:GenericDataTemplateSelector>
+
+		<!-- Chart Style -->
+		<Style x:Key="chartAreaStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="ItemsPanel">
+				<Setter.Value>
+					<ItemsPanelTemplate>
+						<Canvas Name="itemsPanel" />
+					</ItemsPanelTemplate>
+				</Setter.Value>
+			</Setter>
+
+			<Setter Property="ItemContainerStyle">
+				<Setter.Value>
+					<Style TargetType="{x:Type ListBoxItem}">
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type ListBoxItem}">
+									<ContentPresenter x:Name="ContentHost"/>
+									<ControlTemplate.Triggers>
+										<Trigger Property="Selector.IsSelected" Value="True">
+											<Setter TargetName="ContentHost" Property="BitmapEffect">
+												<Setter.Value>
+													<DropShadowBitmapEffect Color="Black" Direction="320" 
+																		ShadowDepth="5" Softness="0.2" 
+																		Opacity="0.8"/>
+												</Setter.Value>
+											</Setter>
+										</Trigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</Setter.Value>
+			</Setter>
+
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+							Padding="{TemplateBinding Control.Padding}"
+							BorderBrush="{TemplateBinding Border.BorderBrush}"
+							Background="{TemplateBinding Panel.Background}"
+							SnapsToDevicePixels="True">
+							<Grid>
+								<parts:Grid
+									VerticalScale="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem.HorizontalScale}"
+									HorizontalScale="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem.VerticalScale}"
+								/>
+								<parts:Grid Orientation="Horizontal"
+									VerticalScale="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem.HorizontalScale}"
+									HorizontalScale="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem.VerticalScale}"
+								/>
+								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+							</Grid>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<!-- WellLog Header -->
+		<local:EnumerableMinMaxValueConverter x:Key="minMaxValueConverter"/>
+				
+		<DataTemplate x:Key="SampledCurveHeaderTemplate">
+			<Border BorderThickness="1" BorderBrush="Bisque">
+				<Grid HorizontalAlignment="Stretch" ShowGridLines="False">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" SharedSizeGroup="ItemName"/>
+						<ColumnDefinition Width="Auto" SharedSizeGroup="MinValue"/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="Auto" SharedSizeGroup="MaxValue"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Text="{Binding Path=ItemData.ItemName}" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="3,0,0,0"
+						Text="{Binding Path=ItemData.Points, Converter={StaticResource minMaxValueConverter}}"/>
+					<Image Grid.Column="2" Stretch="None" HorizontalAlignment="Center"
+						   VerticalAlignment="Center">
+						<Image.Source>
+							<DrawingImage>
+								<DrawingImage.Drawing>
+									<Binding Path="PointMarker"/>
+								</DrawingImage.Drawing>
+							</DrawingImage>
+						</Image.Source>
+					</Image>
+					<TextBlock Grid.Column="3" VerticalAlignment="Center"
+						Text="{Binding Path=ItemData.Points, Converter={StaticResource minMaxValueConverter}, ConverterParameter=true}"/>
+					<Rectangle Grid.Row="1" Grid.ColumnSpan="4" 
+						Fill="{Binding Path=Pen.Brush}" Height="2"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						Margin="0,5,0,5"/>
+				</Grid>
+			</Border>
+		</DataTemplate>
+		
+		<!-- Curve decorations list -->
+		<!-- Default PointMarker Geometry - Circle -->
+		<EllipseGeometry x:Key="markerGeometry" Center="0,0" RadiusX="3" RadiusY="3"/>
+		<x:ArrayExtension x:Key="curveDecorations" Type="local:CurveDecorations">
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Black" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Black">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Black" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Blue" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Blue">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Blue" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Green" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Green">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Green" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Magenta" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Magenta">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Magenta" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+			<local:CurveDecorations PointMarkerVisible="True">
+				<local:CurveDecorations.CurvePen>
+					<Pen Brush="Red" Thickness="1"/>
+				</local:CurveDecorations.CurvePen>
+				<local:CurveDecorations.PointMarker>
+					<GeometryDrawing Geometry="{StaticResource markerGeometry}" Brush="Red">
+						<GeometryDrawing.Pen>
+							<Pen Brush="Red" Thickness="1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</local:CurveDecorations.PointMarker>
+			</local:CurveDecorations>
+		</x:ArrayExtension>
+
+		<local:ItemCountToBoolConverter x:Key="ItemCountToBool"/>
+		<local:ItemCountToVisibilityConverter x:Key="ItemCountToVisibility"/>
+	</Window.Resources>
+
+	<DockPanel>
+		<!-- Menu -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Command="Open" Name="mnuFileOpen"/>
+				<Separator/>
+				<MenuItem Header="_Recent Files" Name="mnuRecentFiles"/>
+				<Separator/>
+				<MenuItem Header="_Exit" Click="Exit_Click"/>
+			</MenuItem>
+			<MenuItem Header="_View" 
+					  IsEnabled="{Binding ElementName=chart, Path=Items.Count, Converter={StaticResource ItemCountToBool}}">
+				<MenuItem Header="_Interpolator">
+					<MenuItem Header="_Polyline" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Bezier" Click="mnuViewInterpolator_Click"/>
+					<MenuItem Header="_Spline" Click="mnuViewInterpolator_Click"/>
+				</MenuItem>
+				<MenuItem Header="Chart _Scales"
+						  Click="mnuViewChartScales_Click"/>
+				<MenuItem Header="_Show PointMarkers" Name="mnuViewShowPointMarkers"
+						  Click="mnuViewShowPointMarkers_Click" 
+						  IsCheckable="True" IsChecked="True"/>
+				<Separator/>
+				<MenuItem Header="Zoom_In (Ctrl+NumPad+)" Command="Zoom" CommandParameter="1.2"/>
+				<MenuItem Header="Zoom_Out (Ctrl+NumPad-)" Command="Zoom" CommandParameter="-1.2"/>
+			</MenuItem>
+		</Menu>
+
+		<Border BorderBrush="Cornsilk" BorderThickness="10">
+			<!-- Chart -->
+			<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+				<Grid Name="panel" Margin="10" ShowGridLines="False"
+					Visibility="{Binding ElementName=chart, Path=Items.Count, 
+						Converter={StaticResource ItemCountToVisibility}}">
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- WellLogHeader (Horizontal Top WellLog axes) -->
+					<Grid Grid.Column="1" VerticalAlignment="Top">
+						<ListBox ItemsSource="{Binding}"
+							ItemTemplate="{StaticResource SampledCurveHeaderTemplate}"
+							IsSynchronizedWithCurrentItem="True"
+							SelectedItem="{Binding ElementName=chart, Path=SelectedItem}"
+							HorizontalContentAlignment="Stretch" 
+							Grid.IsSharedSizeScope="True"/>
+					</Grid>
+
+					<!-- Vertical Left Depth axis -->
+					<Grid Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<parts:LinearAxis AxisScale="{Binding ElementName=chart, Path=SelectedItem.HorizontalScale}"/>
+						<TextBlock Grid.Row="1" HorizontalAlignment="Center">Depth</TextBlock>
+
+						<Grid.LayoutTransform>
+							<RotateTransform Angle="90"/>
+						</Grid.LayoutTransform>
+					</Grid>
+
+					<!-- Curve Chart area -->
+					<ListBox Name="chart"  Grid.Row="1" Grid.Column="1"
+						Style="{StaticResource chartAreaStyle}"
+						ItemsSource="{Binding}" 
+						ItemTemplateSelector="{StaticResource chartItemsTemplateSelector}"
+						parts:Item.MouseEnterItem="item_Enter"
+						parts:Item.MouseLeaveItem="item_Leave"
+						parts:Item.VisualCueChanged="item_VisualCueChanged"
+						IsSynchronizedWithCurrentItem="True"
+						SnapsToDevicePixels="true">
+					</ListBox>
+				</Grid>
+			</ScrollViewer>
+		</Border>
+	</DockPanel>
+</Window>

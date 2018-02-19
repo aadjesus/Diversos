@@ -1,0 +1,41 @@
+XML format is used in the Samples as the mean to indicate the sample application how a data series intended to be used
+what is difficult to do with plain text format.
+
+This XML format doesn't presume any DTD or schema and all data validation is accoplished by the application XML
+data parser. The XML, however, should be well-formed.
+
+Data file contents look like follows:
+
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<SampledCurve Name="y=x2" XAxisLabel="x">
+		<Point x="0" y="0"/>
+		...
+		<Point x="1" y="1"/>
+	</SampledCurve>
+	...
+	<ScatteredPoints Name="Point Set 2">
+		<Point x="0.01" y="0.5"/>
+		...
+		<Point x="0.95" y="0.3"/>
+	</ScatteredPoints>
+	...
+</Items>
+
+The root content element is introduced by Items tag. This element can contain any number of series. In the sample
+snippet above two series are presented by their SampledCurve and ScatteredPoints elements.
+
+Name of the series element tag expresses the intention on the series usage. E.g. the SampledCurve would be treated by 
+an application as the set of the sampled curve points and the ScatteredPoints - as the set of points of the points cloud.
+Every series element may have Name and XAxisLabel attributes. The former corresponds to OpenWPFChart.Parts.ItemData.ItemName
+property and the latter can be used by an application to show the abscissas axis label.
+Specific series element may imply additional restrictions: e.g. SampledCurve element require its Point elements be
+ordered by abscissa (x) values.
+A series element must contain one or more Point elements.
+
+Every Point element must have x (for abscissa) and y (for ordinate) attributes.
+Point coordinate in the series values must be convertible to the same base type.
+Base type is determined by the first Point element attribute (x or y) values in the following manner:
+1. If the value can be converted to double, the base type is double.
+2. If the value can be converted to DateTime, the base type is DateTime.
+3. Otherwise the base type is string.

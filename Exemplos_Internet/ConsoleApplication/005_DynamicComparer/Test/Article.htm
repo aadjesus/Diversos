@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+
+
+<title>Article Source</title>
+<link rel="stylesheet" type="text/css" 
+href="Article_files/CodeProject.css"/>
+<!-- base href="http://www.codeproject.com/KB/dotnet/" -->
+</head><body>
+    <div>
+
+
+
+
+	<h2>Introduction</h2><p>In this article I will present a generic, dynamic and 
+type-safe implementation of an <code>IComparer&lt;T&gt; </code>object.</p>
+        <ul>
+            <li>Generic: It is a .NET generic class.</li>
+            <li>Dynamic: The sort order is settable and changable at run time.</li>
+            <li>Type-safe: Safe for compile time checking, refactoring, and there are no strings 
+                involved.</li>
+        </ul>
+        <p>The type safety is manifested in several aspects, as the compiler performes 
+            checks to verify that the properties that compose the sort order meet the 
+            following requirements:</p><ul><li>They do actually exist on the type being 
+            compared.</li><li>They are accessible to the caller (not 
+private, etc.)</li><li>They are of a type that implements <code>IComparable</code>.</li></ul><h2>Using
+ the code</h2><p>Using the code is a matter of instantiating a <code>DynamicComparer&lt;T&gt;</code>
+ object, and calling its <code>SortOrder</code> method to specify the 
+order of properties used in the comparison. Here is a code example (the 
+key lines are highlighted): </p><pre lang="c#">public class Person
+{
+    public Person(string firstName, string lastName, int age)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Age = age;
+    }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int Age { get; set; }
+
+    public override string ToString()
+    {
+        return FirstName + " " + LastName + ", " + Age;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+<span class="highlight">        var comp = new DynamicComparer&lt;Person&gt;();</span>
+        Person[] ppl = new Person[] {
+            new Person("Aviad","P.",35),
+            new Person("Goerge","Smith",33),
+            new Person("Harry","Burke",30),
+            new Person("Harry","Smith",20),
+            new Person("George","Harrison",19)
+        };
+
+<span class="highlight">        comp.SortOrder(x =&gt; x.FirstName, x =&gt; x.LastName, x =&gt; x.Age);</span>
+        Demo(comp, ppl);
+
+<span class="highlight">        comp.SortOrder(x =&gt; x.FirstName, x =&gt; x.Age, x =&gt; x.LastName);</span>
+        Demo(comp, ppl);
+
+<span class="highlight">        comp.SortOrder(x =&gt; x.Age);</span>
+        Demo(comp, ppl);
+    }
+
+    private static void Demo(DynamicComparer&lt;Person&gt; comp, Person[] ppl)
+    {
+        Console.WriteLine(comp);
+        Console.WriteLine("------------------------");
+        Array.Sort(ppl, comp);
+        PrintPeople(ppl);
+    }
+
+    private static void PrintPeople(Person[] ppl)
+    {
+        foreach (var p in ppl)
+            Console.WriteLine(p);
+    }
+}
+		</pre>
+<p>
+Note how the sort order is specified as a list if lambda expressions, 
+that is the main factor in the type safety of this class.
+</p>
+        <h2>
+            Code Aerobatics - The Interesting Parts</h2>
+
+<p>The magic is done by using lambda expressions in combination with expression 
+    trees to force the compiler to conduct the necessary checks at compile time to 
+    make sure everything is ok.</p>
+        <p>Here is the implementation of the SortOrder method:</p>
+        <pre lang="c#">public void SortOrder(params Expression&lt;Func&lt;T, IComparable&gt;&gt;[] sortProperties)
+{
+    sortOrder.Clear();
+    sortOrderNames.Clear();
+    sortOrder.AddRange(sortProperties.Select(x => x.Compile()));
+    sortOrderNames.AddRange(sortProperties.Select(x => GetNameFromExpression(x)));
+}</pre>
+        <p>Note that it expects to get a series of lambda expressions that accept 
+            an object of the type being compared, and return an <code>IComparable</code>. When this 
+            function is called, the compile makes sure that the lambda expression used meets 
+            these criteria. It will issue an error (and indeed, will prevent the error if 
+            intellisense is followed) if we try to reference a nonexistent property, or if 
+            the property we reference cannot be cast into <code>IComparable</code>. Also it will make 
+            sure that the property is accessible in terms of public/private accessibility.</p>
+        <p>Here is the implementation of the <code>CompareTo</code> method:</p>
+        <pre lang="c#">public int Compare(T x, T y)
+{
+    foreach (var l in sortOrder)
+    {
+        int c = l(x).CompareTo(l(y));
+        if (c != 0) return c;
+    }
+    return 0;
+}</pre>
+        <p>Note that we are simply going over the compiled lambda expressions in 
+            order, and using them to retrieve the property values from the two operands to 
+            be compared. Then we call <code>IComparable.CompareTo</code> on the values returned, and if 
+            the result tells us the values are different, we return it, otherwise, we keep 
+            looking for a difference, and return 0 if none is found.</p>
+        <p>There is another overload of the <code>SortOrder</code> method which accepts a 
+            sequence of strings, this is not the recommended way of using this class, but it 
+            is there for those who need it, and for educational value. Here is the 
+            implementation:</p>
+        <pre lang="c#">public void SortOrder(params string[] sortProperties)
+{
+    string err = sortProperties.FirstOrDefault(x =&gt; uncomparable.Contains(x));
+    if (err != null)
+        throw new InvalidOperationException("Property '" + err + "' does not implement IComparable");
+    err = sortProperties.FirstOrDefault(x =&gt; !properties.ContainsKey(x));
+    if (err != null)
+        throw new InvalidOperationException("Property '" + err + "' does not exist");
+    sortOrder.Clear();
+    sortOrderNames.Clear();
+    sortOrder.AddRange(sortProperties.Select(x =&gt; properties[x]));
+    sortOrderNames.AddRange(sortProperties);
+}</pre>
+        <p>Note that here we make a few run time checks, and throw exceptions in some cases. 
+            This is why this is the &quot;unsafe&quot; way of using this class, since the compiler 
+            will not be able to warn you in time about these cases. Note that once we 
+            determine that a property is valid to be used for sorting, we retrieve its 
+            lambda function from a mysterious <code>properties</code> dictionary. This dictionary is 
+            composed at the constructor, in which we use reflection to go over each property and prepare a lambda expression to retrieve it. Here is the 
+            implementation of the constructor:</p>
+        <pre lang="c#">public DynamicComparer()
+{
+    var ps = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
+    foreach (var p in ps)
+    {
+        // Only consider properties whose type is comparable (implements IComparable).
+        if (!typeof(IComparable).IsAssignableFrom(p.PropertyType))
+        {
+            // Save the names of uncomparable properties for later reference
+            // in case an attempt is made to sort by them.
+            uncomparable.Add(p.Name);
+            continue;
+        }
+        ParameterExpression pe = Expression.Parameter(typeof(T), "x");
+        MemberExpression me = Expression.MakeMemberAccess(pe, p);
+        Expression&lt;Func&lt;T, IComparable&gt;&gt; le;
+        if (!p.PropertyType.IsValueType)
+        {
+            le = Expression.Lambda&lt;Func&lt;T, IComparable&gt;&gt;(me, pe);
+        }
+        else
+        {
+            UnaryExpression ue = Expression.Convert(me, typeof(IComparable));
+            le = Expression.Lambda&lt;Func&lt;T, IComparable&gt;&gt;(ue, pe);
+        }
+        var f = le.Compile();
+        properties[p.Name] = (Func&lt;T, IComparable&gt;)f;
+    }
+}</pre>
+        <p>Note the clever usage of <code>Expression</code> objects to construct a suitable lambda 
+            expression to retrieve each property, and taking care to accomodate for whether 
+            the property is a value type or a reference type. Value type properties require 
+            an explicit conversion to <code>IComparable</code>.</p>
+        <h2>
+            Points of Interest</h2>
+        <p>
+		    A performance issue exists if any of the properties that compose the sort order 
+            are value types, as they will be boxed during comparisons. This might or might 
+            not be an issue for you, but nevertheless, it&#39;s there.</p>
+        <p>
+		    Another performance issue is the overhead of performing a method call for the 
+            retrieval of each property; there are two such method calls per comparison. This 
+            increases the time taken to compare roughly by a factor of 2, but that depends 
+            on the specific circumstances of the comparison (the sort order, the values of 
+            the properties, and whether they are value types or reference types).</p>
+        <p>
+		    Note, that inspite of the above performance issues, this comparer is still 
+            faster than LINQ&#39;s OrderBy operator rougly by a factor of 2, so it is still 
+            twice as fast to use over LINQ, if performance is an issue, but flexibility is 
+            to be maintained.</p>
+        <p>
+		    In the download for this article, there are benchmarking methods that show the 
+            difference in performance between a hard coded comparer (the fastest way), the 
+            dynamic comparer, and LINQ.</p><h2>History</h2><ul><li>March 30<sup>th</sup> - Initial version.</li></ul>
+
+
+
+
+</div> 
+</body></html>

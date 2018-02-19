@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleHelpers", "GoogleDocSync\GoogleHelpers.csproj", "{66E78F7A-8A66-41F1-BF85-27474641E007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericEntities", "Shared\GenericEntities.csproj", "{4DC4E16A-9254-46B8-BEA0-A33AA09E3850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAdapter", "GoogleAdapter\GoogleAdapter.csproj", "{6CFCD7FD-756A-42AB-BD37-B3C39FB31D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSynchronizer", "DataSynchronizer\DataSynchronizer.csproj", "{F2D76A7B-E0FD-42C6-9CF6-7EA64840EAF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{18A118E2-8CC4-4C48-8611-94B6CD1DD2B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSynchronizationService", "DataSynchronizationService\DataSynchronizationService.csproj", "{33EA1CF7-4D8B-4A0F-B58F-575F00AD7C42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66E78F7A-8A66-41F1-BF85-27474641E007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E78F7A-8A66-41F1-BF85-27474641E007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E78F7A-8A66-41F1-BF85-27474641E007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E78F7A-8A66-41F1-BF85-27474641E007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC4E16A-9254-46B8-BEA0-A33AA09E3850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC4E16A-9254-46B8-BEA0-A33AA09E3850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC4E16A-9254-46B8-BEA0-A33AA09E3850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC4E16A-9254-46B8-BEA0-A33AA09E3850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFCD7FD-756A-42AB-BD37-B3C39FB31D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFCD7FD-756A-42AB-BD37-B3C39FB31D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFCD7FD-756A-42AB-BD37-B3C39FB31D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFCD7FD-756A-42AB-BD37-B3C39FB31D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D76A7B-E0FD-42C6-9CF6-7EA64840EAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D76A7B-E0FD-42C6-9CF6-7EA64840EAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D76A7B-E0FD-42C6-9CF6-7EA64840EAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D76A7B-E0FD-42C6-9CF6-7EA64840EAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A118E2-8CC4-4C48-8611-94B6CD1DD2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A118E2-8CC4-4C48-8611-94B6CD1DD2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A118E2-8CC4-4C48-8611-94B6CD1DD2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A118E2-8CC4-4C48-8611-94B6CD1DD2B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33EA1CF7-4D8B-4A0F-B58F-575F00AD7C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33EA1CF7-4D8B-4A0F-B58F-575F00AD7C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33EA1CF7-4D8B-4A0F-B58F-575F00AD7C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33EA1CF7-4D8B-4A0F-B58F-575F00AD7C42}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,92 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>An Overview of the Help File Builder GUI</title>
+</head>
+
+<body>
+
+<h2>Requirements</h2>
+In order to use the Sandcastle Help File Builder, you will need the following:
+
+<ul>
+    <li>The .NET 2.0 Framework</li>
+    <li>The latest version of Sandcastle (currently the March 2007 CTP).  Note
+that this is produced by Microsoft.  The help file builder uses it to produce
+the help file.</li>
+    <li>The HTML Help Workshop for building HTML Help 1.x help files</li>
+    <li>The HTML 2.x compiler for building HTML Help 2.x help files</li>
+</ul>
+
+See the <a href="../Links.html">Links to Resources</a> help topic for
+information on how to obtain the above items and for references to other
+helpful information.
+
+<h2>An Overview of the Help File Builder GUI</h2>
+When the help file builder is ran, the following window appears.  The main
+form has intentionally been designed to look and function as much like NDoc
+as possible.  The toolbar contains most of the common functions.  A <b>Save
+Project As</b> option, a <b>New Project from NDoc Project</b> option, a
+<b>New Project from Visual Studio Project</b> option, and a list of the most
+recently opened projects is also available on the <b>Project</b> menu.  The
+help builder will automatically load the last used project when opened.
+
+<p/><div align="center"><img src="../Images/MainForm.jpg" alt="Main Form"
+    width="878" height="751" /></div>
+
+<p/>The top part of the form contains a list box showing the list of
+assemblies that will be documented.  The entries display the assembly name
+and the XML comments filename.  The three buttons to the left of the list
+allow you to do the following:
+
+<ul>
+    <li>Click <b>Add</b> to add one or more assemblies to the list.  A File
+Open dialog box appears in which you can select one or more DLLs,
+executables, or XML files associated with the items to document.  When
+adding a DLL or an executable, if an XML comments file with the same name
+is found, it is associated with the assembly automatically.  Likewise, if
+you select an XML comments file a DLL or executable with a matching name is
+associated with it automatically.  If the matching file cannot be
+determined, it is set to "Unknown" and you can edit the entry to correct
+it.</li>
+    <li>Click <b>Edit</b> to edit the filenames for the selected entry.  A
+new dialog box appears that lets you specify the paths to the two files. If
+the <code>CommentsOnly</code> property is set to false (the default), both
+files must be specified.  If <code>CommentsOnly</code> is set to true, only
+the XML comments file is specified.  You can use this option to include a
+comments file containing project summary and/or namespace settings that are
+shared amongst multiple help file builder projects rather than specifying
+them in the Project Summary and Namespace Comments options of each project.
+See the <a href="../GUIProject/SharedSettings.html">Shared Settings</a> help
+topic for more details.</li>
+    <li>Click <b>Remove</b> to remove an entry.</li>
+</ul>
+
+<p/>See the <a href="../GUIProject/NamespaceSummaries.html">Project and
+Namespace Summaries</a> topic for information on setting the project and
+namespace level summary text and how to limit which namespaces are
+documented.
+
+<p/><b>NOTE:</b> Only add assemblies and XML comment files that you want
+documented in the top section.  Third-party assemblies, interop assemblies,
+and other dependent DLLs should be added to the project's
+<code>Dependencies</code> property.  See the
+<a href="../GUIProject/BuildProps.html#Deps">Dependencies Property</a> help
+topic for more information.
+
+<p/>The center section of the form contains a property grid that displays
+the project options.  The options are grouped into several categories and
+are listed alphabetically within them.  More information on the properties
+can be found in <a href="../GUIProject/GUIProject.html">The GUI Project
+Manager</a> section.  The bottom section of the form contains an output
+window that will display the messages from the build process.  The
+<b>View Output in Window</b> option on the <b>Documentation</b> menu will
+open a resizable window that can be used to more easily view the build log
+output.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 1 -->

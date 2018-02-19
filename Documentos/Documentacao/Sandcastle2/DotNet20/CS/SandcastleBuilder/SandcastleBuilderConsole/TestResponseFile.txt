@@ -1,0 +1,28 @@
+# Use default project settings plus these changes for the first one
+-preliminary = true
+-assembly=SandcastleBuilder.Utils.dll,SandcastleBuilder.Utils.xml
+-comments=\DotNet20\CS\TestDoc\Doc\*.xml
+-addcontent= "..\..\..\Doc\AdditionalContent\*.*" , ""
+-dependency=.\*.dll
+-component="Post-transform Component","<component type='SandcastleBuilder.Components.PostTransformComponent' assembly='{@SHFBFolder}SandcastleBuilder.Components.dll' id='Post-transform Component'><!-- Highlighter stylesheet file (required) --><stylesheet filename='{@SHFBFolder}Colorizer\highlight.css' /><!-- Highlighter script file (required) --><scriptFile filename='{@SHFBFolder}Colorizer\highlight.js' /><!-- Output path for the files (required).  This should match the output path of the HTML files (see SaveComponent below). --><outputPath value='Output\html' /><!-- Logo image file (optional).  Filename is required, width, height, and altText are optional attributes. --><logoFile filename='{@ProjectFolder}\..\..\..\SandCastleBuilderGUI\Images\Sandcastle.jpg' height='68' width='70' altText='Sandcastle Help File Builder' /><!-- Reflection information file for version info (optional) --><reflectionFile filename='reflection.xml' /></component>"
+#-verbose
+-CopyrightText="Copyright \xa9 2006 Eric Woodruff, All rights reserved"
+-feedbackemailaddress = Eric@EWoodruff.us
+-SDKLinkType=none
+-workingpath=C:\TestHelp\Working
+-outputPath=C:\TestHelp\
+
+# Start a new default project with different settings
+-new
+
+-assembly=SandcastleBuilder.*.dll
+-HTMLHelpName=SecondHelpFile
+-CleanIntermediates=false
+-dependency=.\*.dll
+-workingpath=C:\TestHelp\Working
+-outputPath=C:\TestHelp\
+
+# Load a project and override some of its options
+..\..\..\..\TestDoc\Doc\TestDoc.shfb
+-Preliminary=true
+-CleanIntermediates=true

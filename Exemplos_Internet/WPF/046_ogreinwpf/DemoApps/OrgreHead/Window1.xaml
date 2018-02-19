@@ -1,0 +1,118 @@
+﻿<Window x:Class="OgreHead.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:OgreLib="clr-namespace:OgreLib;assembly=OgreLib"
+    Title="Ogre Example" Height="500" Width="400"
+    Loaded="Window_Loaded" Background="Gray"
+    >
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="_loading" Storyboard.TargetProperty="Opacity" Duration="0:0:1" From="0" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Window.Resources>
+        <Storyboard x:Key="StartEngine" Completed="StartEngine_Completed">
+            <DoubleAnimation Storyboard.TargetName="_loading" Storyboard.TargetProperty="Opacity" BeginTime="0:0:1"  Duration="0:0:1" To="0" />
+            <DoubleAnimation Storyboard.TargetName="RenterTargetControl" Storyboard.TargetProperty="Opacity" Duration="0:0:1" From="0" To="1" />
+        </Storyboard>
+    </Window.Resources>
+    <Border BorderThickness="1" BorderBrush="White" CornerRadius="10" Margin="10">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="#FF0000" />
+                <GradientStop Offset="1" Color="#AAAAAA" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*" />
+                <RowDefinition Height="0.2*" />
+            </Grid.RowDefinitions>
+            <Image x:Name="RenterTargetControl" Stretch="Fill"
+                   SizeChanged="RenterTargetControl_SizeChanged"
+                   MouseDown="RenterTargetControl_MouseDown">
+                <Image.Source>
+                    <OgreLib:OgreImage x:Name="_ogreImage"
+                                       Initialised="_image_InitScene" PreRender="_image_PreRender"
+                                       ResourceLoadItemProgress="OgreImage_ResourceLoadItemProgress"/>
+                </Image.Source>
+            </Image>
+            <Grid Grid.Row="1" Opacity="0.6" RenderTransformOrigin="0.5,0.5">
+                <Grid.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0"  Color="#FFFFFFFF" />
+                        <GradientStop Offset="1" Color="#00FFFFFF" />
+                    </LinearGradientBrush>
+                </Grid.OpacityMask>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="#55FFFFFF" />
+                            <GradientStop Offset="1" Color="#00FFFFFF" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <VisualBrush x:Name="Shadow" Visual="{Binding ElementName=RenterTargetControl}" Stretch="Fill"  >
+                            <VisualBrush.RelativeTransform>
+                                <ScaleTransform ScaleY="-1" CenterY="0.5" />
+                            </VisualBrush.RelativeTransform>
+                        </VisualBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <StackPanel TextBlock.FontSize="20" >
+                <TextBlock Text="OGRE In WPF" HorizontalAlignment="Stretch" FontSize="25" Height="auto" VerticalAlignment="Top" Padding="20" >
+                    <TextBlock.Background>
+                        <LinearGradientBrush Opacity="0.5">
+                            <GradientStop Offset="0" Color="Blue" />
+                            <GradientStop Offset="1" Color="White" />
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+               </TextBlock>
+                <CheckBox x:Name="_cbRain" IsChecked="True" Click="_cb_Click">Rain</CheckBox>
+                <CheckBox x:Name="_cbFireworks" IsChecked="True" Click="_cb_Click">Fireworks</CheckBox>
+                <CheckBox x:Name="_cbPurpleFountain" IsChecked="True" Click="_cb_Click">Purple Fountain</CheckBox>
+                <CheckBox x:Name="_cbAureola" Click="_cb_Click">_Aureola</CheckBox>
+                <CheckBox x:Name="_cbOgreMaterials" Click="_cbOgreMaterials_Click">Cell Shading</CheckBox>
+                <CheckBox x:Name="_cbBloom" Click="_cbCompositor_Click">Bloom</CheckBox>
+                <CheckBox x:Name="_cbGlass" Click="_cbCompositor_Click">Glass</CheckBox>
+                <CheckBox x:Name="_cbOldTV" Click="_cbCompositor_Click">Old TV</CheckBox>
+            </StackPanel>
+            <Border x:Name="_loading" Background="#66000000" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Loading Ogre..." FontSize="35" HorizontalAlignment="Center" Foreground="White" />
+                    <Border Grid.Row="1" BorderBrush="White" BorderThickness="1" Margin="0,10,0,10" HorizontalAlignment="Center"
+                            Background="DarkBlue">
+                        <Rectangle Width="280" Height="13" x:Name="_progressBar" HorizontalAlignment="Center">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="_progressScale" ScaleX="0" ScaleY="1"/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0" Color="#3461bf" />
+                                    <GradientStop Offset="0.3" Color="#84b3e5" />
+                                    <GradientStop Offset="0.5" Color="#4a96eb" />
+                                    <GradientStop Offset="1" Color="#88ceff" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+                    <TextBlock x:Name="_progressName" Grid.Row="2" Text="loading..." FontSize="12" Foreground="White" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

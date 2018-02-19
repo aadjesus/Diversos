@@ -1,0 +1,20 @@
+﻿<Page x:Class="MasterPages.Page.Page3"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:m="clr-namespace:MasterPages.Master"
+    Title="Page3"
+    >
+	<m:Master>
+		<m:Master.Title>
+			Page 3
+		</m:Master.Title>
+		<m:Master.Abstract>
+			Page 3 contains a Button, which opens a MessageBox.
+		</m:Master.Abstract>
+		<m:Master.Content>
+			<StackPanel>
+				<Button Name="btnShowMessage" Content="Show MessageBox" />
+			</StackPanel>
+		</m:Master.Content>
+	</m:Master>
+</Page>

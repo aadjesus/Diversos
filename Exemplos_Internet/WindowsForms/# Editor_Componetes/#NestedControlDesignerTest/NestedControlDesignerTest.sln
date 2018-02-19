@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A1091629-298B-4F0A-B200-2BD5ADF09489}"
+	ProjectSection(SolutionItems) = preProject
+		..\Article Files\NestedControlDesigner.html = ..\Article Files\NestedControlDesigner.html
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedControlDesignerTest", "NestedControlDesignerTest\NestedControlDesignerTest.csproj", "{3FB47A99-66D8-4E91-AE77-09BF5A6998E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedControlDesignerLibrary", "NestedControlDesignerLibrary\NestedControlDesignerLibrary.csproj", "{05711E26-975D-4560-9147-96ED683C01F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedNestedControlDesignerLibrary", "ImprovedNestedControlDesignerLibrary\ImprovedNestedControlDesignerLibrary.csproj", "{A1EC7806-3326-4595-9B97-F0E827E57749}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FB47A99-66D8-4E91-AE77-09BF5A6998E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB47A99-66D8-4E91-AE77-09BF5A6998E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB47A99-66D8-4E91-AE77-09BF5A6998E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB47A99-66D8-4E91-AE77-09BF5A6998E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05711E26-975D-4560-9147-96ED683C01F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05711E26-975D-4560-9147-96ED683C01F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05711E26-975D-4560-9147-96ED683C01F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05711E26-975D-4560-9147-96ED683C01F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EC7806-3326-4595-9B97-F0E827E57749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EC7806-3326-4595-9B97-F0E827E57749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EC7806-3326-4595-9B97-F0E827E57749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EC7806-3326-4595-9B97-F0E827E57749}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

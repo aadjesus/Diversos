@@ -1,0 +1,28 @@
+﻿<UserControl xmlns:dxca="http://schemas.devexpress.com/winfx/2008/xaml/carousel"  
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+             xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"  
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"  
+             x:Class="WFA_ListagemPesquisas.UsrCtrlPathMais"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Path x:Name="pathMais" Stretch="Fill" MinHeight="5" MaxHeight="45" MinWidth="5" MaxWidth="45" Fill="Gray" RenderTransformOrigin="0.5,0.5" Data="M22,0 L38,0 38,22 60,22 60,38 38,38 38,60 22,60 22,38 0,38 0,22 22,22 z">
+            <Path.Resources>
+                <Storyboard x:Key="stryBrdOnLoaded">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="pathMais" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                        <SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+                        <SplineDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </Path.Resources>
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard Storyboard="{StaticResource stryBrdOnLoaded}"/>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+        
+    </Grid>
+</UserControl>

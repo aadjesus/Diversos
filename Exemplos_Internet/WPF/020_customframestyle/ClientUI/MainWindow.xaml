@@ -1,0 +1,38 @@
+﻿<custom:CustomWindow x:Class="ClientUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:CustomControls;assembly=CustomControls"
+    Height="400" Width="540"
+    Title="Custom Frame Demo" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="resColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static custom:CustomWindowCommands.DisplayOfficeButtonOptions}" Executed="OnOfficeButtonClick" />
+        <CommandBinding Command="{x:Static ApplicationCommands.Help}" Executed="OnHelp" />
+    </Window.CommandBindings>
+    
+    
+    <Grid x:Name="LayoutRoot" TextBlock.Foreground="{StaticResource brushCornerText}" >
+        
+        <TextBlock Text="Top-Left" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Text="Top-Right" VerticalAlignment="Top" HorizontalAlignment="Right" />
+        
+        <TextBlock Text="( This text should be centered )" Foreground="{StaticResource brushCenteredText}"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+        
+        <TextBlock Text="Bottom-Left" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+        <TextBlock Text="Bottom-Right" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+        
+    </Grid>
+    
+</custom:CustomWindow>

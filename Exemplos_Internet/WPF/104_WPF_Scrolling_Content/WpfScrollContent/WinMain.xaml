@@ -1,0 +1,13 @@
+﻿<Window x:Class="WpfScrollContent.WinMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WPF Scroll Content with Flicks and Gestures" Height="550" Width="582" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="160"/>
+        </Grid.RowDefinitions>
+        <Image Name="imgMain" Stretch="UniformToFill" Grid.Row="0" />
+        <ScrollViewer Height="160" Grid.Row="1" Name="myScrollViewer" VerticalAlignment="Bottom" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Background="LightGray" />
+    </Grid>
+</Window>

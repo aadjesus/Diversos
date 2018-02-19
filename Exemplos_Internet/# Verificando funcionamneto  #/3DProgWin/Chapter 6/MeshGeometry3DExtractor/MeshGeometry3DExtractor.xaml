@@ -1,0 +1,63 @@
+﻿<!-- ==========================================================
+      MeshGeometry3DExtractor.xaml (c) 2007 by Charles Petzold
+     ========================================================== -->
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Petzold.MeshGeometry3DExtractor.MeshGeometry3DExtractor"
+        Title="MeshGeometry3D Extractor"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="12 12 0 0" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="240" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Class:" />
+        <ListBox Grid.Row="1" Grid.Column="0" Name="lstboxClass" DisplayMemberPath="Type.Name"
+                 Margin="12 0 12 12"
+                 SelectionChanged="ClassListBoxOnSelectionChanged" />
+
+        <Label Grid.Row="0" Grid.Column="1" Content="Properties:" />
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="12 0 12 12">
+            <ItemsControl Name="itemsProperties">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="PropertyAndValue">
+                        <Grid Margin="0 2 4 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Property.Name}" VerticalAlignment="Center" />
+                                <TextBlock Text=":" VerticalAlignment="Center" Margin="0 2 6 2" />
+                            </StackPanel>
+                            <TextBox Grid.Column="1" 
+                                     Text="{Binding Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     HorizontalAlignment="Right" TextChanged="ValueOnTextChanged"
+                                     Width="80" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="MeshGeometry3D:" />
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                 Name="txtboxDump" Margin="12 0 12 12"
+                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</Window>

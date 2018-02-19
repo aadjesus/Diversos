@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetMaker", "SnippetMaker.csproj", "{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+		Snippets Release|Any CPU = Snippets Release|Any CPU
+		Snippets Release|Mixed Platforms = Snippets Release|Mixed Platforms
+		Snippets Release|x86 = Snippets Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Release|x86.ActiveCfg = Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Snippets Release|Any CPU.ActiveCfg = Snippets Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Snippets Release|Any CPU.Build.0 = Snippets Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Snippets Release|Mixed Platforms.ActiveCfg = Snippets Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Snippets Release|Mixed Platforms.Build.0 = Snippets Release|Any CPU
+		{50974C89-DEBF-429A-8D0E-C8EEC00EF90D}.Snippets Release|x86.ActiveCfg = Snippets Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:nud="clr-namespace:Microsoft.Samples.KMoore.WPFSamples.NumericUpDownControl;assembly=J832.Wpf.BagOTricksLib">
+
+	<Viewbox Width="200">
+		<nud:NumericUpDown Margin="5"/>
+	</Viewbox>
+
+</Page>

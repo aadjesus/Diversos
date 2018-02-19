@@ -1,0 +1,425 @@
+﻿<Window x:Class="Hardcodet.Wpf.Samples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Hardcodet.Wpf.Samples;assembly="
+        xmlns:vm="clr-namespace:Hardcodet.Wpf.Samples.ViewModel;assembly="
+        xmlns:shop="clr-namespace:SampleShop.Products;assembly="
+        Title="WPF TreeView - Samples"
+        Background="{StaticResource WindowBrush}"
+        Height="600"
+        Width="850">
+
+  <Window.Resources>
+
+    <!-- The view model that provides the data for the trees -->
+    <vm:ShopModel x:Key="Shop" />
+
+    <!-- a custom root node for the tree -->
+    <TreeViewItem x:Key="CustomRootNode">
+      <TreeViewItem.Header>
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,2,0,2">
+          <Image x:Name="imgStatus"
+                 Source="/Images/Home.png"
+                 Width="16"
+                 Height="16" />
+          <TextBlock Margin="2,0,0,0"
+                     VerticalAlignment="Center"
+                     FontWeight="Bold"
+                     Text="Home (Custom Root)" />
+        </StackPanel>
+      </TreeViewItem.Header>
+    </TreeViewItem>
+  </Window.Resources>
+
+
+  <Window.CommandBindings>
+    <!-- bindings for context menu commands -->
+    <CommandBinding Command="New"
+                    Executed="AddCategory" />
+
+    <CommandBinding Command="Delete"
+                    CanExecute="EvaluateCanDelete"
+                    Executed="DeleteCategory" />
+  </Window.CommandBindings>
+
+
+  <Grid Margin="10,10,10,2">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="24" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="200" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="200" />
+    </Grid.ColumnDefinitions>
+
+ 
+    <Grid Grid.Row="1" Grid.Column="0">      
+      <!-- 
+        This is the main tree - the data is bound to the 'Categories'
+        property of the Shop resource
+      -->
+      <local:CategoryTree x:Name="CategoryTree"
+                          Items="{Binding Source={StaticResource Shop}, Path=Categories}"
+                          RootNode="{StaticResource CustomRootNode}"
+                          NodeContextMenu="{StaticResource CategoryMenu}"
+                          TreeNodeStyle="{StaticResource SimpleFolders}"
+                          TreeStyle="{StaticResource SimpleTreeStyle}"
+                          NodeSortDescriptions="{StaticResource AscendingNames}"
+                          SelectedItemChanged="OnSelectedItemChanged"                          
+                          Margin="0,20,0,0" />
+
+      <TextBlock Text="Reference Tree"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 Height="20" />
+      
+      <!-- shows debugging information  -->
+      <TextBlock IsHitTestVisible="False" Height="40" Margin="4,0,0,10" VerticalAlignment="Bottom" FontStyle="Italic" >
+        Tree nodes in memory: 
+        <TextBlock Text="{Binding ElementName=CategoryTree, Path=TreeNodeCount}" />
+        <LineBreak />
+        Observed child collections:
+        <TextBlock Text="{Binding ElementName=CategoryTree, Path=ObservedCollectionCount}" />
+      </TextBlock>
+    </Grid>
+
+
+    
+    <!-- the synchronized tree -->
+    <Grid Grid.Row="1"
+          Grid.Column="2">
+      <Grid.Resources>
+        <!--
+          This DataTemplate is implicitely applied to the synchronized tree.
+          It shows a static folder image and the category name
+        -->
+        <DataTemplate DataType="{x:Type shop:ShopCategory}">
+          
+          <StackPanel Orientation="Horizontal">
+            <Image Source="/Images/WinFolder.gif"
+                   Width="16"
+                   Height="16" />
+            <TextBlock Text="{Binding Path=CategoryName}"
+                       Margin="2,0,0,0" />
+          </StackPanel>
+        </DataTemplate>
+      </Grid.Resources>
+
+      <!-- the 2nd tree which bound to the main tree -->
+      <local:CategoryTree x:Name="SynchronizedTree"
+                          Items="{Binding ElementName=CategoryTree, Path=Items}"
+                          SelectedItem="{Binding ElementName=CategoryTree, Path=SelectedItem, Mode=TwoWay}"
+                          ObserveChildItems="{Binding ElementName=CategoryTree, Path=ObserveChildItems}"
+                          TreeStyle="{StaticResource SimpleTreeStyle}"
+                          Margin="0,20,0,0"/>
+
+      <TextBlock Text="Synchronized Tree"
+                 VerticalAlignment="Top"
+                 Height="20"
+                 FontWeight="Bold" />
+    </Grid>
+
+    
+    
+    <!--
+      ********************************************************
+      The markup above is all that was needed for the trees.
+      Everything below is just the rest of the UI.
+    -->
+ 
+
+    <!-- the content area -->
+    <Grid Margin="4,0,4,0"
+          Grid.Row="1"
+          Grid.Column="1">
+      
+      
+      <TabControl Background="Transparent">
+        <TabItem Header="Introduction" Background="Transparent">
+          <ScrollViewer Margin="0,20,0,0"
+                        VerticalScrollBarVisibility="Auto">
+            <local:Introduction Margin="10,0,10,0" />
+          </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Tests" Background="Transparent">
+        <ScrollViewer Margin="0,20,0,0"
+                      VerticalScrollBarVisibility="Auto">
+          <StackPanel Margin="10,0,10,0">
+
+            <TextBlock>
+              <Run FontWeight="Bold"
+                   FontSize="12pt"
+                   Text="Tree Tests (operate on reference tree):" />        
+            </TextBlock>
+
+            <StackPanel RadioButton.Checked="ChangeSortOrder">
+              <TextBlock TextWrapping="Wrap"
+                         Margin="0,0,0,10">
+                <LineBreak />
+                <Bold>Sorting the Tree</Bold><LineBreak />
+                You can sort all nodes of the tree by setting the <Italic>NodeSortDescriptions</Italic>
+                dependency property which takes an <Italic>IEnumerable&lt;SortDescription&gt;</Italic>.
+                <LineBreak />
+                Note that a <Italic>SortDescription</Italic>'s
+                <Italic>PropertyName</Italic> must contain a <Italic>Header</Italic> prefix if you want to sort by
+                the property of a bound item:<LineBreak />
+                <Italic>
+                <Span Foreground="Green">
+                &lt;cm:SortDescription PropertyName="Header.CategoryName" 
+                Direction="Ascending" /&gt;</Span>
+                </Italic>
+              </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                  <RadioButton x:Name="rbAscending" IsChecked="True">Ascending</RadioButton>
+                  <RadioButton x:Name="rbDescending" Margin="20,0,0,0">Descending</RadioButton>
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock><LineBreak />
+              If <Bold>Lazy Loading</Bold> is enabled (true by default),
+              tree nodes are created on demand, which is as soon as their
+              parent is being expanded. This keeps the memory footprint
+              low with big trees. The CheckBox is directly bound to the
+              <Italic>IsLazyLoading</Italic> property of the tree.
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=IsLazyLoading}">
+              Enable Lazy Loading
+            </CheckBox>
+
+
+            <TextBlock><LineBreak />
+              If you take advantage of lazy loading, the tree can automatically
+              <Bold>dispose tree nodes</Bold> and recreate them on demand if
+              they become invisible because their parent node is being
+              collapsed. This behaviour can be controlled through the
+              <Italic>ClearCollapsedNodes</Italic> property (defaults to true).
+              <LineBreak />
+              BTW: The number of existing tree nodes of the reference tree is
+              displayed at its bottom.
+              <LineBreak />
+              Note that this property is being ignored if lazy loading is
+              disabled!
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=ClearCollapsedNodes}">
+              Clear items if collapsed
+            </CheckBox>
+
+
+            <TextBlock><LineBreak />
+              By default, the control <Bold>observes child collections</Bold>
+              of rendered tree nodes: If an item is being added or removed,
+              the tree updates itself accordingly (e.g. by rendering an
+              expander on a node that was empty before).<LineBreak />
+              This behaviour can be controlled through the boolean
+              <Italic>ObserveChildItems</Italic> property (defaults to true).
+              You can deactivate this feature if you want to manually refresh
+              your tree's data.              
+              <LineBreak />
+              BTW: The number of monitored child collections of the reference
+              tree is displayed at its bottom.
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=ObserveChildItems}">
+                Observe child collections for changes (sets the property on
+                both trees).
+            </CheckBox>
+
+            <TextBlock><LineBreak />
+              The tree's <Bold>AutoCollapse</Bold> feature, which is disabled
+              by default, automatically collapses all items that do not need
+              to be expanded in order to display the currently selected node.
+              <LineBreak />
+              You can activate the feature by setting the
+              <Italic>AutoCollapse</Italic> dependency property to true.
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=AutoCollapse}">
+                Automatically collapse items
+            </CheckBox>
+
+              <TextBlock><LineBreak />
+              <Bold>Preserve layout</Bold> if possible: If checked, the tree 
+              stores which items have been expanded/selected before recreating
+              itself during a refresh operation. The CheckBox is directly
+              bound to the <Italic>PreserveLayoutOnRefresh</Italic> property
+              of the tree.
+              This is a handy function if you manually need to update your tree frequently. Layout preservation is enabled by default.
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=PreserveLayoutOnRefresh}">
+              Preserve layout if possible
+            </CheckBox>
+
+            <TextBlock><LineBreak />
+              You can declare a <Bold>custom root node</Bold> which will
+              contain all bound items rather than the tree itself. It is
+              also not affected by various properties such as node context
+              menus or node styles. If checked, the tree's 
+              <Italic>RootNode</Italic> property is bound to a TreeViewItem
+              resource.
+            </TextBlock>
+            <CheckBox Click="ToggleRootNode"
+                      IsChecked="True">
+              Toggle root node
+            </CheckBox>
+
+            <TextBlock><LineBreak />
+              Usually, if you <Bold>right-click on a tree node</Bold>,
+              it is not being selected. You might prefer it otherwise.
+              The CheckBox below is directly bound to the tree's
+              <Italic>SelectOnRightClick</Italic> property.
+            </TextBlock>
+            <CheckBox IsChecked="{Binding ElementName=CategoryTree, Path=SelectNodesOnRightClick}">
+              Select nodes on right-click
+            </CheckBox>
+
+            <TextBlock><LineBreak />
+              <Bold>Context menu</Bold>: If checked, right-clicking the nodes
+              opens a context menu which can be used to add/remove nodes. The
+              context menu being assigned by setting the tree's
+              <Italic>NodeContextMenu</Italic> property.
+            </TextBlock>
+            <CheckBox Click="ToggleContextMenu"
+                      IsChecked="True">
+              Toggle context menu
+            </CheckBox>
+
+
+            <TextBlock><LineBreak />
+              Enable/Disable <Bold>node style</Bold>: If this is not checked,
+              the reference tree renders the naked items (the
+              <Italic>ToString()</Italic> method on the bound items is being
+              invoked). If the CheckBox is checked, the tree's
+              <Italic>NodeStyle</Italic> property is set.
+            </TextBlock>
+            <CheckBox Click="ToggleNodeStyle"
+                      IsChecked="True">
+              Toggle node style
+            </CheckBox>
+
+            <TextBlock><LineBreak />
+              Demonstrates usage of the <Italic>SelectedItem</Italic> property. If you enter
+              a valid category name into the input dialog, the item will be
+              selected on the tree.<LineBreak />
+              If you enter an unknown category name, a correspondingly invalid
+              item will be assigned to the property, which will cause an
+              exception on the tree and reset its current selection.
+            </TextBlock>
+            <Button Click="SelectItem"
+                      Width="200"
+                      HorizontalAlignment="Left">
+                Select Item...
+            </Button>
+
+            <TextBlock><LineBreak />
+              Copy tree layout: If you press the button below, the tree layout
+              (expanded/selected nodes) of the reference tree is copied to the
+              tree on the right.
+              In addition to the synchronized selected item, this will cause
+              both tree's to have the same expanded/collapsed nodes.
+            </TextBlock>
+            <Button Click="CopyTreeLayout"
+                    Width="200"
+                    HorizontalAlignment="Left">
+              Copy tree layout
+            </Button>
+
+
+            <TextBlock><LineBreak />
+              If you press the button below, the <Italic>ShopModelCategories</Italic>
+              property, which is the data source of the reference tree, will be
+              reset. This causes both tree's to update themselves.<LineBreak />
+              If layout preservation is deactivated of the reference tree, all
+              its nodes will be collapsed.
+            </TextBlock>
+            <Button Click="ReloadData"
+                    Width="200"
+                    HorizontalAlignment="Left">
+              Reset to default categories
+            </Button>
+
+            <TextBlock><LineBreak />
+              The tree provides convenience methods to expand/collapse
+              the whole tree.<LineBreak />
+              Depending on your other settings, if you recollapse a previously
+              expanded tree, the number of tree nodes and/or observed child
+              collections will be drastically reduced.
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+              <Button Click="ExpandAll" Width="100">Expand All</Button>
+              <Button Click="CollapseAll" Margin="20,0,0,0"
+                      Width="100">Collapse All</Button>
+            </StackPanel>         
+
+          </StackPanel>
+        </ScrollViewer>
+
+
+        </TabItem>
+      </TabControl>
+
+    </Grid>
+
+
+
+    <!-- header area -->
+    <TextBlock x:Name="Header"
+               Foreground="#FF2D3539"
+               FontStyle="Italic"
+               FontSize="18pt"
+               FontFamily="Verdana"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"
+               Margin="0,0,100,0">
+      <TextBlock.BitmapEffect>
+        <OuterGlowBitmapEffect GlowColor="White" />
+      </TextBlock.BitmapEffect>
+      <TextBlock Text="Selected Node: " />
+      <TextBlock Text="{Binding ElementName=CategoryTree, Path=SelectedItem.CategoryName}" />
+    </TextBlock>
+
+
+    <Button Click="ShowAboutDialog"
+            Grid.RowSpan="2"
+            Grid.Column="3"
+            Margin="0,5,5, 0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top">
+      <Button.Template>
+        <ControlTemplate TargetType="{x:Type Button}">
+          <Image Source="/Images/Info.png"
+                 Width="48"
+                 Height="48"
+                 ToolTip="Click for Info"
+                 Cursor="Hand"
+                 Opacity="0.8" />
+        </ControlTemplate>
+      </Button.Template>
+    </Button>
+
+    <StatusBar Margin="0,2,0,0"
+               Background="Transparent"
+               Grid.Row="2"
+               Grid.ColumnSpan="3"
+               Opacity="0.5">
+      <TextBlock Foreground="White" FontStyle="Italic">
+        Latest item change event: from item
+        <TextBlock x:Name="txtOldItem" />
+        to item
+        <TextBlock x:Name="txtNewItem" />
+      </TextBlock>
+    </StatusBar>
+
+      <!-- lays a shadow over the UI if the about dialog is being displayed-->
+    <Border  x:Name="Shadow"
+             Grid.ColumnSpan="3"
+             Grid.RowSpan="2"
+             Background="Black"
+             Opacity="0.36"
+             Visibility="Collapsed"/>
+
+  </Grid>
+
+</Window>

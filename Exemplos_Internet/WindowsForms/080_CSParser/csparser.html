@@ -1,0 +1,186 @@
+<html>
+<head>
+<meta name="GENERATOR" content="PPWIZARD version 02.038 on WIN2K, FREE tool for Windows, OS/2, DOS and UNIX by Dennis Bareis (http://www.labyrinth.net.au/~dbareis/ppwizard.htm)">
+<meta http-equiv="Content-Language" content="cs">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>CS CODEDOM Parser</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body lang="en-us">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+<tr>
+<td width="200" class="logo" height="30" align="center">
+ivanZ</td>
+<td width="*" class="header">
+CS CODEDOM Parser</td>
+</tr>
+<tr>
+<td width="200" class="menu" valign="top">
+<b>Content</b>
+<ul><b><font size="2">
+<li><a href="http://ivanz.webpark.cz/index.html">Home</a></li><li>Inherited Class
+Skeleton Generator</li>
+<ul><li><a href="http://ivanz.webpark.cz/icsg.html">Overview</a></li><li><a href="http://ivanz.webpark.cz/icsg-download.html">
+Download</a></li></ul>
+<li><a href="http://ivanz.webpark.cz/csparser.html">CS CODEDOM Parser</a></li>
+<li><a href="http://ivanz.webpark.cz/samples.html">Simple C# Samples</a></li>
+</font></b>
+</ul>
+<p><b><font size="2">Contact:</font></b><font size="2"><br>
+<a href="mailto:ivan.zderadicka@seznam.cz">ivan.zderadicka@seznam.cz</a></font></p>
+</td>
+<td width="*" valign="top" class="text">
+&nbsp; CS CODEDOM Parser is utility which parses the C# source code and
+creates the CODEDOM tree of the code (general classes that represent code, part of .NET
+Framework - namespace System.CodeDom) .
+<p>Current version (0.1) is limited - it parses code down to type members
+and their parameters, it has very limited support for expressions and it
+does not parses the statements inside members. There are two main reasons,
+why I stayed now on this level now</p>
+<ul>
+<li>First - It was enough for my needs (I wanted to do some code analysis
+to enforce coding standards</li>
+<li>Second - CODEDOM is limited and cannot express fully the C# code - for
+more details see section <a href="#CODEDOM">CODEDOM Limitations below</a>.</li>
+</ul>
+<p>On the other hand it also parses source code comments, so it can be used
+to analyze the interdependencies of code and comments.</p>
+<p>Also the stability of this version is low - it's kind of alpha version.
+If anybody wants to help get this thing further he is welcomed.</p>
+<p>The parser is based on <a href="http://www.go-mono.com">Mono - CSharp Compiler
+code</a> . I was looking around
+little bit around for available C# parser and C# parser building tools (I
+wanted C# parser&nbsp; in C#) and finally decided for Mono. For more details
+about exploitation&nbsp;of Mono parser and other possibilities I explored&nbsp;
+see <a href="#C Parser tools">section C# parser Tools</a>.</p>
+<h1><a name="CODEDOM">CODEDOM Limitations</a></h1>
+<p>At first I thought it is great idea to use language independent syntax tree
+and CodeDom looks nice. If some code analysis tool is build on it, it can
+work for any .NET language. Just need to change parser and rest is the same,
+sounds cool. But, after I've got into the CodeDom, I have found that a lot of
+language features (and not just C#, basically for any language) is missing
+and it is not possible to parse the source code fully. The main problem is
+in expressions and statements, where CodeDom has very limited set of classes
+- there is for instance no support for unary operation and more more issues.</p>
+<p>I decided to continue with CodeDom, even with its limitations, because it
+was enough for purposes of analyzing code for coding standards (at least
+what I need now - it also enables to keep comments and code in one tree,
+which is something I liked), but it is
+open issue for the future development.</p>
+<p>Here is list of issues I've found (and there is more,):</p>
+<p><br>
+CodeCompile unit does not have space for using directives or ns members, so
+they are placed now into first default NS<br>
+using_alias_directive - no support found<br>
+nested namespaces - no support found ( so parser is flattening ns hierarchy)<br>
+variable declaration list (int i,j,k;) - no support - transformed to
+individual var declarations<br>
+pointer_type - no support found<br>
+&quot;jagged&quot; array type (array of arrays) - MS CSharpCodeProvider reverses order
+of ranks <br>
+params keyword - not supported - param is omitted in parsing and param is
+then an ordinary array type param<br>
+private modifier on nested delegate is not shown by CSharpCodeProvider (all
+other nested types works fine)<br>
+unsafe modifier - no support found<br>
+readonly modifier - no support found<br>
+volatile modifier - no support found<br>
+explicit interface implementation - not implemented yet (I think this can be
+done)<br>
+add and remove accessors for Event - no support found<br>
+virtual and override modifiers do not work in MS CSharpCodeProvider for
+events<br>
+Operator members and Destructors - no support found<br>
+Expressions - no unary expressions(operations) at all !!!, only one dim
+arrays, some operators not supported and more<br>
+Attribute targets : no support found<br>
+Attributes on accessor : no support found<br>
+If CompileUnit contains custom attributes in global scope,
+CSSharpCodeProvider prints then before global using directives (it is due to
+that using has to be in the first ns)</p>
+<h1><a name="C Parser tools">C# Parser tools</a></h1>
+<p>I wanted to use some existing tool so I looked around and&nbsp; found this
+interesting stuff :</p>
+<ul>
+<li><a href="http://www.go-mono.com">Mono project </a><br>
+They are implementing complete open source .NET platform (they modified
+jay parser generator and used it to generate the parser).</li>
+<li>
+<p class="MsoTitle"><a href="http://cis.paisley.ac.uk/crow-ci0/">
+<span lang="EN-GB">Compiler Writing Tools using C#, from </span>Malcolm
+Crowe of&nbsp; the University of Paisley</a><br>
+Mr.Crowe creates parser and lexer generator in C#. I was playing with these
+tools quite a bit, but when I wanted to do something bigger, I've got
+stuck.</li>
+<li>
+<p class="MsoTitle"><a href="http://www.cs.may.ie/~jpower/">C# grammar for
+flex/bison written by James Power of National University of Ireland</a><br>
+Contains scripts for well-known tools bison and flex, which can generate C
+parser. I thought I can use then in some C# port of those tools, but I was
+not able, so finally&nbsp; used  the grammar from Mono.</li>
+<li>
+<p class="MsoTitle"><a href="http://jb2csharp.sourceforge.net">jb2csharp</a><br>
+This is port of JB Parser and Lexer Generation for Java (which itself is port of
+bison and flex). But the current version is alpha and I was not able to make
+work even their calculator example (which authors claim it was
+working).</li>
+<li>
+<p class="MsoTitle"><a href="http://www.cybercom.net/~zbrad/DotNet/Lex/">
+CsLex from Brad Merrill</a><br>
+It is a lexer generator.</li>
+<li>
+<p class="MsoTitle">I've also looked at the MS Rotor project, the C#
+parser there is in C++ (and it is not Open Source license).<br>
+&nbsp;</li>
+</ul>
+<p>So finally I decided to use Mono source, I've used their lexer,&nbsp; jay and
+their jay grammar to generate my parser. It the jay grammar I've use my code to
+create CodeDom objects.</p>
+<h1>Description of package</h1>
+<p>CS CODEDOM Parser package consist of :</p>
+<ul>
+<li>CodeDom parser itself (/ directory)</li>
+<li>NUnit tests for the parser (/NUnitTests directory)<br>
+Contains bunch of tests, I've used to check functionality of the parser - if you want to run then you should
+have <a href="http://nunit.sourceforge.net/">NUnit</a>.</li>
+<li>testParser (/testParser directory)<br>
+Simple command line utility that tests the parser - it&nbsp; parses file
+(name supplied as cmd line parameter) and write to stdout the code, which
+is generated by CSharpCodeProvider&nbsp; (class in CodeDom).</li>
+<li>CodeTreeView (/CodeTreeView directory)<br>
+Simple windows application, which opens file and displays CODEDOM tree in
+left part (treeview control) and original source in right part (textbox
+control). When you click on tree node, textbox scrolls to show the code.
+It is something like very very simple source code viewer.</li>
+</ul>
+<h1>Licence</h1>
+<p>CS CODEDOM Parser and tools included in this package are distributed
+under the under
+<a href="http://www.opensource.org/licenses/gpl-license.html">GPL licence</a>.</p>
+<h1>Download</h1>
+<p>You can download source code here <a href="cscodedomparser01.zip">here</a>.
+Debug binaries are also part of the package. You can check for latest
+version on <a href="http://ivanz.webpark.cz/csparser.html">
+http://ivanz.webpark.cz/csparser.html</a>.</p>
+<h1>The Future</h1>
+<p>The basic idea about future development is to extend CodeDom to support
+all language features, so the sources can be completely parsed. (Alternative
+is to leave CodeDom and have own syntax tree, but I still like the idea of
+the independent language tree structure, which can be used in different
+tasks).</p>
+<p>Reporting of errors and warnings should be improved (unify codes and
+messages, unify error reporting, Report class should store reported errors).</p>
+<p>Also parser should be improved to indicate location of syntax elements
+more exactly in the source file.</p>
+<p>Better separation between the parser and CODEDOM builder is also needed.</p>
+<p>If somebody likes the tool and wants to help with its improvements, he is
+welcomed.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</td>
+</tr>
+</table>
+<font size="1">Last site update on Tuesday June 11 2002 at 7:16pm</font>
+</body>
+</html>

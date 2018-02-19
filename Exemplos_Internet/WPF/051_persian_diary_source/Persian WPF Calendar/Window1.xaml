@@ -1,0 +1,462 @@
+﻿<Window x:Class="Persian_WPF_Calendar.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Title="Persian Calendar" Width="800" Height="700" Background="#FFF1EFE6" WindowStartupLocation="CenterScreen" Icon="icon.ico">
+    <Window.Resources>
+
+        <Style TargetType="{x:Type Grid}" x:Key="GridStyle">
+            <EventSetter Event="UIElement.MouseLeftButtonDown" Handler="Grid_MouseLeftButtonDown" />
+        </Style>
+
+        <Storyboard x:Key="showEventGrid">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,0"/>
+                <SplineThicknessKeyFrame KeyTime="00:00:00.5000000" Value="0,0,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="stackPanel" Storyboard.TargetProperty="(UIElement.BitmapEffect).(BlurBitmapEffect.Radius)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="6"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="hideEventGrid">
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="stackPanel" Storyboard.TargetProperty="(UIElement.BitmapEffect).(BlurBitmapEffect.Radius)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="EventGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <SplineThicknessKeyFrame KeyTime="00:00:00.5000000" Value="0,0,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource hideEventGrid}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <!-- ************************************************** -->
+    <Grid x:Name="LayoutRoot">
+        <StackPanel x:Name="stackPanel">
+            <StackPanel.BitmapEffect>
+                <BlurBitmapEffect Radius="0"/>
+            </StackPanel.BitmapEffect>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="header" MinHeight="70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.135*"/>
+                    <ColumnDefinition Width="0.102*"/>
+                    <ColumnDefinition Width="0.494*"/>
+                    <ColumnDefinition Width="0.14*"/>
+                    <ColumnDefinition Width="0.129*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FlowDirection="RightToLeft" Language="fa-ir" FontSize="36" x:Name="TextBlockThisMonth" HorizontalAlignment="Center" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,0,0" FontFamily="Arial">تاریخ</TextBlock>
+
+                <Button x:Name="previousMonth" Content=" ماه قبل &gt; " Grid.Column="3" VerticalAlignment="Center" Click="previousMonth_Click" HorizontalAlignment="Center" />
+                <Button x:Name="nextMonth" Content=" &lt; ماه بعد " Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nextMonth_Click" />
+
+                <Button x:Name="previousYear" Content=" سال قبل &gt;&gt; " Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="previousYear_Click" />
+                <Button x:Name="nextYear" Content=" &lt;&lt; سال بعد " HorizontalAlignment="Center"  Click="nextYear_Click" VerticalAlignment="Center"  />
+
+            </Grid>
+            <UniformGrid Columns="7" Rows="1" x:Name="dayNames" MinHeight="30">
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyleForHolydays}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="جمعه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="پنج شنبه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="چهار شنبه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="سه شنبه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="دو شنبه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="یک شنبه"/></TextBlock>
+                </Grid>
+                <Grid>
+                    <Rectangle Style="{DynamicResource RectangleStyle1}" />
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"><Run FlowDirection="RightToLeft" Language="fa-ir" Text="شنبه"/></TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" Margin="0,10,0,0" x:Name="calendarRow01" MinHeight="80">
+                <Grid x:Name="GridJome0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome0" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome0Miladi" Style="{DynamicResource TextBlockStyle6}">08 Dec</TextBlock>
+                    <TextBlock x:Name="TextBlockJome0Hijri" Style="{DynamicResource TextBlockStyle10}">۰۱ محرم</TextBlock>
+                    <TextBlock x:Name="TextBlockJome0" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe0Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe0Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe0" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe0Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe0Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe0" Style="{DynamicResource TextBlockStyle1}">چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle3Shanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock3Shanbe0Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe0Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe0" Style="{DynamicResource TextBlockStyle1}">سه شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe0Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe0Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe0" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe0" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe0Miladi" Style="{DynamicResource TextBlockStyle6}" Text="08 Dec" Margin="0,0,10,5"/>
+                    <TextBlock x:Name="TextBlock1Shanbe0Hijri" Style="{DynamicResource TextBlockStyle10}" Text="۰۱ محرم" />
+                    <TextBlock x:Name="TextBlock1Shanbe0" Style="{DynamicResource TextBlockStyle1}">یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe0"  Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe0" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe0" Style="{DynamicResource TextBlockStyle1}" >شنبه</TextBlock>
+                    <TextBlock x:Name="TextBlockShanbe0Miladi" Text="08 Dec"  Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe0Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" x:Name="calendarRow02" MinHeight="80">
+                <Grid x:Name="GridJome1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome1" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome1Miladi" Style="{DynamicResource TextBlockStyle6}">01 Dec</TextBlock>
+                    <TextBlock x:Name="TextBlockJome1Hijri" Style="{DynamicResource TextBlockStyle10}">۰۱ محرم</TextBlock>
+                    <TextBlock x:Name="TextBlockJome1" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe1" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe1" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe1" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe1" Style="{DynamicResource TextBlockStyle1}">چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle3Shanbe1" Style="{DynamicResource RectangleStyleToday}" />
+                    <TextBlock x:Name="TextBlock3Shanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe1" Style="{DynamicResource TextBlockStyle1}">سه شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe1" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe1" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe1" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe1" Style="{DynamicResource TextBlockStyle1}" >یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe1" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe1" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe1Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe1Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockShanbe1" Style="{DynamicResource TextBlockStyle1}">شنبه</TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" x:Name="calendarRow03" MinHeight="80">
+                <Grid x:Name="GridJome2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome2" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockJome2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockJome2" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe2" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe2" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe2" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe2" Style="{DynamicResource TextBlockStyle1}" >چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe2" Style="{DynamicResource GridStyle}" >
+                    <Rectangle x:Name="Rectangle3Shanbe2" Style="{DynamicResource RectangleStyle4}" />
+                    <TextBlock x:Name="TextBlock3Shanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe2" Style="{DynamicResource TextBlockStyle1}"><Run Text="سه شنبه"/></TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe2" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe2" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe2" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe2" Style="{DynamicResource TextBlockStyle1}">یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe2" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe2" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe2Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe2Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockShanbe2" Style="{DynamicResource TextBlockStyle1}">شنبه</TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" x:Name="calendarRow04" MinHeight="80">
+                <Grid x:Name="GridJome3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome3" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockJome3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockJome3" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe3" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe3" Style="{DynamicResource TextBlockStyle1}">چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle3Shanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock3Shanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe3" Style="{DynamicResource TextBlockStyle1}">سه شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe3" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe3" Style="{DynamicResource TextBlockStyle1}" >یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe3" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe3" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe3Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe3Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockShanbe3" Style="{DynamicResource TextBlockStyle1}">شنبه</TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" x:Name="calendarRow05" MinHeight="80">
+                <Grid x:Name="GridJome4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome4" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockJome4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockJome4" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe4" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe4" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe4" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe4" Style="{DynamicResource TextBlockStyle1}">چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle3Shanbe4" Style="{DynamicResource RectangleStyle5}" />
+                    <TextBlock x:Name="TextBlock3Shanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe4" Style="{DynamicResource TextBlockStyle1}">سه شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe4" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe4" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe4" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe4" Style="{DynamicResource TextBlockStyle1}">یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe4" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe4" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe4Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe4Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockShanbe4" Style="{DynamicResource TextBlockStyle1}">شنبه</TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <UniformGrid Columns="7" Rows="1" x:Name="calendarRow06" MinHeight="80">
+                <Grid x:Name="GridJome5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleJome5" Style="{DynamicResource RectangleStyleForHolydays}" />
+                    <TextBlock x:Name="TextBlockJome5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockJome5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockJome5" Style="{DynamicResource TextBlockStyle1}">جمعه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid5Shanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle5Shanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock5Shanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock5Shanbe5" Style="{DynamicResource TextBlockStyle1}">پنج شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid4Shanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle4Shanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock4Shanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock4Shanbe5" Style="{DynamicResource TextBlockStyle1}">چهار شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid3Shanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle3Shanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock3Shanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock3Shanbe5" Style="{DynamicResource TextBlockStyle1}">سه شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid2Shanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle2Shanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock2Shanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock2Shanbe5" Style="{DynamicResource TextBlockStyle1}">دو شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="Grid1Shanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="Rectangle1Shanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlock1Shanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlock1Shanbe5" Style="{DynamicResource TextBlockStyle1}">یک شنبه</TextBlock>
+                </Grid>
+                <Grid x:Name="GridShanbe5" Style="{DynamicResource GridStyle}">
+                    <Rectangle x:Name="RectangleShanbe5" Style="{DynamicResource RectangleStyle2}" />
+                    <TextBlock x:Name="TextBlockShanbe5Miladi" Text="08 Dec" Style="{DynamicResource TextBlockStyle6}"/>
+                    <TextBlock x:Name="TextBlockShanbe5Hijri" Text="۰۱ محرم" Style="{DynamicResource TextBlockStyle10}"/>
+                    <TextBlock x:Name="TextBlockShanbe5" Style="{DynamicResource TextBlockStyle1}">شنبه</TextBlock>
+                </Grid>
+            </UniformGrid>
+            <!-- *********************************************************** -->
+            <Grid x:Name="footer" MinHeight="70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.121*"/>
+                    <ColumnDefinition Width="0.132*"/>
+                    <ColumnDefinition Width="0.07*"/>
+                    <ColumnDefinition Width="0.119*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.084*"/>
+                    <ColumnDefinition Width="0.064*"/>
+                    <ColumnDefinition Width="0.11*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="goToToday" Content="  پرش به امروز  " Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="goToToday_Click"  />
+
+                <WindowsFormsHost Grid.Column="0" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" Height = "25">
+                    <wf:MaskedTextBox x:Name="textBoxYear" Mask="0000"/>
+                </WindowsFormsHost>
+
+                <ComboBox Grid.Column="1" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True" Width="85" x:Name="comboBoxMonths">
+                    <ComboBoxItem Content="فروردین" IsSelected="True"/>
+                    <ComboBoxItem Content="اردیبهشت"/>
+                    <ComboBoxItem Content="خرداد"/>
+
+                    <ComboBoxItem Content="تیر"/>
+                    <ComboBoxItem Content="مرداد"/>
+                    <ComboBoxItem Content="شهریور"/>
+
+                    <ComboBoxItem Content="مهر"/>
+                    <ComboBoxItem Content="آبان"/>
+                    <ComboBoxItem Content="آذر"/>
+
+                    <ComboBoxItem Content="دی"/>
+                    <ComboBoxItem Content="بهمن"/>
+                    <ComboBoxItem Content="اسفند"/>
+                </ComboBox>
+
+                <Button x:Name="goToDate" Content="  برو  " Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="goToDate_Click" />
+                <TextBlock Text="تنظیم ماه قمری" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox x:Name="TextBoxHijriAdjustment" Text="" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="30" />
+                <Button x:Name="ButttonHijriAdjustment" Content="  تنظیم  " Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButttonHijriAdjustment_Click"  />
+
+            </Grid>
+        </StackPanel>
+
+        <!--- ******************************************************** -->
+
+        <Grid x:Name="EventGrid" Visibility="Hidden" Opacity="0">
+
+            <Rectangle Fill="#FF000000" Stroke="#FF000000" Opacity="0.255" RadiusX="8" RadiusY="8"/>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Rectangle Stroke="#FF7995D2" StrokeThickness="2" RadiusX="11" RadiusY="11" Width="379" Height="353" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE9F2FA" Offset="0"/>
+                            <GradientStop Color="#FF758491" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.BitmapEffect>
+                        <OuterGlowBitmapEffect GlowColor="#FF000000" GlowSize="13" Opacity="0.43"/>
+                    </Rectangle.BitmapEffect>
+                </Rectangle>
+                <Button  Content="X" BorderBrush="#FF7995D2" FontSize="9" FontWeight="Bold" Foreground="#FF52637F" ToolTip="Close this panel" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top" Width="30" Height="30" x:Name="closeButton" Click="closeButton_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE7F1FF" Offset="0"/>
+                            <GradientStop Color="#FFAECEF4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox x:Name="TextBoxEventText" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FlowDirection="RightToLeft" Language="fa-ir" AcceptsReturn="True" Text="" Height="70" Margin="26.516,150.5,26.516,132.5" Width="344" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Button x:Name="ButtonSave" HorizontalAlignment="Left" Margin="28,0,0,27" VerticalAlignment="Bottom" Width="80" Height="30" Content="Save" Click="saveButton_Click"/>
+                <Button x:Name="ButtonDelete" Margin="0,0,28,27" VerticalAlignment="Bottom" Height="30" Content="Delete" HorizontalAlignment="Right" Width="80" Click="ButtonDelete_Click" />
+                <TextBlock x:Name="TextBlockSelectedDateHijri" FlowDirection="RightToLeft" Language="fa-ir" Text="قمری" FontSize="13" FontFamily="Tahoma" HorizontalAlignment="Right" Margin="0,81,60,0" VerticalAlignment="Top" Foreground="#FF000000"/>
+                <TextBlock x:Name="TextBlockSelectedDateMiladi" Text="Miladi" FontSize="13" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="56,81,0,0" VerticalAlignment="Top" />
+                <TextBlock x:Name="TextBlockSelectedDateShamsi" FlowDirection="RightToLeft" Language="fa-ir" Text="تاریخ روز انتخاب شده" TextWrapping="Wrap" FontSize="32" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,21,49,0" Foreground="#FF666666" />
+                <TextBlock FlowDirection="RightToLeft" Language="fa-ir" Text="متن  یاد آوری : " TextWrapping="Wrap" FontSize="18" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,125,26,0"/>
+                <TextBlock FlowDirection="RightToLeft" Language="fa-ir" Text="ثبت در تاریخ :" TextWrapping="Wrap" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,29,101" />
+                <RadioButton x:Name="RadioButtonMiladi" VerticalAlignment="Bottom" Content="میلادی" Margin="0,0,134,102" HorizontalAlignment="Right" />
+                <RadioButton x:Name="RadioButtonShamsi" Margin="130,0,0,102" Content="شمسی" HorizontalAlignment="Left" Width="55.093" Height="13.277" VerticalAlignment="Bottom" IsChecked="True" />
+                <RadioButton x:Name="RadioButtonHijri" Margin="47,0,0,102" VerticalAlignment="Bottom" Content="قمری" HorizontalAlignment="Left" />
+                <CheckBox x:Name="IsHoliday" Content="تعطیل عمومی" Margin="68,270,0,68" HorizontalAlignment="Left"/>
+                <CheckBox x:Name="IsAnniversary" Content="سالگرد" Margin="191,0,124,68" VerticalAlignment="Bottom" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

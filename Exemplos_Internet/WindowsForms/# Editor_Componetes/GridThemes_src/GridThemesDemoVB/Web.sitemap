@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="" description="" >
+
+    <siteMapNode url="" title="Introduction"  description="">
+      <siteMapNode url="Default.aspx" title="Home"  description="" />
+      <siteMapNode url="Configuration.aspx" title="Configuration"  description="" />
+      <siteMapNode url="License.aspx" title="License"  description="" />
+    </siteMapNode>
+
+    <siteMapNode url="" title="Creating Themes"  description="">
+        <siteMapNode url="Plain.aspx" title="Grid without formatting"  description="" />      
+        <siteMapNode url="Apply1.aspx" title="Formatting instructions"  description="" />
+        <siteMapNode url="RowTypes1.aspx" title="RowType tags"  description="" />
+        <siteMapNode url="Conditions1.aspx" title="Specifying Conditions"  description="" />
+        <siteMapNode url="Conditions2.aspx" title="Nested Conditions"  description="" />
+        <siteMapNode url="Conditions3.aspx" title="If/Else/ElseApply"  description="" />
+      <siteMapNode url="Conditions4.aspx" title="Expression attributes"  description="" />
+      <siteMapNode url="Conditions5.aspx" title="Cells collection"  description="" />
+      
+    </siteMapNode>
+
+    
+    <siteMapNode url="" title="Grouping"  description="">
+      <siteMapNode url="GroupPlain.aspx" title="Grid without formatting"  description="" />
+      <siteMapNode url="Group1.aspx" title="Suppress Repeating"  description="" />
+      <siteMapNode url="Group2.aspx" title="Alternate formatting"  description="" />
+      <siteMapNode url="Group3.aspx" title="Alternate formatting 2"  description="" />
+      <siteMapNode url="Group4.aspx" title="Group variables"  description="" />
+      <siteMapNode url="Group5.aspx" title="Group variables 2"  description="" />
+      <siteMapNode url="Group6.aspx" title="Group variables 3"  description="" />
+      <siteMapNode url="Group7.aspx" title="Multiple groups"  description="" />
+    </siteMapNode>
+
+    <siteMapNode url="" title="Additional Samples"  description="">
+      <siteMapNode url="Additional1.aspx" title="Alternating columns"  description="" />
+      <siteMapNode url="Additional2.aspx" title="Alternating columns 2"  description="" />
+    </siteMapNode>
+
+
+  </siteMapNode>
+</siteMap>

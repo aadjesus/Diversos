@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeShow", "ShapeShow\ShapeShow.csproj", "{B50581D7-208F-4B2C-81C4-670AD2C95279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeLibrary", "ShapeLibrary\ShapeLibrary.csproj", "{4F43264A-1D1E-4900-80E2-E060541CB8A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B50581D7-208F-4B2C-81C4-670AD2C95279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50581D7-208F-4B2C-81C4-670AD2C95279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50581D7-208F-4B2C-81C4-670AD2C95279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50581D7-208F-4B2C-81C4-670AD2C95279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F43264A-1D1E-4900-80E2-E060541CB8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F43264A-1D1E-4900-80E2-E060541CB8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F43264A-1D1E-4900-80E2-E060541CB8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F43264A-1D1E-4900-80E2-E060541CB8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

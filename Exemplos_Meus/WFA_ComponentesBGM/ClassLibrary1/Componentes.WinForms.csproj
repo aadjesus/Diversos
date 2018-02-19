@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1E3885C7-1139-4820-B2B5-103B2451C2CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FGlobus.Componentes.WinForms</RootNamespace>
+    <AssemblyName>ClassLibrary1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Docking.v11.2.Design, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v11.2.Extensions, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonEdit\ButtonEditBGM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonEdit\ButtonEditBGM.designer.cs">
+      <DependentUpon>ButtonEditBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonEdit\SelecionaBrowseDePesquisaBGM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ButtonEdit\SelecionaBrowseDePesquisaBGM.designer.cs">
+      <DependentUpon>SelecionaBrowseDePesquisaBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constantes.cs" />
+    <Compile Include="ControleDeComponente\Comum.cs" />
+    <Compile Include="ControleDeComponente\EnumeradoresMascaras.cs" />
+    <Compile Include="ControleDeComponente\Informacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControleDeComponente\Informacoes.designer.cs">
+      <DependentUpon>Informacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControleDeComponente\ListItemBGM.cs" />
+    <Compile Include="ControleDeComponente\SelecionaTela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControleDeComponente\SelecionaTela.designer.cs">
+      <DependentUpon>SelecionaTela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtensaoDeMetodos.cs" />
+    <Compile Include="FiltroRelatorio\Calendario.xaml.cs">
+      <DependentUpon>Calendario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FiltroRelatorio\FiltroRelatorioBGM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FiltroRelatorio\FiltroRelatorioBGM.Designer.cs">
+      <DependentUpon>FiltroRelatorioBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiltroRelatorio\TelaCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltroRelatorio\TelaCalendario.Designer.cs">
+      <DependentUpon>TelaCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelControl\LabelControlBGM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LabelControl\LabelControlBGM.designer.cs">
+      <DependentUpon>LabelControlBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterForm\MasterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\MasterForm.Designer.cs">
+      <DependentUpon>MasterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mascaras\CalcEditBGM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mascaras\CalcEditBGM.designer.cs">
+      <DependentUpon>CalcEditBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mascaras\ClassDateEditBGM.cs" />
+    <Compile Include="Mascaras\ClassMascaras.cs" />
+    <Compile Include="Mascaras\DateEditBGM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mascaras\DateEditBGM.designer.cs">
+      <DependentUpon>DateEditBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mascaras\TextEditBGM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mascaras\TextEditBGM.designer.cs">
+      <DependentUpon>TextEditBGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mascaras\TipoMascaras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mascaras\TipoMascaras.designer.cs">
+      <DependentUpon>TipoMascaras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterForm\MasterFormCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\MasterFormCadastro.Designer.cs">
+      <DependentUpon>MasterFormCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterForm\MasterFormGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\MasterFormGlobus.Designer.cs">
+      <DependentUpon>MasterFormGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseDePesquisa\MasterPanelBrowseDePesquisa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BrowseDePesquisa\MasterPanelBrowseDePesquisa.Designer.cs">
+      <DependentUpon>MasterPanelBrowseDePesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ImagensBGM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImagensBGM.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ButtonEdit\SelecionaBrowseDePesquisaBGM.resx">
+      <DependentUpon>SelecionaBrowseDePesquisaBGM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControleDeComponente\Informacoes.resx">
+      <DependentUpon>Informacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControleDeComponente\SelecionaTela.resx">
+      <DependentUpon>SelecionaTela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiltroRelatorio\FiltroRelatorioBGM.resx">
+      <DependentUpon>FiltroRelatorioBGM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiltroRelatorio\TelaCalendario.resx">
+      <DependentUpon>TelaCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mascaras\CalcEditBGM.resx">
+      <DependentUpon>CalcEditBGM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mascaras\TipoMascaras.resx">
+      <DependentUpon>TipoMascaras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterForm\MasterFormGlobus.resx">
+      <DependentUpon>MasterFormGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Resources\ImagensBGM.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImagensBGM.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ButtonEdit\ButtonEditBGM.ico" />
+    <Content Include="ButtonEdit\SelecionaBrowseDePesquisaBGMB.png" />
+    <Content Include="ButtonEdit\SelecionaBrowseDePesquisaBGMN.png" />
+    <Content Include="ButtonEdit\SelecionaBrowseDePesquisaBGMP.png" />
+    <Content Include="LabelControl\LabelControlBGM.ico" />
+    <None Include="Resources\Calendario.png" />
+    <None Include="Resources\Calculadora.png" />
+    <None Include="Resources\Icone_Globus_2008.ico" />
+    <None Include="Resources\ButtonEditBGMLupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="FiltroRelatorio\Calendario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

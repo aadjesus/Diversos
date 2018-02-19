@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bgmrodotec.com.br/globus5/globus" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://bgmrodotec.com.br/globus5/globus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bgmrodotec.com.br/globus5/globus">
+      <s:element name="RetornarLinhas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarLinhasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasResult" type="tns:ArrayOfLinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLinhaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LinhaDTO" nillable="true" type="tns:LinhaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LinhaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoOrgConc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodLocalTerminalSec" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoGrupoLinha" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoGa" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoLinha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NroFicialLinha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeLinha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeAbreviado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoteLinha" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComissaoMotLinha" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ComissaoCobLinha" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoDeServico" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataInicOperacaoLinha" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgRespGuia" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoRegiao" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrigemLinha" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DestinoLinha" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAgenciaIda" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAgenciaVolta" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Categoria" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgMunicInterest" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Ordem" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgPaese" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgCircular" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LogAlter" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NaoCriticaCircular" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoImportacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgLinhaPrincipal" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigitaSecao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCircular" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigitaQtd" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinhaComp" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TempoMinViagem" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoLinhaMin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigitaOrigemDestino" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodGrupoLinhaPvt" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntervaloComboio" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FatorRenovacao" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DataTransferObject" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AchouRegistro" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarLinhaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codIntLinha" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhaPorChaveResult" type="tns:LinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPorEmpresaFilialeCodigoLinha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="filial" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigolinha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPorEmpresaFilialeCodigoLinhaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhaPorEmpresaFilialeCodigoLinhaResult" type="tns:LinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarLinha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="linha" type="tns:LinhaDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametroLinhaTrafego" type="tns:ParametroLinhaTrafegoDTO" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoInternoAgencia" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="linhaTipoDeFrota" type="tns:ArrayOfLinhaTipoDeFrotaDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="linhaArea" type="tns:ArrayOfLinhaAreaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ParametroLinhaTrafegoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Codintlinha" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomSeguradora" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodApolice" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DatVencSeguro" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgUtilizaPasta" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgLinhaDisponivel" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgDetalhaGuia" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdMinDeterminado" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdMaxViagens" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdOperante" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdLugares" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdMotorista" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdRoletas" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgSanitario" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgAprovTotal" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgOperaCotas" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgTotVtPedag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgPossuiCobrador" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgAntecipado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgBilheteRoleta" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgAgencia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Usamotorista" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodTpservOrgconc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="VlrCustoOper" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="VlrCustoKm" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdFrtDutil" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdFrtDsab" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdFrtDdom" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdBilhintegr" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdBilCptm" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssociaTalao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgCobradorOpcional" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssociaTalaoAg" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlgInibeRelatorio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Bilhetestipofrota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Viagemzero" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comissaomotsemcob" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfLinhaTipoDeFrotaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LinhaTipoDeFrotaDTO" nillable="true" type="tns:LinhaTipoDeFrotaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LinhaTipoDeFrotaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoTpFrota" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfLinhaAreaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LinhaAreaDTO" nillable="true" type="tns:LinhaAreaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LinhaAreaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodArea" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SalvarOuAlterarLinhaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ApagarLinha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoInternoLinha" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApagarLinhaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarLinhasPorEmpresaFilial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoempresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigofl" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPorEmpresaFilialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasPorEmpresaFilialResult" type="tns:ArrayOfLinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPorCodigoDaLinha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDaLinha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPorCodigoDaLinhaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhaPorCodigoDaLinhaResult" type="tns:ArrayOfLinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasPermitidasParaUsuarioResult" type="tns:ArrayOfSLinhasPermitidasParaUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSLinhasPermitidasParaUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sLinhasPermitidasParaUsuario" type="tns:sLinhasPermitidasParaUsuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sLinhasPermitidasParaUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeLinha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioInibeRelatorio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioInibeRelatorioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasPermitidasParaUsuarioInibeRelatorioResult" type="tns:ArrayOfSLinhasPermitidasParaUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioComItinerario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioComItinerarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasPermitidasParaUsuarioComItinerarioResult" type="tns:ArrayOfSLinhasPermitidasParaUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioJaAssociadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhasPermitidasParaUsuarioJaAssociadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhasPermitidasParaUsuarioJaAssociadasResult" type="tns:ArrayOfLinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarLinhaPeloCodigoInterno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codIntLinha" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarLinhaPeloCodigoInternoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLinhaPeloCodigoInternoResult" type="tns:ArrayOfLinhaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarFornecedors">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarFornecedorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarFornecedorsResult" type="tns:ArrayOfFornecedorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFornecedorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FornecedorDTO" nillable="true" type="tns:FornecedorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FornecedorDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Codigoforn" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nrforn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codoperfiscal" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codtpdespesa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codigouf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codclassfisc" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Rsocialforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nfantasiaforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Enderecoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Bairroforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cidadeforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cepforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefoneforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Faxforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Homepageforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Emailforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tpinscricaoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nrinscricaoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inscestadualforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contatoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observacaoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Condicaoforn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dataultimomovtoforn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Condpgtoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inscmunicipalforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tipoforn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codbancoforn" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codagenciaforn" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Dvagenciaforn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codcontabcoforn" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Dvcontabcoforn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tipocontabco" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contribuinteicms" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ativosnap" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Nrmunicipio" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codigoaux1" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codfornmatriz" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Utilizainscmatrizpe" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiglaPais" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codatividade" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nrrntrc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Validaderntrc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Percjuros" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Percdesconto" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtcadastroforn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codsituacao" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Codavaliacao" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Codsegneg" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodAgregulado" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodInstalacao" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AtivEconomica" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodMunic" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="InfAdicionais" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NrEndereco" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ComplForn" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Autonomo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntProAut" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConsultouCnpjReceita" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarFornecedorPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoForn" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarFornecedorPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarFornecedorPorChaveResult" type="tns:FornecedorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarFornecedor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fornecedorDTO" type="tns:FornecedorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarFornecedorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarCertificados">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarCertificadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCertificadosResult" type="tns:ArrayOfCertificadoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCertificadoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CertificadoDTO" nillable="true" type="tns:CertificadoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CertificadoDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Serial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArquivoPfx" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaPfx" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarCertificadoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoempresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigofl" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarCertificadoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarCertificadoPorChaveResult" type="tns:CertificadoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarParametroVelocimetroCatracas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarParametroVelocimetroCatracasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarParametroVelocimetroCatracasResult" type="tns:ArrayOfParametroVelocimetroCatracaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametroVelocimetroCatracaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParametroVelocimetroCatracaDTO" nillable="true" type="tns:ParametroVelocimetroCatracaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParametroVelocimetroCatracaDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="HoraParam" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="SequenciaParam" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarParametroVelocimetroCatracaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="horaparam" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarParametroVelocimetroCatracaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarParametroVelocimetroCatracaPorChaveResult" type="tns:ParametroVelocimetroCatracaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVelocimetros">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarVelocimetrosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVelocimetrosResult" type="tns:ArrayOfVelocimetroDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVelocimetroDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VelocimetroDTO" nillable="true" type="tns:VelocimetroDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VelocimetroDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoVeic" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataVeloc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="SequenciaVeloc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="HoraVeloc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="SeqVeloc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntFunc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="HodInicialVeloc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="HodFinalVeloc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmPercorridoVeloc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="KmAcumuladoVeloc" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrocaVeloc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObservacaoVeloc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PerRodadoVeloc" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodSeqGuia" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodSeqViagem" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ImpTxtVeloc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodServico" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObsAbast" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetornarVelocimetroPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoveic" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataveloc" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="sequenciaveloc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seqveloc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVelocimetroPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVelocimetroPorChaveResult" type="tns:VelocimetroDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarVelocimetro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="velocimetroDTO" type="tns:VelocimetroDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarOuAlterarVelocimetroResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenericoApagar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoApagarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenericoSalvarOuAlterar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoSalvarOuAlterarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSCondicaoAdicionalCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sCondicaoAdicionalCriteria" type="tns:sCondicaoAdicionalCriteria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sCondicaoAdicionalCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Propriedade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" />
+          <s:element minOccurs="1" maxOccurs="1" name="Operador" type="tns:eOperador" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorInicial" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorFinal" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="eOperador">
+        <s:restriction base="s:string">
+          <s:enumeration value="Igual" />
+          <s:enumeration value="Diferente" />
+          <s:enumeration value="MaiorOuIgual" />
+          <s:enumeration value="MenorOuIgual" />
+          <s:enumeration value="Entre" />
+          <s:enumeration value="Contido" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadePorCondicoesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedadeCondicao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="operadorCondicao" type="tns:eOperador" />
+            <s:element minOccurs="0" maxOccurs="1" name="valorCondicao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadePorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadePorCondicaoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarProximoValorPropriedadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenericoRetornarProximoValorPropriedadeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadePorCondicoesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedadeCondicao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="operadorCondicao" type="tns:eOperador" />
+            <s:element minOccurs="0" maxOccurs="1" name="valorCondicao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadePorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadePorCondicaoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataTransferObject" type="tns:DataTransferObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomePropriedade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarMaximoValorPropriedadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarMaximoValorPropriedadeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsultarPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chave" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsultarPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsultarPorChaveResult" type="tns:DataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarTodos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataTransferObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataTransferObject" nillable="true" type="tns:DataTransferObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenericoRetornarTodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarTodosResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condicoes" type="tns:ArrayOfSCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsutaBasicaPorCondicoesResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDTO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="condicao" type="tns:sCondicaoAdicionalCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenericoRetornarConsutaBasicaPorCondicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericoRetornarConsutaBasicaPorCondicaoResult" type="tns:ArrayOfDataTransferObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarDataHoraBanco">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarDataHoraBancoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarDataHoraBancoResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarLinhasSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhas" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorEmpresaFilialeCodigoLinhaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorEmpresaFilialeCodigoLinha" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorEmpresaFilialeCodigoLinhaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorEmpresaFilialeCodigoLinhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarLinhaSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarLinha" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarLinhaSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarLinhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApagarLinhaSoapIn">
+    <wsdl:part name="parameters" element="tns:ApagarLinha" />
+  </wsdl:message>
+  <wsdl:message name="ApagarLinhaSoapOut">
+    <wsdl:part name="parameters" element="tns:ApagarLinhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPorEmpresaFilialSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPorEmpresaFilial" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPorEmpresaFilialSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPorEmpresaFilialResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorCodigoDaLinhaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorCodigoDaLinha" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPorCodigoDaLinhaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPorCodigoDaLinhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioInibeRelatorioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioInibeRelatorio" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioInibeRelatorioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioInibeRelatorioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioComItinerarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioComItinerario" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioComItinerarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioComItinerarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioJaAssociadasSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioJaAssociadas" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhasPermitidasParaUsuarioJaAssociadasSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhasPermitidasParaUsuarioJaAssociadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPeloCodigoInternoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPeloCodigoInterno" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLinhaPeloCodigoInternoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLinhaPeloCodigoInternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarFornecedorsSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarFornecedors" />
+  </wsdl:message>
+  <wsdl:message name="RetornarFornecedorsSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarFornecedorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarFornecedorPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarFornecedorPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarFornecedorPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarFornecedorPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarFornecedorSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarFornecedorSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCertificadosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCertificados" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCertificadosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCertificadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCertificadoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarCertificadoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarCertificadoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarCertificadoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarParametroVelocimetroCatracasSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarParametroVelocimetroCatracas" />
+  </wsdl:message>
+  <wsdl:message name="RetornarParametroVelocimetroCatracasSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarParametroVelocimetroCatracasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarParametroVelocimetroCatracaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarParametroVelocimetroCatracaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarParametroVelocimetroCatracaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarParametroVelocimetroCatracaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVelocimetrosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVelocimetros" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVelocimetrosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVelocimetrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVelocimetroPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVelocimetroPorChave" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVelocimetroPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVelocimetroPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarVelocimetroSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarVelocimetro" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarVelocimetroSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarVelocimetroResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoApagarSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoApagar" />
+  </wsdl:message>
+  <wsdl:message name="GenericoApagarSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoApagarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoSalvarOuAlterarSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoSalvarOuAlterar" />
+  </wsdl:message>
+  <wsdl:message name="GenericoSalvarOuAlterarSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoSalvarOuAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadePorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadePorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadeSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedade" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarProximoValorPropriedadeSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarProximoValorPropriedadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadePorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadeSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedade" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarMaximoValorPropriedadeSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarMaximoValorPropriedadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsultarPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsultarPorChave" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsultarPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsultarPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarTodosSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarTodos" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarTodosSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarTodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicoesSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicoes" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicoesSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicao" />
+  </wsdl:message>
+  <wsdl:message name="GenericoRetornarConsutaBasicaPorCondicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenericoRetornarConsutaBasicaPorCondicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarDataHoraBancoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarDataHoraBanco" />
+  </wsdl:message>
+  <wsdl:message name="RetornarDataHoraBancoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarDataHoraBancoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GlobusWSSoap">
+    <wsdl:operation name="RetornarLinhas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Linha.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Linha pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarLinhaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorEmpresaFilialeCodigoLinha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Linha por empresa, filial e codigolinha.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhaPorEmpresaFilialeCodigoLinhaSoapIn" />
+      <wsdl:output message="tns:RetornarLinhaPorEmpresaFilialeCodigoLinhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarLinha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera a linha informada.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarLinhaSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarLinhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApagarLinha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apaga a linha informada.</wsdl:documentation>
+      <wsdl:input message="tns:ApagarLinhaSoapIn" />
+      <wsdl:output message="tns:ApagarLinhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPorEmpresaFilial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Linhas pela empresa e filial.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasPorEmpresaFilialSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasPorEmpresaFilialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorCodigoDaLinha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar linhas por codigo da linha.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhaPorCodigoDaLinhaSoapIn" />
+      <wsdl:output message="tns:RetornarLinhaPorCodigoDaLinhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar linhas por usuário.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasPermitidasParaUsuarioSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasPermitidasParaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioInibeRelatorio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar linhas por usuário filtrando flag 'Inibe Relatório'.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasPermitidasParaUsuarioInibeRelatorioSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasPermitidasParaUsuarioInibeRelatorioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioComItinerario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar linhas permitidas para usuário que tenha itinerario.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasPermitidasParaUsuarioComItinerarioSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasPermitidasParaUsuarioComItinerarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioJaAssociadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar linhas permitidas para o usuário já associadas.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhasPermitidasParaUsuarioJaAssociadasSoapIn" />
+      <wsdl:output message="tns:RetornarLinhasPermitidasParaUsuarioJaAssociadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPeloCodigoInterno">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna linha pelo codigo interno da linha.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLinhaPeloCodigoInternoSoapIn" />
+      <wsdl:output message="tns:RetornarLinhaPeloCodigoInternoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedors">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Fornecedor.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarFornecedorsSoapIn" />
+      <wsdl:output message="tns:RetornarFornecedorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedorPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Fornecedor pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarFornecedorPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarFornecedorPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarFornecedor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera Fornecedor.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarFornecedorSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarFornecedorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Certificado.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCertificadosSoapIn" />
+      <wsdl:output message="tns:RetornarCertificadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificadoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Certificado pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarCertificadoPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarCertificadoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna parametro velocimetro catraca.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarParametroVelocimetroCatracasSoapIn" />
+      <wsdl:output message="tns:RetornarParametroVelocimetroCatracasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna parametro velocimetro catraca pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarParametroVelocimetroCatracaPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarParametroVelocimetroCatracaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetros">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Velocimetro.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVelocimetrosSoapIn" />
+      <wsdl:output message="tns:RetornarVelocimetrosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetroPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Velocimetro pela chave.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVelocimetroPorChaveSoapIn" />
+      <wsdl:output message="tns:RetornarVelocimetroPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarVelocimetro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera Velocimetro.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarVelocimetroSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarVelocimetroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apaga genérico.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoApagarSoapIn" />
+      <wsdl:output message="tns:GenericoApagarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera genérico.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoSalvarOuAlterarSoapIn" />
+      <wsdl:output message="tns:GenericoSalvarOuAlterarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadePorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadePorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada conforme a condição passada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadePorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadePorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o próximo valor da propriedade informada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarProximoValorPropriedadeSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarProximoValorPropriedadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o maximo valor da propriedade informada conforme a lista de condições passadas.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadePorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar o maximo valor da propriedade informada conforme a condição passada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadePorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna o maximo valor da propriedade informada.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarMaximoValorPropriedadeSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarMaximoValorPropriedadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta por chave.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsultarPorChaveSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsultarPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retornar lista com todos os ObjetoDTO da base de dados.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarTodosSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarTodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta básica por condições.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsutaBasicaPorCondicoesSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsutaBasicaPorCondicoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta básica por condição.</wsdl:documentation>
+      <wsdl:input message="tns:GenericoRetornarConsutaBasicaPorCondicaoSoapIn" />
+      <wsdl:output message="tns:GenericoRetornarConsutaBasicaPorCondicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna a data hora do banco de dados.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarDataHoraBancoSoapIn" />
+      <wsdl:output message="tns:RetornarDataHoraBancoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GlobusWSSoap" type="tns:GlobusWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarLinhas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorEmpresaFilialeCodigoLinha">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorEmpresaFilialeCodigoLinha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarLinha">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarLinha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApagarLinha">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/ApagarLinha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPorEmpresaFilial">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPorEmpresaFilial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorCodigoDaLinha">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorCodigoDaLinha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuario">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioInibeRelatorio">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioInibeRelatorio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioComItinerario">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioComItinerario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioJaAssociadas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioJaAssociadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPeloCodigoInterno">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPeloCodigoInterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedors">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarFornecedors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedorPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarFornecedorPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarFornecedor">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificados">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarCertificados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificadoPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarCertificadoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarParametroVelocimetroCatracas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracaPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarParametroVelocimetroCatracaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetros">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVelocimetros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetroPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVelocimetroPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarVelocimetro">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarVelocimetro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoApagar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoSalvarOuAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsultarPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarTodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsutaBasicaPorCondicoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsutaBasicaPorCondicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarDataHoraBanco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobusWSSoap12" type="tns:GlobusWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarLinhas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorEmpresaFilialeCodigoLinha">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorEmpresaFilialeCodigoLinha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarLinha">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarLinha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApagarLinha">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/ApagarLinha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPorEmpresaFilial">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPorEmpresaFilial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPorCodigoDaLinha">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPorCodigoDaLinha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuario">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioInibeRelatorio">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioInibeRelatorio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioComItinerario">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioComItinerario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhasPermitidasParaUsuarioJaAssociadas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhasPermitidasParaUsuarioJaAssociadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLinhaPeloCodigoInterno">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLinhaPeloCodigoInterno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedors">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarFornecedors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFornecedorPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarFornecedorPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarFornecedor">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarFornecedor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificados">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarCertificados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarCertificadoPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarCertificadoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarParametroVelocimetroCatracas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarParametroVelocimetroCatracaPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarParametroVelocimetroCatracaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetros">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVelocimetros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVelocimetroPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVelocimetroPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarVelocimetro">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarVelocimetro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoApagar">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoApagar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoSalvarOuAlterar">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoSalvarOuAlterar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedadePorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarProximoValorPropriedade">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarProximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedadePorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedadePorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedadePorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarMaximoValorPropriedade">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarMaximoValorPropriedade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsultarPorChave">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsultarPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarTodos">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarTodos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicoes">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsutaBasicaPorCondicoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericoRetornarConsutaBasicaPorCondicao">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/GenericoRetornarConsutaBasicaPorCondicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarDataHoraBanco">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarDataHoraBanco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GlobusWS">
+    <wsdl:port name="GlobusWSSoap" binding="tns:GlobusWSSoap">
+      <soap:address location="http://localhost/globus5/globusws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GlobusWSSoap12" binding="tns:GlobusWSSoap12">
+      <soap12:address location="http://localhost/globus5/globusws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

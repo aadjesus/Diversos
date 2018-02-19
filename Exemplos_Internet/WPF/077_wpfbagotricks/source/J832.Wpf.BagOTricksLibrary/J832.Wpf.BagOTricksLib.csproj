@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4BBC94F-B837-4668-A127-E36E6DE012F5}</ProjectGuid>
+    <AssemblyName>J832.Wpf.BagOTricksLib</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <OutputType>library</OutputType>
+    <!-- Most people will use Publish dialog in Visual Studio to increment this -->
+    <RootNamespace>J832.Wpf</RootNamespace>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionICommand.cs" />
+    <Compile Include="AnimatingTilePanel\AnimatingTilePanel.cs" />
+    <Compile Include="DemoCollection.cs" />
+    <Compile Include="HueConverter.cs" />
+    <Compile Include="NotifyWorker.cs" />
+    <Compile Include="RoundDoubleConverter.cs" />
+    <Compile Include="TreeMap3DUserControl.xaml.cs">
+      <DependentUpon>TreeMap3DUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlockBar\BlockBar.cs" />
+    <Compile Include="BlockBar\CircleBlockBar.cs" />
+    <Compile Include="BlockBar\RectBlockBar.cs" />
+    <Compile Include="CompositionTargetRenderingListening.cs" />
+    <Compile Include="DatePicker\DatePicker.cs" />
+    <Compile Include="DatePicker\DateTimeValueConverter.cs" />
+    <Compile Include="DatePicker\DatePickerHelper.cs" />
+    <Compile Include="DatePicker\InvalidEntryEventArgs.cs" />
+    <Compile Include="ListPager\ListPager.cs" />
+    <Compile Include="ListPager\UIListPager.cs" />
+    <Compile Include="MonthCalendar\CalendarDataGenerator.cs" />
+    <Compile Include="MonthCalendar\CalendarDate.cs" />
+    <Compile Include="MonthCalendar\Converters.cs" />
+    <Compile Include="MonthCalendar\DateSelectionChangedEventArgs.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarHelper.cs" />
+    <Compile Include="MonthCalendar\MonthCalendar.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarContainer.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarDayHeaderWeekNumber.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarItem.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarTitle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NumericUpDown\NumericUpDown.cs" />
+    <Compile Include="InfoTextBox\InfoTextBox.cs" />
+    <Compile Include="ColorPicker\ColorPicker.cs" />
+    <Compile Include="Reveal\HorizontalRevealMode.cs" />
+    <Compile Include="Reveal\Reveal.cs" />
+    <Compile Include="Reveal\VerticalRevealMode.cs" />
+    <Compile Include="Transition3D.cs" />
+    <Compile Include="TransitionPresenter\ClothTransition.cs" />
+    <Compile Include="TransitionPresenter\DoorTransition.cs" />
+    <Compile Include="TransitionPresenter\ExplosionTransition.cs" />
+    <Compile Include="TransitionPresenter\FadeTransition.cs" />
+    <Compile Include="TransitionPresenter\FlipTransition.cs" />
+    <Compile Include="TransitionPresenter\PageTransition.cs" />
+    <Compile Include="TransitionPresenter\RotateTransition.cs" />
+    <Compile Include="TransitionPresenter\StoryboardTransition.cs" />
+    <Compile Include="TransitionPresenter\Transition.cs" />
+    <Compile Include="TransitionPresenter\Transition3D.cs" />
+    <Compile Include="TransitionPresenter\TransitionElement.cs" />
+    <Compile Include="TransitionPresenter\TransitionSelector.cs" />
+    <Compile Include="TransitionPresenter\TranslateTransition.cs" />
+    <Compile Include="TransitionPresenter\TwoWayTransitionSelector.cs" />
+    <Compile Include="TreeMap3D.cs" />
+    <Compile Include="TreeMapPanel\TreeMapPanel.cs" />
+    <Compile Include="TreeViewHelperClasses\TreeViewDataItem.cs" />
+    <Compile Include="TreeViewHelperClasses\TreeViewHelper.cs" />
+    <Compile Include="Graph\Graph.cs" />
+    <Compile Include="WpfUtil.cs" />
+    <Compile Include="WrapperElement.cs" />
+    <Compile Include="Zap\ZapCommandItem.cs" />
+    <Compile Include="Zap\ZapDecorator.cs" />
+    <Compile Include="Zap\ZapPanel.cs" />
+    <Compile Include="Zap\ZapScroller.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Luna.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\ColorPicker.generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="TreeMap3DUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\InfoTextBox.generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DateControls.generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Zap.Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\J832.Common\J832.Common.csproj">
+      <Project>{273247A2-A3C8-42D0-8463-F95FC5C0A34C}</Project>
+      <Name>J832.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Media_Player", "WPF_Media_Player\WPF_Media_Player.csproj", "{7AC0A490-AB5C-4D10-8DE4-CD8C17E8C6BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Test_App", "WPF_Test_App\WPF_Test_App.csproj", "{8DDF5C9E-64CC-496F-A42F-9FFA9E48C138}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC0A490-AB5C-4D10-8DE4-CD8C17E8C6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC0A490-AB5C-4D10-8DE4-CD8C17E8C6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC0A490-AB5C-4D10-8DE4-CD8C17E8C6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC0A490-AB5C-4D10-8DE4-CD8C17E8C6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDF5C9E-64CC-496F-A42F-9FFA9E48C138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDF5C9E-64CC-496F-A42F-9FFA9E48C138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDF5C9E-64CC-496F-A42F-9FFA9E48C138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDF5C9E-64CC-496F-A42F-9FFA9E48C138}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

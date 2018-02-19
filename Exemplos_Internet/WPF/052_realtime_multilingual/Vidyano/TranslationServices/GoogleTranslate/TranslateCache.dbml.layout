@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TranslateCache">
+  <DataContextMoniker Name="/TranslateCache" />
+  <nestedChildShapes>
+    <classShape Id="95fab0ee-add5-4e24-99b3-31621889d1bc" absoluteBounds="0.75, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TranslateCache/Source" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4125de51-d9b3-4fa5-9e9d-bd07a7003779" absoluteBounds="0.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efac6519-10e7-4d3f-a134-f295aaa6550d" absoluteBounds="3.5, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/TranslateCache/Translations" />
+      <nestedChildShapes>
+        <elementListCompartment Id="053c7600-44cf-4d5e-a0f9-ec396c816559" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TranslateCache/Source/Source_Translations" />
+      <nodes>
+        <classShapeMoniker Id="95fab0ee-add5-4e24-99b3-31621889d1bc" />
+        <classShapeMoniker Id="efac6519-10e7-4d3f-a134-f295aaa6550d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

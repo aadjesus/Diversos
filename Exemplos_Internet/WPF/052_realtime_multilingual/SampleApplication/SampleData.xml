@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+  <Product Name="Dell 24-inch Widescreen" Size="24" Description="E248WFP 24-inch Widescreen Black Flat Panel LCD Monitor" />
+  <Product Name="Dell UltraSharp 24-inch" Size="24" Description="UltraSharp 2408WFP 24-inch Widescreen Flat Panel Monitor with Height Adjustable Stand" />
+  <Product Name="Samsung SyncMaster 24-inch" Size="24" Description="Samsung SyncMaster 245T 24-inch Widescreen Black LCD Display" />
+  <Product Name="Samsung SyncMaster 24-inch" Size="24" Description="Samsung SyncMaster 245BW 24-inch Widescreen Black LCD Monitor with Height Adjustable Stand" />
+  <Product Name="NEC 24-inch Widescreen" Size="24" Description="NEC ASLCD24WMCX-BK 24-inch Widescreen Black Flat Panel LCD Monitor with Height Adjustable Stand" />
+  <Product Name="NEC MultiSync 24-inch Pro" Size="24" Description="NEC MultiSync LCD2490WUXi-BK 24-inch Black Professional Series LCD Display" />
+  <Product Name="NEC MultiSync 24-inch" Size="24" Description="MultiSync LCD2470WNX-BK 24-inch Widescreen Black LCD Monitor" />
+  <Product Name="EIZO ColorEdge 24.1-inch Black" Size="24.1" Description="ColorEdge CE240W-BK 24.1-inch Flat Panel Display – Black" />
+  <Product Name="EIZO ColorEdge 24.1-inch White" Size="24.1" Description="EIZO ColorEdge CE240W 24.1-inch Widescreen White Flat Panel LCD Monitor" />
+  <Product Name="Samsung 26-inch Widescreen" Size="26" Description="Samsung 2693HM 26-inch Widescreen Black Flat Panel LCD Monitor with Height Adjustable Stand" />
+  <Product Name="NEC MultiSync 26-inch" Size="26" Description="MultiSync EA261WM 26-inch Black Widescreen Flat Panel LCD Display" />
+  <Product Name="NEC MultiSync 26-inch" Size="26" Description="NEC MultiSync LCD2690WUXI-BK 26-inch Black LCD Monitor" />
+  <Product Name="Planar 26-inch Widescreen" Size="26" Description="Planar PX2611W 26-inch Widescreen Black LCD Monitor" />
+  <Product Name="Dell UltraSharp 27-inch" Size="27" Description="UltraSharp 2707WFP 27-inch Widescreen Flat Panel LCD Monitor with Height Adjustable Stand" />
+  <Product Name="Dell UltraSharp 27-inch" Size="27" Description="UltraSharp 2709W 27-inch WideScreen Black Flat Panel Monitor with Height Adjustable Stand" />
+  <Product Name="Dell UltraSharp 30-inch" Size="30" Description="UltraSharp 3007WFP-HC 30-inch WideScreen Flat Panel Monitor" />
+  <Product Name="Dell UltraSharp 30-inch" Size="30" Description="UltraSharp 3008WFP 30-inch Widescreen Flat Panel Monitor with Height Adjustable Stand" />
+  <Product Name="Samsung SyncMaster 30-inch" Size="30" Description="Samsung SyncMaster 305T 30-inch Widescreen Black Flat Panel LCD Monitor with Height Adjustable Stand" />
+  <Product Name="NEC MultiSync 30-inch" Size="30" Description="NEC MultiSync LCD3090WQXI-BK 30-inch Black Flat Panel LCD Monitor with Height Adjustable Stand" />
+</Products>

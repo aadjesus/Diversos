@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.GestaoDeFrotaOnLine.DTO.UsuarioLinhaDTO,GLB.DTO" table="GFO_USUARIO_LINHA" lazy="false">
+
+		<composite-id access="field">
+			 <key-property name="CodIntLinha" column="CODINTLINHA" type="int" />
+			 <key-property name="Usuario" column="USUARIO" type="String"/>
+			
+		</composite-id>
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WFA_ListagemPesquisas.UsrCtrlImagemMenuPrincipal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             MinHeight="300" 
+             MinWidth="200" 
+             Width="Auto"             
+             Height="Auto"
+             Loaded="UserControl_Loaded"
+             xmlns:my="clr-namespace:System;assembly=mscorlib"
+             x:Name="usrCtrlImagemMenuPrincipal"
+             LayoutUpdated="usrCtrlImagemMenuPrincipal_LayoutUpdated">
+
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Image x:Name="imgFundo" Source="c:\Users\alessandro.augusto\Documents\Visual Studio\Exemplos_Meus\WFA_ListagemPesquisas\WFA_ListagemPesquisas\Resources\MenuPrincipal_Fundo.jpg" Stretch="UniformToFill" />
+        <Image x:Name="imgLogoGlobusMais" Source="c:\Users\alessandro.augusto\Documents\Visual Studio\Exemplos_Meus\WFA_ListagemPesquisas\WFA_ListagemPesquisas\Resources\MenuPrincipal_LogoGlobusMais.png" Width="279" Height="72" Stretch="None" />
+
+
+
+    </Grid>
+</UserControl>

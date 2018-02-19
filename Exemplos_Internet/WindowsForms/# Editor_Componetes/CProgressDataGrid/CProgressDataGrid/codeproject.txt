@@ -1,0 +1,119 @@
+[1. introduction]
+When I saw a Microsoft's sample for the SQLXML that shows little project management 
+application I said to myself "It would be cool to have a similar progress control 
+functionality in the dataset directly.". I work with data a lot and sometimes there are
+data that are of a percentage type, that represent some progress, it is very effective 
+to show such data in the graphical way.
+
+[2. overview]
+What we have here is a little sample of how to do such thing. It is kind of sample how to 
+create custom control derived from the System.Windows.Forms.DataGrid object and how to write
+custom property modify dialog.
+
+Component allows consumer to specify which column(s) is(are) of progress type within the
+grid and the grid therefore renders the progress upon specified attributes given to the 
+grid object (like color or style of the progress control).
+
+=== PICTURE ====
+
+[3. the custom control]
+[3.1. project]
+The project for the custom control itself is a standard C# Custom Control project. When
+creating it I just set up the new project from the custom project template.
+
+[3.2. class]
+The whole component implementation is done in one file - CProgressDataGrid.cs in the 
+CProgressControls namespace (I thought that maybe it can be usefull to create more similar
+controls and put them under the same namespace...). 
+
+As you can see from the source, the class is separated into several areas, the functionnal
+API of the component to access the attributes programatically (via function or properties)
+- region names accessor functions and the main part is implemented in the region named - 
+painting functions. This region contains the main OnPaint handler. The logic is very
+straightforward, get the list of columns that are marked as progress column types and then
+for every cell in such column get its value and draw the box there. Simple as that.
+
+[3.3. properties]
+There are some properties you can set up into the control, via VStudio's designer or via
+component's API. These are:
+
+- The color of the progress bar
+- The color of the progress bar percentage text
+- The flag if the percentage text is set to be shown or not
+- The style of the progress (can be 3D, flat, inset or with solid border) 
+- The table name within the data set to use for populating the data
+- The list of columns itself
+
+[4. the custom property dialog]
+There is the custom dialog used to select the columns for the progress control. 
+
+=== PICTURE ====
+
+[4.1. how it works]
+To implement your own property dialog you need to undergo several steps. First you need to
+create your own new value editor class. In this case it is CProgressDataGridColumnsValueEditor,
+as you can see it is derived from the UITypeEditor class. Basically you need to override
+two functions - GetEditStyle and EditValue. The GetEditStyle function is called from the
+VS.NET framework to retrieve the information of the type of the editor used for such 
+property, there are 3 types defined - Dialog, DropDown and None, for exact description
+see UITypeEditorEditStyle class. In our case we use UITypeEditorEditStyle.Modal type. 
+
+If you look at the EditValue function, you can see that this is very simple too. 
+You can get the instance of the container if you wish, just type the context.Instance
+to your control's type (in here we have function call like: CProgressDataGrid oGrid = (CProgressDataGrid)context.Instance;)
+On next lines we create instance of our dialog used to populate the list of columns, I will
+not go into description of the form used to do that, it is not important for this sample,
+but the source is included so you can observe that part of code as well. Once the property
+dialog ends it returns control to the EditValue function, it is recommended to store
+the information if some data vere changed in the dialog and check it in here, if this is the
+case then just copy the data to the value variable and return it, that's all, the value
+will be stored in the property.
+
+
+[4.2. the collection serialization trick]
+I used to have a collection of type ArrayList that holded the columns selected as progress
+bar columns, but whenever the persistent data were loaded from the resource file, the 
+deserialization process went wrong, I tried to find a way, but finally gave up, once I
+have some more time, I'll dig into that again, but of you have any ideas how to make a 
+colection as a property persistent and updatable via VS.NET designer, drop me a message. 
+
+Anyway, at the end I do it with a little trick. The list is stored in the string property,
+where the column indexes are derived by the coma (,) separator, there is a little helper
+function that turns the string into the ArrayList object.
+
+[5. Using the control]
+So, "How can I use that" you migh ask. First place the builded assembly or the source
+onto your machine and build it (in case of source form). Once this is done, go into the Toolbox window and right
+click, when you have some form selected, choose the "Customize toolbox" menu item and 
+add the reference to this assembly. At the end of the component's list you will see the
+CProgressDataGrid, place it onto your form. Then you need to specify a TableStyle, add some
+columns to the style according to the your underlaying dataset. 
+
+Then you can scroll down and find the property group "Progress control", specify color and 
+type, if you want to see the text or not and the Table name within the data set. Once you 
+have this then click the "..." in the ProgressColumns attribute and use the dialog to
+select your "progress" columns.
+
+Save the project and build it. That's it, if you have proper dataset binded to the
+data grid with some number data for the progress column you have chosen, then you should
+see the progress bars in that column.
+
+[6. pros/cons]
+[6.1 pros]
+- simple
+- easy to use
+- few styles to choose from
+- compact code
+
+[6.2 cons]
+- no sorting support
+- no column reorder support
+- selected columns property is not implement as a collection
+- support only for one table within the data set
+
+[6.3 future possible extensions]
+- sorting support
+- more styles
+- in place graphical editor (like the progress drag control in MS Project)
+- style based per cell (column) not per grid only (every cell can have different progress)
+- turn it into the new gridcell object??? (like DataGridBoolColumn...)

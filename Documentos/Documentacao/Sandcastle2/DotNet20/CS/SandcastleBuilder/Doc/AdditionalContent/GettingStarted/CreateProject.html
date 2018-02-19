@@ -1,0 +1,90 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>Creating a New Project</title>
+</head>
+
+<body>
+
+<h2>Creating a New Project</h2>
+On the <b>Project</b> menu, you can select one of the following options to
+begin a new help file project:
+
+<dl>
+    <dt>New Project</dt>
+    <dd>Select this option to begin a new project from scratch.  The project
+properties are reset to their default values.  See below for information on
+adding assemblies and building the project.</dd>
+    <dt>New Project from NDoc Project</dt>
+    <dd>If you are converting from NDoc to Sandcastle, you can use this
+option to import the settings from an NDoc 1.3 project file.  The
+documentation assembly information, namespace summaries, additional
+content, and many other project properties are imported and converted to
+the matching Sandcastle Help File Builder properties.  Once imported, review
+the imported information and make any necessary adjustments.</dd>
+    <dt>New Project form Visual Studio Project</dt>
+    <dd>This option allows you to start a brand new help file project and
+automatically import the documentation assembly information from a Visual
+Studio 2003/2005 solution (.sln) or project file (.*proj).  In order to
+work, the projects must contain a .NET assembly (C#, VB.NET, or J#) as
+output and must have the XML documentation file option enabled with a
+documentation filename specified.  If a solution file is selected, all
+assembly information that meets the requirements is imported from all
+projects within the solution.  If a single project file is selected, only
+the information from that project will be imported.</dd>
+</dl>
+
+<h3>Modifying the Project Options</h3>
+The <b>Assemblies to Document</b> section at the top of the main form lists
+the assemblies and comment files that will be documented by the project.
+To work with the assemblies, use the buttons to the right of the list:
+
+<ul>
+    <li>Click <b>Add</b> to add one or more assemblies to the list.  A File
+Open dialog box appears in which you can select one or more DLLs,
+executables, or XML files associated with the items to document.  When
+adding a DLL or an executable, if an XML comments file with the same name
+is found, it is associated with the assembly automatically.  Likewise, if
+you select an XML comments file a DLL or executable with a matching name is
+associated with it automatically.  If the matching file cannot be
+determined, it is set to "Unknown" and you can edit the entry to correct
+it.</li>
+    <li>Click <b>Edit</b> to edit the filenames for the selected entry.  A
+new dialog box appears that lets you specify the paths to the two files.
+Both must be specified.</li>
+    <li>Click <b>Remove</b> to remove an entry.</li>
+</ul>
+
+See the <a href="../GUIProject/NamespaceSummaries.html">Project and Namespace
+Summaries</a> topic for information on setting the project and namespace
+level summary text and how to limit which namespaces are documented.
+
+<p/>The center section of the form contains a property grid that displays
+the project options.  The options are grouped into several categories and
+are listed alphabetically within them.  More information on the properties
+can be found in <a href="../GUIProject/GUIProject.html">The GUI Project
+Manager</a> section.  Modify each property to suit your needs.
+
+<h3>Building the Help File</h3>
+Use the <b>Build Project</b> option on the <b>Documentation</b> menu to
+build the help file using the current settings.  If this is a new, unsaved
+project, you will be prompted to save the project file first.  This is
+required so that the build process can properly resolve any relative paths
+within the project. The bottom section of the form contains an output
+window that will display the messages from the build process as it runs.
+When completed, the <b>View Output in Window</b> option on the
+<b>Documentation</b> menu can be used to open a resizable window to more
+easily view the build log output.  The <b>View Help File</b> option on the
+<b>Documentation</b> menu will allow you to view the help file that was
+built.  Note that this only works for HTML Help 1.x and web site output.
+HTML Help 2.x files require a separate viewer.  See the <a
+href="../Links.html">Links to Resources</a> topic for information on how to
+obtain it.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+
+<!-- @SortOrder 4 -->

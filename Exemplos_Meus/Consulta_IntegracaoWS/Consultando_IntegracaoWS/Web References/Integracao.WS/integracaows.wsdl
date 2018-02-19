@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bgmrodotec.com.br/globus5/globus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bgmrodotec.com.br/globus5/globus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bgmrodotec.com.br/globus5/globus">
+      <s:element name="SalvarOuAlterarListaTabelaIntegradora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTabelaIntegradora" type="tns:ArrayOfSTabelaIntegradora" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSTabelaIntegradora">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sTabelaIntegradora" type="tns:sTabelaIntegradora" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sTabelaIntegradora">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodOperadora" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOperadora" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDeteccao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDeteccao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VeiculoExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinhaExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensagemDeteccao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataOcorrencia" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Velocidade" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodHorariaExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodServicoExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sentido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassageirosIn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassageirosOut" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassageirosCatraca" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodOcorrenciaExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOcorrenciaExterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataGravacao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodMotoristaExterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodCobradorExterno" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SalvarOuAlterarListaTabelaIntegradoraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalvarOuAlterarListaTabelaIntegradoraResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMensagensProData">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarMensagensProDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMensagensProDataResult" type="tns:ArrayOfSMensagens" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSMensagens">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sMensagens" type="tns:sMensagens" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sMensagens">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Grupo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDMensagem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDMensagemRetorno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDOperador" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prefixo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDEmpresa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Linha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarMensagensProDataDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idEmpresa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarMensagensProDataDaEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarMensagensProDataDaEmpresaResult" type="tns:ArrayOfSMensagens" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarMensagensProData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="tns:ArrayOfSMensagens" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarMensagensProDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarVeiculosQueVaoChegarNoLocalDaLinha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codLocalidade" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoLinha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculosQueVaoChegarNoLocalDaLinhaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVeiculosQueVaoChegarNoLocalDaLinhaResult" type="tns:ArrayOfSRetornoSMS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSRetornoSMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sRetornoSMS" type="tns:sRetornoSMS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sRetornoSMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TempoPrevisto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeAbrevLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrigemLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinoLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sentido" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarVeiculosQueVaoChegarNoLocal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codLocalidade" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVeiculosQueVaoChegarNoLocalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVeiculosQueVaoChegarNoLocalResult" type="tns:ArrayOfSRetornoSMS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarRecebimentoSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvarRecebimentoSMSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarPontoControlePorEmpresasFiliais">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empresaFilial" type="tns:ArrayOfSEmpresaFilial" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSEmpresaFilial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sEmpresaFilial" type="tns:sEmpresaFilial" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sEmpresaFilial">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoEmpresa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoFl" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarPontoControlePorEmpresasFiliaisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarPontoControlePorEmpresasFiliaisResult" type="tns:ArrayOfSEscalaLocais" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSEscalaLocais">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sEscalaLocais" type="tns:sEscalaLocais" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sEscalaLocais">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodLocalidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescLocalidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescLocalidadeabrev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoDivulgacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndentificacaoDivulgacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoIntegracao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VelocidadeMaxima" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarLocaisComCoordenadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarLocaisComCoordenadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarLocaisComCoordenadasResult" type="tns:ArrayOfSEscalaLocais" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarPontosDeControleComCoordenadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarPontosDeControleComCoordenadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarPontosDeControleComCoordenadasResult" type="tns:ArrayOfSEscalaLocais" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarTabelaHorariaItinerario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataConsulta" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="codIntLinha" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarTabelaHorariaItinerarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarTabelaHorariaItinerarioResult" type="tns:ArrayOfSEscalaHorariaProgramada" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSEscalaHorariaProgramada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sEscalaHorariaProgramada" type="tns:sEscalaHorariaProgramada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sEscalaHorariaProgramada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodIntLinha" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoLinha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoImportacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodServDiaria" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataEscala" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodHordiaria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sentido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocalOrigem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorarioSaida" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocalDestino" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorarioChegada" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdItinerario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Itinerario" type="tns:ArrayOfSItinerario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSItinerario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sItinerario" type="tns:sItinerario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sItinerario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Sequencia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodLocalidade" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorarioProgramadoLocal" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SalvarOuAlterarIntegradoraCargas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="integradoraCargasDTO" type="tns:IntegradoraCargasDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IntegradoraCargasDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdIntegradora" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodOperadora" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdOperadora" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MotoristaOperadora" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VeiculoOperadora" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SituacaoVeiculo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoDoctoViagem" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoDoctoViagem" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SequenciaParada" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Macro" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InicioViagem" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FimViagem" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Latitude" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Longitude" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Temperatura" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Velocidade" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Km" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataOcorrencia" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataGravacao" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="EntregaEfetiva" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodOcorrencia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Integrado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescricaoLocal" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PontoControle" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescOcorrenciaExterno" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DataTransferObject" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AchouRegistro" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SalvarOuAlterarIntegradoraCargasResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SalvarOuAlterarListaTabelaIntegradoraSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarListaTabelaIntegradora" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarListaTabelaIntegradoraSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarListaTabelaIntegradoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMensagensProDataSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMensagensProData" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMensagensProDataSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMensagensProDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMensagensProDataDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarMensagensProDataDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="RetornarMensagensProDataDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarMensagensProDataDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarMensagensProDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarMensagensProData" />
+  </wsdl:message>
+  <wsdl:message name="SalvarMensagensProDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarMensagensProDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosQueVaoChegarNoLocalDaLinhaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosQueVaoChegarNoLocalDaLinha" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosQueVaoChegarNoLocalDaLinhaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosQueVaoChegarNoLocalDaLinhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosQueVaoChegarNoLocalSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosQueVaoChegarNoLocal" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVeiculosQueVaoChegarNoLocalSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVeiculosQueVaoChegarNoLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarRecebimentoSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarRecebimentoSMS" />
+  </wsdl:message>
+  <wsdl:message name="SalvarRecebimentoSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarRecebimentoSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarPontoControlePorEmpresasFiliaisSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarPontoControlePorEmpresasFiliais" />
+  </wsdl:message>
+  <wsdl:message name="RetornarPontoControlePorEmpresasFiliaisSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarPontoControlePorEmpresasFiliaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLocaisComCoordenadasSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarLocaisComCoordenadas" />
+  </wsdl:message>
+  <wsdl:message name="RetornarLocaisComCoordenadasSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarLocaisComCoordenadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarPontosDeControleComCoordenadasSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarPontosDeControleComCoordenadas" />
+  </wsdl:message>
+  <wsdl:message name="RetornarPontosDeControleComCoordenadasSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarPontosDeControleComCoordenadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTabelaHorariaItinerarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarTabelaHorariaItinerario" />
+  </wsdl:message>
+  <wsdl:message name="RetornarTabelaHorariaItinerarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarTabelaHorariaItinerarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarIntegradoraCargasSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarIntegradoraCargas" />
+  </wsdl:message>
+  <wsdl:message name="SalvarOuAlterarIntegradoraCargasSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvarOuAlterarIntegradoraCargasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IntegracaoWSSoap">
+    <wsdl:operation name="SalvarOuAlterarListaTabelaIntegradora">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salvar ou alterar lista de registros de detecção gestão de frota online.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarListaTabelaIntegradoraSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarListaTabelaIntegradoraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna as mensagens do dia, das 00:00 até a hora atual do banco e que ainda não foram lidas.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMensagensProDataSoapIn" />
+      <wsdl:output message="tns:RetornarMensagensProDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProDataDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna as mensagens do dia, das 00:00 até a hora atual do banco, da empresa informada e que ainda não foram lidas.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarMensagensProDataDaEmpresaSoapIn" />
+      <wsdl:output message="tns:RetornarMensagensProDataDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarMensagensProData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva mensagens.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarMensagensProDataSoapIn" />
+      <wsdl:output message="tns:SalvarMensagensProDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocalDaLinha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna os veículos que estão na linha informada e vão passa no local informado. </wsdl:documentation>
+      <wsdl:input message="tns:RetornarVeiculosQueVaoChegarNoLocalDaLinhaSoapIn" />
+      <wsdl:output message="tns:RetornarVeiculosQueVaoChegarNoLocalDaLinhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna os veículos que vão passa no local informado.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarVeiculosQueVaoChegarNoLocalSoapIn" />
+      <wsdl:output message="tns:RetornarVeiculosQueVaoChegarNoLocalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarRecebimentoSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva o recebimento do SMS.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarRecebimentoSMSSoapIn" />
+      <wsdl:output message="tns:SalvarRecebimentoSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontoControlePorEmpresasFiliais">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna ponto de controle por empresas e filiais.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarPontoControlePorEmpresasFiliaisSoapIn" />
+      <wsdl:output message="tns:RetornarPontoControlePorEmpresasFiliaisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLocaisComCoordenadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Locais com a informacao de latitude e longitude.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarLocaisComCoordenadasSoapIn" />
+      <wsdl:output message="tns:RetornarLocaisComCoordenadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontosDeControleComCoordenadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os pontos de controle com informacao de latitude e longitude.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarPontosDeControleComCoordenadasSoapIn" />
+      <wsdl:output message="tns:RetornarPontosDeControleComCoordenadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTabelaHorariaItinerario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna tabela horária de itinerário.</wsdl:documentation>
+      <wsdl:input message="tns:RetornarTabelaHorariaItinerarioSoapIn" />
+      <wsdl:output message="tns:RetornarTabelaHorariaItinerarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarIntegradoraCargas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Salva ou altera Integradora Cargas.</wsdl:documentation>
+      <wsdl:input message="tns:SalvarOuAlterarIntegradoraCargasSoapIn" />
+      <wsdl:output message="tns:SalvarOuAlterarIntegradoraCargasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IntegracaoWSSoap" type="tns:IntegracaoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SalvarOuAlterarListaTabelaIntegradora">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarListaTabelaIntegradora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProData">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarMensagensProData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProDataDaEmpresa">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarMensagensProDataDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarMensagensProData">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarMensagensProData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocalDaLinha">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVeiculosQueVaoChegarNoLocalDaLinha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocal">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVeiculosQueVaoChegarNoLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarRecebimentoSMS">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarRecebimentoSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontoControlePorEmpresasFiliais">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarPontoControlePorEmpresasFiliais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLocaisComCoordenadas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLocaisComCoordenadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontosDeControleComCoordenadas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarPontosDeControleComCoordenadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTabelaHorariaItinerario">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarTabelaHorariaItinerario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarIntegradoraCargas">
+      <soap:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarIntegradoraCargas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IntegracaoWSSoap12" type="tns:IntegracaoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SalvarOuAlterarListaTabelaIntegradora">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarListaTabelaIntegradora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProData">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarMensagensProData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarMensagensProDataDaEmpresa">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarMensagensProDataDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarMensagensProData">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarMensagensProData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocalDaLinha">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVeiculosQueVaoChegarNoLocalDaLinha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVeiculosQueVaoChegarNoLocal">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarVeiculosQueVaoChegarNoLocal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarRecebimentoSMS">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarRecebimentoSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontoControlePorEmpresasFiliais">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarPontoControlePorEmpresasFiliais" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarLocaisComCoordenadas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarLocaisComCoordenadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarPontosDeControleComCoordenadas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarPontosDeControleComCoordenadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarTabelaHorariaItinerario">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/RetornarTabelaHorariaItinerario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarOuAlterarIntegradoraCargas">
+      <soap12:operation soapAction="http://bgmrodotec.com.br/globus5/globus/SalvarOuAlterarIntegradoraCargas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntegracaoWS">
+    <wsdl:port name="IntegracaoWSSoap" binding="tns:IntegracaoWSSoap">
+      <soap:address location="http://187.115.142.34:8088/homologacaogfo/integracaows.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IntegracaoWSSoap12" binding="tns:IntegracaoWSSoap12">
+      <soap12:address location="http://187.115.142.34:8088/homologacaogfo/integracaows.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+﻿<UserControl 
+  x:Class="VMCommanding.View.CommunityView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:jas="clr-namespace:VMCommanding"
+  xmlns:view="clr-namespace:VMCommanding.View"
+  xmlns:vm="clr-namespace:VMCommanding.ViewModel"  
+  jas:CommandSinkBinding.CommandSink="{Binding}"
+  >  
+  <UserControl.CommandBindings>
+    <jas:CommandSinkBinding Command="vm:CommunityViewModel.KillAllMembersCommand" />
+  </UserControl.CommandBindings>
+  
+  <DockPanel Margin="4">
+    <Button 
+      DockPanel.Dock="Bottom"
+      Command="vm:CommunityViewModel.KillAllMembersCommand"
+      Content="Kill All"
+      Margin="0,8,0,0"
+      />
+    <ItemsControl ItemsSource="{Binding People}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <view:PersonView />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </DockPanel>
+</UserControl>

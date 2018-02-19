@@ -1,0 +1,594 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/Styles.css">
+<title>Version History</title>
+</head>
+
+<body>
+
+<h2>Version History</h2>
+
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">03/19/2007</td>
+    <td>v1.4.0.1 - Changes in this release:
+<ul>
+    <li>Added support for the March 2007 CTP Refresh of Sandcastle.</li>
+    <li>Fixed <code>ShowMissingComponent</code> so that it does not show
+"missing summary" warnings on root TOC entries for members, properties, etc.
+when using the VS2005 style.</li>
+    <li>Fixed <code>CodeBlockComponent</code> so that it HTML encodes the title
+attribute value.</li>
+    <li>Thanks to Vin&iacute;cius Lazzeris for providing the Portuguese
+(Brazil) language resource files.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">03/11/2007</td>
+    <td>v1.4.0.0 - Changes made in this release:
+<ul>
+    <li>Added support for the March 2007 CTP of Sandcastle.</li>
+    <li><b>NOTE:</b> The default configurations for the
+<code>CodeBlockComponent</code> and <code>PostTransformComponent</code>
+have changed and <b><u>must be reset</u></b> and reconfigured if you
+customized them via the <code>ComponentConfigurations</code> project
+option.  Line numbering and outlining are now off by default.  A new option
+"Connect code blocks to language filter" has been added to allow connecting
+the code blocks to the language filter.  If enabled (the default), code
+blocks are shown or hidden based on the language filter setting.  If
+disabled, code blocks are always shown regardless of the language filter
+setting.  Options are also present to set the location of the "Copy" image
+and the file path for it.</li>
+
+    <li>Made some significant performance improvements.  Build times in some
+cases involving extremely large numbers of topics can be reduced by up to
+50% or more.  The larger the number of topics to document, the more significant
+the decrease in build time.
+    <ul>
+        <li>Optimized loading and saving of the reflection information file
+and the XML comments files within the build engine.</li>
+
+        <li>Optimized the purge item code and duplicate checking in the
+name generation code to eliminate unnecessary XPath lookups.</li>
+
+        <li>The processing for the <code>ShowMissing*</code> options has
+been moved into a new build component (<code>ShowMissingComponent</code>).
+On extremely large documentation builds (tens of thousands of topics), the
+XPath queries that were used to look up the member comments and the
+information in the reflection file took an extremely long time.  By moving
+the processing to a build component, the amount of information to search is
+greatly reduced and the time to add missing item comments is now
+negligible.</li>
+
+        <li>The version information lookup part of the
+<code>PostTransformComponent</code> was split out into a new
+<code>VersionInfoComponent</code> that runs before transformation of the
+topic occurs.  This allows for an optimized lookup of the version
+information and the whole reflection file does not need to be loaded thus
+reducing memory usage for large builds and speeding up the searches for
+version information.</li>
+
+        <li>Added build step timing information so that it is easier to see
+which steps are taking the longest during a build.</li>
+    </ul>
+
+    <li>The console mode builder can now accept project properties as
+command line options to override or add settings to a project.  A response
+file can also be used to avoid problems with long command lines.  See the
+<a href="ConsoleApp.html"/>Console Mode Builder</a> topic for details.</li>
+
+    <li>Added the <code>WorkingPath</code> property so that you can specify
+an alternate location with a shorter path in which to perform the build if
+it fails due to long file path names.</li>
+
+    <li>The following file and folder project properties have been
+converted from strings to objects.  This allows them to be persisted as
+paths relative to the current project location rather than as absolute
+paths at your choosing.  In addition, environment variables such as
+<code>%DXROOT%</code>, <code>%WINDIR%</code>, etc. can be specified in the
+paths and they will be expanded at build time to the value of the specified
+environment variable. Properties affected:<br/><br/>
+
+    <ul>
+        <li>SandcastleProject.HtmlHelp1xCompilerPath</li>
+        <li>SandcastleProject.HtmlHelp2xCompilerPath</li>
+        <li>SandcastleProject.SandcastlePath</li>
+        <li>SandcastleProject.WorkingPath</li>
+        <li>DocumentAssembly.AssemblyPath</li>
+        <li>DocumentAssembly.XmlCommentsPath</li>
+        <li>ContentItem.SourcePath</li>
+        <li>DependencyItem.DependencyPath</li>
+    </ul>
+
+<p/>The <code>OutputPath</code> property is still a string.  If relative,
+it is always relative to the project folder and thus should not point at
+the prior location if the project is saved in a new folder.  For similar
+reasons, the <code>DestinationPath</code> property of additional content
+items has also been left as a string.</li>
+
+<p/>All fully qualified paths in the affected properties in projects
+created by prior versions of the help file builder will become relative
+paths automatically when opened in the latest version.  If you need a fixed
+path, expand the property and set the <code>IsFixedPath</code> property to
+true so that it is saved as an absolute rather than a relative path.</li>
+
+    <li>It is now possible to resolve project option values and shared
+content items in additional content files.  See the
+<a href="GUIProject/AddContent/SharedContent.html">Project Properties
+and Shared Content</a> help topic in the
+<a href="GUIProject/AddContent/AddContent.html">Additional Content Settings</a>
+section for details.</li>
+
+    <li>Fixed a bug in the code to resolve links to namespace content from
+additional content that caused it to add too many relative path parts to
+the URLs.  Fixed a bug that caused it to miss the default page setting if
+the page was associated with a folder.  Also fixed a bug that caused it to
+ignore the page if it was associated with a folder and it was the only
+file in the folder.</li>
+
+    <li>Fixed a bug in the code colorizer caused by the description for the
+collapsed region not being HTML encoded.  Also fixed up the definitions so
+that it doesn't colorize preprocessor text within quotes and comments and
+handles XML attribute names containing colons.</li>
+
+    <li>Fixed the <code>CodeBlockComponent</code> and the code colorizer so
+that they recognize VB.NET style <code>#Else If</code>, <code>#End
+If</code>, and <code>#End Region</code> statements.</li>
+
+    <li>The code colorizer now renders a "Copy" icon and text to the right
+of each title line on the code blocks and allows you to copy the code to
+the clipboard.  The code is copied as plain text without the highlighting
+and line numbers if used. Default titles are also used on code block that
+do not have a title.  The default title is based on the language specified.</li>
+
+    <li>Modified the the C++ comments fixup code so that it only strips out
+the unnecessary characters if they appear in a declaration involving the
+<code>System.Collections.Generic</code> namespace.</li>
+
+    <li>The <code>PresentationStyle</code> property now uses a type
+converter that allows you to select any folder under the
+<b>.\Presentation</b> folder in the main Sandcastle installation folder.
+This allows you to create custom versions of the Prototype and VS2005
+styles using different names and select them for use from within a help
+file builder project.
+
+    <li>The build process now tries to delete the help file first if it
+exists so that it stops immediately if the help file is open and cannot be
+overwritten.</li>
+
+    <li>Made the file extension checks case-insensitive when adding
+assemblies and comments files to the project and when examining additional
+content files during the build.</li>
+
+    <li>When documenting internals, private fields backing events are now
+removed as they can never be documented with comments.</li>
+
+    <li>Removed extraneous paragraph tags from the formatted footer
+replacement tag values.</li>
+
+    <li>Modified the <code>comments</code> shared content item so that the
+e-mail link in the page footers now appends the current topic's title to
+the help file's title for the e-mail's subject.</li>
+
+    <li>Added a <b>FooterText</b> property to the project that lets you add
+additional text to the footer of each page without having to modify the
+shared content file.  The text is inserted at the start of the
+<code>footer</code> shared content item.</li>
+
+    <li>The post-transform component now turns off all file attributes when
+copying the highlighter and logo files so that they can be deleted at the
+end of the build when <code>CleanIntermediates</code> is set to true.</li>
+
+    <li>Added <code>placement</code> and <code>alignment</code> attributes
+to the <code>logoFile</code> element of the post-transform component.  This
+allows the logo to be placed to the left, right, or above the topic title.
+When placed above the topic title, it can be aligned to the left or right
+or centered.
+
+    <li>Moved the version information text to the end of the location
+information shared content items.  The <code>PostTransformComponent</code>
+now moves the location/version text to the end of the footer in the
+Prototype style.</li>
+
+    <li>Added a <b>Delete</b> button to the <b>Namespaces</b> dialog that
+lets you remove old namespaces from the list that no longer appear in the
+assemblies.</li>
+
+    <li>Added <code>Help1xAndHelp2x</code> and
+<code>Help1xAnd2xAndWebsite</code> options to the <code>HelpFileFormat</code>
+project option.
+
+    <li>Added an <code>ExcludeItems</code> property to the additional
+content items.  If set to true, the file or files matching the source path
+are excluded.  If used with a wildcard source path, all matching files in
+sub-folders are excluded as well.</li>
+
+    <li>Thanks to Dessiatov Anton for providing Russian translations for
+the language resource files.  See the <a href="FAQ.html">FAQ</a> for a fix
+that must be made to one of the Sandcastle transformations for the HTML
+content in order to work with them correctly.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">12/11/2006</td>
+    <td>v1.3.3.1 - Changes made in this release:
+<ul>
+    <li><b><u>NOTE TO VERSION 1.3.3.0 RC USERS:</u></b>  You
+<b><u>must</u></b> reset the <b>Post-transform Component</b> configuration
+and reconfigure it before performing a build with this release due to
+changes in the configuration.</li>
+
+    <li>Updated for use with the December 2006 CTP.  A patch file for the
+Sandcastle style and transformation files is supplied separately to fix
+missing support for <b>br</b> and <b>hr</b> tags in the Prototype style, to
+fixed numbered lists, and to add support for displaying the "Obsolete"
+messages on obsolete items. Extract the patch to your Sandcastle
+installation folder.  See the ReadMe.txt file included with it for details
+on the fixes that I made.</li>
+    <li>Implemented a code block custom build component with the following
+features:
+    <ul>
+        <li>Syntax highlighting of code blocks in <code>&lt;code&gt;</code>
+tags. Languages supported: C#, VB.NET, C++, C, JavaScript, VBScript, J#, and
+XML.</li>
+
+        <li>Excess leading whitespace is stripped from the
+<code>&lt;code&gt;</code> blocks to left align them correctly.</li>
+
+        <li>Support for optional line numbering.</li>
+
+        <li>Support for optional collapsible regions for code in #region
+and #if/#else/#endif blocks with support for nested collapsible regions.</li>
+
+        <li>Support for reading in an external source file or a defined
+region of an external source file so that you can keep code samples in a
+buildable project to test for correctness and do away with managing the
+code samples in the XML comments and include files.</li>
+    </ul></li>
+
+    <li>Implemented a post-transform custom build component with the following
+features:
+    <ul>
+        <li>Companion to the Code Block Component to add the supporing
+links for the colorizer script and stylesheet.</li>
+
+        <li>It can insert a logo image at the top of each help topic.</li>
+
+        <li>For the Prototype style, it hides the language combo box if
+only one language appears in the Syntax section.</li>
+
+        <li>Version information will be added to the help topics if used with
+the help file builder.  If used outside the help file builder, a modification
+is required to the Sandcastle reference content files.</li>
+    </ul></li>
+
+    <li>Added support for the XML comments <code>&lt;exclude/&gt;</code>
+tag.</li>
+
+    <li>Added the <code>locale</code> attribute to the
+<code>ResolveReferenceLinksComponent</code> in <b>sandcastle.config</b> to
+use the project language for the MSDN URLs.  Note that there is a small bug
+in the component that causes the first reference to still point to the
+English site.  This bug has been reported and will hopefully be fixed in
+the next Sandcastle CTP.</li>
+
+    <li>The build components are configured individually via the new
+project option <code>ComponentConfigurations</code>.  Additional third
+party build components can be plugged into the help file builder by adding
+the default configuration to the sandcastle.config template with a unique
+ID attribute and implementing a public static <code>ConfigureComponent</code>
+method in the component.  See the help file for more details.</li>
+
+    <li>Added a <code>SyntaxFilters</code> property that lets you specify
+which languages appear in the Syntax section of the help topics and, for
+the Prototype presentation style, the dropdown in the upper right of the
+topics.  It can be set to CSharp, VisualBasic, CPlusPlus, JSharp, a
+combination of those values, All to include them all, Standard (the
+default) for C#, VB.NET, and C++ only, or to None to remove the Syntax
+section entirely.</li>
+
+    <li>Added the <code>CppCommentsFixup</code> project property to work
+around an issue with methods that take generics as parameters in XML
+comments files created by the C++ compiler (it doesn't match the other .NET
+compilers' naming conventions).</li>
+
+    <li>The <code>FrameworkVersion</code> property is now always saved in
+the project to prevent building against the wrong version when a project is
+edited on two different systems, one with a more recent version of .NET
+than another.  It also defaults to .NET 2.0 for new projects rather than
+the most recent framework version on the system which may be .NET 3.0
+to prevent unexpected problems.  If you need .NET 3.0, you must select it
+manually.</li>
+
+    <li>The <code>HelpTitle</code> property is now displayed in the help
+topics at the top of the page where "Reference Library" used to be.</li>
+
+    <li>The <code>ObsoleteAttribute</code>, <code>FlagsAttribute</code>,
+and <code>SerializableAttribute</code> are now always included even if
+<code>DocumentAttributes</code> is set to false. These provide useful
+information and should not be filtered out.</li>
+
+    <li>The <b>Preview and Arrange</b> dialog for additional content no
+longer prompts for the project folder as it is maintained internally now.</li>
+
+    <li>Code in <code>&lt;pre&gt;</code> tags in additional content HTML
+files can be colorized by adding the colorizer attributes to them.  See the
+<b>Syntax Highlighting &lt;pre&gt; Tag Content</b> topic for details.</li>
+
+    <li>Modified the tool search to also try to find Sandcastle via the
+<code>DXROOT</code> environment variable.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">11/12/2006</td>
+    <td>v1.3.2.0 - Changes made in this release:
+<ul>
+    <li>Updated for use with the November 2006 CTP.  A patch file for the
+Sandcastle style and transformation files is supplied separately to fix a
+few issues that still remain with the stock versions supplied with
+Sandcastle.  Extract the patch to your Sandcastle installation folder.  See
+the ReadMe.txt file included with it for details on the fixes that I
+made.</li>
+    <li>Converted the Common Problems and Solutions help file topic into a
+FAQ topic and added several more items to it.  A toolbar button and a
+Help menu option where added to give easy access to it from the help file
+builder.</li>
+    <li>Added the ability to add XML comments files without an associated
+assembly. This is useful for adding shared project summary or namespace
+summary comments to multiple projects without having to store the comments
+in the Sandcastle Help File Builder project.  See the help file for
+details.</li>
+    <li>Paths to non-GAC dependency items can now be edited in the
+Dependency Item Editor dialog box so that you can make them have relative
+paths.</li>
+    <li>Added an <b>MRefBuilder.config</b> template that is used to tell
+MRefBuilder which framework comments to use based on the project's
+<code>FrameworkVersion</code> property.  It is now possible to correctly
+document .NET 1.0 and 1.1 assemblies.</li>
+    <li>Added a new <code>NamingMethod</code> property that lets you
+specify how the help topic filenames are created (GUID, member name, or
+hashed member name). The last two make it easy to link to help topics from
+external applications or web pages.  See the help file for more
+information.</li>
+    <li>Changed the build process to release the assembly loader
+immediately after copying dependencies to prevent the lease running out and
+causing an exception when trying to release it when done after a very long
+build.</li>
+    <li>The assembly loader was modified to add dependencies using a full
+path so that it can find them correctly.</li>
+    <li>Changed the <b>Index.html</b> template so that forward slashes are
+used in the default topic page's path rather than backslashes.</li>
+    <li>To prevent Out of Memory exceptions on extremely large builds, the
+<code>BuildProcess</code> class now writes messages to the log file for
+itself.  A Verbose Logging option was also added to the Documentation menu
+in the GUI help file builder to prevent the problem as well.  If disabled,
+only build step messages are logged to the output window during the build.
+This is an application user setting, not a project property.</li>
+    <li>Fixed the <code>ShowMissingSummaries</code> option so that if it is
+set to false and <code>AutoDocumentConstructors</code> is set to true, it
+does not add the unwanted "Missing Summary" text on methods, properties,
+etc.</li>
+    <li>Modified the tool searches so that if the "(x86)" version of the
+Program Files folder exists (64-bit Windows), it searches in there instead
+for Sandcastle and the help compilers.  If multiple copies are found in the
+SDK folders, it now tries to return the latest SDK version.</li>
+    <li>Fixed the search for Sandcastle in the PATH environment variable so
+that if the help file builder path is ahead of the Sandcastle path, it
+ignores it.  It will also search the VS2005 SDK folders if not found anywhere
+else.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">10/09/2006</td>
+    <td>v1.3.1.1 - Changes made in this release:
+<ul>
+    <li>Support for the October 7th Sandcastle CTP Refresh was confirmed.
+A patch file for some of the Sandcastle style and transformation files is
+supplied separately to fix a few issues that still remain with the stock
+versions supplied with Sandcastle.  Extract the patch to your Sandcastle
+installation folder.  See the ReadMe.txt file included with it for details
+on the fixes that I made.</li>
+    <li>The UTF-8 encoding is now preserved on XML comments files when
+adding the missing documentation tags.  They lack an encoding attribute and
+byte order marks but are UTF-8 encoded and are now always treated as such
+to preserve the encodings on extended characters in the authored comments.</li>
+    <li>If <code>DocumentAttributes</code> is set to false, the
+<code>[Serializable]</code> attributes are removed from the syntax section
+now as well.</li>
+    <li>Implemented several new <code>Document*</code> properties that
+behave like the matching NDoc properties.  See the <b>Visibility Category
+Properties</b> topic in the help file for more information.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">10/03/2006</td>
+    <td>v1.3.1.0 - Changes made in this release:
+<ul>
+    <li>Updated for use with the September 2006 CTP.</li>
+    <li>The new <code>PresentationStyle</code> Help File category property
+can be used to select either the <b>Prototype</b> or <b>VS2005</b> style
+for the generated help topics.</li>
+    <li>Fixed a bug that caused the website build to fail if generic
+classes were in the documented assemblies due to the angle brackets in
+their names.</li>
+    <li>Added the <b>Show Missing Tags</b> category properties to insert
+"missing documentation" messages to flag items that need attention.</li>
+    <li>Added an <code>AutoDocumentConstructors</code> property to
+automatically insert a default summary for constructors that are missing
+the &lt;summary&gt; tag and for compiler-generated constructors.
+    <li>Added a <b>Clean Output Folder</b> option to the <b>Documentation</b>
+menu to delete all files from the project's <code>OutputPath</code>
+folder.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top" width="100px">09/25/2006</td>
+    <td>v1.3.0.0 - Changes made in this release:
+<ul>
+    <li>Improved the help file.  The article was getting rather long so I
+have moved a lot of the information to the help file and expanded on it as
+needed to make it more useful.  See it for more information on how to use
+the help file builder.</li>
+    <li>Added <code>Website</code>, <code>Help1xAndWebsite</code>, and
+<code>Help2xAndWebsite</code> options to the <code>HelpFileFormat</code>
+property to allow generating the help as a website, a website plus an
+HTML Help 1.x file, or a website plus an HTML Help 2.x file.  The website
+output includes an index page complete with tree view for navigating the
+table of content.</li>
+    <li>The <code>ContentItem</code> class's <code>IsDefaultPage</code> and
+<code>ContentDescription</code> properties have been removed as they are
+now obtained along with a sort order while copying the additional content
+items and building table of content entries for them.  See
+<b>The Additional Content Property</b> topic for more information on the new
+features.</li>
+    <li>Added a preview option to the Additional Content editor dialog box
+to preview the table of content entries for the additional content.  You can
+also arrange items and set the default topic from it.</li>
+    <li>Added the ability to create links to namespace help content from
+the additional content files.  See the <b>Linking to
+Namespace Content</b> topic for more information.</li>
+    <li>Modified the file I/O code to detect the encoding of the files when
+reading them and to use the same encoding when writing them back out to
+preserve the character encodings within the files.</li>
+    <li>The table of content file for HTML Help 1.x files is now saved
+using the default encoding based on the system's code page rather than
+UTF-8 encoding to ensure that the character encodings are correctly
+interpretted by the help compiler and viewer.</li>
+    <li>Some additional notes regarding encoding have been added to the
+information on how to create language resource files for other languages.</li>
+    <li>Added a command to the <b>Documentation</b> menu to clear the
+output window on the main form.  The <b>View Log</b> form now loads the log
+text from the last build's log file.
+    <li>Added a version check on <b>MRefBuilder.exe</b> to ensure that a
+valid version is being used.  An exception is thrown if the version found
+is less than the expected version (you need to update Sandcastle).  A
+warning is issued if the version found is greater than the expected version
+(you need to update the help file builder).</li>
+    <li>The <b>New Project from Visual Studio Project</b> option now
+recognizes VB.NET and J# solution files.</li>
+    <li>Fixed a bug that caused assembly loading to fail under certain
+circumstances when determining namespaces for the <b>Namespace
+Summaries</b> dialog box.</li>
+    <li>Fixed a bug that caused the build process to try and scan a drive that
+didn't exist when looking for the HTML Help 2.x compiler.</li>
+    <li>The <code>Language</code> property now only shows the list of
+languages for which resource files exist.</li>
+    <li>Thanks to Olaf Rittig for the German translation of the language
+resource files.</li>
+    <li>Thanks to Thierry Huguet and his colleagues for the French,
+Italian, and Spanish translations of the language resource files.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">09/06/2006</td>
+    <td>v1.2.0.0 - Changes made in this release:
+<ul>
+    <li>A new <b>Prj Summary</b> button appears on the main form in the
+Assemblies to Document section.  It opens a form in which you can enter
+summary comments that should appear in the root namespaces page of the
+compiled help file.</li>
+    <li>A new <b>Namespaces</b> button appears on the main form that allows
+you to specify which assemblies should appear in the help file and the
+namespace summaries to display in the root namespaces page and on the help
+page for each namespace.  By default, all namespaces in all assemblies are
+documented with the exception of the global (unnamed) namespace that
+sometimes appears and contains private module details.</li>
+    <li>The <b>Add</b> button used to add an assembly to document now opens
+a file selection dialog in which you can select one or more assemblies,
+executables, or comments files to document.  It will assume that the
+matching file (assembly or comments file) has the same name as the selected
+file.  If a match is not found, the missing file's name is set to "Unknown"
+and the <b>Edit</b> option can be used to fix it.</li>
+    <li>The dependencies editor now allows the selection of a GAC item.
+This allows you to specify a dependency that only resides in the GAC and
+has no copy that resides elsewhere.  At build-time, the GAC is queried and
+the necessary assembly is copied to the working folder for use by
+MRefBuilder.</li>
+    <li>Added the <code>ContentPlacement</code> property that allows you to
+specify whether the additional content goes in ahead of the namespaces or
+after the namespaces in the table of content.</li>
+    <li>Added the <code>IsDefaultPage</code> property to the
+<code>ContentItem</code> class that allows you to indicate whether or not
+the content item is the default page.  If no item is marked as the default
+page, the root namespaces page is used as the default page.</li>
+    <li>Fixed a bug that caused the <code>RootNamespaceContainer</code>
+property to be ignored if there was no additional content defined.</li>
+    <li>Fixed up issues in various properties related to ampersands causing
+exceptions because they cannot be interpreted by the .NET XML parser.  The
+values are now HTML or URL encoded as needed.</li>
+    <li>The value of the <code>CopyrightText</code> property is now treated
+as plain text.  It will be HTML encoded where necessary to resolve issues
+related to the ampersand and the .NET XML parser.  In addition, you can
+encode special characters such as the copyright symbol using an escaped hex
+value (i.e. &copy; = \xA9).</li>
+    <li>Reworked the "run process" code so that it now reports progress as
+the tools are running rather than at the end after the tool completes.
+This gives more immediate feedback especially during long running builds so
+that you can see that it is still alive.  It also captures the standard
+error stream output so that if a tool throws an exception, that information
+is now captured in the log file as well.  Where appropriate, the name of
+the script being executed is also logged.</li>
+    <li>Increased the font size in the log viewer dialog box to 10pt so
+that it is easier to read.</li>
+    <li>Path-related properties are now grouped in a new <b>Paths</b>
+category in the property grid on the main form.</li>
+    <li>Visual Studio 2003 projects are now loaded using the default encoding
+rather than UTF-8 encoding to handle foreign language characters in the
+project properties.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">08/28/2006</td>
+    <td>v1.1.0.0 - Changes made in this release:
+<ul>
+    <li>Updated for use with the August 2006 CTP.</li>
+    <li>Added the option to create a new Sandcastle Help File Builder
+project by importing the assembly information from a Visual Studio
+2003/2005 solution or project file.</li>
+    <li>Added the <code>HelpFileFormat</code> property to let you define the
+help file output format (HTML 1.x or HTML 2.x).</li>
+    <li>Renamed the <code>HtmlHelpCompilerPath</code> property to
+<code>HtmlHelp1xCompilerPath</code> for the HTML 1.x help compiler
+(<b>HHC.EXE</b>) and added the <code>HtmlHelp2xCompilerPath</code> property
+for the HTML 2.x help compiler (<b>HXCOMP.EXE</b>).</li>
+    <li>Added the project files necessary to build HTML 2.x help files and
+renamed a few of the template files to reflect their use in building HTML
+1.x help files.</li>
+    <li>Fixed a problem in the final build step caused by a help filename with
+spaces in it.</li>
+    <li>The <code>Dependencies</code> property has been changed to a
+collection to allow easier specification of dependency items for
+<b>MRefBuilder</b>.</li>
+    <li>The <b>{@IndexFile}</b> tag has been removed and a new step added
+to generate the HTML 1.x index file via the new Sandcastle XSL
+transformation.</li>
+    <li>Renamed <code>ShowAttributes</code> to <code>DocumentAttributes</code>
+to match NDoc and put it in the <b>Visibility</b> category.</li>
+    <li>Added the <code>DocumentInternals</code> property to allow the
+documentation of private and internal members to be enabled.</li>
+    <li>Added <code>ProjectLinkType</code> and <code>SdkLinkType</code>
+options to control how links to other help topics are rendered in the help
+file.</li>
+    <li>Added a <code>RootNamespaceContainer</code> option.  If true, a
+root <b>Namespaces</b> table of content entry will be made the container of
+the namespaces.  If false, the default, the namespaces are listed in the
+table of content as root entries.</li>
+</ul></td>
+  </tr>
+  <tr>
+    <td valign="top">08/15/2006</td>
+    <td>v1.0.0.1- Fixed build process so that it handles braces in tool output
+when reporting progress.</td>
+  </tr>
+  <tr>
+    <td valign="top">08/14/2006</td>
+    <td>v1.0.0.0 - Initial release</td>
+  </tr>
+</table>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 14 -->

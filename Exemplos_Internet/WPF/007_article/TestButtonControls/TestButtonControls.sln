@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestButtonControls", "TestButtonControls.csproj", "{C5481421-4A2D-4DF1-9B6C-BBD7AABE8BF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpButtonControl", "..\CsharpButtonControl\CsharpButtonControl.csproj", "{D63B4EAB-9E6F-4C42-899A-7155FE78F6FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlButtonControl", "..\XamlButtonControl\XamlButtonControl.csproj", "{A6779DFE-B3E5-40D0-BC6F-AC45C199E026}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5481421-4A2D-4DF1-9B6C-BBD7AABE8BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5481421-4A2D-4DF1-9B6C-BBD7AABE8BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5481421-4A2D-4DF1-9B6C-BBD7AABE8BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5481421-4A2D-4DF1-9B6C-BBD7AABE8BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63B4EAB-9E6F-4C42-899A-7155FE78F6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63B4EAB-9E6F-4C42-899A-7155FE78F6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63B4EAB-9E6F-4C42-899A-7155FE78F6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63B4EAB-9E6F-4C42-899A-7155FE78F6FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6779DFE-B3E5-40D0-BC6F-AC45C199E026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6779DFE-B3E5-40D0-BC6F-AC45C199E026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6779DFE-B3E5-40D0-BC6F-AC45C199E026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6779DFE-B3E5-40D0-BC6F-AC45C199E026}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

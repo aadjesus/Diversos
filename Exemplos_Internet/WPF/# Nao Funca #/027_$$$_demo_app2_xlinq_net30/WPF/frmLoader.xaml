@@ -1,0 +1,130 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xml:lang="en-US"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2006"
+	x:Class="ImageTest.frmLoader"
+	x:Name="Window"
+	Title="Flickr-XLINQ-WPF Test"
+  WindowStartupLocation="CenterScreen"
+	Width="700" Height="600">
+
+
+  <Grid x:Name="MainGrid" Background="Black">
+
+    <Grid.Resources>
+      <ResourceDictionary>
+        <!-- GlassButtonTemplate -->
+        <ResourceDictionary.MergedDictionaries>
+          <ResourceDictionary Source="Resources/GlassButtonTemplate.xaml" />
+          <ResourceDictionary Source="Resources/txtBoxStyle.xaml" />
+          <ResourceDictionary Source="Resources/cmbStyle.xaml" />          
+        </ResourceDictionary.MergedDictionaries>
+
+        <Style x:Key="WrapItemTemplate" TargetType="{x:Type ListBox}">
+          <!-- Set the ItemTemplate of the ListBox to a DataTemplate which explains
+         how to display an object of type BitmapImage. -->
+          <Setter Property="ItemTemplate">
+            <Setter.Value>
+              <DataTemplate>
+                <Grid Width="120" Height="120" Grid.Row="3" Grid.Column="3">
+                  <Button Width="100" Height="100" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Margin="10,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ItemClicked">
+                    <Image x:Name="AssociatedImage" Source="{Binding Mode=OneWay, XPath=url}" Width="70" Height="70" Stretch="Fill">
+                    </Image>
+                    <Button.ToolTip>
+                      <ToolTip Content="{Binding Mode=OneWay, XPath=title}"/>
+                    </Button.ToolTip>
+                  </Button>
+                </Grid>
+              </DataTemplate>
+            </Setter.Value>
+          </Setter>
+          <!-- Swap out the default items panel with a WrapPanel so that
+         the images will be arranged with different layout. -->
+          <Setter Property="ItemsPanel">
+            <Setter.Value>
+              <ItemsPanelTemplate>
+                <WrapPanel />
+              </ItemsPanelTemplate>
+            </Setter.Value>
+          </Setter>
+
+          <!-- Set this attached property to 'Disabled' so that the ScrollViewer in the ListBox
+         will never show a horizontal scrollbar, and the WrapPanel it contains will be
+         constrained to the width of the ScrollViewer's viewable surface. -->
+          <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        
+      </ResourceDictionary>
+    </Grid.Resources>
+    
+
+    <Grid.RowDefinitions>
+      <!-- The bottom row is for the header panel -->
+      <RowDefinition Height="Auto" />
+      <!-- The top row is for the items contents grid -->
+      <RowDefinition Height="*" />
+      <!-- The bottom row is for the next/prev panel -->
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <!-- HEADER PANEL -->
+    <StackPanel Grid.Row="0" x:Name="pnlHeader" HorizontalAlignment="Left" Height="130" Width="600" Orientation="Horizontal" Background="#FF363636">
+      <Image Source="Resources/FlickrBig.png" Margin="0,0,0,0" Width="350" Height="70" VerticalAlignment="Top" />
+      <StackPanel x:Name="pnlSearching" HorizontalAlignment="Left" Height="Auto" Orientation="Vertical">
+        <!-- top panel-->
+        <StackPanel HorizontalAlignment="Left" Height="Auto" Orientation="Horizontal" Margin="0,10,0,0">
+          <Label HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Content="Enter Search Type" FontSize="11" FontWeight="Bold" Foreground="White"/>
+          <ComboBox x:Name="cmbSearchType" xmlns:Margin="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Margin="4,5,0,0" Style="{DynamicResource cmbStyle}" VerticalAlignment="Center" Width="150" Height="20" Background="#FFFFFFFF" FontSize="11" Foreground="#FF000000" IsSynchronizedWithCurrentItem="True">
+            <ComboBoxItem>Most Recent</ComboBoxItem>
+            <ComboBoxItem>Interesting</ComboBoxItem>
+            <ComboBoxItem>By Search Word</ComboBoxItem>
+          </ComboBox>
+          <Button  x:Name="btnSearch" Width="30" Height="20" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Go" ToolTip="Search Flickr using current Search Type"/>
+        </StackPanel>
+        <!-- bottom panel-->
+        <StackPanel x:Name="pnlSearchWord" HorizontalAlignment="Left" Height="Auto" Orientation="Horizontal" Margin="0,5,0,0">
+          <Label HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Content="Enter Search Word" FontSize="11" FontWeight="Bold" Foreground="White"/>
+          <TextBox x:Name="txtSearchWord" Margin="0,5,0,0" Style="{DynamicResource txtBoxStyle}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="20" Background="#FFFFFFFF" Foreground="#FF000000" FontSize="11"/>
+        </StackPanel>
+      </StackPanel>
+        
+    
+    </StackPanel>
+
+
+    <!-- ITEMS CONTENTS GRID -->
+    <Grid x:Name="ItemsGrid" Grid.Row="1">
+
+      <Grid.Background>
+        <ImageBrush ImageSource="Resources/bg.png" Opacity="0.45" >
+        </ImageBrush >
+      </Grid.Background>
+
+      <Grid.RowDefinitions>
+        <!-- The bottom row is for tthe main area -->
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <!-- SEARCH PANEL -->
+      <!-- NOTE : there is a listbox added to this panel in code behind at runtime -->
+      <StackPanel x:Name="pnlContents" HorizontalAlignment="Left" Height="Auto"  Width="Auto" Orientation="Vertical">
+      </StackPanel>
+      
+    </Grid>
+
+    <!-- PREV/NEXT PANEL -->
+    <StackPanel Grid.Row="2" x:Name="pnlNextPrev" HorizontalAlignment="Left" Height="Auto" Orientation="Horizontal" Background="Black">
+      <Image Source="Resources/Flickr.png" Margin="10,2,0,0" Width="300" Height="30"/>
+      <Button  x:Name="btnPrev" Width="80" Height="20" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Margin="10,10,0,10" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Prev">
+      </Button>
+      <Button  x:Name="btnNext" Width="80" Height="20" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Margin="10,10,0,10" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Next">
+      </Button>
+      <Label x:Name="lblPageIngex" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="DarkGray" FontFamily="Arial"/>
+
+    </StackPanel>
+
+
+
+  </Grid>
+</Window>

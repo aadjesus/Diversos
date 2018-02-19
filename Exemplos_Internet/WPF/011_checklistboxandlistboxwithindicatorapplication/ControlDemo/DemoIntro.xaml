@@ -1,0 +1,70 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="DemoIntro"
+    Tag="Introduction"
+    >
+    <Grid>
+        <FlowDocumentScrollViewer>
+            <FlowDocument>
+                <Section LineHeight="2" Foreground="Black" Padding="5">
+                    <Section.Background>
+                        <LinearGradientBrush EndPoint="0.508,0.835" StartPoint="0.508,0.167">
+                            <GradientStop Color="#FFFFE8D0" Offset="0"/>
+                            <GradientStop Color="#FFF88206" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Section.Background>
+                    <Paragraph FontSize="14">No Code, Just XAML!</Paragraph>
+                    <Paragraph FontSize="20">Get Your High Octane ListBox</Paragraph>
+                </Section>
+                <Paragraph>Within this project there are two distinct versions of the High Octane ListBox.  First there are 6 demos of ListBox &amp; ListBoxItem styles that achive all the goals, including my favorite, the CheckListBox supporting all the ListBox SelectionModes. (I was never able to get CheckBoxes stuffed into a ListBox to honor the SelectionModes.)  Next, I've included two Custom Controls that implment this same feature set but in a much different way.</Paragraph>
+                <Paragraph FontWeight="Bold">XAML Only Requirements</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>Allow the ListBoxItems to be added in XAML</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Allow the ListBox to be data bound in XAML</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Allow the ListBox to be data bound in code</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Allow the indicator size to be set in XAML</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Allow the indicator brush to be set in XAML</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Provide a UI where the indicator or CheckBox are visually separated from the corresponding ListBoxItem.</Paragraph>
+                        <Paragraph>Check out demo, CheckListBox W/Selector Color for a real vivid picture of this.</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>ListBoxes must support Single, Multiple &amp; Extended SelectionMode</Paragraph>
+                    </ListItem>
+                </List>
+                <Paragraph FontWeight="Bold">Custom Control Additional Requirements</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>Support the control being declared and instaintated in code without any XAML mark up</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Support the changing out of the child ListBox control at run time</Paragraph>
+                    </ListItem>
+                </List>
+                
+                <Paragraph FontWeight="Bold">Comments</Paragraph>
+                
+                <Paragraph>This journey all started out when I read Josh Smith's recent Code Project article,<Hyperlink x:Name="hlToJSArticle">The WPF Thought Process</Hyperlink>.  I really wanted to take the concept of what he designed and create a XAML only version.  After getting the first one ready, it hit me to take the next step and build a WPF CheckListBox.  I also made a Custom Control version for the Charlotte Developers GUILD Fall 2007 Code Camp.</Paragraph>
+                
+                <Paragraph FontWeight="Bold">Easter Egg</Paragraph>
+                <Paragraph>Be on the look out for an Easter Egg.  With Halloween just around the corner, what loose cannon could resist.  When you think you've found it, keep going.  Yes, you can find it in the XAML code, but what fun would that be?</Paragraph>
+                <Paragraph>Hope someone can learn from this code,</Paragraph>
+                <Paragraph>
+                    <Hyperlink x:Name="hlViewKSBlog" >View Karl's Blog</Hyperlink></Paragraph>
+                <Paragraph Foreground="#FFc0943f">Just a grain of sand on the worlds beaches.</Paragraph>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+            
+    </Grid>
+</UserControl>

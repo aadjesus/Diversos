@@ -1,0 +1,15 @@
+﻿<Window x:Class="ConsultaHistDetec.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="252" Width="954" >
+    <Grid>    
+        <StackPanel Orientation="Vertical">
+            
+        
+        <TextBlock Text="ssss"/>
+        <TextBlock/>
+        <TextBlock/>
+            <Button Content="Button" Height="23" Name="button1" Width="75" />
+        </StackPanel>
+    </Grid>
+</Window>

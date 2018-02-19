@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.Globus.DTO.LinhaDTO,GLB.DTO" table="BGM_CADLINHAS" lazy="false">
+      <id name="CodIntLinha" column="CODINTLINHA" type="int" unsaved-value="0">
+			<generator class="assigned"/>
+		</id>
+		<property name="CodigoOrgConc" type="String" column="CODIGOORGCONC" length="7" />
+		<property name="CodLocalTerminalSec" type="int" column="COD_LOCAL_TERMINAL_SEC" />
+		<property name="CodigoEmpresa" type="int" column="CODIGOEMPRESA" not-null="true" />
+		<property name="CodigoGrupoLinha" type="int" column="COD_ESCALAGRUPOLINHA" />
+		<property name="CodigoGa" type="int" column="CODIGOGA" not-null="true" />
+		<property name="CodigoLinha" type="String" column="CODIGOLINHA" not-null="true" length="10" />
+		<property name="NroFicialLinha" type="String" column="NROFICIALLINHA" not-null="true" length="20" />
+		<property name="NomeLinha" type="String" column="NOMELINHA" not-null="true" length="40" />
+		<property name="NomeAbreviado" type="String" column="NOMEABREVLINHA" length="15" />
+		<property name="LoteLinha" type="String" column="LOTELINHA" length="4" />
+		<property name="ComissaoMotLinha" type="Decimal" column="COMISSAOMOTLINHA" />
+		<property name="ComissaoCobLinha" type="Decimal" column="COMISSAOCOBLINHA" not-null="true" />
+		<property name="TipoDeServico" type="String" column="TIPODESERVICO" length="2" />
+		<property name="DataInicOperacaoLinha" type="DateTime" column="DATAINICOPERACAOLINHA" />
+		<property name="FlgRespGuia" type="String" column="FLG_RESPGUIA" length="1" />
+		<property name="CodigoRegiao" type="int" column="CODIGOGRUPOLINHA" />
+		<property name="OrigemLinha" type="int" column="ORIGEMLINHA" />
+		<property name="DestinoLinha" type="int" column="DESTINOLINHA" />
+		<property name="CodAgenciaIda" type="int" column="COD_AGENCIA_IDA" />
+		<property name="CodAgenciaVolta" type="int" column="COD_AGENCIA_VOLTA" />
+		<property name="Categoria" type="int" column="CODIGOTPLINHA" not-null="true" />
+		<property name="FlgMunicInterest" type="String" column="FLG_MUNIC_INTEREST" length="1" />
+		<property name="Ordem" type="int" column="ORDEM" />
+		<property name="FlgPaese" type="String" column="FLG_PAESE" not-null="true" length="1" />
+		<property name="FlgCircular" type="String" column="FLG_CIRCULAR" not-null="true" length="1" />
+		<property name="LogAlter" type="String" column="LOG_ALTER" length="35" />
+		<property name="CodigoFl" type="int" column="CODIGOFL" />
+		<property name="NaoCriticaCircular" type="String" column="NAOCRITICACIRCULAR" length="1" />
+		<property name="CodigoImportacao" type="String" column="CODIGOIMPORTACAO" length="10" />
+		<property name="FlgLinhaPrincipal" type="String" column="FLG_LINHA_PRINCIPAL" length="1" />
+		<property name="DigitaSecao" type="String" column="DIGITASECAO" length="1" />
+		<property name="TipoCircular" type="String" column="TIPOCIRCULAR" length="1" />
+		<property name="DigitaQtd" type="String" column="DIGITAQTD" length="1" />
+		<property name="CodIntLinhaComp" type="int" column="CODINTLINHACOMP" />
+		<property name="TempoMinViagem" type="int" column="TEMPOMINVIAGEM" />
+		<property name="CodigoLinhaMin" type="String" column="CODIGOLINHAMIN" length="10" />
+		<property name="DigitaOrigemDestino" type="String" column="DIGITAORIGEMDESTINO" length="1" />
+		<property name="CodGrupoLinhaPvt" type="int" column="COD_GRUPOLINHA_PVT" />
+    <property name="IntervaloComboio" type="int" column="INTERVALO_COMBOIO" />
+    <property name="FatorRenovacao" type="int" column="FATORRENOVACAO" />
+  </class>
+</hibernate-mapping>

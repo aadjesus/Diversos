@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayMultipleValuesInCombobox", "DisplayMultipleValuesInCombobox\DisplayMultipleValuesInCombobox.csproj", "{B2D4F4CB-F951-4C57-A55B-FC15FB1BF73F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2D4F4CB-F951-4C57-A55B-FC15FB1BF73F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D4F4CB-F951-4C57-A55B-FC15FB1BF73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D4F4CB-F951-4C57-A55B-FC15FB1BF73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D4F4CB-F951-4C57-A55B-FC15FB1BF73F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

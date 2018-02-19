@@ -1,0 +1,57 @@
+nBASS 0.9.6.1 (4 November 2002)
+
+- CLSCompliant :)
+- Support for BASS version 1.7+
+
+nBASS 0.9.6 (14 September 2002)
+
+- Fixed Stream Tags. New tag properties available.
+- WMAStream now directly inherites from AdvancedChannel.
+- New ID3v1Tag class available.
+
+nBASS 0.9.5 (9 September 2002)
+
+- Fixed bug in WMAStream.GetTags()
+- Added IDisposable to classes (big thanks to Joel Mueller)
+- ChannelBase and AdvancedChannel is now abstract (again, thanx to Joel)
+- Change exceptions to show message when exception is thrown without having to do it 
+  manually :)
+
+nBASS 0.9.4 (2 September 2002)
+
+- Added Record class for recording. Works, but unpredictably. :(
+- Added GetData(short[], int) to AdvancedChannel. 16-bit data.
+- Added 3 Recording delegates to be used with Record.Start().
+- Added WMAEncoder.Write(short[], int).
+- Added WMAEncoder.Write(IntPtr, int) for Record support.
+- Added RecordTest. Idea for 2 way live encoding, but WMAStream.Play takes too long, 
+  about 10 seconds. Not sure about this.
+- Updated WMAEncodeTest to do both 8/16-bit decoded sources.
+
+nBASS 0.9.3 (1 September 2002)
+
+- Added WMA streaming support, needs basswma.dll (duh!)
+- Added WMAStreamTest with visuals.
+- Added FX Parameters property. FX can now be tuned.
+- Added GetData(byte[] buffer, int length) to AdvancedChannel. 
+- Added Stereo FFT flags.
+- Added WMA Encoding, woohoo, net radio!
+- Added WMAEncoderTest.
+
+nBASS 0.9.2 (29 August 2002)
+
+- Add ProgressInterval property to ChannelBase
+- added AdvancedChannel.GetData()
+- added StreamTest with visualizers (same as VB.Net) with stereo
+- all Debug projects now outputs to a single bin dir in the root. Copy bass.dll there. 
+- Increased Progress event to fire even quicker. From 100ms to 20ms.
+
+nBASS 0.9.1 (28 August 2002)
+
+- Progress event now "syncs" with Form.
+- CDTest included, uses default drive.
+- ModTest included with 3D sliders and EAX Presets.
+
+nBASS 0.9.0 (27 August 2002)
+
+- 1st public release.

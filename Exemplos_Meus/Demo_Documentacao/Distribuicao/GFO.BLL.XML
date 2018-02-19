@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GFO.BLL</name>
+    </assembly>
+    <members>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.BLL.RelatorioBO">
+            <summary>
+            Classe reservada aos métodos de regras de negócio relacionada aos relatorios dos módulos do Gestao de Frota OnLine.
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.RelatorioBO.RetornarOperadoraRelatorio(System.Int32)">
+            <summary>
+            Retornar Operadora para relatorio
+            </summary>
+            <param name="CodOperadora">Codigo operadora.</param>
+            <returns>Lista de objetos do tipo OperadoraDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.RelatorioBO.RetornarParametrosRelatorio(System.Int32)">
+            <summary>
+            Retornar Parametros para relatorio
+            </summary>
+            <param name="CodigoEmpresa">Codigo Empresa.</param>
+            <returns>Lista de objetos do tipo ParametrosDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.RelatorioBO.RetornarUsuarioLinhaRelatorio(System.String)">
+            <summary>
+            Retornar usuario linha para relatorio
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>Lista de objetos do tipo UsuarioLinhaDTO</returns>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO">
+            <summary>
+            Classe reservada aos métodos de regras de negócio relacionada aos cadastros dos módulos do Gestao de Frota OnLine.
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarOperadora(System.Int32)">
+            <summary>
+            Retornar Operadora
+            </summary>
+            <param name="CodOperadora">Codigo operadora.</param>
+            <returns>Lista de objetos do tipo OperadoraDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarTodosOperadoras">
+            <summary>
+            Retorna todas operadora.
+            </summary>
+            <returns>Lista de objetos do tipo OperadoraDTO.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarOperadoraPorChave(System.Int32)">
+            <summary>
+            Retorna Operadora pela chave.
+            </summary>
+            <param name="codoperadora">codoperadora</param>
+            <returns>Objeto do tipo OperadoraDTO.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.SalvarOuAlterar(Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO)">
+            <summary>
+            Salva ou altera Operadora.
+            </summary>	
+            <param name="operadoraDTO">Objeto do tipo OperadoraDTO.</param>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarTodosParametros">
+            <summary>
+            Retorna todos Parametros.
+            </summary>
+            <returns>Lista de objetos do tipo ParametrosDTO.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarParametros(System.Int32)">
+            <summary>
+            Retornar Parametros
+            </summary>
+            <param name="CodigoEmpresa">Codigo Empresa.</param>
+            <returns>Lista de objetos do tipo ParametrosDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarParametrosPorChave(System.Int32,System.Int32)">
+            <summary>
+            Retorna Parametros pela chave.
+            </summary>
+            <param name="codigoempresa">codigoempresa</param>
+            <param name="codigofl">codigofl</param>
+            <returns>Objeto do tipo ParametrosDTO.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarTodosUsuarioLinhas">
+            <summary>
+            Retorna todos Usuario Linha.
+            </summary>
+            <returns>Lista de objetos do tipo UsuarioLinhaDTO.</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.BLL.CadastroBO.RetornarUsuarioLinha(System.String)">
+            <summary>
+            Retornar usuario linha
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>Lista de objetos do tipo UsuarioLinhaDTO</returns>
+        </member>
+    </members>
+</doc>

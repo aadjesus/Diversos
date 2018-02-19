@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5451a7cc-6fc1-4f89-91a2-25c7a6ca144b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1010/ComboPackagesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ComboPackagesService.wsdl" MetadataType="Wsdl" ID="78d6600b-a65c-4859-9179-af666df12b87" SourceId="1" SourceUrl="http://localhost:1010/ComboPackagesService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ComboPackagesService.disco" MetadataType="Disco" ID="c6c849b9-519d-4e86-8ce1-8e1bba4e1491" SourceId="1" SourceUrl="http://localhost:1010/ComboPackagesService.svc?disco" />
+    <MetadataFile FileName="ComboPackagesService.xsd" MetadataType="Schema" ID="f0f86d06-a52d-4abd-9df7-047308d4ead9" SourceId="1" SourceUrl="http://localhost:1010/ComboPackagesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ComboPackagesService1.xsd" MetadataType="Schema" ID="ec8827e5-f7ca-4f4f-b351-e8188fe960e8" SourceId="1" SourceUrl="http://localhost:1010/ComboPackagesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ComboPackagesService1.wsdl" MetadataType="Wsdl" ID="bfc42e9e-b881-4a26-8b7b-eb35ab948844" SourceId="1" SourceUrl="http://localhost:1010/ComboPackagesService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

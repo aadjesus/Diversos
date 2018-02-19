@@ -1,0 +1,103 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="clr-namespace:PhysicsHost.ViewModel" 
+    xmlns:local="clr-namespace:PhysicsHost">
+	<!-- Resource dictionary entries should be defined here. -->
+
+    <!-- Anchor button template -->
+    <ControlTemplate x:Key="anchorButtonTemplate" TargetType="{x:Type Button}">
+        <ContentPresenter Margin="0" Content="{TemplateBinding Content}" Width="auto" Height="auto">
+            <ContentPresenter.ToolTip>
+                    <StackPanel Margin="5,5,5,5" Orientation="Vertical" Background="Black">
+                        <Label Height="auto" FontSize="16" FontWeight="Bold" Width="auto" 
+                               Background="Black" Foreground="White" Content="Search Root"/>
+                        <Label Height="auto" FontSize="10"  Width="auto" Foreground="White"
+                               Content="Drag me around to see what happens"/>
+                    </StackPanel>
+            </ContentPresenter.ToolTip>
+        </ContentPresenter>
+    </ControlTemplate>
+
+    <!-- MenuItem -->
+    <ControlTemplate x:Key="contentMenuItemTemplate"  TargetType="{x:Type MenuItem}">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                AncestorType={x:Type MenuItem}},Path=Tag}" Width="25" Height="25" />
+            <Label Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                AncestorType={x:Type MenuItem}},Path=Header}" Height="25" />
+        </StackPanel>
+    </ControlTemplate>
+ 
+    <!-- Linear Background Brush -->
+    <LinearGradientBrush x:Key="orangeGradientBrush" EndPoint="0.505,0.028" StartPoint="0.498,0.994" >
+        <GradientStop Color="#FFFF9300" Offset="1"/>
+        <GradientStop Color="#FFFFFFFF" Offset="0.173"/>
+        <GradientStop Color="#FFE7A034" Offset="0.793"/>
+        <GradientStop Color="#FFF8BE67" Offset="0.519"/>
+        <GradientStop Color="#FFFFDA9E" Offset="0.428"/>
+        <GradientStop Color="#FFFFFFFF" Offset="0.255"/>
+        <GradientStop Color="#FFF0AC3B" Offset="0.62"/>
+        <GradientStop Color="#FFEA9F2E" Offset="0.712"/>
+    </LinearGradientBrush>
+
+    <!-- Linear Background Brush -->
+    <LinearGradientBrush x:Key="LightBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="#FFF" Offset="0.0"/>
+                <GradientStop Color="#EEE" Offset="1.0"/>
+            </GradientStopCollection>
+        </GradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <!-- Solid Background Brush -->
+    <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+
+    <!-- Flag image -->
+    <Style TargetType="{x:Type Image}" x:Key="flagImageStyle">
+        <Setter Property="Source" Value="../images/WorldFlag.png"/>
+        <Style.Triggers>
+            <Trigger Property="Tag" Value="USA">
+                <Setter Property="Source" Value="../images/USAFlag.png"/>
+            </Trigger>
+            <Trigger Property="Tag" Value="UK">
+                <Setter Property="Source" Value="../images/UKFlag.png"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Tooltip left labels -->
+    <Style TargetType="{x:Type Label}" x:Key="toolTipLabelLeft">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="FontWeight" Value="bold"/>
+    </Style>
+
+    <!-- Tooltip right labels -->
+    <Style TargetType="{x:Type Label}" x:Key="toolTipLabelRight">
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Margin" Value="4,0,0,0"/>
+    </Style>
+
+    <!-- Specialized ToolTip Style -->
+    <Style TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="HasDropShadow" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border CornerRadius="10" Background="{StaticResource orangeGradientBrush}"
+                            BorderBrush="White" BorderThickness="1">
+                        <ContentPresenter Width="auto" Height="auto" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

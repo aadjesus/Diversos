@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E202C74D-D4F6-4D24-8545-14445E4E8C1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenWPFChart.Helpers</RootNamespace>
+    <AssemblyName>OpenWPFChart.Helpers</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AxisPropertiesDialog\AxisDataView.cs" />
+    <Compile Include="AxisPropertiesDialog\AxisPropertiesDialog.xaml.cs">
+      <DependentUpon>AxisPropertiesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AxisPropertiesDialog\DateTimeAxisDataView.cs" />
+    <Compile Include="AxisPropertiesDialog\LinearAxisDataView.cs" />
+    <Compile Include="AxisPropertiesDialog\LogarithmicAxisDataView.cs" />
+    <Compile Include="AxisPropertiesDialog\SeriesAxisDataView.cs" />
+    <Compile Include="ChartScaleControl\ChartScaleControl.xaml.cs">
+      <DependentUpon>ChartScaleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChartPointPropertiesDialog.xaml.cs">
+      <DependentUpon>ChartPointPropertiesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PointMarkerDialog.xaml.cs">
+      <DependentUpon>PointMarkerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FontChooser\ColorSelectionItem.cs" />
+    <Compile Include="FontChooser\DialogEvent.cs" />
+    <Compile Include="FontChooser\FontChoice.cs" />
+    <Compile Include="FontChooser\FontChooser.xaml.cs">
+      <DependentUpon>FontChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FontChooser\FontItems.cs" />
+    <Compile Include="FontChooser\FontRendering.cs" />
+    <Compile Include="FontChooser\KnownColor.cs" />
+    <Compile Include="FontChooser\ToolTipMessage.cs" />
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="ChartScaleControl\ChartDateTimeScaleDataView.cs" />
+    <Compile Include="ChartScaleControl\ChartNumericScaleDataView.cs" />
+    <Compile Include="ChartScaleControl\ChartSeriesScaleDataView.cs" />
+    <Compile Include="ChartScaleControl\ChartScaleDataView.cs" />
+    <Compile Include="ItemPropertiesDialog\ItemPropertiesDataView.cs" />
+    <Compile Include="ItemPropertiesDialog\ItemPropertiesDialog.xaml.cs">
+      <DependentUpon>ItemPropertiesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DialogStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="AxisPropertiesDialog\AxisPropertiesDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChartScaleControl\ChartScaleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChartPointPropertiesDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PointMarkerDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FontChooser\FontChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemPropertiesDialog\ItemPropertiesDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChartParts\ChartParts.csproj">
+      <Project>{0E98FA11-3862-478D-A140-7954FA6B4B41}</Project>
+      <Name>ChartParts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

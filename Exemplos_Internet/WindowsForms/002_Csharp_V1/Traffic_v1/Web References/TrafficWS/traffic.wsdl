@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservices.maplink2.com.br" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webservices.maplink2.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservices.maplink2.com.br">
+      <s:element name="getInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultRange" type="tns:ResultRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="City">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="recordsPerPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getInfoResult" type="tns:TrafficInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TrafficInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalRecord" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:ArrayOfInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Info" type="tns:Info" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Info">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="situation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="km" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCorridor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultRange" type="tns:ResultRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCorridorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCorridorResult" type="tns:CorridorInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CorridorInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalRecord" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="corridor" type="tns:ArrayOfCorridor" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCorridor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Corridor" type="tns:Corridor" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Corridor">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codCorridor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nameCorridor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="levelCongested" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+          <s:element minOccurs="1" maxOccurs="1" name="excerptInfo" type="tns:ExcerptInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Point">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExcerptInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalRecord" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="excerpt" type="tns:ArrayOfExcerpt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExcerpt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Excerpt" type="tns:Excerpt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Excerpt">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codCorridor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="codExcerpt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nameExcerpt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="levelCongested" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="codDirection" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="direction" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+          <s:element minOccurs="1" maxOccurs="1" name="point" type="tns:Point" />
+          <s:element minOccurs="1" maxOccurs="1" name="distance" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="order" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getExcerpt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCorridor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultRange" type="tns:ResultRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getExcerptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getExcerptResult" type="tns:ExcerptInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCorridorsCongested">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultRange" type="tns:ResultRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCorridorsCongestedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCorridorsCongestedResult" type="tns:CorridorInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getExcerptsCongested">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCorridor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultRange" type="tns:ResultRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getExcerptsCongestedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getExcerptsCongestedResult" type="tns:ExcerptInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllCongested">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="city" type="tns:City" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllCongestedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getAllCongestedResult" type="tns:CorridorInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getInfo" />
+  </wsdl:message>
+  <wsdl:message name="getInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCorridorSoapIn">
+    <wsdl:part name="parameters" element="tns:getCorridor" />
+  </wsdl:message>
+  <wsdl:message name="getCorridorSoapOut">
+    <wsdl:part name="parameters" element="tns:getCorridorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getExcerptSoapIn">
+    <wsdl:part name="parameters" element="tns:getExcerpt" />
+  </wsdl:message>
+  <wsdl:message name="getExcerptSoapOut">
+    <wsdl:part name="parameters" element="tns:getExcerptResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCorridorsCongestedSoapIn">
+    <wsdl:part name="parameters" element="tns:getCorridorsCongested" />
+  </wsdl:message>
+  <wsdl:message name="getCorridorsCongestedSoapOut">
+    <wsdl:part name="parameters" element="tns:getCorridorsCongestedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getExcerptsCongestedSoapIn">
+    <wsdl:part name="parameters" element="tns:getExcerptsCongested" />
+  </wsdl:message>
+  <wsdl:message name="getExcerptsCongestedSoapOut">
+    <wsdl:part name="parameters" element="tns:getExcerptsCongestedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllCongestedSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllCongested" />
+  </wsdl:message>
+  <wsdl:message name="getAllCongestedSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllCongestedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TrafficSoap">
+    <wsdl:operation name="getInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações gerais de transito, de acordo com a localidade</wsdl:documentation>
+      <wsdl:input message="tns:getInfoSoapIn" />
+      <wsdl:output message="tns:getInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCorridor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações de todos os corredores de uma localidade</wsdl:documentation>
+      <wsdl:input message="tns:getCorridorSoapIn" />
+      <wsdl:output message="tns:getCorridorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getExcerpt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações de todos os trechos de um corredor</wsdl:documentation>
+      <wsdl:input message="tns:getExcerptSoapIn" />
+      <wsdl:output message="tns:getExcerptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCorridorsCongested">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações de todos os corredores congestionados de uma localidade</wsdl:documentation>
+      <wsdl:input message="tns:getCorridorsCongestedSoapIn" />
+      <wsdl:output message="tns:getCorridorsCongestedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getExcerptsCongested">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações de todos os trechos congestionados de um corredor</wsdl:documentation>
+      <wsdl:input message="tns:getExcerptsCongestedSoapIn" />
+      <wsdl:output message="tns:getExcerptsCongestedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCongested">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informações de todos os corredores e trechos congestionados de uma ou mais localidades</wsdl:documentation>
+      <wsdl:input message="tns:getAllCongestedSoapIn" />
+      <wsdl:output message="tns:getAllCongestedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TrafficSoap" type="tns:TrafficSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInfo">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCorridor">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getCorridor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExcerpt">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getExcerpt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCorridorsCongested">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getCorridorsCongested" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExcerptsCongested">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getExcerptsCongested" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCongested">
+      <soap:operation soapAction="http://webservices.maplink2.com.br/getAllCongested" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TrafficSoap12" type="tns:TrafficSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInfo">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCorridor">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getCorridor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExcerpt">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getExcerpt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCorridorsCongested">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getCorridorsCongested" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExcerptsCongested">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getExcerptsCongested" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCongested">
+      <soap12:operation soapAction="http://webservices.maplink2.com.br/getAllCongested" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Traffic">
+    <wsdl:port name="TrafficSoap" binding="tns:TrafficSoap">
+      <soap:address location="http://teste.webservices.maplink2.com.br/webservices/v1/traffic/traffic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TrafficSoap12" binding="tns:TrafficSoap12">
+      <soap12:address location="http://teste.webservices.maplink2.com.br/webservices/v1/traffic/traffic.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

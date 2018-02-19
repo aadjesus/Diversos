@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+<title>Syntax Highlighting &lt;pre&gt; Tag Content</title>
+</head>
+
+<body>
+
+<h2>Syntax Highlighting <code>&lt;pre&gt;</code> Tag Content</h2>
+The help file builder allows you to add custom attributes to the
+<code>&lt;pre&gt;</code> tags in additional content HTML files to specify
+how the text should be colorized.  The same attributes defined for the
+code block component can be used on <code>&lt;pre&gt;</code> tags with the
+exception of the <code>source</code> and <code>region</code> attributes.
+For the remaining attributes, the <code>lang</code> attribute must appear
+or they will be ignored.  See the
+<a href="../../CompConfig/CodeBlockComponent.html">Code Block Component</a>
+help topic for details.  Below is an example.<br/><br/>
+
+<pre lang="xml" title="As specified in the HTML">
+&lt;pre lang="cs" numberLines="true" outlining="true"
+  title="Example of Syntax Highlighting"&gt;
+#region Collapsible region
+// Test method
+public void TestMethod(string s, int x)
+{
+#if DEBUG
+    // Debug code
+    x = x + 1;
+    s = x.ToString();
+#else
+    // Release code
+    x = x + 5;
+    s = x.ToString();
+#endif
+
+    Console.WriteLine("The string = " + s);
+}
+#endregion
+&lt;/pre&gt;
+
+</pre>
+
+<p/>As rendered with colorizing and collapsible regions:<br /><br />
+
+<pre lang="cs" numberLines="true" outlining="true"
+  title="Example of Syntax Highlighting">
+
+#region Collapsible region
+// Test method
+public void TestMethod(string s, int x)
+{
+#if DEBUG
+    // Debug code
+    x = x + 1;
+    s = x.ToString();
+#else
+    // Release code
+    x = x + 5;
+    s = x.ToString();
+#endif
+
+    Console.WriteLine("The string = " + s);
+}
+#endregion
+</pre>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+
+<!-- @SortOrder 6 -->

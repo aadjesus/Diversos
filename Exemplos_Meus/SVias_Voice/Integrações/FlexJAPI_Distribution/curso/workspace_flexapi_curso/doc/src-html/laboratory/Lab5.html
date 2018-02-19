@@ -1,0 +1,187 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package laboratory;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import java.net.URISyntaxException;<a name="line.3"></a>
+<FONT color="green">004</FONT>    <a name="line.4"></a>
+<FONT color="green">005</FONT>    import br.com.voicetechnology.flexapi.agentadapter.AgentAdapter;<a name="line.5"></a>
+<FONT color="green">006</FONT>    import br.com.voicetechnology.flexapi.agentadapter.AgentCall;<a name="line.6"></a>
+<FONT color="green">007</FONT>    import br.com.voicetechnology.flexapi.agentadapter.executable.CommandAnswer;<a name="line.7"></a>
+<FONT color="green">008</FONT>    import br.com.voicetechnology.flexapi.collection.CollectionListener;<a name="line.8"></a>
+<FONT color="green">009</FONT>    import br.com.voicetechnology.flexapi.executable.Command;<a name="line.9"></a>
+<FONT color="green">010</FONT>    import br.com.voicetechnology.flexapi.executable.CommandListener;<a name="line.10"></a>
+<FONT color="green">011</FONT>    import br.com.voicetechnology.flexapi.tables.Record;<a name="line.11"></a>
+<FONT color="green">012</FONT>    <a name="line.12"></a>
+<FONT color="green">013</FONT>    /**<a name="line.13"></a>
+<FONT color="green">014</FONT>     * Laboratório 5.<a name="line.14"></a>
+<FONT color="green">015</FONT>     * Envio de comandos.<a name="line.15"></a>
+<FONT color="green">016</FONT>     * Este exemplo demostra como enviar comandos de controle da chamada.<a name="line.16"></a>
+<FONT color="green">017</FONT>     * Um comando de atendimento de chamada será enviado quando detectar <a name="line.17"></a>
+<FONT color="green">018</FONT>     * a presença de uma chamada tocando no ramal.<a name="line.18"></a>
+<FONT color="green">019</FONT>     * <a name="line.19"></a>
+<FONT color="green">020</FONT>     * @author Roberto Elvira<a name="line.20"></a>
+<FONT color="green">021</FONT>     */<a name="line.21"></a>
+<FONT color="green">022</FONT>    <a name="line.22"></a>
+<FONT color="green">023</FONT>    public class Lab5 implements CollectionListener {<a name="line.23"></a>
+<FONT color="green">024</FONT>            private static final String RAMAL = "3001";<a name="line.24"></a>
+<FONT color="green">025</FONT>            private static final int APP_NUMBER = 21501;<a name="line.25"></a>
+<FONT color="green">026</FONT>            private static final String VERSION = "1.0.0";<a name="line.26"></a>
+<FONT color="green">027</FONT>            private static final String URL = "//127.0.0.1:2556";<a name="line.27"></a>
+<FONT color="green">028</FONT>            <a name="line.28"></a>
+<FONT color="green">029</FONT>        private AgentAdapter api = null;<a name="line.29"></a>
+<FONT color="green">030</FONT>        <a name="line.30"></a>
+<FONT color="green">031</FONT>            public Lab5() throws URISyntaxException {<a name="line.31"></a>
+<FONT color="green">032</FONT>            api = new AgentAdapter();<a name="line.32"></a>
+<FONT color="green">033</FONT>            api.getApplicationInfo().getDevice().setRamal(RAMAL);<a name="line.33"></a>
+<FONT color="green">034</FONT>            api.getApplicationInfo().setNumber(APP_NUMBER);<a name="line.34"></a>
+<FONT color="green">035</FONT>            api.getApplicationInfo().setVersion(VERSION);<a name="line.35"></a>
+<FONT color="green">036</FONT>            api.getStream().setURL(URL);<a name="line.36"></a>
+<FONT color="green">037</FONT>            <a name="line.37"></a>
+<FONT color="green">038</FONT>            api.getCalls().addListener(this);<a name="line.38"></a>
+<FONT color="green">039</FONT>    <a name="line.39"></a>
+<FONT color="green">040</FONT>            api.getStream().open();<a name="line.40"></a>
+<FONT color="green">041</FONT>            }<a name="line.41"></a>
+<FONT color="green">042</FONT>            public void close() {<a name="line.42"></a>
+<FONT color="green">043</FONT>                    api.getStream().close();<a name="line.43"></a>
+<FONT color="green">044</FONT>            }<a name="line.44"></a>
+<FONT color="green">045</FONT>            public static void main(String[] args) throws Exception {<a name="line.45"></a>
+<FONT color="green">046</FONT>                    Lab5 main =     new Lab5();<a name="line.46"></a>
+<FONT color="green">047</FONT>                    System.in.read();<a name="line.47"></a>
+<FONT color="green">048</FONT>                    main.close();<a name="line.48"></a>
+<FONT color="green">049</FONT>            }<a name="line.49"></a>
+<FONT color="green">050</FONT>            private void answer(AgentCall call) {<a name="line.50"></a>
+<FONT color="green">051</FONT>                    boolean usaconveniencia = false;<a name="line.51"></a>
+<FONT color="green">052</FONT>                    if (usaconveniencia) {<a name="line.52"></a>
+<FONT color="green">053</FONT>                            // Usa uma função de convenência para retornar o comando de atendimento para <a name="line.53"></a>
+<FONT color="green">054</FONT>                            // a chamada atualmente tocando.<a name="line.54"></a>
+<FONT color="green">055</FONT>                            Command cmd = api.getCommandAnswer();<a name="line.55"></a>
+<FONT color="green">056</FONT>                            try {<a name="line.56"></a>
+<FONT color="green">057</FONT>                                    // Envia o comando de forma assincrona.<a name="line.57"></a>
+<FONT color="green">058</FONT>                                    api.execute(cmd);<a name="line.58"></a>
+<FONT color="green">059</FONT>                                    // Comando enviado com sucesso.<a name="line.59"></a>
+<FONT color="green">060</FONT>                            } catch (Exception e) {<a name="line.60"></a>
+<FONT color="green">061</FONT>                                    System.out.println("Erro no envio do comando de atendimento");<a name="line.61"></a>
+<FONT color="green">062</FONT>                            }<a name="line.62"></a>
+<FONT color="green">063</FONT>                    }<a name="line.63"></a>
+<FONT color="green">064</FONT>                    else {<a name="line.64"></a>
+<FONT color="green">065</FONT>                            // Outra forma de realizar o comando.<a name="line.65"></a>
+<FONT color="green">066</FONT>                            // Cria um comando de atendimento.<a name="line.66"></a>
+<FONT color="green">067</FONT>                            CommandAnswer cmdAnswer = new CommandAnswer();<a name="line.67"></a>
+<FONT color="green">068</FONT>                            // Marca a chamada para ser atendida.<a name="line.68"></a>
+<FONT color="green">069</FONT>                            cmdAnswer.setToCall(call);<a name="line.69"></a>
+<FONT color="green">070</FONT>                            // adiciona um listener para saber o resultado do comando<a name="line.70"></a>
+<FONT color="green">071</FONT>                            cmdAnswer.addListener(new CommandListener() {<a name="line.71"></a>
+<FONT color="green">072</FONT>                                    public void onCommandResponse(Command arg0) {<a name="line.72"></a>
+<FONT color="green">073</FONT>                                            if (arg0.getResponse().getResponse() == 0) {<a name="line.73"></a>
+<FONT color="green">074</FONT>                                                    System.out.println("Comando executado com sucesso");<a name="line.74"></a>
+<FONT color="green">075</FONT>                                            }<a name="line.75"></a>
+<FONT color="green">076</FONT>                                            else {<a name="line.76"></a>
+<FONT color="green">077</FONT>                                                    System.out.println("Erro na execução do comando:" + arg0.getResponse().getResponse());<a name="line.77"></a>
+<FONT color="green">078</FONT>                                            }<a name="line.78"></a>
+<FONT color="green">079</FONT>                                    }<a name="line.79"></a>
+<FONT color="green">080</FONT>                                    public void onCommandTimeout(Command arg0) {<a name="line.80"></a>
+<FONT color="green">081</FONT>                                            System.out.println("Timeout no comando de atendimento");<a name="line.81"></a>
+<FONT color="green">082</FONT>                                    }<a name="line.82"></a>
+<FONT color="green">083</FONT>                            });<a name="line.83"></a>
+<FONT color="green">084</FONT>                            // Envia o comando<a name="line.84"></a>
+<FONT color="green">085</FONT>                            try {<a name="line.85"></a>
+<FONT color="green">086</FONT>                                    api.execute(cmdAnswer);<a name="line.86"></a>
+<FONT color="green">087</FONT>                            } catch (Exception e) {<a name="line.87"></a>
+<FONT color="green">088</FONT>                                    System.out.println("Erro no envio do comando de atendimento");<a name="line.88"></a>
+<FONT color="green">089</FONT>                            }<a name="line.89"></a>
+<FONT color="green">090</FONT>                    }<a name="line.90"></a>
+<FONT color="green">091</FONT>            }<a name="line.91"></a>
+<FONT color="green">092</FONT>            public void added(Object arg0, Object arg1, int arg2) {<a name="line.92"></a>
+<FONT color="green">093</FONT>                    if (arg1 == null) return;<a name="line.93"></a>
+<FONT color="green">094</FONT>                    Record record = (Record)arg1;<a name="line.94"></a>
+<FONT color="green">095</FONT>                    System.out.println("Added:" + record.toString());<a name="line.95"></a>
+<FONT color="green">096</FONT>                    AgentCall call = (AgentCall)arg1;<a name="line.96"></a>
+<FONT color="green">097</FONT>                    System.out.println(call.getTable().getField().toString());<a name="line.97"></a>
+<FONT color="green">098</FONT>                    System.out.println("Active:" + call.isActive());<a name="line.98"></a>
+<FONT color="green">099</FONT>                    if (call.isState(AgentCall.STT_RINGING)) {<a name="line.99"></a>
+<FONT color="green">100</FONT>                            answer(call);<a name="line.100"></a>
+<FONT color="green">101</FONT>                    }<a name="line.101"></a>
+<FONT color="green">102</FONT>            }<a name="line.102"></a>
+<FONT color="green">103</FONT>            public void deleted(Object arg0, Object arg1, int arg2) {<a name="line.103"></a>
+<FONT color="green">104</FONT>                    if (arg1 == null) return;<a name="line.104"></a>
+<FONT color="green">105</FONT>                    Record record = (Record)arg1;<a name="line.105"></a>
+<FONT color="green">106</FONT>                    System.out.println("Deleted:" + record.toString());<a name="line.106"></a>
+<FONT color="green">107</FONT>                    AgentCall call = (AgentCall)arg1;<a name="line.107"></a>
+<FONT color="green">108</FONT>                    System.out.println("Active:" + call.isActive());<a name="line.108"></a>
+<FONT color="green">109</FONT>                    System.out.println("Chamada desligada.");<a name="line.109"></a>
+<FONT color="green">110</FONT>            }<a name="line.110"></a>
+<FONT color="green">111</FONT>            public void updated(Object arg0, Object arg1, int arg2) {<a name="line.111"></a>
+<FONT color="green">112</FONT>                    if (arg1 == null) return;<a name="line.112"></a>
+<FONT color="green">113</FONT>                    Record record = (Record)arg1;<a name="line.113"></a>
+<FONT color="green">114</FONT>                    System.out.println("Updated:" + record.toString());<a name="line.114"></a>
+<FONT color="green">115</FONT>                    AgentCall call = (AgentCall)arg1;<a name="line.115"></a>
+<FONT color="green">116</FONT>                    System.out.println("Active:" + call.isActive());<a name="line.116"></a>
+<FONT color="green">117</FONT>                    if (call.isState(AgentCall.STT_ANSWERED)) {<a name="line.117"></a>
+<FONT color="green">118</FONT>                            System.out.println("Chamada atendida");<a name="line.118"></a>
+<FONT color="green">119</FONT>                    }<a name="line.119"></a>
+<FONT color="green">120</FONT>            }<a name="line.120"></a>
+<FONT color="green">121</FONT>    }<a name="line.121"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,684 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 147, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Toolbar Editor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,48,61,50,16,WS_GROUP
+    CTEXT           "Toolbar Editor 1.44  ""POW WOW""\n\nWritten by Francesco Aruta",IDC_STATIC,7,7,133,29
+    CTEXT           "http://www.p-network.net",IDC_STATIC_LINK,7,36,133,8
+    LTEXT           "Support Forum",IDC_STATIC_LINKFORUM,49,48,48,8
+END
+
+IDD_TBARGENADDIN_DIALOG DIALOGEX 0, 0, 454, 419
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES | WS_EX_APPWINDOW
+CAPTION "Toolbar Editor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Scan",IDC_BUTTON_SCANRESOURCE,120,216,34,14
+    PUSHBUTTON      "TOP",IDC_BUTTON_TOP,321,101,22,14
+    PUSHBUTTON      "UP",IDC_BUTTON_UP,321,121,22,14
+    PUSHBUTTON      "DWN",IDC_BUTTON_DOWN,321,136,22,14
+    PUSHBUTTON      "BTM",IDC_BUTTON_BOTTOM,321,158,22,14
+    PUSHBUTTON      "Refresh",IDC_BUTTON_REFRESH,317,23,30,14
+    CONTROL         "",IDC_LIST_LIBRARY,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,353,72,94,333
+    PUSHBUTTON      "colorbtn",IDC_BUTTON_COLOR,76,249,50,14
+    CONTROL         "",IDC_STATIC_PICTURE,"Static",SS_BITMAP,76,273,15,13
+    LTEXT           "",IDC_STATIC_TOOLBAR,7,23,305,39,NOT WS_VISIBLE | WS_BORDER
+    LTEXT           "Toolbar preview ",IDC_STATIC,7,8,54,8
+    GROUPBOX        "Bitmap output",IDC_STATIC,7,238,325,110
+    LTEXT           "Background color",IDC_STATIC,12,252,56,8
+    LTEXT           "Bitmap preview",IDC_STATIC,12,275,50,8
+    CTEXT           "refresh library",IDC_STATIC_IMGLIB,353,52,94,14,SS_NOTIFY | SS_CENTERIMAGE,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_BMPFILE,76,312,215,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_SAVEAS,299,312,13,14
+    LTEXT           "File name",IDC_STATIC,12,315,31,8
+    PUSHBUTTON      "Generate",IDC_BUTTON_GENERATE,278,372,50,14
+    GROUPBOX        "Toolbar output",IDC_STATIC,7,350,325,55
+    PUSHBUTTON      "Save",IDC_BUTTON_SAVE,278,332,50,14
+    COMBOBOX        IDC_COMBO_BPP,251,250,77,51,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Color Depth",IDC_STATIC,197,252,39,8
+    CONTROL         "Generate true color bitmap",IDC_CHECK_TCBMP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,361,102,10
+    CONTROL         "Generate grayed bitmap",IDC_CHECK_GRBMP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,388,94,10
+    PUSHBUTTON      "...",IDC_BUTTON_TCOPT,126,360,13,13
+    PUSHBUTTON      "...",IDC_BUTTON_GROPT,126,387,13,13
+    COMBOBOX        IDC_COMBO_RESOURCENAME,7,201,147,166,CBS_DROPDOWN | CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Generate hot bitmap",IDC_CHECK_HTBMP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,374,82,10
+    CONTROL         "",IDC_LIST_BUTTONS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,72,305,126
+    PUSHBUTTON      "...",IDC_BUTTON_HTOPT,126,373,13,13
+    LTEXT           "rx",IDC_STATIC,7,219,8,8
+    LTEXT           "ry",IDC_STATIC,43,219,8,8
+    LTEXT           "75",IDC_STATIC_CNT,190,375,13,8
+    CONTROL         "",IDC_SPIN_CNT,"msctls_updown32",UDS_SETBUDDYINT | UDS_ARROWKEYS | UDS_HOTTRACK,211,372,11,14
+    LTEXT           "constrast:",IDC_STATIC,152,375,34,8
+    EDITTEXT        IDC_EDIT_ERX,19,217,18,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_ERY,53,217,18,12,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Test",IDC_BUTTON_TEST,374,58,50,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "colorbtn",IDC_BUTTON_MASKCOLOR,294,223,34,14,WS_DISABLED
+    CONTROL         "Use top left corner",IDC_CHECK_MASKCORNER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,213,80,10
+    GROUPBOX        "Background color",IDC_STATIC,190,200,142,38
+    CONTROL         "Use this color",IDC_CHECK_MASKBUTTON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,225,80,10
+END
+
+IDD_DIALOG_OPTIONS DIALOGEX 0, 0, 223, 193
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply",IDC_BUTTON_APPLY,118,172,50,14
+    PUSHBUTTON      "Cancel",IDC_BUTTON_CANCEL,55,172,50,14
+    CONTROL         " Replace original project files",IDC_CHECK_REPLACEOF,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,73,107,10
+    LTEXT           "Temp folder",IDC_STATIC,7,7,39,8
+    EDITTEXT        IDC_EDIT_TEMPF,7,17,172,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_BRWTEMP,186,17,26,14
+    CONTROL         " Auto-resize image when importing",IDC_CHECK_AUTORESIZE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,85,126,10
+    EDITTEXT        IDC_EDIT_IMAGE_LIB,7,47,172,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_BRWIMGLIB,186,47,26,14
+    LTEXT           "Image library",IDC_STATIC,7,36,43,8
+    CONTROL         "",IDC_LIST_IDFILE,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,111,172,50
+    PUSHBUTTON      "ADD",IDC_BUTTON_ADDFILE,186,111,26,14
+    PUSHBUTTON      "DEL",IDC_BUTTON_DELFILE,186,127,26,14
+    LTEXT           "additional file to parse for IDs",IDC_STATIC,7,99,96,8
+    LTEXT           "MRU list size:",IDC_STATIC,143,74,43,8
+    CONTROL         "",IDC_SPIN_MRUSIZE,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,202,71,9,14
+    LTEXT           "0",IDC_STATIC_MRUSIZE,192,74,19,8
+END
+
+IDD_DIALOG_NEWTOOLBAR DIALOGEX 0, 0, 198, 64
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "New Toolbar"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Toolbar ID",IDC_STATIC_TEXT,7,7,130,8
+    LTEXT           "rx",IDC_STATIC,153,7,8,8
+    LTEXT           "ry",IDC_STATIC,176,7,8,8
+    EDITTEXT        IDC_EDIT_TID,7,17,130,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RX,147,17,21,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RY,170,17,21,12,ES_AUTOHSCROLL | ES_NUMBER
+    COMBOBOX        IDC_COMBO_VCTYPE,7,43,64,36,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,141,43,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,87,43,50,14
+END
+
+IDD_DIALOG_HELP DIALOGEX 0, 0, 233, 128
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Help"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,91,107,50,14
+    EDITTEXT        IDC_EDIT_TEXT,7,7,219,97,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL
+END
+
+IDD_DIALOG_CHECK DIALOGEX 0, 0, 256, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Checking for updates"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,199,25,50,14,WS_DISABLED
+    LTEXT           "Checking for updates",IDC_STATIC_MSG,39,10,210,8
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20
+    LTEXT           "ToolbarEditor home page",IDC_STATIC_LINK,39,24,155,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,5,0,125
+ PRODUCTVERSION 1,5,0,125
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x21L
+#else
+ FILEFLAGS 0x20L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "written by Francesco Aruta"
+            VALUE "CompanyName", "IlPanda soft"
+            VALUE "FileDescription", "Toolbar Editor for Visual Studio"
+            VALUE "FileVersion", "1.5.0.125"
+            VALUE "InternalName", "Toolbar Editor"
+            VALUE "LegalCopyright", "2005-2011 (c) IlPanda Soft.  All rights reserved. http://www.ilpanda.com http://www.p-network.net"
+            VALUE "OriginalFilename", "TBarEditor.exe"
+            VALUE "ProductName", "Toolbar Editor"
+            VALUE "ProductVersion", "1.5.0.125"
+            VALUE "SpecialBuild", "P.WIP"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        VERTGUIDE, 73
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+        HORZGUIDE, 36
+    END
+
+    IDD_TBARGENADDIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 447
+        VERTGUIDE, 12
+        VERTGUIDE, 76
+        VERTGUIDE, 126
+        VERTGUIDE, 154
+        VERTGUIDE, 190
+        VERTGUIDE, 196
+        VERTGUIDE, 211
+        VERTGUIDE, 276
+        VERTGUIDE, 311
+        VERTGUIDE, 328
+        VERTGUIDE, 332
+        VERTGUIDE, 353
+        VERTGUIDE, 399
+        TOPMARGIN, 8
+        HORZGUIDE, 12
+        HORZGUIDE, 23
+        HORZGUIDE, 30
+        HORZGUIDE, 72
+        HORZGUIDE, 108
+        HORZGUIDE, 130
+        HORZGUIDE, 146
+        HORZGUIDE, 165
+        HORZGUIDE, 207
+        HORZGUIDE, 223
+        HORZGUIDE, 238
+        HORZGUIDE, 256
+        HORZGUIDE, 279
+        HORZGUIDE, 319
+        HORZGUIDE, 339
+        HORZGUIDE, 348
+        HORZGUIDE, 350
+        HORZGUIDE, 366
+        HORZGUIDE, 379
+        HORZGUIDE, 393
+        HORZGUIDE, 405
+    END
+
+    IDD_DIALOG_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        VERTGUIDE, 80
+        VERTGUIDE, 143
+        VERTGUIDE, 179
+        VERTGUIDE, 199
+        VERTGUIDE, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+        HORZGUIDE, 24
+        HORZGUIDE, 40
+        HORZGUIDE, 54
+        HORZGUIDE, 78
+        HORZGUIDE, 90
+        HORZGUIDE, 103
+        HORZGUIDE, 111
+    END
+
+    IDD_DIALOG_NEWTOOLBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        VERTGUIDE, 15
+        VERTGUIDE, 157
+        VERTGUIDE, 180
+        VERTGUIDE, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 57
+        HORZGUIDE, 23
+        HORZGUIDE, 38
+        HORZGUIDE, 49
+    END
+
+    IDD_DIALOG_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        VERTGUIDE, 116
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 121
+    END
+
+    IDD_DIALOG_CHECK, DIALOG
+    BEGIN
+        VERTGUIDE, 17
+        VERTGUIDE, 39
+        VERTGUIDE, 194
+        HORZGUIDE, 18
+        HORZGUIDE, 32
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TBARGENADDIN_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_BPP, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_BPP, 0x403, 4, 0
+0x3532, 0x0036, 
+    IDC_COMBO_BPP, 0x403, 11, 0
+0x7254, 0x6575, 0x4320, 0x6c6f, 0x726f, "\000" 
+    0
+END
+
+IDD_DIALOG_NEWTOOLBAR DLGINIT
+BEGIN
+    IDC_COMBO_VCTYPE, 0x403, 8, 0
+0x4356, 0x3220, 0x5830, 0x0058, 
+    IDC_COMBO_VCTYPE, 0x403, 4, 0
+0x4356, 0x0036, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME_TC        BITMAP                  "res\\toolbar_TC.bmp"
+IDR_MAINFRAME_GR        BITMAP                  "res\\toolbar_GR.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\toolbar.bmp"
+IDR_TOOLBAR_PREVIEW     BITMAP                  "res\\toolbar2.bmp"
+IDR_MAINFRAME_HT        BITMAP                  "res\\toolbar_HT.bmp"
+IDB_BITMAP_TBHELPER     BITMAP                  "res\\idr_menutoolbarhelper.bmp"
+IDB_BITMAP_TBHELPER_GR  BITMAP                  "res\\idr_menutoolbarhelper_GR.bmp"
+IDB_BITMAP_TBHELPER_HT  BITMAP                  "res\\idr_menutoolbarhelper_HT.bmp"
+IDB_BITMAP_TBHELPER_TC  BITMAP                  "res\\idr_menutoolbarhelper_TC.bmp"
+IDR_MENUTOOLBARHELPER   BITMAP                  "res\\idr_menutoolbarhelper.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\TBarGenAddin.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_POPUP MENU
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "&Add new",                    ID_POPUP_ADDNEW
+        MENUITEM "&Insert new",                 ID_POPUP_INSERTNEW
+        MENUITEM "&Delete",                     ID_POPUP_DELETE
+        MENUITEM SEPARATOR
+        POPUP "Edit image"
+        BEGIN
+            MENUITEM "Resize",                      ID_EDITIMAGE_RESIZE
+            MENUITEM "Rotate ",                     ID_EDITIMAGE_ROTATE, GRAYED
+        END
+        MENUITEM "&Save image in library",      ID_POPUP_SAVEIMAGEINLIBRARY
+    END
+END
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        ID_FILE_NEW
+        MENUITEM "&Open",                       ID_FILE_OPEN
+        MENUITEM "&Save Bitmap",                ID_FILE_SAVEBITMAP
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "&Image"
+    BEGIN
+        MENUITEM "&Resize",                     ID_IMAGE_RESIZE
+        MENUITEM "R&otate",                     ID_IMAGE_ROTATE, GRAYED
+    END
+    POPUP "&Tools"
+    BEGIN
+        POPUP "Toolbar"
+        BEGIN
+            MENUITEM "&Generate",                   ID_TOOLBAR_GENERATE
+            MENUITEM "Copy to clipboard",           ID_TOOLBAR_COPYTOCLIPBOARD
+            MENUITEM "Merge IDs",                   ID_TOOLBAR_MERGEIDS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Options",                    ID_TOOLS_OPTIONS
+    END
+    POPUP "&About"
+    BEGIN
+        MENUITEM "&Help",                       ID_ABOUT_HELP
+        MENUITEM "&About",                      ID_ABOUT_ABOUTTBARGENADDIN
+        MENUITEM SEPARATOR
+        MENUITEM "&Check for Updates",          ID_ABOUT_CHECKFORUPDATES
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MENUTOOLBARHELPER TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_POPUP_ADDNEW
+    BUTTON      ID_POPUP_INSERTNEW
+    BUTTON      ID_POPUP_DELETE
+    BUTTON      ID_EDITIMAGE_RESIZE
+    BUTTON      ID_EDITIMAGE_ROTATE
+    BUTTON      ID_TOOLBAR_COPYTOCLIPBOARD
+    BUTTON      ID_TOOLBAR_MERGEIDS
+    BUTTON      ID_ABOUT_HELP
+    BUTTON      ID_ABOUT_ABOUTTBARGENADDIN
+    BUTTON      ID_POPUP_SAVEIMAGEINLIBRARY
+END
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVEBITMAP
+    SEPARATOR
+    BUTTON      ID_IMAGE_RESIZE
+    BUTTON      ID_IMAGE_ROTATE
+    BUTTON      ID_TOOLBAR_GENERATE
+    SEPARATOR
+    BUTTON      ID_TOOLS_OPTIONS
+    SEPARATOR
+    BUTTON      ID_FILE_EXIT
+END
+
+IDR_TOOLBAR_PREVIEW TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_BUTTON32791
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATORS ACCELERATORS
+BEGIN
+    VK_F1,          ID_ABOUT_HELP,          VIRTKEY, NOINVERT
+    VK_DELETE,      ID_ACCELERATOR_CANC,    VIRTKEY, NOINVERT
+    VK_F5,          ID_ACCELERATOR_REFRESH, VIRTKEY, NOINVERT
+    "X",            ID_FILE_EXIT,           VIRTKEY, CONTROL, NOINVERT
+    "G",            ID_FILE_GENRATETOOLBAR, VIRTKEY, CONTROL, NOINVERT
+    VK_F7,          ID_FILE_GENRATETOOLBAR, VIRTKEY, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVEBITMAP,     VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About TBarGenAddin..."
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_OPEN            "Open Resource file\nOpen Resource file"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_SAVEBITMAP      "Save bitmap\nSave bitmap"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_GENRATETOOLBAR  "Generate toolbar\nGenerate toolbar"
+    ID_IMAGE_RESIZE         "Resize image\nResize image"
+    ID_IMAGE_ROTATE         "Rotate image\nRotate image (disabled)"
+    ID_TOOLS_OPTIONS        "Options\nOptions"
+    ID_ABOUT_ABOUTTBARGENADDIN "About\nAbout"
+    ID_FILE_EXIT            "Exit\nExit"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LIBPREVIEW DIALOGEX 0, 0, 328, 337
+STYLE DS_SYSMODAL | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Library"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,271,297,50,14
+    CONTROL         "",IDC_LIST_LIBPREVIEW,"SysListView32",LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,314,242
+    COMBOBOX        IDC_COMBO_ICONSIZE,7,281,115,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Icon size",IDC_STATIC,7,270,29,8
+    PUSHBUTTON      "Refresh",IDC_BUTTON_REFRESH,271,280,50,14
+    CONTROL         "actual icon size",IDC_CHECK_ACTSIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,149,287,115,11
+    CONTROL         "filter by size",IDC_CHECK_FILTERSIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,299,115,10
+    CONTROL         "report view",IDC_CHECK_RPTVIEW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,149,299,115,10
+    LTEXT           "Options",IDC_STATIC,7,256,314,8
+END
+
+IDD_MAGDIALOG DIALOG 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Finestra di dialogo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,16
+    PUSHBUTTON      "Annulla",IDCANCEL,129,26,50,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LIBPREVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 321
+        VERTGUIDE, 196
+        VERTGUIDE, 206
+        VERTGUIDE, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 330
+        HORZGUIDE, 189
+        HORZGUIDE, 260
+        HORZGUIDE, 270
+        HORZGUIDE, 287
+        HORZGUIDE, 304
+    END
+
+    IDD_MAGDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOG_LIBPREVIEW DLGINIT
+BEGIN
+    IDC_COMBO_ICONSIZE, 0x403, 6, 0
+0x3834, 0x3478, 0x0038, 
+    IDC_COMBO_ICONSIZE, 0x403, 6, 0
+0x3233, 0x3378, 0x0032, 
+    IDC_COMBO_ICONSIZE, 0x403, 6, 0
+0x3631, 0x3178, 0x0036, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_FOLDER16     BITMAP                  "res\\folder_open_16.bmp"
+IDB_BITMAP_FOLDER32     BITMAP                  "res\\folder_open_32.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\TBarGenAddin.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+END
+
+#endif    // Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\TBarGenAddin.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

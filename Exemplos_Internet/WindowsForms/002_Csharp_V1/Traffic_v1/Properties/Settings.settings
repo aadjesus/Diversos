@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Traffic_v1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Traffic_v1_br_com_maplink2_webservices_teste_Authentication" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://teste.webservices.maplink2.com.br/webservices/v3/authentication/authentication.asmx</Value>
+    </Setting>
+    <Setting Name="Traffic_v1_TrafficWS_Traffic" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://teste.webservices.maplink2.com.br/webservices/v1/traffic/traffic.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

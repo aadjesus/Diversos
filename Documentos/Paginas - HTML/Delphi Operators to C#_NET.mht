@@ -1,0 +1,267 @@
+From: <Salvo pelo Microsoft Internet Explorer 7>
+Subject: Delphi Operators to C#.NET
+Date: Mon, 7 Apr 2008 10:14:07 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C89898.1D223090"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C89898.1D223090
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.netcoole.com/delphi2cs/operators.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Delphi Operators to C#.NET</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252"><LINK=20
+href=3D"http://www.netcoole.com/delphi2cs/style.css" rel=3Dstylesheet>
+<META content=3D"MSHTML 6.00.6000.16608" name=3DGENERATOR></HEAD>
+<BODY>
+<SCRIPT language=3Djavascript=20
+src=3D"http://www.netcoole.com/delphi2cs/js/header.js"></SCRIPT>
+
+<H1>Delphi Operators to C#</H1><BR>
+<DIV>
+<TABLE class=3Dfirsttable cellSpacing=3D0 border=3D1>
+  <TBODY>
+  <TR class=3Dattrhdr>
+    <TD noWrap>Delphi</TD>
+    <TD noWrap>C# </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>* </TD>
+    <TD>*</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>/ </TD>
+    <TD>/</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>\ </TD>
+    <TD>/</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Mod </TD>
+    <TD>%</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Div </TD>
+    <TD>\</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>+ </TD>
+    <TD>+</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>- </TD>
+    <TD>-</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>&lt;</TD>
+    <TD>&lt;</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>&lt;=3D</TD>
+    <TD>&lt;=3D</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>&gt;</TD>
+    <TD>&gt;</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>&gt;=3D</TD>
+    <TD>&gt;=3D</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>&lt;&gt;</TD>
+    <TD>!=3D</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>=3D</TD>
+    <TD>=3D=3D</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Not </TD>
+    <TD>! </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Xor </TD>
+    <TD>^ </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Shl </TD>
+    <TD>&lt;&lt;</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Shr </TD>
+    <TD>&gt;&gt;</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Or </TD>
+    <TD>|| </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>And </TD>
+    <TD>&amp;&amp; </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>In </TD>
+    <TD>(UNSUPPORT) </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>As </TD>
+    <TD>As </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>Is</TD>
+    <TD>is </TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>@</TD>
+    <TD>(UNSUPPORT)</TD></TR>
+  <TR class=3Dinc_con>
+    <TD noWrap>^(pointer)</TD>
+    <TD>(UNSUPPORT)</TD></TR></TBODY></TABLE></DIV>
+<SCRIPT language=3Djavascript=20
+src=3D"http://www.netcoole.com/delphi2cs/js/footer.js"></SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0000_01C89898.1D223090
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.netcoole.com/delphi2cs/style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 70%; BACKGROUND: =
+#ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000000; =
+PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+P {
+	MARGIN: 0.5em 10px
+}
+H1 {
+	MARGIN-TOP: 1px; MARGIN-BOTTOM: 4px; FONT-FAMILY: Verdana, Arial, =
+Helvetica, sans-serif
+}
+H2 {
+	MARGIN-TOP: 1px; MARGIN-BOTTOM: 4px; FONT-FAMILY: Verdana, Arial, =
+Helvetica, sans-serif
+}
+H3 {
+	MARGIN-TOP: 1px; MARGIN-BOTTOM: 4px; FONT-FAMILY: Verdana, Arial, =
+Helvetica, sans-serif
+}
+H4 {
+	MARGIN-TOP: 1px; MARGIN-BOTTOM: 4px; FONT-FAMILY: Verdana, Arial, =
+Helvetica, sans-serif
+}
+H1 {
+	MARGIN-TOP: 0px; FONT-SIZE: 150%; MARGIN-LEFT: 5px
+}
+H2 {
+	FONT-SIZE: 130%; MARGIN-LEFT: 5px
+}
+H3 {
+	FONT-SIZE: 115%; MARGIN-LEFT: 5px
+}
+H4 {
+	FONT-SIZE: 100%; MARGIN-LEFT: 5px
+}
+.firsttable {
+	BORDER-RIGHT: #ffffff 0px solid; BORDER-TOP: #ffffff 0px solid; =
+FONT-SIZE: 100%; MARGIN-LEFT: 15px; BORDER-LEFT: #ffffff 0px solid; =
+WIDTH: 80%; BORDER-BOTTOM: #ffffff 0px solid; BORDER-COLLAPSE: collapse; =
+BACKGROUND-COLOR: #f0f0e0
+}
+.tabhd {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; =
+FONT-WEIGHT: bold; BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; =
+BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #decf9c
+}
+.attrhdr {
+	BORDER-TOP: #dcdcdc 1px solid; FONT-WEIGHT: normal; COLOR: #000000; =
+BORDER-BOTTOM: #dcdcdc 1px solid; BACKGROUND-COLOR: #dcdcdc
+}
+.errorhd {
+	BORDER-TOP: #dcdcdc 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 120%; =
+COLOR: #000000; BORDER-BOTTOM: #dcdcdc 1px solid; BACKGROUND-COLOR: =
+#c0cccc
+}
+.inc_hd {
+	BORDER-TOP: #dcdcdc 0px solid; FONT-WEIGHT: normal; FONT-SIZE: 120%; =
+MARGIN-LEFT: 15px; COLOR: #000000; BORDER-BOTTOM: #dcdcdc 0px solid; =
+BACKGROUND-COLOR: #f2f2f2
+}
+PRE {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; BACKGROUND: #f6f6f6; MARGIN-LEFT: =
+10px; COLOR: blue; MARGIN-RIGHT: 10px
+}
+.inc_con {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 100%; BACKGROUND: =
+#ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: =
+0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.inc_conb {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: =
+100%; BACKGROUND: #ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: =
+#000000; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, =
+sans-serif
+}
+A:link {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #0000ff
+}
+A:active {
+	COLOR: #0000ff
+}
+A:hover {
+	COLOR: #cc3300; TEXT-DECORATION: underline
+}
+.expandable {
+	CURSOR: hand
+}
+.expanded {
+	COLOR: black
+}
+.collapsed {
+	DISPLAY: none
+}
+TABLE.conTab {
+	MARGIN-LEFT: 10px
+}
+TABLE.bannerparthead {
+	BORDER-RIGHT: 0px solid; PADDING-RIGHT: 0px; BORDER-TOP: 0px solid; =
+PADDING-LEFT: 0px; FONT-SIZE: 100%; LEFT: 0px; PADDING-BOTTOM: 0px; =
+MARGIN: 0px; BORDER-LEFT: 0px solid; WIDTH: 100%; PADDING-TOP: 0px; =
+BORDER-BOTTOM: 0px solid; POSITION: relative; TOP: 0px; BORDER-COLLAPSE: =
+collapse; HEIGHT: 21px; BACKGROUND-COLOR: #ffcccc
+}
+TABLE.bannertitle {
+	BORDER-RIGHT: 0px solid; PADDING-RIGHT: 0px; BORDER-TOP: 0px solid; =
+PADDING-LEFT: 0px; FONT-SIZE: 100%; LEFT: 0px; PADDING-BOTTOM: 0px; =
+MARGIN: 0px; BORDER-LEFT: 0px solid; WIDTH: 100%; PADDING-TOP: 0px; =
+BORDER-BOTTOM: 0px solid; POSITION: relative; TOP: 0px; BORDER-COLLAPSE: =
+collapse; HEIGHT: 21px; BACKGROUND-COLOR: #ffcccc
+}
+DIV.footer {
+	FONT-STYLE: italic
+}
+DIV.footer HR {
+	COLOR: #999999; HEIGHT: 1px
+}
+.question {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; COLOR: #003399
+}
+.answer {
+	FONT-SIZE: 100%
+}
+
+------=_NextPart_000_0000_01C89898.1D223090
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.netcoole.com/delphi2cs/js/header.js
+
+document.write("<TABLE CLASS=3D\"bannerparthead\" CELLSPACING=3D0>");
+document.write(" <TR> ");
+document.write("   <TD nowrap>&nbsp;&nbsp;<i>Migrates from Delphi to =
+C#.NET</i></TD>")
+document.write("   <TD nowrap>&nbsp;</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+------=_NextPart_000_0000_01C89898.1D223090
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.netcoole.com/delphi2cs/js/footer.js
+
+document.write("<div class=3D\"footer\">");
+document.write("<br><hr>");
+document.write("<p>&copy; 2004-2006 Netcoole. All rights reserved. All =
+trademarks and copyrights belong to their respective owners.</p><br>");
+document.write("</div>");
+
+------=_NextPart_000_0000_01C89898.1D223090--

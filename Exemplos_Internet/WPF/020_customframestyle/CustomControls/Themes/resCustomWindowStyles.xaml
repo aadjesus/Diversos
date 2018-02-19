@@ -1,0 +1,95 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControls" >
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="resColorsCustomWindow.xaml" />
+        <ResourceDictionary Source="resXSButtonStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <Style x:Key="TitleBarStyle" TargetType="{x:Type Path}" >
+        <Setter Property="Fill" Value="{StaticResource brushTitleBar}" />
+        <Setter Property="Stroke" Value="{StaticResource brushTitleBarBorder}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stretch" Value="Fill" />
+    </Style>
+    
+    
+    <Style x:Key="TitleStyle" TargetType="{x:Type TextBlock}" >
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{StaticResource brushTitleBarText}" />
+    </Style>
+    
+        
+    <Style x:Key="ControlButtonStyle" TargetType="{x:Type local:XSButton}"
+           BasedOn="{StaticResource {ComponentResourceKey {x:Type local:XSButton}, Elliptical}}">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Width" Value="28" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="HighlightMargin" Value="2" />
+        <Setter Property="HighlightBrightness" Value="180" />
+        <Setter Property="Background" Value="{StaticResource brushControlButton}" />
+        <Setter Property="GlowColor" Value="{StaticResource brushControlButtonGlow}" />
+        <Setter Property="OuterBorderBrush" Value="#FF9C3A3A" />
+        <Setter Property="OuterBorderThickness" Value="1" />
+        <Setter Property="InnerBorderBrush" Value="#AAFAF0C2" />
+        <Setter Property="InnerBorderThickness" Value="2" />
+    </Style>
+
+
+    <Style x:Key="SystemButtonsContainerStyle" TargetType="{x:Type Control}" >
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}" >
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <local:XSButton Command="{x:Static local:CustomWindowCommands.MinimizeWindow}" Style="{StaticResource ControlButtonStyle}" >
+                            <Line Stroke="{StaticResource brushControlButtonStroke}" StrokeThickness="2" X2="10" Y1="10" Y2="10" />
+                        </local:XSButton>
+                        
+                        <local:XSButton Command="{x:Static local:CustomWindowCommands.MaximizeWindow}" Style="{StaticResource ControlButtonStyle}" >
+                            <Rectangle Stroke="{StaticResource brushControlButtonStroke}" StrokeThickness="2" Width="10" Height="10" />
+                        </local:XSButton>
+                        
+                        <local:XSButton Content="X" Command="ApplicationCommands.Close" Style="{StaticResource ControlButtonStyle}"
+                                        Width="36" Height="36" Margin="5" CornerRadius="18" FontSize="18"
+                                        Background="{StaticResource brushCloseButton}"
+                                        Foreground="{StaticResource brushCloseButtonForeground}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <Style x:Key="ClientAreaStyle" TargetType="{x:Type Rectangle}" >
+        <Setter Property="Fill" Value="{StaticResource brushClientArea}" />
+        <Setter Property="Stroke" Value="{StaticResource brushClientAreaBorder}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="RadiusX" Value="75" />
+        <Setter Property="RadiusY" Value="300" />
+    </Style>
+    
+    
+    <Style x:Key="StatusAreaStyle" TargetType="{x:Type Path}" >
+        <Setter Property="Fill" Value="{StaticResource brushStatusBar}" />
+        <Setter Property="Stroke" Value="{StaticResource brushStatusBarBorder}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stretch" Value="Fill" />
+    </Style>
+    
+    
+    <Style x:Key="ResizePathSegmentStyle" TargetType="{x:Type Path}" >
+        <Setter Property="StrokeThickness" Value="10" />
+        <Setter Property="Fill" Value="{x:Null}" />
+        <Setter Property="Stroke" Value="{StaticResource brushSizingRectangleOutline}" />
+        <Setter Property="Stretch" Value="Fill" />
+    </Style>
+
+</ResourceDictionary>

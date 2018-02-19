@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://system.human.com.br:8080/GatewayIntegration/services/Sms" xmlns:impl="http://system.human.com.br:8080/GatewayIntegration/services/Sms" targetNamespace="http://system.human.com.br:8080/GatewayIntegration/services/Sms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://system.human.com.br:8080/GatewayIntegration/services/Sms">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="SendSmsRequest">
+        <xsd:sequence>
+          <xsd:element name="account" type="xsd:string" />
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="msg" type="xsd:string" />
+          <xsd:element name="from" nillable="true" type="xsd:string" />
+          <xsd:element name="mobile" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:string" />
+          <xsd:element name="schedule" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="callbackOption" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendSmsResponse">
+    <wsdl:part name="sendSmsReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendSmsRequest">
+    <wsdl:part name="sendSmsRequest" type="impl:SendSmsRequest" />
+  </wsdl:message>
+  <wsdl:portType name="Sms_BindingImpl">
+    <wsdl:operation name="sendSms" parameterOrder="sendSmsRequest">
+      <wsdl:input name="sendSmsRequest" message="impl:sendSmsRequest" />
+      <wsdl:output name="sendSmsResponse" message="impl:sendSmsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmsSoapBinding" type="impl:Sms_BindingImpl">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendSms">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendSmsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://Sms.ws.gateway.human.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendSmsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://system.human.com.br:8080/GatewayIntegration/services/Sms" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Sms_BindingImplService">
+    <wsdl:port name="Sms" binding="impl:SmsSoapBinding">
+      <wsdlsoap:address location="http://system.human.com.br/GatewayIntegration/services/Sms" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

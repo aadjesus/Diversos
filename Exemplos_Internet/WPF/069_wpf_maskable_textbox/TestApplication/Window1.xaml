@@ -1,0 +1,39 @@
+﻿<Window x:Class="TestApplication.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commonWPF="clr-namespace:Rubenhak.Common.WPF;assembly=Rubenhak.Common.WPF"
+    Title="Maskable TextBox Test Application"
+    Height="200" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF47505B" Offset="0"/>
+            <GradientStop Color="#FF67707B" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Margin="5,0,5,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Integer: " Grid.Column="0" Grid.Row="0" /> 
+        <TextBox Grid.Column="1" Grid.Row="0"
+                 commonWPF:TextBoxMaskBehavior.Mask="Integer"/> 
+
+        <TextBlock Text="Decimal: " Grid.Column="0" Grid.Row="1" /> 
+        <TextBox Grid.Column="1" Grid.Row="1"
+                 commonWPF:TextBoxMaskBehavior.Mask="Decimal"/> 
+
+        <TextBlock Text="Decimal (0-50): " Grid.Column="0" Grid.Row="2" /> 
+        <TextBox Grid.Column="1" Grid.Row="2"
+                 commonWPF:TextBoxMaskBehavior.Mask="Decimal"
+                 commonWPF:TextBoxMaskBehavior.MinimumValue="0"
+                 commonWPF:TextBoxMaskBehavior.MaximumValue="50"/> 
+
+    </Grid>
+</Window>

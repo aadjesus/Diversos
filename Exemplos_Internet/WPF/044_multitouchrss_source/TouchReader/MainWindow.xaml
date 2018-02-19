@@ -1,0 +1,26 @@
+﻿<mt:Window x:Class="VirtualDreams.TouchReader.MainWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
+           xmlns:local="clr-namespace:VirtualDreams.TouchReader"
+           xmlns:b="clr-namespace:VirtualDreams.TouchReader.Behavior"
+           xmlns:factory="clr-namespace:VirtualDreams.TouchReader.Factory"
+           Title="TouchReader"
+           TextElement.FontFamily="Segoe, Calibri, Segoe UI" TextElement.FontStretch="Condensed">
+    <Grid>
+        <Grid.Resources>
+            <factory:TouchablePanelRssViewFactory x:Key="tpvFactory" />
+        </Grid.Resources>
+        <mt:TouchablePanel x:Name="mainPanel"
+                           b:PanelBehavior.ViewFactory="{StaticResource tpvFactory}"
+                           AngularDamping="0.1"
+                           LinearDamping="0.9"
+                           EnableWalls="True"
+                           RandomizePositions="False">
+        </mt:TouchablePanel>
+        <local:Trash b:TrashBehavior.SourcePanel="{Binding ElementName=mainPanel}"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Margin="15" />
+    </Grid>
+</mt:Window>

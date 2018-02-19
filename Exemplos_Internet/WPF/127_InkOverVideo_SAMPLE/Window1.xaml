@@ -1,0 +1,33 @@
+﻿<Window x:Class="InkOverVideo.MediaElementExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Ink="clr-namespace:System.Windows.Ink;assembly=PresentationCore"
+    xmlns:my="clr-namespace:InkOverVideo" 
+    Title="InkOverVideo" Height="500" Width="600"
+    >
+ 
+    <Grid DockPanel.Dock="Bottom" Background="Black">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" MinHeight="30"/>
+      </Grid.RowDefinitions>
+      <Viewbox Grid.Row="0" Margin="10">
+        <my:MyInkCanvas x:Name="myInkCanvas" Width="300" Height="300"       
+                        PreviewMouseDown="InkCanvasPreviewMouseDown"
+                        StrokeCollected="InkCanvasStrokeCollected">
+
+          <MediaElement Name="myMediaElement" 
+           LoadedBehavior="Manual" Stretch="Fill"
+           MediaEnded="Element_MediaEnded"
+           Width="{Binding ElementName=myInkCanvas, Path=ActualWidth}"
+           Height="{Binding ElementName=myInkCanvas, Path=ActualHeight}"
+          />
+        </my:MyInkCanvas>
+      </Viewbox>
+      <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Height="45" HorizontalAlignment="Center" Grid.Row="1" Width="Auto">
+        <Button Click="RecordInk" Margin="5">Record Ink</Button>
+        <Button Click="PlayBackInk" Margin="5">Playback Ink</Button>
+        <Button Click="OpenMedia" Margin="5">Open Media...</Button>
+      </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="myDataset" targetNamespace="http://tempuri.org/myDataset.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/myDataset.xsd" xmlns:mstns="http://tempuri.org/myDataset.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="myDataset" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="myPersonalInfoTable">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="studentID" type="xs:string" minOccurs="0" />
+							<xs:element name="firstName" type="xs:string" minOccurs="0" />
+							<xs:element name="lastName" type="xs:string" minOccurs="0" />
+							<xs:element name="birthDate" type="xs:date" minOccurs="0" />
+							<xs:element name="address" type="xs:string" minOccurs="0" />
+							<xs:element name="contactNo" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

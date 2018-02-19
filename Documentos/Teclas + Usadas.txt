@@ -1,0 +1,29 @@
+
+alt + 1 = compila
+alt + 2 = testa
+alt + 3 = teste nunit
+
+ctrl,w + 1 = watch
+ctrl,q + w = quitwatch
+ctrl + f10 = ate o cursor
+ctrl + f8  = recompila solução
+
+ctrl, k + x = lista de comandos
+
+shift, alt + f10 = refactor
+
+ctrl, m + m = albre e fecha nivel
+ctrl, m + o = fechar todos niveis
+ctrl, m + l = abre todos niveis
+
+ctrl, w + s  = soluction explore
+ctrl, w + p  = properties 
+ctrl, w + x  = toobox
+
+ctrl, e + d = hidentação
+
+ctrl, shit + u = maiusculo
+ctrl + u       = minusculo
+
+ctrl, k + t = config key
+

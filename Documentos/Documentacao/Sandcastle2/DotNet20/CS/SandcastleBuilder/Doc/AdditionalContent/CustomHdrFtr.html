@@ -1,0 +1,38 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/Styles.css">
+<title>Customizing the Header and Footer Text</title>
+
+</head>
+
+<body>
+<h2>Customizing the Header and Footer Text</h2>
+The text for the preliminary documentation warning, header text, footer text,
+feedback e-mail note, and the layout of the copyright text can be customized
+by modifying the entries in the <b>shared_content.xml</b> file.  Note that this
+file is language-specific and you will have to modify the entries for each
+language that you support.  The following entries are available:
+
+<ul>
+    <li>The <b>header</b> entry controls the header text.  By default, only
+the <code>HeaderText</code> and <code>Preliminary</code> substitution tags are
+listed in here.</li>
+    <li>The <b>preliminary</b> entry controls the text of the preliminary
+documentation warning.  When enabled, this text is substituted for the tag in
+the <b>header</b> entry.</li>
+    <li>The <b>footer</b> entry controls the layout of the page footer.  By
+default, only the <code>Comments</code> and <code>Copyright</code> substitution
+tags appear in here.</li>
+    <li>The <b>comment</b> entry controls the layout of the "send e-mail" note
+that appears if a <code>FeedbackEMailAddress</code> is specified.</li>
+    <li>The <b>copyright</b> entry controls the layout of the copyright
+information that appears in the footer if <code>CopyrightHref</code> and/or
+<code>CopyrightText</code> are specified.</li>
+</ul>
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 9 -->

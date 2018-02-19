@@ -1,0 +1,136 @@
+﻿<Window x:Class="ExceptionThrownInGrid.Window4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window4" Height="300" Width="300" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
+
+   
+    <!--<local:ChartsDemoModuleControl.OptionsContent>
+        <StackPanel>
+            <dxe:CheckEdit Name="chbVisible" Content="Show Labels" Margin="0,0,0,2" Unchecked="chbVisible_Unchecked" Checked="chbVisible_Checked" IsChecked="False" />
+            <GroupBox Header="Model" Margin="0,10,0,10">
+                <dx:RadioButtonList Name="lbModel" Background="{x:Null}"
+                         ItemsSource="{Binding Source={StaticResource Bar3DModelKindDataProvider}}" SelectionChanged="lbModel_SelectionChanged"/>
+            </GroupBox>
+        </StackPanel>
+    </local:ChartsDemoModuleControl.OptionsContent>-->
+
+    <Grid>
+        <dxc:ChartControl Name="chartControl1" >
+            <dxc:ChartControl.AnimationRecords>
+                <dxc:ChartAnimationRecord x:Name="Year1998Animation" Progress="0">
+                    <dxc:ChartAnimationRecord.Animations>
+                        <dxc:SeriesAnimation TargetSeries="{Binding ElementName=Year1998}">
+                            <dxc:SeriesAnimation.Actions>
+                                <dxc:SeriesSeriesPointsAction EqualSpeed="True" Sequential="True" DelayPercentage="30"/>
+                            </dxc:SeriesAnimation.Actions>
+                        </dxc:SeriesAnimation>
+                    </dxc:ChartAnimationRecord.Animations>
+                </dxc:ChartAnimationRecord>
+                <dxc:ChartAnimationRecord x:Name="Year2001Animation" Progress="0">
+                    <dxc:ChartAnimationRecord.Animations>
+                        <dxc:SeriesAnimation TargetSeries="{Binding ElementName=Year2001}">
+                            <dxc:SeriesAnimation.Actions>
+                                <dxc:SeriesSeriesPointsAction EqualSpeed="True" Sequential="True" DelayPercentage="30"/>
+                            </dxc:SeriesAnimation.Actions>
+                        </dxc:SeriesAnimation>
+                    </dxc:ChartAnimationRecord.Animations>
+                </dxc:ChartAnimationRecord>
+                <dxc:ChartAnimationRecord x:Name="Year2004Animation" Progress="0">
+                    <dxc:ChartAnimationRecord.Animations>
+                        <dxc:SeriesAnimation TargetSeries="{Binding ElementName=Year2004}">
+                            <dxc:SeriesAnimation.Actions>
+                                <dxc:SeriesSeriesPointsAction EqualSpeed="True" Sequential="True" DelayPercentage="30"/>
+                            </dxc:SeriesAnimation.Actions>
+                        </dxc:SeriesAnimation>
+                    </dxc:ChartAnimationRecord.Animations>
+                </dxc:ChartAnimationRecord>
+            </dxc:ChartControl.AnimationRecords>
+
+            <dxc:ChartControl.Triggers>
+                <EventTrigger RoutedEvent="dxc:ChartControl.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Year1998Animation" 
+                                                 Storyboard.TargetProperty="Progress"
+                                                 From="0" 
+                                                 To="1" 
+                                                 Duration="0:0:3"/>
+                                <DoubleAnimation Storyboard.TargetName="Year2001Animation" 
+                                                 Storyboard.TargetProperty="Progress"
+                                                 From="0" 
+                                                 To="1" 
+                                                 Duration="0:0:3.4"/>
+                                <DoubleAnimation Storyboard.TargetName="Year2004Animation" 
+                                                 Storyboard.TargetProperty="Progress"
+                                                 From="0" 
+                                                 To="1" 
+                                                 Duration="0:0:3.8"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </dxc:ChartControl.Triggers>
+
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram3D SeriesPadding="0.5" SeriesDistance="1">
+                    <dxc:XYDiagram3D.AxisY>
+                        <dxc:AxisY3D>
+                            <dxc:AxisY3D.GridLines>
+                                <dxc:GridLines />
+                            </dxc:AxisY3D.GridLines>
+                        </dxc:AxisY3D>
+                    </dxc:XYDiagram3D.AxisY>
+                    <dxc:XYDiagram3D.ContentTransform>
+                        <MatrixTransform3D Matrix=
+                                               " 0.779613917982362, -0.145203578314016, 0.609194599231639, 0,
+                                                -0.0922646864703087, 0.935504207999584, 0.341055867044693, 0,
+                                                -0.619426643371698, -0.322099049455097, 0.715934938260033, 0,
+                                                 0,                  0,                 0,                 1"/>
+                    </dxc:XYDiagram3D.ContentTransform>
+                    <dxc:XYDiagram3D.Series>
+                        <dxc:BarSeries3D x:Name="Year1998" DisplayName="1998" ArgumentScaleType="Qualitative">
+                            <dxc:BarSeries3D.Label>
+                                <dxc:SeriesLabel Visible="False" RenderMode="CustomShape"/>
+                            </dxc:BarSeries3D.Label>
+                            <dxc:Series.Points>
+                                <dxc:SeriesPoint Argument="Illinois" Value="423.72" />
+                                <dxc:SeriesPoint Argument="Indiana" Value="178.71" />
+                                <dxc:SeriesPoint Argument="Michigan" Value="308.84" />
+                                <dxc:SeriesPoint Argument="Ohio" Value="348.54" />
+                                <dxc:SeriesPoint Argument="Wisconsin" Value="160.27" />
+                            </dxc:Series.Points>
+                        </dxc:BarSeries3D>
+                        <dxc:BarSeries3D x:Name="Year2001" DisplayName="2001" ArgumentScaleType="Qualitative">
+                            <dxc:BarSeries3D.Label>
+                                <dxc:SeriesLabel Visible="False" RenderMode="CustomShape"/>
+                            </dxc:BarSeries3D.Label>
+                            <dxc:Series.Points>
+                                <dxc:SeriesPoint Argument="Illinois" Value="476.85" />
+                                <dxc:SeriesPoint Argument="Indiana" Value="195.75" />
+                                <dxc:SeriesPoint Argument="Michigan" Value="335.79" />
+                                <dxc:SeriesPoint Argument="Ohio" Value="374.76" />
+                                <dxc:SeriesPoint Argument="Wisconsin" Value="182.36" />
+                            </dxc:Series.Points>
+                        </dxc:BarSeries3D>
+                        <dxc:BarSeries3D x:Name="Year2004" DisplayName="2004" ArgumentScaleType="Qualitative">
+                            <dxc:BarSeries3D.Label>
+                                <dxc:SeriesLabel Visible="False" RenderMode="CustomShape"/>
+                            </dxc:BarSeries3D.Label>
+                            <dxc:Series.Points>
+                                <dxc:SeriesPoint Argument="Illinois" Value="528.9" />
+                                <dxc:SeriesPoint Argument="Indiana" Value="227.27" />
+                                <dxc:SeriesPoint Argument="Michigan" Value="372.57" />
+                                <dxc:SeriesPoint Argument="Ohio" Value="418.25" />
+                                <dxc:SeriesPoint Argument="Wisconsin" Value="211.72" />
+                            </dxc:Series.Points>
+                        </dxc:BarSeries3D>
+                    </dxc:XYDiagram3D.Series>
+                </dxc:XYDiagram3D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" />
+            </dxc:ChartControl.Legend>
+        </dxc:ChartControl>
+    </Grid>
+</Window>

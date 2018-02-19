@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.GestaoDeFrotaOnLine.DTO.ParametrosDTO,GLB.DTO" table="GFO_PARAMETROS" lazy="false">
+
+		<composite-id access="field">
+			 <key-property name="CodigoEmpresa" column="CODIGOEMPRESA" type="int" />
+			 <key-property name="CodigoFl" column="CODIGOFL" type="int" />
+			
+		</composite-id>
+		
+		<property name="MinutosAtraso" type="int" column="MINUTOS_ATRASO" />
+		<property name="MinutosAdiantado" type="int" column="MINUTOS_ADIANTADO" />
+    <property name="OcorrenciaComboio" type="int" column="OCORRENCIA_COMBOIO" />
+    <property name="OcorrenciaAtraso" type="int" column="OCORRENCIA_ATRASO" />
+    <property name="OcorrenciaAdiantado" type="int" column="OCORRENCIA_ADIANTADO" />
+    <property name="OcorrenciaNoHorario" type="int" column="OCORRENCIA_NOHORARIO" />
+    <property name="OcorrenciaProgNaoRea" type="int" column="OCORRENCIA_PROGNAOREA" />
+    <property name="OcorrenciaReaNaoProg" type="int" column="OCORRENCIA_REANAOPROG" />
+    <property name="KeyGoogleMaps" type="String" column="KEY_GOOGLEMAPS" />
+    <property name="IdAgenciaGoogleTransit" type="String" column="IDAGENCIA_GOOGLETRANSIT" />
+
+  </class>
+</hibernate-mapping>

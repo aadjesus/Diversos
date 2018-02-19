@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="BGMRodotec" Description="This rule set contains all rules. Running this rule set may result in a large number of warnings being reported. Use this rule set to get a comprehensive picture of all issues in your code. This can help you decide which of the more focused rule sets are most appropriate to run for your projects." ToolsVersion="12.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1000" Action="Error" />
+    <Rule Id="CA1001" Action="Error" />
+    <Rule Id="CA1002" Action="Error" />
+    <Rule Id="CA1003" Action="Error" />
+    <Rule Id="CA1004" Action="Error" />
+    <Rule Id="CA1005" Action="Error" />
+    <Rule Id="CA1006" Action="Error" />
+    <Rule Id="CA1007" Action="Error" />
+    <Rule Id="CA1008" Action="Error" />
+    <Rule Id="CA1009" Action="Error" />
+    <Rule Id="CA1010" Action="Error" />
+    <Rule Id="CA1011" Action="Error" />
+    <Rule Id="CA1012" Action="Error" />
+    <Rule Id="CA1013" Action="Error" />
+    <Rule Id="CA1014" Action="Error" />
+    <Rule Id="CA1016" Action="Error" />
+    <Rule Id="CA1017" Action="Error" />
+    <Rule Id="CA1018" Action="Error" />
+    <Rule Id="CA1019" Action="Error" />
+    <Rule Id="CA1020" Action="Error" />
+    <Rule Id="CA1021" Action="Error" />
+    <Rule Id="CA1023" Action="Error" />
+    <Rule Id="CA1024" Action="Error" />
+    <Rule Id="CA1025" Action="Error" />
+    <Rule Id="CA1026" Action="Error" />
+    <Rule Id="CA1027" Action="Error" />
+    <Rule Id="CA1028" Action="Error" />
+    <Rule Id="CA1030" Action="Error" />
+    <Rule Id="CA1031" Action="Error" />
+    <Rule Id="CA1032" Action="Error" />
+    <Rule Id="CA1033" Action="Error" />
+    <Rule Id="CA1034" Action="Error" />
+    <Rule Id="CA1035" Action="Error" />
+    <Rule Id="CA1036" Action="Error" />
+    <Rule Id="CA1038" Action="Error" />
+    <Rule Id="CA1039" Action="Error" />
+    <Rule Id="CA1040" Action="Error" />
+    <Rule Id="CA1041" Action="Error" />
+    <Rule Id="CA1043" Action="Error" />
+    <Rule Id="CA1044" Action="Error" />
+    <Rule Id="CA1045" Action="Error" />
+    <Rule Id="CA1046" Action="Error" />
+    <Rule Id="CA1047" Action="Error" />
+    <Rule Id="CA1048" Action="Error" />
+    <Rule Id="CA1049" Action="Error" />
+    <Rule Id="CA1050" Action="Error" />
+    <Rule Id="CA1051" Action="Error" />
+    <Rule Id="CA1052" Action="Error" />
+    <Rule Id="CA1053" Action="Error" />
+    <Rule Id="CA1054" Action="Error" />
+    <Rule Id="CA1055" Action="Error" />
+    <Rule Id="CA1056" Action="Error" />
+    <Rule Id="CA1057" Action="Error" />
+    <Rule Id="CA1058" Action="Error" />
+    <Rule Id="CA1059" Action="Error" />
+    <Rule Id="CA1060" Action="Error" />
+    <Rule Id="CA1061" Action="Error" />
+    <Rule Id="CA1062" Action="Error" />
+    <Rule Id="CA1063" Action="Error" />
+    <Rule Id="CA1064" Action="Error" />
+    <Rule Id="CA1065" Action="Error" />
+    <Rule Id="CA1303" Action="Error" />
+    <Rule Id="CA2210" Action="Error" />
+  </Rules>
+</RuleSet>

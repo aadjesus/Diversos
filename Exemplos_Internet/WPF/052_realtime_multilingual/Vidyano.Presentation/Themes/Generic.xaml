@@ -1,0 +1,31 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Vidyano.Presentation.TranslationServices.GoogleTranslate">
+
+    <Style TargetType="{x:Type local:LanguageSelector}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:LanguageSelector}">
+                    <DockPanel Background="{TemplateBinding Background}" TextBlock.Foreground="White">
+                        <Border Height="30" DockPanel.Dock="Bottom" Padding="0,1,0,0" BorderThickness="0,1,0,0" Background="#FF888888" BorderBrush="#FF444444">
+                            <DockPanel LastChildFill="False" VerticalAlignment="Center">
+                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                    <TextBlock Margin="5,0,5,0" VerticalAlignment="Center" Text="{TemplateBinding LanguagesString}" TextWrapping="Wrap" />
+                                    <ComboBox Margin="0,0,10,0" Width="150" Height="22" IsSynchronizedWithCurrentItem="False" SelectedValue="{Binding Path=(local:LanguageSelector.TargetLanguage), Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, StringFormat={x:Null}}" ItemsSource="{TemplateBinding AvailableLanguages}" />
+                                </StackPanel>
+                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Stretch" FlowDirection="LeftToRight">
+                                    <TextBlock Text="Powered by " VerticalAlignment="Center" />
+                                    <Image Margin="0,4,5,0" VerticalAlignment="Center" Source="/Vidyano.Presentation;component/Resources/google.png" Width="51" Height="15" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                        <Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Grid>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

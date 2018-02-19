@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MultipleDocumentInterface.MDIChild"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="300" Width="400">
+    <UserControl.BitmapEffect>
+        <DropShadowBitmapEffect Color="Black" ShadowDepth="2" Opacity="0.5" Softness="0.4" />
+    </UserControl.BitmapEffect>
+    <Border Background="#003b6c" BorderBrush="#083654" BorderThickness="0" CornerRadius="4">
+        <DockPanel>
+            <Border CornerRadius="4,4,0,0" Height="29" DockPanel.Dock="Top" BorderThickness="0,0,0,1" BorderBrush="#1b5974">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#256492" />
+                        <GradientStop Offset="1.0" Color="#022b4a" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StatusBar Name="TopBar" Background="Transparent">
+                    <StatusBarItem DockPanel.Dock="Right" Margin="0,0,2,0">
+                        <Button x:Name="CloseButton" Width="23" Foreground="White"  Height="21" IsTabStop="False" BorderBrush="#FF771C1C" Click="CloseButton_Click" Content="X">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Color="#FF811515" Offset="1.0" />
+                                    <GradientStop Color="#FFc94545" Offset="0.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StatusBarItem>
+                    <StatusBarItem>
+                        <Label Name="TitleValue" Foreground="White" Padding="0" Margin="4,0,0,0" />
+                    </StatusBarItem>
+                </StatusBar>
+            </Border>
+            <Grid Name="ContentGrid" />
+        </DockPanel>
+    </Border>
+</UserControl>

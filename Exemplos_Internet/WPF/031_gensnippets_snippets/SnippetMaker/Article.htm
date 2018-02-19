@@ -1,0 +1,341 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+	
+<h2>Introduction</h2>
+<p>One of the measures of my efficiency as a developer is how quickly I can spit 
+  out well-written, verified code. This challenge is typically met with many 
+  mechanisms: code generation programs, code snippets and even the rudimentary cut 
+  &amp; paste. In this article, I want to talk about Visual Studio code snippets and 
+  the generative snippet mechanism which I use in order to squeeze the maximum 
+  value out of snippets. I will also present a showcase of some of the generative 
+  snippets I use in everyday work.</p>
+<h2>Basic Introduction to Snippets</h2>
+<p>A code snippet is just a chunk of code that you can enter quickly because 
+  typing it by hand for the N<sup>th</sup> time can be rather boring. Here is an 
+  example of one such entry:</p>
+<pre>
+#region INotifyPropertyChanged Members
+/// &lt;summary&gt;
+/// Notifies the caller when a property is changed.
+/// &lt;/summary&gt;
+/// &lt;param name="propertyName"&gt;Name of the property.&lt;/param&gt;
+protected void NotifyPropertyChanged(string propertyName)
+{
+  if (PropertyChanged != null)
+  {
+    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+  }
+}
+/// &lt;summary&gt;
+/// Occurs when a property is changed.
+/// &lt;/summary&gt;
+public event PropertyChangedEventHandler PropertyChanged;
+#endregion
+</pre>
+<p>To get the above code to appear in VS, I just type a magic combination of letters (<code>npc</code>, in this case), 
+  press Tab, and
+the above block of code is injected at the insertion point.</p>
+<p>Some snippets allow you to customize them, i.e., edit parts of them after the snippet has been injected. To allow for this,
+VS will show placeholders for variables that can be edited. The user can then use 
+  the Tab character to move from one placeholder to another. Here’s how it 
+  typically looks:</p>
+<img src="GenSnippets2.jpg" />
+<h2>Generative Snippets</h2>
+<p>The above mechanism, as I&rsquo;m sure you&rsquo;ll agree, is not very powerful. I mean, it&rsquo;s useful for tiny little things that you can inject, but the problem is that you cannot execute C# inside the snippet &ndash; in fact, Visual Studio does provide 3 functions that you <em>can</em> execute, but these functions are of little use to us.</p>
+<p>What I wanted to do with snippets is make them <em>parameterized</em>. For example, I want to type in <code>entity3</code> and get a class with 3 auto-properties. After thinking about it long enough, I decided that the only way to get this to work is to generate cases exhaustively. For example, for the entity class I might need one with between 2 and 20 members. So, in a single snippet file, I generate <em>all cases</em> 
+  individually. This may sound like hard work, and it is, so before we go to the 
+  showcase, I’d like to present some C# code on how snippets are generated. This 
+  is only useful if you plan on generating snippets of your own: if not, feel free 
+  to skip to the Examples section.</p>
+<h2>How Is It Done?</h2>
+<p>The API for generating snippets is really simple. In fact, the following diagram pretty much sums it up:</p>
+<p>
+<img src="GenSnippets1.jpg" />
+</p>
+<p>Code snippets are defined in XML, and the above classes are, basically, objects that help generating this XML a little easier. On the top level, we have the <code>SnippetCollection</code> that appears once per file. It aggregates a number of <code>Snippet</code> object, which define all possible iterations of our generated snippets (e.g., <code>entity1</code> ... <code>entity10</code>). In addition to the snippets themselves, the user-editable parameters are defined in <code>SnippetLiteral</code> objects that make part of a <code>SnippetLiteralCollection</code>.</p>
+<p>Here's a short guide on how to write your own snippets. First, we define the snippet collection:</p>
+<pre>
+var sc = new SnippetCollection();
+</pre>
+<p>Then, we put as many iterative loops as we require for our snippets. I'll just use one, with a counter from 1 to 10. Inside the loop, we create the <code>Snippet</code> object and set its properties (most of them are mandatory, so I don't recommend skipping any.</p>
+<pre>
+for (int i = 2; i &lt; count; ++i)
+{
+  var s = new Snippet
+  {
+    Author = author,
+    Description = &quot;Creates an inline multiplication equivalent to Math.Pow(&hellip;, &quot; + i + &quot;).&quot;,
+    Shortcut = &quot;pow&quot; + i,
+    Title = &quot;pow&quot; + i
+  };
+</pre>
+<p>Literals can be added by explicitly instantiating the <code>SnippetLiteral</code> objects, but there also helper methods in the associated collection class. Let's add a literal to our snippet:</p>
+<pre>
+s.Literals.AddLiteral(&quot;x&quot;, &quot;Variable name&quot;);
+</pre>
+<p>Now that we've added our literal, we can use it by typing <code>$x$</code> in the body of the snippet. To create the body (which turns into a CDATA block in the snippet itself), we get the <code>StringBuilder</code> from the snippet and use it. Here's how it's done:</p>
+<pre>
+var sb = s.CodeBuilder;
+for (int j = 1; j &lt;= i; ++j)
+{
+  sb.Append(&quot;$x$&quot;);
+  if (j != i)
+    sb.Append(&quot;*&quot;);
+}
+</pre>
+<p>Now, before exiting the loop, we add the snippet to the snippet collection.</p>
+<pre>
+sc.Add(s);
+</pre>
+<p>Finally, once we are done with all the loops, we save the snippet collection itself.</p>
+<pre>
+sc.Save(&quot;pow&quot;);
+</pre>
+	  <p>
+      You might need to tweak the <code>Save</code> method to save to the location of 
+      your choice, but apart from that, the API presented here can be used without 
+      modification, and will output syntactically correct snippet files.</p>
+      <h2>Showcase</h2>
+<p>Presented below are examples of some of the generative snippets included with the source code. Please note that some examples produce far too much code to be shown here, so I'll provide a textual description instead.</p>
+<h3>arglistX</h3>
+<p>Creates a list of comma-separated variables with a common name followed by a 1-based index:</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>arglist4</pre></td>
+<td><pre>T1, T2, T3, T4</pre></td>
+</tr>
+</table>
+<h3>arrayX</h3>
+<p>Creates a declaration of an array with X elements. All elements are initialized to the same value</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>array5</pre></td>
+<td><pre>double[] d = { 1.0, 1.0, 1.0, 1.0, 1.0 };</pre></td>
+</tr>
+</table>
+<h3>arrayXbyY</h3>
+<p>Creates a declaration of a 2D array with X&times;Y elements. All elements are initialized to the same value, but for square arrays, the diagonal can be initialized separately. Note also that code for these snippets will <em>not</em> be reformatted correctly by Visual Studio.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>array4by7</pre></td>
+<td><pre>float[,] f = {
+  { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f },
+  { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f },
+  { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f },
+  { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f }
+};</pre></td>
+</tr>
+</table>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>array8by8</pre></td>
+<td><pre>double[,] i = {
+  { 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+  { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+  { 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0 },
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0 }
+};</pre></td>
+</tr>
+</table>
+<h3>forCX</h3>
+<p>Creates X inset <code>for</code> loops with the outer indexer starting at the letter C.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>fora5</pre></td>
+<td><pre>for (int a = 0; a &lt; 10; ++a)
+{
+  for (int b = 0; b &lt; 20; ++b)
+  {
+    for (int c = 0; c &lt; 30; ++c)
+    {
+      for (int d = 0; d &lt; 40; ++d)
+      {
+        for (int e = 0; e &lt; 77; ++e)
+        {
+        }
+      }
+    }
+  }
+}</pre></td>
+</tr>
+</table>
+<h3>parrX</h3>
+<p>Adds a code stub to run X pieces of code in parallel. Uses <code>AutoResetEvent</code>. Note that in Parallel Extensions, we have <code>Parallel.Invoke()</code> for this.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>parr3</pre></td>
+<td><pre>AutoResetEvent are1 = new AutoResetEvent(false);
+AutoResetEvent are2 = new AutoResetEvent(false);
+AutoResetEvent are3 = new AutoResetEvent(false);
+ThreadPool.QueueUserWorkItem(delegate
+{
+  // Thread 1 code here
+  are1.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+  // Thread 2 code here
+  are2.Set();
+});
+ThreadPool.QueueUserWorkItem(delegate
+{
+  // Thread 3 code here
+  are3.Set();
+});
+WaitHandle.WaitAll(new WaitHandle[] { are1, are2, are3 });</pre></td>
+</tr>
+</table>
+<h3>catchX</h3>
+<p>Adds code to catch X different types of exception. Probably the most boring snippet of them all.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>catch3</pre></td>
+<td><pre>catch (Exception e)
+{
+}
+catch (Exception e)
+{
+}
+catch (Exception e)
+{
+}</pre></td>
+</tr>
+</table>
+<h3>flagsX</h3>
+<p>Creates a <code>[Flags]</code>-tagged enumeration with X members. Enum name, member names and comments are editable. 
+  Enum type depends on how many elements you want to have. Also generates <code>None</code> and <code>All</code> members, which are sometimes useful.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>flags3</pre></td>
+<td><pre>[System.Flags]
+/// &lt;summary&gt;
+/// EnumName
+/// &lt;/summary&gt;
+enum EnumName : byte
+{
+  /// &lt;summary&gt;
+  /// None (0)
+  /// &lt;/summary&gt;
+  None = 0,
+  /// &lt;summary&gt;
+  /// Element1 (1)
+  /// &lt;/summary&gt;
+  Element1 = 1,
+  /// &lt;summary&gt;
+  /// Element2 (2)
+  /// &lt;/summary&gt;
+  Element2 = 2,
+  /// &lt;summary&gt;
+  /// Element3 (4)
+  /// &lt;/summary&gt;
+  Element3 = 4,
+  /// &lt;summary&gt;
+  /// All (7)
+  /// &lt;/summary&gt;
+  All = 7
+}
+</pre></td>
+</tr>
+</table>
+<h3>getflagsX</h3>
+<p>Tests for X flags in an enum, and creates X boolean variables.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>getflags4</pre></td>
+<td><pre>bool isPrivate = ((modifiers & Private) == Private);
+bool isProtected = ((modifiers & Protected) == Protected);
+bool isInternal = ((modifiers & Internal) == Internal);
+bool isPublic = ((modifiers & Public) == Public);
+</pre></td>
+</tr>
+</table>
+  <h3>
+    nulltestX</h3>
+  <p>
+    Test a chain of X properties for <code>null</code>. Chain members are, of 
+    course, editable. This snippet is best illustrated in code.</p>
+  <table>
+    <tr valign="top">
+      <td bgcolor="#e0e0e0">
+        <pre>nulltest4</pre>
+      </td>
+      <td>
+        <pre>if (a != null &amp;&amp; 
+  a.Props != null &amp;&amp; 
+  a.Props.Members != null &amp;&amp;
+  a.Props.Members.X != null)
+{
+
+}</pre>
+      </td>
+    </tr>
+  </table>
+  <h3>powX</h3>
+<p>Inlines a power calculation instead of using <code>Math.Pow()</code>. Takes a specified term to the power of X. This is the example I showed in the previous section.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>pow4</pre></td>
+<td><pre>t*t*t*t
+</pre></td>
+</tr>
+</table>
+<h3>polyX &amp; polyPX</h3>
+<p>These two snippet sets both manufacture member functions that compute a polynomial with highest degree X. The difference is that <code>polyX</code> does the calculation using inline multiplication (similar to how <code>powX</code> outputs it) whereas <code>polyPX</code> uses <code>Math.Pow()</code>. The difference in execution speeds is quite dramatic!</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>poly4</pre></td>
+<td><pre>public double Poly(double x, double a, double b, double c, double d, double e)
+{
+  return a * x * x * x * x + b * x * x * x + c * x * x + d * x + e;
+}
+</pre></td>
+</tr>
+</table>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>polyP4</pre></td>
+<td><pre>public double PolyP(double x, double a, double b, double c, double d, double e)
+{
+  return a * Math.Pow(x, 4) + b * Math.Pow(x, 3) + c * Math.Pow(x, 2) + d * x + e;
+}
+</pre></td>
+</tr>
+</table>
+<h3>varlistX</h3>
+<p>Declares X variables (variable names starting with &lsquo;a&rsquo;) in a single line of code.</p>
+<table>
+<tr valign="top">
+<td bgcolor="#e0e0e0"><pre>varlist5</pre></td>
+<td><pre>double a = 0, b = 0, c = 0, d = 0, e = 0;</pre></td>
+</tr>
+</table>
+<h3>fsmX</h3>
+<p>Creates a finite state machine with X states. This includes declaration of the fsm enum, creation of Before- and After- <code>EventArgs</code> classes, and the creation of the state machine itself; many elements are optional and can be safely removed. The state machine is quite verbose, so I won't present an example here. To try this snippet, just download the code.</p>
+<h3>subX &amp; supX</h3>
+<p>Toy snippets that create subscript and superscript characters. They work in the Consolas font. The main purpose is being able to avoid opening the Character Map while trying to embellish your comments with clever little 
+  sub/superscript symbols. A demo cannot be presented here &ndash; try it out in Visual Studio.</p>
+<h3>Entity snippets</h3>
+<p>Entity snippets create ready-made entity classes. There are several types, with different levels of infrastructure support. Here is a short list of the ones we have so far:</p>
+<ul>
+<li><strong>tupleXsimple</strong> creates a tuple class with X elements.</li>
+<li><strong>entityXauto</strong> creates a class with X auto-properties.</li>
+<li><strong>arrstoreX</strong> generates an array-based storage class with X elements.</li>
+<li><strong>dpentityXbyY</strong> creates a <code>DependencyProperty</code>-based entity class with X read-write properties and Y read-only properties.</li>
+<li><strong>entityXslim</strong> creates a class with X properties whose read and write behavior is regulated with <code>ReaderWriterLockSlim</code>. Note: requires .NET 3.5.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Generating snippets is one of the many ways in which one can easily create parameterized code generation. Though the results achieved are fairly simple,
+there are situations where this amount of flexibility is sufficient to get the job done. 
+  So if this article got you interested, check out the snippets (and the source 
+  code) and let me know what you think.
+You can leave comments here or on the CodePlex <a href="http://www.codeplex.com/csn">project page</a>.</p>
+	</body>
+</html>

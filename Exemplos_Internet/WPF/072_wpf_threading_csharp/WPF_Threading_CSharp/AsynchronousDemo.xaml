@@ -1,0 +1,61 @@
+﻿<Window x:Class="WPF_Threading_CSharp.AsynchronousDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cm="clr-namespace:System.ComponentModel;assembly=System"
+    Title="Asynchronous Demo" Height="400" Width="450">
+
+
+	<!-- The BackgroundWorker can be created in XAML or in your code
+	<Window.Resources>
+		<cm:BackgroundWorker x:Key="backgroundWorker" WorkerReportsProgress="True" WorkerSupportsCancellation="False" />
+	</Window.Resources>
+	-->
+
+	<Canvas>
+
+		<StackPanel Orientation="Vertical" >
+			<!-- SYNCHRONOUS DEMO -->
+			<TextBlock Margin="0,20,8,0" FontWeight="Bold" Foreground="Red" FontSize="16">Synchronous Demo</TextBlock>
+			<StackPanel Orientation="Vertical" >
+				<TextBlock Name="synchronousCount" Margin="0,0,8,5"></TextBlock>
+				<Button Name="synchronousStart" HorizontalAlignment="Left" Width="60" Height="25" Click="SynchronousStart_Click">Start</Button>
+			</StackPanel>
+
+			<!-- ASYNCHRONOUS DEMO -->
+			<TextBlock Margin="0, 20, 0, 0" FontWeight="Bold" Foreground="Red" FontSize="16">Asynchronous Demo</TextBlock>
+			<StackPanel Orientation="Vertical" >
+				<TextBlock Name="asynchronousCount" Margin="0,0,8,5"></TextBlock>
+				<StackPanel Orientation="Horizontal">
+					<Button Name="asynchronousStart" HorizontalAlignment="Left" Width="60" Height="25" Click="AsynchronousStart_Click">Start</Button>
+					<TextBlock Name="visualIndicator" Visibility="Collapsed" Margin="20,0,0,0" FontWeight="Bold" FontSize="16" Foreground="Orange">Processing, Please Wait....</TextBlock>
+				</StackPanel>
+			</StackPanel>
+
+			<!-- ASYNCHRONOUS EVENT-BASED DEMO -->
+			<TextBlock Margin="0, 20, 0, 0" FontWeight="Bold" Foreground="Red" FontSize="16">Asynchronous Event-Based Demo</TextBlock>
+			<StackPanel Name="lastStackPanel" Orientation="Vertical">
+				<TextBlock Name="wpfCount" Margin="0,0,8,5"></TextBlock>
+				<StackPanel Orientation="Horizontal">
+					<Button Name="wpfAsynchronousStart" HorizontalAlignment="Left" Width="60" Height="25" Click="WPFAsynchronousStart_Click" >Start</Button>
+					<Grid Name="wpfProgressBarAndText" Height="25" Width="275" Visibility="Collapsed">
+						<ProgressBar Name="wpfProgressBar" Minimum="0" Maximum="100" Width="250" Height="25" Margin="20,0,0,0" />
+						<Viewbox>
+							<TextBlock Text='Processing, Please Wait....'/>
+						</Viewbox>
+					</Grid>
+				</StackPanel>
+				<Button Name="wpfAsynchronousCancel" HorizontalAlignment="Left" Width="60" Height="25" Click="WPFAsynchronousCancel_Click" IsEnabled="False"  Margin="0,10,0,0" >Cancel</Button>
+				<StackPanel.Triggers>
+					<EventTrigger RoutedEvent="Button.Click" SourceName="wpfAsynchronousStart">
+						<BeginStoryboard Name="myBeginStoryboard">
+							<Storyboard Name="myStoryboard" TargetName="wpfProgressBar" TargetProperty="Value">
+								<DoubleAnimation From="0" To="100" Duration="0:0:2" RepeatBehavior="Forever" />
+							</Storyboard>
+						</BeginStoryboard>
+					</EventTrigger>
+				</StackPanel.Triggers>
+			</StackPanel>
+
+		</StackPanel>
+	</Canvas>
+</Window>

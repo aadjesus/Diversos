@@ -1,0 +1,109 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/Styles.css">
+<title>Welcome</title>
+</head>
+
+<body>
+
+<img src="Images/Sandcastle.jpg" alt="Sandcastle Help File Builder"
+    width="141" height="138" />
+
+<h2>Welcome to the Sandcastle Help File Builder</h2>
+Sandcastle is the tool used for creating MSDN-style documentation from .NET
+assemblies and their associated XML comments files.  The current version is
+the March 2007 CTP.  It is command line based and has no GUI front-end,
+project management features, or automated build process that you can find
+in NDoc.  I created the <b>Sandcastle Help File Builder</b> to fill in the
+gaps and provide some of the missing NDoc-like features that I use most
+often, as well as provide graphical and command line based tools to build a
+help file in an automated fashion.
+
+<p/>The project is hosted at <b>CodePlex</b> in the
+<a href="http://www.codeplex.com/SHFB">Sandcastle Help File Builder</a>
+project.  Go there for the latest release, source code, the issue tracker,
+and discussion boards.
+
+<p/>Using the help file builder provides the following advantages:
+
+<ul>
+    <li>The GUI interface is almost identical to the NDoc interface so anyone
+familiar with NDoc should be quite comfortable using it.</li>
+    <li>You can import several settings from an existing NDoc project to
+start a new Sandcastle Help File Builder project.</li>
+    <li>You can import the assembly and documentation file information from
+a Visual Studio 2003/2005 solution or project file to start a new
+Sandcastle Help File Builder project.</li>
+    <li>The builder will automatically locate both Sandcastle and the HTML
+help compilers by looking in the system path and in the Program Files
+special folder on all fixed hard drives.  Properties are also supplied for
+you to specify the paths in the off-chance that it cannot locate them
+automatically.</li>
+    <li>The builder can produce an HTML 1.x (.CHM) file, an HTML 2.x
+(.HxS) file, and/or a website.  The website output contains an index page
+and tree view that can be used to navigate the table of content.</li>
+    <li>There is built-in support for documenting multiple assemblies and
+producing a single-help file for them.  The assemblies to document can be
+executable (.EXE) or library (.DLL) assemblies.</li>
+    <li>The settings are saved in a project file and the help file can be
+built from within the GUI or you can add a post-build step to a Visual
+Studio project that runs the command line tool to build it for you using
+the same project file.</li>
+    <li>The intermediate files used to create the help file are placed in a
+working folder beneath an output folder of your choosing.  They can be
+automatically removed after a successful build or kept around for further
+modifications.</li>
+    <li>The build process provides full logging and error handling.  All
+output from the build is stored in a text file in the output folder.</li>
+    <li>Several of the NDoc features that I use most often have been built
+into the Sandcastle help file builder including:
+    <ul>
+        <li>Definition of project summary and namespace summary comments
+that will appear in the help file.  You can also easily indicate which
+namespaces to include or exclude from the help file.</li>
+        <li>The ability to turn off documentation of attributes.</li>
+        <li>Automatic determination of the default topic for the help file.</li>
+        <li>Inclusion of additional help file content (i.e. your own HTML
+pages, images, etc).  Unlike NDoc, you can also take steps to have the extra
+HTML pages included in the help file's table of content, indicate which
+item should be the default page, the order of the entries, and create
+hierarchical additional content in the table of content.</li>
+        <li>You have control over the help file name, title, header text,
+and footer information such as the e-mail address, copyright text, and
+copyright URL.</li>
+    </ul></li>
+    <li>I have added features to let you control the language of the help
+file.</li>
+    <li>Steps have been taken to make the build process fairly open so that
+you have a chance to customize it without having to modify the code for the
+builder application itself.</li>
+</ul>
+
+In addition to the help file builder, the following custom build components
+are supplied:
+
+<ul>
+    <li>A code block component that extends the <code>&lt;code&gt;</code>
+XML comment tag with file inclusion, syntax highlighting, line numbering,
+collapsible <code>#region</code> and <code>#if/#else/#endif</code>
+sections, and a copy to clipboard option.</li>
+    <li>A post-transform component that can be used to add a logo image to the
+header of each page, make some minor adjustments to the syntax section, and
+add version information to the help topics.</li>
+    <li>A "show missing" component that adds "missing" notes for missing
+summary, returns, param, value, and remarks documentation tags and that
+can also auto-document constructors.</li>
+</ul>
+
+The custom build components can also be used outside of the help file
+builder in other build scripts and automated tools as well.
+
+</p>This help file was built using the help file builder and demonstrates many
+of the features that it provides.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 1 --><!-- @DefaultTopic -->

@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="brushTitleBar" StartPoint="0.5,0" EndPoint="0.5,1"  >
+        <GradientStop Color="#FFE66E65" Offset="0" />
+        <GradientStop Color="#FF9C3A3A" Offset="0.5" />
+        <GradientStop Color="#FFE66E65" Offset="1" />
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="brushTitleBarBorder" Color="#FF9C3A3A" />
+    <SolidColorBrush x:Key="brushTitleBarText" Color="#FFFAF0C2" />
+    
+    <RadialGradientBrush x:Key="brushClientArea" >
+        <GradientStop Color="#FFFAF0C2" Offset="0" />
+        <GradientStop Color="#FFE66E65" Offset="1.5" />
+    </RadialGradientBrush>
+    
+    <SolidColorBrush x:Key="brushClientAreaBorder" Color="#FF9C3A3A" />
+    
+    <LinearGradientBrush x:Key="brushStatusBar" StartPoint="0.5,0" EndPoint="0.5,1"  >
+        <GradientStop Color="#FF9C3A3A" Offset="0" />
+        <GradientStop Color="#FFE66E65" Offset="0.75" />
+        <GradientStop Color="#FF9C3A3A" Offset="1" />
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="brushStatusBarBorder" Color="#FF9C3A3A" />
+    
+    <SolidColorBrush x:Key="brushControlButton" Color="#FFE66E65" />
+    <SolidColorBrush x:Key="brushControlButtonGlow" Color="LightYellow" />
+    <SolidColorBrush x:Key="brushControlButtonStroke" Color="#FFFAF0C2" Opacity="0.85" />
+    
+    <SolidColorBrush x:Key="brushCloseButton" Color="#FFE66E65" />
+    <SolidColorBrush x:Key="brushCloseButtonForeground" Color="#FFFAF0C2" Opacity="0.25" />
+    
+    
+</ResourceDictionary>

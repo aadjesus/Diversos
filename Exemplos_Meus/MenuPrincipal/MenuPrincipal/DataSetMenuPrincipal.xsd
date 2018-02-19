@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetMenuPrincipal" targetNamespace="http://tempuri.org/DataSetMenuPrincipal.xsd" xmlns:mstns="http://tempuri.org/DataSetMenuPrincipal.xsd" xmlns="http://tempuri.org/DataSetMenuPrincipal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetMenuPrincipal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetMenuPrincipal" msprop:Generator_UserDSName="DataSetMenuPrincipal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MenuPrincipal" msprop:Generator_TableClassName="MenuPrincipalDataTable" msprop:Generator_TableVarName="tableMenuPrincipal" msprop:Generator_TablePropName="MenuPrincipal" msprop:Generator_RowDeletingName="MenuPrincipalRowDeleting" msprop:Generator_UserTableName="MenuPrincipal" msprop:Generator_RowChangingName="MenuPrincipalRowChanging" msprop:Generator_RowEvHandlerName="MenuPrincipalRowChangeEventHandler" msprop:Generator_RowDeletedName="MenuPrincipalRowDeleted" msprop:Generator_RowEvArgName="MenuPrincipalRowChangeEvent" msprop:Generator_RowChangedName="MenuPrincipalRowChanged" msprop:Generator_RowClassName="MenuPrincipalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sistema" msprop:Generator_ColumnVarNameInTable="columnSistema" msprop:Generator_ColumnPropNameInRow="Sistema" msprop:Generator_ColumnPropNameInTable="SistemaColumn" msprop:Generator_UserColumnName="Sistema" type="xs:string" />
+              <xs:element name="DataCriacao" msprop:Generator_ColumnVarNameInTable="columnDataCriacao" msprop:Generator_ColumnPropNameInRow="DataCriacao" msprop:Generator_ColumnPropNameInTable="DataCriacaoColumn" msprop:Generator_UserColumnName="DataCriacao" type="xs:dateTime" />
+              <xs:element name="DataAlteracao" msprop:Generator_ColumnVarNameInTable="columnDataAlteracao" msprop:Generator_ColumnPropNameInRow="DataAlteracao" msprop:Generator_ColumnPropNameInTable="DataAlteracaoColumn" msprop:Generator_UserColumnName="DataAlteracao" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SubMenuNivel2Cadastro" msprop:Generator_TableClassName="SubMenuNivel2CadastroDataTable" msprop:Generator_TableVarName="tableSubMenuNivel2Cadastro" msprop:Generator_TablePropName="SubMenuNivel2Cadastro" msprop:Generator_RowDeletingName="SubMenuNivel2CadastroRowDeleting" msprop:Generator_UserTableName="SubMenuNivel2Cadastro" msprop:Generator_RowChangingName="SubMenuNivel2CadastroRowChanging" msprop:Generator_RowEvHandlerName="SubMenuNivel2CadastroRowChangeEventHandler" msprop:Generator_RowDeletedName="SubMenuNivel2CadastroRowDeleted" msprop:Generator_RowEvArgName="SubMenuNivel2CadastroRowChangeEvent" msprop:Generator_RowChangedName="SubMenuNivel2CadastroRowChanged" msprop:Generator_RowClassName="SubMenuNivel2CadastroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NomeItemMenu" msprop:Generator_ColumnVarNameInTable="columnNomeItemMenu" msprop:Generator_ColumnPropNameInRow="NomeItemMenu" msprop:Generator_ColumnPropNameInTable="NomeItemMenuColumn" msprop:Generator_UserColumnName="NomeItemMenu" type="xs:string" />
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" type="xs:string" minOccurs="0" />
+              <xs:element name="Icone" msprop:Generator_ColumnVarNameInTable="columnIcone" msprop:Generator_ColumnPropNameInRow="Icone" msprop:Generator_ColumnPropNameInTable="IconeColumn" msprop:Generator_UserColumnName="Icone" type="xs:string" minOccurs="0" />
+              <xs:element name="Sistema" msprop:Generator_ColumnVarNameInTable="columnSistema" msprop:Generator_ColumnPropNameInRow="Sistema" msprop:Generator_ColumnPropNameInTable="SistemaColumn" msprop:Generator_UserColumnName="Sistema" type="xs:string" />
+              <xs:element name="Caption" msprop:Generator_ColumnVarNameInTable="columnCaption" msprop:Generator_ColumnPropNameInRow="Caption" msprop:Generator_ColumnPropNameInTable="CaptionColumn" msprop:Generator_UserColumnName="Caption" type="xs:string" minOccurs="0" />
+              <xs:element name="CodigoInterno" msprop:Generator_ColumnVarNameInTable="columnCodigoInterno" msprop:Generator_ColumnPropNameInRow="CodigoInterno" msprop:Generator_ColumnPropNameInTable="CodigoInternoColumn" msprop:Generator_UserColumnName="CodigoInterno" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MenuPrincipal" />
+      <xs:field xpath="mstns:Sistema" />
+    </xs:unique>
+    <xs:unique name="SubMenuNivel2Cadastro_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SubMenuNivel2Cadastro" />
+      <xs:field xpath="mstns:CodigoInterno" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="MenuPrincipal_SubMenuNivel2Cadastro" msdata:parent="MenuPrincipal" msdata:child="SubMenuNivel2Cadastro" msdata:parentkey="Sistema" msdata:childkey="Sistema" msprop:Generator_UserChildTable="SubMenuNivel2Cadastro" msprop:Generator_ChildPropName="GetSubMenuNivel2CadastroRows" msprop:Generator_ParentPropName="MenuPrincipalRow" msprop:Generator_UserRelationName="MenuPrincipal_SubMenuNivel2Cadastro" msprop:Generator_RelationVarName="relationMenuPrincipal_SubMenuNivel2Cadastro" msprop:Generator_UserParentTable="MenuPrincipal" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

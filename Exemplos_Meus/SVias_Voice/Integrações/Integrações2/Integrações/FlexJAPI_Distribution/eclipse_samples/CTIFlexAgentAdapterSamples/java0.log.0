@@ -1,0 +1,10 @@
+14/02/2008 11:45:37 br.com.voicetechnology.flexapi.FlexAPI create
+INFO: API Started.
+14/02/2008 11:45:37 br.com.voicetechnology.flexapi.FlexAPI onDisconnect
+INFO: Desconectado do servidor
+14/02/2008 11:45:37 br.com.voicetechnology.flexapi.collection.CollectionObject removeListener
+FINEST: Removendo listener de: [1:Tables]=[] Listener=examples.apps.ctiflexapiteste.CTIFlexAPITesteWindow[frame0,0,0,400x300,invalid,hidden,layout=java.awt.BorderLayout,title=CTI Server Flex API Teste,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+14/02/2008 11:45:37 br.com.voicetechnology.flexapi.collection.CollectionObject addListener
+FINEST: Adicionando listener a: [1:Tables]=[] Listener=examples.apps.ctiflexapiteste.CTIFlexAPITesteWindow[frame0,0,0,400x300,invalid,hidden,layout=java.awt.BorderLayout,title=CTI Server Flex API Teste,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+14/02/2008 11:45:37 br.com.voicetechnology.flexapi.collection.CollectionObject addListener
+FINEST: Count=1

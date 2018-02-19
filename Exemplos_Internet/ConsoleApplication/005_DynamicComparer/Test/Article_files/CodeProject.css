@@ -1,0 +1,3286 @@
+/*
+# Black					: #000000
+# White					: #ffffff
+
+-- Main Theme --
+# Bold Orange			: #ff9900 - Main theme, headings
+# Light Orange Yellow	: #FFCC66 - Sub theme, Side Menu backgrounds
+# terrocotta			: #FFF8DF - Sub-sub theme. Feature header background, Side submenu background
+# close to "Wheat2"		: #FBEDBB - PRE block Highlight, Article header and highlights
+# Darker Orange			: #E08900 - Makes button elements match the main theme colour
+# Dark Faded Red		: #990000 - in-text Code, Feature Header Text
+# Floral white			: #FFFAF0 - Feature content background
+
+-- Contrast Theme --
+# nearly Forest Green	: #488E00 - Contrast main theme. Site dropdown menus
+# nearly Yellow Green	: #C3DE6C - Site dropdown menu highlight/hover
+# "Bob Green"			: #76AB40 or #85BC4C
+
+-- Highlights and Shadings --
+# Very light grey		: #FAFAFA - Good for backgrounds
+# Grey93				: #EDEDED - Main Content box Header background, Search bar
+# Pale Gray				: #CCCCCC - Main Content box border
+# Dark Gray				: #666666 - H6, Descriptions
+# Obscure Gray			: #333333 - Nav Menu Chapter heading
+
+# Pale Yellow			: #FFFFCC - Callout
+# Lavender				: #E6E6FA - Unedited article header
+# Technical Blog		: #E08900 - Technical Blog header
+# Grey89				: #E3E3E3 - Article in Purgatory
+
+
+To target IE:
+
+  background: red;	 - modern browsers 
+ *background: green;   - IE 7 and below (prefix with '*')
+ _background: yellow;  - IE6 exclusively (prefix with '_')
+ 
+Note: There is a huge amount of descendant selectors here which are very inefficient. To be fixed.
+
+*/
+.theme1-color { color: #f90; }
+.theme1-background { background-color: #f90; }
+.theme1-border { border-color: #f90 !important; }
+
+.theme2-color { color: #FFCC66; }
+.theme2-background { background-color: #FFCC66; }
+.theme2-border { border-color: #FFCC66 !important; }
+
+.theme3-color { color: #FFF8DF; }
+.theme3-background { background-color: #FFF8DF; }
+.theme2-border { border-color: #FFF8DF !important; }
+
+.contrast1-color { color: #488E00; }
+.contrast1-background { background-color: #488E00; }
+.contrast1-border { border-color: #488E00 !important; }
+
+.contrast2-color { color: #C3DE6C; }
+.contrast2-background { background-color: #C3DE6C; }
+.contrast1-border { border-color: #C3DE6C !important; }
+
+.blank-background { background-color:White; }
+
+html
+{
+	font-size: 100.01%;
+}
+body, p, h1, h2, h3, h4, h5, h6, li, tr, td, th, dd, dt 
+{
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10pt; /*93%; */
+	line-height: 1.2em;
+}
+body
+{
+	background-color: #fff;
+	margin: 0pt; 
+}
+h1, h2, h3, h4, h5, th
+{
+	font-weight: bold;
+}
+h1
+{
+	padding-bottom:0px;	
+	color: #488E00; 
+	margin-top:10px;
+	text-align:left;
+	margin-bottom:5px;
+	letter-spacing: -1px;	
+}
+h2, h3, h5
+{
+	color: #ff9900;
+}
+h1 { font-size: 1.6em;/*135%;*/ }
+h2 { font-size: 13pt; }
+h3 { font-size: 11pt; }
+h4 { font-size: 10pt; }
+h5 { font-size: 9pt; font-weight: bold;	margin-bottom: 2px; }
+h6 { font-size: 65%; color: #666666; font-weight: normal; }
+acronym 
+{ 
+	cursor: help;
+	border-bottom: 1px dashed #666;
+}
+pre
+{
+	background-color: #FBEDBB;
+	padding: 7pt;
+	font: 9pt "Courier New", Courier, mono;
+	white-space:pre;
+	overflow:auto !important;
+}
+code
+{
+	color: #900;
+	font: 11pt "Courier New", Courier, mono;
+}
+
+table {	background-color:Transparent; }
+img { -ms-interpolation-mode: bicubic; }
+
+dt
+{ 
+	font-weight:bold;
+	margin-top:10px;
+	margin-bottom:6px;
+}
+dd
+{ 
+	margin-bottom:6px;
+	margin-left:25px;
+}
+
+a			{ text-decoration: none; }
+a:active	{ text-decoration: underline; }
+a:hover		{ text-decoration: underline; }
+a:focus		{ outline: none; }
+/*a[href^="http://"]:not([href*="codeproject.com"])::after { content: "\2197"; }*/
+
+tt.equation 
+{ 
+	font-family: 'Times New Roman', serif; 
+	font-size:10pt; 
+	font-style: italic; 
+	white-space: pre; 
+}
+
+/* List types */
+ul.outdent
+{
+	padding-left:15px;
+	margin-left:0px;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+ul.outdent li
+{
+	padding-bottom:2px;
+	font-size:8pt;
+}
+ul.download 
+{
+	margin-left: 1.5em
+}
+ul.download LI, LI.download
+{
+	list-style-image: url(/images/download.gif);
+	padding-left: 0.5em;
+}
+ul.compact
+{
+	list-style-type:none;
+	margin:0px;
+	padding-left:3px;
+	line-height:1.4em;
+}
+ul.spaced,ol.spaced  {margin:3px;}
+ul.spaced li, ol.spaced li  
+{ 
+	margin: 10px 0 10px 0; 
+	*margin: 10px 0 10px 25px; /* IE7 and below fix */
+}
+
+ul.delegate li, li.delegate		{ list-style-image: url(/images/symbols/delegate.gif); }
+ul.enum li, li.enum				{ list-style-image: url(/images/symbols/Enum.GIF); }
+ul.event li, li.event			{ list-style-image: url(/images/symbols/event.GIF); }
+ul.interface li, li.interface	{ list-style-image: url(/images/symbols/interface.GIF); }
+ul.literal li, li.literal		{ list-style-image: url(/images/symbols/literal.GIF); }
+ul.method li, li.method			{ list-style-image: url(/images/symbols/method.GIF); }
+ul.namespace li, li.namespace	{ list-style-image: url(/images/symbols/namespace.GIF); }
+ul.property li, li.property		{ list-style-image: url(/images/symbols/property.GIF); }
+ul.struct li, li.struct			{ list-style-image: url(/images/symbols/struct.GIF); }
+
+ul.compactlist li, li.compactlist 
+{
+	list-style-image: url(/images/smallarrow.gif);
+	font-size: 8pt;
+	margin-left: -1em;
+	margin-bottom: 0px;
+}
+ul.compactlist
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+ul.horizontal li
+{
+	display:inline;
+	padding:0.2em 1em;	
+}
+
+/* Form elements */
+.long-element  { width: 500px; }
+.short-element { width: 50px; }
+
+.toolbar
+{
+	border:solid 1px transparent;
+	_border:solid 1px white; /* IE6 */
+	padding:1px;
+}
+.toolbar:hover
+{
+	border: solid 1px #f90;
+	background-color: #fc9;
+}
+
+button.toolbar
+{
+	border:solid 1px white;
+	background-color: white;
+	padding:0px;
+	margin:0px;	
+	padding:1px;
+}
+/*
+input[type="button"], input[type="submit"]
+{ 
+	color: white; 
+	border: solid 1px #ccc;
+	background-color: #E08900; 
+	font-weight: bold; 
+	padding: 2px;
+	text-decoration:none !important;
+	cursor:pointer;
+	font-size:100%;
+	letter-spacing: 1px;
+}*/
+
+.button, /* IE6 - note the ".". This is a class name, not an element name. Remove when IE6 dies */
+.button-large 
+{ 
+	color: white;
+	/*border: solid 1px #ccc;*/
+	background-color: #E08900; 
+	border-width:2px;
+	border-style:outset;
+	font-weight: bold;
+	padding: 2px;
+	text-decoration:none !important;
+	font-size:100%;
+	white-space:nowrap;
+}
+button.button { font-size: 90% }
+.button:active
+{
+	border-style:inset;
+}
+.button:hover, .button-large:hover
+{
+	border-style:outset;
+}
+.button-large
+{
+	font-size: 11pt !important;
+	padding:4px 9px;
+}
+
+/* End Form elements */
+
+/* Text size: Rename to text-small, text-tiny, text-large */
+.small-text, .small-text li, .small-text td { font-size:8pt !important; }
+.tiny-text, input-prompt,.action-link { font-size:7pt; }
+.medium-text { font-size:10pt; }
+.large-text { font-size: 13pt; font-weight:bold; }
+
+/* Alignment and layout stuff. To be removd. */
+
+.align-left { text-align:left !important;}
+.align-right { text-align:right !important;}
+.align-center { text-align:center;}
+.align-justify { text-align:justify; }
+.align-top { vertical-align:top; }
+.align-middle { vertical-align:middle; }
+.align-bottom { vertical-align:bottom; }
+.float-right { float: right; }
+.float-left { float: left; }
+.float-center { margin: auto; }
+.top-left-fixed { position:relative; top:0px;left:0px;}
+
+.extended {width:100%;}
+.padded {padding:10px;}
+.tight  {margin:0px !important;padding:0px !important;}
+.spaced {margin:10px;}
+.nowrap {white-space:nowrap;} 
+.wrap   {white-space:normal;}
+.fixed-layout {	table-layout:fixed; }
+.clip-text { text-overflow:ellipsis; }
+
+/* General styles */
+
+.header { background-color:#ff9900; }
+.content {}
+.sidebar {} 
+.toplinks { 
+	font-size:8pt;
+	color:#333;
+	background-color:White;
+	font-family:verdana,Sans-Serif;
+	letter-spacing:-1px;
+	padding:2px;
+}
+.footer { margin:auto;}
+
+.row { overflow:hidden; }
+.column { display: inline; float: left;}
+
+.column8_1 {width:12%;float:left;} /* 8 columns, _1 = 1 column span, _2 = 2 columns spanned etc */
+.column8_2 {width:25%;float:left;}
+.column8_3 {width:37%;float:left;}
+.column8_4 {width:50%;float:left;}
+.column8_5 {width:62%;float:left;}
+.column8_6 {width:75%;float:left;}
+.column8_7 {width:87%;float:left;}
+
+.access-link /* Accessibility 1x1 quick link to main content */
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1px;
+	height: 1px;
+	z-index: 100;
+	border-style: none;
+}
+.scroll-list
+{
+	overflow:auto;
+	border-width:1px;
+	border-color:Gray;
+	border-style:solid;
+	font-size: 8pt; 
+	scrollbar-arrow-color:white; 
+	scrollbar-face-color:#FF9900; 
+	height:	100px;
+}
+.box .scroll-list 
+{
+	width: 120px; 
+	font-size:7pt;
+	white-space:nowrap;
+	text-overflow:clip;
+}
+.box .scroll-list .sub-item
+{
+	padding-left:10px;
+	font-size: 7pt;
+	white-space:nowrap;
+	text-overflow:clip;
+}
+.box
+{
+	margin-bottom:10px;
+	padding:5px;
+	font-size:8pt; 
+	border: solid 1px #ddd;
+	*zoom:1;	/* trigger hasLayout in IE to force the box to encompass content */
+	_zoom:1;
+}
+.box.header 
+{
+	padding: 2px 2px 2px 5px;
+	/*text-transform:uppercase;*/
+	color:Black;
+	font-family:Arial,Tahoma,Verdana;
+	font-size:13px; 
+	font-weight:bold;
+	background-color:#EEE;
+	border: solid 1px #ddd;
+	border-bottom-style:none;
+	margin-bottom:0px;
+}
+.box.header.feature
+{
+	padding: 2px 2px 2px 5px;
+	/*text-transform:uppercase;*/
+	color:Black;
+	font-family:Arial,Tahoma,Verdana;
+	font-size:13px; 
+	font-weight:bold;
+	background-color:#FFF8DF;
+	border: solid 1px #F90;
+	border-bottom-style:none;
+	margin-bottom:0px;
+	
+	/* IE6 uses the last name in a chained class as the name to apply, so reset for IE6 */
+	_text-transform:none;
+	_color:inherit;
+	_font-family:Verdana;
+	_font-size:8pt; 
+	_background-color:#FFF8DF;
+	_border: solid 1px #F90;
+}
+table.data td
+{
+	padding:0px;
+}
+
+/* IE6 interprets ".class1.class2" as ".class2", so reset overwritten classes in IE6 by setting
+   properties using _property. "_property" is read as "property" by IE6 only. */
+div.box, td.box
+{
+	_font-size:8pt; 
+	_font-weight:normal;
+	_text-transform:none;
+	_margin-bottom:10px;
+}
+div.header, td.header
+{ 
+	_background-color:#ff9900; 
+	/*_text-transform:uppercase !important;*/
+	_font-size:13px !important; 
+	_font-weight:bold !important;
+	_margin-bottom:0px;
+	_border:0;
+}
+
+div.box table.data /* general IE6/IE7 fix */
+{
+	*width:95% !important;
+	_width:95% !important;
+}
+/* End IE6 reset */
+
+.feature { 	background-color:#FFF8DF; border-color: #F90; }
+
+.button-group 
+{ 
+	display:none; 
+	white-space:nowrap; 
+	padding:0;
+	margin:0;
+}
+.hover-container
+{ 
+	position:relative; 
+	display:block;
+	margin:0;
+}
+.hover-row.hover, /* IE6, needs "hoverPanel.js" */
+.hover-row:hover 
+{ 
+	background-color:#FFF8DF; 
+}
+
+.hover .button-group, /* IE6, needs "hoverPanel.js" */
+.hover-row:hover .button-group
+{
+	position:absolute;
+	right:8px;
+	display:block;
+}
+.tag-info .button-group
+{
+	top:0px;
+}
+
+/* General headlines and bar text */
+
+.FeatureTable, /* may be set in articles - check */
+table.feature 
+{
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	background-color:#FFFAF0;
+	/*border-collapse:collapse;*/
+	background-color:White;
+}
+.FeatureTable td, .FeatureTable th,/* may be set in articles - check */
+table.feature td, table.feature th
+{
+	border-bottom: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	margin:0px;
+	padding:5px;
+	font-size: 8pt; 
+}
+.FeatureTable thead, /* may be set in articles - check */
+table.feature thead
+{
+	background-color:#FFCC66;
+	font-weight:bold;
+}
+.FeatureTable tr.AltItem, /* may be set in articles - check */
+table.feature tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+
+.title-addenda /* extra side-text in TitleBar control */
+{
+	margin-top:15px;
+	float:right;
+	text-align:right;
+	font-size:.85em;
+	font-weight: normal;
+}
+.divider
+{
+	color:#ff9900;
+	background-color:#ff9900;
+	height:1px;
+	margin:0px;
+	padding:0px;
+	border: none;
+}
+.divider-faint
+{
+	border-style: none;
+	color:#ccc;
+	background-color:#ccc;
+	height:1px;
+	padding:0px;
+	margin: 0px;
+}
+.breadcrumb
+{
+	font-size:8pt;
+	margin-top:20px;
+	margin-bottom:5px;
+}
+/* End General headlines and bar text */
+
+
+/* Specialised homepage headers */
+.JoinHeader
+{
+	font-size: 17px;
+	margin:4px;
+	white-space:nowrap;
+	font-weight:bold;
+	border: solid 1px black;
+	background-color:#FFCC66;
+	padding:4px;
+	vertical-align:middle;
+}
+.JoinHeader a
+{
+	color: #990000;
+	height:20px;
+}
+.ShopHeader
+{
+	font-size:17px;
+	margin:4px;
+	white-space:nowrap;
+	font-weight:bold;
+	border: solid 1px black;
+	background-color:#76AB40;
+	padding:4px;
+	vertical-align:middle;
+}
+.ShopHeader a
+{
+	color: White;
+	filter: Shadow(color=#000000,strength=1,direction=135);
+	height:20px;
+}
+/* End Specialised homepage headers */
+
+
+/* Info and quick-pick bars */
+.MemberNavBar td
+{
+	border-bottom: solid 1px #f90;
+	color:#666;
+	font-size:8pt;
+}
+.MemberNavBarText, .MemberNavBarText a
+{
+	font-size:8pt;
+	color:#333;
+	font-family:verdana,Sans-Serif;
+	letter-spacing:-1px;
+}
+.CatChooser
+{
+	padding:2px 0px 6px 5px;
+	display:block;
+	font-size:8pt;
+	background-color:#f90; /*#FFF8DF;*/
+}
+.CatChooser span a
+{
+	padding:0px 5px 1px 5px;
+	font-size:8pt;
+	color:#333; /*#33F;*/
+}
+.CatChooser span.CatSel a
+{
+	font-weight:bold;
+	color:#333;/*#900;*/
+	background-color: #FFF8DF; /*#ff9900;*/
+}
+.CatChooser span a:hover
+{
+	background-color: #FFF8DF; /*#ff9900;*/
+	text-decoration:none;
+}
+
+.nav-search
+{
+	background-color:#EDEDED;
+	border-bottom-color:#CCCCCC;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	padding:3px;
+	margin:0px;
+}
+
+.nav-left
+{
+	width:170px;
+	background-color:#FF9900;
+	padding:1px;
+	position:absolute;
+	left:0px;
+}
+.borders-left-nav
+{
+	border-left: solid 172px #f90;
+}
+.nav-right
+{
+	width:160px;
+	padding:1px 5px 0px 20px;
+}
+.nav-right.wide
+{
+	max-width:190px;
+	width:190px;
+}
+.wide .box
+{
+	_width:190px !important;	/*IE6 fix */
+}
+.container-content
+{
+	padding: 5px 5px 5px 10px;
+}
+.container-article
+{
+	padding: 5px 10px 5px 10px;
+	/*max-width:900px;
+	_width:100%;
+	*width:100%;*/
+}
+
+
+.DiffAdd, .DiffDel, .DiffSame, .DiffBlank
+{
+	white-space:nowrap;
+	font: 9pt "Courier New", Courier, mono;
+	/*display: block;
+	width:100%;*/
+}	
+.DiffAdd	{ background-color: Yellow; }
+/*.DiffDel	{ background-color: #FBEDBB; text-decoration:line-through; }*/
+.DiffDel	{ background-color: #FFCC66; }
+.DiffSame	{ text-decoration:none !important;}
+.DiffBlank	{ background-color: #ccc; }
+.DiffNum	{ color: #999; }
+
+.RHFeatureBar
+{
+	vertical-align:top;
+	overflow:hidden;
+}
+/* End Info and quick-pick bars */
+
+/* Quick styles for consistency */
+.collapsible
+{
+	font-size:7pt;
+	font-weight:bold;
+	background-color: #FBEDBB;
+	display:inline;
+	border-bottom:solid 1px #ccc;
+}
+
+.SiteError
+{
+	padding: 10px;
+	padding: 10px;
+	margin-left: 20px;
+	width: 80%;
+	font-size: 9pt;
+}
+.Caption
+{	
+	font-size:8pt;
+	font-style:italic;
+	font-weight: bold;
+}
+.Filename
+{	
+	font-style:italic;
+}
+.Command
+{
+	font-weight: bold;
+}
+.Warning,.warning
+{
+	 border: 1px solid red;
+	 padding:5px;
+	 margin: 20px;
+	 /*color:red;*/
+	 background-color:#FFE3E0;
+}
+.safe {	background-color: #76AB40 !important; }
+.unsafe { background-color: #d00  !important; }
+
+.error, .error li
+{
+	color:Red;
+}
+.Success,.success
+{
+	color:Green;
+	font-weight:bold;
+}
+.Failure,.failure
+{
+	color:Red;
+	font-weight:bold;
+}
+.Callout,.callout
+{
+	margin: 20px; 
+	background-color: #FFFFCC;
+	border: 1px solid blue;
+	padding: 5px;
+}
+.watermark { color:#BBB;}
+
+.highlight	{ background-color:yellow !important; }
+.emphasis	{ color:red !important; }
+.Hidden,.hidden { visibility: hidden;}
+.invisible  { display:none;}
+.subdue		{ color:#666;}
+.transparent{ background-color:Transparent;}
+.bold		{ font-weight:bold;}
+.offblack   { color:#333;}
+
+.SubtleEmph	{ background-color:#FFA;}
+.NB			{ border-style: none !important;}
+.NBL		{ border-left-style: none !important;}
+.NBR		{ border-right-style: none !important;}
+.NBS		{ border-left-style: none !important;border-right-style: none !important;}
+.OffSite	{ color:#666;}
+
+.announce-header 
+{
+	padding:2px 2px 2px 5px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size:12pt; 
+	font-weight:bold; 
+	margin: 5px 0px 0px 0px; 
+}
+.announce-content, .announce-content td
+{
+	font-size: 8pt; 
+	padding:2px;
+	margin-bottom:5px;	
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.Available
+{
+	color:Green;
+	font-weight:bold;
+}
+.Expired
+{
+	color:Red;
+	font-weight:bold;
+}
+.AddTo
+{
+	font-size:8pt;
+	cursor:pointer;
+	margin:4px;
+}
+.ArticleTable, .ArticleTableNoBorder
+{
+	border: 1px solid #CCCCCC;
+	border-collapse: collapse;
+ 	padding: 5px 5px;
+}
+.ArticleTable tr.alt-item, 
+.ArticleTableNoBorder tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+.ArticleTableNoBorder
+{
+	border-style: none; 
+}
+.ArticleTable th, .ArticleTableNoBorder th
+{
+ 	padding: 5px 5px;
+}
+.ArticleTable th
+{
+	border: 1px solid #CCCCCC;
+}
+.ArticleTable thead, .ArticleTableNoBorder thead
+{
+	font-weight:bold; 
+	background-color: #ebf6ff; 
+}
+.ArticleTable tfoot, .ArticleTableNoBorder tfoot
+{
+	font-weight: bold; 
+}
+
+.ArticleTable tr.ArticleTableRow, .ArticleTableNoBorder tr.ArticleTableRow
+{
+	background-color: #ebf6ff; 
+}
+.ArticleTable tr.ArticleTableAltRow, .ArticleTableNoBorder tr.ArticleTableAltRow
+{
+	background-color: #ddf0fe; 
+}
+.ArticleTable td, .ArticleTableNoBorder td
+{
+ 	padding: 5px 5px;
+}
+.ArticleTable td
+{
+	border: 1px solid #CCCCCC;
+}
+
+.EditorReportTable
+{
+	border:				1px solid #CCCCCC;
+	background-color:	#DADADA;
+ 	padding:			5px 5px;
+ 	border-collapse:	collapse;
+}
+
+.EditorReportTable th
+{
+ 	padding: 5px 5px;
+ 	border: 1px solid #CCCCCC;
+}
+
+.EditorReportTable thead
+{
+	font-weight:bold;
+	background-color: #ff9900;
+}
+.EditorReportTable tfoot
+{
+	font-weight: bold; 
+	background-color:#85BC4C;
+}
+
+.EditorReportTable tr.EditorReportRow
+{
+	background-color: #fafafa; 
+}
+
+.EditorReportTable td
+{
+ 	padding: 5px 5px;
+ 	border: 1px solid #CCCCCC;
+}
+
+.EditorComment
+{
+	border: thin solid #FF9900;
+	background-color:Yellow;
+	padding:5px;
+}
+.FQ
+{
+	padding-left: 0.6em; 
+	margin-left: 0.25em; 
+	border-left: gray 0.2em solid; 
+	color: #556655; 
+	margin-right: 1em;
+	margin-bottom: 1em;
+}
+.FQA
+{
+	font-size: 7pt;
+	font-weight: bold;
+	margin-left: -0.25em;
+}
+/* End Quick styles for consistency */
+
+.SpacedList li
+{
+	 margin: 5px 0px 5px 0px;
+}
+.SpacedList p
+{
+	margin:5px 0px 0px 0px;
+}
+.MenuGroup
+{
+	font-weight:bold;
+	font-style:italic;
+	color:Gray;
+}
+
+.OptionInGroup
+{	
+	padding-left:10px;
+}
+
+/* End List types */
+
+/* Syntax highlighting */
+.code-comment			{ color: #008000; font-style: italic; }
+.code-SummaryComment	{ color: #808080; }
+.code-keyword			{ color: Blue; }
+.code-SDKkeyword		{ color: #339999; } /* aqua */
+.code-preprocessor		{ color: Navy; }
+.code-string			{ color: Purple;} /* darkgreen*/
+.code-literal			{ color: Navy; }
+.code-pagedirective		{ background-color:yellow; }
+.code-attribute			{ color: red;	 }
+.code-tag				{ color: #800000; }
+.code-leadattribute		{ color: #800000; }
+.code-digit				{ color: Navy; }
+.code-none				{ color: #000; }
+.code-linenumber		{ color:#5F9EA0; font-style:normal;}
+/* End Syntax highlighting */
+
+/* Rating Styles */
+.RatingBar
+{
+	background-color: #FBEDBB;
+	border: solid 1px #FF9900;
+}
+.RatingBar tr
+{
+	font-size:8pt;
+}
+.HistTable
+{
+	margin-left:7px;
+	background-color:#FFFAF0;
+	border: solid 1px #ccc;
+	border-collapse:collapse; 
+	text-align:center;
+}
+.HistTable td
+{
+	vertical-align:bottom;
+	font-size:6pt;
+}
+/* End Rating Styles */
+
+/* Article Styles */
+.FaqHeader, .ArticleHeader, .ArticleUneditedHeader, .ArticleBlogHeader
+{
+	border-bottom: solid 1px #ccc; width:100%;
+}
+.ArticleHeader h1, .ArticleUneditedHeader h1, .ArticleBlogHeader h1       
+{
+	color:Black; font-size:16pt;
+}
+.ArticleHeader			{ background-color:#FBEDBB;}
+.ArticleUneditedHeader	{ background-color:#E6E6FA;}
+.ArticleBlogHeader	 	{ background-color:#fffaf0;}
+.FaqHeader				{ background-color:white; margin-top:15px}
+.ArticleReady			{ color: Green;}
+.ArticleLocked			{ color: Red;  }
+.ArticlePending			{ color: #333; }
+.SectionTOC             { width: 100%; }
+.SectionTOCHeader, .SectionTOCHeader td
+{
+	border-top: solid 1px #FFCC66;
+	border-bottom: solid 1px #FFCC66;
+	background-color:#FFF8DF;
+}
+.SectionTOCRow, .SectionTOCRow td
+{
+	background-color:#FFFAF0;
+	border-bottom: solid 1px #CCCCCC;
+	padding-bottom: 15px;
+}
+
+.SectionTOCUneditedRow, .SectionTOCUneditedRow td
+{
+	background-color:#C0CBEE;
+	border-bottom: solid 1px #FBEDBB;
+	padding-bottom: 15px;
+}
+.ArAttr
+{
+	color:#666;
+	margin-top:5px;
+	font-size:8pt;
+}
+.ArDesc
+{
+	color:#666;
+	font-size:8pt;
+}
+.ArticleBeginner
+{
+	font-weight:bold;
+	color:Green;
+}
+.ArticleIntermediate
+{
+	display:none;
+}
+.ArticleAdvanced
+{
+	font-weight:bold;
+	color:Red;
+}
+.ImagePreview
+{
+	border: 1px solid #333;
+}
+
+.QueueArticle						{}
+.QueueArticleComment				{}
+.QueueArticleOnHold					{}
+.QueueArticleCommentOnHold			{}
+.QueueArticleQueued					{}
+.QueueArticleCommentQueued			{}
+.QueueArticlePosting				{color:Green;}
+.QueueArticleCommentPosting			{color:Green;}
+.QueueArticlePosted					{color:Green;}
+.QueueArticleCommentPosted			{color:Gray;}
+.QueueArticleNeedAssistance			{color:Red;font-weight:bold;}
+.QueueArticleCommentNeedAssistance	{color:Red;}
+.QueueArticleNeedAttention			{color:Red; font-weight:bold;}
+.QueueArticleCommentNeedAttention	{color:Red;}
+
+/* Article Styles */
+
+/* Member Styles - names cannot change*/
+.MemberNoStatus	{background-color:#ffffff; margin:4px; padding:4px; border: solid 1px #ddd; text-align:center}
+.MemberBronze	{background-color:#EFB277; margin:4px; padding:4px; text-align:center}
+.MemberSilver	{background-color:#DFDFDF; margin:4px; padding:4px; text-align:center}
+.MemberGold		{background-color:#ffcc00; margin:4px; padding:4px; text-align:center}
+.MemberPlatinum	{background-color:#CFE7FF; margin:4px; padding:4px; text-align:center}
+/* Member Styles */
+
+/* Member Reputation Styles */
+.high-achiever { border-bottom: solid 2px #ffcc00; border-top: solid 2px #ffcc00;}
+.MemberRepGroup { max-width: 175px; }
+.MemberRepTypesGroup { margin-top: 1px; }
+.MemberRepType 
+{
+	margin: 0 5px 3px 0;
+	white-space:nowrap;
+}
+.MemberRepPoints 
+{
+	padding: 1px;
+	font-weight: bold;
+}
+/* Member Reputation Styles */
+
+/* Survey styles */
+.SurveyBriefHeader
+{
+	padding:2px;
+	padding-left:5px;
+	font-weight:bold;
+	color:#990000;
+	font-family:Arial,Verdana;
+	font-size:13px; 
+	background-color:#FFF8DF;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FF9900;
+}
+.SurveyBlockContent
+{
+	font-size: 8pt; 
+	padding:3px;
+	padding-top:5px;
+	background-color:#FFFAF0;/*#FFF8DF;*/
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FF9900;
+	border-top-style:none;
+	overflow:hidden;
+	text-overflow:ellipsis;		
+}
+.SurveySubline
+{
+	font-size: 8pt; 
+	color:black;
+	font-weight:normal;
+	margin-bottom:10px;
+}
+.SurveyQPrmpt
+{
+	font-size: 8pt; 
+}
+.SurveyVoteBar
+{
+	padding:2px;
+	padding-left:5px;
+	font-weight:bold;
+	color:Black;
+	font-family:Arial,Verdana;
+	font-size: 10pt; 
+	background-color:#EDEDED; 
+	border-style: solid;
+	border-width: 1px;
+	border-color: #cccccc;
+	margin:0px;
+	margin-top:5px;
+}
+.SurveyTable
+{
+	padding:2px;
+	background-color:#FFFAF0; /*#FFF8DF;*/
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: #EDEDED;	
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #EDEDED;	
+	background-color:#FAFAFA;
+}
+.SurveyTable tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+.SurveyTable tr.DeletedItem
+{
+	background-color:#CCCCCC;
+}
+.SurveyVoteTable
+{
+	width:90%;
+	padding:20px;
+	background-color:#FFFAF0; /*#FFF8DF;*/
+}
+.SurveyVoteCell
+{
+	font-size: 8pt; 
+}
+.SurveyCell
+{
+	font-size: 8pt; 
+	border-right: solid 1px #EDEDED;
+	border-top: solid 1px #EDEDED;
+	padding:1px;
+	padding-right:3px;
+}
+.SurveyHeader
+{
+	font-weight:bold;
+	background-color:#FF9900;
+}
+.SurveyBody
+{
+	background-color:#FFFFFF;
+}
+.SurveyFooter
+{
+	font-weight:bold;
+	background-color: #488E00;
+}
+.SurveyHeaderCell
+{
+	color: White;
+}
+/* Survey styles */
+
+
+/* Admin Styles */ /* Empty for now. Just a PlaceHolder */
+.AdminMessageTable /*style class for displaying admin messages in table form*/
+{
+}
+
+.AdminMessageCell /*style class for displaying admin messages in table form (cell class)*/
+{
+}
+.AdminMessageDiv /*style class for displaying admin messages in div with line breaks*/
+{
+}
+.AdminMessageList /*style class for displaying admin messages as a list*/
+{
+}
+#_adminTrace
+{
+	margin-left:175px;
+	font-size: 7pt;
+}
+.Admin,.admin
+{
+	/*background-color:#fffafa;*/
+	background-color:#FFE9CF;
+	border: 1px solid red;
+}
+/* End Admin Styles */
+
+/* mailout styles */
+.Archive
+{
+}
+.ArchiveHeader, .ArchiveHeader td
+{
+	border-top: solid 1px #FFCC66;
+	border-bottom: solid 1px #FFCC66;
+	background-color:#FFF8DF;
+}
+.ArchiveRow, .ArchiveRow td
+{
+	background-color:#FFFAF0;
+	border-bottom: solid 1px #CCCCCC;
+	padding-bottom: 15px;
+}
+/* end mailout styles */
+
+
+/* zone styles */
+.ZoneBlockHeader
+{
+	/*width:inherit;*/
+	font-weight:bold;
+	font-family:Arial,Verdana;
+	font-size:13px;
+	white-space: nowrap;
+	border-bottom-width: 5px;
+	border-bottom-color: #efefef;
+	border-bottom-style:dotted;	
+	margin-left:0px;
+}
+.ZoneSponsor, .ZoneSponsor a
+{
+	color:#666666;
+	font-weight:bold;
+	font-size: 8pt; 
+}
+.ZoneList
+{
+	margin-top:7px;
+}
+.ZoneBlockHeader a
+{
+	color:#000;
+}
+
+.ZoneBlockHeader .LinkButton
+{
+	font-weight:normal;
+	font-family:Arial,Verdana;
+	font-size:8pt;
+	color:#0000FF;
+}
+
+.ZoneBlockHeader .LinkButton a:visited	{ color:#0000FF; }
+
+.ZoneBlockContent 
+{
+	font-size: 8pt;
+	padding:5px;
+	margin-bottom:10px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+/* end of zone styles */
+
+/* Job styles */
+.Gradient
+{
+	background-image: url(/script/jobs/images/gradient.gif);
+	background-repeat:repeat-x;
+	background-position:top;
+}
+.JobBox
+{
+	border:1px solid #999;
+	margin:15px;
+	padding:5px;
+}
+.JobTable 
+{
+	border: 1px solid #ffe9bd;
+	background-color:#FFFAF0;
+	border-collapse:collapse;
+	background-color:White;
+}
+.JobTable td
+{
+	border: 1px solid #ffe9bd;
+	margin:0px;
+	padding:5px;
+	font-size: 8pt; 
+}
+.JobTable tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+.JobTable thead, .JobTable thead a, .JobTable thead td
+{
+	background-color:#FEF9E7;
+	border-style:none;
+	font-weight:bold;
+	text-transform:capitalize;
+	color: #f49300;
+}
+
+.JobDetBox
+{
+	border-top:1px solid #ffe9bd;
+	border-collapse:collapse;
+	background-color:#FFF2D9;
+}
+.JobDetHeader
+{
+	height:37px;
+	font:bold 8pt/1.05 Arial, Helvetica, sans-serif;
+	letter-spacing:2px;
+	/*text-transform:uppercase;*/
+	color:#f49300;
+	border-bottom:1px solid #ffe9bd;
+	padding:0px 0px 0px 10px;
+}
+.JobDetBox div.InfoRow
+{
+	white-space:nowrap;
+	width:100%;
+}
+.JobDetLabel, .JobDetBox div.InfoRow
+{
+	font:bold 9pt/1.05 Arial, Helvetica, sans-serif;
+	border-right:1px solid #ffe9bd;
+	border-bottom:1px solid #ffe9bd;
+	border-left:1px solid #ffe9bd;
+	padding:5px;
+	text-align:right;
+}
+.JobDetValue, .JobDetBox div.InfoRow
+{
+	font:normal 9pt/1.05 Arial, Helvetica, sans-serif;
+	border-right:1px solid #ffe9bd;
+	border-bottom:1px solid #ffe9bd;
+	padding:5px;
+	text-align:left;
+	color:#333;
+}
+.JobDetBox div.Label, .JobDetBox div.Input, .JobDetBox div.InfoRow
+{
+	padding:3px;
+}
+.JobDetBox div.Label
+{
+	border-right:1px solid #ffe9bd;
+}
+
+/* end Job styles */
+
+.AdTextLinks
+{
+	font-size:8pt;
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+	padding-left:5px;
+	line-height:1.5em;
+	width:300px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.LatestJobsHeader
+{
+	border-top: solid 1px #FFCC66;
+	border-bottom: solid 1px #FFCC66;
+	background-color:#FFF8DF;
+}
+
+.WinnersCompetitionNameCell
+{
+	width:150px;
+	white-space:nowrap;
+}
+
+.SmallParagraph
+{
+	padding-top:7px;
+}
+
+/* Award styles */
+.CompetitionTable
+{
+	padding:2px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: #EDEDED;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #EDEDED;
+}
+.CompetitionCell
+{
+	font-size: 8pt; 
+	border-right: solid 1px #EDEDED;
+	border-top: solid 1px #EDEDED;
+	padding:1px;
+	padding-right:3px;
+}
+.CompetitionHeader
+{
+	font-weight:bold;
+	background-color:#FF9900;
+}
+.CompetitionHeaderCell
+{
+	color: White;
+}
+.CompetitionAlternativeRow
+{
+	background-color:#FFFAF0;
+}
+/* end Award styles */
+
+/*   ListBoxes style   */
+.StatusBox
+{
+	width: 200px;
+}
+/* end ListBoxes style */
+.LinkButton
+{
+	cursor: pointer;
+	font-size: 7pt;
+	font-family: Verdana;
+}
+.Veil
+{
+	position:absolute;
+	z-index:2;
+	background-color:#fff;
+	filter:alpha(opacity=75);
+	-moz-opacity:.75;
+	opacity:.75;
+}
+.NewsHL { }
+.NewsBL { font-style:italic;}
+.NewsItem { font-size: 8pt; }
+.NewsSource { font-size: 8pt; color: #333; font-style:italic;}
+
+.AdSection { background-color:#FBEDBB; }
+.grey-box
+{
+	padding:0px;
+	margin:0px;
+	background-color:#CCC;
+	display:inline-block;
+}
+.AdServeSection
+{
+	border:		 solid 1px #CCCCCC;
+	padding-bottom: 2px;
+	margin-bottom:  10px;
+}
+.AdServeSection td
+{
+	padding: 3px;
+}
+.AdServeSection th
+{
+	background-color:   #FBEDBB;
+	font-weight:		bold;
+	border-bottom:	  solid 1px #CCCCCC;
+	padding:			1px;
+}
+.AdServeSectionTitle
+{
+	background-color:   #FBEDBB;
+	font-weight:		bold;
+	border:			 solid 1px #CCCCCC;
+	border-bottom:	  solid 1px #CCCCCC;
+	padding:			1px;
+	margin-top:		 3px;
+}
+.AdServeSection th
+{
+	background-color: #FBEDBB;
+	font-weight: bold;
+	border-bottom: solid 1px #CCCCCC;
+	padding: 1px;
+}
+.AdMailInsertRow
+{
+	border-bottom: 1px solid grey; 
+	font-size: 8pt;
+}
+.AdFilterTable 
+{
+	border: 1px solid #CCCCCC;
+	border-collapse:collapse;
+	background-color:#CCCCCC;
+}
+.AdFilterCell
+{
+	border: 1px solid #CCCCCC;
+	margin:0px;
+	padding:5px;
+	font-size: 8pt; 
+	background-color: White;
+}
+
+.AdExpiredMoreThanMonth 
+{
+	background-color:#CCCCCC;
+}
+
+.AdExpiredLessThanMonth 
+{
+	background-color:red;
+}
+
+.AdExpiredSoon
+{
+	background-color:Orange;
+}
+
+.AdNotCommenced
+{
+	background-color:Yellow;
+}
+
+.NoHeaderListingRow
+{
+	border-right: solid 1px #cccccc;	
+	border-top: solid 1px #cccccc;	
+	border-left: solid 1px #cccccc;
+}
+.NoHeaderListingFooter
+{
+	border-top: solid 1px #cccccc;
+}
+
+.TabFrame
+{
+	/*background-color: #F9FBE0; 
+	border: solid 1px #ff9900;*/
+}
+.tabContent
+{
+	padding: 10px; 
+	background: #FFFFFF;
+}
+.tabContent ul
+{
+	padding-top: 0px; 
+	margin-top:10px; 
+	margin-bottom:10px;
+}
+.TabMenuSpacer
+{
+	border-bottom: solid 1px #ff9900;
+}
+.TabMenuItem
+{
+	white-space: nowrap; 
+	text-align: center;
+	padding: 5px; 
+	border: solid 1px #ff9900; 
+	background-color: #E7F2F8;
+}
+.TabMenuItemSelected
+{
+	white-space: nowrap; 
+	text-align: center;
+	padding: 5px; 
+	border-top: solid 1px #ff9900;
+	border-right: solid 1px #ff9900;
+	border-left: solid 1px #ff9900;
+	border-bottom:none;
+	background-color: #FFFFFF
+}
+.TabContents
+{
+	border-right: solid 1px #ff9900;
+	border-left: solid 1px #ff9900;
+	border-bottom: solid 1px #ff9900;
+}
+.AlignedInput
+{
+	clear: both;
+	padding-top: 3px;
+}
+.Label, .Input
+{
+	float: left;
+}
+.Label
+{
+	width: 70px;
+	font-weight: bold;
+}
+.Input
+{
+	font-weight: normal;
+}
+
+/* Contact control styles */
+.ContactWrapper .InfoRow, .ContactWrapperInput .InfoRow
+{
+	clear: both;
+	padding-top: 0px;
+}
+.ContactWrapper .Label
+{
+	width: 100px;
+}
+.ContactWrapperInput .Label
+{
+	width: 200px;
+}
+
+.ContactWrapperInput label
+{
+	font-weight: bold;
+	text-align: left;
+	white-space: nowrap;
+	width: 200px;
+	display:inline;
+}
+.ContactWrapperInput input
+{
+	display:inline;
+}
+.ContactWrapperLong .InfoRow, .ContactWrapperLongInput .InfoRow
+{
+	clear: both;
+	padding-top: 0px;
+}
+.ContactWrapperLong .Label
+{
+	width: 150px;
+}
+.ContactWrapperLongInput .Label
+{	
+	width:200px;
+}
+/* end Contact control styles*/
+
+/* ===================================================================== Ajax File Upload [Start] */
+#FileUploadWrapper
+{
+	width: 33%;
+}
+#FileUploadWrapper p
+{
+	margin: 0px 0px 2px 0px;
+	padding: 0px;
+}
+#FileUploadWrapper #Browse
+{
+	position: relative;
+	width: 100%;
+	height: 20px;
+}
+#FileUploadWrapper #Browse .button
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 0;
+	width: 80px;
+}
+#FileUploadWrapper #Browse .Upload
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	opacity:0;
+	cursor:pointer;
+	z-index: 1;
+}
+#FileUploadWrapper .Cover
+{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 75%;
+	height: 100%;
+	z-index: 1;
+}
+#FileUploadWrapper #UploadGroup *
+{
+	float: right;
+}
+#FileUploadWrapper .FileList
+{
+	margin: 0px;
+	padding: 0px;
+	padding-top: 10px;
+	list-style-type: none;
+	list-style-position: inside;
+}
+#FileUploadWrapper .FileList li
+{
+	position: relative;
+	clear: both;
+	border: solid 1px #E5E5E5;
+	background-color: #FAFAFA;
+	margin-bottom: 3px;
+	padding: 5px;
+}
+#FileUploadWrapper .FileList li input
+{
+	float: right;
+}
+#FileUploadWrapper .FileList li .Close
+{
+	float: right;
+}
+#FileUploadWrapper .FileList li img
+{
+	border: none;
+}
+/* ======================================================================= Ajax File Upload [End] */
+
+/* ========================================================================= Pager styles [Start] */
+.Pager
+{
+	/* position: relative; 
+	clear: both;*/
+}
+.Pager .Indicator
+{
+	float:left;
+	width:40px;
+	white-space:nowrap;
+}
+.Pager .Selectors
+{
+	float:left;
+	margin-left:60px;
+}
+.Pager .Navigation
+{
+	float:right;
+	text-align:right;
+}
+/* =========================================================================== Pager styles [End] */
+
+/* ==================================== Advertisement styles =====================================*/
+.AdTable 
+{
+	border: 1px solid #999;
+	background-color:#FFFAF0;
+	border-collapse:collapse;
+	background-color:White;
+}
+.AdHeader, .feature thead
+{
+	background-color:#FFCC66;
+	font-weight:bold;
+}
+.AdTable td
+{
+	border: 1px solid #333333;
+	margin: 0px;
+	padding:3px;
+	font-size: 8pt; 
+}
+.AdTable tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+.AdSectionHead
+{
+	border: 1px solid #CCCCCC;
+}
+.input-table
+{
+	border-collapse: collapse;
+ 	padding: 5px 5px;
+	background-color:#FFFFeF;
+}
+.input-table td
+{
+	font-size:10pt;
+	padding:2px;
+}
+.input-table .AdSectionHead td
+{
+	background-color:#FBEDBB;
+	font-size:10pt;
+}
+.input-table tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+
+.input-table td.Description
+{
+	color:#666; /* The colour of the beast */
+	font-size:7pt;
+}
+
+.CampaignForm div span
+{
+	display:inline-block;
+	width: 6.2em;	
+}
+.CampaignForm div.Legend
+{
+	border: solid 1px black;
+	padding: .2em;
+}
+
+.CampaignBox
+{
+	border:1px solid #999;
+	margin:15px;
+	padding:5px;
+}
+.CampaignsBox
+{
+	border:1px solid #999;
+	margin:15px;
+	padding:5px;
+}
+
+.Remarks
+{
+	color: Gray;
+	font-size:smaller;
+}
+.GrayText { color: Gray; }
+
+
+.CampaignAdsTable thead
+{
+	background-color:#FFCC66;
+	font-weight:bold;	
+}
+.CampaignAdsTable td
+{
+	margin: 0px;
+	padding:3px;
+}
+.CampaignAdsTable tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+.AdContentBox
+{
+	border:1px solid #999999;
+	padding:4px;
+	margin-bottom:6px;
+	max-height:120px;
+	overflow:auto;
+	background-color:#eeeeee;
+}
+
+/* =========================================================================== FAQ styles [Start] */
+.Question
+{
+	font-weight:bold;
+	font-size:16px;
+	color:#488E00;
+	font-family:Arial, Verdana, Sans-Serif;
+}
+.Answer
+{
+	font-weight:normal;
+	font-size:12px;
+	color:Black;
+	font-family:Verdana, Sans-Serif;
+}
+/* ============================================================================= FAQ styles [End] */
+
+/* ==================================== Email Insertion List =====================================*/
+.EmailInsertionList
+{
+	height:400px;
+	overflow:scroll;
+	border-style:solid;
+	border-width:1px;
+}
+.EmailInsertionList .theader
+{
+	font-weight:bold;
+	font-size:8pt;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#CCCCCC;
+	white-space:nowrap;
+}
+
+.EmailInsertionList td.standard
+{
+	font-size:8pt;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#CCCCCC;
+}
+
+.EmailInsertionList td.hilite
+{
+	background-color:yellow;
+	font-size:8pt;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#CCCCCC;
+}
+/* ======================================================================= Catalog styles [Start] */
+
+/* ===================================================== Common [Start] */
+#CatalogLegend
+{
+	margin-top: 20px;
+	padding: 5px;
+	width: 50%;
+	border: solid 1px #D7D7D7;
+}
+#CatalogLegend strong
+{
+	text-decoration: underline;
+}
+#CatalogLegend ul
+{
+	margin: 5px 0px 0px 5px;
+	padding: 0px;
+	list-style-type: none;
+}
+#CatalogLegend ul li div
+{
+	clear: left;
+	float: left;
+	width: 30px;
+	height: 10px;
+	margin: 3px 5px 0px 0px;
+	border: solid 1px black;
+}
+#CatalogLegend #CatalogGold div
+{
+	background-color: #FFFFCC;
+}
+#CatalogLegend #CatalogSilver div
+{
+	background-color: #ccc;
+}
+#CatalogLegend #CatalogBronze div
+{
+	background-color: #FFF;
+}
+/* ======================================================= Common [End] */
+
+/* =============================================== Menu control [Start] */
+#CatMenu
+{
+	width: 180px;
+}
+#CatMenu ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	border: solid 1px #D7D7D7;
+	background-color: #F0EFED;
+}
+#CatMenu ul *
+{
+	color: #4C4F58;
+}
+#CatMenu ul .Header
+{
+	padding: 5px 10px;
+	background-color: #E8E6E4;
+	font-weight: bold;
+	font-size: 1.25em;
+}
+#CatMenu ul li
+{
+	border-bottom: solid 1px #C5C3C1;
+	font-size: 0.8em;
+}
+#CatMenu ul li a
+{
+	display: block;
+	padding: 5px 10px;
+}
+#CatMenu ul li a:hover
+{
+	background-color: #CDCBC9;
+}
+#CatMenu ul li a.Selected
+{
+	background-color: #FFCC66;
+}
+/* ================================================= Menu control [End] */
+
+/* ================================================== View page [Start] */
+#CatalogViewWrapper .CoreContent
+{
+	position: relative;
+	padding: 10px;
+	border: solid 1px #FBEDBB;
+}
+#CatalogViewWrapper .MainImageSection
+{
+	clear: right;
+	float: right;
+	padding-left: 30px;
+	color: #666;
+	font-size: 0.9em;
+}
+#CatalogViewWrapper .Header
+{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#CatalogViewWrapper .Details
+{
+	margin: 10px 0px;
+	color: #666;
+}
+#CatalogViewWrapper .Details .InfoGroup
+{
+	padding-bottom: 5px;
+}
+#CatalogViewWrapper .Details div, #CatalogViewWrapper .TopSection div
+{
+	margin-bottom: 3px;
+}
+#CatalogViewWrapper .Details span
+{
+	font-weight: bold;
+}
+#CatalogViewWrapper .ContactWrapper
+{
+	/*margin-top: 5px;*/
+}
+#CatalogViewWrapper .ContactWrapper .InfoRow
+{
+	margin: 0px;
+	padding: 0px;
+}
+.ContactWrapperInput .InfoRow
+{
+	padding:3px;
+}
+#CatalogViewWrapper .Links
+{
+	margin-bottom: 50px;
+}
+#CatalogViewWrapper .Links a
+{
+	float: left;
+	padding-right: 40px;
+}
+/* ==================================================== View page [End] */
+
+/* ================================================== Edit page [Start] */
+#CatalogEditWrapper .CatItemInfo
+{
+	clear: both;
+	padding-top: 3px;
+}
+#CatalogEditWrapper .StartNewGroup
+{
+	padding-top: 10px;
+}
+#CatalogEditWrapper .Label
+{
+	width: 220px;
+	font-weight:bold;
+}
+#CatalogEditWrapper .Input
+{
+}
+#CatalogEditWrapper .ContactWrapper .Label
+{
+	width: 150px;
+}
+/* ==================================================== Edit page [End] */
+
+table.FeaturedCatalogItem
+{
+	border: solid 1px #ff9900;
+	background-color: white;
+	width: 100%;
+}
+.FeaturedCatalogItem img
+{
+	padding-right: 10px;
+}
+.FeaturedCatalogItem td
+{
+	padding: 5px;
+}
+.CatFeatHeader
+{
+	background-color:#ff9900;
+	text-transform:capitalize;
+	color:White;
+	font-weight:bold;
+	text-align:center;
+	/*width:100%;*/
+	height:20px;
+	padding: 2px !important;
+	white-space:nowrap;
+}
+
+/* ========================================= CatalogRow control [Start] */
+.CatalogItemWrapper
+{
+	clear: both;
+	padding: 5px;
+}
+.NewRowContent
+{
+	clear: both;
+	padding-top: 10px;
+}
+.ItemLinks a
+{
+	padding-right: 10px;
+}
+.NoHeaderListingRow .Silver
+{
+	background-color: #F5F5F5;
+}
+.NoHeaderListingRow .Gold
+{
+	background-color: #FFFFCC;
+}
+#ShortMode, #SingleLineMode
+{
+	font-size:11px;
+}
+#SingleLineMode #Posted, #SingleLineMode #Views
+{
+	width: 10%;
+}
+#SingleLineMode #Title
+{
+	width: 80%;
+}
+#SingleLineMode #Views
+{
+	text-align: center;
+}
+.SmallImage
+{
+	height: 6em;
+	width: auto;
+	padding-right:10px;
+}
+/* =========================================== CatalogRow control [End] */
+
+/* ========================================================================= Catalog styles [End] */
+
+/* ======================================================================= Purchase styles [Begin]*/
+.InvoiceWrapper
+{
+	margin-left: 10px;
+}
+.Invoice 
+{
+	padding: 5px; 
+	border-top: solid 1px #777777; 
+	border-bottom: solid 1px #777777; 
+}
+.InvoiceHeader
+{
+	background-color: #FCF2DC; 
+	font-weight: bold;
+	text-align: center;
+	border-bottom: solid 1px #777777; 
+}
+.InvoiceTotal
+{
+	border-top: solid 1px #777777;
+	text-align: right;
+	padding: 3px;
+}
+/* ======================================================================= Purchase styles [End] */
+
+
+/* ======================================================================= Chart styles [Start] */
+.FadingTooltip 
+{ 
+	border-right:		outset 1px #333333; 
+	border-top:			outset 1px #333333; 
+	font-size:			9pt; 
+	border-left:		outset 1px #333333;
+	width:				auto; 
+	color:				black; 
+	border-bottom:		outset 1px #333333; 
+	height:				auto;
+	background-color:	#fef9e7; 
+	margin:				3px 3px 3px 3px;
+	padding:			3px 3px 3px 3px; 
+}
+/* ======================================================================= Chart styles [End] */
+
+
+/* ============================================================== Country Selector styles [Start] */
+.CountryList  /* the box where all countries are listed with checkboxes */
+{ 
+	overflow:auto;
+	border-width:1px;
+	border-color:Gray;
+	border-style:solid;
+	font-size: 8pt; 
+	scrollbar-arrow-color:white; 
+	scrollbar-face-color:#FF9900; 
+
+}
+.Country /* style for displaying one country (checkbox format) */
+{
+	padding-left:12px;
+	font-size: 7pt;
+	white-space:nowrap;
+}
+
+.CountrySelectorDisplay
+{
+	padding:5px;	
+	margin-bottom:10px;
+	overflow:auto;
+	color:#666666;
+	font-size:8pt;
+	height:30px;
+}
+
+.SetCountryDisplay
+{
+	padding:5px;
+	overflow:auto;
+	color:red;
+	font-size:8pt;
+}
+
+.Region /* style for displaying one region (checkbox format) */
+{
+	padding-left:7px;
+	font-size: 8pt;
+	white-space:nowrap;
+}
+/* ================================================================ Country Selector styles [End] */
+.ShortSelectorList  /* the box where zones and sites are listed with checkboxes */
+{ 
+	height: 80px;
+	width: 200px;
+	overflow:auto;
+	border-width:1px;
+	border-color:Gray;
+	border-style:solid;
+	font-size: 8pt; 
+	scrollbar-arrow-color:white; 
+	scrollbar-face-color:#FF9900; 
+}
+
+.SelectorList  /* the box where all countries are listed with checkboxes */
+{ 
+	overflow:auto;
+	border-width:1px;
+	border-color:Gray;
+	border-style:solid;
+	font-size: 8pt; 
+	scrollbar-arrow-color:white; 
+	scrollbar-face-color:#FF9900; 
+}
+.SelectorListElement
+{
+	padding-left:10px;
+	font-size: 7pt;
+	white-space:nowrap;
+}
+
+.SelectorDisplay
+{
+	padding:5px;	
+	margin-bottom:10px;
+	overflow:auto;
+	color:#666666;
+	font-size:8pt;
+	height:30px;
+}
+
+
+.feature.calendar thead td
+{
+	font-weight:bold;
+	height:24px;
+	border:0;
+}
+.calendar td
+{
+	vertical-align:top;
+	height:100px;
+	width:100px; 
+	margin:1px;
+	padding:1px;
+	border:1px solid orange; 
+	border-collapse:collapse;	  	
+}
+.calendar div div
+{
+	font-size:.75em; 
+	background-color:#44ff44; 
+}
+
+/*=============================== Creative forms style ======================*/
+.CreativeFormStyle label
+{
+	display:inline-block;
+	width: 9em;
+	padding: 0.1em;
+	white-space: nowrap;
+}
+.CreativeFormStyle label.multy
+{
+	vertical-align:top;
+}
+.CreativeListInfo 
+{
+	border: 1px solid #FF9900;
+	border-collapse:collapse;
+}
+.CreativeListInfo th
+{
+	border: 1px solid #FF9900;
+	background-color: #FFCC66;
+	text-align: left;
+	padding: 0.15em 0.4em;
+	color: White; 
+}
+.CreativeListInfo td
+{
+	font-size: smaller;
+}
+.CreativeListInfo div.block
+{
+	float:left;
+	width: 120px;
+	padding: 0.15em 0px;
+}
+.CreativeListInfo div.infoText
+{
+	float:left;
+	padding: 0.15em 0px;
+}
+.CreativeListTable
+{
+	width:100%;
+}
+
+.CreativeListTable tr.alt-item
+{
+	background-color:#FEF9E7;
+}
+
+/* ===================================================================== Scheduler styles [Start] */
+#SchedulerWrapper .AlignedInput .Label
+{
+	width: 150px;
+}
+#SchedulerWrapper .embed + img
+{
+	position: relative;
+	left: -21px;
+	top: -1px;
+}
+/* ======================================================================= Scheduler styles [End] */
+
+/* ======================================================================== Quick Answers [Start] */
+.qa-legend .header
+{
+	background: none;
+	font-weight:bold;
+	font-size:1.5em;
+	margin:5px 0 10px 5px;
+}
+.qa-legend ul
+{
+	list-style-type: none;
+	margin:0 0 0 5px;
+	padding:0;
+}
+.qa-legend ul li
+{
+	font-size:1em;
+	margin-bottom:5px;
+}
+.QAMainLnk
+{
+	font-size: 14pt !important;
+	font-family:Arial, Sans-Serif;
+	text-decoration:none;
+	cursor: pointer;
+	padding: 1px 5px;
+	font-weight:bold;
+	border: solid 1px white;
+	color:blue;
+}
+.QAMainLnk:hover
+{
+	background-color:#E6FFCC;
+	border: solid 1px #f90;
+	text-decoration:none !important;
+}
+.QAMainLnk:active
+{
+	background-color: #76AB40; 
+	border-color: #ff9900;
+}
+.QAParent
+{
+	background-color:#EDF8FF;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+.QATitle
+{
+	font-weight:600;
+	font-family:Verdana,Arial, Sans-Serif;
+	font-size:13pt;
+	line-height:1em;
+	padding:0px;
+	margin:0px;
+}
+.QATitleComp
+{
+	font-family:Verdana,Arial, Sans-Serif;
+	font-size:10pt;
+	line-height:1em;
+	padding:0px;
+	margin:0px;
+}
+.QAEntriesTable
+{
+	border: 1px solid #FFE9BD;
+	width: 100%;
+}
+.QAEntriesTable td
+{
+	margin: 0px;
+	padding: 5px;
+	border-bottom: 1px solid #ffe9bd;
+}
+.QAEntriesTable thead, .QAEntriesTable thead a, .QAEntriesTable thead td
+{
+	background-color: #FEF9E7;
+	font-weight: bold;
+	color: #F49300;
+	border: none;
+}
+.QAEntriesTable .Numeric
+{
+	text-align: right;
+}
+.QAEntriesTable .Selected
+{
+	background-color: #F7FCFF;
+}
+.QAEntriesTable .SelectedAttr
+{
+	background-color: #DDF2FF;
+}
+.QAEntriesTable .Updated
+{
+	font-size:8pt;
+}
+
+.RateHint5 { background-color:#0C0;}
+.RateHint4 { background-color:#6F6;}
+.RateHint3 { background-color:#CfC;}
+.RateHint2 { background-color:#FC6;}
+.RateHint1 { background-color:#F30;}
+.RateHint0 { background-color:White;}
+
+/* =============================== Entry [Start] */
+.QAAnswer
+{
+	margin-top: 30px;
+	margin-bottom: 5px;
+	padding: 5px;
+	border-top: solid 1px #F90;
+}
+.QAAnswer1
+{
+	margin-top: 0px;
+	border-top-style:none;
+}
+.QAInfo
+{
+	border-top: solid 1px #eee;
+}
+.QuestionContent
+{
+	margin: 10px 0px;
+}
+.container-content { max-width:100%;}
+.QuestionContent pre 
+{ 
+	width: 800px;
+}
+.QAHiVote
+{
+	background-color:#E6FFCC;
+}
+.QALoVote
+{
+	color:#999 !important;
+}
+.AcceptedAnswer
+{
+	border: solid 1px #488E00 !important;
+	background-color:#F8FFDF;
+	-moz-border-radius: 10px;
+}
+.AnswersThread .TopPager
+{
+	position: relative;
+	top: 25px;
+	margin-left: 75%;
+}
+.AnswersThread .TopPager .LeftGroup
+{
+	position: absolute;
+	top: 0px;
+	right: 150px;
+}
+.PostDateAndRepInfo
+{
+	float:left;
+	/*padding:3px;
+	background-color:#F4FAFF;*/
+}
+/* ================================= Entry [End] */
+
+.QAQuote
+{
+	padding-left: 0.6em; 
+	margin-left: 0.25em; 
+	border-left: gray 0.2em solid; 
+	color: #556655; 
+	margin-right: 1em;
+	margin-bottom: -1em;
+}
+
+/* ================================ Post [Start] */
+.AnswersPost .MainContent
+{
+	clear: both;
+	padding:0;
+}
+.AnswersPost .Help
+{
+	padding:20px;
+}
+.AnswersPost .InputGroup
+{
+	margin: 20px 0px;
+}
+.AnswersPost .Divider
+{
+	margin: 20px 0px;
+}
+.AnswersPost .SimilarPosts #Suggestions
+{
+	margin: 0px;
+	padding: 0px;
+	overflow: auto;
+	list-style-type: none;
+}
+.AnswersPost .SimilarPosts tr
+{
+	margin: 5px 0px;
+}
+/* ================================== Post [End] */
+
+/* ================================ List [Start] */
+.AnswersList .MainContent
+{
+	position: relative;
+	clear: both;
+}
+.AnswersList .QATopPager
+{
+	position:absolute;
+	top:10px;
+	right:0;
+}
+.QARate
+{
+	background-color:#FFF8DF;
+	border: solid 1px #F90;
+	font-size:14pt;
+	text-align:center;
+	padding:5px 0px;
+}
+.QARateS
+{
+	background-color:#FFF8DF;
+	padding:0px !important;
+	border: solid 1px #F90 !important;
+	font-size:14pt;
+	text-align:center;
+	width:60px;
+}
+.QAAnsw
+{
+	background-color:#C3de63;
+	border: solid 1px #F90;
+	border-bottom-style: none;
+	font-size:14pt;
+	text-align:center;
+	padding:5px;
+}
+.QAAnswS
+{
+	background-color:#FFFABF;
+	padding:0px !important;
+	border: solid 1px #F90 !important;
+	font-size:14pt;
+	text-align:center;
+	width:60px;
+}
+.QAAnswAcceptedAnswer
+{
+	background-color:#C3de63;
+	border: solid 1px #F90 !important;
+	border-bottom-style: none;
+	font-size:14pt;
+	text-align:center;
+	padding:5px;
+}
+.QAAnswAcceptedAnswerS
+{
+	background-color:#C3de63;
+	padding:0px !important;
+	border: solid 1px #F90 !important;
+	font-size:14pt;
+	text-align:center;
+	width:60px;
+}
+
+.QANoAnsw
+{
+	background-color:#FC6;
+	border: solid 1px #F90;
+	border-bottom-style: none;
+	font-size:14pt;
+	text-align:center;
+}
+.QAViewsS
+{
+	background-color:#FFF2D8;
+	padding:0px !important;
+	border: solid 1px #F90 !important;
+	font-size:14pt;
+	text-align:center;
+	width:60px;
+}
+.QATiny { font-size:8pt; }
+.Indent { margin-left: 15px; }
+.TopPad { padding-top: 10px; }
+
+.AnswersList .Attributes
+{
+	color: #555;
+}
+.QATopPager
+{
+	position: relative;
+	top: 25px;
+	margin-left: 75%;
+}
+.QATopPager .LeftGroup
+{
+	position: absolute;
+	top: 0px;
+	right: 150px;
+}
+.AnswersList .ui-tabs-panel
+{
+	padding: 0px;
+}
+.AnswersList .CustomTabFilters
+{
+	position: relative;
+}
+.AnswersList .AdminFilters
+{
+	float: right;
+}
+.AnswersList .CustomSorting
+{
+	margin: 8px;
+	background-color:#FFFAF0;
+}
+.AnswersList .CustomSorting img
+{
+	padding: 0px 3px;
+}
+.AnswersList .PrimarySort, .AnswersList .MoreSorting
+{
+	float: left;
+	height: 1.6em;
+}
+.AnswersList .Message
+{
+	clear: both;
+	margin: 0px;
+	padding: 20px 0px;
+}
+.AnswersList .AskQuestion
+{
+	float: right;
+}
+.AnswersList .HighlightRow
+{
+	background-color: #FFFFD6;
+}
+.EditInfo
+{
+	float:left;
+	padding-right: 0.5em;
+}
+.AnswersList .unviewed
+{
+	font-weight:bold;
+}
+.AnswersList .viewed
+{
+	font-weight:normal !important;
+}
+/* ================================== List [End] */
+
+/* ========================================================================== Quick Answers [End] */
+
+/*================================ Certificate Styles =======================================*/
+
+.CertificateViewDetailLabel
+{
+	text-align: left;
+	vertical-align:top;
+	width: 250px;
+}
+
+/* Contact Viewer for Campaign Edit */
+/* TODO: [Matthew] remove when the ContactViewer code is removed */
+#ContactDlg input[type=text], #ContactDlg select {width:95%;}
+#ContactDlg input[type=radio] {margin-left:8px;}
+#ContactDlg label {font-weight:bold;}
+
+#ContactWrapper td {text-align:left;}
+
+.icon-button-wrapper {float:right;margin:4px;}
+a.icon-button {cursor:hand;color:black; text-decoration:none;}
+.icon-button > span { display:inline-block;}
+
+/* ============================================================================ Tag Cloud [Start] */
+.cloud
+{
+	padding: 7px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	text-align:left;
+}
+.cloud .header
+{
+	padding:2px 2px 2px 5px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size:12pt !important; 
+	font-weight:bold; 
+	margin: 5px 0px 7px 0px; 
+	background-color:Transparent;
+
+	_text-transform:none !important; /* IE6 fixes */
+	_background-color:white;
+	_border:0;
+}
+.cloud .breadcrumb
+{
+	margin: 2px 0px 10px 0px;
+}
+.cloud .breadcrumb .tag
+{
+	font-size:12px;
+	margin:2px 0px;
+	padding:2px;
+	background-color:#FFFFCC;
+	border:1px solid blue;
+}
+.tag_0, .tag_1, .tag_2, .tag_3, .tag_4, .tag_5, .tag_6, .tag_7, .tag_8, .tag_9, .tag_10 
+{
+	font-size:12px;
+	font-weight:bold;
+	padding:1px;
+	border:1px solid transparent;
+	display:inline-block;
+	*border:1px solid white;
+	_border:1px solid white;
+}
+a.tag_0:hover, 
+a.tag_1:hover, a.tag_2:hover, a.tag_3:hover, a.tag_4:hover, a.tag_5:hover, 
+a.tag_6:hover, a.tag_7:hover, a.tag_8:hover, a.tag_9:hover, a.tag_10:hover
+{
+	background-color:#FFFFCC;
+	border:1px solid blue;
+}
+.tag_0 { color:#aaa;}
+.tag_1 { color:#666;}
+.tag_2 { color:#555;}
+.tag_3 { color:#444;}
+.tag_4 { color:#333;}
+.tag_5 { color:#222;}
+.tag_6 { color:#111;}
+.tag_7 { color:#111; }
+.tag_8 { color:#111; }
+.tag_9 { color:#111; }
+.tag_10 { color:#111;}
+
+input.search
+{
+	background: #FFF url(/Images/search.gif) no-repeat right;
+}
+input.ie6-bug-sf 
+{
+	*width:130px !important; 
+	_width:130px !important; 
+}
+
+.cloud-large
+{
+	font-size:12pt;
+	padding: 3px;
+	text-align:justify;
+	line-height: 110%;
+}
+.cloud-large a 
+{
+	padding: 3px
+}
+.cloud-large .header
+{
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size:12pt !important; 
+	font-weight:bold; 
+	margin: 5px 0px 7px 0px; 
+	background-color:Transparent;
+
+	_text-transform:none !important; /* IE6 fixes */
+	_background-color:white;
+	_border:0;
+}
+/* ============================================================================== Tag Cloud [End] */
+
+/* Ad list background colour classes */
+.AdExpired { background-color:Silver;}
+.AdExpiredRecently { background-color: Red;}
+.AdExpiringSoon { background-color: Orange;}
+.AdRunning { background-color:White;}
+.AdPending { background-color:Yellow; }
+
+/* Flight Status classes */
+.FS_Deleted { background-color: #F8EFFF;color:red; }
+.FS_Suspended { background-color: #F8EFFF; color:#333; }
+.FS_Critical { background-color:yellow;color:#ff0000;font-weight:bold; }
+.FS_Urgent { background-color:#FF9FA3; }
+.FS_Warning { background-color:#FC8;  }
+.FS_ExpiringSoon {background-color: #FFDAAF;  }
+.FS_Expired {color:#999; }
+.FS_ExpiredRecently { color: #666;  }
+.FS_Running { background-color: #64FF3F;}
+.FS_Queued { background-color:#BCFDAC;  }
+.FS_NeedsWork { background-color:#FC8;  }
+.FS_NoColor { background-color: #FFF; color:Black;}
+
+.FS_Indicator {
+	width:24px;
+	height:24px;
+	background-image:url('/script/adserve/images/StatusIndicators.png');
+	background-color:Transparent;
+	background-repeat:no-repeat;
+	background-position:0px;
+}
+.FS_Indicator.FS_Critical
+{
+	background-position:-24px;
+}
+.FS_Indicator.FS_Urgent
+{
+	background-position:-48px;
+}
+.FS_Indicator.FS_Warning
+{
+	background-position:-72px;
+}
+.FS_Indicator.FS_ExpiringSoon, 
+.FS_Indicator.FS_Expired, 
+.FS_Indicator.FS_ExpiredRecently,
+.FS_Indicator.FS_NeedsWork
+{
+	background-position:-96px;
+}
+.FS_Indicator.FS_Running,
+.FS_Indicator.FS_Queued
+{
+	background-position:-120px;
+}
+.FS_Legend
+{
+	border:solid 1px #ccc; 
+	border-collapse:collapse;
+	width:100%; 
+	text-align:center;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+.FS_Legend td, .FS_Legend th { font-size:8pt; }
+
+
+/* Menu and navigation styles */
+.menu1
+{
+	border-width:0px;
+	/*text-transform:uppercase;*/
+	color: #FFFFFF; 
+	font-family: Arial,Verdana; 
+	font-size: 12px; /* fixed for layout */
+	font-weight: bold; 
+	background-color: #333;	
+	padding: 2px 0px 2px 5px;
+	margin:0px;
+}
+.menu2
+{
+	font-family: Arial; 
+	font-size: 11px; 
+	font-weight: bold; 
+	padding-left:5px;
+	background-color: #FFCC66;
+	border-bottom-style:solid;
+	border-bottom-color:#f90;
+	border-bottom-width:1px;
+	display: block;
+}
+.menu2, .menu2 a
+{
+	color:#333;
+	text-decoration: none;
+}
+.menu2-dropdown /* IE6 doesn't support child selectors, so do this */
+{
+	border-width:0px;
+	background-color: #FFCC66;
+	font-weight: normal;
+	font-family: Tahoma, Arial, sans-serif;
+	position: relative;
+	top: 0px;
+	padding:0px;
+	margin:0px;
+}
+.menu2-dropdown .selected
+{
+	background-color:white;
+	font-weight:bold;
+	/*
+	border-top: solid 1px #FFCC66;
+	border-bottom: solid 1px #FFCC66;
+	*/
+}
+.menu3
+{
+	line-height: 1.15em;
+	background-color:#FFF8DF;
+	font-size: 8pt; 
+	font-family: Verdana, Arial, sans-serif;
+	padding: 1px 0px 1px 7px;
+}
+.menu3, .menu3 a
+{
+	color:#000;
+	text-decoration: none;
+	display: block;
+	*width:95%; /*IE7*/
+	_width:95%; /*IE6*/
+}
+.menu3:hover, .menu3 a:hover
+{	
+	background-color:#FFCC66;
+}
+
+.navbar a, 
+#nav {padding:0px; margin:0px; list-style:none; font: 10pt verdana, sans-serif; position:relative; z-index:200; height:24px;}
+ 
+.navbar,
+#nav ul {padding:0px; margin:0px; list-style:none; /*float:left;*/ background:#488E00; border-top:1px solid #488E00;}
+
+
+#nav li {float:left;}
+#nav li li {float:none; border-left:1px solid #488E00; border-right:1px solid #488E00; }
+#nav li li.last {border-bottom:1px solid #488E00; }
+
+* html #nav li li {float:left;} /* a hack for  IE6 */
+.navbar { border-style:none;}
+
+.navbar a,
+#nav li a {display:block; float:left; color:#fff; height:24px;  padding:0px 12px 0px 12px; line-height:24px; text-decoration:none; white-space:nowrap; font-weight:bold;}
+#nav li a.down {}
+
+#nav li li a {display:block; float:none; height:22px; line-height:22px; padding:0px 5px 0px 5px; font-weight:normal; letter-spacing:0px;}
+#nav li li a.fly {}
+
+.navbar a:hover,
+#nav li:hover {position:relative; z-index:300;background-color: #C3DE6C;}
+.navbar a:hover,
+#nav li.cssplay_hover {position:relative; z-index:300; background-color: #C3DE6C;}
+#nav li.cssplay_hover a {color:#000; background-color: #C3DE6C; }
+
+#nav li li a {color:#fff;font-weight:bold;}
+#nav li li.cssplay_hover a {color:#fff;font-weight:bold;}
+
+#nav li:hover ul {left:0px; top:24px; z-index:500;}
+#nav li.cssplay_hover ul {left:0px; top:24px; z-index:500;}
+
+#nav ul {position:absolute; left:-9999px; top:-9999px;}
+
+* html #nav ul {width:2px;}
+
+#nav li:hover li:hover > ul {left:-5px; margin-left:100%; top:-1px; z-index:500;}
+#nav li:hover > ul ul {position:absolute; left:-9999px; top:-9999px; width:auto; }
+
+#nav li:hover > a {color:#000 !important;background-color:#C3DE6C !important;font-weight:bold;}
+#nav li li:hover > a {color:#000 !important; background-color:#C3DE6C !important;font-weight:bold;}
+
+#nav li li a,
+#nav li li li a,
+#nav li li li li a,
+#nav li li li li li a,
+#nav li li li li li li a
+{color:#fff !important; background-color:#488E00 !important; font-weight:bold; }
+
+.navbar a:hover,
+#nav li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a
+{color:#000 !important; background-color:#C3DE6C !important; font-weight:bold;}
+
+#nav li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li a
+{color:#000 !important; background-color:#C3DE6C !important;font-weight:bold;}
+
+#nav li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul
+{left:100%; margin-left:-5px; top:-1px;}
+
+#nav li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul ul
+{position:absolute; left:-9999px; top:-9999px;}
+
+.fly.break { border-bottom: solid 1px #c3De6C; }
+
+.tab-nav
+{
+	padding:0px;
+	margin-bottom:1px;
+}
+.tab-nav a
+{
+	text-decoration: none;
+	background-color: #FBEDBB;
+	border: 1px solid #FF9900;
+	padding: 5px 3px 4px 3px; 
+	margin-right:2px;
+}
+.tab-nav a.selected
+{
+	border-bottom-color: #ffcc99;
+}
+.tab-nav img
+{
+	border: 0px;
+	margin-bottom:3px;
+	vertical-align:top;
+}
+.tab-nav a.selected, .tab-panel .box, .tab-nav a:hover
+{
+	background: #ffcc99;
+}
+
+.speech-bubble {
+	padding: .6em;
+	border: 2px solid #ddd;
+	background-color:#ffc;
+	margin:15px 15px 0px 15px;
+	_margin-bottom:15px; /* hide pointer from IE6 */	
+}
+.speech-bubble-image {
+	float:left;
+	width:24px;
+	height:24px;
+	margin-right:5px;
+	margin-bottom:30px;
+	border:none;
+}
+.speech-bubble-pointer-down, 
+.speech-bubble-pointer-down-inner {
+	width:0; 
+	height:0; 
+	border-bottom-width: 0;
+	background: none;
+}
+.speech-bubble-pointer-down {	
+	border-left: 7px solid transparent; 
+	border-right: 7px solid transparent;
+	border-top: 1px solid #ddd;
+	border-top-width: 14px;
+	margin-left: 35px;
+	margin-bottom:15px;
+	_display:none; /* hide from IE6 */	
+}
+.speech-bubble-pointer-down-inner {
+	border-left: 5px solid transparent; 
+	border-right: 5px solid transparent;
+	border-top: 10px solid #ffc;
+	margin-left:-5px;
+	margin-top:-16px;
+	_display:none; /* hide from IE6 */
+}
+
+.tooltip { position: relative; text-decoration:none; }
+.tooltip .speech-bubble-container { display: none; }
+.tooltip:hover .speech-bubble-container 
+{
+	text-decoration:none !important;
+	position:absolute;
+	left:0;
+	bottom:0;
+	display: block;
+	width: 150px;
+	color:black;
+}
+
+/* ----------------------------------
+    Styling for Comments 
+---------------------------------- */
+.CommentContainer
+{
+    width:auto;
+    margin-right:4px;
+    margin-left:20%;
+    font-size:x-small;
+    border:1px solid #FFE2A8;
+}
+
+.CommentContainer a
+{
+    text-decoration:none;
+    margin-right:4px;
+}
+
+.CommentContainer img
+{
+    outline:none;
+    border:none;
+    margin-right:2px;
+}
+
+.CommentHeader, .CommentFooter
+{
+    font-size:x-small;
+    background-color: #FFE2A8;
+    text-align: left;
+}
+
+.CommentItem
+{
+    font-size:x-small;
+    color: #666;
+    padding: 3px;
+    border-top: 1px solid #488E00;
+}
+
+.CommentButtonBar
+{
+    text-align:right;
+    font-size:x-small;
+    padding: 2px 4px 4px 4px;
+}
+
+.CommentContainer button
+{
+    border:none;
+    font-size:x-small;
+    font-weight:bold;
+}
+
+.CommentMemberInfo
+{
+    font-size:x-small;
+    float:left;
+}
+
+.CommentCommands
+{
+     font-size:x-small;
+   float:right;
+}
+
+.CommentContent
+{
+    clear:both;
+    font-size:x-small;
+    padding:4px 0px 2px 0px;
+}
+.CommentEditForm
+{
+    text-align:center;
+    background-color: #FFE2A8;
+    border-top: 1px solid #488E00;
+    
+}
+.CommentEditForm textarea
+{
+    width:95%;
+    min-height:4em;
+    clear:both;
+    margin:6px 2px 2px 2px;
+    overflow:auto;
+}
+
+
+
+/* http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after /* Only Gecko/WebKit see this */
+{
+	display: block;
+	content: '.';
+	visibility: hidden;
+	height: 0;
+	clear:both;
+}
+* html .clearfix /* Only Win IE sees '* html' prefixed classes */
+{
+	zoom: 1; /* trigger hasLayout to force correct composition */
+}
+.clearfix
+{
+	display: inline-block;	/* Mac IE5  sees this */
+	/* Mac IE5 comment hack \*/
+	display: block;         /* Mac IE5 doesn't see this, but everyone else does */
+}

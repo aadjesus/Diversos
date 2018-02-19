@@ -1,0 +1,40 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Waiting"
+	x:Name="Waiting"
+	xmlns:WaitingAsmbly="clr-namespace:WaitingControl"
+	d:DesignWidth="190" d:DesignHeight="190">
+    <UserControl.Resources>
+        <Storyboard x:Key="Spin" x:Name="Spin">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" RepeatBehavior="Forever"  Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Path Stretch="Fill" Stroke="#FFADB6D6" StrokeThickness="0" Data="M95,35.5 C62.139057,35.5 35.5,62.139057 35.5,95 35.5,127.86094 62.139057,154.5 95,154.5 C127.86094,154.5 154.5,127.86094 154.5,95 C154.5,62.139057 127.86094,35.5 95,35.5 z M95,0.5 C147.1909,0.5 189.5,42.80909 189.5,95 C189.5,147.1909 147.1909,189.5 95,189.5 42.80909,189.5 0.5,147.1909 0.5,95 0.5,42.80909 42.80909,0.5 95,0.5 z" x:Name="path" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF000000" Offset="0"/>
+                    <GradientStop Color="#FFC5D1F9" Offset="1"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.BitmapEffect>
+                <BevelBitmapEffect BevelWidth="17" EdgeProfile="CurvedOut" LightAngle="109" Relief="0.295" Smoothness="0.21"/>
+            </Path.BitmapEffect>
+        </Path>
+    </Grid>
+</UserControl>

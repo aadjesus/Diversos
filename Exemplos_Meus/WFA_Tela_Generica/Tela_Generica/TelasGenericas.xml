@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BgmRodotec>
+  <Modulo Nome="GFO"
+          NamespaceDTO="Globus5.WPF.Comum.ws.gestaoDeFrotaOnline"
+          PropriedadeWebService="GestaoDeFrotaOnLineWSApp" >
+    <DTO Nome="MensagemValidadorDTO"
+         Tabela="gfo_mensagens"
+         DataInclusao="04/07/2012">
+      <Propriedade Nome="CodMensagem"
+                   Pesquisa="True"
+                   CalculaProximo="True">
+        <Label Descricao="Código"
+               Tipo="Chave"/>
+        <Campo Tamanho="4"
+               Tipo="Button"
+               TipoMascara="25"/>
+      </Propriedade>
+
+      <Propriedade Nome="DescMensagem">
+        <Label Descricao="Descrição"
+               Tipo="Obrigatorio"/>
+        <Campo Tipo="Text"
+               Tamanho="500"
+               DockFill="True"
+               TipoMascara="01"/>
+      </Propriedade>
+
+      <Propriedade Nome="TipoMensagem">
+        <Label Descricao="Tipo"
+               Tipo="Obrigatorio"/>
+        <Campo Tipo="ComboBox">
+          <Item Valor="0" Descricao="Recebimento"/>
+          <Item Valor="1" Descricao="Envio\Recebimento"/>
+          <Item Valor="2" Descricao="Não validar horário"/>
+          <Item Valor="3" Descricao="Início de viagem"/>
+          <Item Valor="4" Descricao="Fim de viagem"/>
+        </Campo>
+      </Propriedade>
+    </DTO>
+  </Modulo>
+</BgmRodotec>

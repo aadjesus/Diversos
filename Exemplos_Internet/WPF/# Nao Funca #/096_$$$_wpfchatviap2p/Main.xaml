@@ -1,0 +1,274 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    xmlns:local="clr-namespace:WPFChatViaP2P"
+	xmlns:WPFChatViaP2P="clr-namespace:WPFChatViaP2P"
+	x:Class="WPFChatViaP2P.WindowMain"
+	x:Name="Window"
+	Title="WPF Chatter via P2P"
+	Width="640" Height="480" WindowStartupLocation="CenterScreen">
+
+	<Window.Resources>
+		<Storyboard x:Key="OnLoaded1">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdLogin" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1940000" Value="1.2"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.4230000" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdLogin" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1940000" Value="1.2"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.4230000" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="OnConnect">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdLogin" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="1.2"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdLogin" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="1.2"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="lblConnectionStatus" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.4170000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:01.4190000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="lblConnectionStatus" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4170000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnJoinMesh">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdChat" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1940000" Value="1.2"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.4230000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdChat" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1940000" Value="1.2"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.4230000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="HideConnectStatus">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="lblConnectionStatus" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.0" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:03.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="lblConnectionStatus" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:03.6" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <SolidColorBrush x:Key="ListBorder" Color="#828790"/>
+		<Style x:Key="lstRoundedStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<Border CornerRadius="10" SnapsToDevicePixels="true" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="1">
+							<ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+							</ScrollViewer>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+							</Trigger>
+							<Trigger Property="IsGrouping" Value="true">
+								<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.494,0.979" StartPoint="0.488,0.017">
+			<GradientStop Color="#FF000000" Offset="0.048"/>
+			<GradientStop Color="#FF757575" Offset="0.764"/>
+			<GradientStop Color="#FF0C0C0C" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnConnect">
+			<BeginStoryboard x:Name="OnConnect_BeginStoryboard" Storyboard="{StaticResource OnConnect}"/>
+		</EventTrigger>
+	</Window.Triggers>
+	<Window.Foreground>
+		<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+			<GradientStop Color="#FF000000" Offset="0"/>
+			<GradientStop Color="#FFFFFFFF" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Foreground>
+
+	<Grid x:Name="LayoutRoot">
+		<DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" LastChildFill="True">
+			<Label Content="WPF.WCF Chat via P2P" DockPanel.Dock="Top" FontFamily="Agency FB" FontSize="36" Foreground="#FFA7A7A7"/>
+			<Label HorizontalAlignment="Right" Width="Auto" Height="Auto" FontSize="11" Foreground="#FF787878" Content="by roland rodriguez" DockPanel.Dock="Bottom"/>
+			<Grid>
+				
+		<Grid Background="{x:Null}" RenderTransformOrigin="0.5,0.5" x:Name="grdLogin" Width="300" Height="300" Visibility="Visible">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+			<Rectangle Stroke="{DynamicResource Yellow}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Opacity="1" StrokeThickness="3" RadiusX="16" RadiusY="16">
+				<Rectangle.Fill>
+					<DrawingBrush Viewbox="0,0,20,20" ViewboxUnits="Absolute">
+						<DrawingBrush.Drawing>
+							<DrawingGroup>
+								<GeometryDrawing Brush="#FFD3D3D3">
+									<GeometryDrawing.Geometry>
+										<RectangleGeometry Rect="0,0,20,20"/>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+								<GeometryDrawing Brush="#FF000000">
+									<GeometryDrawing.Geometry>
+										<EllipseGeometry Center="0,0" RadiusX="10" RadiusY="10"/>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+								<GeometryDrawing Brush="#FF000000">
+									<GeometryDrawing.Geometry>
+										<EllipseGeometry Center="20,20" RadiusX="10" RadiusY="10"/>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+								<GeometryDrawing Brush="#FFFFFFFF">
+									<GeometryDrawing.Geometry>
+										<EllipseGeometry Center="20,0" RadiusX="10" RadiusY="10"/>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+								<GeometryDrawing Brush="#FFFFFFFF">
+									<GeometryDrawing.Geometry>
+										<EllipseGeometry Center="0,20" RadiusX="10" RadiusY="10"/>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+							</DrawingGroup>
+						</DrawingBrush.Drawing>
+					</DrawingBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+			<Border HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="202">
+				<StackPanel Width="Auto" Height="Auto" Background="#C87B1D1D">
+					<Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Yellow}" Content="enter a chat name"/>
+					<TextBox Margin="0,0,0,14" Width="Auto" Height="Auto" Text="" TextWrapping="Wrap" x:Name="txtMemberName" Style="{DynamicResource roundedTextBox}" TextAlignment="Center" Background="#FFC19E9E"/>
+					<Button Style="{DynamicResource btnGlassy}" Width="73" Height="73" FontWeight="Normal" Foreground="#FF000000" Content="connect" RenderTransformOrigin="0.5,0.5" x:Name="btnConnect" FontSize="14" Click="btnConnect_click" IsDefault="True">
+						<Button.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+								<SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Button.RenderTransform>
+					</Button>
+				</StackPanel>
+			</Border>
+		</Grid>
+				<Label Opacity="1" Visibility="Collapsed" x:Name="lblConnectionStatus" FontSize="20" Foreground="#FFB3B3B3" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Content="Attemping to connect.  Please standby."/>
+				
+				<Grid Background="{x:Null}" RenderTransformOrigin="0.5,0.5" x:Name="grdChat" Visibility="Collapsed" Height="300" Width="350">
+					<Grid.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform ScaleX="1" ScaleY="1"/>
+							<SkewTransform AngleX="0" AngleY="0"/>
+							<RotateTransform Angle="0"/>
+							<TranslateTransform X="0" Y="0"/>
+						</TransformGroup>
+					</Grid.RenderTransform>
+					<Rectangle Stroke="{DynamicResource Yellow}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Opacity="1" StrokeThickness="3" RadiusX="16" RadiusY="16">
+						<Rectangle.Fill>
+							<DrawingBrush Viewbox="0,0,20,20" ViewboxUnits="Absolute">
+								<DrawingBrush.Drawing>
+									<DrawingGroup>
+										<GeometryDrawing Brush="#FFD3D3D3">
+											<GeometryDrawing.Geometry>
+												<RectangleGeometry Rect="0,0,20,20"/>
+											</GeometryDrawing.Geometry>
+										</GeometryDrawing>
+										<GeometryDrawing Brush="#FF000000">
+											<GeometryDrawing.Geometry>
+												<EllipseGeometry Center="0,0" RadiusX="10" RadiusY="10"/>
+											</GeometryDrawing.Geometry>
+										</GeometryDrawing>
+										<GeometryDrawing Brush="#FF000000">
+											<GeometryDrawing.Geometry>
+												<EllipseGeometry Center="20,20" RadiusX="10" RadiusY="10"/>
+											</GeometryDrawing.Geometry>
+										</GeometryDrawing>
+										<GeometryDrawing Brush="#FFFFFFFF">
+											<GeometryDrawing.Geometry>
+												<EllipseGeometry Center="20,0" RadiusX="10" RadiusY="10"/>
+											</GeometryDrawing.Geometry>
+										</GeometryDrawing>
+										<GeometryDrawing Brush="#FFFFFFFF">
+											<GeometryDrawing.Geometry>
+												<EllipseGeometry Center="0,20" RadiusX="10" RadiusY="10"/>
+											</GeometryDrawing.Geometry>
+										</GeometryDrawing>
+									</DrawingGroup>
+								</DrawingBrush.Drawing>
+							</DrawingBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto">
+						<StackPanel Width="Auto" Height="Auto" Background="#C87B1D1D" Orientation="Horizontal">
+							<ListBox Margin="0,0,7,0" x:Name="lstMembers" Width="75" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource lstRoundedStyle}"/>
+							<StackPanel VerticalAlignment="Stretch" Height="Auto" Orientation="Vertical">
+								<ListBox x:Name="lstChatMsgs" Height="200" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource lstRoundedStyle}" Width="Auto"/>
+								<StackPanel Width="Auto" Height="Auto" Orientation="Horizontal">
+									<TextBox Width="150" Text="" TextWrapping="Wrap" x:Name="txtChatMsg" Style="{DynamicResource roundedTextBox}" TextAlignment="Center" Background="#FFC19E9E" HorizontalAlignment="Center" Height="25"/>
+									<Button Style="{DynamicResource btnGlassy}" Width="Auto" Height="Auto" FontWeight="Normal" Foreground="#FF000000" Content="chat" RenderTransformOrigin="0.5,0.5" x:Name="btnChat" FontSize="18" HorizontalAlignment="Center" Margin="-9,0,0,0" VerticalAlignment="Center" FontFamily="Tahoma" Click="btnChat_Click" IsDefault="True">
+										<Button.RenderTransform>
+											<TransformGroup>
+												<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+												<SkewTransform AngleX="0" AngleY="0"/>
+												<RotateTransform Angle="0"/>
+												<TranslateTransform X="0" Y="0"/>
+											</TransformGroup>
+										</Button.RenderTransform>
+									</Button>
+									<Button Style="{DynamicResource btnGlassy}" Width="Auto" Height="Auto" FontWeight="Normal" Foreground="#FF000000" Content="whisper" RenderTransformOrigin="0.5,0.5" x:Name="btnWhisper" FontSize="18" Margin="-31,0,0,0" FontFamily="Tahoma" Click="btnWhisper_Click">
+										<Button.RenderTransform>
+											<TransformGroup>
+												<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+												<SkewTransform AngleX="0" AngleY="0"/>
+												<RotateTransform Angle="0"/>
+												<TranslateTransform X="0" Y="0"/>
+											</TransformGroup>
+										</Button.RenderTransform>
+										<Button.Background>
+											<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+												<GradientStop Color="#FFF3F3F3" Offset="0"/>
+												<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+												<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+												<GradientStop Color="#FFFFFFFF" Offset="1"/>
+											</LinearGradientBrush>
+										</Button.Background>
+									</Button>
+								</StackPanel>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</Grid>
+			</Grid>
+		</DockPanel>
+	</Grid>
+</Window>

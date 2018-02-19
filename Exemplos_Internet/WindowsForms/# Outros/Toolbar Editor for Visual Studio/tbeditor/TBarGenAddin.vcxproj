@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{96E6ED71-78C1-4011-B01F-29281B7168D2}</ProjectGuid>
+    <RootNamespace>TBarGenAddin</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\cximage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>..\libs\Debug\png.lib;..\libs\Debug/jpeg.lib;..\libs\Debug/zlib.lib;..\libs\Debug/tiff.lib;..\libs\Debug/j2k.lib;..\libs\Debug/jbig.lib;..\libs\Debug/jasper.lib;..\libs\Debug/cximage.lib;Wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalManifestDependencies>
+      </AdditionalManifestDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories> ..\cximage\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>../libs/Release/png.lib;../libs/Release/jpeg.lib;../libs/Release/zlib.lib;../libs/Release/tiff.lib;../libs/Release/j2k.lib;../libs/Release/jbig.lib;../libs/Release/jasper.lib;../libs/Release/cximage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <ImportLibrary>
+      </ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalManifestDependencies>type=%27Win32%27 name=%27Microsoft.Windows.Common-Controls%27 version=%276.0.0.0%27 processorArchitecture=%27X86%27 publicKeyToken=%276595b64144ccf1df%27 language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoComboBox\autocbox.cpp" />
+    <ClCompile Include="BCMenu\BCMenu.cpp" />
+    <ClCompile Include="ColorButton\ColorButton.cpp" />
+    <ClCompile Include="ColorButton\ColourPopup.cpp" />
+    <ClCompile Include="UpdateCheck\Connection.cpp" />
+    <ClCompile Include="UpdateCheck\DlgChkUpdates.cpp" />
+    <ClCompile Include="DlgHelp.cpp" />
+    <ClCompile Include="DlgLibPreview.cpp" />
+    <ClCompile Include="DlgNewToolbar.cpp" />
+    <ClCompile Include="DlgOptions.cpp" />
+    <ClCompile Include="AutoComboBox\FocusEditCtrl.cpp" />
+    <ClCompile Include="HyperLink\HyperLink.cpp" />
+    <ClCompile Include="Label\Label.cpp" />
+    <ClCompile Include="MagDialog.cpp" />
+    <ClCompile Include="MyToolBarCtrl.cpp" />
+    <ClCompile Include="Path.cpp" />
+    <ClCompile Include="Quantize\Quantize.cpp" />
+    <ClCompile Include="ReportCtrl\ReportCtrl.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TBarGenAddin.cpp" />
+    <ClCompile Include="TBarGenAddinDlg.cpp" />
+    <ClCompile Include="tools.cpp" />
+    <ClCompile Include="TrueColorToolBar\TrueColorToolBar.cpp" />
+    <ClCompile Include="filteredit\DfaRegEx.cpp" />
+    <ClCompile Include="filteredit\FilterEdit.cpp" />
+    <ClCompile Include="filteredit\NfaRegEx.cpp" />
+    <ClCompile Include="filteredit\RegExTokeniser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoComboBox\autocbox.h" />
+    <ClInclude Include="BCMenu\BCMenu.h" />
+    <ClInclude Include="ColorButton\ColorButton.h" />
+    <ClInclude Include="ColorButton\ColourPopup.h" />
+    <ClInclude Include="UpdateCheck\Connection.h" />
+    <ClInclude Include="UpdateCheck\DlgChkUpdates.h" />
+    <ClInclude Include="DlgHelp.h" />
+    <ClInclude Include="DlgLibPreview.h" />
+    <ClInclude Include="DlgNewToolbar.h" />
+    <ClInclude Include="DlgOptions.h" />
+    <ClInclude Include="AutoComboBox\FocusEditCtrl.h" />
+    <ClInclude Include="HyperLink\HyperLink.h" />
+    <ClInclude Include="Label\Label.h" />
+    <ClInclude Include="MagDialog.h" />
+    <ClInclude Include="MyToolBarCtrl.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="Quantize\Quantize.h" />
+    <ClInclude Include="ReportCtrl\ReportCtrl.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TBarGenAddin.h" />
+    <ClInclude Include="TBarGenAddinDlg.h" />
+    <ClInclude Include="tools.h" />
+    <ClInclude Include="TrueColorToolBar\TrueColorToolBar.h" />
+    <ClInclude Include="filteredit\DfaRegEx.h" />
+    <ClInclude Include="filteredit\DfaRegExTypedefs.h" />
+    <ClInclude Include="filteredit\FilterEdit.h" />
+    <ClInclude Include="filteredit\NfaRegEx.h" />
+    <ClInclude Include="filteredit\RegExTokeniser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\folder_open_16.bmp" />
+    <None Include="res\folder_open_32.bmp" />
+    <None Include="res\idr_menutoolbarhelper.bmp" />
+    <None Include="res\idr_menutoolbarhelper_GR.bmp" />
+    <None Include="res\idr_menutoolbarhelper_HT.bmp" />
+    <None Include="res\idr_menutoolbarhelper_TC.bmp" />
+    <None Include="res\TBarGenAddin.ico" />
+    <None Include="res\TBarGenAddin.rc2" />
+    <None Include="res\toolbar.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\toolbar2.bmp" />
+    <None Include="res\toolbar_GR.bmp" />
+    <None Include="res\toolbar_HT.bmp" />
+    <None Include="res\toolbar_TC.bmp" />
+    <None Include="res\panda" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TBarGenAddin.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="res\TBarGenAddin.manifest" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="TBarGenAddin.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

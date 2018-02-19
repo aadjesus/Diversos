@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPFControlsSample.TwoListBoxes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="TwoListBoxes" Height="300" Width="606" Loaded="Window_Loaded">
+    <Grid>
+        <ListBox Margin="11,13,355,11" Name="LeftListBox" />
+        <ListBox Margin="0,13,21,11" Name="RightListBox" HorizontalAlignment="Right" Width="216" />
+        <Button Name="AddButton" Height="23" Margin="248,78,261,0" VerticalAlignment="Top"
+                Click="AddButton_Click">Add &gt;&gt;</Button>
+        <Button Name="RemoveButton" Margin="248,121,261,117" 
+                Click="RemoveButton_Click">&lt;&lt; Remove</Button>
+    </Grid>
+</Window>

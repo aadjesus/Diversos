@@ -1,0 +1,69 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:win="clr-namespace:System.Windows;assembly=PresentationFramework"
+	x:Class="CustomWindow.Window1"
+	x:Name="Window"
+    Height="250"
+    Title="Custom Window"
+	Width="500">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF64888C" Offset="0"/>
+			<GradientStop Color="#FF000000" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+    <Window.Resources>
+        <ObjectDataProvider x:Key="MessageBoxImages" MethodName="GetNames" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="win:MessageBoxImage" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="MessageBoxButtons" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="win:MessageBoxButton" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+	<Grid x:Name="LayoutRoot" Margin="5">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="26"/>
+			<RowDefinition Height="26"/>
+			<RowDefinition Height="26"/>
+			<RowDefinition Height="26"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Label Content="Caption:" />
+		<Label Content="Message:" Grid.Row="1" />
+		<Label Content="Message box image:" Grid.Row="2" />
+		<Label Content="Message box buttons:" Grid.Row="3" />
+		<TextBox x:Name="_caption" Grid.Column="1" Text="Sample MessageBox" />
+		<TextBox x:Name="_message"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 Text="This is a sample that shows custom Window styles in a custom MessageBox implementation." />
+		<ComboBox x:Name="_image"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Source={StaticResource MessageBoxImages}}"
+                  SelectedValue="Information" />
+		<ComboBox x:Name="_buttons"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  ItemsSource="{Binding Source={StaticResource MessageBoxButtons}}"
+                  SelectedValue="{x:Static win:MessageBoxButton.OKCancel}" />
+		<Button x:Name="_show"
+                Click="show_Click"
+		        Content="Show Message Box"
+		        Grid.Column="1"
+				Grid.Row="4"
+			    HorizontalAlignment="Right"
+				VerticalAlignment="Bottom" />
+	</Grid>
+</Window>

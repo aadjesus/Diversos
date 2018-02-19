@@ -1,0 +1,96 @@
+<!-- =======================================================
+      RotatingDodecahedron.xaml (c) 2007 by Charles Petzold
+     ======================================================= -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Rotating Dodecahedren"
+      Title="Rotating Dodecahedren">
+
+    <Viewport3D>
+        <ModelVisual3D>
+            <ModelVisual3D.Content>
+                <Model3DGroup>
+                    <GeometryModel3D>
+                        <GeometryModel3D.Geometry>
+                            <MeshGeometry3D 
+                                Positions=
+
+"1.171 -0.724 0, 1 -1 -1, 1.618 0 -0.618, 1.618 0  0.618, 1 -1  1, 0.618 -1.618 0,
+-1.171 -0.724 0,-1 -1  1,-1.618 0  0.618,-1.618 0 -0.618,-1 -1 -1,-0.618 -1.618 0,
+-1.171  0.724 0,-1  1 -1,-1.618 0 -0.618,-1.618 0  0.618,-1  1  1,-0.618  1.618 0,
+ 1.171  0.724 0, 1  1  1, 1.618 0  0.618, 1.618 0 -0.618, 1  1 -1, 0.618  1.618 0, 
+-0.724 0 -1.171,-1  1 -1,0  0.618 -1.618,0 -0.618 -1.618,-1 -1 -1,-1.618 0 -0.618,
+-0.724 0  1.171,-1 -1  1,0 -0.618  1.618,0  0.618  1.618,-1  1  1,-1.618 0  0.618,
+ 0.724 0 -1.171, 1 -1 -1,0 -0.618 -1.618,0  0.618 -1.618, 1  1 -1, 1.618 0 -0.618,
+ 0.724 0  1.171, 1  1  1,0  0.618  1.618,0 -0.618  1.618, 1 -1  1, 1.618 0  0.618,
+0 -1.171 -0.724, 1 -1 -1, 0.618 -1.618 0,-0.618 -1.618 0,-1 -1 -1,0 -0.618 -1.618,
+0  1.171 -0.724,-1  1 -1,-0.618  1.618 0, 0.618  1.618 0, 1  1 -1,0  0.618 -1.618,
+0 -1.171  0.724,-1 -1  1,-0.618 -1.618 0, 0.618 -1.618 0, 1 -1  1,0 -0.618  1.618,
+0  1.171  0.724, 1  1  1, 0.618  1.618 0,-0.618  1.618 0,-1  1  1,0  0.618  1.618"
+
+                                TriangleIndices=
+                    " 0  1  2,  0  2  3,  0  3  4,  0  4  5,  0  5  1,
+                      6  7  8,  6  8  9,  6  9 10,  6 10 11,  6 11  7,
+                     12 13 14, 12 14 15, 12 15 16, 12 16 17, 12 17 13,
+                     18 19 20, 18 20 21, 18 21 22, 18 22 23, 18 23 19,
+
+                     24 25 26, 24 26 27, 24 27 28, 24 28 29, 24 29 25,
+                     30 31 32, 30 32 33, 30 33 34, 30 34 35, 30 35 31,
+                     36 37 38, 36 38 39, 36 39 40, 36 40 41, 36 41 37,
+                     42 43 44, 42 44 45, 42 45 46, 42 46 47, 42 47 43,
+
+                     48 49 50, 48 50 51, 48 51 52, 48 52 53, 48 53 49,
+                     54 55 56, 54 56 57, 54 57 58, 54 58 59, 54 59 55,
+                     60 61 62, 60 62 63, 60 63 64, 60 64 65, 60 65 61,
+                     66 67 68, 66 68 69, 66 69 70, 66 70 71, 66 71 67" />
+
+                        </GeometryModel3D.Geometry>
+
+                        <!-- Semi-transparent brushes. -->
+                        <GeometryModel3D.Material>
+                            <DiffuseMaterial Brush="#A00000FF" />
+                        </GeometryModel3D.Material>
+
+                        <GeometryModel3D.BackMaterial>
+                            <DiffuseMaterial Brush="#A0FF0000" />
+                        </GeometryModel3D.BackMaterial>
+
+                        <!-- Transform for animated rotation. -->
+                        <GeometryModel3D.Transform>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="rotate" 
+                                                         Axis="1 2 0"  />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                        </GeometryModel3D.Transform>
+                    </GeometryModel3D>
+
+                    <!-- Light sources. -->
+                    <AmbientLight Color="Gray" />
+                    <DirectionalLight Color="Gray" Direction="1, -3 -2" />
+
+                </Model3DGroup>
+            </ModelVisual3D.Content>
+        </ModelVisual3D>
+
+        <Viewport3D.Camera>
+            <PerspectiveCamera Position="0 0 5"
+                               LookDirection="0 0 -5"
+                               UpDirection="0 1 0"
+                               FieldOfView="45" />
+        </Viewport3D.Camera>
+    </Viewport3D>
+
+    <!-- Animation -->
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard TargetName="rotate" TargetProperty="Angle">
+                    <DoubleAnimation To="360" Duration="0:0:30" 
+                                     RepeatBehavior="Forever" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+</Page>

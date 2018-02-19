@@ -1,0 +1,57 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <RotateTransform3D x:Key="Transform3D_LeftRotation">
+        <RotateTransform3D.Rotation>
+            <AxisAngleRotation3D Angle="15"
+                                 Axis="0 1 0" />
+        </RotateTransform3D.Rotation>
+    </RotateTransform3D>
+
+    <RotateTransform3D x:Key="Transform3D_RightRotation">
+        <RotateTransform3D.Rotation>
+            <AxisAngleRotation3D Angle="-15"
+                                 Axis="0 1 0" />
+        </RotateTransform3D.Rotation>
+    </RotateTransform3D>
+
+    <Transform3DGroup x:Key="Transform3D_Left">
+        <TranslateTransform3D OffsetX="-0.72" />
+        <StaticResource ResourceKey="Transform3D_LeftRotation" />
+    </Transform3DGroup>
+
+    <Transform3DGroup x:Key="Transform3D_Right">
+        <TranslateTransform3D OffsetX="0.72" />
+        <StaticResource ResourceKey="Transform3D_RightRotation" />
+    </Transform3DGroup>
+
+    <Transform3DGroup x:Key="Transform3D_FrontCover">
+        <TranslateTransform3D OffsetX="-0.72"
+                              OffsetZ="-0.125" />
+        <StaticResource ResourceKey="Transform3D_LeftRotation" />
+    </Transform3DGroup>
+
+    <Transform3DGroup x:Key="Transform3D_BackCover">
+        <TranslateTransform3D OffsetX="0.72"
+                              OffsetZ="-0.125" />
+        <StaticResource ResourceKey="Transform3D_RightRotation" />
+    </Transform3DGroup>
+
+    <TranslateTransform3D x:Key="Transform3D_SpineCoverTranslation"
+                          OffsetZ="-0.140625" />
+
+    <RotateTransform3D x:Key="Transform3D_SpineRotation"
+                       CenterZ="-0.125">
+        <RotateTransform3D.Rotation>
+            <AxisAngleRotation3D Angle="0"
+                                 Axis="0 1 0" />
+        </RotateTransform3D.Rotation>
+    </RotateTransform3D>
+
+    <Transform3DGroup x:Key="Transform3D_SpineCover">
+        <ScaleTransform3D ScaleX="0.2" />
+        <StaticResource ResourceKey="Transform3D_SpineCoverTranslation" />
+        <StaticResource ResourceKey="Transform3D_SpineRotation" />
+    </Transform3DGroup>
+
+</ResourceDictionary>

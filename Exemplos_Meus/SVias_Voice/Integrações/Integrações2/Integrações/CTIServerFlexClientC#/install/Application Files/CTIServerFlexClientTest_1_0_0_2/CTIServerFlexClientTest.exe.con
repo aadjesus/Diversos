@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<system.diagnostics>
+		<trace autoflush="true" indentsize="4">
+			<listeners>
+				<remove name="Default"/>
+				<!--
+                   <add name="EventLogListener"
+                    type="System.Diagnostics.EventLogTraceListener"
+                    initializeData="Orbium Coordinator"
+                    traceOutputOptions="None" />
+                -->
+				<add name="ConsoleLogListener"
+					 type ="System.Diagnostics.ConsoleTraceListener"
+				/>
+				<add name="TextLogListener"
+				 type="System.Diagnostics.TextWriterTraceListener"
+				 initializeData="Coordinator.log"
+				 traceOutputOptions="DateTime" />
+			</listeners>
+		</trace>
+		<switches>
+			<!-- Off, Error, Warning, Info, Verbose -->
+			<add name="TraceLevel" value="Verbose" />
+		</switches>
+	</system.diagnostics>
+</configuration>

@@ -1,0 +1,9 @@
+<VSContent xmlns="http://schemas.microsoft.com/developer/vscontent/2005"> 
+    <Content>
+        <FileName>SampleControl.dll</FileName>
+        <DisplayName>SampleControl</DisplayName>
+        <Description>ComponentOwl.com SampleControl</Description>
+        <FileContentType>Toolbox Control</FileContentType>
+        <ContentVersion>2.0</ContentVersion>
+    </Content>
+</VSContent>

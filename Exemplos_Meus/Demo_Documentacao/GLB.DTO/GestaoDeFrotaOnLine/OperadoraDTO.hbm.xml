@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Globus5.GestaoDeFrotaOnLine.DTO.OperadoraDTO,GLB.DTO" table="GFO_OPERADORA" lazy="false">
+
+		<id name="CodOperadora" column="COD_OPERADORA" type="int" unsaved-value="0">
+			<generator class="assigned"/>
+		</id>
+		<property name="DescOperadora" type="String" column="DESC_OPERADORA" length="100" />
+		
+	</class>
+</hibernate-mapping>

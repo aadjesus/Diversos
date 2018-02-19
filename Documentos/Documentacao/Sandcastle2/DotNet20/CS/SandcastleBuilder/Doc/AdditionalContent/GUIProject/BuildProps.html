@@ -1,0 +1,122 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+<title>The Build Category Properties</title>
+
+</head>
+
+<body>
+
+<h2>The Build Category Properties</h2>
+The following properties are available in the <b>Build</b> category.  These
+control the build process.
+
+<ul>
+    <li><a href="#CleanInt">CleanIntermediates</a></li>
+    <li><a href="#CompConfig">ComponentConfigurations</a></li>
+    <li><a href="#Deps">Dependencies</a></li>
+    <li><a href="#FrmwkVer">FrameworkVersion</a></li>
+    <li><a href="#HelpFileFormat">HelpFileFormat</a></li>
+    <li><a href="#PurgeDups">PurgeDuplicateTopics</a></li>
+</ul>
+
+<h3><a class="Reference" name="CleanInt">CleanIntermediates</a></h3>
+This property is used to specify whether or not intermediate files created
+during the build are kept after a successful build or are purged.  The
+default is true to purge the files.  If not purged, you will find the files
+in a <i>.\Working</i> folder under the project's output path folder.  Files
+that are placed there include the build scripts, configuration files, and
+the HTML help compiler project output files (scripts, art, HTML pages, the
+HTML help project, etc).  The intermediate files are always retained if the
+build fails so that you can examine them to find the cause if necessary.
+
+<h3><a class="Reference" name="CompConfig">ComponentConfigurations</a></h3>
+This option allows you to configure build components that support the
+Sandcastle Help File Builder's plug-in method to interactively set their
+options.  See the <a href="../CompConfig/CompConfig.html">Custom Build
+Components</a> topic for information on the ones supplied with the help file
+builder.
+
+<h3><a class="Reference" name="Deps">Dependencies</a></h3>
+This property can be used to specify a list of dependent assemblies and/or
+folders containing dependent assemblies for use by the <b>MRefBuilder</b>
+tool when it generates reflection information for the documentation
+assemblies.  Currently, <b>MRefBuilder</b> does not resolve references to
+all assemblies used by a target, especially those found in the Global
+Assembly Cache (GAC).  As such, it needs a pointer to find the files and
+load them when needed (the <b>/dep</b> command line option).  This property
+uses a collection editor that lets you choose folder paths, individual
+files, or GAC references to define the dependencies.
+
+<p/><div align="center"><img src="../Images/Dependencies.jpg"
+    alt="Dependencies" width="773" height="641" /></div>
+
+<p/>By specifying the dependent assemblies or the folders containing them,
+the build process can create a folder containing the dependencies for
+<b>MRefBuilder</b> to use.  Paths to the assemblies can be absolute or
+relative.  Relative paths are assumed to be relative to the project folder.
+
+<p/>In addition to file and folder dependencies, you can also select
+assemblies from the GAC.  This is useful in situations where an assembly
+only appears in the GAC and does not have an easily located copy elsewhere
+on disk.  Entries selected from the GAC are prefixed by the identifier
+"GAC:" and show the fully qualified name rather than a file path.  At
+build-time, the GAC is queried and the necessary assemblies are copied from
+it to the dependencies working folder.
+
+<h3><a class="Reference" name="FrmwkVer">FrameworkVersion</a></h3>
+This property allows you to specify to which .NET Framework version the
+documentation links for system types should point.  The default is to use
+the most recent .NET version available on the system (currently 2.0.50727).
+In theory, it is possible to also use Sandcastle to produce help files for
+.NET 1.1 assemblies.  I have not had a chance to confirm that this property
+actually works as expected.  I will provide more details about this
+property once I have had a chance to test it more thoroughly.
+
+<h3><a class="Reference" name="HelpFileFormat">HelpFileFormat</a></h3>
+This property lets you specify the type of help file to build (HTML Help 1.x,
+HTML Help 2.x, a website, or various combinations of the three options).  The
+default is to produce an HTML Help 1.x format file.
+
+<p/>Be aware that if an option is selected that produces a website, the
+output folder will be cleared of all of its current content before the web
+site content is copied to it.  When producing a help file alone, the output
+folder is not cleared.  When producing a website, the following additional
+files are copied to the root of the output folder.
+
+<ul>
+    <li><b>*.gif</b> - Several GIF image files are copied that represent the
+collapsed, expanded, and item nodes in the table of content tree view
+and the Expand All, Collapse All, and Synch to Content options.</li>
+    <li><b>Index.html</b> - This page is used to contain the frameset for
+the table of content and the currently selected content page.</li>
+    <li><b>TOC.css</b> - This is the style sheet used for the table of
+content frame page.</li>
+    <li><b>TOC.js</b> - This JavaScript file contains the code used to
+implement a basic tree view with collapsible and expandable nodes and is used
+by the table of content frame page.</li>
+    <li><b>TOC.html</b> - This is the template file used to contain the
+table of content information.  The template is generated during the build
+and will contain the same entries as the help file's table of content in a
+matching layout.</li>
+</ul>
+
+<h3><a class="Reference" name="PurgeDups">PurgeDuplicateTopics</a></h3>
+This property is present to fix a bug that I ran across. When generating
+documentation into one help file for multiple assemblies that contain one
+or more common classes compiled into each of them, you end up with
+duplicate entries in the table of content and help entries for the common
+classes.  You also get duplicate entries in the namespace help page for
+each namespace associated with the common classes.  To fix this for problem
+for now, I added this property that causes the builder to strip out
+duplicate properties from the <b>reflection.org</b> file generated by
+<b>MRefBuilder</b>.  It is set to true by default.  If you think it may be
+causing problems, set it to false.  If this is fixed in a later CTP, I will
+remove this option.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 5 -->

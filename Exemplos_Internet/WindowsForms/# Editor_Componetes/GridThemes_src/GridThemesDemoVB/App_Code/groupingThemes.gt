@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GridThemes>
+
+  <theme id="Group1" title="Grouping: Suppress Repeating">
+    <group column="0" suppressRepeating="true" />
+  </theme>
+
+  <Theme id="Group2" title="Grouping: Alternating Formats">
+    <Group column="0" suppressRepeating="true">      
+      <AlternateFormat>
+        <Apply backColor="LightBlue" />
+      </AlternateFormat>
+
+      <AlternateFormat>
+        <Apply backColor="PaleGreen" />
+      </AlternateFormat>
+    </Group>
+
+    <Header>
+      <Apply backColor="#CCCCCC" />
+    </Header>
+  </Theme>
+
+  <Theme id="Group3" title="Grouping: Alternating Formats 2">
+    <Group column="0" suppressRepeating="true">
+      <if test="IsNumeric">
+        <apply horizontalAlign="right" />
+      </if>
+
+      <if test="CellIndex=0">
+        <apply Font-Bold="true" />
+      </if>
+      
+      <AlternateFormat>
+        <Apply backColor="LightBlue" />
+      </AlternateFormat>
+
+      <AlternateFormat>
+        <Apply backColor="PaleGreen" />
+      </AlternateFormat>
+      
+    </Group>
+
+    <Header>
+      <Apply backColor="#CCCCCC" />
+    </Header>
+  </Theme>
+
+
+  <Theme id="Group4" title="Grouping: Group variables">
+    <Group column="0" suppressRepeating="true">
+
+      <AlternateFormat>
+        <Apply backColor="LightBlue" />
+      </AlternateFormat>
+
+      <AlternateFormat>
+        <Apply backColor="PaleGreen" />
+      </AlternateFormat>
+
+      <if test="CellIndex=0">
+        <if test="RowIndexWithinGroup=0">
+          <apply Font-Bold="true" 
+                 TextExpression='string.Format("{0}. {1}", GroupIndex + 1, GroupText)' 
+                 />
+          <elseApply Font-Italic="true"
+                     TextExpression='string.Format("{0}.", RowIndexWithinGroup + 1)'
+                     HorizontalAlign='right'
+                     />
+        
+        </if>
+      </if>
+
+      <if test="IsNumeric">
+        <apply horizontalAlign="right" />
+      </if>
+
+    </Group>
+
+    <Header>
+      <Apply backColor="#CCCCCC" />
+    </Header>
+  </Theme>
+
+  <Theme id="Group5" title="Grouping: Group variables 2">
+    <Group column="0" suppressRepeating="true">
+
+      <AlternateFormat>
+        <If test='CellIndex=0'>
+          <Apply BackColor='SkyBlue' />
+          <Else>
+            <If test='RowIndexWithinGroup mod 2 = 0'>
+              <Apply BackColor='SkyBlue' />
+              <ElseApply BackColor='LightBlue' />
+            </If>
+          </Else>
+        </If>
+      </AlternateFormat>
+
+      <AlternateFormat>
+        <If test='CellIndex=0'>
+          <Apply BackColor='LightGreen' />
+          <Else>
+            <If test='RowIndexWithinGroup mod 2 = 0'>
+              <Apply BackColor='LightGreen' />
+              <ElseApply BackColor='PaleGreen' />
+            </If>
+          </Else>
+        </If>
+      </AlternateFormat>
+
+      <if test="CellIndex=0 and RowIndexWithinGroup=0">
+        <apply Font-Bold="true" 
+               TextExpression='string.Format("{0}. {1}", GroupIndex + 1, GroupText)' 
+               />
+      </if>
+
+      <if test="IsNumeric">
+        <apply horizontalAlign="right" />
+      </if>
+
+    </Group>
+
+    <Header>
+      <Apply backColor="#CCCCCC" />
+    </Header>
+  </Theme>
+
+
+  <Theme id="Group6" title="Grouping: Group variables 3">
+    <Group column="0" suppressRepeating="true">
+
+      <If test='GroupText="East Region"' >
+        <If test='CellIndex=0'>
+          <Apply BackColor='LightPink' />
+          <Else>
+            <If test='RowIndexWithinGroup mod 2 = 0'>
+              <Apply BackColor='LightPink' />
+              <ElseApply BackColor='Pink' />
+            </If>
+          </Else>
+        </If>
+      </If>
+
+      <AlternateFormat>
+        <If test='CellIndex=0'>
+          <Apply BackColor='SkyBlue' />
+          <Else>
+            <If test='RowIndexWithinGroup mod 2 = 0'>
+              <Apply BackColor='SkyBlue' />
+              <ElseApply BackColor='LightBlue' />
+            </If>
+          </Else>
+        </If>
+      </AlternateFormat>
+
+      <AlternateFormat>
+        <If test='CellIndex=0'>
+          <Apply BackColor='LightGreen' />
+          <Else>
+            <If test='RowIndexWithinGroup mod 2 = 0'>
+              <Apply BackColor='LightGreen' />
+              <ElseApply BackColor='PaleGreen' />
+            </If>
+          </Else>
+        </If>
+      </AlternateFormat>
+
+      <if test="CellIndex=0 and RowIndexWithinGroup=0">
+        <apply Font-Bold="true" 
+               TextExpression='string.Format("{0}. {1}", GroupIndex + 1, GroupText)' 
+               />
+      </if>
+
+      <if test="IsNumeric">
+        <apply horizontalAlign="right" />
+      </if>
+
+    </Group>
+
+    <Header>
+      <Apply backColor="#CCCCCC" />
+    </Header>
+  </Theme>
+
+
+  <theme id="Group7" title="Grouping: Multiple groups">
+    
+    <group column="0" suppressRepeating="true">
+      <if test="RowIndexWithinGroup=0">
+        <apply CssClass="topBorder" />
+      </if>
+
+      <alternateFormat>
+        <apply BackColor="MediumSlateBlue"/>
+        <if test='CellIndex = 0'>
+          <apply Font-Bold='True' horizontalAlign='center'/>
+        </if>
+      </alternateFormat>
+
+      <alternateFormat>
+        <apply BackColor="DarkSeaGreen" />
+        <if test='CellIndex = 0'>
+          <apply Font-Bold='True' horizontalAlign='center'/>
+        </if>
+      </alternateFormat>
+
+    </group>
+    
+    <group column="1" suppressRepeating="true" >
+      
+      <alternateFormat>
+        <!-- use an expression to adjust the color -->
+        <if test="CellIndex &lt;&gt; 0">          
+          <apply backColorExpression='ColorUtility.BlendColors(cell.BackColor, "LightGray" )' />          
+        </if>        
+      </alternateFormat>
+
+      <alternateFormat>
+        <!-- use an expression to adjust the color -->
+        <if test="CellIndex &lt;&gt; 0">
+          <apply backColorExpression='ColorUtility.BlendColors(cell.BackColor, "White" )' />
+        </if>
+      </alternateFormat>
+    </group>
+        
+    
+    <if test="IsNumeric">
+      <apply horizontalAlign="right" />
+    </if>
+
+    <if test="CellIndex=1">
+      <Apply horizontalAlign="center" />
+    </if>
+
+    <header>
+      <apply backColor="#999999" />
+    </header>
+
+  </theme>
+
+
+</GridThemes>

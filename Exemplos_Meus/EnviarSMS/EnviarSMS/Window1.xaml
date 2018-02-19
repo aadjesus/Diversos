@@ -1,0 +1,79 @@
+﻿<Window x:Class="EnviarSMS.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="866">
+    <Window.Resources>
+        <Storyboard x:Key="strybrdAtualizando" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ponto1" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.995"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ponto2" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ponto3" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ponto4" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ponto5" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+            <ColumnDefinition Width="230" />
+        </Grid.ColumnDefinitions>
+        <Button Name="buttonLer" Click="button1_Click" Content="Ler SMS" Visibility="Hidden" Height="25" Margin="0,0.48,76,0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" />
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Top">
+            <Label Content="Responder via:" VerticalAlignment="Center" Visibility="Hidden" />
+            <Button HorizontalAlignment="Right" Name="buttonWebService" Content="WebService" Click="buttonWebService_Click" Visibility="Hidden" />
+            <Button HorizontalAlignment="Right" Name="buttonWebBrowser" Content="WebBrowser" Click="buttonWebService_Click" Visibility="Hidden" />
+        </StackPanel>
+
+        <my:GridControl AutoPopulateColumns="True" Grid.Row="1" Grid.RowSpan="2" Name="gridControl1" xmlns:my="clr-namespace:DevExpress.Wpf.Grid;assembly=DevExpress.Wpf.Grid.v8.3">
+            <my:GridControl.View>
+                <my:GridColumnView />
+            </my:GridControl.View>
+        </my:GridControl>
+        <ListBox x:Name="ListBox1"  Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,0,26" />
+        <!--<WebBrowser x:Name="WebBrowser1" Grid.Row="2" Grid.Column="1" />-->
+        <Button HorizontalAlignment="Right" Name="button1" Width="75" Click="button1_Click_1" Visibility="Hidden" Height="25.48" Grid.RowSpan="2" VerticalAlignment="Top">Button</Button>
+        <StackPanel Orientation="Horizontal">
+            <Label Name="label1" Height="28" Grid.RowSpan="2" VerticalAlignment="Top" Content="Consultando" HorizontalAlignment="Left" FontSize="12"  />
+
+            <StackPanel x:Name="stckPnlAtualizando" Orientation="Horizontal" >
+                <Rectangle HorizontalAlignment="Left" Width="5" Fill="#FF333333" Height="5" Stroke="#7FFFFFFF" x:Name="ponto1" Opacity="0"/>
+                <Rectangle Width="5" Fill="#FF333333" Height="5" Stroke="#7FFFFFFF" Margin="0,0,2,0" x:Name="ponto2" Opacity="0"/>
+                <Rectangle Width="5" Fill="#FF333333" Height="5" Stroke="#7FFFFFFF" Margin="0,0,2,0" x:Name="ponto3" Opacity="0"/>
+                <Rectangle Width="5" Fill="#FF333333" Height="5" Stroke="#7FFFFFFF" Margin="0,0,2,0" x:Name="ponto4" Opacity="0"/>
+                <Rectangle Width="5" Fill="#FF333333" Height="5" Stroke="#7FFFFFFF" x:Name="ponto5" Opacity="0"/>
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource strybrdAtualizando}"/>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+        </StackPanel>
+        <Label Name="labelQtde" Height="28" VerticalAlignment="Bottom" Content="Qtde :" FontSize="12" Grid.Column="1" Grid.Row="2" Margin="0,0,1.74,0" />
+    </Grid>
+</Window>

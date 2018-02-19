@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HelpMsg" xml:space="preserve">
+    <value>How to get started: \n\nThis code snippet editor will help you write snippets that conform to the following schema: http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet.\n\nThe following xml is a simple example of what this will produce:\n&lt;CodeSnippets xmlns=\"http://schemas.microsoft.com//VisualStudio//2005//CodeSnippet\"&gt;\n   &lt;CodeSnippet Format=\"1.0.0\"&gt;\n       &lt;Header&gt;\n       &lt;Title&gt;\n              My Snippet\n         &lt;/Title&gt;\n       &lt;/Header&gt;\n       &lt;Snippet&gt;\n           &lt;Code Language=\"CSharp\"&gt;\n               &lt;![CDATA[MessageBox.Show(\"Hello World\");]]&gt;\n           &lt;/Code&gt;\n       &lt;/Snippet&gt;\n   &lt;/CodeSnippet&gt;\n&lt;/CodeSnippets&gt;\n\nThe following fields are required for a snippet to work inside of Visual Studio:  Title, SnippetTypes, Code, Language.\n\nTitle        - This is the name of the snippet that will be visible in the code snippet picker and the code snippet manager.\nShortcut     - If you want to invoke your snippet through the keyboard, you can assign it a shortcut.  Pressing the shortcut and hitting \"Tab\" will insert your new snippet in the editor.\nSnippetTypes - Expansion is for a snippet that inserts text.  SurroundsWith is for snippets that will surround a block of text such as a for loop\nLanguage     - This is required to know which type of language the snippet you are creating will work for.  The currently supported lanugages are VB, C#, J# and XML\nCode         - The actual code that will be spit into the editor is required here.  In the above example, this is the text that is wrapped in the CDATA section.  You do not need to include the CDATA block\n\n\nAdding a Literal or Object:\n   The Literal element is used to identify a replacement for a piece of code that is entirely contained within the snippet, but will likely be customized after it is inserted into the code. For example, literal strings, numeric values, and some variable names should be declared as literals.\n   The Object element is used to identify an item that is required by the code snippet but is likely to be defined outside of the snippet itself. For example, Windows Forms controls, ASP.NET controls, object instances, and type instances should be declared as objects. Object declarations require that a type be specified.\nUse the Add button on the literals/objects section to add a new literal.   ID and default value are the only required fields.\nNow that you have created literals and objects, you need a way to use them in the code that will be inserted by the code snippet. You reference the literals and objects you have declared in the Declarations element by placing $ symbols at the beginning and end of the value in the literal or object's ID elementTo reference a literal or object in a Code element, place $ symbols at the beginning and end of the literal or object's ID element value. For example, if a literal has an ID element that contains the value MyID, you would reference that literal in the Code text box with $MyID$.\n\n\nAfter creating your snippet, you need to save it to a location that Visual Studio will be able to access it from.  In Visual Studio, go to the Tools menu and choose Code Snippet Manager. Here you can select the language that the snippets you are creating refer to.  From there you will be able to see the directories where you can place the snippet.  Copy one of these locations and save your snippet there. Visual Stuido wil then automatically pick up your newly created snippet.\n</value>
+  </data>
+</root>

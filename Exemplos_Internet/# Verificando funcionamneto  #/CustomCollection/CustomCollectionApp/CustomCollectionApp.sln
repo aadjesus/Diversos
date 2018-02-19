@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCollectionApp", "CustomCollectionApp\CustomCollectionApp.csproj", "{607CEFCA-5864-4045-8FE4-D4E6B7A7E196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organization", "Organization\Organization.csproj", "{07694D75-E568-4F7B-B09F-0D58DD5E87C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{607CEFCA-5864-4045-8FE4-D4E6B7A7E196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607CEFCA-5864-4045-8FE4-D4E6B7A7E196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607CEFCA-5864-4045-8FE4-D4E6B7A7E196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607CEFCA-5864-4045-8FE4-D4E6B7A7E196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07694D75-E568-4F7B-B09F-0D58DD5E87C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07694D75-E568-4F7B-B09F-0D58DD5E87C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07694D75-E568-4F7B-B09F-0D58DD5E87C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07694D75-E568-4F7B-B09F-0D58DD5E87C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

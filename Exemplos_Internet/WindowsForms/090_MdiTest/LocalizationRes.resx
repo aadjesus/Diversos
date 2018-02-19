@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="StringId.CaptionError" xml:space="preserve">
+    <value>Eroare</value>
+    <comment>Error</comment>
+  </data>
+  <data name="StringId.InvalidValueText" xml:space="preserve">
+    <value>Valoare invalidă</value>
+    <comment>Invalid Value</comment>
+  </data>
+  <data name="StringId.CheckChecked" xml:space="preserve">
+    <value>Bifat</value>
+    <comment>Checked</comment>
+  </data>
+  <data name="StringId.CheckUnchecked" xml:space="preserve">
+    <value>Nebifat</value>
+    <comment>Unchecked</comment>
+  </data>
+  <data name="StringId.CheckIndeterminate" xml:space="preserve">
+    <value>Nedeterminat</value>
+    <comment>Indeterminate</comment>
+  </data>
+  <data name="StringId.DateEditToday" xml:space="preserve">
+    <value>Astăzi</value>
+    <comment>Today</comment>
+  </data>
+  <data name="StringId.DateEditClear" xml:space="preserve">
+    <value>Ştergere</value>
+    <comment>Clear</comment>
+  </data>
+  <data name="StringId.OK" xml:space="preserve">
+    <value>A&amp;cceptare</value>
+    <comment>&amp;OK</comment>
+  </data>
+  <data name="StringId.Cancel" xml:space="preserve">
+    <value>&amp;Renunţare</value>
+    <comment>&amp;Cancel</comment>
+  </data>
+  <data name="StringId.NavigatorFirstButtonHint" xml:space="preserve">
+    <value>Primul</value>
+    <comment>First</comment>
+  </data>
+  <data name="StringId.NavigatorPreviousButtonHint" xml:space="preserve">
+    <value>Anteriorul</value>
+    <comment>Previous</comment>
+  </data>
+  <data name="StringId.NavigatorPreviousPageButtonHint" xml:space="preserve">
+    <value>Pagina anterioară</value>
+    <comment>Previous Page</comment>
+  </data>
+  <data name="StringId.NavigatorNextButtonHint" xml:space="preserve">
+    <value>Următorul</value>
+    <comment>Next</comment>
+  </data>
+  <data name="StringId.NavigatorNextPageButtonHint" xml:space="preserve">
+    <value>Pagina următoare</value>
+    <comment>Next Page</comment>
+  </data>
+  <data name="StringId.NavigatorLastButtonHint" xml:space="preserve">
+    <value>Ultimul</value>
+    <comment>Last</comment>
+  </data>
+  <data name="StringId.NavigatorAppendButtonHint" xml:space="preserve">
+    <value>Adăugare</value>
+    <comment>Append</comment>
+  </data>
+  <data name="StringId.NavigatorRemoveButtonHint" xml:space="preserve">
+    <value>Ştergere</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="StringId.NavigatorEditButtonHint" xml:space="preserve">
+    <value>Editare</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="StringId.NavigatorEndEditButtonHint" xml:space="preserve">
+    <value>Editare completă</value>
+    <comment>End Edit</comment>
+  </data>
+  <data name="StringId.NavigatorCancelEditButtonHint" xml:space="preserve">
+    <value>Renunţare editare</value>
+    <comment>Cancel Edit</comment>
+  </data>
+  <data name="StringId.NavigatorTextStringFormat" xml:space="preserve">
+    <value>Elementul {0} din {1}</value>
+    <comment>Record {0} of {1}</comment>
+  </data>
+  <data name="StringId.PictureEditMenuCut" xml:space="preserve">
+    <value>Decupare</value>
+    <comment>Cut</comment>
+  </data>
+  <data name="StringId.PictureEditMenuCopy" xml:space="preserve">
+    <value>Copiere</value>
+    <comment>Copy</comment>
+  </data>
+  <data name="StringId.PictureEditMenuPaste" xml:space="preserve">
+    <value>Lipire</value>
+    <comment>Paste</comment>
+  </data>
+  <data name="StringId.PictureEditMenuDelete" xml:space="preserve">
+    <value>Ştergere</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="StringId.PictureEditMenuLoad" xml:space="preserve">
+    <value>Încărcare</value>
+    <comment>Load</comment>
+  </data>
+  <data name="StringId.PictureEditMenuSave" xml:space="preserve">
+    <value>Salvare</value>
+    <comment>Save</comment>
+  </data>
+  <data name="StringId.PictureEditOpenFileTitle" xml:space="preserve">
+    <value>Deschidere</value>
+    <comment>Open</comment>
+  </data>
+  <data name="StringId.PictureEditSaveFileTitle" xml:space="preserve">
+    <value>Salvare ca şi</value>
+    <comment>Save As</comment>
+  </data>
+  <data name="StringId.PictureEditOpenFileError" xml:space="preserve">
+    <value>Format de imagine invalid</value>
+    <comment>Wrong picture format</comment>
+  </data>
+  <data name="StringId.PictureEditOpenFileErrorCaption" xml:space="preserve">
+    <value>Eroare deschidere</value>
+    <comment>Open error</comment>
+  </data>
+  <data name="StringId.LookUpEditValueIsNull" xml:space="preserve">
+    <value>[EditValue este null]</value>
+    <comment>[EditValue is null]</comment>
+  </data>
+  <data name="StringId.LookUpInvalidEditValueType" xml:space="preserve">
+    <value>Tip EditValue LookUpEdit invalid.</value>
+    <comment>Invalid LookUpEdit EditValue type.</comment>
+  </data>
+  <data name="StringId.LookUpColumnDefaultName" xml:space="preserve">
+    <value>Nume</value>
+    <comment>Name</comment>
+  </data>
+  <data name="StringId.PictureEditOpenFileFilter" xml:space="preserve">
+    <value>Fişiere Bitmap (*.bmp)|*.bmp|Graphics Interchange Format (*.gif)|*.gif|JPEG File Interchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Fişiere Icon (*.ico)|*.ico|Toate fişierele cu imagini |*.bmp;*.gif;*.jpg;*.jpeg;*.ico;*.png;*.tif|Toate fişierele |*.*</value>
+    <comment>Bitmap Files (*.bmp)|*.bmp|Graphics Interchange Format (*.gif)|*.gif|JPEG File Interchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|All Picture Files |*.bmp;*.gif;*.jpg;*.jpeg;*.ico;*.png;*.tif|All Files |*.*</comment>
+  </data>
+  <data name="StringId.PictureEditSaveFileFilter" xml:space="preserve">
+    <value>Fişiere Bitmap (*.bmp)|*.bmp|Graphics Interchange Format (*.gif)|*.gif|JPEG File Interchange Format (*.jpg)|*.jpg</value>
+    <comment>Bitmap Files (*.bmp)|*.bmp|Graphics Interchange Format (*.gif)|*.gif|JPEG File Interchange Format (*.jpg)|*.jpg</comment>
+  </data>
+  <data name="StringId.MaskBoxValidateError" xml:space="preserve">
+    <value>Valoarea introdusă este incorectă. Doriţi să o corectaţi?
+        
+        
+        Da - reeditare valoare curentă.
+        Nu - acceptare valoare curentă.
+        Renunţare - resetare la valoarea anterioară.
+        </value>
+    <comment>The entered value is incomplete.  Do you want to correct it?
+        
+        
+        Yes - return to the editor and correct the value.
+        No - leave the value as is.
+        Cancel - reset to the previous value.</comment>
+  </data>
+  <data name="StringId.UnknownPictureFormat" xml:space="preserve">
+    <value>Format de imagine necunoscut</value>
+    <comment>Unknown picture format</comment>
+  </data>
+  <data name="StringId.DataEmpty" xml:space="preserve">
+    <value>Fara imagine</value>
+    <comment>No image data</comment>
+  </data>
+  <data name="StringId.NotValidArrayLength" xml:space="preserve">
+    <value>Lungime array invalidă</value>
+    <comment>Not valid array length.</comment>
+  </data>
+  <data name="StringId.ImagePopupEmpty" xml:space="preserve">
+    <value>(gol)</value>
+    <comment>(Empty)</comment>
+  </data>
+  <data name="StringId.ImagePopupPicture" xml:space="preserve">
+    <value>(Imagine)</value>
+    <comment>(Picture)</comment>
+  </data>
+  <data name="StringId.ColorTabCustom" xml:space="preserve">
+    <value>Propriu</value>
+    <comment>Custom</comment>
+  </data>
+  <data name="StringId.ColorTabWeb" xml:space="preserve">
+    <value>Web</value>
+    <comment>Web</comment>
+  </data>
+  <data name="StringId.ColorTabSystem" xml:space="preserve">
+    <value>Sistem</value>
+    <comment>System</comment>
+  </data>
+  <data name="StringId.CalcButtonMC" xml:space="preserve">
+    <value>MC</value>
+    <comment>MC</comment>
+  </data>
+  <data name="StringId.CalcButtonMR" xml:space="preserve">
+    <value>MR</value>
+    <comment>MR</comment>
+  </data>
+  <data name="StringId.CalcButtonMS" xml:space="preserve">
+    <value>MS</value>
+    <comment>MS</comment>
+  </data>
+  <data name="StringId.CalcButtonMx" xml:space="preserve">
+    <value>M+</value>
+    <comment>M+</comment>
+  </data>
+  <data name="StringId.CalcButtonSqrt" xml:space="preserve">
+    <value>sqrt</value>
+    <comment>sqrt</comment>
+  </data>
+  <data name="StringId.CalcButtonBack" xml:space="preserve">
+    <value>Înapoi</value>
+    <comment>Back</comment>
+  </data>
+  <data name="StringId.CalcButtonCE" xml:space="preserve">
+    <value>CE</value>
+    <comment>CE</comment>
+  </data>
+  <data name="StringId.CalcButtonC" xml:space="preserve">
+    <value>C</value>
+    <comment>C</comment>
+  </data>
+  <data name="StringId.CalcError" xml:space="preserve">
+    <value>Eroare de calculaţie</value>
+    <comment>Calculation Error</comment>
+  </data>
+  <data name="StringId.TabHeaderButtonPrev" xml:space="preserve">
+    <value>Scrolare stânga</value>
+    <comment>Scroll Left</comment>
+  </data>
+  <data name="StringId.TabHeaderButtonNext" xml:space="preserve">
+    <value>Scrolare dreapta</value>
+    <comment>Scroll Right</comment>
+  </data>
+  <data name="StringId.TabHeaderButtonClose" xml:space="preserve">
+    <value>Închidere</value>
+    <comment>Close</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxOkButtonText" xml:space="preserve">
+    <value>&amp;Acceptare</value>
+    <comment>&amp;OKxxx</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxCancelButtonText" xml:space="preserve">
+    <value>&amp;Renunţare</value>
+    <comment>&amp;Cancel</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxYesButtonText" xml:space="preserve">
+    <value>&amp;Da</value>
+    <comment>&amp;Yes</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxNoButtonText" xml:space="preserve">
+    <value>&amp;Nu</value>
+    <comment>&amp;No</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxAbortButtonText" xml:space="preserve">
+    <value>&amp;Abandonare</value>
+    <comment>&amp;Abort</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxRetryButtonText" xml:space="preserve">
+    <value>&amp;Repetare</value>
+    <comment>&amp;Retry</comment>
+  </data>
+  <data name="StringId.XtraMessageBoxIgnoreButtonText" xml:space="preserve">
+    <value>&amp;Continuare</value>
+    <comment>&amp;Ignore</comment>
+  </data>
+  <data name="StringId.TextEditMenuUndo" xml:space="preserve">
+    <value>În&amp;apoi</value>
+    <comment>&amp;Undo</comment>
+  </data>
+  <data name="StringId.TextEditMenuCut" xml:space="preserve">
+    <value>Dec&amp;upare</value>
+    <comment>Cu&amp;t</comment>
+  </data>
+  <data name="StringId.TextEditMenuCopy" xml:space="preserve">
+    <value>&amp;Copiere</value>
+    <comment>&amp;Copy</comment>
+  </data>
+  <data name="StringId.TextEditMenuPaste" xml:space="preserve">
+    <value>&amp;Lipire</value>
+    <comment>&amp;Paste</comment>
+  </data>
+  <data name="StringId.TextEditMenuDelete" xml:space="preserve">
+    <value>Ş&amp;tergere</value>
+    <comment>&amp;Delete</comment>
+  </data>
+  <data name="StringId.TextEditMenuSelectAll" xml:space="preserve">
+    <value>Selectie completă</value>
+    <comment>Select &amp;All</comment>
+  </data>
+  <data name="StringId.FilterGroupAnd" xml:space="preserve">
+    <value>Şi</value>
+    <comment>And</comment>
+  </data>
+  <data name="StringId.FilterGroupNotAnd" xml:space="preserve">
+    <value>Şi nu</value>
+    <comment>Not And</comment>
+  </data>
+  <data name="StringId.FilterGroupNotOr" xml:space="preserve">
+    <value>Sau nu</value>
+    <comment>Not Or</comment>
+  </data>
+  <data name="StringId.FilterGroupOr" xml:space="preserve">
+    <value>Sau</value>
+    <comment>Or</comment>
+  </data>
+  <data name="StringId.FilterClauseAnyOf" xml:space="preserve">
+    <value>Este oricare din</value>
+    <comment>Is any of</comment>
+  </data>
+  <data name="StringId.FilterClauseBeginsWith" xml:space="preserve">
+    <value>Începând cu</value>
+    <comment>Begins with</comment>
+  </data>
+  <data name="StringId.FilterClauseBetween" xml:space="preserve">
+    <value>Între</value>
+    <comment>Is between</comment>
+  </data>
+  <data name="StringId.FilterClauseBetweenAnd" xml:space="preserve">
+    <value>şi</value>
+    <comment>and</comment>
+  </data>
+  <data name="StringId.FilterClauseContains" xml:space="preserve">
+    <value>Conţine</value>
+    <comment>Contains</comment>
+  </data>
+  <data name="StringId.FilterClauseEndsWith" xml:space="preserve">
+    <value>Se termină cu</value>
+    <comment>Ends with</comment>
+  </data>
+  <data name="StringId.FilterClauseEquals" xml:space="preserve">
+    <value>Egal cu</value>
+    <comment>Equals</comment>
+  </data>
+  <data name="StringId.FilterClauseGreater" xml:space="preserve">
+    <value>Mai mare decât</value>
+    <comment>Is greater than</comment>
+  </data>
+  <data name="StringId.FilterClauseGreaterOrEqual" xml:space="preserve">
+    <value>Mai mare sau egal cu</value>
+    <comment>Is greater than or equal to</comment>
+  </data>
+  <data name="StringId.FilterClauseIsNotNull" xml:space="preserve">
+    <value>Cu conţinut</value>
+    <comment>Is not blank</comment>
+  </data>
+  <data name="StringId.FilterClauseIsNull" xml:space="preserve">
+    <value>Fără conţinut</value>
+    <comment>Is blank</comment>
+  </data>
+  <data name="StringId.FilterClauseLess" xml:space="preserve">
+    <value>Mai mic decât</value>
+    <comment>Is less than</comment>
+  </data>
+  <data name="StringId.FilterClauseLessOrEqual" xml:space="preserve">
+    <value>Mai mic sau egal cu</value>
+    <comment>Is less than or equal to</comment>
+  </data>
+  <data name="StringId.FilterClauseLike" xml:space="preserve">
+    <value>Ca şi</value>
+    <comment>Is like</comment>
+  </data>
+  <data name="StringId.FilterClauseNoneOf" xml:space="preserve">
+    <value>Nici unul dintre</value>
+    <comment>Is none of</comment>
+  </data>
+  <data name="StringId.FilterClauseNotBetween" xml:space="preserve">
+    <value>Nu între</value>
+    <comment>Is not between</comment>
+  </data>
+  <data name="StringId.FilterClauseDoesNotContain" xml:space="preserve">
+    <value>Nu conţine</value>
+    <comment>Does not contain</comment>
+  </data>
+  <data name="StringId.FilterClauseDoesNotEqual" xml:space="preserve">
+    <value>Diferit</value>
+    <comment>Does not equal</comment>
+  </data>
+  <data name="StringId.FilterClauseNotLike" xml:space="preserve">
+    <value>Nu ca şi</value>
+    <comment>Is not like</comment>
+  </data>
+  <data name="StringId.FilterEmptyEnter" xml:space="preserve">
+    <value>&lt;introduceţi o valoare&gt;</value>
+    <comment>&lt;enter a value&gt;</comment>
+  </data>
+  <data name="StringId.FilterEmptyValue" xml:space="preserve">
+    <value>&lt;gol&gt;</value>
+    <comment>&lt;empty&gt;</comment>
+  </data>
+  <data name="StringId.FilterMenuConditionAdd" xml:space="preserve">
+    <value>Adăugare condiţie</value>
+    <comment>Add Condition</comment>
+  </data>
+  <data name="StringId.FilterMenuGroupAdd" xml:space="preserve">
+    <value>Adăugare grup</value>
+    <comment>Add Group</comment>
+  </data>
+  <data name="StringId.FilterMenuClearAll" xml:space="preserve">
+    <value>Ştergere completă</value>
+    <comment>Clear All</comment>
+  </data>
+  <data name="StringId.FilterMenuRowRemove" xml:space="preserve">
+    <value>Ştergere grup</value>
+    <comment>Remove Group</comment>
+  </data>
+  <data name="StringId.FilterToolTipNodeAdd" xml:space="preserve">
+    <value>Adăugare condiţie nouă la grupul curent</value>
+    <comment>Adds a new condition to this group.</comment>
+  </data>
+  <data name="StringId.FilterToolTipNodeRemove" xml:space="preserve">
+    <value>Ştergere condiţie curentă</value>
+    <comment>Removes this condition.</comment>
+  </data>
+  <data name="StringId.FilterToolTipNodeAction" xml:space="preserve">
+    <value>Acţiuni.</value>
+    <comment>Actions.</comment>
+  </data>
+  <data name="StringId.FilterToolTipValueType" xml:space="preserve">
+    <value>Comparare cu o valoare / valoarea altui câmp</value>
+    <comment>Compare to a value / another field's value.</comment>
+  </data>
+  <data name="StringId.FilterToolTipElementAdd" xml:space="preserve">
+    <value>Adăugare element nou în listă</value>
+    <comment>Adds a new item to the list.</comment>
+  </data>
+  <data name="StringId.FilterToolTipKeysAdd" xml:space="preserve">
+    <value>(Folosiţi Insert sau Add)</value>
+    <comment>(Use the Insert or Add key)</comment>
+  </data>
+  <data name="StringId.FilterToolTipKeysRemove" xml:space="preserve">
+    <value>(Folosiţi Delete sau Minus)</value>
+    <comment>(Use the Delete or Subtract key)</comment>
+  </data>
+  <data name="StringId.ContainerAccessibleEditName" xml:space="preserve">
+    <value>Control de editare</value>
+    <comment>Editing control</comment>
+  </data>
+  <data name="StringId.FilterShowAll" xml:space="preserve">
+    <value>(Selectează tot)</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLower" xml:space="preserve">
+    <value>MaiMic</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeTomorrow" xml:space="preserve">
+    <value>Mâine</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalYesterday" xml:space="preserve">
+    <value>EsteIeri</value>
+  </data>
+  <data name="StringId.FilterOutlookDateText" xml:space="preserve">
+    <value>Arată toate|Filtrează după o dată specificată:| Depăşeşte anul curent|Mai târziu în anul curent|Mai târziu în luna curentă|Săptămâna viitoare|Mai târziu în săptămâna curentă|Mâine|Azi|Ieri|Mai devreme în săptămâna curentă|Săptămâna trecută|Mai devreme în luna curentă|Mai devreme în anul curent|Anterior anului curent</value>
+  </data>
+  <data name="StringId.Apply" xml:space="preserve">
+    <value>Aplică</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeThisMonth" xml:space="preserve">
+    <value>LunaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeYesterday" xml:space="preserve">
+    <value>Ieri</value>
+  </data>
+  <data name="StringId.FilterDateTimeOperatorMenuCaption" xml:space="preserve">
+    <value>Operatori timp</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeToday" xml:space="preserve">
+    <value>Azi</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeThisWeek" xml:space="preserve">
+    <value>SăptămânaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionCustom" xml:space="preserve">
+    <value>Propriu</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeNow" xml:space="preserve">
+    <value>Acum</value>
+  </data>
+  <data name="StringId.PreviewPanelText" xml:space="preserve">
+    <value>Previzualizare:</value>
+  </data>
+  <data name="StringId.PictureEditCopyImageError" xml:space="preserve">
+    <value>Imaginea nu a putu fi copiată</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisWeek" xml:space="preserve">
+    <value>EsteMaiDevremeÎnLunaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeNextMonth" xml:space="preserve">
+    <value>LunaUrmătoare</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringIn" xml:space="preserve">
+    <value>În</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringBinaryOperatorLike" xml:space="preserve">
+    <value>Ca şi</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIif" xml:space="preserve">
+    <value>Dacă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisYear" xml:space="preserve">
+    <value>EsteMaiTârziuÎnAnulCurent</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeDayAfterTomorrow" xml:space="preserve">
+    <value>Poimâine</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringGroupOperatorOr" xml:space="preserve">
+    <value>Sau</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeNextWeek" xml:space="preserve">
+    <value>SăptămânaUrmătoare</value>
+  </data>
+  <data name="StringId.TransparentBackColorNotSupported" xml:space="preserve">
+    <value>Acest control nu suportă culori transparente pentru fundal</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringBetween" xml:space="preserve">
+    <value>Între</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeNextYear" xml:space="preserve">
+    <value>AnulUrmător</value>
+  </data>
+  <data name="StringId.FilterDateTimeConstantMenuCaption" xml:space="preserve">
+    <value>Constante timp</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalToday" xml:space="preserve">
+    <value>EsteAzi</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalTomorrow" xml:space="preserve">
+    <value>EsteMâine</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisYear" xml:space="preserve">
+    <value>EsteMaiDevremeÎnAnulCurent</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringGroupOperatorAnd" xml:space="preserve">
+    <value>Şi</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisMonth" xml:space="preserve">
+    <value>EsteMaiTârziuÎnLunaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalBeyondThisYear" xml:space="preserve">
+    <value>DepăşeşteAnulCurent</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeTwoWeeksAway" xml:space="preserve">
+    <value>PesteDouăSăptămâni</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalPriorThisYear" xml:space="preserve">
+    <value>EsteAnteriorAnuluiCurent</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringUnaryOperatorNot" xml:space="preserve">
+    <value>Nu</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringNotLike" xml:space="preserve">
+    <value>Nu ca şi</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisWeek" xml:space="preserve">
+    <value>EsteMaiTârziuÎnSăptamânaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeThisYear" xml:space="preserve">
+    <value>AnulCurent</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalLastWeek" xml:space="preserve">
+    <value>EsteSăptamânaTrecută</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsNull" xml:space="preserve">
+    <value>NuAreValoare</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisMonth" xml:space="preserve">
+    <value>EsteMaiDevremeÎnSăptamânaCurentă</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionLocalDateTimeLastWeek" xml:space="preserve">
+    <value>SăptămânaTrecută</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringIsNotNull" xml:space="preserve">
+    <value>Are valoare</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionIsOutlookIntervalNextWeek" xml:space="preserve">
+    <value>EsteSăptămânaViitoare</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringUnaryOperatorIsNull" xml:space="preserve">
+    <value>Nu are valoare</value>
+  </data>
+  <data name="StringId.FilterCriteriaToStringFunctionNone" xml:space="preserve">
+    <value>Nimic</value>
+  </data>
+</root>

@@ -1,0 +1,3693 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore1</Title>
+    <Shortcut>arrstore1</Shortcut>
+    <Description>Creates an array-based storage class with 1 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 1 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 1;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore2</Title>
+    <Shortcut>arrstore2</Shortcut>
+    <Description>Creates an array-based storage class with 2 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 2 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 2;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore3</Title>
+    <Shortcut>arrstore3</Shortcut>
+    <Description>Creates an array-based storage class with 3 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 3 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 3;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore4</Title>
+    <Shortcut>arrstore4</Shortcut>
+    <Description>Creates an array-based storage class with 4 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 4 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 4;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore5</Title>
+    <Shortcut>arrstore5</Shortcut>
+    <Description>Creates an array-based storage class with 5 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 5 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 5;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore6</Title>
+    <Shortcut>arrstore6</Shortcut>
+    <Description>Creates an array-based storage class with 6 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 6 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 6;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore7</Title>
+    <Shortcut>arrstore7</Shortcut>
+    <Description>Creates an array-based storage class with 7 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 7 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 7;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore8</Title>
+    <Shortcut>arrstore8</Shortcut>
+    <Description>Creates an array-based storage class with 8 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 8 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 8;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore9</Title>
+    <Shortcut>arrstore9</Shortcut>
+    <Description>Creates an array-based storage class with 9 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 9 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 9;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore10</Title>
+    <Shortcut>arrstore10</Shortcut>
+    <Description>Creates an array-based storage class with 10 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 10 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 10;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore11</Title>
+    <Shortcut>arrstore11</Shortcut>
+    <Description>Creates an array-based storage class with 11 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 11 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 11;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore12</Title>
+    <Shortcut>arrstore12</Shortcut>
+    <Description>Creates an array-based storage class with 12 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 12 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 12;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore13</Title>
+    <Shortcut>arrstore13</Shortcut>
+    <Description>Creates an array-based storage class with 13 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 13 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 13;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore14</Title>
+    <Shortcut>arrstore14</Shortcut>
+    <Description>Creates an array-based storage class with 14 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 14 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 14;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore15</Title>
+    <Shortcut>arrstore15</Shortcut>
+    <Description>Creates an array-based storage class with 15 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 15 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 15;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore16</Title>
+    <Shortcut>arrstore16</Shortcut>
+    <Description>Creates an array-based storage class with 16 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 16 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 16;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 16th element.
+/// </summary>
+/// <value>The 16th element.</value>
+public $DataType$ Element16
+{
+get {
+return elements[15];
+}
+set {
+elements[15] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore17</Title>
+    <Shortcut>arrstore17</Shortcut>
+    <Description>Creates an array-based storage class with 17 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 17 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 17;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 16th element.
+/// </summary>
+/// <value>The 16th element.</value>
+public $DataType$ Element16
+{
+get {
+return elements[15];
+}
+set {
+elements[15] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 17th element.
+/// </summary>
+/// <value>The 17th element.</value>
+public $DataType$ Element17
+{
+get {
+return elements[16];
+}
+set {
+elements[16] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore18</Title>
+    <Shortcut>arrstore18</Shortcut>
+    <Description>Creates an array-based storage class with 18 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 18 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 18;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 16th element.
+/// </summary>
+/// <value>The 16th element.</value>
+public $DataType$ Element16
+{
+get {
+return elements[15];
+}
+set {
+elements[15] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 17th element.
+/// </summary>
+/// <value>The 17th element.</value>
+public $DataType$ Element17
+{
+get {
+return elements[16];
+}
+set {
+elements[16] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 18th element.
+/// </summary>
+/// <value>The 18th element.</value>
+public $DataType$ Element18
+{
+get {
+return elements[17];
+}
+set {
+elements[17] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore19</Title>
+    <Shortcut>arrstore19</Shortcut>
+    <Description>Creates an array-based storage class with 19 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 19 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 19;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 16th element.
+/// </summary>
+/// <value>The 16th element.</value>
+public $DataType$ Element16
+{
+get {
+return elements[15];
+}
+set {
+elements[15] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 17th element.
+/// </summary>
+/// <value>The 17th element.</value>
+public $DataType$ Element17
+{
+get {
+return elements[16];
+}
+set {
+elements[16] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 18th element.
+/// </summary>
+/// <value>The 18th element.</value>
+public $DataType$ Element18
+{
+get {
+return elements[17];
+}
+set {
+elements[17] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 19th element.
+/// </summary>
+/// <value>The 19th element.</value>
+public $DataType$ Element19
+{
+get {
+return elements[18];
+}
+set {
+elements[18] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet><CodeSnippet Format="1.0.0">
+  <Header>
+    <Title>arrstore20</Title>
+    <Shortcut>arrstore20</Shortcut>
+    <Description>Creates an array-based storage class with 20 elements.</Description>
+    <Author>C# Snippets Release 5.0 -- Copyright (C) Dmitri Nesteruk, 2008 -- see http://www.codeplex.com/csn for latest releases</Author>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ClassName</ID>
+        <ToolTip>Name of Class</ToolTip>
+        <Default>ClassName</Default>
+      </Literal>
+      <Literal>
+        <ID>DataType</ID>
+        <ToolTip>Data Type</ToolTip>
+        <Default>int</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp"><![CDATA[/// <summary>
+/// This class stores 20 <c>$DataType$</c> values.
+/// </summary>
+public sealed class $ClassName$
+{
+private $DataType$[] elements;
+private const int count = 20;
+/// <summary>
+/// Initializes a new instance of the <see cref="$ClassName$"/> class.
+/// </summary>
+public $ClassName$()
+{
+elements = new $DataType$[count];
+}
+/// <summary>
+/// Gets or sets the 1st element.
+/// </summary>
+/// <value>The 1st element.</value>
+public $DataType$ Element1
+{
+get {
+return elements[0];
+}
+set {
+elements[0] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 2nd element.
+/// </summary>
+/// <value>The 2nd element.</value>
+public $DataType$ Element2
+{
+get {
+return elements[1];
+}
+set {
+elements[1] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 3rd element.
+/// </summary>
+/// <value>The 3rd element.</value>
+public $DataType$ Element3
+{
+get {
+return elements[2];
+}
+set {
+elements[2] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 4th element.
+/// </summary>
+/// <value>The 4th element.</value>
+public $DataType$ Element4
+{
+get {
+return elements[3];
+}
+set {
+elements[3] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 5th element.
+/// </summary>
+/// <value>The 5th element.</value>
+public $DataType$ Element5
+{
+get {
+return elements[4];
+}
+set {
+elements[4] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 6th element.
+/// </summary>
+/// <value>The 6th element.</value>
+public $DataType$ Element6
+{
+get {
+return elements[5];
+}
+set {
+elements[5] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 7th element.
+/// </summary>
+/// <value>The 7th element.</value>
+public $DataType$ Element7
+{
+get {
+return elements[6];
+}
+set {
+elements[6] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 8th element.
+/// </summary>
+/// <value>The 8th element.</value>
+public $DataType$ Element8
+{
+get {
+return elements[7];
+}
+set {
+elements[7] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 9th element.
+/// </summary>
+/// <value>The 9th element.</value>
+public $DataType$ Element9
+{
+get {
+return elements[8];
+}
+set {
+elements[8] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 10th element.
+/// </summary>
+/// <value>The 10th element.</value>
+public $DataType$ Element10
+{
+get {
+return elements[9];
+}
+set {
+elements[9] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 11th element.
+/// </summary>
+/// <value>The 11th element.</value>
+public $DataType$ Element11
+{
+get {
+return elements[10];
+}
+set {
+elements[10] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 12th element.
+/// </summary>
+/// <value>The 12th element.</value>
+public $DataType$ Element12
+{
+get {
+return elements[11];
+}
+set {
+elements[11] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 13th element.
+/// </summary>
+/// <value>The 13th element.</value>
+public $DataType$ Element13
+{
+get {
+return elements[12];
+}
+set {
+elements[12] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 14th element.
+/// </summary>
+/// <value>The 14th element.</value>
+public $DataType$ Element14
+{
+get {
+return elements[13];
+}
+set {
+elements[13] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 15th element.
+/// </summary>
+/// <value>The 15th element.</value>
+public $DataType$ Element15
+{
+get {
+return elements[14];
+}
+set {
+elements[14] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 16th element.
+/// </summary>
+/// <value>The 16th element.</value>
+public $DataType$ Element16
+{
+get {
+return elements[15];
+}
+set {
+elements[15] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 17th element.
+/// </summary>
+/// <value>The 17th element.</value>
+public $DataType$ Element17
+{
+get {
+return elements[16];
+}
+set {
+elements[16] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 18th element.
+/// </summary>
+/// <value>The 18th element.</value>
+public $DataType$ Element18
+{
+get {
+return elements[17];
+}
+set {
+elements[17] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 19th element.
+/// </summary>
+/// <value>The 19th element.</value>
+public $DataType$ Element19
+{
+get {
+return elements[18];
+}
+set {
+elements[18] = value;
+}
+}
+/// <summary>
+/// Gets or sets the 20th element.
+/// </summary>
+/// <value>The 20th element.</value>
+public $DataType$ Element20
+{
+get {
+return elements[19];
+}
+set {
+elements[19] = value;
+}
+}
+/// <summary>
+/// Gets all the elements.
+/// </summary>
+/// <value>All the elements.</value>
+public $DataType$[] Elements
+{
+get { return elements; }
+}
+}
+]]></Code>
+  </Snippet>
+</CodeSnippet></CodeSnippets>

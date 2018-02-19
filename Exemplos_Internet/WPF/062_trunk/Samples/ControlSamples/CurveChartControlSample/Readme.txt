@@ -1,0 +1,1 @@
+Data files for this sample app are in SampleDataFiles directory.They are either txt or xml. See SampleDataFiles/TextFileFormat.txt and SampleDataFiles/TextFileFormat.txt for formats descriptions.

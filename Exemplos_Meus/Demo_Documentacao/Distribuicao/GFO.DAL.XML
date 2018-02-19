@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GFO.DAL</name>
+    </assembly>
+    <members>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DAL.ParametrosDAO">
+            <summary>
+            Classe de acesso a dados da tabela GFO_PARAMETROS
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.ParametrosDAO.RetornarParametros(System.Int32)">
+            <summary>
+            Retornar Parametros
+            </summary>
+            <param name="CodigoEmpresa">Codigo Empresa.</param>
+            <returns>Lista de objetos do tipo ParametrosDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.ParametrosDAO.RetornarParametrosRelatorio(System.Int32)">
+            <summary>
+            Retornar Parametros para relatorio
+            </summary>
+            <param name="CodigoEmpresa">Codigo Empresa.</param>
+            <returns>Lista de objetos do tipo ParametrosDTO</returns>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DAL.UsuarioLinhaDAO">
+            <summary>
+            Classe de acesso a dados da tabela GFO_USUARIO_LINHA
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.UsuarioLinhaDAO.RetornarUsuarioLinha(System.String)">
+            <summary>
+            Retornar usuario linha
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>Lista de objetos do tipo UsuarioLinhaDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.UsuarioLinhaDAO.RetornarUsuarioLinhaRelatorio(System.String)">
+            <summary>
+            Retornar usuario linha para relatorio
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>Lista de objetos do tipo UsuarioLinhaDTO</returns>
+        </member>
+        <member name="T:Globus5.GestaoDeFrotaOnLine.DAL.OperadoraDAO">
+            <summary>
+            Classe de acesso a dados da tabela GFO_OPERADORA
+            </summary>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.OperadoraDAO.RetornarOperadora(System.Int32)">
+            <summary>
+            Retornar Operadora
+            </summary>
+            <param name="CodOperadora">Codigo operadora.</param>
+            <returns>Lista de objetos do tipo OperadoraDTO</returns>
+        </member>
+        <member name="M:Globus5.GestaoDeFrotaOnLine.DAL.OperadoraDAO.RetornarOperadoraRelatorio(System.Int32)">
+            <summary>
+            Retornar Operadora para relatorio
+            </summary>
+            <param name="CodOperadora">Codigo operadora.</param>
+            <returns>Lista de objetos do tipo OperadoraDTO</returns>
+        </member>
+    </members>
+</doc>

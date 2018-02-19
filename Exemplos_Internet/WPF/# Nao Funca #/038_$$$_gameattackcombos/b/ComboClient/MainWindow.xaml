@@ -1,0 +1,101 @@
+﻿<local:BaseWindow x:Class="GG.GameAttackCombos.Client.MainWindow" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:GG.GameAttackCombos.Client"
+	x:Name="winMain" Title="Game Attack Combos" WindowStartupLocation="CenterScreen" 
+    Height="450" Width="700" MinHeight="215" MinWidth="350"
+	Icon="/GameAttackCombos;component/Game Attack Combos Icon.ico"
+	Loaded="Main_Loaded" Closing="winMain_Closing">
+	<Window.CommandBindings>
+		<CommandBinding Command="ApplicationCommands.Close" CanExecute="Close_CanExecute" Executed="Close_Executed" />
+		<CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+	</Window.CommandBindings>
+	<Window.Resources>
+		<ResourceDictionary>
+			<DataTemplate x:Key="ButtonSetByName">
+				<TextBlock Text="{Binding Path=Name}" />
+			</DataTemplate>
+			<DataTemplate x:Key="ButtonSetByPlatformAndName">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Text="{Binding Path=Platform}" />
+					<TextBlock Text=": " />
+					<TextBlock Text="{Binding Path=Name}" />
+				</StackPanel>
+			</DataTemplate>
+
+			<local:ButtonSetsTemplateSelector x:Key="ButtonSetsTemplateSelector" />
+			<local:DrawingResourceKeyConverter x:Key="DrawingResourceKeyConverter" />
+		</ResourceDictionary>
+	</Window.Resources>
+	<DockPanel Style="{DynamicResource GameBackground}">
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" Command="ApplicationCommands.Open" />
+				<MenuItem Name="miClearChecklist" Header="_Clear Checklist" IsEnabled="False" Click="miClearChecklist_Click" />
+				<Separator />
+				<MenuItem Header="E_xit" Command="ApplicationCommands.Close" />
+			</MenuItem>
+			<MenuItem Header="_Help">
+				<MenuItem Name="miAbout" Header="_About..." Click="miAbout_Click" />
+			</MenuItem>
+		</Menu>
+		<Grid Name="grdMain" Margin="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel Grid.Row="0" Orientation="Horizontal">
+				<Label VerticalAlignment="Center" Padding="0" Margin="0,0,5,0">Filter:</Label>
+				<ComboBox Name="cmbFilter" MinWidth="100" Width="Auto" SelectionChanged="cmbFilter_SelectionChanged">
+					<ComboBoxItem IsSelected="True">[None]</ComboBoxItem>
+				</ComboBox>
+				<Label VerticalAlignment="Center" Padding="0" Margin="15,0,5,0">Sort:</Label>
+				<ComboBox Name="cmbSort" MinWidth="100" Width="Auto" SelectionChanged="cmbSort_SelectionChanged">
+					<ComboBoxItem IsSelected="True">Naturally</ComboBoxItem>
+					<ComboBoxItem>By Commands</ComboBoxItem>
+				</ComboBox>
+				<Label VerticalAlignment="Center" Padding="0" Margin="15,0,5,0">Icon Theme:</Label>
+				<ComboBox Name="cmbButtonSets" 
+		                  ItemTemplateSelector="{StaticResource ButtonSetsTemplateSelector}" 
+		                  MinWidth="100" Width="Auto" SelectionChanged="cmbButtonSets_SelectionChanged">
+					<ComboBox.GroupStyle>
+						<GroupStyle>
+							<GroupStyle.HeaderTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Path=Name}" Style="{DynamicResource GroupHeader}" />
+								</DataTemplate>
+							</GroupStyle.HeaderTemplate>
+						</GroupStyle>
+					</ComboBox.GroupStyle>
+				</ComboBox>
+			</StackPanel>
+			<Label Grid.Row="1" Name="lblComboList" VerticalAlignment="Bottom" Padding="0" Margin="0,10,0,2">Combo List</Label>
+			<ListBox Grid.Row="2" Name="lbCombos" Style="{DynamicResource ComboList}" IsTextSearchEnabled="False" KeyUp="lbCombos_KeyUp">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<CheckBox x:Name="chkCompleted" Focusable="False" Margin="2" VerticalAlignment="Center" IsChecked="{Binding Path=IsCompleted}" />
+							<ItemsControl IsTabStop="False" VerticalAlignment="Center" ItemsSource="{Binding Path=CommandSequence}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<StackPanel IsItemsHost="True" Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<Image Height="16" ToolTip="{Binding Path=MappedButton.Id}" Margin="5,2,0,2">
+											<Image.Source>
+												<DrawingImage Drawing="{Binding Mode=OneWay, Path=MappedButton.IconKey, Converter={StaticResource DrawingResourceKeyConverter}}" />
+											</Image.Source>
+										</Image>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Grid>
+	</DockPanel>
+</local:BaseWindow>

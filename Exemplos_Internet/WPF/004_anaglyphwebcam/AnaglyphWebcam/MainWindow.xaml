@@ -1,0 +1,50 @@
+﻿<Window x:Class="AnaglyphWebcam.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:webcam="clr-namespace:CatenaLogic.Windows.Presentation.WebcamPlayer"
+    xmlns:local="clr-namespace:AnaglyphWebcam"
+    xmlns:me="clr-namespace:MyEffects"
+    Title="Anaglyph webcam" Height="540" Width="656">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="480"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="540"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Select webcams -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Left cam:"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="webcam1ComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
+                  DisplayMemberPath="Name" SelectedValuePath="MonikerString"
+                  SelectedValue="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}, Path=SelectedWebcam1MonikerString}"
+                  />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Right cam:"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" x:Name="webcam2ComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
+                  DisplayMemberPath="Name" SelectedValuePath="MonikerString"
+                  SelectedValue="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}, Path=SelectedWebcam2MonikerString}"
+                  />
+        
+        <webcam:CapPlayer Grid.Row="2" Grid.ColumnSpan="2" x:Name="webcamPlayer1" Height="480" 
+            Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}, Path=SelectedWebcam1}">
+        </webcam:CapPlayer>
+        <webcam:CapPlayer Grid.Row="2" Grid.ColumnSpan="2" x:Name="webcamPlayer2" Height="480" 
+            Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}, Path=SelectedWebcam2}">
+            <webcam:CapPlayer.Effect>
+                <me:AnaglyphEffect x:Name="Effect1">
+                    <me:AnaglyphEffect.LeftInput>
+                        <VisualBrush Visual="{Binding ElementName=webcamPlayer1}"/>
+                    </me:AnaglyphEffect.LeftInput>
+                </me:AnaglyphEffect>
+            </webcam:CapPlayer.Effect>
+            <webcam:CapPlayer.LayoutTransform>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+            </webcam:CapPlayer.LayoutTransform>
+        </webcam:CapPlayer>
+
+    </Grid>
+</Window>

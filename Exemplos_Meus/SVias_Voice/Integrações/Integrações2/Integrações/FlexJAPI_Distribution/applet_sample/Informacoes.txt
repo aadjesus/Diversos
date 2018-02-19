@@ -1,0 +1,98 @@
+Arquitetura:
+
+- Hospedar todas as páginas e .jar em um mesmo servidor web:
+main.htm
+CTIFlexAPIScript.asp
+popup.asp
+voicescripts.js
+
+flexapi1.5_1.3.0.jar
+flexapiagentadapter1.5_1.3.0.jar
+flexapiview1.5_1.1.0.jar
+sockets5.1.0.jar
+
+- Configurar a máquina cliente, liberando a segurança do java para conexões entre servidores.
+Colocar no arquivo java.policy que fica no subdiretorio %javapath%/lib/security, dentro da sessao grant {}
+
+permission java.net.SocketPermission "IPFLEX:2556", "connect,resolve";
+
+
+- A página principal a ser chamada é a main.htm. Esta página, possui dois frames:
+CTIFlexAPIScript.asp: responsável por manter a API java (applet)
+popup.asp: página do front-end.
+
+
+CTIFlexAPIScript.asp:
+- Possui somente componentes visuais para depuração do código. 
+Ela deve estar invisível, somente sendo visualizada para possíveis correções de problemas.
+
+- Recebe como parâmetro o ramal para monitorar:
+	CTIFlexAPIScript.asp?ramal=1234
+
+Sequência de chamadas:
+
+- Quando a página CTIFlexAPIScript.asp é iniciada e finalizada, ela chama métodos do javascript;
+
+	InitializeAPI()
+	Este método inicia variáveis e faz com que o applet se conecte ao servidor CTI utilizando o 
+endereço configurado na constante "CTISERVERFLEX_ADDRESS" que está dentro do ASP.
+
+	FinalizeAPI()
+	Desconecta a API do servidor CTI
+
+- Quando ocorrem mudanças de estado na conexão com o servidor CTI como, conexão estabelecida, perda de conexão, etc, 
+funções javascript são chamadas.
+
+	function FlexAPIAgentApplet_onConnect()
+	function FlexAPIAgentApplet_onDisconnect()
+	function FlexAPIAgentApplet_onError()
+	function FlexAPIAgentApplet_onReceive(protocol)
+
+- Quando uma chamada chega ao ramal do atendente, a API java recebe esta notificação, altera o estado de suas tabelas 
+internas e notifica esta alteração através de chamadas a javascripts. Neste ponto, é feita uma verificação para chamar 
+a tela com os dados do cliente ou não.
+
+	function FlexAPIAgentApplet_Calls_added(arg1, arg2, arg3)
+	function FlexAPIAgentApplet_Calls_updated(arg1, arg2, arg3)
+
+- Quando uma chamada é finalizada no ramal, um outro javascript é chamado.
+
+	function FlexAPIAgentApplet_Calls_deleted(arg1, arg2, arg3)
+
+- Existem javascripts auxiliares para chamar a tela do cliente, que devem ser alterados para a solução final.
+
+	function callPopupLocal(parameter)
+
+- Quando o estado de um agente é alterado (Logon, Logoff, Ready, NotReady), tabelas internas da API são alteradas e 
+ocorrem notificações através dos scripts.
+
+	function FlexAPIAgentApplet_Agents_added(arg1, arg2, arg3)
+	Ocorre quando um agente se loga no PBX.
+
+	function FlexAPIAgentApplet_Agents_updated(arg1, arg2, arg3)
+	Ocorre quando um agente muda seu estado.
+
+	function FlexAPIAgentApplet_Agents_deleted(arg1, arg2, arg3)
+	Ocorre quando um agente se desloga do PBX.
+
+Popup.asp
+- Página de teste que representa a página do front-end.
+Deve ser alterada na integra.
+Utiliza javascripts para chamar as funções da API que estão no outro frame.
+A linha <script language="JavaScript" src="voicescripts.js"></script> deve ser mantida no arquivo definitivo.
+Alterar o voicescripts.js para compatibilizar com a página definitiva.
+Por exemplo na função:
+
+	function logonFunction()
+	{
+		var api;
+		var command;
+		var pin;
+		var pas;
+		pin = document.getElementById("pin").value;
+		pas = document.getElementById("pas").value;
+	...
+
+a senha e o identificador (PIN), estão em campos chamados (pas, pin), que na tela definitiva pode não ocorrer.
+
+

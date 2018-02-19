@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsControl00", "IsControl00\IsControl00.csproj", "{476F6B7F-C034-4668-B3C5-9F0638B3D46F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsControl01", "IsControl01\IsControl01.csproj", "{23279216-1255-44D1-8427-0A3693132CD9}"
+EndProject
+Global
+	
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23279216-1255-44D1-8427-0A3693132CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23279216-1255-44D1-8427-0A3693132CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23279216-1255-44D1-8427-0A3693132CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23279216-1255-44D1-8427-0A3693132CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{476F6B7F-C034-4668-B3C5-9F0638B3D46F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476F6B7F-C034-4668-B3C5-9F0638B3D46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{476F6B7F-C034-4668-B3C5-9F0638B3D46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{476F6B7F-C034-4668-B3C5-9F0638B3D46F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

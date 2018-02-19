@@ -1,0 +1,20 @@
+﻿<Window 
+  x:Class="VMCommanding.DemoWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:view="clr-namespace:VMCommanding.View"
+  xmlns:vm="clr-namespace:VMCommanding.ViewModel"
+  FontSize="13"
+  ResizeMode="NoResize"
+  SizeToContent="WidthAndHeight" 
+  Title="ViewModel Commanding Demo"   
+  WindowStartupLocation="CenterScreen"
+  >
+  <Window.DataContext>
+    <vm:CommunityViewModel />
+  </Window.DataContext>
+  
+  <Window.Content>
+    <view:CommunityView />
+  </Window.Content>
+</Window>

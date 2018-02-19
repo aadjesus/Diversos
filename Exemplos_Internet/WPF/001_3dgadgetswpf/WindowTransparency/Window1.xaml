@@ -1,0 +1,123 @@
+﻿<Window x:Class="WindowTransparency.Window1"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Title="WindowTransparency" Height="314" Width="813" ShowInTaskbar="False" Topmost="True"
+  WindowStyle="None" Background="Transparent" AllowsTransparency ="True"
+>
+  <Window.Resources>
+    <Storyboard x:Key="RotateStoryboard">
+      <ParallelTimeline RepeatBehavior="Forever"  Storyboard.TargetName="myRotate" Storyboard.TargetProperty="Angle" >
+        <DoubleAnimation From="0" To="360" Duration="0:0:30"/>
+      </ParallelTimeline>
+    </Storyboard>
+  </Window.Resources> 
+
+  <Viewport3D Name="mainViewport" ClipToBounds="True">
+   <Viewport3D.Resources>
+
+
+   </Viewport3D.Resources>
+   <Viewport3D.Camera>
+    <PerspectiveCamera Position ="0,500,500" LookDirection ="0,-100,-100"></PerspectiveCamera>
+   </Viewport3D.Camera>
+
+    <ModelVisual3D>
+      <ModelVisual3D.Content>
+        <Model3DGroup>
+          <GeometryModel3D x:Name="cube">
+            <GeometryModel3D.Geometry>
+              <MeshGeometry3D 
+                TriangleIndices="2,3,0,1,0,3,5,7,4,6,4,7,9,10,8,12,13,11,14,7,1,15,1,7,17,18,16,20,21,19,0,23,22,6,25,24"
+                Positions="-50,-50,-50,50,-50,-50,-50,50,-50,50,50,-50,-50,-50,50,50,-50,50,-50,50,50,50,50,50,-50,-50,-50,50,-50,-50,50,-50,50,50,-50,50,-50,-50,50,-50,-50,-50,50,50,-50,50,-50,50,50,50,-50,-50,50,-50,-50,50,50,-50,50,50,50,50,50,50,50,-50,-50,50,-50,-50,-50,50,-50,-50,50,-50,50,-50"
+                TextureCoordinates="1,0 0,0 1,1 0,1 0,0 1,0 0,1 1,1 0,0 1,0 1,1 1,1 0,1 0,0 1,0 0,1 0,0 1,0 1,1 1,1 0,1 0,0 0,0 1,1 1,1 0,0 "
+                Normals=""
+              />
+            </GeometryModel3D.Geometry >
+            <GeometryModel3D.Material >
+              <DiffuseMaterial Brush ="White"/>
+            </GeometryModel3D.Material>
+          </GeometryModel3D>
+        </Model3DGroup>
+      </ModelVisual3D.Content>
+    </ModelVisual3D>
+
+
+    <ModelVisual3D>
+      <ModelVisual3D.Content>
+        <Model3DGroup>
+          <GeometryModel3D x:Name ="pyramid">
+            <GeometryModel3D.Geometry>
+              <MeshGeometry3D 
+                Positions="0,0,37.5 -50,-50,-37.5 50,-50,-37.5 50,50,-37.5 -50,50,-37.5 0,0,-37.5 50,-50,-37.5 50,50,-37.5 -50,50,-37.5 -50,-50,-37.5 -50,-50,-37.5 50,-50,-37.5 50,-50,-37.5 -50,50,-37.5 -50,50,-37.5 -50,-50,-37.5 "
+                TriangleIndices="0,2,1,0,3,6,0,4,7,0,9,8,10,11,5,12,3,5,3,13,5,14,15,5"
+                Normals=""
+              />
+            </GeometryModel3D.Geometry >
+            <GeometryModel3D.Material >
+              <DiffuseMaterial Brush ="White"/>
+            </GeometryModel3D.Material>
+          </GeometryModel3D>
+        </Model3DGroup>
+      </ModelVisual3D.Content>
+
+      <ModelVisual3D.Transform>
+        <TranslateTransform3D OffsetX ="-200"/>
+      </ModelVisual3D.Transform>
+    </ModelVisual3D>
+    
+    
+
+    <ModelVisual3D>
+      <ModelVisual3D.Content>
+        <Model3DGroup>
+          <Model3DGroup.Transform>
+                  <Transform3DGroup>
+                    <Transform3DGroup.Children>
+                      <Transform3DCollection >
+
+                        <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
+
+                        <RotateTransform3D >
+                          <RotateTransform3D.Rotation >
+                            <AxisAngleRotation3D x:Name="myRotate" Axis="1 0 0" Angle="0" />
+                          </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+
+                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+
+                      </Transform3DCollection>
+                    </Transform3DGroup.Children>
+                  </Transform3DGroup>
+                </Model3DGroup.Transform>
+          <GeometryModel3D x:Name="cross">
+            <GeometryModel3D.Geometry>
+              <MeshGeometry3D 
+                    Positions="-22.99009,45.98018,-8.52797,-45.97909,22.99009,-8.52797,-22.99009,0,-8.52797,-45.97909,-22.98955,-8.52797,-22.99009,-45.97963,-8.52797,-0.00108,-22.98955,-8.52797,22.99009,-45.97963,-8.52797,45.97909,-22.98955,-8.52797,22.99009,0,-8.52797,45.97909,22.99009,-8.52797,22.99009,45.98018,-8.52797,-0.00108,22.99009,-8.52797,-22.99009,50,-5.68531,-50,22.99009,-5.68531,-27.011,0,-5.68531,-50,-22.98955,-5.68531,-22.99009,-50,-5.68531,-0.00108,-27.00991,-5.68531,22.99009,-50,-5.68531,50,-22.98955,-5.68531,27.011,0,-5.68531,50,22.99009,-5.68531,22.99009,50,-5.68531,-0.00108,27.01045,-5.68531,-22.99009,50,5.68531,-50,22.99009,5.68531,-27.011,0,5.68531,-50,-22.98955,5.68531,-22.99009,-50,5.68531,-0.00108,-27.00991,5.68531,22.99009,-50,5.68531,50,-22.98955,5.68531,27.011,0,5.68531,50,22.99009,5.68531,22.99009,50,5.68531,-0.00108,27.01045,5.68531,-22.99009,45.98018,8.52797,-45.97909,22.99009,8.52797,-22.99009,0,8.52797,-45.97909,-22.98955,8.52797,-22.99009,-45.97963,8.52797,-0.00108,-22.98955,8.52797,22.99009,-45.97963,8.52797,45.97909,-22.98955,8.52797,22.99009,0,8.52797,45.97909,22.99009,8.52797,22.99009,45.98018,8.52797,-0.00108,22.99009,8.52797"
+                    TriangleIndices="12,0,1,13,12,1,13,1,2,14,13,2,14,2,3,15,14,3,15,3,4,16,15,4,16,4,5,17,16,5,17,5,6,18,17,6,18,6,7,19,18,7,19,7,8,20,19,8,20,8,9,21,20,9,21,9,10,22,21,10,22,10,11,23,22,11,23,11,0,12,23,0,24,12,13,25,24,13,25,13,14,26,25,14,26,14,15,27,26,15,27,15,16,28,27,16,28,16,17,29,28,17,29,17,18,30,29,18,30,18,19,31,30,19,31,19,20,32,31,20,32,20,21,33,32,21,33,21,22,34,33,22,34,22,23,35,34,23,35,23,12,24,35,12,36,24,25,37,36,25,37,25,26,38,37,26,38,26,27,39,38,27,39,27,28,40,39,28,40,28,29,41,40,29,41,29,30,42,41,30,42,30,31,43,42,31,43,31,32,44,43,32,44,32,33,45,44,33,45,33,34,46,45,34,46,34,35,47,46,35,47,35,24,36,47,24,42,43,41,41,44,43,46,47,45,45,44,47,41,44,47,40,41,39,39,38,41,38,41,47,38,36,47,36,37,38,7,6,5,5,7,8,11,10,9,9,11,8,5,11,8,5,4,3,3,5,2,2,11,5,2,11,0,2,1,0"
+                    TextureCoordinates=""
+                    Normals=""
+                    />
+            </GeometryModel3D.Geometry >
+            <GeometryModel3D.Material >
+              <DiffuseMaterial Brush ="White"/>
+            </GeometryModel3D.Material>
+          </GeometryModel3D>
+        </Model3DGroup>
+      </ModelVisual3D.Content>
+      <ModelVisual3D.Transform>
+        <TranslateTransform3D OffsetX ="200"/>
+      </ModelVisual3D.Transform>
+    </ModelVisual3D>
+    
+    
+    <ModelVisual3D>
+      <ModelVisual3D.Content>
+        <DirectionalLight 
+         Color="Red" 
+         Direction="-100,-100,-100" />
+      </ModelVisual3D.Content>
+    </ModelVisual3D>
+
+  </Viewport3D>
+ 
+</Window>

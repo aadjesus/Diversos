@@ -1,0 +1,1681 @@
+<Canvas 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2005"
+	c:Ignorable="d"
+	Background="sc#1, 0.8084651, 0.466934, 0.466934" 
+	x:Name="DocumentRoot" 
+	Width="975" Height="643" x:Class="MonkeysJumping.Scene2">
+
+	<Canvas.Resources>
+			<Storyboard x:Key="OnLoaded" CurrentStateInvalidated="OnLoadedInvalidated">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="splash3" Storyboard.TargetProperty="(UIElement.Opacity)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:02"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:03"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:04"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="splash2" Storyboard.TargetProperty="(UIElement.Opacity)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:02"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:03"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="splash1" Storyboard.TargetProperty="(UIElement.Opacity)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:02"/>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="Timeline1" CurrentStateInvalidated="OnJumpingEnd" d:StoryboardName="Timeline1">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:07" RepeatBehavior="Forever">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.90710038859774045" KeyTime="00:00:00.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Cubic;Cubic;0.75;1;0.25;0" KeySpline="0.5,0.5,0.75,1" Value="-72" KeyTime="00:00:01.5420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Cubic;0.5;0.5;0.25;0" KeySpline="0.25,0,0.5,0.5" Value="-4.5000000000000142" KeyTime="00:00:01.9170000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:07" RepeatBehavior="Forever">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="38.47655022196372" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-49.4296866400167" KeyTime="00:00:00.5420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="16.570313359983302" KeyTime="00:00:01.2080000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:07" RepeatBehavior="Forever">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-50.2449652304567" KeyTime="00:00:00.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Cubic;Linear;0.75;1;0.5;0.5" KeySpline="0.5,0.5,0.75,1" Value="-168" KeyTime="00:00:01.0420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Cubic;0.5;0.5;0.25;0" KeySpline="0.5,0.5,0.5,0.5" Value="-24" KeyTime="00:00:01.4170000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="97.925423728813541" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="96.92542372881357" KeyTime="00:00:00.5420000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01.5420000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01.0420000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-244" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="82" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="balloon1">
+				<DiscreteObjectKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:00"/>
+			</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+
+			
+			<Storyboard x:Key="hittest" d:StoryboardName="hittest" CurrentStateInvalidated="hittestend">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(RotateTransform.Angle)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="131.18189338910716" KeyTime="00:00:01"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="96.92542372881357" KeyTime="00:00:01"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="140.92542372881354" KeyTime="00:00:01.5830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="6.0703133599832881" KeyTime="00:00:01"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="315.07031335998329" KeyTime="00:00:01.5830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Path7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-255" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-46.077254890863955" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Path7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-73" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="69.296199969660151" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<StringAnimationUsingKeyFrames Storyboard.TargetName="TextBlock2" Storyboard.TargetProperty="(TextBlock.Text)" BeginTime="00:00:00">
+					<DiscreteStringKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="Ouch!  That look like it hurt!  Do you think we should keep jumping?" KeyTime="00:00:02"/>
+				</StringAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock2" Storyboard.TargetProperty="(TextElement.FontSize)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="13" KeyTime="00:00:02"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-281" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-43.275272266338789" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-80" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="77.297301427729536" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-281" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-22" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-80" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="81.000000000000114" KeyTime="00:00:05.2500000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon1" Storyboard.TargetProperty="(UIElement.Opacity)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:05.2500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:05.8330000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:07.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:07.7920000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<StringAnimationUsingKeyFrames Storyboard.TargetName="TextBlock3" Storyboard.TargetProperty="(TextBlock.Text)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<DiscreteStringKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="Heck yeah!" KeyTime="00:00:00"/>
+				</StringAnimationUsingKeyFrames>
+				<PointAnimationUsingKeyFrames Storyboard.TargetName="TextBlock3" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplinePointKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.5,0.5" KeyTime="00:00:00"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock3" Storyboard.TargetProperty="(TextElement.FontSize)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="14" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Path8" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-2" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Path8" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="4" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-2" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon2" Storyboard.TargetProperty="(UIElement.Opacity)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:07.7920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:08.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:09.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:09.7920000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="mamamonkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-1006.5079156534689" KeyTime="00:00:00"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="75.359322033898337" KeyTime="00:00:01.4170000"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="75.359322033898337" KeyTime="00:00:01.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="75.359322033898337" KeyTime="00:00:02"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-534.64067796610163" KeyTime="00:00:03"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-534.64067796610163" KeyTime="00:00:04.3330000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-1032.6406779661015" KeyTime="00:00:05"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="mamamonkey" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-140.43103545561502" KeyTime="00:00:00"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="25.445313869603027" KeyTime="00:00:01.4170000"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="25.445313869603027" KeyTime="00:00:01.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="25.445313869603027" KeyTime="00:00:02"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="209.44531386960307" KeyTime="00:00:03"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="209.44531386960307" KeyTime="00:00:04.3330000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="229.44531386960307" KeyTime="00:00:05"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="head" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(SkewTransform.AngleX)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="2.8842528521190829" KeyTime="00:00:03.2500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="30.918963397275895" KeyTime="00:00:03.6250000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-19.576353009143627" KeyTime="00:00:04.0420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="31.70171989521722" KeyTime="00:00:04.3750000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-1.0722678498552882" KeyTime="00:00:04.6670000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="head" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-8.23991200815928" KeyTime="00:00:03.2500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-85.648029185502423" KeyTime="00:00:03.6250000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="50.853517328892082" KeyTime="00:00:04.0420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-88.3245300975494" KeyTime="00:00:04.3750000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="2.6765009120469188" KeyTime="00:00:04.6670000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest2canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-132" KeyTime="00:00:04"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest2canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="46" KeyTime="00:00:04"/>
+				</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mamamonkey">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01.4170000"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01.7500000"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:02"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(RotateTransform.Angle)" Storyboard.TargetName="Path7">
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:02"/>
+				<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-0.084935999632449466" KeyTime="00:00:05.2500000"/>
+			</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+						<Storyboard x:Key="jumping2">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" RepeatBehavior="Forever">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.90710038859774045" KeyTime="00:00:00.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Cubic;Cubic;0.75;1;0.25;0" KeySpline="0.5,0.5,0.75,1" Value="-72" KeyTime="00:00:01.5420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Cubic;0.5;0.5;0.25;0" KeySpline="0.25,0,0.5,0.5" Value="-4.5000000000000142" KeyTime="00:00:01.9170000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" RepeatBehavior="Forever">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-50.2449652304567" KeyTime="00:00:00.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Cubic;Linear;0.75;1;0.5;0.5" KeySpline="0.5,0.5,0.75,1" Value="-168" KeyTime="00:00:01.0420000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Cubic;0.5;0.5;0.25;0" KeySpline="0.5,0.5,0.5,0.5" Value="-24" KeyTime="00:00:01.4170000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00.7500000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01.5420000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="monkey3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00.2920000"/>
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01.0420000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<PointAnimationUsingKeyFrames Storyboard.TargetName="hittest1canvas" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" BeginTime="00:00:00">
+					<SplinePointKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.5,0.5" KeyTime="00:00:10.0830000"/>
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest1canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.72705882352941176" KeyTime="00:00:10.0830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest1canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-67.000000000000028" KeyTime="00:00:10.0830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest1canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.72967032967032974" KeyTime="00:00:10.0830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="hittest1canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-11.500000000000007" KeyTime="00:00:10.0830000"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-244" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetName="balloon2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" BeginTime="00:00:00" Duration="00:00:00.0010000">
+					<SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="82" KeyTime="00:00:00"/>
+				</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="balloon1">
+				<DiscreteObjectKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:00"/>
+			</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+
+
+			
+	</Canvas.Resources>
+
+	<Canvas.Triggers>
+	
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+				<BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{DynamicResource OnLoaded}"/>
+				<BeginStoryboard Storyboard="{StaticResource Timeline1}" x:Name="Timeline1_BeginStoryboard"/>
+		</EventTrigger>
+		
+		
+		
+		
+		
+		
+		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="hittest1canvas">
+				<StopStoryboard d:StoryboardName="Timeline1" BeginStoryboardName="Timeline1_BeginStoryboard"/>
+		</EventTrigger>
+		
+		
+		
+		
+		
+		
+	</Canvas.Triggers>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path1" Width="1" Height="90" Canvas.Left="289" Canvas.Top="67.5">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="285,64">
+							<LineSegment IsStroked="True" Point="285,153"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+		<Path.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="33.690067525979785"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="-0.33333333333333331"/>
+			</TransformGroup>
+		</Path.RenderTransform>
+	</Path>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path2" Width="1" Height="81" Canvas.Left="460.833333333333" Canvas.Top="70.8333333333334">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="457,65">
+							<LineSegment IsStroked="True" Point="457,145"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+	</Path>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path3" Width="366.5" Height="224.5" Canvas.Left="95.5" Canvas.Top="152.006693440428">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="287,152">
+							<LineSegment IsStroked="True" Point="96,324"/>
+							<LineSegment IsStroked="True" Point="378,376"/>
+							<LineSegment IsStroked="True" Point="457,147"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+		<Path.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="-0.15340198824203843"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="-0.49732262382864789"/>
+			</TransformGroup>
+		</Path.RenderTransform>
+	</Path>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path4" Width="1" Height="64" Canvas.Left="381" Canvas.Top="373.5">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="380,381">
+							<LineSegment IsStroked="True" Point="380,444"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+	</Path>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path5" Width="1" Height="83" Canvas.Left="97.5" Canvas.Top="325.5">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="95,328">
+							<LineSegment IsStroked="True" Point="95,410"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+	</Path>
+	<Path Stroke="#FF000000" Fill="#FF000000" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Stretch="Fill" x:Name="Path6" Width="1" Height="88" Canvas.Left="461.166666666667" Canvas.Top="151.833333333333">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="458,151">
+							<LineSegment IsStroked="True" Point="458,238"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+	</Path>
+	<Rectangle Stroke="#FF000000" Fill="sc#1, 0.8919609, 0.355269134, 0.355269134" StrokeMiterLimit="2" x:Name="pillow" RenderTransformOrigin="0.5,0.5" Width="82" Height="47" Canvas.Left="291" Canvas.Top="129" RadiusX="19.5" RadiusY="19.5"/>
+	<Rectangle Stroke="#FF000000" Fill="sc#1, 0.8919609, 0.355269134, 0.355269134" StrokeMiterLimit="2" x:Name="pillow2" RenderTransformOrigin="0.5,0.5" Width="82" Height="47" RadiusX="19.5" RadiusY="19.5" Canvas.Left="377" Canvas.Top="130"/>
+	<Canvas d:IsGroup="True" x:Name="monkey" RenderTransformOrigin="0.5,0.5" Canvas.Left="143" Canvas.Top="43" Width="0" Height="0">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="0.40169491525423728" ScaleY="0.3929686640016713"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="96.92542372881357" Y="6.0703133599832881"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.32382345199585,16.5" Stretch="Fill" x:Name="left_ear1" Width="16.6476469039917" Height="33" Canvas.Left="233.852353096008" Canvas.Top="59.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="248,60">
+								<BezierSegment IsStroked="True" Point1="248,60" Point2="216,80" Point3="250,92" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="37.75,71.25" Stretch="Fill" x:Name="right_arm1" Width="75.5" Height="142.5" Canvas.Left="368" Canvas.Top="99.5">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="368.5,182">
+							<LineSegment IsStroked="True" Point="443,100"/>
+							<LineSegment IsStroked="True" Point="383.5,241.5"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+	</Path>
+	<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="51.75,67.5" Stretch="Fill" x:Name="left_arm1" Width="103.5" Height="135" Canvas.Left="161.5" Canvas.Top="110" d:LastTangent="0,0">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="264.5,184">
+							<LineSegment IsStroked="True" Point="162,110.5"/>
+							<LineSegment IsStroked="True" Point="248.5,244.5"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+	</Path>
+	<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="58,59.5" Stretch="Fill" x:Name="right_leg1" Width="116" Height="119" Canvas.Left="341.5" Canvas.Top="318.166666666667">
+		<Path.Data>
+			<PathGeometry>
+				<PathGeometry.Figures>
+					<PathFigureCollection>
+						<PathFigure StartPoint="376,318">
+							<LineSegment IsStroked="True" Point="459,436"/>
+							<LineSegment IsStroked="True" Point="344,363"/>
+						</PathFigure>
+					</PathFigureCollection>
+				</PathGeometry.Figures>
+			</PathGeometry>
+		</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+	</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="59,59.5" Stretch="Fill" x:Name="left_leg1" Width="118" Height="119" Canvas.Left="177.5" Canvas.Top="314.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="257,315">
+								<LineSegment IsStroked="True" Point="178,433"/>
+								<LineSegment IsStroked="True" Point="295,368"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.80473518371582,19.1666679382324" Stretch="Fill" x:Name="right_ear1" Width="17.6094703674316" Height="38.3333358764648" Canvas.Left="383.5" Canvas.Top="53.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="384,54">
+								<BezierSegment IsStroked="True" Point1="384,54" Point2="420,63.3333333333333" Point3="386,91.3333333333333" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="head1" RenderTransformOrigin="69.8489208633095,66.5" Width="139.697841726619" Height="133" Canvas.Left="248.151079136691" Canvas.Top="10">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="body1" RenderTransformOrigin="69,115" Width="138" Height="230" Canvas.Left="248" Canvas.Top="142">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_nostril1" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="319.5" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_nostril1" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="309.25" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	<Ellipse Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" x:Name="inner_body1" RenderTransformOrigin="50.3333333333335,91.3333333333335" Width="100.666666666667" Height="182.666666666667" Canvas.Left="267.333333333333" Canvas.Top="142.666666666667">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" RenderTransformOrigin="32.8146362304688,16.2571718990803" Stretch="Fill" x:Name="mouth1" Width="65.6292724609375" Height="32.5143437981606" Canvas.Left="283.5" Canvas.Top="92.5000029206276" d:LastTangent="-38,-133.999961685967">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="32,165" IsClosed="True">
+								<BezierSegment Point1="32,165" Point2="37.5536034266641,173.947472187403" Point3="46.6007142635374,181.238981183398" />
+								<BezierSegment Point1="58.9426673779972,191.185964677337" Point2="77.7860615781225,198.051189392831" Point3="97.9008039256403,174.915059324062" />
+								<BezierSegment Point1="100.582075118676,171.831040747043" Point2="70,298.999961685967" Point3="32,165"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_eye1" RenderTransformOrigin="6.54166666666649,6.54166666666663" Width="13.083333333333" Height="13.0833333333333" Canvas.Left="296" Canvas.Top="51.3333333333333" Fill="#FF000000">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_eye1" RenderTransformOrigin="6.5416666666665,6.54166666666665" Width="13.083333333333" Height="13.0833333333333" Fill="#FF000000" Canvas.Left="322.25" Canvas.Top="51.3333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" RenderTransformOrigin="48.8681165277958,25.837538972497" Stretch="Fill" x:Name="hair1" Width="97.7362330555916" Height="51.675077944994" Canvas.Left="268.161854207578" Canvas.Top="11.4931986576615" StrokeThickness="0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="485.333333333333,29.3333333333333" IsClosed="True">
+								<BezierSegment IsStroked="True" Point1="529.80268024524,13.2625275610895" Point2="535.632176583965,83.3157095158221" Point3="535.333333333333,81.3333333333333"/>
+								<BezierSegment IsStroked="True" Point1="531.23524003411,72.000164413071" Point2="553.291856966584,15.3682901439163" Point3="586.000007429068,26.6666673866896"/>
+								<BezierSegment IsStroked="True" Point1="574.768114604052,-34.0358447638849" Point2="489.020206853835,-18.2271641796284" Point3="485.333333333333,29.3333333333333"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	</Canvas>
+	<Canvas d:IsGroup="True" x:Name="monkey2" RenderTransformOrigin="0.5,0.5" Width="0" Height="0" Canvas.Left="66.4135593220339" Canvas.Top="107.421875367686">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="0.45423728813559322" ScaleY="0.45781246323138386"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.32382345199585,16.5" Stretch="Fill" x:Name="left_ear2" Width="16.6476469039917" Height="33" Canvas.Left="233.852353096008" Canvas.Top="59.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="248,60">
+								<BezierSegment IsStroked="True" Point1="248,60" Point2="216,80" Point3="250,92" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="37.75,71.25" Stretch="Fill" x:Name="right_arm2" Width="75.5" Height="142.5" Canvas.Left="368" Canvas.Top="99.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="368.5,182">
+								<LineSegment IsStroked="True" Point="443,100"/>
+								<LineSegment IsStroked="True" Point="383.5,241.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="51.75,67.5" Stretch="Fill" x:Name="left_arm2" Width="103.5" Height="135" Canvas.Left="161.5" Canvas.Top="110" d:LastTangent="0,0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="264.5,184">
+								<LineSegment IsStroked="True" Point="162,110.5"/>
+								<LineSegment IsStroked="True" Point="248.5,244.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="58,59.5" Stretch="Fill" x:Name="right_leg2" Width="116" Height="119" Canvas.Left="341.5" Canvas.Top="318.166666666667">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="376,318">
+								<LineSegment IsStroked="True" Point="459,436"/>
+								<LineSegment IsStroked="True" Point="344,363"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="59,59.5" Stretch="Fill" x:Name="left_leg2" Width="118" Height="119" Canvas.Left="177.5" Canvas.Top="314.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="257,315">
+								<LineSegment IsStroked="True" Point="178,433"/>
+								<LineSegment IsStroked="True" Point="295,368"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.80473518371582,19.1666679382324" Stretch="Fill" x:Name="right_ear2" Width="17.6094703674316" Height="38.3333358764648" Canvas.Left="383.5" Canvas.Top="53.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="384,54">
+								<BezierSegment IsStroked="True" Point1="384,54" Point2="420,63.3333333333333" Point3="386,91.3333333333333" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="head2" RenderTransformOrigin="69.8489208633095,66.5" Width="139.697841726619" Height="133" Canvas.Left="248.151079136691" Canvas.Top="10">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="body2" RenderTransformOrigin="69,115" Width="138" Height="230" Canvas.Left="248" Canvas.Top="142">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_nostril2" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="319.5" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_nostril2" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="309.25" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" x:Name="inner_body2" RenderTransformOrigin="50.3333333333335,91.3333333333335" Width="100.666666666667" Height="182.666666666667" Canvas.Left="267.333333333333" Canvas.Top="142.666666666667">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" RenderTransformOrigin="32.8146362304688,16.2571718990803" Stretch="Fill" x:Name="mouth2" Width="65.6292724609375" Height="32.5143437981606" Canvas.Left="283.5" Canvas.Top="92.5000029206276" d:LastTangent="-38,-133.999961685967">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="32,165" IsClosed="True">
+								<BezierSegment Point1="32,165" Point2="37.5536034266641,173.947472187403" Point3="46.6007142635374,181.238981183398" />
+								<BezierSegment Point1="58.9426673779972,191.185964677337" Point2="77.7860615781225,198.051189392831" Point3="97.9008039256403,174.915059324062" />
+								<BezierSegment Point1="100.582075118676,171.831040747043" Point2="70,298.999961685967" Point3="32,165"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_eye2" RenderTransformOrigin="6.54166666666649,6.54166666666663" Width="13.083333333333" Height="13.0833333333333" Canvas.Left="296" Canvas.Top="51.3333333333333" Fill="#FF000000">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_eye2" RenderTransformOrigin="6.5416666666665,6.54166666666665" Width="13.083333333333" Height="13.0833333333333" Fill="#FF000000" Canvas.Left="322.25" Canvas.Top="51.3333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" RenderTransformOrigin="48.8681165277958,25.837538972497" Stretch="Fill" x:Name="hair2" Width="97.7362330555916" Height="51.675077944994" Canvas.Left="268.161854207578" Canvas.Top="11.4931986576615" StrokeThickness="0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="485.333333333333,29.3333333333333" IsClosed="True">
+								<BezierSegment IsStroked="True" Point1="529.80268024524,13.2625275610895" Point2="535.632176583965,83.3157095158221" Point3="535.333333333333,81.3333333333333"/>
+								<BezierSegment IsStroked="True" Point1="531.23524003411,72.000164413071" Point2="553.291856966584,15.3682901439163" Point3="586.000007429068,26.6666673866896"/>
+								<BezierSegment IsStroked="True" Point1="574.768114604052,-34.0358447638849" Point2="489.020206853835,-18.2271641796284" Point3="485.333333333333,29.3333333333333"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	</Canvas>
+	<Canvas d:IsGroup="True" x:Name="monkey3" RenderTransformOrigin="0.5,0.5" Width="0" Height="0" Canvas.Left="167.913559322034" Canvas.Top="143.421875367686">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="0.45423728813559322" ScaleY="0.45781246323138386"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.32382345199585,16.5" Stretch="Fill" x:Name="left_ear3" Width="16.6476469039917" Height="33" Canvas.Left="233.852353096008" Canvas.Top="59.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="248,60">
+								<BezierSegment IsStroked="True" Point1="248,60" Point2="216,80" Point3="250,92" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="37.75,71.25" Stretch="Fill" x:Name="right_arm3" Width="75.5" Height="142.5" Canvas.Left="368" Canvas.Top="99.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="368.5,182">
+								<LineSegment IsStroked="True" Point="443,100"/>
+								<LineSegment IsStroked="True" Point="383.5,241.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="51.75,67.5" Stretch="Fill" x:Name="left_arm3" Width="103.5" Height="135" Canvas.Left="161.5" Canvas.Top="110" d:LastTangent="0,0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="264.5,184">
+								<LineSegment IsStroked="True" Point="162,110.5"/>
+								<LineSegment IsStroked="True" Point="248.5,244.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="58,59.5" Stretch="Fill" x:Name="right_leg3" Width="116" Height="119" Canvas.Left="341.5" Canvas.Top="318.166666666667">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="376,318">
+								<LineSegment IsStroked="True" Point="459,436"/>
+								<LineSegment IsStroked="True" Point="344,363"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="59,59.5" Stretch="Fill" x:Name="left_leg3" Width="118" Height="119" Canvas.Left="177.5" Canvas.Top="314.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="257,315">
+								<LineSegment IsStroked="True" Point="178,433"/>
+								<LineSegment IsStroked="True" Point="295,368"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" RenderTransformOrigin="8.80473518371582,19.1666679382324" Stretch="Fill" x:Name="right_ear3" Width="17.6094703674316" Height="38.3333358764648" Canvas.Left="383.5" Canvas.Top="53.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="384,54">
+								<BezierSegment IsStroked="True" Point1="384,54" Point2="420,63.3333333333333" Point3="386,91.3333333333333" />
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="head3" RenderTransformOrigin="69.8489208633095,66.5" Width="139.697841726619" Height="133" Canvas.Left="248.151079136691" Canvas.Top="10">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.690420032, 0.218781814, 0.218781814" StrokeMiterLimit="2" x:Name="body3" RenderTransformOrigin="69,115" Width="138" Height="230" Canvas.Left="248" Canvas.Top="142">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_nostril3" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="319.5" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_nostril3" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="309.25" Canvas.Top="79.8333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" x:Name="inner_body3" RenderTransformOrigin="50.3333333333335,91.3333333333335" Width="100.666666666667" Height="182.666666666667" Canvas.Left="267.333333333333" Canvas.Top="142.666666666667">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" RenderTransformOrigin="32.8146362304688,16.2571718990803" Stretch="Fill" x:Name="mouth3" Width="65.6292724609375" Height="32.5143437981606" Canvas.Left="283.5" Canvas.Top="92.5000029206276" d:LastTangent="-38,-133.999961685967">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="32,165" IsClosed="True">
+								<BezierSegment Point1="32,165" Point2="37.5536034266641,173.947472187403" Point3="46.6007142635374,181.238981183398" />
+								<BezierSegment Point1="58.9426673779972,191.185964677337" Point2="77.7860615781225,198.051189392831" Point3="97.9008039256403,174.915059324062" />
+								<BezierSegment Point1="100.582075118676,171.831040747043" Point2="70,298.999961685967" Point3="32,165"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_eye3" RenderTransformOrigin="6.54166666666649,6.54166666666663" Width="13.083333333333" Height="13.0833333333333" Canvas.Left="296" Canvas.Top="51.3333333333333" Fill="#FF000000">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_eye3" RenderTransformOrigin="6.5416666666665,6.54166666666665" Width="13.083333333333" Height="13.0833333333333" Fill="#FF000000" Canvas.Left="322.25" Canvas.Top="51.3333333333333">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.27267, 0.04498257, 0.04498257" StrokeMiterLimit="2" RenderTransformOrigin="48.8681165277958,25.837538972497" Stretch="Fill" x:Name="hair3" Width="97.7362330555916" Height="51.675077944994" Canvas.Left="268.161854207578" Canvas.Top="11.4931986576615" StrokeThickness="0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="485.333333333333,29.3333333333333" IsClosed="True">
+								<BezierSegment IsStroked="True" Point1="529.80268024524,13.2625275610895" Point2="535.632176583965,83.3157095158221" Point3="535.333333333333,81.3333333333333"/>
+								<BezierSegment IsStroked="True" Point1="531.23524003411,72.000164413071" Point2="553.291856966584,15.3682901439163" Point3="586.000007429068,26.6666673866896"/>
+								<BezierSegment IsStroked="True" Point1="574.768114604052,-34.0358447638849" Point2="489.020206853835,-18.2271641796284" Point3="485.333333333333,29.3333333333333"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	</Canvas>
+	<Canvas x:Name="hittest1canvas" Width="455" Height="425" Canvas.Left="84" Canvas.Top="23" Background="#FF000000" OpacityMask="#FF000000" Opacity="0">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+	</Canvas>
+	<Canvas d:IsGroup="True" x:Name="balloon1" RenderTransformOrigin="0.5,0.5" Canvas.Left="0" Canvas.Top="0">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+	<Ellipse Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" x:Name="Ellipse1" RenderTransformOrigin="67.5,67.5" Width="135" Height="135" Canvas.Left="420.5" Canvas.Top="-35.5">
+		<Ellipse.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Ellipse.RenderTransform>
+	</Ellipse>
+	<TextBlock x:Name="TextBlock2" Width="111" Height="82" Canvas.Left="422.5" Canvas.Top="-10.5" TextWrapping="WrapWithOverflow" RenderTransformOrigin="55.5,41">
+		<TextBlock.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</TextBlock.RenderTransform>
+	</TextBlock>
+	<Path Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" RenderTransformOrigin="17.5,24.5" Stretch="Fill" x:Name="Path7" Width="35" Height="49" Canvas.Left="417.5" Canvas.Top="67.5">
+		<Path.Data>
+			<PathGeometry>
+						<PathFigure StartPoint="601,222">
+							<LineSegment IsStroked="True" Point="586,270"/>
+							<LineSegment IsStroked="True" Point="620,241"/>
+						</PathFigure>
+			</PathGeometry>
+		</Path.Data>
+		<Path.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Path.RenderTransform>
+	</Path>
+	</Canvas>
+	<Canvas d:IsGroup="True" x:Name="balloon2" RenderTransformOrigin="0.5,0.5" Canvas.Left="0" Canvas.Top="0">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Ellipse Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" x:Name="Ellipse2" RenderTransformOrigin="43.5,25" Width="87" Height="50" Canvas.Left="94" Canvas.Top="80">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<TextBlock x:Name="TextBlock3" Width="76" Height="53" Canvas.Left="99" Canvas.Top="96" TextWrapping="WrapWithOverflow" RenderTransformOrigin="38,26.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<Path Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" RenderTransformOrigin="12.5,10.5" Stretch="Fill" x:Name="Path8" Width="25" Height="21" Canvas.Left="166.5" Canvas.Top="113.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="179,114">
+								<LineSegment IsStroked="True" Point="191,134"/>
+								<LineSegment IsStroked="True" Point="167,123"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+	</Canvas>
+	<TextBlock FontSize="16" Width="316" Height="63" Canvas.Left="2" Canvas.Top="2" x:Name="TextBlock" Text="Click the monkeys!" TextWrapping="Wrap"/>
+	<Canvas x:Name="splashcanvas" Width="980" Height="644" Background="#FFE8B6B6" OpacityMask="#FF000000" Opacity="1" Canvas.Left="-1" Canvas.Top="0" d:IsHidden="True">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<TextBlock x:Name="splash1" Text="THIS IS THE STORY" Width="528" Height="176" Canvas.Left="27" Canvas.Top="36" RenderTransformOrigin="0.5,0.5" FontSize="36" TextAlignment="Center" Opacity="0"/>
+	<TextBlock x:Name="splash2" Text="OF 3 LITTLE MONKEYS" Width="528" Height="176" RenderTransformOrigin="0.5,0.5" FontSize="36" TextAlignment="Center" Canvas.Left="19.5" Canvas.Top="259" Opacity="0"/>
+	<TextBlock x:Name="splash3" Text="JUMPING ON THE BED..." Width="528" Height="176" RenderTransformOrigin="0.5,0.5" FontSize="36" TextAlignment="Center" Canvas.Left="19.5" Canvas.Top="468" Opacity="0"/>
+	</Canvas>
+	<Canvas x:Name="hittest2canvas" Width="455" Height="425" Background="#FF000000" OpacityMask="#FF000000" Opacity="0" Canvas.Left="84" Canvas.Top="23" d:IsHidden="True">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="0" Y="0"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+	</Canvas>
+	<Canvas d:IsGroup="True" x:Name="mamamonkey" RenderTransformOrigin="12.6338329764454,-12.6177467752973" Width="0" Height="0" Canvas.Left="603.913559322034" Canvas.Top="60.421875367686">
+		<Canvas.RenderTransform>
+			<TransformGroup>
+				<TranslateTransform X="0" Y="0"/>
+				<ScaleTransform ScaleX="0.7915254237288134" ScaleY="0.71328107627108117"/>
+				<SkewTransform AngleX="0" AngleY="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform X="0" Y="0"/>
+				<TranslateTransform X="-1006.5079156534689" Y="-140.43103545561502"/>
+			</TransformGroup>
+		</Canvas.RenderTransform>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="37.75,71.25" Stretch="Fill" x:Name="right_arm4" Width="75.5" Height="142.5" Canvas.Left="368" Canvas.Top="99.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="368.5,182">
+								<LineSegment IsStroked="True" Point="443,100"/>
+								<LineSegment IsStroked="True" Point="383.5,241.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="51.75,67.5" Stretch="Fill" x:Name="left_arm4" Width="103.5" Height="135" Canvas.Left="161.5" Canvas.Top="110" d:LastTangent="0,0">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="264.5,184">
+								<LineSegment IsStroked="True" Point="162,110.5"/>
+								<LineSegment IsStroked="True" Point="248.5,244.5"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="58,59.5" Stretch="Fill" x:Name="right_leg4" Width="116" Height="119" Canvas.Left="341.5" Canvas.Top="318.166666666667">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="376,318">
+								<LineSegment IsStroked="True" Point="459,436"/>
+								<LineSegment IsStroked="True" Point="344,363"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="59,59.5" Stretch="Fill" x:Name="left_leg4" Width="118" Height="119" Canvas.Left="177.5" Canvas.Top="314.5">
+			<Path.Data>
+				<PathGeometry>
+					<PathGeometry.Figures>
+						<PathFigureCollection>
+							<PathFigure StartPoint="257,315">
+								<LineSegment IsStroked="True" Point="178,433"/>
+								<LineSegment IsStroked="True" Point="295,368"/>
+							</PathFigure>
+						</PathFigureCollection>
+					</PathGeometry.Figures>
+				</PathGeometry>
+			</Path.Data>
+			<Path.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" x:Name="body4" RenderTransformOrigin="69,115" Width="138" Height="230" Canvas.Left="248" Canvas.Top="142">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse Stroke="#FF000000" Fill="sc#1, 0.490448028, 0, 0" StrokeMiterLimit="2" x:Name="inner_body4" RenderTransformOrigin="50.3333333333335,91.3333333333335" Width="100.666666666667" Height="182.666666666667" Canvas.Left="267.333333333333" Canvas.Top="142.666666666667" StrokeThickness="0">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Canvas d:IsGroup="True" x:Name="head" RenderTransformOrigin="0.5,0.5" Canvas.Left="0" Canvas.Top="0">
+			<Canvas.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Canvas.RenderTransform>
+			<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="8.32382345199585,16.5" Stretch="Fill" x:Name="left_ear4" Width="16.6476469039917" Height="33" Canvas.Left="233.852353096008" Canvas.Top="59.5">
+				<Path.Data>
+					<PathGeometry>
+						<PathGeometry.Figures>
+							<PathFigureCollection>
+								<PathFigure StartPoint="248,60">
+									<BezierSegment IsStroked="True" Point1="248,60" Point2="216,80" Point3="250,92" />
+								</PathFigure>
+							</PathFigureCollection>
+						</PathGeometry.Figures>
+					</PathGeometry>
+				</Path.Data>
+				<Path.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Path Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" RenderTransformOrigin="8.8047351837158,19.1666679382324" Stretch="Fill" x:Name="right_ear4" Width="17.6094703674316" Height="38.3333358764648" Canvas.Left="383.5" Canvas.Top="53.5">
+				<Path.Data>
+					<PathGeometry>
+						<PathGeometry.Figures>
+							<PathFigureCollection>
+								<PathFigure StartPoint="384,54">
+									<BezierSegment IsStroked="True" Point1="384,54" Point2="420,63.3333333333333" Point3="386,91.3333333333333" />
+								</PathFigure>
+							</PathFigureCollection>
+						</PathGeometry.Figures>
+					</PathGeometry>
+				</Path.Data>
+				<Path.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Ellipse Stroke="#FF000000" Fill="sc#1, 0.9186628, 0.9398218, 0.245142847" StrokeMiterLimit="2" x:Name="head4" RenderTransformOrigin="69.8489208633095,66.5" Width="139.697841726619" Height="133" Canvas.Left="248.151079136691" Canvas.Top="10">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_nostril4" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="319.5" Canvas.Top="79.8333333333333">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_nostril4" RenderTransformOrigin="3.41666666666666,3.41666666666666" Width="6.83333333333331" Height="6.83333333333331" Fill="#FF000000" Canvas.Left="309.25" Canvas.Top="79.8333333333333">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="left_eye4" RenderTransformOrigin="6.5416666666665,6.54166666666665" Width="13.083333333333" Height="13.0833333333333" Canvas.Left="296" Canvas.Top="51.3333333333333" Fill="#FF000000">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Ellipse Stroke="#FF000000" StrokeMiterLimit="2" x:Name="right_eye4" RenderTransformOrigin="6.5416666666665,6.54166666666665" Width="13.083333333333" Height="13.0833333333333" Fill="#FF000000" Canvas.Left="322.25" Canvas.Top="51.3333333333333">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Path Stroke="#FF000000" Fill="sc#1, 0.490448028, 0, 0" StrokeMiterLimit="2" RenderTransformOrigin="48.8681165277958,25.837538972497" Stretch="Fill" x:Name="hair4" Width="97.7362330555916" Height="51.675077944994" Canvas.Left="268.161854207578" Canvas.Top="11.4931986576615" StrokeThickness="0">
+				<Path.Data>
+					<PathGeometry>
+						<PathGeometry.Figures>
+							<PathFigureCollection>
+								<PathFigure StartPoint="485.333333333333,29.3333333333333" IsClosed="True">
+									<BezierSegment IsStroked="True" Point1="529.80268024524,13.2625275610895" Point2="535.632176583965,83.3157095158221" Point3="535.333333333333,81.3333333333333"/>
+									<BezierSegment IsStroked="True" Point1="531.23524003411,72.000164413071" Point2="553.291856966584,15.3682901439163" Point3="586.000007429068,26.6666673866896"/>
+									<BezierSegment IsStroked="True" Point1="574.768114604052,-34.0358447638849" Point2="489.020206853835,-18.2271641796284" Point3="485.333333333333,29.3333333333333"/>
+								</PathFigure>
+							</PathFigureCollection>
+						</PathGeometry.Figures>
+					</PathGeometry>
+				</Path.Data>
+				<Path.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Ellipse Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" x:Name="Ellipse3" RenderTransformOrigin="25.5511811023622,9.91656854845576" Width="51.1023622047244" Height="19.8331370969115" Canvas.Left="292.853018372703" Canvas.Top="101.537555831899">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+		</Canvas>
+	</Canvas>
+</Canvas>

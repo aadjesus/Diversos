@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://192.1.1.237:8082/wsGlobus5/GestaoDeFrotaOnlineWS.asmx?disco" filename="GestaoDeFrotaOnlineWS.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.1.1.237:8082/wsGlobus5/GestaoDeFrotaOnlineWS.asmx?wsdl" filename="GestaoDeFrotaOnlineWS.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

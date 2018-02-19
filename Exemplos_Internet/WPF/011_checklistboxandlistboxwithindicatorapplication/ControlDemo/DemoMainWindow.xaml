@@ -1,0 +1,30 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="DemoMainWindow"
+	xmlns:local="clr-namespace:ControlDemo" 
+    Title="ListBox With Indicator and CheckListBox Demo.  Two versions: All XAML and Custom Control" Height="500" Width="500"
+    >
+    <Grid>
+        <!--Josh Smith show me how to do this, how cool is this!-->
+    <TabControl>
+        <TabControl.ItemsSource>
+            <x:Array Type="UserControl">
+                <local:DemoIntro />
+                <local:Demo1 />
+                <local:Demo2 />
+                <local:Demo3 />
+                <local:Demo4 />
+                <local:Demo5 />
+                <local:Demo6 />
+                <local:Demo7 />
+            </x:Array>
+        </TabControl.ItemsSource>
+        <TabControl.ItemContainerStyle>
+            <Style TargetType="TabItem">
+                <Setter Property="Header" Value="{Binding Path=Tag}" />
+            </Style>
+        </TabControl.ItemContainerStyle>
+    </TabControl>
+    </Grid>
+</Window>

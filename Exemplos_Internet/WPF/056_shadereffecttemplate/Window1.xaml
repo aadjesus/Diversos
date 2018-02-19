@@ -1,0 +1,30 @@
+﻿<Window x:Class="ShaderEffectTemplate.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:effect1="clr-namespace:ShaderEffectTemplate.MyEffect1"
+    Title="Window1" Height="300" Width="300">
+    <Grid>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Panel.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation From="0.3" 
+                                         To="0.6" 
+                                         Duration="00:00:20.00" 
+                                         RepeatBehavior="Forever" 
+                                         AutoReverse="True"
+                                         Storyboard.TargetName="testEffect" 
+                                         Storyboard.TargetProperty="SomeInput" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+        <Grid.Effect>
+            <effect1:MyEffect1 SomeInput="0.3" x:Name="testEffect" />
+        </Grid.Effect>
+        <StackPanel>
+            <Button FontSize="24" >ALE</Button>
+            <TextBlock FontSize="20" Text="Xisto"/>
+       </StackPanel>
+    </Grid>
+</Window>

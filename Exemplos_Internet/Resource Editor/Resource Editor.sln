@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resource Editor", "Resource Editor\Resource Editor.csproj", "{EE56850F-F9DE-43A5-A4DC-1D8979CC87E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE249BF4-D4C4-4ECA-AEE3-9C9592A3CA79}"
+	ProjectSection(SolutionItems) = preProject
+		Resource Editor.FxCop = Resource Editor.FxCop
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE56850F-F9DE-43A5-A4DC-1D8979CC87E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE56850F-F9DE-43A5-A4DC-1D8979CC87E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE56850F-F9DE-43A5-A4DC-1D8979CC87E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE56850F-F9DE-43A5-A4DC-1D8979CC87E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

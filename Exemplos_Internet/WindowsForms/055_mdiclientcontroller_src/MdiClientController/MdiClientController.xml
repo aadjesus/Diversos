@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MdiClientController</name>
+    </assembly>
+    <members>
+        <member name="T:Slusser.Components.MdiClientController">
+            <summary>
+            Listens for messages sent to a <see cref="T:System.Windows.Forms.MdiClient"/>
+            class and controls its properties.
+            </summary>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Slusser.Components.MdiClientController"/> class.
+            </summary>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.#ctor(System.Windows.Forms.Form)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Slusser.Components.MdiClientController"/> class
+            for the given MDI form.
+            </summary>
+            <param name="parentForm">The MDI form.</param>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.Dispose">
+            <summary>
+            Releases all resources used by the
+            <see cref="T:System.ComponentModel.Component"/>.
+            </summary>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.RenewMdiClient">
+            <summary>
+            Reestablishes a connection to the <see cref="T:System.Windows.Forms.MdiClient"/>
+            control if the <see cref="P:Slusser.Components.MdiClientController.ParentForm"/>
+            hasn't changed but its <see cref="P:System.Windows.Forms.Form.IsMdiContainer"/>
+            property has.
+            </summary>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.Dispose(System.Boolean)">
+            <summary>Releases the unmanaged resources used by the
+            <see cref="T:System.ComponentModel.Component"/> and optionally releases the
+            managed resources.</summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged
+            resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Invokes the default window procedure associated with this window.
+            </summary>
+            <param name="m">A <see cref="T:System.Windows.Forms.Message"/> that is associated with the current Windows message. </param>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Raises the <see cref="E:Slusser.Components.MdiClientController.Paint"/> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that
+            contains the event data.</param>
+        </member>
+        <member name="M:Slusser.Components.MdiClientController.OnHandleAssigned(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Slusser.Components.MdiClientController.HandleAssigned"/> event.
+            </summary>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event
+            data.</param>
+        </member>
+        <member name="E:Slusser.Components.MdiClientController.Paint">
+            <summary>
+            Occurs when the control is redrawn.
+            </summary>
+        </member>
+        <member name="E:Slusser.Components.MdiClientController.Disposed">
+            <summary>
+            Occurs when the control is disposed.
+            </summary>
+        </member>
+        <member name="E:Slusser.Components.MdiClientController.HandleAssigned">
+            <summary>
+            Occurs when the <see cref="T:System.Windows.Forms.NativeWindow"/> handle
+            is assigned.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.Site">
+            <summary>
+            Gets or sets the <see cref="T:System.ComponentModel.ISite"/> of
+            the <see cref="T:System.ComponentModel.Component"/>.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.ParentForm">
+            <summary>
+            Gets or sets the form that the <see cref="T:System.Windows.Forms.MdiClient"/>
+            control is assigned to.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.MdiClient">
+            <summary>
+            Gets the <see cref="T:System.Windows.Forms.MdiClient"/> being controlled.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.BackColor">
+            <summary>
+            Gets or sets the background color for the control.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.BorderStyle">
+            <summary>
+            Indicates the border style for the control.
+            </summary>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The value
+            assigned to the property is not a member of
+            the <see cref="T:System.Windows.Forms.BorderStyle"/> enumeration.</exception>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.AutoScroll">
+            <summary>
+            Gets or sets a value indicating whether the container will allow the user to
+            scroll to any controls placed outside of its visible boundaries.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.Image">
+            <summary>
+            Gets or sets the image that the
+            <see cref="T:Slusser.Components.MdiClientController"/> displays.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.ImageAlign">
+            <summary>
+            Gets or sets the alignment of the background image.
+            </summary>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The
+            value assigned to the property is not a member of
+            the <see cref="T:System.Drawing.ContentAlignment"/> enumeration.</exception>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.StretchImage">
+            <summary>
+            Gets or sets a value indicating whether the
+            <see cref="P:Slusser.Components.MdiClientController.Image"/> should
+            be stretched to fill the entire client area.
+            </summary>
+        </member>
+        <member name="P:Slusser.Components.MdiClientController.Handle">
+            <summary>
+            Gets the handle for this window.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+﻿<Window x:Class="WPF_Grid_do_Dev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid">
+    <Grid>
+        <dxg:GridControl AutoPopulateColumns="True" Name="gridControl1" >
+            <dxg:GridControl.View>
+                <dxg:TableView Name="tableView1" ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</Window>

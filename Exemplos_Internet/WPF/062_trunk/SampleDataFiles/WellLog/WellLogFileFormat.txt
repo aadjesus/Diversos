@@ -1,0 +1,13 @@
+WellLog data file is the rectangular table of fields separated by either space or tab.
+Data file must contain one header line and one or more series points lines.
+
+Header line is the list of string column names ( &gt; 1) and looks like
+name1 name2 name3 name4
+First column is treated as depth.
+
+Series points line is the list of series values and looks like
+1000 -0.35 10 48.0
+Token counts in the header and in each series line must be equal.
+Each column values must be convertible to double.
+
+

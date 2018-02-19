@@ -1,0 +1,2430 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FGlobus.Util</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest">
+            <summary>
+            Classe reservada aos métodos para testes.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest.ValidaInscricao_UnitTest">
+            <summary>
+            Testa o metodo <c>ValidaInscricao</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest.ValidarCEI_UnitTest">
+            <summary>
+            Testa o metodo <c>ValidarCEI</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest.ValidarCNPJ_UnitTest">
+            <summary>
+            Testa o metodo <c>ValidarCNPJ</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest.ValidarCPF_UnitTest">
+            <summary>
+            Testa o metodo <c>ValidarCPF</c>.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.ValidacaoBO_UnitTest.ValidarIE_UnitTest">
+            <summary>
+            Testa o metodo <c>ValidarIE</c>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Constantes">
+            <summary>
+            Constantes reservadas para o sistema.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CATEGORIA">
+            <summary>
+            Constante para ser utilizada na definição de categoria das propriedades dos objetos.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NOME_PRODUTO">
+            <summary>
+            Constante com o nome do produto.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.COR_RESERVADA">
+            <summary>
+            Constante que define cor que não pode ser utilizada.
+            <para>Cor: Preto.</para>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CARACTER_SEPARACAO">
+            <summary>
+            Constante para identificar os valores concatenados em uma string.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.NONE_DEFAULT">
+            <summary>
+            Nome default
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.CHECKSUM_ACESSO_WEBSERVICE">
+            <summary>
+            Constante que define Checksum de Acesso ao WebService
+            </summary>
+            <remarks>Quando alterar o valor mudar no Globus4 vcChecksumAutenticacaoWebService</remarks>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.HTCAPTION">
+            <summary>
+            Barra de titulo do formulario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.WM_NCLBUTTONDBLCLK">
+            <summary>
+            Double click na titulo do formulario
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.WM_SYSCOMMAND">
+            <summary>
+            Clicou no formulário
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Constantes.SC_MINIMIZE">
+            <summary>
+            Clicou no botão minimizar do formulario
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.TraducaoDevExpress">
+            <summary>
+            Classe para tradução dos componetes da "DevExpress"
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.TraducaoDevExpress.Inicializacao">
+            <summary>
+            Executa a tradução dos componetes da "DevExpress"
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpress.LayoutQtde">
+            <summary>
+            Propriedade para mostrar o layout de Qtde.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util">
+            <summary>
+            Classe com métodos úteis
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.SimulaEnterAposSetaParaBaixo">
+            <summary>
+            (Get/Set) Retorna ou informa se simula ENTER quando for pressionado seta para baixo em um ButtonEditBGM
+            que esta associado a um LabelControlBGM do tipo "Default".
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.Util.VerificaUsuarioLiberado(System.String)">
+            <summary>
+            Verifica se o usuario informado é um usuario liberado.
+            </summary>
+            <param name="usuario">Usuario.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarTamanhoDoForm(System.Int32)">
+            <summary>
+            Retorna o tamanho do form conforme a resuloção do monitor.
+            </summary>
+            <param name="percentual">Percentual da tela.</param>
+            <returns>Size.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.VerificarCampoVazio(DevExpress.XtraEditors.BaseEdit)">
+            <summary>
+            Verifica se o campo está vazio.
+            </summary>
+            <param name="campo">Objeto do tipo BaseEdit.</param>
+            <returns>Boolean.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.PosicionaBotoes(DevExpress.XtraEditors.PanelControl)">
+            <summary>
+            Posiciona os botões visiveis do panel.
+            </summary>
+            <param name="pnlCtrlBotoes">Panel com os botoes.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.MessagemExcecao(System.String,System.Exception)">
+            <summary>
+            Mostra mensagem de exceçãoo.
+            </summary>
+            <param name="aplicacao">Nome aplicação.</param>
+            <param name="ex">Objeto do tipo Exception.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.StrToIntDef(System.String,System.Int32)">
+            <summary>
+            Converte uma String em Int, se der erro de conversão retorna o default
+            </summary>
+            <param name="intString">String que será convertida.</param>
+            <param name="intDefault">Inteiro default caso ocorra erro de conversão.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.LimparControles(System.Windows.Forms.Control)">
+            <summary>
+            Limpar as propriedades dos componentes encontrados no controle.
+            </summary>
+            <param name="control">Controle.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.LimparControles(System.Windows.Forms.Control,System.Windows.Forms.Control)">
+            <summary>
+            Limpar as propriedades dos componentes encontrados no controle, e foca o controle informado.
+            </summary>
+            <param name="control">Controle.</param>
+            <param name="focaControle">Controle que vai ser focado.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.CompararDataComDataServidor(System.DateTime,FGlobus.Util.Util.eOperador)">
+            <summary>
+            Compara a data informada com a data do servidor.
+            </summary>
+            <param name="dataHora">Data hora.</param>
+            <param name="operador">Tipo de operador para comparar com a data.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.CompararDataComDataServidor(System.DateTime,FGlobus.Util.Util.eOperador,System.Boolean)">
+            <summary>
+            Compara a data hora informada com a data hora do servidor.
+            </summary>
+            <param name="dataHora">Data hora.</param>
+            <param name="operador">Tipo de operador para comparar com a data.</param>
+            <param name="hora">Se compara a data junto com a hora.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarListaOrdenada``1(``0[])">
+            <summary>
+            Retorna lista informada ordenada e sem duplicidades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="lista">Lista de objetos.</param>
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarListaDaPropriedadeInformada``1(System.Object[],System.Object)">
+            <summary>
+            Retorna lista da propriedade informada, ordenada e sem duplicidades.
+            </summary>
+            <typeparam name="T">Tipo de objeto de retorno da lista.</typeparam>
+            <param name="lista">Lista de objetos.</param>
+            <param name="nomePropriedade">Nome da propriedade ou o numero da coluna na lista.</param>
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConcatenarResultadoLinq(System.Object,System.String)">
+            <summary>
+            Concatena os campos de uma lista em uma lista de string.
+            </summary>
+            <param name="lista">Lista</param>
+            <param name="nomeTabela">Nome da tabela.</param>
+            <returns>Retorna lista de objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConcatenarResultadoLinq(System.Object)">
+            <summary>
+            Concatena os campos de uma lista em uma lista de string.
+            </summary>
+            <param name="lista">Lista</param>
+            <returns>Retorna lista de objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.DesConcatenarResultadoLinq(System.String[])">
+            <summary>
+            Desconcatena uma lista concatenada pelo metodo
+            </summary>
+            <param name="lista"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteListParaDataTable(System.Collections.IList)">
+            <summary>
+            Convertes uma lista generica para DataTable. 
+            </summary>
+            <param name="lista">Lista de objeto do tipo generica.</param>
+            <returns>DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteListParaDataTable(System.Collections.IList,System.String)">
+            <summary>
+            Convertes uma lista generica para DataTable. 
+            </summary>
+            <param name="lista">Lista de objeto do tipo generica.</param>
+            <param name="nomeTabela">Nome da tabela.</param>
+            <returns>DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.PopulaDataTable(System.Data.DataTable@,System.Collections.IList)">
+            <summary>
+            Popula o DataTable informado
+            </summary>
+            <param name="tabela">DataTable que vai ser populado.</param>
+            <param name="lista">Lista de objetos que contenha os mesmos campos do DataTable.</param>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornaIntOuNull(System.Object)">
+            <summary>
+            Retorna o valor int ou null de um objeto.
+            </summary>
+            <param name="objeto">Objeto.</param>
+            <returns>Retorna um objeto int?.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.GetDescricaoEnum(System.Enum)">
+            <summary>
+            Retorna a descrição da proprienade de um enum.
+            </summary>
+            <param name="value">Propriedade do enum.</param>
+            <returns>Retorna umobjeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornaFormDoControle(System.Windows.Forms.Control)">
+            <summary>
+            Retorna o form que o controle está.
+            </summary>
+            <param name="controle">Controel.</param>
+            <returns>Retorna objeto do tipo MasterFormGlobus.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ConverteStringEmStream(System.String)">
+            <summary>
+            Converte string para Stream.
+            </summary>
+            <param name="estruturaXml">String</param>
+            <returns>Retorna objeto do tipo Stream.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionInHQL``1(System.String,``0[])">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionInHQL``1(System.String,System.String,``0[])">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="operadorLogicoIni">Operador lógico que vai ser concatenado no inicio do retorno.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionInHQL``1(System.String,``0[],System.String)">
+            <summary>
+            Retorna uma string com a cláusula "IN" dividida em partes de 999 se a lista for maior que 1000.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="lista">Lista de objeto.</param>
+            <param name="operadorLogicoFim">Operador lógico que vai ser concatenado no fim do retorno.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.FormatarRetorno(System.Type,System.Object)">
+            <summary>
+            Formata retorno para os metodos "ExpressionInHQL" e "ExpressionInHQL"
+            </summary>
+            <param name="tipoCampo">Tipo do campo.</param>
+            <param name="valor">Valor do campo.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionOrHQL``1(System.String[],``0[])">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionOrHQL``1(System.String,System.String[],``0[])">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="operadorLogicoIni">Operador lógico que vai ser concatenado no inicio do retorno.</param>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.ExpressionOrHQL``1(System.String[],``0[],System.String)">
+            <summary>
+            Retorna uma string agrupando as propriedades.
+            </summary>
+            <typeparam name="T">Tipo de objeto da lista.</typeparam>
+            <param name="listaPropriedades">Lista de string com as propriedades.</param>
+            <param name="lista">Lista de objeto.</param>
+            <param name="operadorLogicoFim">Operador lógico que vai ser concatenado no fim do retorno.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarValorKeyArquivoConfig(System.String,System.String)">
+            <summary>
+            Retornar o valor do Key do arquivo informado.
+            </summary>
+            <param name="pathArquivo">Arquivo com a path.</param>
+            <param name="key">Nome do key.</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:FGlobus.Util.Util.RetornarClasseDoAssemblyName``1(System.String,System.String)">
+            <summary>
+            Retorna objeto contido no assembly informado
+            </summary>
+            <typeparam name="T">Tipo do objeto de retorno.</typeparam>
+            <param name="assemblyName">Nome do assembly name.</param>
+            <param name="nomeClass">Nome da class.</param>
+            <returns>Objeto do tipo informado.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.DataHoraServidor">
+            <summary>
+            (Get) Retorna a data hora do servidor.
+            </summary>
+            <returns>Objeto do tipo DateTime.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.NameSpaceAutorizadas">
+            <summary>
+            (Get) Retorna o nome das namespaces autorizadas para o uso.
+            </summary>
+            <remarks>Utilizado no metodo <c>MasterFormCadastro</c> para alertar dos controles visuais que são implementados na tela.
+            <para>Se o controle não for da namespace <see cref="N:FGlobus"/> ou <see cref="N:DevExpress"/> ira aparecer mensagem para ter atenção.</para>
+            </remarks>
+        </member>
+        <member name="P:FGlobus.Util.Util.ResolucaoMonitor">
+            <summary>
+            (Get) Retorna o tamanho da resolução do monitor.
+            </summary>
+            <returns>Size.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.UsuarioOS">
+            <summary>
+            (Get) Retorna o nome do usuário do sistema operacional.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="P:FGlobus.Util.Util.Estacao">
+            <summary>
+            (Get) Retorna o nome do computador.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="T:FGlobus.Util.Util.UsuariosLiberados">
+            <summary>
+            Lista de usuários exclusivos da BgmRodotec.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.UsuariosLiberados.GLOBUS">
+            <summary>
+            Usuário GLOBUS
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.UsuariosLiberados.MANAGER">
+            <summary>
+            Usuário MANAGER
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util.eVersaoGlobus">
+            <summary>
+            Versões dos Globus.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eVersaoGlobus.Globus4">
+            <summary>
+            Globus4
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eVersaoGlobus.GlobusMais">
+            <summary>
+            Globus+
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Util.eOperador">
+            <summary>
+            Enum de operadores.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Igual">
+            <summary>
+            Igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Diferente">
+            <summary>
+            Direferente.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.MaiorOuIgual">
+            <summary>
+            Maior ou igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.MenorOuIgual">
+            <summary>
+            Menor ou igual.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Maior">
+            <summary>
+            Maior.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Util.eOperador.Menor">
+            <summary>
+            Menor.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.ConversaoBO">
+            <summary>
+            Classe com métodos úteis à conversões de tipos de objetos.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ConversaoBO.StringParaAlfa(System.String)">
+            <summary>
+            Retornar um texto substituindo caracteres especiais do texto informado por espaços.
+            </summary>
+            <param name="texto">Cadeia de caracteres (string) a converter.</param>
+            <returns>Texto sem caracteres especiais (somente alfanuméricos).</returns>
+        </member>
+        <member name="M:FGlobus.Util.ConversaoBO.IListToDataSet(System.Collections.IList)">
+            <summary>
+            Converte IList tipado em DataSet
+            </summary>
+            <param name="list">IList a ser convertido. Utilizar o conversão cast para IList tipados.</param>
+            <returns>DataSet tipado.</returns>
+        </member>
+        <member name="T:FGlobus.Util.TraducaoDevExpressRes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.Cancel">
+            <summary>
+              Looks up a localized string similar to Cancelar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CheckChecked">
+            <summary>
+              Looks up a localized string similar to Selecionado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CheckUnchecked">
+            <summary>
+              Looks up a localized string similar to Desmarcado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.Clear">
+            <summary>
+              Looks up a localized string similar to Limpar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.ColumnChooserCaption">
+            <summary>
+              Looks up a localized string similar to Seletor de colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.ColumnChooserDragText">
+            <summary>
+              Looks up a localized string similar to Arraste a coluna.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.ColumnHeadersCustomization">
+            <summary>
+              Looks up a localized string similar to Colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogCancelButton">
+            <summary>
+              Looks up a localized string similar to Cancelar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogCaption">
+            <summary>
+              Looks up a localized string similar to Mostrar linhas onde:.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionBlanks">
+            <summary>
+              Looks up a localized string similar to (Brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionEQU">
+            <summary>
+              Looks up a localized string similar to =.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionGT">
+            <summary>
+              Looks up a localized string similar to &gt;.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionGTE">
+            <summary>
+              Looks up a localized string similar to &gt;=.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionLike">
+            <summary>
+              Looks up a localized string similar to Entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionLT">
+            <summary>
+              Looks up a localized string similar to &lt;.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionLTE">
+            <summary>
+              Looks up a localized string similar to &lt;=.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionNEQ">
+            <summary>
+              Looks up a localized string similar to #.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionNonBlanks">
+            <summary>
+              Looks up a localized string similar to (Não brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogConditionNotLike">
+            <summary>
+              Looks up a localized string similar to Não entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogEmptyOperator">
+            <summary>
+              Looks up a localized string similar to Inserir a orepação.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogEmptyValue">
+            <summary>
+              Looks up a localized string similar to Inserir valor.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogFormCaption">
+            <summary>
+              Looks up a localized string similar to Personalizar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogOkButton">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogRadioAnd">
+            <summary>
+              Looks up a localized string similar to E.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomFilterDialogRadioOr">
+            <summary>
+              Looks up a localized string similar to Ou.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationBands">
+            <summary>
+              Looks up a localized string similar to Bandas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationCaption">
+            <summary>
+              Looks up a localized string similar to Seletor de colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationColumns">
+            <summary>
+              Looks up a localized string similar to Campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationFormAddTo">
+            <summary>
+              Looks up a localized string similar to Adicionar campo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationFormBandHint">
+            <summary>
+              Looks up a localized string similar to Arraste a banda.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationFormCaption">
+            <summary>
+              Looks up a localized string similar to Lista de campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationFormColumnHint">
+            <summary>
+              Looks up a localized string similar to Arraste a coluna.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.CustomizationFormText">
+            <summary>
+              Looks up a localized string similar to Campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DataHeadersCustomization">
+            <summary>
+              Looks up a localized string similar to Área agrupamento.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DateEditClear">
+            <summary>
+              Looks up a localized string similar to Limpar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultGroupSummaryFormatString_Avg">
+            <summary>
+              Looks up a localized string similar to Média={1} de {0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultGroupSummaryFormatString_Count">
+            <summary>
+              Looks up a localized string similar to Qtde={1} de {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultGroupSummaryFormatString_Max">
+            <summary>
+              Looks up a localized string similar to Máximo={1} de {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultGroupSummaryFormatString_Min">
+            <summary>
+              Looks up a localized string similar to Mínimo={1} de {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultGroupSummaryFormatString_Sum">
+            <summary>
+              Looks up a localized string similar to Soma={1} de {0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatString_Avg">
+            <summary>
+              Looks up a localized string similar to Média={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatString_Count">
+            <summary>
+              Looks up a localized string similar to Qtde={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatString_Max">
+            <summary>
+              Looks up a localized string similar to Máximo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatString_Min">
+            <summary>
+              Looks up a localized string similar to Mínimo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatString_Sum">
+            <summary>
+              Looks up a localized string similar to Soma={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatStringInSameColumn_Avg">
+            <summary>
+              Looks up a localized string similar to Média={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatStringInSameColumn_Count">
+            <summary>
+              Looks up a localized string similar to Qtde={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatStringInSameColumn_Max">
+            <summary>
+              Looks up a localized string similar to Máximo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatStringInSameColumn_Min">
+            <summary>
+              Looks up a localized string similar to Mínimo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.DefaultTotalSummaryFormatStringInSameColumn_Sum">
+            <summary>
+              Looks up a localized string similar to Soma={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterBuilderApplyButton">
+            <summary>
+              Looks up a localized string similar to Aplicar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterBuilderCancelButton">
+            <summary>
+              Looks up a localized string similar to Cancelar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterBuilderCaption">
+            <summary>
+              Looks up a localized string similar to Filtros.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterBuilderOkButton">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseAnyOf">
+            <summary>
+              Looks up a localized string similar to Uma das.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseBeginsWith">
+            <summary>
+              Looks up a localized string similar to Começa com.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseBetween">
+            <summary>
+              Looks up a localized string similar to Entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseBetweenAnd">
+            <summary>
+              Looks up a localized string similar to E.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseContains">
+            <summary>
+              Looks up a localized string similar to Contém.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseDoesNotContain">
+            <summary>
+              Looks up a localized string similar to Que não contém.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseDoesNotEqual">
+            <summary>
+              Looks up a localized string similar to Diferente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseEndsWith">
+            <summary>
+              Looks up a localized string similar to Termina com.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseEquals">
+            <summary>
+              Looks up a localized string similar to Igual.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseGreater">
+            <summary>
+              Looks up a localized string similar to Maior.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseGreaterOrEqual">
+            <summary>
+              Looks up a localized string similar to Maior igual.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseIsNotNull">
+            <summary>
+              Looks up a localized string similar to (Não brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseIsNull">
+            <summary>
+              Looks up a localized string similar to (Brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseLess">
+            <summary>
+              Looks up a localized string similar to Menor.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseLessOrEqual">
+            <summary>
+              Looks up a localized string similar to Menor igual.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseLike">
+            <summary>
+              Looks up a localized string similar to Valor entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseNoneOf">
+            <summary>
+              Looks up a localized string similar to Nenhuma das.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseNotBetween">
+            <summary>
+              Looks up a localized string similar to Não entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterClauseNotLike">
+            <summary>
+              Looks up a localized string similar to Valor não entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringBinaryOperatorEqual">
+            <summary>
+              Looks up a localized string similar to =.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringBinaryOperatorGreaterOrEqual">
+            <summary>
+              Looks up a localized string similar to &gt;=.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringBinaryOperatorLess">
+            <summary>
+              Looks up a localized string similar to &lt;.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringBinaryOperatorLessOrEqual">
+            <summary>
+              Looks up a localized string similar to &lt;=.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringBinaryOperatorLike">
+            <summary>
+              Looks up a localized string similar to Entre.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalBeyondThisYear">
+            <summary>
+              Looks up a localized string similar to Além deste ano.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisMonth">
+            <summary>
+              Looks up a localized string similar to No início deste mês.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisWeek">
+            <summary>
+              Looks up a localized string similar to No começo dessa semana.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalEarlierThisYear">
+            <summary>
+              Looks up a localized string similar to No início deste ano.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalLastWeek">
+            <summary>
+              Looks up a localized string similar to Última semana.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisMonth">
+            <summary>
+              Looks up a localized string similar to No final deste mês.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisWeek">
+            <summary>
+              Looks up a localized string similar to Mais tarde esta semana.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalLaterThisYear">
+            <summary>
+              Looks up a localized string similar to Ainda este ano.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalNextWeek">
+            <summary>
+              Looks up a localized string similar to Na próxima semana.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalPriorThisYear">
+            <summary>
+              Looks up a localized string similar to Antes Este Ano.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalToday">
+            <summary>
+              Looks up a localized string similar to Hoje.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalTomorrow">
+            <summary>
+              Looks up a localized string similar to Amanhã.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringFunctionIsOutlookIntervalYesterday">
+            <summary>
+              Looks up a localized string similar to Ontem.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringGroupOperatorAnd">
+            <summary>
+              Looks up a localized string similar to E.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringGroupOperatorOr">
+            <summary>
+              Looks up a localized string similar to Ou.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringIn">
+            <summary>
+              Looks up a localized string similar to Os.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringIsNotNull">
+            <summary>
+              Looks up a localized string similar to (Não brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterCriteriaToStringUnaryOperatorIsNull">
+            <summary>
+              Looks up a localized string similar to (Brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterEmptyEnter">
+            <summary>
+              Looks up a localized string similar to Inserir valor.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterGroupAnd">
+            <summary>
+              Looks up a localized string similar to =.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterGroupNotAnd">
+            <summary>
+              Looks up a localized string similar to #.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterGroupNotOr">
+            <summary>
+              Looks up a localized string similar to # ou.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterGroupOr">
+            <summary>
+              Looks up a localized string similar to Ou.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterHeadersCustomization">
+            <summary>
+              Looks up a localized string similar to Campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterMenuClearAll">
+            <summary>
+              Looks up a localized string similar to Limpar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterMenuConditionAdd">
+            <summary>
+              Looks up a localized string similar to Adiciona condição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterMenuGroupAdd">
+            <summary>
+              Looks up a localized string similar to Adiciona grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterMenuRowRemove">
+            <summary>
+              Looks up a localized string similar to Remover.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterPanelCustomizeButton">
+            <summary>
+              Looks up a localized string similar to Editar filtros.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterShowAll">
+            <summary>
+              Looks up a localized string similar to (Todos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterShowBlanks">
+            <summary>
+              Looks up a localized string similar to (Brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipElementAdd">
+            <summary>
+              Looks up a localized string similar to Adicionar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipKeysAdd">
+            <summary>
+              Looks up a localized string similar to Adicionar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipKeysRemove">
+            <summary>
+              Looks up a localized string similar to Remover.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipNodeAdd">
+            <summary>
+              Looks up a localized string similar to Adicionar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipNodeRemove">
+            <summary>
+              Looks up a localized string similar to Remover.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.FilterToolTipValueType">
+            <summary>
+              Looks up a localized string similar to Inserir valor.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.GrandTotal">
+            <summary>
+              Looks up a localized string similar to Total.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.GridGroupPanelText">
+            <summary>
+              Looks up a localized string similar to Arraste uma coluna aqui para filtrar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.GridNewRowText">
+            <summary>
+              Looks up a localized string similar to Adiciona nova linha.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.GroupSummaryEditorFormCaption">
+            <summary>
+              Looks up a localized string similar to Editar grupos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.LayoutPanelCaptionFormat">
+            <summary>
+              Looks up a localized string similar to {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnBestFit">
+            <summary>
+              Looks up a localized string similar to Melhor ajuste.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnBestFitAllColumns">
+            <summary>
+              Looks up a localized string similar to Melhor ajuste (todas as colunas).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnBestFitColumns">
+            <summary>
+              Looks up a localized string similar to Melhor ajuste (todas as colunas).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnClearFilter">
+            <summary>
+              Looks up a localized string similar to Limpar filtro.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnClearSorting">
+            <summary>
+              Looks up a localized string similar to Limpar ordenação.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnColumnCustomization">
+            <summary>
+              Looks up a localized string similar to Mostrar seletor de coluna.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnFilterEditor">
+            <summary>
+              Looks up a localized string similar to Editar filtros.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnGroup">
+            <summary>
+              Looks up a localized string similar to Grupo por esta coluna.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnGroupSummaryEditor">
+            <summary>
+              Looks up a localized string similar to Editar grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnGroupSummarySortFormat">
+            <summary>
+              Looks up a localized string similar to {0} =&gt;{2}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnHideColumnChooser">
+            <summary>
+              Looks up a localized string similar to Fechar seletor de colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnHideGroupPanel">
+            <summary>
+              Looks up a localized string similar to Ocultar painel de grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnRemoveColumn">
+            <summary>
+              Looks up a localized string similar to Ocultar campo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnShowColumn">
+            <summary>
+              Looks up a localized string similar to Mostrar campo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnShowColumnChooser">
+            <summary>
+              Looks up a localized string similar to Mostrar seletor de coluna.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnShowGroupPanel">
+            <summary>
+              Looks up a localized string similar to Mostrar painel de grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnSortAscending">
+            <summary>
+              Looks up a localized string similar to Ordem crescente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnSortBySummaryAscending">
+            <summary>
+              Looks up a localized string similar to Ordem crescente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnSortBySummaryDescending">
+            <summary>
+              Looks up a localized string similar to Ordem decrescente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnSortDescending">
+            <summary>
+              Looks up a localized string similar to Ordem decrescente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnSortGroupBySummaryMenu">
+            <summary>
+              Looks up a localized string similar to Ordenar grupos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuColumnUnGroup">
+            <summary>
+              Looks up a localized string similar to Desagrupar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterAverage">
+            <summary>
+              Looks up a localized string similar to Média.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterAverageFormat">
+            <summary>
+              Looks up a localized string similar to Média={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterCount">
+            <summary>
+              Looks up a localized string similar to Qtde.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterCountFormat">
+            <summary>
+              Looks up a localized string similar to Qtde={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterCountGroupFormat">
+            <summary>
+              Looks up a localized string similar to Qtde={1} de {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterCustomize">
+            <summary>
+              Looks up a localized string similar to Personalizar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterMax">
+            <summary>
+              Looks up a localized string similar to Máximo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterMaxFormat">
+            <summary>
+              Looks up a localized string similar to Máximo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterMin">
+            <summary>
+              Looks up a localized string similar to Mínimo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterMinFormat">
+            <summary>
+              Looks up a localized string similar to Mínimo={0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterNone">
+            <summary>
+              Looks up a localized string similar to Ocultar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterSum">
+            <summary>
+              Looks up a localized string similar to Soma.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuFooterSumFormat">
+            <summary>
+              Looks up a localized string similar to Soma={0:#.##}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuGroupPanelClearGrouping">
+            <summary>
+              Looks up a localized string similar to Limpar grupos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuGroupPanelFullCollapse">
+            <summary>
+              Looks up a localized string similar to Fechar todos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuGroupPanelFullExpand">
+            <summary>
+              Looks up a localized string similar to Expandir todos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuGroupPanelHide">
+            <summary>
+              Looks up a localized string similar to Ocultar painel de grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuGroupPanelShow">
+            <summary>
+              Looks up a localized string similar to Mostrar painel de grupo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuItemAutoHide">
+            <summary>
+              Looks up a localized string similar to Auto ocultar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuItemClosedPanels">
+            <summary>
+              Looks up a localized string similar to Feixar paineis.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuItemDockable">
+            <summary>
+              Looks up a localized string similar to Painel fixo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuItemFloating">
+            <summary>
+              Looks up a localized string similar to Painel flutuante.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.MenuItemHide">
+            <summary>
+              Looks up a localized string similar to Ocutar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorAppendButtonHint">
+            <summary>
+              Looks up a localized string similar to Incluir.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorCancelEditButtonHint">
+            <summary>
+              Looks up a localized string similar to Cancelar edição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorEditButtonHint">
+            <summary>
+              Looks up a localized string similar to Voltar edição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorEndEditButtonHint">
+            <summary>
+              Looks up a localized string similar to Salvar edição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorFirstButtonHint">
+            <summary>
+              Looks up a localized string similar to Primeiro.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorLastButtonHint">
+            <summary>
+              Looks up a localized string similar to Últimos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorNextButtonHint">
+            <summary>
+              Looks up a localized string similar to Próximo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorNextPageButtonHint">
+            <summary>
+              Looks up a localized string similar to Próxima Página.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorPreviousButtonHint">
+            <summary>
+              Looks up a localized string similar to Anterior.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorPreviousPageButtonHint">
+            <summary>
+              Looks up a localized string similar to Página Anterior.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorRemoveButtonHint">
+            <summary>
+              Looks up a localized string similar to Deletar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.NavigatorTextStringFormat">
+            <summary>
+              Looks up a localized string similar to {0} de {1}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.OK">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupFilterAll">
+            <summary>
+              Looks up a localized string similar to (Todos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupFilterBlanks">
+            <summary>
+              Looks up a localized string similar to (Brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupFilterCustom">
+            <summary>
+              Looks up a localized string similar to (Personalizar).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupFilterNonBlanks">
+            <summary>
+              Looks up a localized string similar to (Não brancos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuCollapse">
+            <summary>
+              Looks up a localized string similar to Fechar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuCollapseAll">
+            <summary>
+              Looks up a localized string similar to Fechar todos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuExpand">
+            <summary>
+              Looks up a localized string similar to Expandir.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuExpandAll">
+            <summary>
+              Looks up a localized string similar to Expandir todos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuFieldOrder">
+            <summary>
+              Looks up a localized string similar to Ordenar campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuHideField">
+            <summary>
+              Looks up a localized string similar to Ocultar campo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuHideFieldList">
+            <summary>
+              Looks up a localized string similar to Ocultar lista de campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuMovetoBeginning">
+            <summary>
+              Looks up a localized string similar to Mover para o inicio.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuMovetoEnd">
+            <summary>
+              Looks up a localized string similar to Mover para o fim.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuMovetoLeft">
+            <summary>
+              Looks up a localized string similar to Mover para esquerda.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuMovetoRight">
+            <summary>
+              Looks up a localized string similar to Mover para direita.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuRefreshData">
+            <summary>
+              Looks up a localized string similar to Atualiza dados.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuShowFieldList">
+            <summary>
+              Looks up a localized string similar to Mostra lista campos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuShowPrefilter">
+            <summary>
+              Looks up a localized string similar to Editar filtros.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuSortFieldByColumn">
+            <summary>
+              Looks up a localized string similar to Ordenar colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PopupMenuSortFieldByRow">
+            <summary>
+              Looks up a localized string similar to Ordenar linhas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.PrefilterFormCaption">
+            <summary>
+              Looks up a localized string similar to Filtros.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.RowHeadersCustomization">
+            <summary>
+              Looks up a localized string similar to Linhas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.SelectAll">
+            <summary>
+              Looks up a localized string similar to (Todos).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.StringId_FilterOutlookDateText">
+            <summary>
+              Looks up a localized string similar to Menor que este ano.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.SummaryEditorFormCancelButton">
+            <summary>
+              Looks up a localized string similar to Cancelar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.SummaryEditorFormItemsTabCaption">
+            <summary>
+              Looks up a localized string similar to Colunas.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.SummaryEditorFormOkButton">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.SummaryEditorFormOrderTabCaption">
+            <summary>
+              Looks up a localized string similar to Ordenar grupos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuCopy">
+            <summary>
+              Looks up a localized string similar to Copiar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuCut">
+            <summary>
+              Looks up a localized string similar to Recortar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuDelete">
+            <summary>
+              Looks up a localized string similar to Limpar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuPaste">
+            <summary>
+              Looks up a localized string similar to Colar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuSelectAll">
+            <summary>
+              Looks up a localized string similar to Selecionar tudo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TextEditMenuUndo">
+            <summary>
+              Looks up a localized string similar to Desfazer última edição.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.TraducaoDevExpressRes.TotalSummaryEditorFormCaption">
+            <summary>
+              Looks up a localized string similar to Editar totais.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.CriptografiaBO">
+            <summary>
+            Classe com métodos úteis à criptografia.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Criptografar(System.String,System.Byte,System.Boolean)">
+            <summary>
+            Retornar o texto informado criptografado pelas regras Globus/BGM.
+            </summary>
+            <param name="texto">Texto a criptografar.</param>
+            <param name="quantidadePosicoes">Quantidade de posições que o texto deve ter.</param>
+            <param name="posicional">Indicação de senha posicional ou não.</param>
+            <returns>Texto criptografado pelas regras Globus/BGM.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Criptografar(System.String,System.Int32)">
+            <summary>
+            Retornar o texto informado criptografado pelas regras Globus/BGM.
+            </summary>
+            <param name="texto">Texto a criptografar.</param>
+            <param name="inteiro">Inteiro default 48.</param>
+            <returns>Texto criptografado pelas regras Globus/BGM.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.Descriptografar(System.String)">
+            <summary>
+            Descriptografar o texto informado.
+            </summary>
+            <param name="texto">Texto a ser descriptografar.</param>
+            <returns>string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.SimplesCriptografar(System.String)">
+            <summary>
+            Rotina para simples criptografia.
+            </summary>
+            <param name="cChave">Texto a criptografar.</param>
+            <returns>Texto criptografado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.CriptografiaBO.SimplesDescriptografar(System.String)">
+            <summary>
+            Rotina para simples descriptografia.
+            </summary>
+            <param name="cChaveCripto">Texto a descriptografar.</param>
+            <returns>Texto descriptografado.</returns>
+        </member>
+        <member name="T:FGlobus.Testes.Util.Conversao.ConversaoBO_UnitTest">
+            <summary>
+            Classe reservada aos métodos para testes.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Conversao.ConversaoBO_UnitTest.StringParaAlfa_UnitTest">
+            <summary>
+            Testa o metodo <c>StringParaAlfa</c>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.SerializacaoBO">
+            <summary>
+            Classe para a serialização e deserialização dos objetos.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.SerializacaoBO.Serializar(System.Object)">
+            <summary>
+            Transforma um objeto em string XML.
+            </summary>
+            <param name="objeto">Objeto a ser serializado.</param>
+            <returns>String contendo a serialização XML do objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.SerializacaoBO.Deserializar(System.String,System.Type)">
+            <summary>
+            Transforma uma serialização XML em objeto.
+            </summary>
+            <param name="xml">String contendo a serialiação XML a ser convertida.</param>
+            <param name="type">Tipo do objeto que a serialização representa.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="T:FGlobus.Util.ValidacaoBO">
+            <summary>
+            Classe com métodos úteis à validação de entradas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidaInscricao(System.String)">
+            <summary>
+            Retorna o tipo de incrição validada da incrição informada.
+            </summary>
+            <param name="inscricao">Número da inscrição (CPF,CNPJ,etc...).</param>
+            <returns>eTiposIncricoes.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCEI(System.String)">
+            <summary>
+            Validar quantidade de caracteres da matrícula CEI informada.
+            </summary>
+            <param name="cei">Matrícula CEI.</param>
+            <exception cref="P:FGlobus.Excecao.UtilExcecao.CEIInvalido">Gerada quando matricula CEI informada não for válida.</exception>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCPF(System.String)">
+            <summary>
+            Validar digito verificados de CPF informado.
+            </summary>
+            <param name="cpf">Número do CPF.</param>
+            <exception cref="P:FGlobus.Excecao.UtilExcecao.CPFInvalido">Gerada quando CPF informado não for válido.</exception>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarCNPJ(System.String)">
+            <summary>
+            Validar digito verificador de CNPJ informado.
+            </summary>
+            <param name="cnpj">Número do CNPJ.</param>
+            <exception cref="P:FGlobus.Excecao.UtilExcecao.CNPJInvalido">Gerada quando CNPJ informado não for válido.</exception>        
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ConsisteInscricaoEstadual(System.String,System.String)">
+            <summary>
+            Valida consistência de Inscrição Estadual para a UF informada.
+            <remarks>
+            Necessita assembly DllInscE32.DLL disponibilizado em http://www.sintegra.gov.br
+            </remarks>
+            </summary>
+            <param name="Insc">Inscrição estadual a validar.</param>
+            <param name="UF">Código da unidade federativa da Inscrição Estadual a validar.</param>
+            <returns>
+            Inteiro:
+            <list type="bullet">
+            <item><description>0 Incrição estadual VÁLIDA para a UF informada.</description></item>
+            <item><description>1 Incrição estadual INVÁLIDA para a UF informada.</description></item>
+            <item><description>2 Parâmetros incorretos.</description></item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:FGlobus.Util.ValidacaoBO.ValidarIE(System.String,System.String)">
+            <summary>
+            Valida consistência de Inscrição Estadual para a UF informada.
+            <remarks>
+            Necessita DllInscE32.DLL instalada junto ao projeto.
+            </remarks>
+            </summary>
+            <param name="IE">Inscrição estadual a validar.</param>
+            <param name="UF">Código da unidade federativa da Inscrição Estadual a validar.</param>
+            <exception cref="P:FGlobus.Excecao.UtilExcecao.ErroAcessarDllInscE32">Gerada se DLL da Sintegra (DllInscE32.DLL) não estiver devidadmente instalada junto ao assembly.</exception>
+            <exception cref="P:FGlobus.Excecao.UtilExcecao.IEInvalida">Gerada quando IE não for válida para o estado informado.</exception>        
+        </member>
+        <member name="T:FGlobus.Util.ValidacaoBO.eTiposInscricoes">
+            <summary>
+            Tipo de incrição.
+            <remarks>
+            <list type="bullet">
+            <item><description>CNPJ</description></item>
+            <item><description>CPF</description></item>
+            <item><description>CEI</description></item>
+            <item><description>Desconhecido</description></item>/// 
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CNPJ">
+            <summary>
+            Número de incrição válida como CNPJ
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CPF">
+            <summary>
+            Número de incrição válida como CPF
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.CEI">
+            <summary>
+            Número de incrição válida como CEI
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.ValidacaoBO.eTiposInscricoes.Desconhecido">
+            <summary>
+            Número de desconhecido
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.GenericoBO">
+            <summary>
+            Classe reservada aos métodos de regras de negócio relacionada a movimentação de serviços do Cargas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.Apagar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Apaga genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ApagaLista(System.Collections.Generic.IList{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Apaga listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarOuAlterar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Salva ou altera genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.SalvarLista(System.Collections.Generic.IList{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Salva listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retornar o próximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.IList{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retorna o maximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarTodos(System.String)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaPorChave(System.String,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasica(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.ConsultaBasicaDosCampos(System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[],System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Consulta básica por condições dos campos informados.
+            </summary>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <param name="campos">Lista de string com o nome dos campos.</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarDataHoraBanco">
+            <summary>
+            Retorna a data hora do banco de dados.
+            </summary>
+            <returns>Objeto do tipo DateTime.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.RetornarProximaSequenciaBD(System.String)">
+            <summary>
+            Retorna numero da proxima sequence de acordo com o nome da sequence informada.
+            </summary>
+            <returns>Objeto do tipo Double.</returns>
+        </member>
+        <member name="M:FGlobus.Util.GenericoBO.AcessoWebService(FGlobus.Comum.DAL.sAutenticacaoWebService)">
+            <summary>
+            Permissão Acesso ao WebService
+            </summary>
+            <param name="AcessoWebService">Parâmetros</param>
+            <returns>Bool</returns>
+        </member>
+        <member name="T:FGlobus.Comum.WebService.GlobusBaseWS">
+            <summary>
+            Classe base para WebService Globus.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoApagar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Apaga genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoApagaLista(System.Collections.Generic.List{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Apaga listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoSalvarOuAlterar(FGlobus.Comum.DTO.DataTransferObject)">
+            <summary>
+            Salva ou altera genérico.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DataTransferObject.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoSalvarLista(System.Collections.Generic.List{FGlobus.Comum.DTO.DataTransferObject})">
+            <summary>
+            Salva listas genérico.
+            </summary>
+            <param name="listaDataTransferObject">Objeto do tipo IList.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarProximoValorPropriedadePorCondicoes(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.List{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarProximoValorPropriedadePorCondicao(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o próximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarProximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retornar o próximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Inteiro.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarMaximoValorPropriedadePorCondicoes(FGlobus.Comum.DTO.DataTransferObject,System.String,System.Collections.Generic.List{FGlobus.Comum.DAL.sCondicaoAdicionalCriteria})">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a lista de condições passadas.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="condicoes">Lista de objeto do tipo sCondicaoAdicionalCriteria.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarMaximoValorPropriedadePorCondicao(FGlobus.Comum.DTO.DataTransferObject,System.String,System.String,FGlobus.Comum.DAL.eOperador,System.Object)">
+            <summary>
+            Retornar o maximo valor da propriedade informada conforme a condição passada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <param name="nomePropriedadeCondicao">Nome da propriedade da condição.</param>
+            <param name="operadorCondicao">Operador da condição.</param>
+            <param name="valorCondicao">Valor da condição.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarMaximoValorPropriedade(FGlobus.Comum.DTO.DataTransferObject,System.String)">
+            <summary>
+            Retorna o maximo valor da propriedade informada.
+            </summary>
+            <param name="dataTransferObject">Objeto do tipo DTO.</param>
+            <param name="nomePropriedade">Nome da propriedade.</param>
+            <returns>Objeto.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.VerificarChaveAcesso(System.String,System.String)">
+            <summary>
+            Verificar se a chave acesso informada é igual a ValorChaveCRUD.
+            </summary>
+            <param name="chaveAcesso">Valor da chave acesso.</param>
+            <param name="nomeMetodo">Nome do método para retorno.</param>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaPorChave(System.String,System.String,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="chave">Chave do objeto informado. </param>
+            <returns>Objeto do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoRetornarTodos(System.String,System.String)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaBasicaPorCondicoes(System.String,System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaBasicaPorCondicao(System.String,System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria)">
+            <summary>
+            Consulta básica por condição.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicao">Objetos com a condição da consulta.</param>
+            <returns>Lista de objetos do tipo DataTransferObject.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaBasicaPorCondicoesDosCampos(System.String,System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria[],System.String[])">
+            <summary>
+            Consulta básica por condições dos campos informados.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicoes">Lista de objetos com as condições da consulta.</param>
+            <param name="campos">Lista de string com o nome dos campos.</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.GenericoConsultaBasicaPorCondicaoDosCampos(System.String,System.String,FGlobus.Comum.DAL.sCondicaoAdicionalCriteria,System.String[])">
+            <summary>
+            Consulta básica por condição dos campos informados.
+            </summary>
+            <param name="chaveAcesso">Chave de acesso para acessar o método direto do WebService.</param>
+            <param name="nomeDTO">Nome do DTO.</param>
+            <param name="condicao">Objetos com a condição da consulta.</param>
+            <param name="campos">Lista de string com o nome dos campos.</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Comum.WebService.GlobusBaseWS.RetornarDataHoraBanco">
+            <summary>
+            Retorna a data hora do banco de dados.
+            </summary>
+            <returns>Objeto do tipo DateTime.</returns>
+        </member>
+        <member name="T:FGlobus.Util.MasterFormGlobus">
+            <summary>
+            Master form para TODAS as telas.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.MasterFormGlobus.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.#ctor(System.String)">
+            <summary>
+            Construtor
+            </summary>
+            <param name="itemDeMenuChamador">Nome do item menu que abriu o formulario</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Sobreposição do método para controlar o ENTER e o ESC.
+            </summary>
+            <param name="e">Objeto do tipo KeyPressEventArgs.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Sobreposição do método para redefinir a variavel "_sentidoNavegacao".
+            </summary>
+            <param name="e">Objeto do tipo KeyEventArgs.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Sobreposição do método para redefinir a variavel "_sentidoNavegacao".
+            </summary>
+            <param name="e">Objeto do tipo KeyEventArgs.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.ProcessTabKey(System.Boolean)">
+            <summary>
+            Sobreposição do método para redefinir a variavel "_sentidoNavegacao".
+            </summary>
+            <param name="forward">Bool.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.SimulaEnter">
+            <summary>
+            Simula o enter deixando o sentido da navegação como None.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.OnLoad(System.EventArgs)">
+            <summary>
+            Sobreposição do método para focar o primeiro controle quando informado.
+            </summary>
+            <param name="e">Objeto do tipo EventArgs.</param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Altera a forma de execusão do form conforme a mensagem
+            </summary>
+            <param name="m">Mensagem do S.O."API" </param>
+        </member>
+        <member name="M:FGlobus.Util.MasterFormGlobus.RedefineTamanhoMinimoForm(System.Drawing.Size)">
+            <summary>
+            Redefine o limite minimo do form.
+            </summary>
+            <param name="tamanhoMinimoForm">Objeto do tipo Size.</param>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.Text">
+            <summary>
+            (Set/Get) Informa ou retorna o titulo da tela.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.PrimeiroControle">
+            <summary>
+            (Set/Get) Informa ou retorna o primeiro controle da tela.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.SentidoNavegacao">
+            <summary>
+            (Get/Set) Informa ou retorna o sentido da navegação.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item><description>(Enter/Tab)   eSentidoNavegacao.Fore.</description></item>
+            <item><description>(Esc/Alt-Tab) eSentidoNavegacao.Back.</description></item>
+            <item><description>(Pelo mouse)  eSentidoNavegacao.None.</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.MenuChamador">
+            <summary>
+            (Get) Retorna o nome do item de menu que "chamou" o form.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.Icon">
+            <summary>
+             (Get/Set) Informa ou retorna o icone do formulario.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.HelpButton">
+            <summary>
+             (Get/Set) Informa ou retorna se vai mostrar o botão de help na barra de titulo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.MaximizeBox">
+            <summary>
+             (Get/Set) Informa ou retorna se vai mostrar o botão de maximizar na barra de titulo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.IsMdiContainer">
+            <summary>
+             (Get/Set) Informa ou retorna se o formulario vai ser um container.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.MinimizeBox">
+            <summary>
+             (Get/Set) Informa ou retorna se vai mostrar o botão de minimizar na barra de titulo.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.WindowState">
+            <summary>
+             (Get/Set) Informa ou retorna o estado da tela.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.MinimumSize">
+            <summary>
+             (Get/Set) Informa ou retorna o tamanho minimo do formulario.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.Opacity">
+            <summary>
+             (Get/Set) Informa ou retorna a opacidade do formulario.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.MasterFormGlobus.FormBorderStyle">
+            <summary>
+             (Get/Set) Informa ou retorna a borda do formulario.
+            </summary>
+        </member>
+        <member name="E:FGlobus.Util.MasterFormGlobus.ClicouNoMinimizar">
+            <summary>
+            Publica o evendo ClicouNoMinimizar.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.MasterFormGlobus.eSentidoNavegacao">
+            <summary>
+            Controla o sentido da navegação
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.MasterFormGlobus.eSentidoNavegacao.None">
+            <summary>
+            Estado normal
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.MasterFormGlobus.eSentidoNavegacao.Fore">
+            <summary>
+            Pressionou ENTER
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.MasterFormGlobus.eSentidoNavegacao.Back">
+            <summary>
+            Pressionou ESC
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.MasterFormGlobus.ClicouNoMinimizarEventHandler">
+            <summary>
+            Delegate para controlar o botão minimizar da tela, alterando a propriedade "Visible" em vez "WindowState" 
+            </summary>
+            <param name="sender">Tela</param>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDeMetodos">
+            <summary>
+            Classe estático reservada para criação de "Extension Methods".
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaPorChave``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object)">
+            <summary>
+            Consulta por chave.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que esta sendo executado.</param>
+            <param name="chave">Chave com o valor da pesquisa.</param>
+            <returns>Objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoRetornarTodos``1(System.Web.Services.Protocols.SoapHttpClientProtocol)">
+            <summary>
+            Retornar lista com todos os objetos.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasica``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object[])">
+            <summary>
+            Consulta básica por condições.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicoes">Lista de objeto do tipo "sCondicaoAdicionalCriteria" com as condições da consulta.</param>        
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasica``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object)">
+            <summary>
+            Consulta básica por condição.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicao">Objeto do tipo "sCondicaoAdicionalCriteria" com a condição da consulta.</param>        
+            <returns>Lista de objetos do tipo informado.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasicaDosCampos``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object[],System.String[])">
+            <summary>
+            Consulta básica por condições dos campos informados.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicoes">Lista de objeto do tipo "sCondicaoAdicionalCriteria" com as condições da consulta.</param>        
+            <param name="campos">Lista de string com o nome dos campos</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.GenericoConsultaBasicaDosCampos``1(System.Web.Services.Protocols.SoapHttpClientProtocol,System.Object,System.String[])">
+            <summary>
+            Consulta básica por condição dos campos informados.
+            </summary>
+            <typeparam name="T">Tipo do objeto DataTransferObject.</typeparam>
+            <param name="valor">Objeto que está executando o metodo.</param>
+            <param name="condicao">Objeto do tipo "sCondicaoAdicionalCriteria" com a condição da consulta.</param>        
+            <param name="campos">Lista de string com o nome dos campos</param>
+            <returns>Objeto do tipo DataTable.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.ConverteCor(System.String)">
+            <summary>
+            Converte string de cor em System.Windows.Media.Brush.
+            </summary>
+            <param name="valor">String</param>
+            <returns>Objeto do tipo System.Windows.Media.Brush</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.ConverteImage(System.String)">
+            <summary>
+            Converte string com byte[] em System.Drawing.Image.
+            </summary>
+            <param name="valor">String</param>
+            <returns>Objeto do tipo System.Drawing.Image</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.ConverterPrimeiraLetraParaMaiuscula(System.String,System.Boolean)">
+            <summary>
+            Converte a primeira letra de cada palavra para maiuscula.
+            </summary>
+            <param name="valor">String</param>
+            <param name="todas">Todas palavras da string</param>
+            <returns>Objeto do tipo string.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.RemoverCaracterEspecial(System.String,System.String)">
+            <summary>
+            Remove os caracteres especiais.
+            </summary>
+            <param name="valor">String.</param>
+            <param name="subistituirPor">Substitui caracter especial encontrado pelo informado.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.RemoverAcentuacao(System.String)">
+            <summary>
+            Remove acentuação dos caracteres.
+            </summary>
+            <param name="valor">String.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Concatenar(System.String,System.Char,System.Object[])">
+            <summary>
+            Concatena uma lista de objetos em um texto separando o pelo caracter de separação informado.
+            </summary>
+            <param name="valor">String</param>
+            <param name="caracaterSeparacao">Caracater de separação.</param>
+            <param name="valores">Lista de objeto dos tipo object</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Concatenar(System.String,System.Object[])">
+            <summary>
+            Concatena uma lista de objetos em um texto separando o por ' - '.
+            </summary>
+            <param name="valor">String</param>
+            <param name="valores">Lista de objeto dos tipo object</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:FGlobus.Util.ExtensaoDeMetodos.Update``1(System.Collections.Generic.IEnumerable{``0},FGlobus.Util.ExtensaoDeMetodos.Func{``0})">
+            <summary>
+            Atualiza os campos informados na lista.
+            </summary>
+            <typeparam name="TSource">Tipo de lista.</typeparam>
+            <param name="source">Lista.</param>
+            <param name="update">Campos.</param>
+            <returns>Retorna a lista atualizada.</returns>
+        </member>
+        <member name="T:FGlobus.Util.ExtensaoDeMetodos.Func`1">
+            <summary>
+            Delegate para controlar uma expressão linq
+            </summary>
+            <typeparam name="TArg0">Tipo de objeto"Generico".</typeparam>
+            <param name="element">Parametro.</param>
+        </member>
+        <member name="T:FGlobus.Testes.Util.Criptografia.CriptografiaBO_UnitTest">
+            <summary>
+            Classe reservada aos métodos para testes.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Testes.Util.Criptografia.CriptografiaBO_UnitTest.Criptografar_UnitTest">
+            <summary>
+            Testa o metodo <c>Criptografar</c>.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Cargas.ParametroPerguntaComResposta">
+            <summary>
+            Classe de acesso a lista com perguntas e respotas do parâmetros do Cargas.
+            </summary>
+        </member>
+        <member name="M:FGlobus.Util.Cargas.ParametroPerguntaComResposta.#ctor(System.Collections.Generic.List{FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta})">
+            <summary>
+            Contrutor default.
+            </summary>
+            <param name="respostas">Lista de objeto do tipo sRespostaCargas.</param>
+        </member>
+        <member name="M:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RetornarResposta(System.Int32)">
+            <summary>
+            Retorna a resposta do codigo interno da pergunta informada.
+            </summary>
+            <param name="codigoPergunta">Código interno da pergunta.</param>
+            <returns></returns>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.Codigo">
+            <summary>
+            Código interno da pergunta.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.Pergunta">
+            <summary>
+            Descrição da pergunta.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaLogico">
+            <summary>
+            Retorna a resposta na forma "bool", conforme o tipo do parâmetro "S/N".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaData">
+            <summary>
+            Retorna a resposta na forma "DateTime", conforme o tipo do parâmetro "DAT".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaTexto">
+            <summary>
+            Retorna a resposta na forma string, conforme o tipo do parâmetro "OPC ou TEX".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.RespostaNumerico">
+            <summary>
+            Retorna a resposta na forma "Decimal", conforme o tipo do parâmetro "NUM".
+            </summary>
+        </member>
+        <member name="P:FGlobus.Util.Cargas.ParametroPerguntaComResposta.AchouResposta">
+            <summary>
+            Retorna true se achar a resposta.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta">
+            <summary>
+            Estrutura para perguntas e respotas do parâmetros do Cargas.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.Codigo">
+            <summary>
+            Codigo interno da pergunta.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.Pergunta">
+            <summary>
+            Descrição da pergunta.
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaLogico">
+            <summary>
+            Resposta na forma "bool", conforme o tipo do parâmetro "S/N".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaData">
+            <summary>
+            Resposta na forma "DateTime", conforme o tipo do parâmetro "DAT".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaTexto">
+            <summary>
+            Resposta na forma string, conforme o tipo do parâmetro "OPC ou TEX".
+            </summary>
+        </member>
+        <member name="F:FGlobus.Util.Cargas.ParametroPerguntaComResposta.sParametroPerguntaComResposta.RespostaNumerico">
+            <summary>
+            Resposta na forma "Decimal", conforme o tipo do parâmetro "NUM".
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<!-- =======================================
+      Ball.xaml (c) 2007 by Charles Petzold
+     ======================================= -->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      WindowTitle="Ball"
+      Title="Ball">
+    <Canvas>
+        <Ellipse Canvas.Left="96" Canvas.Top="96"
+                 Width="144" Height="144">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.4 0.4">
+                    <GradientStop Offset="0" Color="#FFC0C0" />
+                    <GradientStop Offset="1" Color="#D00000" />
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Canvas>
+</Page>

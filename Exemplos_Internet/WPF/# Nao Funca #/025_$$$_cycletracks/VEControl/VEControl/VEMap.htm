@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2"></script>
+
+  <script type="text/javascript">
+    var map = null;
+
+    window.onerror = function(message, uri, line) {
+      window.external.ThrowWindowError(message, uri, line);
+    }
+
+    function Init() {
+      try {
+        // Load map
+        map = new VEMap("map");
+        map.onLoadMap = map_Loaded;
+        var mapOptions = new VEMapOptions();
+        // mapOptions.EnableBirdseye = false;
+
+        // Made map start in Antwerp, where TechDays is
+        var antwerp = new VELatLong(51.231478338, 4.429335);
+        map.LoadMap(antwerp, 14, VEMapStyle.Hybrid, false, VEMapMode.Mode2d, true, 2, mapOptions);
+
+        // map.AttachEvent("onerror", map_onerror);
+        // map.AttachEvent("onchangeview", map_onchangeview);
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function map_onchangeview(e) {
+      window.external.OnChangeView();
+    }
+
+    function map_oninitmode(e) {
+      window.external.OnInitMode();
+    }
+
+    function map_onerror(e) {
+      window.external.ThrowMapError(e.Error, e.eventName);
+    }
+
+    function map_Loaded() {
+      window.external.OnMapLoaded();
+    }
+
+    function Resize(width, height) {
+      try {
+        if (map != null) {
+          map.Resize(parseInt(width), parseInt(height));
+        }
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetZoomLevel(x) {
+      try {
+        map.SetZoomLevel(parseInt(x));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function GetZoomLevel() {
+      try {
+        return map.GetZoomLevel();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function ZoomIn() {
+      try {
+        map.ZoomIn();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function ZoomOut() {
+      try {
+        map.ZoomOut();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function Pan(x, y) {
+      try {
+        map.Pan(parseInt(x), parseInt(y));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function StartContinuousPan(x, y) {
+      try {
+        map.StartContinuousPan(parseInt(x), parseInt(y));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function EndContinuousPan() {
+      try {
+        map.EndContinuousPan();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetMapMode(x) {
+      try {
+        map.SetMapMode(parseInt(x));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function GetMapMode() {
+      try {
+        return map.GetMapMode();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function GetMapStyle() {
+      try {
+        return map.GetMapStyle();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetMapStyle(x) {
+      try {
+        map.SetMapStyle(x);
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function PixelToLatLong(x, y) {
+      var latLong = map.PixelToLatLong(new VEPixel(parseInt(x), parseInt(y)));
+      return latLong.Latitude + "|" + latLong.Longitude;
+    }
+
+    function LatLongToPixel(lat, lon) {
+      try {
+        var pixel = map.LatLongToPixel(new VELatLong(parseFloat(lat), parseFloat(lon)));
+        if (pixel == null) {
+          return null;
+        }
+        else {
+          return pixel.x + "|" + pixel.y;
+        }
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function AddShape(type, stringOfLatLong) {
+      var shape;
+
+      try {
+        switch (type) {
+          case "Pushpin":
+            shape = new VEShape(VEShapeType.Pushpin, StringToLatLongArray(stringOfLatLong));
+            break;
+          case "Polyline":
+            shape = new VEShape(VEShapeType.Polyline, StringToLatLongArray(stringOfLatLong));
+            //NOTE: We should let the WPF layer decide the next two lines, 
+            //      but hard coded the values due to time constraints
+            shape.HideIcon();
+            shape.SetLineWidth(4);
+            break;
+          case "Polygon":
+            shape = new VEShape(VEShapeType.Polygon, StringToLatLongArray(stringOfLatLong));
+            //NOTE: We should let the WPF layer decide the next two lines, 
+            //      but hard coded the values due to time constraints
+            shape.HideIcon();
+            shape.SetLineWidth(4);
+            break;
+        }
+
+        map.AddShape(shape);
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function Clear() {
+      try {
+        map.Clear();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetMapView(stringOfLatLong) {
+      try {
+        map.SetMapView(StringToLatLongArray(stringOfLatLong));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function StringToLatLongArray(s) {
+      var arrayOfLatLongStrings = s.split("#");
+      var arrayOfLatLong = new Array();
+
+      for (var i = 0; i < arrayOfLatLongStrings.length; i++) {
+        var a = arrayOfLatLongStrings[i].split("|");
+        arrayOfLatLong.push(new VELatLong(parseFloat(a[0].replace(',', '.')), parseFloat(a[1].replace(',', '.'))));
+      }
+
+      return arrayOfLatLong;
+    }
+
+    function GetCenter() {
+      try {
+        var latLong = map.GetCenter();
+        return latLong.Latitude + "|" + latLong.Longitude;
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetCenter(lat, lon) {
+      try {
+        var latLong = map.SetCenter(new VELatLong(parseFloat(lat), parseFloat(lon)));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetPitch(pitch) {
+      try {
+        map.SetPitch(parseFloat(pitch));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function SetHeading(heading) {
+      try {
+        map.SetHeading(parseFloat(heading));
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function ShowDashboard() {
+      try {
+        map.ShowDashboard();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function HideDashboard() {
+      try {
+        map.HideDashboard();
+      }
+      catch (ex) {
+        window.external.ThrowVEException(ex.source, ex.name, ex.message);
+      }
+    }
+
+    function body_resize() {
+      if (map != null) {
+        if (typeof (window.innerWidth) == 'number') {
+          //Non-IE
+          map.Resize(window.innerWidth, window.innerHeight);
+        }
+        else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+          //IE 6+ in 'standards compliant mode'
+          map.Resize(document.documentElement.clientWidth, document.documentElement.clientHeight);
+        }
+      }
+    }
+  </script>
+
+</head>
+<body style="width: 100%; height: 100%; margin: 0 0 0 0;" onload="Init();" scroll="no"
+  onresize="body_resize();">
+  <div id='map' style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+  </div>
+</body>
+</html>

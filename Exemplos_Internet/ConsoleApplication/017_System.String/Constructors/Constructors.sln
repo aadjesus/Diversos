@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String00", "String00\String00.csproj", "{378B40C0-8071-45E0-BED6-D791608841EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String01", "String01\String01.csproj", "{5565FCDC-33E8-4D1C-BF24-DD22607F128B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String02", "String02\String02.csproj", "{19381018-1DC9-46B9-94B2-31C864A867D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{378B40C0-8071-45E0-BED6-D791608841EB}.Debug|x86.ActiveCfg = Debug|x86
+		{378B40C0-8071-45E0-BED6-D791608841EB}.Debug|x86.Build.0 = Debug|x86
+		{378B40C0-8071-45E0-BED6-D791608841EB}.Release|x86.ActiveCfg = Release|x86
+		{378B40C0-8071-45E0-BED6-D791608841EB}.Release|x86.Build.0 = Release|x86
+		{5565FCDC-33E8-4D1C-BF24-DD22607F128B}.Debug|x86.ActiveCfg = Debug|x86
+		{5565FCDC-33E8-4D1C-BF24-DD22607F128B}.Debug|x86.Build.0 = Debug|x86
+		{5565FCDC-33E8-4D1C-BF24-DD22607F128B}.Release|x86.ActiveCfg = Release|x86
+		{5565FCDC-33E8-4D1C-BF24-DD22607F128B}.Release|x86.Build.0 = Release|x86
+		{19381018-1DC9-46B9-94B2-31C864A867D5}.Debug|x86.ActiveCfg = Debug|x86
+		{19381018-1DC9-46B9-94B2-31C864A867D5}.Debug|x86.Build.0 = Debug|x86
+		{19381018-1DC9-46B9-94B2-31C864A867D5}.Release|x86.ActiveCfg = Release|x86
+		{19381018-1DC9-46B9-94B2-31C864A867D5}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

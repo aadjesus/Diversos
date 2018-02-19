@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListViewEx", "ListViewEx\ListViewEx.csproj", "{F6984E8B-D1AC-466A-B008-09C6A5634735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsApplication1", "WindowsApplication1\WindowsApplication1.csproj", "{5144266D-5F83-4D2C-81FD-D44ED759E872}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6984E8B-D1AC-466A-B008-09C6A5634735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6984E8B-D1AC-466A-B008-09C6A5634735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6984E8B-D1AC-466A-B008-09C6A5634735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6984E8B-D1AC-466A-B008-09C6A5634735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5144266D-5F83-4D2C-81FD-D44ED759E872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5144266D-5F83-4D2C-81FD-D44ED759E872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5144266D-5F83-4D2C-81FD-D44ED759E872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5144266D-5F83-4D2C-81FD-D44ED759E872}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

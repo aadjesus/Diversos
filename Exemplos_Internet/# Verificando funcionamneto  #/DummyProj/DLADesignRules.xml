@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Rules>
+	<Rule TypeName="stringwithStr" Category="Design sdsv Rules" CheckId="DR0006">
+		<Name>DSCP: String should start with str as prefix.</Name>
+		<Description>String should start with str as prefix.</Description>
+		<LongDescription>The most important consideration in naming a variable is that the name fully and accurately describe the entity the variable represents. You can almost always think of a better way to differentiate between two variables than by tacking a 1 or a 2 onto the end of the name.</LongDescription>
+		<GroupOwner>DSCP</GroupOwner>
+		<DevOwner>DSCP</DevOwner>
+		<Owner>DSCP</Owner>
+		<Url>http://www.patni.com</Url>
+		<Resolution>String should start with str '{0}'</Resolution>
+		<Email>pravin.kadam@patni.com</Email>
+		<MessageLevel Certainty="99">Warning</MessageLevel>
+		<Message Certainty="99">Warning</Message>
+		<FixCategories>NonBreaking</FixCategories>
+	</Rule>
+</Rules>

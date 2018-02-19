@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingWindow", "FloatingWindow.csproj", "{1CBB2442-FD42-4837-A818-D8C911308FF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{CA5A9579-268B-4799-AC79-1D28A64191C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1CBB2442-FD42-4837-A818-D8C911308FF8} = {1CBB2442-FD42-4837-A818-D8C911308FF8}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CBB2442-FD42-4837-A818-D8C911308FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBB2442-FD42-4837-A818-D8C911308FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBB2442-FD42-4837-A818-D8C911308FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBB2442-FD42-4837-A818-D8C911308FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5A9579-268B-4799-AC79-1D28A64191C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5A9579-268B-4799-AC79-1D28A64191C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5A9579-268B-4799-AC79-1D28A64191C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5A9579-268B-4799-AC79-1D28A64191C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

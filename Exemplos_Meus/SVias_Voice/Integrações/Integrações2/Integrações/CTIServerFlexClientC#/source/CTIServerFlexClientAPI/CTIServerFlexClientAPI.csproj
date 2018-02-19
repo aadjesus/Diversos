@@ -1,0 +1,110 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{520EAB27-AFCE-4CCA-8C56-A93B95D14FA0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTIServerFlexClientAPI</RootNamespace>
+    <AssemblyName>CTIServerFlexClientAPI</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CmdAnswer.cs" />
+    <Compile Include="Commands\CmdSetSendTo.cs" />
+    <Compile Include="Commands\CmdAgentLogon.cs" />
+    <Compile Include="Commands\CmdAgent.cs" />
+    <Compile Include="Commands\CmdAgentLogoff.cs" />
+    <Compile Include="Commands\CmdAgentReady.cs" />
+    <Compile Include="Commands\CmdAgentNotReady.cs" />
+    <Compile Include="Commands\CmdMakeCall.cs" />
+    <Compile Include="Commands\CmdConnectionClear.cs" />
+    <Compile Include="Commands\CommandSynch.cs" />
+    <Compile Include="Commands\CmdSetInformation.cs" />
+    <Compile Include="Commands\CmdDeflect.cs" />
+    <Compile Include="Commands\CmdTransfer.cs" />
+    <Compile Include="Commands\CmdHold.cs" />
+    <Compile Include="Commands\CmdRetrieve.cs" />
+    <Compile Include="Commands\CmdConsultation.cs" />
+    <Compile Include="Commands\CmdReconnect.cs" />
+    <Compile Include="Commands\CmdConference.cs" />
+    <Compile Include="Commands\CmdDevCalBase.cs" />
+    <Compile Include="Commands\LogonAPI.cs" />
+    <Compile Include="Commands\CommandControl.cs" />
+    <Compile Include="Commands\CommandResponse.cs" />
+    <Compile Include="Commands\Executable.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\ICommandListener.cs" />
+    <Compile Include="CTIServerFlexClientAPI.cs" />
+    <Compile Include="AppInformation.cs" />
+    <Compile Include="Protocol\DataProtocol.cs" />
+    <Compile Include="Protocol\Field.cs" />
+    <Compile Include="Protocol\VoiceProtocol.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Tables\AgentCall.cs" />
+    <Compile Include="Tables\AgentState.cs" />
+    <Compile Include="Tables\TableInformations.cs" />
+    <Compile Include="Tables\TableAgents.cs" />
+    <Compile Include="Tables\Information.cs" />
+    <Compile Include="Tables\ITableChangedListener.cs" />
+    <Compile Include="Tables\Table.cs" />
+    <Compile Include="Tables\TableCalls.cs" />
+    <Compile Include="Tables\TableChangedControl.cs" />
+    <Compile Include="Tables\TableRecord.cs" />
+    <Compile Include="VStream\IStream.cs" />
+    <Compile Include="VStream\StreamSocket.cs" />
+    <Compile Include="VStream\IStreamListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Versoes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

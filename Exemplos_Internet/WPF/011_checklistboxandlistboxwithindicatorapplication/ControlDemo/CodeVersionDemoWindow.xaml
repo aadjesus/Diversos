@@ -1,0 +1,240 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:CustomControls="clr-namespace:CustomControls;assembly=CustomControls"
+    xmlns:SystemDrawingPrinting="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"             
+    x:Class="CodeVersionDemoWindow"             
+    Title="ListBoxWithSelectedItemIndicator &amp; CheckListBox Demo" 
+    Height="Auto" 
+    Width="Auto"
+    ResizeMode="CanResizeWithGrip" 
+    SizeToContent="Manual"
+    >
+    <Window.Resources>
+        
+        <ObjectDataProvider x:Key="SelectionModeValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SelectionMode" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SelectionModeValues2" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SelectionMode" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        
+        <ObjectDataProvider x:Key="SystemDrawingPrintingValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SystemDrawingPrinting:PaperKind" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SystemDrawingPrintingValues2" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SystemDrawingPrinting:PaperKind" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SystemDrawingPrintingValues3" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SystemDrawingPrinting:PaperKind" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SystemDrawingPrintingValues4" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="SystemDrawingPrinting:PaperKind" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Width="Auto" Height="Auto" FontFamily="Consolas" FontSize="24" FontWeight="Bold" Foreground="#FF004BC9" Text="ListBoxWithSelectedItemIndicator &amp; CheckListBox Demo" TextAlignment="Center" TextWrapping="Wrap" x:Name="tbTitle" Background="#00000000" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="0,0,10,0" Grid.Row="1" Width="Auto" Height="Auto" FontFamily="Consolas" FontSize="14" Foreground="Black" TextAlignment="Center" xml:space="preserve">These controls were inspired by <Hyperlink x:Name="hlToJSArticle" >Josh Smith's awesome article.</Hyperlink></TextBlock>
+
+        <Border HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="2" BorderBrush="#FF222222" BorderThickness="1,1,1,1" CornerRadius="20,20,20,20" Padding="10,10,10,10">
+        	<Border.Background>
+        		<LinearGradientBrush EndPoint="0.526,0.968" StartPoint="0.526,0.021">
+        			<GradientStop Color="#FF98B3FF" Offset="0"/>
+        			<GradientStop Color="#FF85C1C4" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Border.Background>
+            <Grid Width="Auto" Height="Auto" Background="{x:Null}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Top" Height="Auto" Grid.ColumnSpan="3">
+                    <TextBlock Margin="0,0,10,0" VerticalAlignment="Center">Selection Mode:</TextBlock>
+                    <ComboBox x:Name="SelectionModeCombo" DataContext="{StaticResource SelectionModeValues}" IsReadOnly="True" ItemsSource="{Binding}" SelectedIndex="0"/>
+                </StackPanel>
+
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Height="Auto" Grid.Row="1" TextWrapping="Wrap">Standard No Properties Set<LineBreak/>Used Resources To Provide Color To Selected Items</TextBlock>
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Height="Auto" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap">Set Indicator HeightWidth To 32<LineBreak/>Enabled Smooth Scrolling</TextBlock>
+                <TextBlock HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Top" Height="Auto" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap">Set Indicator Brush<LineBreak/>Went Crazy With Items</TextBlock>
+
+                <CustomControls:ListBoxWithSelectedItemIndicator HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="10,10,10,10" FontSize="12" ClipToBounds="True" Background="#FFFFFFFF" BorderBrush="#FF000000" BorderThickness="1,1,1,1" Padding="5,5,5,5" Grid.Row="3" IndicatorHeightWidth="16">
+                    <CustomControls:ListBoxWithSelectedItemIndicator.Resources>
+                    	<LinearGradientBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" EndPoint="1,0.5" StartPoint="0,0.5">
+                    		<GradientStop Color="#FF3FBA00" Offset="0"/>
+                    		<GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    	</LinearGradientBrush>
+                    	<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FFCDFFC9"/>
+                    </CustomControls:ListBoxWithSelectedItemIndicator.Resources>
+
+                    <ListBox x:Name="lbDemoOne" Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" DataContext="{DynamicResource SystemDrawingPrintingValues}" ItemsSource="{Binding}" FontSize="16" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo, Mode=OneWay}"/>
+                </CustomControls:ListBoxWithSelectedItemIndicator>
+
+                <CustomControls:ListBoxWithSelectedItemIndicator HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="10,10,10,10" FontSize="12" ClipToBounds="True" Background="#FFDEFDFF" BorderBrush="#FF00A7B9" BorderThickness="1,1,1,1" Padding="5,5,5,5" Grid.Row="3" Grid.Column="1" IndicatorHeightWidth="32" >
+                    <!-- Notice that this ListBox has smooth scrolling enabled.  Attached property ScrollViewer.CanContentScroll="False" actually turns on smooth scrolling by telling the scollviewer that the ListBox does not know how to scroll its items.-->
+                    <ListBox ScrollViewer.CanContentScroll="False" x:Name="lbDemoTwo"  Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" DataContext="{DynamicResource SystemDrawingPrintingValues2}" ItemsSource="{Binding}" FontSize="24" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo, Mode=OneWay}"/>
+                </CustomControls:ListBoxWithSelectedItemIndicator>
+
+                <Border ClipToBounds="True" Margin="10,10,10,10" Grid.Column="2" Grid.Row="3" BorderBrush="#FF00AE16" BorderThickness="2,2,2,2" CornerRadius="20,20,20,20" Padding="10,10,10,10">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.51,0.993" StartPoint="0.51,0.065">
+                            <GradientStop Color="#FF00AE16" Offset="0"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <CustomControls:ListBoxWithSelectedItemIndicator HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" FontSize="12" ClipToBounds="True" Background="#FFFFFFFF" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Padding="5,5,5,5" Grid.Row="2" Grid.Column="2" IndicatorHeightWidth="16" >
+                        <CustomControls:ListBoxWithSelectedItemIndicator.IndicatorBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFF8FF72" Offset="0"/>
+                                <GradientStop Color="#FFFF0000" Offset="0.992"/>
+                            </LinearGradientBrush>
+                        </CustomControls:ListBoxWithSelectedItemIndicator.IndicatorBrush>
+                        <ListBox x:Name="lbDemoThree"  Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" FontSize="16" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo, Mode=OneWay}">
+                            <ListBoxItem Content="How"/>
+                            <ListBoxItem Content="Cool"/>
+                            <ListBoxItem Content="Is"/>
+                            <ListBoxItem Content="WPF!"/>
+                            <Ellipse Fill="#FFF32929" Stroke="#FF000000" Margin="0,3,3,0" Width="30" Height="30"/>
+                            <Ellipse Fill="#FF0C5FB7" Stroke="#FF000000" Margin="0,3,3,0" Width="30" Height="30"/>
+                            <Ellipse Fill="#FF13D141" Stroke="#FF000000" Margin="0,3,3,0" Width="30" Height="30"/>
+                            <Rectangle Fill="#FFE46614" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,3,3,0" Width="50" Height="30"/>
+                            <Rectangle Fill="#FFD5D724" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,3,3,0" Width="50" Height="30"/>
+                            <Rectangle Fill="#FF2133CF" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,3,3,0" Width="50" Height="30"/>
+                            <Rectangle Fill="#FF67DF1F" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,3,3,0" Width="50" Height="30"/>
+                            <Rectangle Fill="#FF09A18C" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,3,3,0" Width="50" Height="30"/>
+                        </ListBox>
+                    </CustomControls:ListBoxWithSelectedItemIndicator>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="20,20,20,20" Padding="10,10,10,10" Background="#FF000000">
+            <Border CornerRadius="20,20,20,20">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.496,-0.129" StartPoint="0.504,1.129">
+                        <GradientStop Color="#FF000000" Offset="0"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                
+                <Grid Width="Auto" Height="Auto">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Top" Height="Auto" Grid.ColumnSpan="3">
+                        <TextBlock Margin="0,0,10,0" VerticalAlignment="Center">Selection Mode:</TextBlock>
+                        <ComboBox x:Name="SelectionModeCombo2" DataContext="{StaticResource SelectionModeValues}" IsReadOnly="True" ItemsSource="{Binding}" SelectedIndex="0"/>
+                    </StackPanel>
+
+                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Height="Auto" Grid.Row="1" Grid.RowSpan="1" TextWrapping="Wrap">Set CheckBox StrokeThickness To 1</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Height="Auto" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" TextWrapping="Wrap">Enabled Smooth Scrolling<LineBreak />Set CheckHeightWidth To 20</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Top" Height="Auto" Grid.Column="2" Grid.Row="1" Grid.RowSpan="1" TextWrapping="Wrap">Set CheckBox StrokeThickness To 4<LineBreak />Set StrokeBrush To Gradient<LineBreak />Set CheckHeightWidth To 16<LineBreak />Went Crazy With Items</TextBlock>
+
+                    <StackPanel Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" Grid.Row="2" Grid.RowSpan="1" Orientation="Horizontal">
+                        <TextBlock Text="Selected Items:" TextWrapping="Wrap"/>
+                        <TextBlock Margin="5,0,0,0" Text="{Binding Path=SelectedItems.Count, ElementName=lbDemoFour, Mode=Default}" TextWrapping="Wrap"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" Grid.Column="1" Grid.Row="2" Grid.RowSpan="1" Orientation="Horizontal">
+                        <TextBlock Text="Selected Items:" TextWrapping="Wrap"/>
+                        <TextBlock Margin="5,0,0,0" Text="{Binding Path=SelectedItems.Count, ElementName=lbDemoFive, Mode=Default}" TextWrapping="Wrap"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" Grid.Column="2" Grid.Row="2" Grid.RowSpan="1" Orientation="Horizontal">
+                        <TextBlock Text="Selected Items:" TextWrapping="Wrap"/>
+                        <TextBlock Margin="5,0,0,0" Text="{Binding Path=SelectedItems.Count, ElementName=lbDemoSix, Mode=Default}" TextWrapping="Wrap"/>
+                    </StackPanel>
+
+                    <CustomControls:CheckListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="10,10,10,10" FontSize="12" ClipToBounds="True" Background="#FFFFFFFF" BorderBrush="#FF000000" BorderThickness="1,1,1,1" Padding="5,5,5,5" Grid.Row="3" CheckBrushStrokeThickness="1" >
+                        <ListBox x:Name="lbDemoFour" Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" DataContext="{DynamicResource SystemDrawingPrintingValues3}" ItemsSource="{Binding}" FontSize="16" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo2, Mode=OneWay}" />
+                    </CustomControls:CheckListBox>
+
+                    <CustomControls:CheckListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="10,10,10,10" FontSize="12" ClipToBounds="True" Background="#FF75A7FF" BorderBrush="#FF0017AC" BorderThickness="1,1,1,1" Padding="5,5,5,5" Grid.Row="3" Grid.Column="1" CheckHeightWidth="20">
+                        <!-- Notice that this ListBox has smooth scrolling enabled.  Attached property ScrollViewer.CanContentScroll="False" actually turns on smooth scrolling by telling the scollviewer that the ListBox does not know how to scroll its items.-->
+                        <ListBox ScrollViewer.CanContentScroll="False" x:Name="lbDemoFive"  Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" DataContext="{DynamicResource SystemDrawingPrintingValues4}" ItemsSource="{Binding}" FontSize="24" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo2, Mode=OneWay}"/>
+                    </CustomControls:CheckListBox>
+
+                    <Border ClipToBounds="True" Margin="10,10,10,10" Grid.Column="2" Grid.Row="3" BorderBrush="#FFD76E00" BorderThickness="2,2,2,2" CornerRadius="20,20,20,20" Padding="10,10,10,10">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.51,0.993" StartPoint="0.51,0.065">
+                                <GradientStop Color="#FFE99B00" Offset="0"/>
+                                <GradientStop Color="#FFFFF4DF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <CustomControls:CheckListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" FontSize="12" ClipToBounds="True" Background="#FFFFFFFF" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Padding="5,5,5,5" Grid.Row="2" Grid.Column="2" CheckBrushStrokeThickness="4" CheckHeightWidth="16">
+                    	    <CustomControls:CheckListBox.CheckBrush>
+                    		    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    			    <GradientStop Color="#FF0034AD" Offset="0"/>
+                    			    <GradientStop Color="#FF09E6AC" Offset="1"/>
+                    		    </LinearGradientBrush>
+                    	    </CustomControls:CheckListBox.CheckBrush>
+                            <ListBox x:Name="lbDemoSix"  Width="Auto" Height="Auto" IsSynchronizedWithCurrentItem="True" FontSize="16" SelectionMode="{Binding Path=Text, ElementName=SelectionModeCombo2, Mode=OneWay}">
+                                <ListBoxItem Content="How"/>
+                                <ListBoxItem Content="Cool"/>
+                                <ListBoxItem Content="Is"/>
+                                <ListBoxItem Content="WPF!"/>
+                                <Ellipse Fill="#FFF32929" Stroke="#FF000000" Margin="0,5,0,0" Width="30" Height="30"/>
+                                <Ellipse Fill="#FF0C5FB7" Stroke="#FF000000" Margin="0,5,0,0" Width="30" Height="30"/>
+                                <Ellipse Fill="#FF13D141" Stroke="#FF000000" Margin="0,5,0,0" Width="30" Height="30"/>
+                                <Rectangle Fill="#FFE46614" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,5,0,0" Width="50" Height="30"/>
+                                <Rectangle Fill="#FFD5D724" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,5,0,0" Width="50" Height="30"/>
+                                <Rectangle Fill="#FF2133CF" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,5,0,0" Width="50" Height="30"/>
+                                <Rectangle Fill="#FF67DF1F" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,5,0,0" Width="50" Height="30"/>
+                                <Rectangle Fill="#FF09A18C" Stroke="#FFFF0000" RadiusX="5" RadiusY="5" Margin="0,5,0,0" Width="50" Height="30"/>
+                            </ListBox>
+                        </CustomControls:CheckListBox>
+                    </Border>
+                </Grid>
+            </Border>
+        </Border>
+
+    </Grid>
+
+</Window>

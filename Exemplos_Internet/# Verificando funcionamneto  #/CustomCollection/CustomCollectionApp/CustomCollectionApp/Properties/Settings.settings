@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CustomCollectionApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Employees" Type="Organization.EmployeeCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Employee&gt;
+    &lt;FirstName&gt;John&lt;/FirstName&gt;
+    &lt;LastName&gt;Doe&lt;/LastName&gt;
+    &lt;DateOfHire&gt;2008-03-13T00:00:00&lt;/DateOfHire&gt;
+  &lt;/Employee&gt;
+  &lt;Employee&gt;
+    &lt;FirstName&gt;Jane&lt;/FirstName&gt;
+    &lt;LastName&gt;Doe&lt;/LastName&gt;
+    &lt;DateOfHire&gt;2008-03-01T00:00:00&lt;/DateOfHire&gt;
+  &lt;/Employee&gt;
+&lt;/ArrayOfEmployee&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

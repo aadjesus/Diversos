@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Laboratório JAPI - CTIServerFlex</title>
+</head>
+<body>
+<h2>Laboratório progressivo JAPI-CTIServerFlex</h2>
+<hr>
+<p>O objetivo deste laboratório é capacitar programadores para a utilização da 
+API java para CTIServerFlex.</p>
+<p>Este laboratório trabalha de forma progressiva, trazendo nas primeiras lições os 
+requisitos básicos da API e a cada novo exercício características mais avançadas 
+são exploradas.</p>
+<p>A API trabalha com conexão por socket utilizando TCP-IP e protocolo proprietário 
+Voice Technology. Através desta conexão, a API comunica-se com o servidor 
+(CTIServerFlex) para envio de comandos e recepção de respostas e eventos. <a href="laboratory\lab1.html">Lab1</a>.</p>
+<p>Através da API, o programador pode receber notificações sobre o estado desta 
+conexão pela implementação da interface 
+<code>br.com.voicetechnology.flexapi.stream.FlexStreamListener</code>.<a href="laboratory\lab2.html">Lab2</a>.</p>
+<p>Todas as informações do servidor são passadas para a API em forma de tabelas 
+(como um banco de dados). Eventos (CTIServerFlex -> API) são gerados para notificar 
+alterações sofridas nestas tabelas. Inclusão, alteração e exclusão de registros 
+são informados através destes eventos.</p>
+<p>Para receber as informações de alteração das tabelas, o programador deve implementar a 
+interface <code>br.com.voicetechnology.flexapi.collection.CollectionListener</code> 
+e adicionar o objeto implementado na tabela que se quer observar.<a href="laboratory\lab3.html">Lab3</a>.</p>
+<p>Existem três tabelas básicas no servidor que podem ser observadas:</p>
+- Calls: Responsável por manter as chamadas ativas em um determinado ramal.<br>
+- Informations: Mantém as informações anexadas as chamadas presentes no ramal.<br>
+- Agents: Mantém as informações dos agentes (Pontos de atendimentos em call centers), como 
+grupo logado, estado, etc.<br>
+<p>Para aplicativos Front-end, que se deseja a transferência de dados por exemplo da 
+URA para a PA (posição de atendimento), pode-se observar a tabela de chamadas na espera 
+de um evento de chamada entrante no ramal (evento de tocando) e então verificar os dados 
+anexados. <a href="laboratory\lab4.html">Lab4</a>.</p>
+<p>Para manipulação da chamada, pode-se enviar comandos para o servidor. Comandos como: 
+atendimento da chamada, desligamento, transferência, etc. Pode-se implementar por exemplo 
+atendimento automático da chamada (para ramais digitais) controlado pelo aplicativo Front-end. 
+<a href="laboratory\lab5.html">Lab5</a>.</p>
+<p>O aplicativo Front-end pode também anexar dados a chamada para uma posterior devolução para 
+a URA ou transferência para uma outra atendente ou supervisora. Os dados perpetuam na 
+chamada até que ela seja finalizada pelo último atendente.<a href="laboratory\lab6.html">Lab6</a>.</p>
+<p>O laboratório traz como último exercício, um aplicativo (console) que envia os principais 
+comandos através da linha de comando. Com este exemplo, pode-se atender a chamada, 
+colocar na espera, recuperar, desligar, anexar informações, etc.
+<a href="laboratory\lab7.html">Lab7</a>.</p>
+</body>
+</html>

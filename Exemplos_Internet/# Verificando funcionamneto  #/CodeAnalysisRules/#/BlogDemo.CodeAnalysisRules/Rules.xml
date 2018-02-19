@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rules FriendlyName="My Custom Rules">
+  <Rule TypeName="AllTypeNamesShouldEndInFoo" Category="CustomRules.Naming" CheckId="CR1000">
+    <Name>All type names should end in 'Foo'</Name>
+    <Description>I like all of my types to end in 'Foo' so that I know they're a type.</Description>
+    <Url>http://foobar.com</Url>
+    <Resolution>The name of type {0} does not end with the suffix 'Foo'. Add the suffix to the type name.</Resolution>
+    <MessageLevel Certainty="95">Warning</MessageLevel>
+    <FixCategories>Breaking</FixCategories>
+    <Email />
+    <Owner />
+  </Rule>
+</Rules>

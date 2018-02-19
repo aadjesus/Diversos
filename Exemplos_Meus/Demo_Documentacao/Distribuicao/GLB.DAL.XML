@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GLB.DAL</name>
+    </assembly>
+    <members>
+        <member name="T:Globus5.Globus.DAL.CadastroDeUfDAO">
+            <summary>
+            Classe de acesso a dados da tabela BGM_CADLINHAS
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DAL.CadastroDeUfDAO.RetornarCadastroDeUf(System.String)">
+            <summary>
+            Retornar Cadastro De Uf
+            </summary>
+            <param name="codigoUf">Codigo uf.</param>
+            <returns>Lista de objetos do tipo CadastroDeUfDTO</returns>
+        </member>
+        <member name="M:Globus5.Globus.DAL.CadastroDeUfDAO.RetornarCadastroDeUfRelarorio(System.String)">
+            <summary>
+            Retornar Cadastro De Uf para relatorio
+            </summary>
+            <param name="codigoUf">Codigo uf.</param>
+            <returns>Lista de objetos do tipo CadastroDeUfDTO</returns>
+        </member>
+        <member name="T:Globus5.Globus.DAL.LinhaDAO">
+            <summary>
+            Classe de acesso a dados da tabela BGM_CADLINHAS
+            </summary>
+        </member>
+        <member name="M:Globus5.Globus.DAL.LinhaDAO.RetornarLinha(System.Int32)">
+            <summary>
+            Retornar Linha
+            </summary>
+            <param name="CodIntLinha">Codigo interno da linha.</param>
+            <returns>Lista de objetos do tipo LinhaDTO</returns>
+        </member>
+        <member name="M:Globus5.Globus.DAL.LinhaDAO.RetornarLinhaRelarorio(System.Int32)">
+            <summary>
+            Retornar Linha para relatorio
+            </summary>
+            <param name="CodIntLinha">Codigo interno da linha.</param>
+            <returns>Lista de objetos do tipo LinhaDTO</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="brushSizingRectangleOutline" Color="#00FFFFFF"/>
+    
+    <Style x:Key="ResizePathSegmentStyle" TargetType="{x:Type Path}" >
+        <Setter Property="StrokeThickness" Value="10" />
+        <Setter Property="Fill" Value="{x:Null}" />
+        <Setter Property="Stroke" Value="{StaticResource brushSizingRectangleOutline}" />
+        <Setter Property="Stretch" Value="Fill" />
+    </Style>
+
+</ResourceDictionary>

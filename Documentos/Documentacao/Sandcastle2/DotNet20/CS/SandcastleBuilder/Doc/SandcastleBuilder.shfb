@@ -1,0 +1,61 @@
+﻿<project schemaVersion="1.4.0.0">
+    <assemblies>
+        <assembly assemblyPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilderGUI.exe" xmlCommentsPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilderGUI.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilder.Utils.dll" xmlCommentsPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilder.Utils.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\SandcastleBuilderConsole\bin\Release\SandcastleBuilderConsole.exe" xmlCommentsPath="..\SandcastleBuilderConsole\bin\Release\SandcastleBuilderConsole.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilder.Components.dll" xmlCommentsPath="..\SandCastleBuilderGUI\bin\Release\SandcastleBuilder.Components.xml" commentsOnly="False" />
+    </assemblies>
+    <namespaceSummaries>
+        <namespaceSummaryItem name="" isDocumented="False" />
+        <namespaceSummaryItem name="SandcastleBuilder" isDocumented="True">This namespace contains the classes for the GUI help file builder and project manager.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Components" isDocumented="True">This namespace contains the custom build components (&lt;b&gt;CodeBlockComponent&lt;/b&gt; and &lt;b&gt;PostTransformComponent&lt;/b&gt;).</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Properties" isDocumented="False">This namespace contains the private application properties class.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Utils" isDocumented="True">This namespace contains various utility classes and the help file builder project classes.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Utils.Controls" isDocumented="True">This namespace contains various control classes.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Utils.Design" isDocumented="True">This namespace contains various designer classes.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilder.Utils.Gac" isDocumented="True">This namespace contains a couple of classes used to interact with the GAC and to load assemblies in an alternate application domain.</namespaceSummaryItem>
+        <namespaceSummaryItem name="SandcastleBuilderConsole" isDocumented="False">This namespace contains the private entry point class for the console mode help file builder.</namespaceSummaryItem>
+    </namespaceSummaries>
+    <additionalContent>
+        <contentItem sourcePath=".\AdditionalContent\*.*" destPath="" excludeItems="False" />
+    </additionalContent>
+    <dependencies>
+        <dependencyItem depPath="..\..\CodeColorizer\ColorizerLibrary\bin\Release\ColorizerLibrary.dll" />
+        <dependencyItem depPath="GAC:System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </dependencies>
+    <componentConfigurations>
+        <component id="Post-transform Component" configuration="&lt;component type=&quot;SandcastleBuilder.Components.PostTransformComponent&quot; assembly=&quot;{@SHFBFolder}SandcastleBuilder.Components.dll&quot; id=&quot;Post-transform Component&quot;&gt;&lt;!-- Code colorizer files (required).&#xD;&#xA;                 Attributes:&#xD;&#xA;                    Stylesheet file (required)&#xD;&#xA;                    Script file (required)&#xD;&#xA;                    &quot;Copy code&quot; image file (required) --&gt;&lt;colorizer stylesheet=&quot;{@SHFBFolder}Colorizer\highlight.css&quot; scriptFile=&quot;{@SHFBFolder}Colorizer\highlight.js&quot; copyImage=&quot;{@SHFBFolder}Colorizer\CopyCode.gif&quot; /&gt;&lt;!-- Output path for the files (required).  This should match the&#xD;&#xA;                 output path of the HTML files (see SaveComponent below). --&gt;&lt;outputPath value=&quot;Output\html&quot; /&gt;&lt;!-- Logo image file (optional).  Filename is required. The height,&#xD;&#xA;                 width, altText, placement, and alignment attributes are&#xD;&#xA;                 optional. --&gt;&lt;logoFile filename=&quot;{@ProjectFolder}..\SandCastleBuilderGUI\Images\Sandcastle.jpg&quot; height=&quot;68&quot; width=&quot;70&quot; altText=&quot;Sandcastle Help File Builder&quot; placement=&quot;left&quot; alignment=&quot;left&quot; /&gt;&lt;/component&gt;" />
+    </componentConfigurations>
+    <ProjectSummary>Sandcastle Help File Builder.  Written by Eric Woodruff (&lt;a href="mailto:Eric@EWoodruff.us?Subject=Sandcastle Help File Builder"&gt;Eric@EWoodruff.us&lt;/a&gt;).</ProjectSummary>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors</MissingTags>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <HtmlHelp1xCompilerPath path="" />
+    <HtmlHelp2xCompilerPath path="" />
+    <OutputPath>.\Help\</OutputPath>
+    <SandcastlePath path="" />
+    <WorkingPath path="" />
+    <CleanIntermediates>True</CleanIntermediates>
+    <HelpFileFormat>HtmlHelp1x</HelpFileFormat>
+    <PurgeDuplicateTopics>True</PurgeDuplicateTopics>
+    <CppCommentsFixup>False</CppCommentsFixup>
+    <FrameworkVersion>2.0.50727</FrameworkVersion>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <Preliminary>False</Preliminary>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <RootNamespaceTitle />
+    <HelpTitle>Sandcastle Help File Builder Documentation</HelpTitle>
+    <HtmlHelpName>SandcastleBuilder</HtmlHelpName>
+    <Language>en-US</Language>
+    <CopyrightHref>http://www.EWoodruff.us</CopyrightHref>
+    <CopyrightText>Copyright \xA9 2006-2007, Eric Woodruff, All rights reserved</CopyrightText>
+    <FeedbackEMailAddress>Eric@EWoodruff.us</FeedbackEMailAddress>
+    <HeaderText />
+    <FooterText />
+    <ProjectLinkType>Local</ProjectLinkType>
+    <SdkLinkType>Msdn</SdkLinkType>
+    <PresentationStyle>Prototype</PresentationStyle>
+    <NamingMethod>Guid</NamingMethod>
+    <SyntaxFilters>CSharp, VisualBasic</SyntaxFilters>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+</project>

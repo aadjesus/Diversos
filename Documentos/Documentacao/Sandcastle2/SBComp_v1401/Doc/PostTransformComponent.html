@@ -1,0 +1,149 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="Styles.css">
+<title>The Post-Transform Component</title>
+</head>
+
+<body>
+
+<h2>The Post-Transform Component</h2>
+The Post-Transform Component is used to provide the following additional
+features to modify the transformed HTML for a help topic.
+
+<ul>
+    <li>This acts as a companion component to the Code Block Component to
+add the supporing links for the colorizer script and stylesheet only when
+required.</li>
+    <li>It can insert a logo image at the top of each help topic.  Both the
+Prototype and VS2005 styles are supported.</li>
+    <li>For the Prototype style, it hides the language combo box if only
+one language appears in the Syntax section and it also hooks up the code
+blocks to the language filter.</li>
+    <li>This acts as a companion component to the Version Information
+Component to add version information to the help topics if used with the
+help file builder.  If used outside the help file builder, a modification
+is required to the Sandcastle reference content files.</li>
+</ul>
+
+<h3>The Post-Transform Component Configuration</h3>
+The following is the default configuration for the post-transform
+component. All attribute names and values are case-sensitive.  It should be
+inserted into the configuration file right after the
+<code>TransformComponent</code>.  This component can be used by itself if
+you do not want to use the code block and/or version information
+components.  However, this component is required and must be used if you do
+use the code block and/or version information components.
+
+<p/>If the version information component is used, this component will
+insert the version information found into the help topic.  For the code
+block component, it adds the script and stylesheet links to the document's
+<code>&lt;head&gt;</code> section.  While they could both be inserted into
+the first code element by the code block component and would work, the link
+for the stylesheet is only considered valid HTML if it appears in the
+<code>&lt;head&gt;</code> section. By using this component to insert it, it
+keeps the HTML well formed and valid.  Since it is inserting the stylesheet
+link, I placed the code to insert the script element in here as well.  In
+addition, for the Prototype style it adds JavaScript to connect the code
+blocks up to the language filter provided that the
+<code>CodeBlockComponent</code> has been used as well.  The Prototype style
+uses a different method for its language filter which requires some
+additional steps to register the code blocks so that they are shown and
+hidden correctly.
+
+<pre lang="xml" title="Example Configuration">
+&lt;!-- Post-transform component configuration.  This must appear after the
+     TransformComponent.  See also: CodeBlockComponent. --&gt;
+&lt;component type="SandcastleBuilder.Components.PostTransformComponent"
+  assembly="{@SHFBFolder}SandcastleBuilder.Components.dll"
+  id="Post-transform Component"&gt;
+    &lt;!-- Code colorizer files (required).
+         Attributes:
+            Stylesheet file (required)
+            Script file (required)
+            "Copy" image file (required) --&gt;
+    &lt;colorizer stylesheet="{@SHFBFolder}Colorizer\highlight.css"
+        scriptFile="{@SHFBFolder}Colorizer\highlight.js"
+        copyImage="{@SHFBFolder}Colorizer\CopyCode.gif" /&gt;
+
+    &lt;!-- Output path for the files (required).  This should match the
+         output path of the HTML files (see SaveComponent below). --&gt;
+    &lt;outputPath value="Output\html" /&gt;
+
+    &lt;!-- Logo image file (optional).  Filename is required. The height,
+         width, altText, placement, and alignment attributes are
+         optional. --&gt;
+    &lt;logoFile filename="" height="0" width="0" altText=""
+        placement="left" alignment="left" /&gt;
+&lt;/component&gt;
+</pre>
+
+The example given above is taken from the Sandcastle Help File Builder's
+configuration file.  When used with it, you may specify the replacement tag
+<code>{@SHFBFolder}</code> to insert the help file builder's folder in the
+file path.  This is replaced at build time with the appropriate value. This
+replacement tag can also be specified in the configuration dialog when
+configuring project-specific configurations for the component from within
+the help file builder.  The same applies to the <code>{@ProjectFolder}</code>
+replacement tag which can be used in the logo image's <code>filename</code>
+attribute to insert a reference to the project folder.  If using the
+component in your own build scripts, replace the tags with an actual
+absolute or relative path.
+
+<p/>The colorizer element defines the files used by the code colorizer
+script.  The <code>stylesheet</code> attribute defines the stylesheet to
+use for the colorized code.  The <code>scriptFile</code> attribute defines
+the script file containing the JavaScript code used to show and hide the
+collapsible sections and copy the code to the clipboard (Internet Explorer
+only).  The <code>copyImage</code> attribute defines the image file to use
+for the "Copy Code" link.  The supplied <b>highlight.css</b>,
+<b>highlight.js</b>, and <b>CopyCode.gif</b> files are used by default. You
+can edit the stylesheet to use different colors for the highlighted code
+elements.  If using the help file builder, you can also add a new
+stylesheet using the same name to the <code>AdditionalContent</code>
+property and set its destination folder to <b>html\</b> to overwrite the
+default stylesheet.  The same applies to the image file.  However, its
+location is determined by the <code>copyImageUrl</code> attribute in the
+code block component's configuration.
+
+<p/>The <code>outputPath</code> element is used to specify where the
+stylesheet and script files are to be copied.  This should match the same
+output path that is used in the <code>SaveComponent</code> that saves the
+help topic files.  By default, it is <b>Output\html</b>.  The image file is
+copied to the location specified in the <code>CodeBlockComponent</code>
+configuration which is relative to this path.  See its description for
+details.
+
+<p/>The <code>logoFile</code> element is optional.  Using it, you can add a
+logo image to the header of each help topic page that will appear to the
+left, right, or above the topic title.  If no image file is specified or
+the element is omitted, no image will appear in the header.  The
+<code>height</code> and <code>width</code> attributes can be used to
+specify the height and width of the image.  If omitted or set to zero, the
+image will be displayed using its actual size. By using these attributes,
+you can scale a larger image down or scale a smaller image up to get a
+better fit.  The configuration dialog for the component allows you to
+select an image and adjust its size with a preview area.  The
+<code>altText</code> attribute lets you specify some alternate text that
+can appear for the image.  The <code>placement</code> attribute allows you
+to specify where the image is placed (to the left, to the right, or above
+the topic title).  When set to <code>above</code>, the <code>alignment</code>
+attribute specifies how the image is aligned (left, right, or centered).
+
+<p/>As noted, the component can insert version information into the topic
+when used with the <code>VersionInformationComponent</code>. If not used,
+no version information will be listed.  The help file builder contains the
+necessary modifications to its reference content files to add version
+information.  If you use this component in your own scripts or build tools,
+you will need to modify the Sandcastle reference content files in order to
+add the version parameter.  To do so, add the text "Version: {2}" to the
+<code>locationInformation</code> entry in the <b>reference_content.xml</b>
+file for the Prototype and VS2005 styles and the
+<code>requirementsAssemblyLayout</code> entry in the
+<b>reference_content.xml</b> file for the VS2005 style.
+
+<br/><br/>
+<include item="footer"/>
+
+</body>
+</html>
+<!-- @SortOrder 4 -->

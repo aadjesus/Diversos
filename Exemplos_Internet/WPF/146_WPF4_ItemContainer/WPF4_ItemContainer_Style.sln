@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF4_ItemContainer_Style", "WPF4_ItemContainer_Style\WPF4_ItemContainer_Style.csproj", "{79631B19-AA8B-4B24-A580-1A25FD57FBC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79631B19-AA8B-4B24-A580-1A25FD57FBC1}.Debug|x86.ActiveCfg = Debug|x86
+		{79631B19-AA8B-4B24-A580-1A25FD57FBC1}.Debug|x86.Build.0 = Debug|x86
+		{79631B19-AA8B-4B24-A580-1A25FD57FBC1}.Release|x86.ActiveCfg = Release|x86
+		{79631B19-AA8B-4B24-A580-1A25FD57FBC1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

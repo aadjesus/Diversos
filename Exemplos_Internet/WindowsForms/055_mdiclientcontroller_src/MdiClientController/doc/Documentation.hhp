@@ -1,0 +1,49 @@
+[FILES]
+Slusser.Components.html
+Slusser.Components.MdiClientController.html
+Slusser.Components.MdiClientControllerMembers.html
+Slusser.Components.MdiClientControllerConstructor.html
+Slusser.Components.MdiClientControllerConstructor1.html
+Slusser.Components.MdiClientControllerConstructor2.html
+Slusser.Components.MdiClientControllerProperties.html
+Slusser.Components.MdiClientController.AutoScroll.html
+Slusser.Components.MdiClientController.BackColor.html
+Slusser.Components.MdiClientController.BorderStyle.html
+Slusser.Components.MdiClientController.Handle.html
+Slusser.Components.MdiClientController.Image.html
+Slusser.Components.MdiClientController.ImageAlign.html
+Slusser.Components.MdiClientController.MdiClient.html
+Slusser.Components.MdiClientController.ParentForm.html
+Slusser.Components.MdiClientController.Site.html
+Slusser.Components.MdiClientController.StretchImage.html
+Slusser.Components.MdiClientControllerMethods.html
+Slusser.Components.MdiClientController.Dispose_overloads.html
+Slusser.Components.MdiClientController.Dispose_overload_1.html
+Slusser.Components.MdiClientController.Dispose_overload_2.html
+Slusser.Components.MdiClientController.OnHandleAssigned.html
+Slusser.Components.MdiClientController.OnPaint.html
+Slusser.Components.MdiClientController.RenewMdiClient.html
+Slusser.Components.MdiClientController.WndProc.html
+Slusser.Components.MdiClientControllerEvents.html
+Slusser.Components.MdiClientController.Disposed.html
+Slusser.Components.MdiClientController.HandleAssigned.html
+Slusser.Components.MdiClientController.Paint.html
+
+[OPTIONS]
+Title=Documentation
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=Documentation.chm
+Default Window=MsdnHelp
+Default topic=Slusser.Components.html
+Display compile progress=No
+Error log file=Documentation.log
+Full-text search=Yes
+Index file=Documentation.hhk
+Language=0x409 English (United States)
+Contents file=Documentation.hhc
+
+[WINDOWS]
+MsdnHelp="Documentation Help","Documentation.hhc","Documentation.hhk","Slusser.Components.html","Slusser.Components.html",,,,,0x62520,220,0x387e,[86,51,872,558],,,,,,,0
+
+[INFOTYPES]

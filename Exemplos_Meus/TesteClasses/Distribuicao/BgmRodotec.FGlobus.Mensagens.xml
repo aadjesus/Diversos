@@ -1,0 +1,1765 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BgmRodotec.FGlobus.Mensagens</name>
+    </assembly>
+    <members>
+        <member name="T:FGlobus.Mensagens.Frameworks">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.ButtonEditBGM_DataInvalida">
+            <summary>
+              Looks up a localized string similar to Data inválida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.ButtonEditBGM_EntreComEmailValido">
+            <summary>
+              Looks up a localized string similar to Entre com um e-mail válido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.ButtonEditBGM_ProximoCodigo">
+            <summary>
+              Looks up a localized string similar to Próximo código (+).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_Ctrl">
+            <summary>
+              Looks up a localized string similar to Pressione Ctrl +.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_Mais">
+            <summary>
+              Looks up a localized string similar to +   ( Acresce um dia ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_Menos">
+            <summary>
+              Looks up a localized string similar to -   ( Diminui um dia ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_PageDown">
+            <summary>
+              Looks up a localized string similar to PageDown   ( Último dia do mês atual ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_PageUp">
+            <summary>
+              Looks up a localized string similar to PageUp   ( Primeiro dia do mês atual ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_R">
+            <summary>
+              Looks up a localized string similar to R   ( Ontem ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_T">
+            <summary>
+              Looks up a localized string similar to T   ( Hoje ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.DateEditBGM_Pressione_Y">
+            <summary>
+              Looks up a localized string similar to Y   ( Amanhã ).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.FaleConosco">
+            <summary>
+              Looks up a localized string similar to Fale conosco.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.HyperLinkBGMURLInvalida">
+            <summary>
+              Looks up a localized string similar to URL invalida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.HyperLinkBGMURLNaoInformada">
+            <summary>
+              Looks up a localized string similar to URL não informada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.HyperLinkBGMURLTodosArquivos">
+            <summary>
+              Looks up a localized string similar to Todos os Arquivos|*.*.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.MeusAplicativos">
+            <summary>
+              Looks up a localized string similar to Meus aplicativos.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.MFAbertoDeFormaIncorreta">
+            <summary>
+              Looks up a localized string similar to O formulário não foi aberto da forma correta.#PULAR_LINHA#Utilizar o metodo “AbrirMasterFormDisponivel” ou o “RetornaMasterFormDisponivel”..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.MFFormularioNaoInstanciado">
+            <summary>
+              Looks up a localized string similar to Formulário atual não foi instanciado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_AssuntoNotificacao">
+            <summary>
+              Looks up a localized string similar to {0} ({1}) - Etapa {2} pendente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_ContinuarWorkflow">
+            <summary>
+              Looks up a localized string similar to Pressione o botão para continuar o processo do Workflow..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Dashboard_Etapa">
+            <summary>
+              Looks up a localized string similar to Etapa {0} ({1}).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Dashboard_ID">
+            <summary>
+              Looks up a localized string similar to ID {0} (Início em: {1}).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Dashboard_SLA">
+            <summary>
+              Looks up a localized string similar to SLA: {0} hora(s) e {1} minuto(s), de {2} hora(s).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_DataInicio">
+            <summary>
+              Looks up a localized string similar to Início: {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_DataTermino">
+            <summary>
+              Looks up a localized string similar to Término: {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_DesejaIniciarProximaEtapa">
+            <summary>
+              Looks up a localized string similar to Deseja iniciar a próxima etapa?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_DetalhesFinalizado">
+            <summary>
+              Looks up a localized string similar to {0} etapas, realizadas em {1}. SLA considerado ideal: {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_EtapaAtual">
+            <summary>
+              Looks up a localized string similar to WF_EtapaAtual.png.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_EtapaErro">
+            <summary>
+              Looks up a localized string similar to WF_EtapaErro.png.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_EtapaOk">
+            <summary>
+              Looks up a localized string similar to WF_EtapaOk.png.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Finalizado">
+            <summary>
+              Looks up a localized string similar to Workflow finalizado com sucesso!.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_MensagemNotificacao">
+            <summary>
+              Looks up a localized string similar to A etapa {0}, do {1} ({2}), iniciado em {3}, encontra-se pendente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_OWorkflow">
+            <summary>
+              Looks up a localized string similar to o Workflow.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Pendente">
+            <summary>
+              Looks up a localized string similar to Workflow pendente!.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_PendenteAviso">
+            <summary>
+              Looks up a localized string similar to A execução do Workflow terá início assim que a próxima etapa for finalizada por seu responsável..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_SelecioneUmModulo">
+            <summary>
+              Looks up a localized string similar to Nenhum módulo selecionado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Sucesso">
+            <summary>
+              Looks up a localized string similar to Workflow {0} com sucesso.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_Usuario_SLA">
+            <summary>
+              Looks up a localized string similar to  - Usuário: {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_UsuarioSemPermissao">
+            <summary>
+              Looks up a localized string similar to Usuário sem permissão para inicar este Workflow..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Frameworks.WF_VoltarAoInicio">
+            <summary>
+              Looks up a localized string similar to Deseja voltar ao início?.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.Informacoes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.AditivoCadastradoParaAprovacao">
+            <summary>
+              Looks up a localized string similar to Aditivo Contratual cadastrado para aprovação ( Contrato {0} )..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.AlertarDocumentoLocalidade">
+            <summary>
+              Looks up a localized string similar to O tipo de documento correto para as localidades de coleta e entrega informadas é {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.AmbienteNaoCredenciado">
+            <summary>
+              Looks up a localized string similar to Não será possível gerar Nf-e. Ambiente não credenciado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ApresentacaoUsuario">
+            <summary>
+              Looks up a localized string similar to Olá {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ArquivoDeConfiguracoesInvalido">
+            <summary>
+              Looks up a localized string similar to Arquivo de configurações invalido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ArquivoMenuPrincipalConfigInvalido">
+            <summary>
+              Looks up a localized string similar to Arquivo MenuPrincipal.Config invalido ou não localizado no projeto..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ArquivosGeradosComSucesso">
+            <summary>
+              Looks up a localized string similar to Arquivos gerados com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ArrasteOCabecalhoParaAgrupar">
+            <summary>
+              Looks up a localized string similar to Arrastar o cabeçalho da coluna para visualizá-la agrupada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ASenhaDeConfirmaçãoEstaDiferente">
+            <summary>
+              Looks up a localized string similar to A senha de confirmação está diferente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ASenhaDoMANAGERNaoPodeSer1">
+            <summary>
+              Looks up a localized string similar to A senha do MANAGER não pode ser 1..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ASenhaNaoFoiMudada">
+            <summary>
+              Looks up a localized string similar to A senha não foi mudada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ASenhaNaoPodeSerMudadaParaAsenhaPadrao">
+            <summary>
+              Looks up a localized string similar to A senha não pode ser mudada para a senha padrão..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.AtributoInvalidoItemMenu">
+            <summary>
+              Looks up a localized string similar to Um item de menu com atributo inválido foi encontrado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.AutorizadoSomenteConsultar">
+            <summary>
+              Looks up a localized string similar to Usuário autorizado somente a consultar..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.BloquearDocumentoLocalidade">
+            <summary>
+              Looks up a localized string similar to Não é permitido gerar {0} para as localidades de coleta e entrega informadas..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.BorderoObrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo Número borderô..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CampoFinalMenorQueCampoInicial">
+            <summary>
+              Looks up a localized string similar to Campo final menor que campo inicial..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CarretaInexistente">
+            <summary>
+              Looks up a localized string similar to Carreta não cadastrada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CEIInvalido">
+            <summary>
+              Looks up a localized string similar to {0} não é um CEI válido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CEPNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Localidade não cadastrada com este CEP..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CertificadoNaoLocalizado">
+            <summary>
+              Looks up a localized string similar to Certificado não localizado para a empresa {1} e filial {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CFOPNaoEncontrado">
+            <summary>
+              Looks up a localized string similar to Não foi encontrado um CFOP para o perfil desta coleta e entrega..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ChaveUrlControleNaoExiste">
+            <summary>
+              Looks up a localized string similar to É necessário criar a chave com a URL do web service de controle no Web.Config. Consulte a documentação da framework FGlobus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ChaveUrlSegurancaNaoExiste">
+            <summary>
+              Looks up a localized string similar to É necessário criar a chave com a URL do web service de segurança no Web.Config. Consulte a documentação da framework FGlobus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClassifFiscalInvalidaParaNotaEntradaSaida">
+            <summary>
+              Looks up a localized string similar to Classificação fiscal nao é válida para nota fiscal de  {0} de {1} para {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClassificacaoDeTransporteInexistente">
+            <summary>
+              Looks up a localized string similar to Classificação de transporte inexistente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClienteDocumentoInexistente">
+            <summary>
+              Looks up a localized string similar to Cliente não cadastrado com esse documento..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClienteEsporadicoSemEmpresaAssociada">
+            <summary>
+              Looks up a localized string similar to É obrigatório empresa(s) associada(s) ao cliente esporádico..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClienteInexistente">
+            <summary>
+              Looks up a localized string similar to Cliente não cadastrado com esse número..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClientePossuiContratoCadastro">
+            <summary>
+              Looks up a localized string similar to O cliente {0} já possui um contrato cadastrado. Possíveis alterações, favor incluir um novo Aditivo Contratual no Contrato {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ClienteSemParametro">
+            <summary>
+              Looks up a localized string similar to Cliente sem parâmetro cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CNPJInvalido">
+            <summary>
+              Looks up a localized string similar to {0} não é um CNPJ válido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CodigoFederalJaUsado">
+            <summary>
+              Looks up a localized string similar to O código federal já está associado à um município..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CodigoInexistente">
+            <summary>
+              Looks up a localized string similar to Código inexistente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CodigoJaCadastrado">
+            <summary>
+              Looks up a localized string similar to Código já cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ColetaComDestinatariosDiferentes">
+            <summary>
+              Looks up a localized string similar to Coleta não pode ser utilizada, porque existem destinatários diferentes..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ColetaInexistente">
+            <summary>
+              Looks up a localized string similar to Coleta não cadastrada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ColetaJaGerada">
+            <summary>
+              Looks up a localized string similar to Coleta já utilizada na geração de documento pelo processo de emissão automática de C.T.R.C. por N.F..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ColetaJaUtilizada">
+            <summary>
+              Looks up a localized string similar to Coleta já utilizada na geração do documento {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ColetaNaoBaixada">
+            <summary>
+              Looks up a localized string similar to Coleta não baixada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ComissionadoObrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher os campos do comissionado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ConhecimentoCancelado">
+            <summary>
+              Looks up a localized string similar to Conhecimento cancelado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ConhecimentoJaGeradoComplemento">
+            <summary>
+              Looks up a localized string similar to Conhecimento já foi gerado para o complemento {0}, {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ConhecimentoNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Conhecimento não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ConhecimentoPendente">
+            <summary>
+              Looks up a localized string similar to Conhecimento pendente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ContratoCadastradoParaAprovacao">
+            <summary>
+              Looks up a localized string similar to Contrato {0} cadastrado para aprovação..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ContratoJaCadastradosEntreDatas">
+            <summary>
+              Looks up a localized string similar to Contrato já está cadastrado entre as datas informadas..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ContratoParaRenovacao">
+            <summary>
+              Looks up a localized string similar to Contrato {0} próximo à renovação..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CorrecaoOrtográficaConcluida">
+            <summary>
+              Looks up a localized string similar to Correção ortográfica concluída..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CPFInvalido">
+            <summary>
+              Looks up a localized string similar to {0} não é um CPF válido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CriarEventoNoCalendarioDoOutlook">
+            <summary>
+              Looks up a localized string similar to Criar evento.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CriarTarefaNoCalendarioDoOutlook">
+            <summary>
+              Looks up a localized string similar to Criar tarefa.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CubagemSuperaCapacidaDeVeiculo">
+            <summary>
+              Looks up a localized string similar to O m³ transportado supera a capacidade do(s) veículo(s). Capacidade: {0} m³..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CursoObrigatorioNaoRealizadoMotorista">
+            <summary>
+              Looks up a localized string similar to Curso(s) obrigatório(s) não realizado pelo motorista..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CursosObrigatoriosDeMotoristaVencido">
+            <summary>
+              Looks up a localized string similar to Curso(s) obrigatório(s) de motorista vencido(s)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.CursosObrigatoriosDoMotoristaAVEncer">
+            <summary>
+              Looks up a localized string similar to Curso(s) obrigatório(s) do motorista a vencer nos próximos {0} dias..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataCapacitacaoVencida">
+            <summary>
+              Looks up a localized string similar to Data de capacitação foi vencida em.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataMinimaNaoCadastradaNaEscrituracao">
+            <summary>
+              Looks up a localized string similar to Data minima não cadastrada na escrituração..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerDiferenteDataServidor">
+            <summary>
+              Looks up a localized string similar to Data não pode ser diferente que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerMaiorDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser maior que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerMaiorOuIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser maior ou igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerMenorDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser menor que a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DataNaoPodeSerMenorOuIgualDataServidor">
+            <summary>
+              Looks up a localized string similar to A data não pode ser menor ou igual a data do servidor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DescricaoArquivoObrigatoria">
+            <summary>
+              Looks up a localized string similar to Descrição do arquivo deverá ser preenchida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DescricaoDoCampoObrigatorio">
+            <summary>
+              Looks up a localized string similar to Descrição do campo {0} é obrigatório..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DivulgacaoNovoCliente">
+            <summary>
+              Looks up a localized string similar to Divulgação de novo Cliente - {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DoctoFinalMaiorQueInicial">
+            <summary>
+              Looks up a localized string similar to Documento inicial não pode ser menor que o documento final..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentoJaManifestado">
+            <summary>
+              Looks up a localized string similar to Documento(s)  já manifestado(s): {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosObrigatoriosDeMotoristaVencido">
+            <summary>
+              Looks up a localized string similar to Documento(s) obrigatório(s) de motorista vencido(s)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosObrigatoriosDoMotoristaAVencer">
+            <summary>
+              Looks up a localized string similar to Documento(s) obrigatório(s) do motorista a vencer nos próximos {0} dias..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosObrigatoriosNaoRelacionadosMotorista">
+            <summary>
+              Looks up a localized string similar to Documento(s) obrigatório(s) de motorista não cadatrado(s)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosObrigatoriosNaoRelacionadosVeiculo">
+            <summary>
+              Looks up a localized string similar to Documento(s) obrigatório(s) de veículo não cadatrado(s)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosValidadeParaVencer">
+            <summary>
+              Looks up a localized string similar to Documento(s) com validade para vencer. (Documento/Dias para vencer):.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DocumentosValidadeVencida">
+            <summary>
+              Looks up a localized string similar to Documento(s) com validade vencida. (Documento/Número):.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.DownloadConcluidoComExito">
+            <summary>
+              Looks up a localized string similar to Download concluído com êxito..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.EmailEnviadoComSucesso">
+            <summary>
+              Looks up a localized string similar to E-mail enviado com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.EmailInvalido">
+            <summary>
+              Looks up a localized string similar to E-mail do {0} inválido: ( {1} )..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.EnderecoDeAcessoInvalido">
+            <summary>
+              Looks up a localized string similar to Endereço de acesso inválido ( {0} )..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.EntrarEmContatoAdSistema">
+            <summary>
+              Looks up a localized string similar to Entrar em contato com o administrador do sistema..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ErroAcessarDllInscE32">
+            <summary>
+              Looks up a localized string similar to Erro ao acessar o assembly DllInscE32.DLL para validação de incrições estaduais.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ErroNoBancoDeDados">
+            <summary>
+              Looks up a localized string similar to Erro no banco de dados.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.EspecieInexistente">
+            <summary>
+              Looks up a localized string similar to Espécie não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExceceuQuantidadeDeNotasFiscaisDoServico">
+            <summary>
+              Looks up a localized string similar to Excedeu o limite de {0} notas fiscais para o tipo de documento {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExclusaoNaoPodeSerEfetuadaRelacionamento">
+            <summary>
+              Looks up a localized string similar to Exclusão não pode ser efetuada. Já está sendo utilizado(a)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExistemCamposQueNaoForamValidados">
+            <summary>
+              Looks up a localized string similar to Existem campos que não foram validados corretamente. Executar a navegação dos campos em azul com ENTER..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExistemLocacoesTurismo">
+            <summary>
+              Looks up a localized string similar to Existem locações geradas com esse registro. Não é permitido alterar ou excluir..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExistenciaDePneusCadastradosParaEstrutura">
+            <summary>
+              Looks up a localized string similar to Existem pneus cadastrados para essa estrutura..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ExisteTipoDePagamentoCadastradoComoNormal">
+            <summary>
+              Looks up a localized string similar to Existe tipo de pagamento cadastrado como normal. Só é permitido um tipo de pagamento como normal..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.FaltaAtributoItemMenu">
+            <summary>
+              Looks up a localized string similar to Um item de menu com atributo obrigatório não foi encontrado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.FeriasConsideradoMediaDesempenhoUltimosMeses">
+            <summary>
+              Looks up a localized string similar to Férias, sendo considerado a média de desempenho dos últimos 12 meses.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.FilialSemParametrizacaoComercial">
+            <summary>
+              Looks up a localized string similar to Empresa/Filial sem parametrização comercial..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.FuncionarioNaoAutTranspEsteValor">
+            <summary>
+              Looks up a localized string similar to O funcionário {0} não está autorizado à transportar este valor total de mercadoria..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.GlobusSendoAtualizadoNoMomento">
+            <summary>
+              Looks up a localized string similar to O Globus está sendo atualizado no momento. Aguarde alguns instantes e tente novamente. Usuario/Estacao:.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.GravaçãoEfetuadaComSucesso">
+            <summary>
+              Looks up a localized string similar to Gravação efetuada com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.GrupoDeProdutoInexistente">
+            <summary>
+              Looks up a localized string similar to Grupo de produto não cadastrado com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.GrupoEconomicoInexistente">
+            <summary>
+              Looks up a localized string similar to Grupo econômico não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.HistoricoDeIntegracoes">
+            <summary>
+              Looks up a localized string similar to Os históricos maiores que 900 são reservados para integrações..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.HouveModificacaoNoDocumento">
+            <summary>
+              Looks up a localized string similar to Irá valorizar novamente o docto devido as modificações..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.IEInvalida">
+            <summary>
+              Looks up a localized string similar to {0} não é uma incrição estadual válida para {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.IncluidoPastaGlobusMais">
+            <summary>
+              Looks up a localized string similar to Incluído pasta {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.InformeALinha">
+            <summary>
+              Looks up a localized string similar to Código da linha deverá ser informado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.InformeOCliente">
+            <summary>
+              Looks up a localized string similar to Código do cliente deverá ser informado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.InformeOContrato">
+            <summary>
+              Looks up a localized string similar to Código do contrato deverá ser informado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.InformeOServico">
+            <summary>
+              Looks up a localized string similar to Código do serviço deverá ser informado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.IntegracaoRealizadaComSucesso">
+            <summary>
+              Looks up a localized string similar to Integração realizada com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ItemDeMenuNaoEncontrado">
+            <summary>
+              Looks up a localized string similar to Item de menu não encontrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ItemMenuSemPermissoes">
+            <summary>
+              Looks up a localized string similar to Cadastro de permissões (Alteração/Inclusão/Exclusão) não definidos para Item de Menu/Usuário/Sistema .
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.LinhaEServicoEmOutroContrato">
+            <summary>
+              Looks up a localized string similar to Linha {0} e serviço {1}  já cadastrados no contrato {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.LinhaEServicoNaoAssociadaAContrato">
+            <summary>
+              Looks up a localized string similar to Linha {0} e serviço {1} não estão cadastrados no contrato {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.LinhaNaoAssociadaAContrato">
+            <summary>
+              Looks up a localized string similar to Linha {0} não está cadastrada no contrato {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.LocalidadeInexistente">
+            <summary>
+              Looks up a localized string similar to Localidade não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MaisDeUmaFilialAssociadaAoDestino">
+            <summary>
+              Looks up a localized string similar to Mais de uma filial associada ao destino..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MaisDeUmManifestoComEsseCodigo">
+            <summary>
+              Looks up a localized string similar to Encontro mais de um manifesto com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ManifestoJaBaixado">
+            <summary>
+              Looks up a localized string similar to Manifesto já baixado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MarcarSomenteUmTipoDeTrocaDeOleo">
+            <summary>
+              Looks up a localized string similar to Favor selecionar apenas um tipo de óleo para troca..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MascaraInvalida">
+            <summary>
+              Looks up a localized string similar to Máscara inválida. ({0}).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MensagemFavoritos">
+            <summary>
+              Looks up a localized string similar to O Globus+ inseriu nos Favoritos as telas que você tem acessado com mais frequência nos últimos dias, facilitando assim a sua navegação..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ModuloNaoAutorizado">
+            <summary>
+              Looks up a localized string similar to Módulo não autorizado (M/G).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ModuloSemAutorizacaoParaUso">
+            <summary>
+              Looks up a localized string similar to Módulo sem autorização para uso. Entrar em contato com {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MotivoTemMinimoCaracteres">
+            <summary>
+              Looks up a localized string similar to Motivo tem que ter no mínimo {0} caracteres..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MotoristaBloqueado">
+            <summary>
+              Looks up a localized string similar to Motorista bloqueado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MotoristaComCNHExpirada">
+            <summary>
+              Looks up a localized string similar to Motorista com CNH expirada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MotoristaObrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo motorista..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MotoristaSemVencimentoDeCNH">
+            <summary>
+              Looks up a localized string similar to Motorista não contém um vencimento de CNH cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MsgSejaBemVindo">
+            <summary>
+              Looks up a localized string similar to Seja bem-vindo!.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.MsgUltimoAcesso">
+            <summary>
+              Looks up a localized string similar to Seu último acesso foi : {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoEPermitidoAlterarASenhaDoUsuarioGLOBUS">
+            <summary>
+              Looks up a localized string similar to Não é permitido alterar a senha do usuário GLOBUS..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoFoiPossivelAbrirTelaAssociada">
+            <summary>
+              Looks up a localized string similar to Não foi possível abrir o a tela associada no menu..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoFoiPossivelAlterarAFormaDeControleDoPlanoPois">
+            <summary>
+              Looks up a localized string similar to Não foi possivel alterar a forma de controle do plano, pois o mesmo possui {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoFoiPossivelCalcularProximo">
+            <summary>
+              Looks up a localized string similar to Não foi possível calcular o próximo código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoFoiPossivelConectarNoWebService">
+            <summary>
+              Looks up a localized string similar to Não foi possível conectar ao WebService: {0}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoFoiPossivelCriarArquivo">
+            <summary>
+              Looks up a localized string similar to Não foi possível criar o arquivo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoPodeSerGravadoValoresNegativos">
+            <summary>
+              Looks up a localized string similar to Não pode ser gravado valores negativos..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NãoPodeSerMaiorQue">
+            <summary>
+              Looks up a localized string similar to {0} não pode ser maior que {1}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaoPodeSerMenorQue">
+            <summary>
+              Looks up a localized string similar to {0} não pode ser menor que {1}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NaturezaDaEspecieInexistente">
+            <summary>
+              Looks up a localized string similar to Natureza da espécie não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumaInformacaoVisivelParaImpressao">
+            <summary>
+              Looks up a localized string similar to Nenhuma informação visível para impressão..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumaInfParaOsDadosInfo">
+            <summary>
+              Looks up a localized string similar to Nenhum resultado encontrado de acordo com os dados informados..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumContratoCadastroParaOCliente">
+            <summary>
+              Looks up a localized string similar to Nenhum contrato cadastrado para o cliente {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumInclusoParaEnvio">
+            <summary>
+              Looks up a localized string similar to Nenhum {0} incluso para envio..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumMenuHabilitado">
+            <summary>
+              Looks up a localized string similar to Nenhum item de menu habilitado para o usuário..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumMotoristaEncontradoComEsteCodigo">
+            <summary>
+              Looks up a localized string similar to Nenhum motorista encontrado com o código informado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumMotoristaEncontradoNaEmpresaFilial">
+            <summary>
+              Looks up a localized string similar to Nenhum motorista encontrado na empresa e filial informada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumRegEncontParaPesquisa">
+            <summary>
+              Looks up a localized string similar to Nenhuma informação encontrada para esta pesquisa..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumSetorCadastradoParaCliente">
+            <summary>
+              Looks up a localized string similar to Nenhum setor cadastrado para o cliente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumTipoDeServicoCadastrado">
+            <summary>
+              Looks up a localized string similar to Nenhum tipo de serviço cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NenhumUsuarioVerificaAcessoAosCampos">
+            <summary>
+              Looks up a localized string similar to Nenhum usuário com a opção verificar acesso aos campos marcado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NotaFiscalDeServicoJaLancada">
+            <summary>
+              Looks up a localized string similar to Nota fiscal {0}/{1} já lançada no(a) {2} nº {3}/{4} da Empresa {5}, Filial {6}, Garagem {7}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NovoContratoCadastrado">
+            <summary>
+              Looks up a localized string similar to Novo contrato cadastrado: {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NumeroConhecimentoMaiorQueNumeroFinal">
+            <summary>
+              Looks up a localized string similar to Trocar o número do formulário..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NumeroDeArgumentosInvalido">
+            <summary>
+              Looks up a localized string similar to Número de argumentos inválido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.NumeroManifestoNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Número de manifesto não cadastrado no parâmetros locais..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.OCampoNaoPodeSerNulo">
+            <summary>
+              Looks up a localized string similar to O campo {0} não pode ser nulo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.OcultarOuBloquearCampos_CampoBloqueado">
+            <summary>
+              Looks up a localized string similar to Campo bloqueado para edição..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.OcultarOuBloquearCampos_CampoOcultoEBloqueado">
+            <summary>
+              Looks up a localized string similar to Campo oculto e bloqueado para edição..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.PaisInexistente">
+            <summary>
+              Looks up a localized string similar to País não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParametroEscrituracaoNaoCadatrado">
+            <summary>
+              Looks up a localized string similar to Parâmetros fiscais não cadastros para está empresa/filial..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParametroNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Parâmetro não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParametrosCargasNaoCadastradoParaUsuario">
+            <summary>
+              Looks up a localized string similar to Parâmetros cargas não cadastros para o usuário/empresa/filial/garagem..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParametrosGravadosComSucesso">
+            <summary>
+              Looks up a localized string similar to Parâmetros gravados com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParametrosLocaisNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Parâmetros por locais não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ParcelaEnviadaParaFaturamento">
+            <summary>
+              Looks up a localized string similar to Envio para faturamento - Cliente: {0} ..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.PerguntarDocumentoLocalidade">
+            <summary>
+              Looks up a localized string similar to O tipo de documento correto para as localidades de coleta e entrega informadas é {0}. Deseja prosseguir?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.PesoSuperaCapacidaDeVeiculo">
+            <summary>
+              Looks up a localized string similar to O peso transportado supera a capacidade do(s) veículo(s). Capacidade: {0} Kg..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.PlacaJaCadastrada">
+            <summary>
+              Looks up a localized string similar to Placa Já Cadastrada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ProdutoInexistente">
+            <summary>
+              Looks up a localized string similar to Produto não cadastrado com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ProdutoNaoAssociadoAoCliente">
+            <summary>
+              Looks up a localized string similar to O produto não está associado ao cliente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ProdutoNaoAutorizadoParaLocal">
+            <summary>
+              Looks up a localized string similar to Produto não autorizado para o local {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ProprietarioDoVeiculoNaoEncontrado">
+            <summary>
+              Looks up a localized string similar to Proprietário do veículo não encontrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.QuantidadeDeLicencaExcedida">
+            <summary>
+              Looks up a localized string similar to Excedeu a quantidade de licenças. (Tente novamente caso tenha ocorrido algum fechamento anormal).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.QuantidadeDeLicencaExcedidaParaModulo">
+            <summary>
+              Looks up a localized string similar to Excedeu a quantidade de licenças para este módulo. (Tente novamente caso tenha ocorrido algum fechamento anormal).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.QuantidadeMaximaNaoPodeSerAlteradaParaUmValorMenor">
+            <summary>
+              Looks up a localized string similar to Quantidade máxima não pode ser alterada para um valor menor..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.QuantidadeMaximaNaoPodeSerMenorOuIgualAUm">
+            <summary>
+              Looks up a localized string similar to Quantidade máxima não pode ser menor ou igual a um para a forma de controle sequencial..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.QuantidadeMaximaUltrapassada">
+            <summary>
+              Looks up a localized string similar to Quantidade máxima ultrapassada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.RecepcaoDeEvento">
+            <summary>
+              Looks up a localized string similar to Recepção de evento.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.RedespachanteNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Redespachante não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.Referencia1Obrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo Referência 01..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.Referencia2Obrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo Referência 02..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ResumoDeValoresExistente">
+            <summary>
+              Looks up a localized string similar to Já existe um Resumo de Valores com estas informações..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.RodoviaInexistente">
+            <summary>
+              Looks up a localized string similar to Rodovia não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.RotaInexistente">
+            <summary>
+              Looks up a localized string similar to Rota não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.RotaObrigatoria">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo rota para o cálculo de pedágio..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SenhaAlteradaComSucesso">
+            <summary>
+              Looks up a localized string similar to Senha alterada com sucesso..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SenhaInvalida">
+            <summary>
+              Looks up a localized string similar to Senha inválida..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SenhaInvalidaAdministrador">
+            <summary>
+              Looks up a localized string similar to Senha inválida para Administrador..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SenhaInvalidaGlobus">
+            <summary>
+              Looks up a localized string similar to Senha inválida para usuário Globus..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SequenciaMaiorQue">
+            <summary>
+              Looks up a localized string similar to Sequencia não pode ser maior que {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SerieNaoCadastrada">
+            <summary>
+              Looks up a localized string similar to Série não cadastrada..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ServicoEmEscalaPadraoAtiva">
+            <summary>
+              Looks up a localized string similar to Serviço {0} já cadastrado em uma escala padrão ativa..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SetorNaoCadastradoParaCliente">
+            <summary>
+              Looks up a localized string similar to Setor não cadastrado para o cliente..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SistemaExecutadoNaEstacao">
+            <summary>
+              Looks up a localized string similar to O sistema já está sendo executado por esta estação.\r\n\r\nTente novamente caso tenha ocorrido fechamento anormal..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.SistemaNaoPermiteLicencaEspecifica">
+            <summary>
+              Looks up a localized string similar to Sistema não permite licença específica..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TabelaDeConcedenteFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de concedente foi violada. Não será possível carregar o sistema..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TabelaDeControleDeAcessoGeralFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de controle de acesso (G) foi violada. Não será possível carregar o sistema..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TabelaDeControleDeAcessoPorModuloFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de controle de acesso (M) foi violada. Não será possível carregar o sistema..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TabelaDePrecoAssociadaAoServico">
+            <summary>
+              Looks up a localized string similar to Esta tabela de preço já está associada a um serviço, não podendo ser excluída..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TabelaDeSistemasAutorizadosFoiViolada">
+            <summary>
+              Looks up a localized string similar to Tabela de sistemas autorizados foi violada. Não será possível carregar o sistema..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TaxaDeServicoInexistente">
+            <summary>
+              Looks up a localized string similar to Taxa de serviço não cadastrada com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TeleRiscoVencendo">
+            <summary>
+              Looks up a localized string similar to Falta(m) {0} dia(s) para o vencimento do telerisco..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TeleRiscoVencido">
+            <summary>
+              Looks up a localized string similar to Telerisco de motorista vencido em: .
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TempoDeExecucaoSeraAlteradoPara">
+            <summary>
+              Looks up a localized string similar to Tempo de execução será alterado para : {0} e {1} min..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeDocumentoSemFormulario">
+            <summary>
+              Looks up a localized string similar to Nenhum formulário cadastrado para Empresa/Filial/Garagem/Tipo de Documento:.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeDocumentoSemFormularioAtivo">
+            <summary>
+              Looks up a localized string similar to Nenhum formulário ativo cadastrado para Empresa/Filial/Garagem/Tipo de Documento:.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeLogradouroInexistente">
+            <summary>
+              Looks up a localized string similar to Tipo de logradouro não cadastrado com essa abreviatura..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDePatenteInexistente">
+            <summary>
+              Looks up a localized string similar to Tipo de patente não cadastrado com essa abreviatura..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeReceitaNaoAceitaLançamento">
+            <summary>
+              Looks up a localized string similar to Tipo de receita não aceita lançamento..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeReceitaNaoAssociadoANenhumServico">
+            <summary>
+              Looks up a localized string similar to Tipo de receita não está associada à nenhum serviço..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeServicoNaoCadastrado">
+            <summary>
+              Looks up a localized string similar to Tipo de serviço não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TipoDeVeiculoCargasInexistente">
+            <summary>
+              Looks up a localized string similar to Tipo de veículo não cadastrado com esse código..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TotalNFsExcedeuValorMax">
+            <summary>
+              Looks up a localized string similar to O total das notas fiscais excedeu o valor máximo (9999999999.99)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TotalPestacaoNaoPodeSerZero">
+            <summary>
+              Looks up a localized string similar to O Total da prestação está zerado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.TrabalhadoMenosDeOitentaPorcentoDosDiasMes">
+            <summary>
+              Looks up a localized string similar to Trabalhado menos de 80% dos dias/mês ({0}/{1}).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UfOrigemDestinoNaoCadastrada">
+            <summary>
+              Looks up a localized string similar to Uf origem e uf destino não cadastrada para está série..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UrlConsultaNaoInformada">
+            <summary>
+              Looks up a localized string similar to URL de consulta não informada para empresa {0} e filial {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UsuarioDesconhecido">
+            <summary>
+              Looks up a localized string similar to Usuário desconhecido [login]..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UsuarioInativo">
+            <summary>
+              Looks up a localized string similar to Usuário esta inativo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UsuarioSenhaCorretos">
+            <summary>
+              Looks up a localized string similar to Usuário e senha corretos..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UsuarioSenhaIncorretosOuNaoContemPermissaoParaAcessarWebService">
+            <summary>
+              Looks up a localized string similar to Usuário e senha incorretos ou não contém permissão para acessar o web service..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.UsuarioSenhaInvalido">
+            <summary>
+              Looks up a localized string similar to Usuário e senha inválidos..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.ValorNFMaiorQuePermitidoMotorista">
+            <summary>
+              Looks up a localized string similar to Valor a ser transportado maior que o permitido para o motorista..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VecimentoMenorQueEmissao">
+            <summary>
+              Looks up a localized string similar to Data de vencimento não pode ser menor que a data da emissão..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VeiculoInexistente">
+            <summary>
+              Looks up a localized string similar to Veículo não cadastrado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VeiculoNaoAutorizadoParaProduto">
+            <summary>
+              Looks up a localized string similar to Veículo não autorizado a transportar o produto..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VeiculoObrigatorio">
+            <summary>
+              Looks up a localized string similar to É necessário preencher o campo veículo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VigenciaFinalMaiorQueInicial">
+            <summary>
+              Looks up a localized string similar to Data início não poderá ser menor que a data fim..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Informacoes.VigenciaInexistente">
+            <summary>
+              Looks up a localized string similar to Vigência inexistente..
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.Erros">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoAbrirArquivo">
+            <summary>
+              Looks up a localized string similar to Erro ao abrir o arquivo {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoAbrirOGlobusReport">
+            <summary>
+              Looks up a localized string similar to Erro ao abrir o Globus Report..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoConsultarWebService">
+            <summary>
+              Looks up a localized string similar to Erro ao consultar o WebService {0} {1}: {2}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoEnviar">
+            <summary>
+              Looks up a localized string similar to Erro ao enviar..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoLocalizarOCertificado">
+            <summary>
+              Looks up a localized string similar to Erro ao localizar o certificado em {0}\Schemas {1}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroAoMontarOArquivo">
+            <summary>
+              Looks up a localized string similar to Erro ao montar o arquivo {0}..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroInesperado">
+            <summary>
+              Looks up a localized string similar to Foi encontrado um erro inesperado..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.ErroNHibernate">
+            <summary>
+              Looks up a localized string similar to Foi encontrado um erro referente a camada de acesso a dados (NHibernate).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.NaoFoiPossivelAbrirATela">
+            <summary>
+              Looks up a localized string similar to Não foi possível abrir a tela..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.NaoFoiPossivelExecutarAIntegracao">
+            <summary>
+              Looks up a localized string similar to Não foi possível executar a integração..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Erros.OutlookNaoInstalado">
+            <summary>
+              Looks up a localized string similar to Outlook não instalado na maquina ou não foi possível executar a interoperabilidade com o mesmo..
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.Perguntas">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.ClientePossuiContratoCadastrado">
+            <summary>
+              Looks up a localized string similar to O cliente {0} possui Contrato cadastrado. Deseja continuar?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.ConfirmaExclusao">
+            <summary>
+              Looks up a localized string similar to Confirma exclusão?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.ConfirmaRegistro">
+            <summary>
+              Looks up a localized string similar to Confirma {0}? (poderá demorar).
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaAprovar">
+            <summary>
+              Looks up a localized string similar to Deseja aprovar {0}?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaCancelar">
+            <summary>
+              Looks up a localized string similar to Deseja cancelar {0}?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaEfetuarLogoff">
+            <summary>
+              Looks up a localized string similar to Deseja efetuar logoff?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaGravarAditivoSemObservacao">
+            <summary>
+              Looks up a localized string similar to Deseja gravar o Aditivo Contratual sem observação?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaInativar">
+            <summary>
+              Looks up a localized string similar to Deseja inativar {0}?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaReativar">
+            <summary>
+              Looks up a localized string similar to Deseja reativar {0}?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaSairDaTela">
+            <summary>
+              Looks up a localized string similar to Deseja realmente sair da tela?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaSairDoModulo">
+            <summary>
+              Looks up a localized string similar to Deseja sair do módulo?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.DesejaSuspender">
+            <summary>
+              Looks up a localized string similar to Deseja suspender {0}?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.EsvaziarLixeira">
+            <summary>
+              Looks up a localized string similar to Deseja esvaziar a lixeira?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.JaExisteArquivoComEsseNome">
+            <summary>
+              Looks up a localized string similar to Já existe um arquivo com esse nome. Deseja substitui-lo?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.MarcarNotificacaoOuMensagemComLida">
+            <summary>
+              Looks up a localized string similar to Marcar {0} com lida?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.OcultarOuBloquearCampos_ConfirmaAExclusao">
+            <summary>
+              Looks up a localized string similar to Confirma a exclusão dos dados gravados anteriormente?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.RegistrosComIncompatibilidadeDeHorarios">
+            <summary>
+              Looks up a localized string similar to Foram encontrados {0} registros com incompatibilidade de horários. Arquivo {1}. Deseja visualizá-los?.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Perguntas.RegistrosComInconsistencias">
+            <summary>
+              Looks up a localized string similar to Foram encontrados {0} registros com inconsistências. Deseja visualizar ?.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.ErrosDoOracle">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA00904">
+            <summary>
+              Looks up a localized string similar to Coluna não encontrada na tabela..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA01017">
+            <summary>
+              Looks up a localized string similar to Senha \ Nome do usuário inválido..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA01438">
+            <summary>
+              Looks up a localized string similar to Valor informado maior que o suportado pelo campo..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA02291">
+            <summary>
+              Looks up a localized string similar to Erro na gravação ou alteração, pois existem valores não cadastrados em sua origem..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA02292">
+            <summary>
+              Looks up a localized string similar to Exclusão não pode ser efetuada. Já está sendo utilizado(a)..
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA12154">
+            <summary>
+              Looks up a localized string similar to Não foi possível resolver o identificador de conexão especificado.#PULAR_LINHA##PULAR_LINHA#Servidor: {0}#PULAR_LINHA#Usuario: {1}#PULAR_LINHA#Senha: {2}.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.ErrosDoOracle.ORA12899">
+            <summary>
+              Looks up a localized string similar to Valor informado maior que o suportado pelo campo.#PULAR_LINHA#Maximo:{0}#PULAR_LINHA#Informado:{1}.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.Respostas">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Respostas.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Respostas.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:FGlobus.Mensagens.Palavras">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Abrir">
+            <summary>
+              Looks up a localized string similar to Abrir.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Alterado">
+            <summary>
+              Looks up a localized string similar to Alterado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Alterar">
+            <summary>
+              Looks up a localized string similar to Alterar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Cadastrado">
+            <summary>
+              Looks up a localized string similar to Cadastrado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Checked">
+            <summary>
+              Looks up a localized string similar to Checked.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Consultar">
+            <summary>
+              Looks up a localized string similar to Consultar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Copiar">
+            <summary>
+              Looks up a localized string similar to Copiar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Critica">
+            <summary>
+              Looks up a localized string similar to Critica.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Default">
+            <summary>
+              Looks up a localized string similar to Default.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Estornar">
+            <summary>
+              Looks up a localized string similar to Estornar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Excluir">
+            <summary>
+              Looks up a localized string similar to Excluir.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Fechar">
+            <summary>
+              Looks up a localized string similar to Fechar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Finalizar">
+            <summary>
+              Looks up a localized string similar to Finalizar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Gravar">
+            <summary>
+              Looks up a localized string similar to Gravar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Imprimir">
+            <summary>
+              Looks up a localized string similar to Imprimir.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Inativado">
+            <summary>
+              Looks up a localized string similar to Inativado.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Liberar">
+            <summary>
+              Looks up a localized string similar to Liberar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Limpar">
+            <summary>
+              Looks up a localized string similar to Limpar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Nao">
+            <summary>
+              Looks up a localized string similar to Não.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Ok">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Pendente">
+            <summary>
+              Looks up a localized string similar to Pendente.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Pesquisar">
+            <summary>
+              Looks up a localized string similar to Pesquisar.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Sim">
+            <summary>
+              Looks up a localized string similar to Sim.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Sistema">
+            <summary>
+              Looks up a localized string similar to Sistema.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Unchecked">
+            <summary>
+              Looks up a localized string similar to Unchecked.
+            </summary>
+        </member>
+        <member name="P:FGlobus.Mensagens.Palavras.Usuario">
+            <summary>
+              Looks up a localized string similar to Usuário.
+            </summary>
+        </member>
+    </members>
+</doc>
